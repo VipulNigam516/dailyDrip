@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Drip — Field Test</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --red:#BB1E10;
+    --red-dark:#8F170C;
+    --red-deep:#5C0F08;
+    --white:#FFFFFF;
+    --off-white:#FFF6F5;
+    --ink:#2A1210;
+    --ink-dim:#8A6B67;
+    --line: rgba(187,30,16,0.14);
+    --line-bright: rgba(187,30,16,0.28);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--white);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Fraunces', serif;}
+  .wrap{max-width:560px;margin:0 auto;padding:0 0 60px;}
+
+  /* ---------- top bar ---------- */
+  .topbar{display:flex;align-items:center;justify-content:center;padding:18px 20px;background:var(--red);}
+  .brand{font-family:'Fraunces',serif;font-size:16px;letter-spacing:0.06em;color:var(--white);text-transform:uppercase;font-weight:600;}
+
+  .content-pad{padding:28px 20px 0;}
+
+  /* ---------- intro ---------- */
+  .intro{text-align:center;padding:18px 0 8px;}
+  .drip-illustration{width:110px;height:auto;margin:0 auto 22px;display:block;}
+  .intro h1{font-size:28px;line-height:1.15;margin:0 0 12px;font-weight:600;color:var(--ink);}
+  .intro p{color:var(--ink-dim);font-size:15px;line-height:1.55;margin:0 0 28px;}
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--red);color:var(--white);border:none;
+    font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15px;
+    padding:14px 30px;border-radius:100px;cursor:pointer;
+    transition:background .15s ease, transform .1s ease;
+  }
+  .btn-primary:hover{background:var(--red-dark);}
+  .btn-primary:active{transform:scale(0.98);}
+  .btn-secondary{
+    background:transparent;border:1px solid var(--line-bright);color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:14px;
+    padding:11px 22px;border-radius:100px;cursor:pointer;
+  }
+
+  /* ---------- brew-stage progress ---------- */
+  .stages{display:flex;gap:6px;margin-bottom:26px;}
+  .stage{flex:1;height:3px;border-radius:3px;background:var(--line);position:relative;overflow:hidden;}
+  .stage.done{background:var(--red);}
+  .stage.active{background:var(--line-bright);}
+  .stage.active::after{
+    content:'';position:absolute;left:0;top:0;bottom:0;width:40%;
+    background:var(--red);animation:drip 1.4s ease-in-out infinite;
+  }
+  @keyframes drip{0%{transform:translateX(-100%);}100%{transform:translateX(250%);}}
+  .stage-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.04em;color:var(--ink-dim);text-transform:uppercase;margin-bottom:10px;}
+
+  /* ---------- question card ---------- */
+  .card{animation:fadein .25s ease;}
+  @keyframes fadein{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  .q-label{font-size:19px;font-weight:500;color:var(--ink);margin:0 0 6px;line-height:1.35;font-family:'Fraunces',serif;}
+  .q-sub{font-size:13px;color:var(--ink-dim);margin:0 0 20px;}
+
+  .options{display:flex;flex-direction:column;gap:9px;margin-bottom:6px;}
+  .opt{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 16px;border-radius:12px;border:1px solid var(--line);
+    background:var(--off-white);cursor:pointer;
+    font-size:14.5px;color:var(--ink);transition:.12s ease;
+  }
+  .opt:hover{border-color:var(--line-bright);}
+  .opt.selected{border-color:var(--red);background:rgba(187,30,16,0.06);}
+  .opt .dot{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ink-dim);flex-shrink:0;position:relative;}
+  .opt.selected .dot{border-color:var(--red);}
+  .opt.selected .dot::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--red);}
+
+  .colorscale-row{display:flex;gap:6px;margin-bottom:22px;flex-wrap:nowrap;}
+  .colorscale-btn{
+    flex:1;border:2px solid transparent;border-radius:12px;padding:10px 4px;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:4px;transition:.12s ease;text-align:center;
+  }
+  .colorscale-btn.selected{border-color:var(--ink);transform:translateY(-2px);box-shadow:0 3px 8px rgba(0,0,0,0.18);}
+  .cs-emoji{font-size:20px;line-height:1;}
+  .cs-label{font-size:10.5px;font-weight:600;line-height:1.2;}
+
+  textarea, input[type=text], input[type=number]{
+    width:100%;background:var(--off-white);border:1px solid var(--line);border-radius:12px;
+    color:var(--ink);font-family:'IBM Plex Sans',sans-serif;font-size:14.5px;padding:14px 16px;
+    resize:vertical;min-height:88px;
+  }
+  input[type=text],input[type=number]{min-height:unset;}
+  textarea:focus,input:focus{outline:none;border-color:var(--red);}
+  textarea::placeholder,input::placeholder{color:rgba(138,107,103,0.5);}
+
+  .nav-row{display:flex;gap:10px;margin-top:26px;}
+  .nav-row .btn-primary{flex:1;justify-content:center;}
+  .skip{background:none;border:none;color:var(--ink-dim);font-size:13px;text-decoration:underline;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;display:block;margin:14px auto 0;}
+
+  /* ---------- outro ---------- */
+  .outro{text-align:center;padding:40px 0;}
+  .outro .check{font-size:40px;margin-bottom:14px;}
+  .outro h2{color:var(--ink);}
+  .whatsapp-note{
+    background:var(--off-white);border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;margin:18px 0;font-size:13.5px;line-height:1.55;color:var(--ink);text-align:left;
+  }
+  .whatsapp-note b{color:var(--red);}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="brand">Daily Drip</div></div>
+<div class="wrap"><div class="content-pad" id="app"></div></div>
+
+<script>
+const EASE_STEPS = [
+  { label:"Very easy",    bg:"#4C9A4C", color:"#FFFFFF" },
+  { label:"Easy",         bg:"#8FAE4A", color:"#FFFFFF" },
+  { label:"Moderate",     bg:"#E8C34A", color:"#4A3418" },
+  { label:"Difficult",    bg:"#D97A2E", color:"#FFFFFF" },
+  { label:"Very difficult", bg:"#BB1E10", color:"#FFFFFF" }
+];
+const TASTE_STEPS = [
+  { label:"Poor",    emoji:"😕", bg:"var(--off-white)", color:"var(--ink)" },
+  { label:"Average", emoji:"😐", bg:"var(--off-white)", color:"var(--ink)" },
+  { label:"Good",    emoji:"🙂", bg:"var(--off-white)", color:"var(--ink)" },
+  { label:"Great",   emoji:"😄", bg:"var(--off-white)", color:"var(--ink)" }
+];
+
+const SECTIONS = [
+  {
+    stage: "About you",
+    questions: [
+      { id:"coffee_regular", type:"mcq", label:"Do you drink coffee regularly?", options:["Yes","No"] },
+      { id:"coffee_how", type:"mcq", label:"How do you usually have your coffee?", options:["Instant coffee at home","Ordered at a café (I go there)","Ordered via Swiggy/Zomato, delivered home","Ordered via Zepto/Blinkit/Instamart, delivered home","Homemade filter / brewed coffee","I don't drink coffee regularly"] },
+      { id:"coffee_freq", type:"mcq", label:"How often do you drink coffee?", options:["Daily","A few times a week","Once or twice a month","Rarely or never"] }
+    ]
+  },
+  {
+    stage: "The process",
+    questions: [
+      { id:"ice_ready", type:"mcq", label:"Did you have ice ready before you started?", options:["Yes, already had it","Had to order it","Had to freeze or make it","Ice was not available, couldn't make the coffee"] },
+      { id:"ease", type:"colorscale", label:"How easy or difficult was the process?", steps:EASE_STEPS },
+      { id:"time_feel", type:"mcq", label:"Did the whole process feel time-consuming, or was it quick?", options:["Felt quick","Felt about right","Felt time-consuming"] },
+      { id:"time_taken", type:"mcq", label:"How long did it actually take, start to finish?", options:["Under 5 minutes","5–10 minutes","Over 10 minutes"] }
+    ]
+  },
+  {
+    stage: "Taste",
+    questions: [
+      { id:"taste_like", type:"colorscale", label:"Did you like the taste?", steps:TASTE_STEPS },
+      { id:"sweetness", type:"mcq", label:"How was the sweetness?", options:["Not sweet / bitter","Just right","Too sweet for my taste"] },
+      { id:"strength", type:"mcq", label:"How was the strength?", options:["Too weak","Just right","Too strong"] },
+      { id:"body", type:"mcq", label:"How was the body / texture?", options:["Thin, watery","Balanced","Rich, full-bodied"] }
+    ]
+  },
+  {
+    stage: "Positioning",
+    questions: [
+      { id:"compare_to", type:"mcq", label:"What would you compare this closest to?",
+        options:["Instant coffee you made at home","Traditional filter coffee","Authentic Vietnamese coffee (if you've tried it before)","Cold brew / bottled/canned iced coffee","Coffee from a café","Coffee ordered on Swiggy/Zomato","Coffee ordered on Blinkit/Zepto/Instamart","Something else entirely"],
+        otherTrigger:"Something else entirely", otherField:"compare_other" },
+      { id:"drink_again", type:"mcq", label:"Would you use this again?", options:["Yes, definitely","Maybe","No"],
+        followUp:{ trigger:"No", question:{ id:"drink_again_why", type:"text", label:"Mind sharing why not?", stage:"Positioning" } } },
+      { id:"frequency", type:"mcq", label:"How often would you realistically use this?", options:["Daily","A few times a week","Once or twice a month","Rarely or never"],
+        followUp:{ trigger:"Rarely or never", question:{ id:"frequency_why", type:"text", label:"Mind sharing why?", stage:"Positioning" } } },
+      { id:"wtp_amount", type:"number", label:"How much would you be willing to pay for this?", sub:"Type an amount in rupees (₹)." }
+    ]
+  },
+  {
+    stage: "Feedback",
+    questions: [
+      { id:"liked_most", type:"text", label:"What did you like most, or what stood out?", skippable:true },
+      { id:"improve", type:"text", label:"What would you improve?", skippable:true }
+    ]
+  }
+];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let state = {
+  view: 'intro',
+  flatQuestions: SECTIONS.flatMap(s => s.questions.map(q => ({...q, stage:s.stage}))),
+  qIndex: 0,
+  answers: {},
+  resultCode: ''
+};
+
+function render(){
+  const app = document.getElementById('app');
+  if(state.view === 'intro') app.innerHTML = renderIntro();
+  else if(state.view === 'survey') app.innerHTML = renderSurvey();
+  else if(state.view === 'outro') app.innerHTML = renderOutro();
+}
+
+function renderIntro(){
+  return `
+    <div class="intro">
+      <svg class="drip-illustration" viewBox="0 0 120 140" fill="none">
+        <ellipse cx="60" cy="128" rx="30" ry="6" fill="#BB1E10" opacity="0.12"/>
+        <path d="M32 55 L38 118 Q60 128 82 118 L88 55" stroke="#BB1E10" stroke-width="2.5" fill="none" opacity="0.55"/>
+        <rect x="26" y="34" width="68" height="24" rx="4" fill="#BB1E10"/>
+        <circle cx="42" cy="46" r="2" fill="#FFFFFF" opacity="0.85"/>
+        <circle cx="60" cy="46" r="2" fill="#FFFFFF" opacity="0.85"/>
+        <circle cx="78" cy="46" r="2" fill="#FFFFFF" opacity="0.85"/>
+        <circle cx="51" cy="52" r="1.4" fill="#FFFFFF" opacity="0.6"/>
+        <circle cx="69" cy="52" r="1.4" fill="#FFFFFF" opacity="0.6"/>
+        <path d="M50 118 Q60 124 70 118 L68 134 Q60 138 52 134 Z" fill="#BB1E10" opacity="0.35"/>
+      </svg>
+      <h1>How was your Vietnamese Iced Coffee?</h1>
+      <p>You just field-tested Daily Drip. This takes about 2 minutes — your answers help us get the recipe and process right before launch.</p>
+      <button class="btn-primary" onclick="state.view='survey';render();">Start &nbsp;→</button>
+    </div>
+  `;
+}
+
+function renderSurvey(){
+  const q = state.flatQuestions[state.qIndex];
+  const total = state.flatQuestions.length;
+  const stageStartIndex = state.flatQuestions.findIndex(x=>x.stage===q.stage);
+  const stageCount = state.flatQuestions.filter(x=>x.stage===q.stage).length;
+  const stagePos = state.qIndex - stageStartIndex + 1;
+
+  let stagesHtml = SECTIONS.map(s=>{
+    const sIdx = state.flatQuestions.findIndex(x=>x.stage===s.stage);
+    const sEnd = sIdx + s.questions.length - 1;
+    let cls = 'stage';
+    if(state.qIndex > sEnd) cls += ' done';
+    else if(state.qIndex >= sIdx) cls += ' active';
+    return `<div class="${cls}"></div>`;
+  }).join('');
+
+  let body = '';
+  const current = state.answers[q.id];
+
+  if(q.type === 'mcq'){
+    body = `<div class="options">` + q.options.map((opt,idx) => `
+      <div class="opt ${current===opt?'selected':''}" onclick="selectMcqByIndex('${q.id}', ${idx})">
+        <div class="dot"></div><div>${opt}</div>
+      </div>`).join('') + `</div>`;
+    if(q.otherTrigger && current === q.otherTrigger){
+      const otherVal = state.answers[q.otherField] || '';
+      body += `<input type="text" id="other_${q.id}" style="margin-top:10px;" placeholder="Please specify..." value="${escapeHtml(otherVal)}" oninput="state.answers['${q.otherField}']=this.value; refreshNav();">`;
+    }
+  } else if(q.type === 'colorscale'){
+    body = `<div class="colorscale-row">` + q.steps.map((s,idx) => `
+      <div class="colorscale-btn ${current===s.label?'selected':''}" style="background:${s.bg};color:${s.color};" onclick="selectColorscaleByIndex('${q.id}', ${idx})">
+        ${s.emoji ? `<div class="cs-emoji">${s.emoji}</div>` : ''}
+        <div class="cs-label">${s.label}</div>
+      </div>`).join('') + `</div>`;
+  } else if(q.type === 'text'){
+    body = `<textarea id="ta_${q.id}" placeholder="Type here..." oninput="state.answers['${q.id}']=this.value; refreshNav();">${current||''}</textarea>`;
+  } else if(q.type === 'number'){
+    body = `<input type="number" inputmode="numeric" id="num_${q.id}" placeholder="${q.placeholder||''}" value="${current!==undefined?current:''}" oninput="state.answers['${q.id}']=this.value; refreshNav();">`;
+  }
+
+  let canProceed = q.skippable || (current !== undefined && current !== '');
+  if(canProceed && q.otherTrigger && current === q.otherTrigger){
+    const otherVal = state.answers[q.otherField];
+    canProceed = otherVal !== undefined && otherVal !== '';
+  }
+  const isLast = state.qIndex === total - 1;
+
+  return `
+    <div class="stages">${stagesHtml}</div>
+    <div class="stage-label">${q.stage} — step ${stagePos} of ${stageCount}</div>
+    <div class="card">
+      <div class="q-label">${q.label}</div>
+      ${q.sub ? `<div class="q-sub">${q.sub}</div>` : ''}
+      ${body}
+      <div class="nav-row" id="navRow">
+        ${state.qIndex > 0 ? `<button class="btn-secondary" onclick="prevQuestion()">← Back</button>` : ''}
+        <button class="btn-primary" id="nextBtn" ${canProceed?'':'disabled style="opacity:0.35;cursor:not-allowed;"'} onclick="nextQuestion()">${isLast?'Finish':'Next'} &nbsp;→</button>
+      </div>
+      ${q.skippable ? `<button class="skip" onclick="skipQuestion()">Skip this one</button>` : ''}
+    </div>
+  `;
+}
+
+// Re-evaluates whether Next/Finish should be enabled without a full re-render --
+// needed for the "other, please specify" text field and numeric WTP input, since
+// re-rendering on every keystroke would steal focus from the input.
+function refreshNav(){
+  const q = state.flatQuestions[state.qIndex];
+  const current = state.answers[q.id];
+  let canProceed = q.skippable || (current !== undefined && current !== '');
+  if(canProceed && q.otherTrigger && current === q.otherTrigger){
+    const otherVal = state.answers[q.otherField];
+    canProceed = otherVal !== undefined && otherVal !== '';
+  }
+  const btn = document.getElementById('nextBtn');
+  if(!btn) return;
+  btn.disabled = !canProceed;
+  btn.style.opacity = canProceed ? '' : '0.35';
+  btn.style.cursor = canProceed ? '' : 'not-allowed';
+}
+
+function escapeHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function selectMcq(id, val){
+  state.answers[id] = val;
+  render();
+}
+function selectMcqByIndex(id, idx){
+  const q = state.flatQuestions.find(x=>x.id===id);
+  state.answers[id] = q.options[idx];
+  render();
+}
+function selectColorscaleByIndex(id, idx){
+  const q = state.flatQuestions.find(x=>x.id===id);
+  state.answers[id] = q.steps[idx].label;
+  render();
+}
+// Inserts or removes a question's conditional follow-up in flatQuestions, based
+// on whether the current answer matches the trigger. Runs right before advancing
+// past the triggering question, so going back and changing the answer later
+// correctly adds/removes the follow-up rather than leaving a stale one behind.
+function syncFollowUp(q){
+  if(!q.followUp) return;
+  const matches = state.answers[q.id] === q.followUp.trigger;
+  const nextItem = state.flatQuestions[state.qIndex + 1];
+  const alreadyInserted = nextItem && nextItem.id === q.followUp.question.id;
+  if(matches && !alreadyInserted){
+    state.flatQuestions.splice(state.qIndex + 1, 0, {...q.followUp.question});
+  } else if(!matches && alreadyInserted){
+    state.flatQuestions.splice(state.qIndex + 1, 1);
+    delete state.answers[q.followUp.question.id];
+  }
+}
+
+function prevQuestion(){
+  if(state.qIndex > 0){
+    state.qIndex--;
+    render();
+  }
+}
+function nextQuestion(){
+  const q = state.flatQuestions[state.qIndex];
+  const current = state.answers[q.id];
+  if(!q.skippable && (current === undefined || current === '')) return;
+  syncFollowUp(q);
+  if(state.qIndex < state.flatQuestions.length - 1){
+    state.qIndex++;
+    render();
+  } else {
+    submitSurvey();
+  }
+}
+function skipQuestion(){
+  const q = state.flatQuestions[state.qIndex];
+  syncFollowUp(q);
+  if(state.qIndex < state.flatQuestions.length - 1){ state.qIndex++; render(); }
+  else submitSurvey();
+}
+
+function encodeAnswers(answers){
+  return btoa(unescape(encodeURIComponent(JSON.stringify(answers))));
+}
+
+function submitSurvey(){
+  state.resultCode = encodeAnswers(state.answers);
+  state.view = 'outro';
+  render();
+}
+
+function renderOutro(){
+  return `
+    <div class="outro">
+      <div class="check">☕</div>
+      <h2>Thanks — that's brewed in.</h2>
+      <div class="whatsapp-note">Copy the code below and <b>WhatsApp it to Vipul or Aishwarya</b>. That's the only step left.</div>
+      <textarea id="resultCodeBox" readonly style="min-height:90px;font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.5;color:var(--ink-dim);text-align:left;">${state.resultCode}</textarea>
+      <div style="margin-top:14px;">
+        <button class="btn-primary" style="width:100%;justify-content:center;" onclick="copyCode()">Copy response</button>
+      </div>
+      <div id="copyConfirm" style="font-size:12.5px;color:var(--red);margin-top:10px;height:16px;"></div>
+    </div>
+  `;
+}
+function copyCode(){
+  const box = document.getElementById('resultCodeBox');
+  box.removeAttribute('readonly');
+  box.focus();
+  box.select();
+  box.setSelectionRange(0, state.resultCode.length);
+  function showConfirm(msg){ document.getElementById('copyConfirm').textContent = msg; }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(state.resultCode).then(()=>{
+      showConfirm('Copied — go ahead and paste it into WhatsApp.');
+    }).catch(()=>{ tryFallbackCopy(showConfirm); });
+  } else {
+    tryFallbackCopy(showConfirm);
+  }
+}
+function tryFallbackCopy(showConfirm){
+  try{
+    const ok = document.execCommand('copy');
+    showConfirm(ok ? 'Copied — go ahead and paste it into WhatsApp.'
+                   : 'Auto-copy not available here — text above is selected, use your device copy action.');
+  }catch(e){
+    showConfirm('Auto-copy not available here — text above is selected, use your device copy action.');
+  }
+}
+
+render();
+</script>
+</body>
+</html>
