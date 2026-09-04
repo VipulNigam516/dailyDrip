@@ -226,12 +226,11 @@ header{border-bottom:1px solid var(--hair2);padding:18px 0;}
   color:var(--dim);white-space:normal;vertical-align:top;}
 
 /* ---------- Company list: <table> that becomes stacked cards on phones ---------- */
-/* Company list: a real <table> at every viewport — learned from screener.in's
-   own mobile pattern (see the Gravita balance-sheet screenshot): financial
-   tables there don't reflow into cards on phones, they stay tabular and
-   scroll horizontally with the row label frozen, so you always know which
-   row you're looking at while swiping through columns. Same idea here, with
-   the company name frozen instead of a line-item label. */
+/* Company list: a real <table> at every viewport. Financial tables don't reflow
+   into cards well on phones — they stay tabular and scroll horizontally with
+   the row label frozen, so you always know which row you're looking at while
+   swiping through columns. Same idea here, with the company name frozen
+   instead of a line-item label. */
 .table-wrap{border-radius:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative;}
 table{width:100%;min-width:900px;border-collapse:separate;border-spacing:0;font-size:13px;}
 th{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);
@@ -512,7 +511,7 @@ footer a{color:var(--brass);}
 <header>
   <span class="kicker">Coffee Can Portfolio Screener</span>
   <h1>The Compounding Machine Finder</h1>
-  <div class="meta">Snapshot: 04 Sep 2026, 07:34 &middot; 4,561 listed companies screened &rarr; 37 survivors &middot; Data source: screener.in &middot; figures in &#8377; Cr (1 crore = &#8377;1,00,00,000)</div>
+  <div class="meta">Snapshot: 04 Sep 2026, 07:35 &middot; 4,561 listed companies screened &rarr; 37 survivors &middot; figures in &#8377; Cr (1 crore = &#8377;1,00,00,000)</div>
   <!-- The denominator is the whole reason a stranger should care. "40 companies" is one of ten
        thousand stock lists; "40 out of 4,561, and here is the rule" is a screen. It was stated
        nowhere on the page, so the tier names read as opinion rather than as arithmetic. -->
