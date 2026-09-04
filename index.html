@@ -511,7 +511,7 @@ footer a{color:var(--brass);}
 <header>
   <span class="kicker">Coffee Can Portfolio Screener</span>
   <h1>The Compounding Machine Finder</h1>
-  <div class="meta">Snapshot: 04 Sep 2026, 07:35 &middot; 4,561 listed companies screened &rarr; 37 survivors &middot; figures in &#8377; Cr (1 crore = &#8377;1,00,00,000)</div>
+  <div class="meta">Snapshot: 04 Sep 2026, 07:53 &middot; 4,561 listed companies screened &rarr; 37 survivors &middot; figures in &#8377; Cr (1 crore = &#8377;1,00,00,000)</div>
   <!-- The denominator is the whole reason a stranger should care. "40 companies" is one of ten
        thousand stock lists; "40 out of 4,561, and here is the rule" is a screen. It was stated
        nowhere on the page, so the tier names read as opinion rather than as arithmetic. -->
@@ -2363,5 +2363,8 @@ renderAnatomy();
 renderStocks(sortStocks(ALL_STOCKS));
 updateSortbarHint(ALL_STOCKS.length);
 </script>
+<!-- Cloudflare Web Analytics -- counts page views only, no cookies, nothing that
+     identifies a visitor. The one piece of visibility into who's using the site. -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "175cbe47c8c64c7fb491fc83a7836c75"}'></script>
 </body>
 </html>
