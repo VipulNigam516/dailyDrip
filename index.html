@@ -124,9 +124,13 @@ header{border-bottom:1px solid var(--hair2);padding:18px 0;}
    widths, borders and mobile reflow are inherited rather than re-specified. */
 .anatomy-demo{border:1px dashed var(--hair2);border-radius:8px;overflow:hidden;}
 .anatomy-demo .table-wrap{border:0;border-radius:0;}
-/* The sample row must never look clickable -- it expands nothing. */
+/* The sample row must never look clickable -- it expands nothing. Includes the name-text
+   underline added for real rows: that underline is the whole point being illustrated in the
+   legend below (see the "Company" entry), so it stays visible there deliberately, but must not
+   also invite a click on the specimen itself. */
 .anatomy-demo .stock-row{cursor:default;}
 .anatomy-demo .stock-row:hover{background:transparent;}
+.anatomy-demo .stock-row .name-text{text-decoration:none;}
 .anatomy-demo .chev{opacity:.35;}
 .anatomy-caption{font-family:var(--mono);font-size:10px;color:var(--faint);
   text-align:right;padding:6px 2px 13px;}
@@ -257,6 +261,13 @@ th{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacin
 th.chev-col{width:24px;}
 td{padding:10px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12.5px;white-space:nowrap;}
 td.name{font-family:var(--sans);font-weight:600;font-size:13.5px;white-space:normal;}
+/* A link-shaped underline, not just cursor:pointer and a chevron -- mobile is the primary
+   surface and has no hover state to reveal that the whole row is clickable, so the
+   affordance has to be visible at rest, not discovered by accident or hover. Brightens
+   further on hover as a small bonus for desktop, matching the row's own hover tint. */
+.name-text{text-decoration:underline;text-decoration-color:rgba(201,162,75,0.55);
+  text-decoration-thickness:1px;text-underline-offset:3px;}
+tr.stock-row:hover .name-text{text-decoration-color:var(--brass);}
 /* The mobile row-strip duplicates columns that are real cells on desktop -- it must never be
    visible alongside them, or the same numbers appear twice in one row. It is shown only inside
    the max-width:639.98px block, where those cells are display:none. Because the two are never
@@ -530,7 +541,7 @@ footer a{color:var(--brass);}
 <header>
   <span class="kicker">Coffee Can Portfolio Screener</span>
   <h1>The Compounding Machine Finder</h1>
-  <div class="meta">Snapshot: 05 Sep 2026, 12:10 &middot; 4,561 listed companies screened &rarr; 37 survivors &middot; figures in &#8377; Cr (1 crore = &#8377;1,00,00,000)</div>
+  <div class="meta">Snapshot: 05 Sep 2026, 15:12 &middot; 4,561 listed companies screened &rarr; 37 survivors &middot; figures in &#8377; Cr (1 crore = &#8377;1,00,00,000)</div>
   <!-- The denominator is the whole reason a stranger should care. "40 companies" is one of ten
        thousand stock lists; "40 out of 4,561, and here is the rule" is a screen. It was stated
        nowhere on the page, so the tier names read as opinion rather than as arithmetic. -->
