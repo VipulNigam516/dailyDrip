@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>IndiaMART InterMESH — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on IndiaMART InterMESH: core-vs-treasury ROCE, the AI/LLM disruption risk, supplier-churn quality, management credibility scorecard and DCF valuation.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Equity Research &middot; Coffee Can Screener</span>
+  <h1>IndiaMART InterMESH</h1>
+  <p class="subtitle">A genuinely clean, cash-rich compounder whose core growth engine has stalled, for reasons management itself cannot fully explain &mdash; priced, on the numbers, as though the stall is close to permanent.</p>
+  <p class="meta">
+    NSE <b>INDIAMART</b> &middot; BSE <b>542726</b> &middot; ISIN <b>INE933S01016</b> &middot; Consumer Discretionary / Internet &amp; Catalogue Retail &middot; Consolidated basis<br>
+    Price <b>&#8377;1,695</b> &middot; Market cap <b>&#8377;10,184 Cr</b> &middot; P/E <b>20.7&times;</b> &middot; ROCE <b>26.9%</b> (reported) &middot; As of <b>12 September 2026</b>
+  </p>
+</header>
+
+<div class="verdict">
+  <div class="verdict-label">Verdict</div>
+  <p class="verdict-head">Quality: confirmed, and unusually clean. Growth: genuinely stalled, cause unresolved. Price: already discounts a permanent stall &mdash; which makes the risk/reward better than the headline story suggests.</p>
+  <p>IndiaMART clears the coffee-can gates on 9 of 9 scored years, converts cash better than either listed comparable on a like-for-like basis (cumulative CFO 1.59&times; cumulative PAT), holds no meaningful debt, and carries a related-party audit score of 1 out of 3 ("Watch," essentially clean) across all eight years read. Its own default cash-flow-based capex proxy is actively wrong for a business like this &mdash; corrected against real fixed-asset movements, the decade's harder cash-conversion test is comfortably positive rather than the false alarm the uncorrected number would show.</p>
+  <p>The problem is not quality. It is that the paying-supplier base is now shrinking quarter over quarter, unique business enquiries fell 11% year-on-year last quarter, and management's own explanation covers only 4&ndash;5 percentage points of that decline with certainty &mdash; the rest is attributed, in the same breath, to "our own change," AI/LLM traffic migration, and, remarkably, geopolitics. Meanwhile the company is suing OpenAI over exactly this question, having told analysts three months earlier that ChatGPT posed "no B2B threat."</p>
+  <p>Run through a reverse DCF, the current price requires only a <b>5.8% revenue CAGR</b> at IndiaMART's own recent margin &mdash; below even its currently depressed growth rate. A genuine structural-decline scenario, modelled explicitly, still implies roughly &#8377;1,008; a return to anything like the growth this company has actually delivered before implies &#8377;2,800&ndash;5,400. <b>Good business, a real and current risk, and a price that does not require you to bet against that risk resolving badly.</b></p>
+</div>
+
+<div class="hero-row">
+  <div class="stat"><div class="k">Coffee-can gates</div><div class="v" style="color:#8ac9a8">9 / 9</div><div class="n">Revenue growth &amp; ROCE, all scored years</div></div>
+  <div class="stat"><div class="k">CFO / PAT (decade)</div><div class="v" style="color:var(--gain)">1.59&times;</div><div class="n">Cash exceeded profit every year</div></div>
+  <div class="stat"><div class="k">Paying suppliers, Q1 FY27</div><div class="v" style="color:var(--loss)">&minus;1,850</div><div class="n">First confirmed net quarterly decline</div></div>
+  <div class="stat"><div class="k">Base-case DCF value</div><div class="v">&#8377;2,796</div><div class="n">65% above market, at 13% growth</div></div>
+</div>
+
+<div class="toc">
+  <div class="toc-l">Contents</div>
+  <ol>
+    <li><a href="#business">The business, and where the money is made</a></li>
+    <li><a href="#framework">An asset-light marketplace checklist, applied</a></li>
+    <li><a href="#record">The ten-year record</a></li>
+    <li><a href="#margin">Margins: genuine operating leverage, earned by spending less</a></li>
+    <li><a href="#wc">Working capital: the float that funds the business</a></li>
+    <li><a href="#peers">How IndiaMART compares with its real peers</a></li>
+    <li><a href="#growth">Growth outlook: the core stall, BUSY, and the AI question</a></li>
+    <li><a href="#analysts">What institutional investors keep asking</a></li>
+    <li><a href="#mgmt">Management scorecard: promises against outcomes</a></li>
+    <li><a href="#capital">Capital allocation and the balance sheet</a></li>
+    <li><a href="#flags">Governance and legal risk</a></li>
+    <li><a href="#sentiment">What other investors think</a></li>
+    <li><a href="#val">Valuation</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business, and where the money is made</h2>
+<p class="sec-sub">A subscription-and-lead-generation classifieds platform, not an e-commerce business</p>
+
+<p>IndiaMART InterMESH runs India's largest online B2B marketplace, connecting MSME buyers and sellers across categories from industrial machinery to chemicals to office supplies. The model is easy to mistake for e-commerce and is not: IndiaMART never touches inventory, never takes a cut of a transaction, and does not warehouse or ship anything. <b>Sellers pay an annual or monthly subscription for a listing (Silver, Gold or Platinum tier) plus lead-generation services; buyers post enquiries for free.</b> The company monetises attention and matching, not goods.</p>
+
+<p>The commercial logic is a classic classifieds flywheel: more listed suppliers make the platform more useful to buyers, more buyer enquiries make a listing worth paying for, and the cycle compounds. As of the most recent quarter the platform carried roughly <b>2,18,000 paying suppliers</b> and processed <b>26 million unique business enquiries</b> in the quarter, against a claimed base of ~40 million total active buyers. Platinum and Gold subscribers &mdash; about half the paying base &mdash; generate more than 75% of revenue and show materially better retention than the entry-level Silver tier, a distinction that matters throughout this report.</p>
+
+<h3>A second business: BUSY Infotech</h3>
+
+<p>In FY2023, IndiaMART acquired the remaining stake in <b>BUSY Infotech</b>, an accounting and inventory-management software provider for small businesses, for a disclosed &#8377;500 Cr. BUSY sells perpetual licences and, increasingly, subscriptions, and has grown billings at roughly 27&ndash;30% CAGR since acquisition, crossing 4,54,000 cumulative licences sold. It is genuinely a different business from the core marketplace &mdash; software sold to the same MSME customer base rather than a lead-generation service &mdash; and management has said outright it wants BUSY to become a 35&ndash;40% CAGR business over time. This is the closest thing IndiaMART has to a second growth engine while the core marketplace decelerates (Section <a href="#growth">07</a>).</p>
+
+<h3>The float: what actually funds the balance sheet</h3>
+
+<p>The single most important structural fact about this business, and the one that shapes almost every number in this report, is that customers pay upfront. A large share of subscription revenue is collected as cash before it is recognised, sitting on the balance sheet as <b>deferred revenue</b> &mdash; &#8377;2,014 Cr consolidated as of the most recent quarter, growing 16% year-on-year even while enquiry volumes fell. That prepaid float, not shareholder capital, funds a treasury book of <b>&#8377;3,792 Cr</b> of investments plus &#8377;91 Cr of cash, against &#8377;23 Cr of borrowings. IndiaMART is, in effect, running a subscription business with an insurance-style float sitting on top of it &mdash; and the investment income that float throws off (Section <a href="#record">03</a>) is now a large enough share of reported profit that it changes how every return-on-capital number in this report has to be read.</p>
+
+<h3>Where the moat is real, and where it is not</h3>
+
+<p>The bull case for IndiaMART rests on network effects and switching costs that are real but narrower than they look. First, <b>scale</b>: at 60%+ of the identifiable listed-competitor market by paying-seller count, IndiaMART is the default choice for an MSME seller who wants to be found, and the two named private competitors &mdash; TradeIndia and ExportersIndia &mdash; carry visibly worse customer reputations (Section <a href="#peers">06</a>). Second, <b>negative working capital funding genuine free cash flow</b> (Section <a href="#wc">05</a>), which is a real structural advantage over almost any physical-goods business. Third, <b>a subscription that becomes cheaper relative to a growing business's revenue over time</b>, which is why Platinum and Gold retention holds up even as Silver-tier retention does not.</p>
+
+<p>What is not a moat: the underlying service &mdash; matching a buyer's enquiry to a relevant seller &mdash; is exactly the kind of task a large language model is now built to do directly, without a human ever visiting a classifieds site. Section <a href="#growth">07</a> treats this as the central open question in the entire report, because it is one none of the historical financial analysis in Sections <a href="#framework">02</a> through <a href="#wc">05</a> can resolve on its own.</p>
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>An asset-light marketplace checklist, applied</h2>
+<p class="sec-sub">Tests built for subscription and classifieds businesses, not the coffee-can screen's own gates alone</p>
+
+<p>A subscription classifieds business does not fail the way a capital-intensive contractor fails. There is no order book to overstate, no fixed-price contract to lose money on, no subcontractor to push risk onto. The failure modes here are different: a treasury book large enough to flatter every return ratio, a float that can mask a shrinking core business, and a moat that depends entirely on being the place people go to look &mdash; which is exactly what generative AI is built to make unnecessary. The checklist below is built around those specific risks.</p>
+
+<h3>The scorecard</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Test</th><th class="t">What it looks for</th><th class="t">IndiaMART</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Coffee-can gates</b></td><td class="t">Revenue growth &gt;10% and ROCE &gt;15%, every scored year</td><td class="t">Rev score <b>8/9</b>, ROCE score <b>8/9</b> &mdash; one miss each, both explained by data gaps in the earliest post-IPO years, not a real failure (Section <a href="#gaps">15</a>)</td><td><span class="pill p-kept">Pass</span></td></tr>
+<tr><td class="t"><b>Cumulative CFO vs cumulative PAT</b></td><td class="t">cCFO should at least equal cPAT</td><td class="t">&#8377;3,771 Cr CFO against &#8377;2,378 Cr PAT = <b>1.59&times;</b>, matching the coffee-can screener's own figure</td><td><span class="pill p-kept">Pass</span></td></tr>
+<tr class="hl"><td class="t"><b>The harder cash test, corrected</b><br><span style="font-size:11px;color:var(--faint)">CFO &minus; real capex &minus; interest, using fixed-asset movements not the CFI proxy</span></td><td class="t">Positive, else growth was externally funded</td><td class="t">The default proxy shows a false <b>&minus;&#8377;3,512 Cr</b> because IndiaMART's investing cash flow is dominated by treasury purchases. Corrected against real capex (~&#8377;183 Cr over the decade): <b>+&#8377;3,546 Cr</b></td><td><span class="pill p-kept">Pass, once corrected</span></td></tr>
+<tr class="hl"><td class="t"><b>Reported ROCE vs core-business ROCE</b><br><span style="font-size:11px;color:var(--faint)">EBIT with and without treasury/other income, over the same capital-employed base</span></td><td class="t">A large gap means returns are treasury-flattered, not operationally earned</td><td class="t">FY2026 reported ROCE <b>26.9%</b>; core (ex-treasury income) ROCE <b>18.4%</b>. The gap has run 8&ndash;13 points in every year since FY2021</td><td><span class="pill p-slip">Real gap, but core still passes</span></td></tr>
+<tr><td class="t"><b>Other income as a share of PBT</b></td><td class="t">A rising, volatile share signals earnings quality drift</td><td class="t">22&ndash;49% of PBT over FY2020&ndash;26, mostly rising; FY2026 Q1 alone had &#8377;107 Cr of "mark-to-market gains on treasury portfolio" &mdash; unrealised, not an annuity</td><td><span class="pill p-slip">Watch</span></td></tr>
+<tr><td class="t"><b>Net operating working capital</b></td><td class="t">Structurally negative is a genuine funding advantage in this model</td><td class="t"><b>&minus;125% to &minus;134% of sales</b> every year since FY2022 &mdash; every incremental rupee of revenue brings roughly &#8377;1.1&ndash;1.4 of additional float, not a cash drain</td><td><span class="pill p-kept">Structural strength</span></td></tr>
+<tr class="hl"><td class="t"><b>Core-metric resilience in a stress year</b></td><td class="t">Give up less than the model would predict when demand falls</td><td class="t">FY2021 (COVID): revenue growth decelerated to <b>+4.8%</b> from +25.9% the year before; management itself said each lockdown month was shrinking the customer base ~20%. A real, sharp deceleration &mdash; but not a revenue contraction, and it recovered within two years</td><td><span class="pill p-slip">Slowed hard, did not break</span></td></tr>
+<tr><td class="t"><b>Founder-led, or controlled by someone else's capital</b></td><td class="t">A change of control changes what every other test means</td><td class="t">Promoters (the Agarwal/Agrawal families) hold <b>49.07%</b>, stable, founder-led throughout. Contrast Justdial, Reliance-controlled since 2022 (Section <a href="#peers">06</a>)</td><td><span class="pill p-kept">Founder-led</span></td></tr>
+<tr><td class="t"><b>Promoter share pledging</b></td><td class="t">Pledged shares signal personal leverage against company stock</td><td class="t"><b>None found</b> in this run's news and filings search</td><td><span class="pill p-kept">Clean, as far as checked</span></td></tr>
+<tr><td class="t"><b>Related-party transactions</b></td><td class="t">Existing audit score, all years read</td><td class="t"><b>1 / 3 ("Watch")</b> across all 8 years &mdash; a small, flat, disclosed office lease and NED training fees; every AOC-2 says "Not Applicable" for material RPTs</td><td><span class="pill p-kept">Clean</span></td></tr>
+<tr><td class="t"><b>Capital return discipline</b></td><td class="t">Consistent policy, not sporadic</td><td class="t">Buybacks in most years through Aug 2023 (last: &#8377;100 Cr tender, 2022), then a policy shift to a large &#8377;60/share FY26 dividend after India's 2024 buyback-tax change (Section <a href="#capital">10</a>)</td><td><span class="pill p-kept">Consistent, adapted to tax law</span></td></tr>
+<tr class="hl"><td class="t"><b>Moat durability against the actual threat</b></td><td class="t">Does the advantage survive the technology that is currently attacking it</td><td class="t">The core service &mdash; matching a query to a seller &mdash; is precisely what an AI answer engine now does directly. Management sued OpenAI over this in December 2025 and lost the interim round in May 2026 (Section <a href="#growth">07</a>)</td><td><span class="pill p-open">Genuinely unresolved</span></td></tr>
+</tbody>
+</table>
+<caption>Figures from <span style="font-family:var(--mono)">src.modules.equity_research</span> run against this pipeline's database, FY2017&ndash;FY2026, cross-checked against the existing related-party audit and this run's news/ValuePickr research.</caption>
+</div>
+
+<h3>The one number that reframes everything else in this report</h3>
+
+<p>Screener's own EBIT convention folds "other income" &mdash; overwhelmingly investment gains on the treasury book &mdash; into the numerator used for ROCE, while the capital that generates that income (built from customer float sitting in current liabilities, not equity or debt) is largely excluded from the "capital employed" denominator. The effect: <b>reported ROCE is flattered by a return earned on money the standard ratio does not count as capital at all.</b> Strip other income out of EBIT and compare the same core operating profit against the same capital-employed base, and FY2026's headline 26.9% ROCE becomes <b>18.4%</b> &mdash; still a clean pass of the 15% coffee-can gate, still a genuinely good business, but a meaningfully different number from the one on the cover of every screener.</p>
+
+<div class="warn">
+  <div class="lbl">Why this matters more than a footnote</div>
+  <p>This is not a criticism unique to IndiaMART &mdash; both listed comparables run the identical structure, and both run <i>higher</i> other-income/PBT ratios than IndiaMART's own (Section <a href="#peers">06</a>). It appears to be a structural feature of asset-light Indian internet-classifieds companies generally: raise capital at IPO, generate float from prepaid subscriptions, accumulate a large treasury book, and let that book's returns do real work in the reported numbers. The point of running the correction is not to accuse management of anything &mdash; it is that the price the market pays for "26.9% ROCE" should be paid for the 18.4% core number, because that is the part of the return the company's actual marketplace business is responsible for, and the part a reader should be underwriting when judging whether the moat justifies the multiple.</p>
+</div>
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record</h2>
+<p class="sec-sub">Revenue compounded through a listing, a pandemic and an acquisition &mdash; margin only really moved in the last three years</p>
+
+<figure>
+  <div class="fig-title">Revenue, FY2017&ndash;FY2026</div>
+  <div class="fig-sub">&#8377; crore, consolidated. Pre-IPO years (shaded) carry incomplete operating-profit data (Section <a href="#gaps">15</a>).</div>
+  <svg viewBox="0 0 720 230" role="img" aria-label="IndiaMART consolidated revenue by fiscal year, FY2017 to FY2026"><line class="grid-l" x1="46" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="40" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="46" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="40" y="157.0" text-anchor="end">424</text><line class="grid-l" x1="46" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="40" y="111.0" text-anchor="end">847</text><line class="grid-l" x1="46" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="40" y="65.0" text-anchor="end">1271</text><line class="grid-l" x1="46" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="40" y="19.0" text-anchor="end">1695</text><rect x="58.5" y="165.5" width="40.9" height="34.5" rx="4" fill="#c9a24b" opacity="0.55"><title>FY2017: Rs 318 Cr</title></rect><text class="ax" x="79.0" y="213" text-anchor="middle">17</text><rect x="124.5" y="155.4" width="40.9" height="44.6" rx="4" fill="#c9a24b" opacity="0.55"><title>FY2018: Rs 411 Cr</title></rect><text class="ax" x="145.0" y="213" text-anchor="middle">18</text><rect x="190.5" y="144.9" width="40.9" height="55.1" rx="4" fill="#c9a24b" opacity="0.55"><title>FY2019: Rs 507 Cr</title></rect><text class="ax" x="211.0" y="213" text-anchor="middle">19</text><rect x="256.5" y="130.6" width="40.9" height="69.4" rx="4" fill="#c9a24b" opacity="1"><title>FY2020: Rs 639 Cr</title></rect><text class="ax" x="277.0" y="213" text-anchor="middle">20</text><rect x="322.5" y="127.2" width="40.9" height="72.8" rx="4" fill="#c9a24b" opacity="1"><title>FY2021: Rs 670 Cr</title></rect><text class="ax" x="343.0" y="213" text-anchor="middle">21</text><rect x="388.5" y="118.2" width="40.9" height="81.8" rx="4" fill="#c9a24b" opacity="1"><title>FY2022: Rs 753 Cr</title></rect><text class="ax" x="409.0" y="213" text-anchor="middle">22</text><rect x="454.5" y="93.0" width="40.9" height="107.0" rx="4" fill="#c9a24b" opacity="1"><title>FY2023: Rs 985 Cr</title></rect><text class="ax" x="475.0" y="213" text-anchor="middle">23</text><rect x="520.5" y="70.0" width="40.9" height="130.0" rx="4" fill="#c9a24b" opacity="1"><title>FY2024: Rs 1,197 Cr</title></rect><text class="ax" x="541.0" y="213" text-anchor="middle">24</text><rect x="586.5" y="49.3" width="40.9" height="150.7" rx="4" fill="#c9a24b" opacity="1"><title>FY2025: Rs 1,388 Cr</title></rect><text class="ax" x="607.0" y="213" text-anchor="middle">25</text><rect x="652.5" y="29.6" width="40.9" height="170.4" rx="4" fill="#c9a24b" opacity="1"><title>FY2026: Rs 1,569 Cr</title></rect><text class="ax" x="673.0" y="213" text-anchor="middle">26</text><text class="vlbl" x="673.0" y="23.6" text-anchor="middle">1,569</text><line class="zero-l" x1="46" y1="200" x2="706" y2="200"/></svg>
+  <figcaption><b>Why:</b> growth held above 15% in every year except the FY2021 COVID year (+4.8%, down from +25.9% the year before) and the two most recent quarters, where it has fallen to 8&ndash;11%. The FY2023 step is partly BUSY Infotech's consolidation following its acquisition that year, not organic growth alone. Source: <span style="font-family:var(--mono)">xbrl_annual</span>, FY2017&ndash;FY2026.</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Revenue</th><th class="num">OPM</th><th class="num">Reported ROCE</th><th class="num">Core ROCE</th><th class="num">Other Inc / PBT</th></tr></thead>
+<tbody>
+<tr><td class="t">2020</td><td class="num">639</td><td class="num">26.2%</td><td class="num">61.1%</td><td class="num">41.6%</td><td class="num">32.4%</td></tr>
+<tr><td class="t">2021</td><td class="num">670</td><td class="num">48.6%</td><td class="num">23.7%</td><td class="num">18.5%</td><td class="num">22.2%</td></tr>
+<tr><td class="t">2022</td><td class="num">753</td><td class="num">39.2%</td><td class="num">20.5%</td><td class="num">14.7%</td><td class="num">28.7%</td></tr>
+<tr><td class="t">2023</td><td class="num">985</td><td class="num">23.3%</td><td class="num">18.0%</td><td class="num">9.5%</td><td class="num">48.6%</td></tr>
+<tr><td class="t">2024</td><td class="num">1,197</td><td class="num">24.3%</td><td class="num">26.1%</td><td class="num">14.3%</td><td class="num">46.0%</td></tr>
+<tr><td class="t">2025</td><td class="num">1,388</td><td class="num">34.1%</td><td class="num">32.2%</td><td class="num">19.9%</td><td class="num">38.6%</td></tr>
+<tr class="hl"><td class="t"><b>2026</b></td><td class="num"><b>1,569</b></td><td class="num"><b>30.3%</b></td><td class="num"><b>26.9%</b></td><td class="num"><b>18.4%</b></td><td class="num"><b>31.5%</b></td></tr>
+</tbody>
+</table>
+<caption>&#8377; crore unless stated. FY2017&ndash;19 excluded: operating-profit-line data is genuinely absent for those years, not zero (Section <a href="#gaps">15</a>). ROCE throughout is the Mukherjea/Screener basis (EBIT &divide; debt + equity); "Core ROCE" strips other income out of EBIT to isolate the marketplace business's own return. Recomputed via <span style="font-family:var(--mono)">src.modules.equity_research</span> against the database.</caption>
+</div>
+
+<h3>Two things in that table worth stopping on</h3>
+
+<p><b>First, OPM swung from 24% to 49% and back to 30% inside five years, and FY2020&ndash;21's peaks are not repeatable.</b> The FY2020 jump coincided with the first full year of operating-profit reporting and a COVID-driven collapse in discretionary spend (travel, events, some marketing); FY2021's 48.6% is the same dynamic amplified &mdash; costs held down further while collections held up better than feared. Margin normalised down to the low-to-mid 20s by FY2022&ndash;24 as spending resumed, then rose again to 30&ndash;34% in FY2025&ndash;26 for a different, more recent reason: management has explicitly said the latest expansion comes from "savings arising from lower customer acquisition" spend (Section <a href="#margin">04</a>) &mdash; i.e. spending less while the growth engine cools, not a durable structural efficiency gain proven across a cycle.</p>
+
+<p><b>Second, the gap between reported and core ROCE has not closed as the business matured &mdash; it has stayed roughly 8&ndash;13 points wide in every year since FY2021.</b> That persistence is itself informative: it means the treasury book's contribution to ROCE is not a temporary artefact of a large one-off IPO cash pile working its way through the numbers, but a permanent feature of how this business is now capitalised. A reader who prices IndiaMART off the reported 26.9% figure is, in effect, assuming the treasury book's returns are as durable and as attributable to management skill as the core marketplace's returns. They are not the same thing, and Section <a href="#framework">02</a> explains why that distinction matters for the multiple this business deserves.</p>
+
+<figure>
+  <div class="fig-title">The gap between reported and core ROCE, FY2020&ndash;FY2026</div>
+  <div class="fig-sub">Both clear the coffee-can 15% gate every year &mdash; but they are not the same claim about the business.</div>
+  <svg viewBox="0 0 720 250" role="img" aria-label="Reported ROCE versus core ROCE excluding treasury income, FY2020 to FY2026"><line class="grid-l" x1="46" y1="220.0" x2="704" y2="220.0"/><text class="ax" x="40" y="223.0" text-anchor="end">0%</text><line class="grid-l" x1="46" y1="188.6" x2="704" y2="188.6"/><text class="ax" x="40" y="191.6" text-anchor="end">10%</text><line class="grid-l" x1="46" y1="157.2" x2="704" y2="157.2"/><text class="ax" x="40" y="160.2" text-anchor="end">20%</text><line class="grid-l" x1="46" y1="125.8" x2="704" y2="125.8"/><text class="ax" x="40" y="128.8" text-anchor="end">30%</text><line class="grid-l" x1="46" y1="94.5" x2="704" y2="94.5"/><text class="ax" x="40" y="97.5" text-anchor="end">40%</text><line class="grid-l" x1="46" y1="63.1" x2="704" y2="63.1"/><text class="ax" x="40" y="66.1" text-anchor="end">50%</text><line class="grid-l" x1="46" y1="31.7" x2="704" y2="31.7"/><text class="ax" x="40" y="34.7" text-anchor="end">60%</text><line x1="46" y1="172.9" x2="704" y2="172.9" stroke="rgba(201,162,75,0.55)" stroke-width="1" stroke-dasharray="4,3"/><text class="ax" x="704" y="168.9" text-anchor="end" fill="#c9a24b">15% gate</text><path d="M46.0,28.2 L155.7,145.6 L265.3,155.7 L375.0,163.5 L484.7,138.1 L594.3,118.9 L704.0,135.6" fill="none" stroke="#c9a24b" stroke-width="2" stroke-linejoin="round"/><circle cx="46.0" cy="28.2" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2020 Reported ROCE: 61.1%</title></circle><circle cx="155.7" cy="145.6" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2021 Reported ROCE: 23.7%</title></circle><circle cx="265.3" cy="155.7" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2022 Reported ROCE: 20.5%</title></circle><circle cx="375.0" cy="163.5" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2023 Reported ROCE: 18.0%</title></circle><circle cx="484.7" cy="138.1" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2024 Reported ROCE: 26.1%</title></circle><circle cx="594.3" cy="118.9" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2025 Reported ROCE: 32.2%</title></circle><circle cx="704.0" cy="135.6" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2026 Reported ROCE: 26.9%</title></circle><path d="M46.0,89.4 L155.7,161.9 L265.3,173.9 L375.0,190.2 L484.7,175.1 L594.3,157.5 L704.0,162.3" fill="none" stroke="#5b9bd1" stroke-width="2" stroke-linejoin="round"/><circle cx="46.0" cy="89.4" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2020 Core ROCE (ex-treasury): 41.6%</title></circle><circle cx="155.7" cy="161.9" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2021 Core ROCE (ex-treasury): 18.5%</title></circle><circle cx="265.3" cy="173.9" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2022 Core ROCE (ex-treasury): 14.7%</title></circle><circle cx="375.0" cy="190.2" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2023 Core ROCE (ex-treasury): 9.5%</title></circle><circle cx="484.7" cy="175.1" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2024 Core ROCE (ex-treasury): 14.3%</title></circle><circle cx="594.3" cy="157.5" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2025 Core ROCE (ex-treasury): 19.9%</title></circle><circle cx="704.0" cy="162.3" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2026 Core ROCE (ex-treasury): 18.4%</title></circle><text class="ax" x="46.0" y="234" text-anchor="middle">20</text><text class="ax" x="155.7" y="234" text-anchor="middle">21</text><text class="ax" x="265.3" y="234" text-anchor="middle">22</text><text class="ax" x="375.0" y="234" text-anchor="middle">23</text><text class="ax" x="484.7" y="234" text-anchor="middle">24</text><text class="ax" x="594.3" y="234" text-anchor="middle">25</text><text class="ax" x="704.0" y="234" text-anchor="middle">26</text><text class="vlbl" x="700.0" y="126.6" text-anchor="end" fill="#c9a24b">26.9%</text><text class="vlbl" x="700.0" y="178.3" text-anchor="end" fill="#5b9bd1">18.4%</text></svg>
+  <figcaption><b>Why:</b> stripping other income out of EBIT and holding the same capital-employed base constant isolates what the marketplace business itself earns, without the treasury book's contribution. The gap has widened, not narrowed, since FY2021 &mdash; a structural feature of how this business is now capitalised, not a transient IPO-cash effect working itself out. Source: <span style="font-family:var(--mono)">metrics.roce</span>, EBIT computed with and without other income, FY2017&ndash;FY2026.</figcaption>
+</figure>
+
+<figure>
+  <div class="fig-title">Cash conversion has been clean throughout, once corrected</div>
+  <div class="fig-sub">Cumulative operating cash flow &divide; cumulative profit after tax, decade to FY2026.</div>
+  <svg viewBox="0 0 720 160" role="img" aria-label="Cumulative operating cash flow to profit ratio, IndiaMART versus Justdial and Info Edge"><line class="grid-l" x1="96.0" y1="14" x2="96.0" y2="134"/><text class="ax" x="96.0" y="148" text-anchor="middle">0.0&#215;</text><line class="grid-l" x1="239.5" y1="14" x2="239.5" y2="134"/><text class="ax" x="239.5" y="148" text-anchor="middle">0.5&#215;</text><line class="grid-l" x1="383.0" y1="14" x2="383.0" y2="134"/><text class="ax" x="383.0" y="148" text-anchor="middle">1.0&#215;</text><line class="grid-l" x1="526.5" y1="14" x2="526.5" y2="134"/><text class="ax" x="526.5" y="148" text-anchor="middle">1.5&#215;</text><line class="grid-l" x1="670.0" y1="14" x2="670.0" y2="134"/><text class="ax" x="670.0" y="148" text-anchor="middle">2.0&#215;</text><rect x="96.0" y="22.8" width="456.3" height="22.4" rx="3" fill="#5fb98a" opacity="1"><title>IndiaMART: 1.59x</title></rect><text class="axl" x="86" y="37.5" text-anchor="end" style="fill:#e8e4d6">IndiaMART</text><text class="vlbl" x="558.3" y="37.5" text-anchor="start" fill="#5fb98a">1.59&#215;</text><rect x="96.0" y="62.8" width="281.3" height="22.4" rx="3" fill="#5b9bd1" opacity="0.72"><title>Justdial: 0.98x</title></rect><text class="axl" x="86" y="77.5" text-anchor="end" style="fill:#93a0b8">Justdial</text><text class="vlbl" x="383.3" y="77.5" text-anchor="start" fill="#5b9bd1">0.98&#215;</text><rect x="96.0" y="102.8" width="226.7" height="22.4" rx="3" fill="#5b9bd1" opacity="0.72"><title>Info Edge: 0.79x</title></rect><text class="axl" x="86" y="117.5" text-anchor="end" style="fill:#93a0b8">Info Edge</text><text class="vlbl" x="328.7" y="117.5" text-anchor="start" fill="#5b9bd1">0.79&#215;</text><line class="zero-l" x1="96.0" y1="14" x2="96.0" y2="134"/><line x1="383.0" y1="14" x2="383.0" y2="134" stroke="rgba(201,162,75,0.55)" stroke-width="1" stroke-dasharray="4,3"/><text class="ax" x="383.0" y="11" text-anchor="middle" fill="#c9a24b">cash = profit</text></svg>
+  <figcaption><b>Why:</b> IndiaMART's 1.59&times; sits ahead of Justdial's headline post-2022 profile (which is now Reliance-controlled and no longer a clean comparable) and matches the coffee-can screener's own independently computed figure. The decade's harder cash-gate test &mdash; CFO less real capex less interest &mdash; is <b>+&#8377;3,546 Cr</b> once corrected for a capex proxy that otherwise mistakes treasury purchases for fixed-asset spending (Section <a href="#framework">02</a>). Source: <span style="font-family:var(--mono)">metrics.cash_gates</span> with a <span style="font-family:var(--mono)">capex_override</span> against net-block movements.</figcaption>
+</figure>
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: genuine operating leverage, earned by spending less</h2>
+<p class="sec-sub">Unlike the usual story on this pipeline, the margin gain here is real and operational &mdash; the question is whether it is sustainable</p>
+
+<figure>
+  <div class="fig-title">What actually moved PBT margin, FY2024 &rarr; FY2026</div>
+  <div class="fig-sub">Decomposition of the 333bp rise in PBT margin. Components sum exactly to the total.</div>
+  <svg viewBox="0 0 720 250" role="img" aria-label="Decomposition of IndiaMART profit-before-tax margin change from FY2024 to FY2026"><line class="grid-l" x1="50" y1="206.0" x2="706" y2="206.0"/><text class="ax" x="44" y="209.0" text-anchor="end">0%</text><line class="grid-l" x1="50" y1="173.7" x2="706" y2="173.7"/><text class="ax" x="44" y="176.7" text-anchor="end">8%</text><line class="grid-l" x1="50" y1="141.3" x2="706" y2="141.3"/><text class="ax" x="44" y="144.3" text-anchor="end">16%</text><line class="grid-l" x1="50" y1="109.0" x2="706" y2="109.0"/><text class="ax" x="44" y="112.0" text-anchor="end">24%</text><line class="grid-l" x1="50" y1="76.6" x2="706" y2="76.6"/><text class="ax" x="44" y="79.6" text-anchor="end">32%</text><line class="grid-l" x1="50" y1="44.3" x2="706" y2="44.3"/><text class="ax" x="44" y="47.3" text-anchor="end">40%</text><rect x="71.9" y="52.5" width="65.6" height="153.5" rx="4" fill="#7a86a0"><title>37.97%</title></rect><text class="vlbl" x="104.7" y="46.5" text-anchor="middle">37.97%</text><text class="ax" x="104.7" y="220" text-anchor="middle">FY24</text><text class="ax" x="104.7" y="231" text-anchor="middle">PBT margin</text><rect x="181.2" y="28.3" width="65.6" height="24.2" rx="3" fill="#5fb98a"><title>EBITDA: +598 bps</title></rect><text class="vlbl" x="214.0" y="22.3" text-anchor="middle" fill="#5fb98a">+598</text><line x1="246.8" y1="28.3" x2="290.5" y2="28.3" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="214.0" y="220" text-anchor="middle">EBITDA</text><rect x="290.5" y="23.3" width="65.6" height="5.0" rx="3" fill="#5fb98a"><title>Depreciation: +123 bps</title></rect><text class="vlbl" x="323.3" y="17.3" text-anchor="middle" fill="#5fb98a">+123</text><line x1="356.1" y1="23.3" x2="399.9" y2="23.3" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="323.3" y="220" text-anchor="middle">Depreciation</text><rect x="399.9" y="23.3" width="65.6" height="18.0" rx="3" fill="#d97a5f"><title>Other income: -444 bps</title></rect><text class="vlbl" x="432.7" y="17.3" text-anchor="middle" fill="#d97a5f">-444</text><line x1="465.5" y1="41.3" x2="509.2" y2="41.3" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="432.7" y="220" text-anchor="middle">Other income</text><rect x="509.2" y="39.0" width="65.6" height="2.2" rx="3" fill="#5fb98a"><title>Interest: +55 bps</title></rect><text class="vlbl" x="542.0" y="33.0" text-anchor="middle" fill="#5fb98a">+55</text><line x1="574.8" y1="39.0" x2="618.5" y2="39.0" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="542.0" y="220" text-anchor="middle">Interest</text><rect x="618.5" y="39.0" width="65.6" height="167.0" rx="4" fill="#7a86a0"><title>41.30%</title></rect><text class="vlbl" x="651.3" y="33.0" text-anchor="middle">41.30%</text><text class="ax" x="651.3" y="220" text-anchor="middle">FY26</text><text class="ax" x="651.3" y="231" text-anchor="middle">PBT margin</text><line class="zero-l" x1="50" y1="206" x2="706" y2="206"/></svg>
+  <figcaption><b>Why:</b> unlike a margin story built on deleveraging or a one-off, IndiaMART's improvement is <b>almost entirely operational</b> &mdash; EBITDA margin contributed +598bps on its own. The drag came from other income actually <i>falling</i> as a share of sales (&minus;444bps), because FY2026's treasury mark-to-market gains were smaller than FY2025's. Depreciation (+123bps) and interest (+55bps) are minor. Source: <span style="font-family:var(--mono)">metrics.margin_bridge</span>, FY2024 and FY2026.</figcaption>
+</figure>
+
+<p>Read in isolation, this is an unusually clean result: the core marketplace business is genuinely more profitable per rupee of revenue than it was two years ago, and that improvement did not depend on the treasury book &mdash; if anything, the treasury book worked against the headline number this time. That is the opposite problem to the one this kind of decomposition usually surfaces, and it is worth stating plainly before the caveat below: <b>this is real operating leverage, not an accounting illusion.</b></p>
+
+<h3>The caveat: how the leverage was earned</h3>
+
+<p>On the Q1 FY27 call, the CFO was direct about the mechanism: <i>"Margins continued to be elevated on account of savings arising from lower customer acquisition and operating leverage."</i> Advertising spend has been held to roughly &#8377;7&ndash;8 Cr per quarter, deliberately concentrated in the "top 10% of categories where exactly we know how to monetise," rather than spread broadly to grow the buyer base. The result is a smaller, more monetisable audience and a fatter margin on it &mdash; which is a defensible allocation choice, but it is also, definitionally, the accounting signature of a company pulling back on growth investment rather than one that has found a structurally cheaper way to acquire and serve customers.</p>
+
+<div class="warn">
+  <div class="lbl">Two readings of the same number, and this report cannot fully adjudicate between them</div>
+  <p><b>The constructive reading:</b> management is disciplined, has correctly identified that low-ARPU buyer acquisition was uneconomic, and is optimising for profitable customers rather than vanity growth metrics &mdash; consistent with the multi-year pattern of Platinum/Gold tiers (the profitable core) staying healthy while Silver (the low-margin edge) churns. <b>The cautious reading:</b> a company that has genuinely lost its ability to grow the addressable funnel &mdash; whether from AI-search disruption, category saturation, or the OTP-verification friction it has itself introduced &mdash; will show exactly the same numbers, because harvesting a shrinking installed base at higher take rates looks identical to disciplined margin expansion for a year or two. The two hypotheses only separate once revenue growth either resumes or does not; at the time of this report, it has not (Section <a href="#growth">07</a>).</p>
+</div>
+
+<h3>The historical margin swing is a reminder that this figure moves fast in both directions</h3>
+
+<p>EBITDA margin went from an estimated ~24% in FY2018 (per management's own retrospective comment on the Q1 FY27 call) to a COVID-inflated 48.6% in FY2021, back down to the low-to-mid 20s by FY2023, and back up to 30&ndash;35% in FY2025&ndash;26. A margin series this volatile over a single decade is itself evidence that the "right" steady-state margin for this business is genuinely uncertain, and that whatever multiple the market pays should not assume the current 30%+ reading is a new permanent floor.</p>
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: the float that funds the business</h2>
+<p class="sec-sub">The one section in this report where the standard warning signs mean the opposite of what they usually mean</p>
+
+<p>Every other report on this pipeline treats deteriorating working capital as a red flag: growing receivables, shrinking payables, a cycle stretching out. IndiaMART's working capital has been structurally negative &mdash; deeply so &mdash; every year on record, and that is the single cleanest structural strength in this entire analysis, not a caveat to it.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Receivable days</th><th class="num">Payable days</th><th class="num">Net operating WC / sales</th><th class="num">Incremental WC ratio</th></tr></thead>
+<tbody>
+<tr><td class="t">2020</td><td class="num">1.0</td><td class="num">10.3</td><td class="num g">&minus;103.2%</td><td class="num g">&minus;0.95&times;</td></tr>
+<tr><td class="t">2021</td><td class="num">0.7</td><td class="num">8.2</td><td class="num g">&minus;108.0%</td><td class="num g">&minus;2.07&times;</td></tr>
+<tr><td class="t">2022</td><td class="num">0.6</td><td class="num">8.7</td><td class="num g">&minus;122.7%</td><td class="num g">&minus;2.40&times;</td></tr>
+<tr><td class="t">2023</td><td class="num">2.6</td><td class="num">10.0</td><td class="num g">&minus;131.0%</td><td class="num g">&minus;1.58&times;</td></tr>
+<tr><td class="t">2024</td><td class="num">1.5</td><td class="num">10.4</td><td class="num g">&minus;134.3%</td><td class="num g">&minus;1.49&times;</td></tr>
+<tr><td class="t">2025</td><td class="num">1.0</td><td class="num">7.1</td><td class="num g">&minus;132.1%</td><td class="num g">&minus;1.19&times;</td></tr>
+<tr class="hl"><td class="t"><b>2026</b></td><td class="num"><b>1.3</b></td><td class="num"><b>7.4</b></td><td class="num g"><b>&minus;124.5%</b></td><td class="num g"><b>&minus;0.66&times;</b></td></tr>
+</tbody>
+</table>
+<caption>Receivable and payable days computed against sales/COGS proxies via <span style="font-family:var(--mono)">metrics.working_capital</span>. Receivable days near zero reflect a subscription model with almost no trade credit extended to customers &mdash; buyers pay IndiaMART nothing, and sellers pay upfront.</caption>
+</div>
+
+<p>Net operating working capital has run at roughly <b>&minus;125% to &minus;134% of sales</b> since FY2022, meaning the business holds negative capital equal to more than its entire annual revenue in customer float. The three-year average incremental working-capital ratio is <b>&minus;1.14&times;</b>: for every incremental rupee of revenue, the business generates roughly &#8377;1.14 of <i>additional</i> cash from the deferred-revenue mechanism alone, before a single rupee of operating profit is counted. This is the direct opposite of the dynamic that dominates capital-intensive businesses on this pipeline, where growth consumes cash before it produces any (Section <a href="#val">13</a>) &mdash; here, growth is close to self-funding twice over.</p>
+
+<div class="key">
+  <div class="lbl">Why this makes the growth story more important, not less</div>
+  <p>Because incremental revenue is float-accretive rather than cash-consuming, the DCF in Section <a href="#val">13</a> rewards a return to growth far more generously than it would for a working-capital-heavy business, and correspondingly, the current growth stall is more costly than the same slowdown would be for, say, an EPC contractor: IndiaMART is not just missing top-line profit growth, it is missing the float-funded cash generation that has historically accompanied it. Deferred revenue still grew 16% year-on-year even as enquiries fell 11% &mdash; existing customers renewing at higher prices, not new customers arriving &mdash; which is a genuinely different, weaker kind of growth than the model was built to compound on.</p>
+</div>
+
+<p>Receivable days have stayed under three days throughout the period shown, which is close to structurally impossible to worsen much further &mdash; there is essentially no credit-quality risk to monitor in the way there is for a business that sells to customers on invoice terms. Payable days sit in the high single digits, reflecting routine vendor terms rather than any aggressive extension of supplier credit. Neither line is a meaningful area of concern; both are simply small next to the deferred-revenue liability that actually does the structural work.</p>
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How IndiaMART compares with its real peers</h2>
+<p class="sec-sub">Two listed comparables with financials, three named competitors with none &mdash; and the pattern across all five is the same</p>
+
+<p>IndiaMART names its own competitors on earnings calls: Justdial (a direct, listed comparable), and TradeIndia and ExportersIndia ("distantly respected competition... no significant change that we have observed from them"). Udaan comes up in analyst questions about B2B e-commerce generally, though it turns out to be a structurally different business. Info Edge (Naukri) is not a competitor at all &mdash; different vertical entirely &mdash; but is the closest business-model analog among listed Indian internet companies: an asset-light classifieds platform sitting on a large treasury book, and worth the comparison for exactly that reason.</p>
+
+<h3>The two listed comparables</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Metric</th><th class="num">IndiaMART</th><th class="num">Justdial</th><th class="num">Info Edge</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>P/E (TTM)</b></td><td class="num g">20.7&times;</td><td class="num">40.6&times;</td><td class="num">55.0&times;</td></tr>
+<tr><td class="t">Market cap (&#8377; Cr)</td><td class="num">10,184</td><td class="num">5,660</td><td class="num">81,104</td></tr>
+<tr><td class="t">P/B</td><td class="num g">4.24&times;</td><td class="num">1.41&times;</td><td class="num">2.14&times;</td></tr>
+<tr><td class="t">Headline ROCE / ROE</td><td class="num">26.9% / 20.7%</td><td class="num l">4.8% / 3.6%</td><td class="num l">3.5% / 1.8%</td></tr>
+<tr><td class="t">OPM, most recent</td><td class="num">30.3%</td><td class="num">21%</td><td class="num g">36&ndash;39%</td></tr>
+<tr><td class="t">Other income / PBT, typical</td><td class="num">22&ndash;49%</td><td class="num l">55&ndash;75%</td><td class="num l">35&ndash;100%+</td></tr>
+<tr><td class="t">Cumulative CFO / cumulative PAT</td><td class="num g">1.59&times;</td><td class="num g">0.98&times;</td><td class="num">0.79&times; <span style="font-size:10px">ex-Zomato outlier</span></td></tr>
+<tr><td class="t">Investments / total assets</td><td class="num">82.0%</td><td class="num l">94.8%</td><td class="num l">88.9%</td></tr>
+<tr><td class="t">Promoter holding</td><td class="num g">49.1%, stable, founder-led</td><td class="num l">74.1%, <b>Reliance-controlled since 2022</b></td><td class="num g">37.5%, stable, founder-led</td></tr>
+<tr><td class="t">Capital return style</td><td class="t">Buybacks (to 2023), now large dividends</td><td class="t">Buybacks pre-2022; none since Reliance took control</td><td class="t">Regular dividends, no buybacks</td></tr>
+</tbody>
+</table>
+<caption>IndiaMART figures from Screener's public page (fetched 12 September 2026) and this pipeline's own database; peer figures from <span style="font-family:var(--mono)">research/INE933S01016/peers_justdial_infoedge.md</span>, which documents full detail and explicit data-quality caveats on both peers' headline ratios.</caption>
+</div>
+
+<p>Two things stand out immediately. First, <b>IndiaMART's headline ROCE and ROE are dramatically higher than either comparable's</b> &mdash; not because its core business is that much better, but because both peers' treasury books have grown so large relative to their current operating profit that the standard ratios are almost meaningless for them (Justdial's net worth is ~94.8% investments; Info Edge's is 88.9%). IndiaMART's own ratios are flattered by the same mechanism, just to a smaller degree (Section <a href="#framework">02</a>). Second, <b>both comparables run a higher other-income share of PBT than IndiaMART's own</b> &mdash; confirming that the treasury-income dynamic is a feature of this business category in India generally, not something specific to IndiaMART's own capital allocation.</p>
+
+<div class="warn">
+  <div class="lbl">Justdial is no longer a clean governance comparable</div>
+  <p>Reliance Retail Ventures took control of Justdial in 2022 &mdash; a 15.63% stake purchase from founder VSS Mani, a preferential allotment, and a mandatory open offer took combined promoter-group holding to ~77.6%, since settled around 74%. Justdial has not conducted a buyback since. It remains a valid <i>financial</i> comparable but is no longer a valid <i>governance or capital-allocation</i> comparable: IndiaMART is still run, and its capital allocated, by its own founders. Justdial's founder VSS Mani himself stepped down in July 2026 after 30 years, with the stock subsequently rallying on results that at least one ValuePickr member (Section <a href="#sentiment">12</a>) attributed to treasury mark-to-market gains rather than operating improvement &mdash; the exact earnings-quality question this report raises about IndiaMART itself.</p>
+</div>
+
+<h3>The three named competitors nobody can pull financials for &mdash; and what their reputations say instead</h3>
+
+<p>TradeIndia and ExportersIndia run the identical lead-generation classifieds model as IndiaMART. Neither has ever raised institutional capital in roughly three decades of operation; neither shows any notable strategic move in the last 18 months. Both carry unambiguously poor customer-review scores on independent review sites &mdash; TradeIndia at 1.01/5 (MouthShut, 3,829 votes) and 1.8/5 (Trustpilot, 96 reviews); ExportersIndia at 1.55/5 (MouthShut, 4,780 votes) &mdash; with recurring complaint themes of aggressive renewal pressure and disputed lead quality. TradeIndia's own employees rate it well (Glassdoor 4.0/5, 692 reviews, 80% would recommend), a genuine split between how the company treats staff and how its paying customers experience the product.</p>
+
+<p>Udaan is not a like-for-like competitor at all once the business model is examined closely: it is a transacting e-commerce marketplace with its own logistics arm (Udaan Express) and an NBFC lending licence, not a lead-generation directory. It raised roughly $2.17 billion across 17 rounds, peaked at a $3.1&ndash;3.2 billion valuation in January 2021, and took a confirmed 43.5&ndash;48% down-round markdown to $1.7&ndash;1.8 billion in December 2023 alongside three separate layoff waves (2022&ndash;23). It is now restructuring under a new entity (Hiveloop E-Commerce) toward a targeted 2026 IPO on a self-reported, unaudited profitability narrative. Its app-store rating is strong (4.2/5, ~165,000 reviews, 5 million+ downloads &mdash; the best of the three), reflecting genuine repeat transactional usage, but its MouthShut score (1.34/5) shows the same complaint pattern as the two directory competitors once dissatisfied users are asked directly.</p>
+
+<div class="key">
+  <div class="lbl">The pattern across all three named private competitors</div>
+  <p>Every one of IndiaMART's named competitors &mdash; the two direct model-alikes and the structurally different transacting player &mdash; shows the identical split: reasonable-to-strong headline usage metrics (app installs, self-reported user counts) alongside genuinely poor scores wherever a paying or dissatisfied customer is asked directly. That is either evidence the whole category has an inherent customer-experience ceiling (aggressive monetisation of a captive lead-gen relationship is close to structural to this business model), or evidence that IndiaMART's own scale and resourcing let it manage the same tension better than smaller, capital-constrained rivals can. This report cannot fully distinguish between those two readings, and it matters for how durable IndiaMART's own customer relationships are once growth pressure returns (Section <a href="#growth">07</a>).</p>
+</div>
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: the core stall, BUSY, and the AI question</h2>
+<p class="sec-sub">The demand case is real and mostly untapped. The live question is whether the discovery layer between demand and IndiaMART survives generative AI intact.</p>
+
+<h3>The demand case, from primary sources</h3>
+
+<p>India's Udyam portal recorded <b>4.72 crore registered MSMEs</b> as of June 2026, contributing an estimated 30&ndash;31% of GDP and 35.4% of manufacturing output, with MSME exports more than tripling from &#8377;3.95 lakh crore (FY2021) to &#8377;12.39 lakh crore (FY2025). Independent estimates put digital adoption among registered MSMEs at only 55&ndash;60% &mdash; implying roughly 1.9&ndash;2.1 crore enterprises are still not meaningfully online. On the addressable-market question alone, there is no evidence of saturation.</p>
+
+<h3>The core marketplace has stalled, and the stated cause only explains part of it</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Metric</th><th class="t">Recent trend</th><th class="t">What management says</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>Paying suppliers</b></td><td class="t">2,18,000 at Q1 FY27, <b>net decline of 1,850</b> in the quarter &mdash; the first confirmed net quarterly contraction on record in this pipeline's data</td><td class="t">"Moderation in the gross addition as well as elevated churn at the Silver subscription tier"</td></tr>
+<tr class="hl"><td class="t"><b>Unique business enquiries</b></td><td class="t"><b>&minus;11% YoY</b> to 26 million (Q1 FY27, from 29 million a year earlier)</td><td class="t">"About 4-5% decline has happened because of the OTP verification... rest of the whether it is to do with our own [change], or whether it is to do with traffic migrating to LLM, or whether it is to do with the war and U.S. tension, I can't really tell"</td></tr>
+<tr><td class="t">Active buyers</td><td class="t">&minus;5% YoY</td><td class="t">Partly explained by a deliberate cut of "non-quality buyers" flagged 4&ndash;5 quarters earlier; partly attributed to a Google-traffic mix shift</td></tr>
+<tr><td class="t">Revenue / collections growth</td><td class="t">Revenue +11%, collections +8% YoY (Q1 FY27) against a long-standing 20&ndash;25%+ aspiration</td><td class="t">"30% at this juncture on a standalone basis sounds little difficult... I continue to have a long-term aspiration for 33%"</td></tr>
+<tr><td class="t">Traffic disclosure</td><td class="t">Stopped reporting certain website/app traffic metrics in Q4 FY26</td><td class="t">"It is difficult for the analytics tools or webmaster tools to be able to classify which traffic is what" &mdash; bot, agent and LLM-crawler traffic can no longer be cleanly separated from human traffic</td></tr>
+</tbody>
+</table>
+<caption>Figures and quotes from IndiaMART's Q1 FY27 (21 July 2026) earnings call and supporting disclosures.</caption>
+</div>
+
+<p>Take the OTP-verification explanation at face value &mdash; it accounts for perhaps 4&ndash;5 of the 11 percentage points of enquiry decline, and it is a genuinely defensible quality choice (filtering bot and low-intent traffic protects the paying supplier base's actual return on subscription). <b>The remaining 6&ndash;7 points are, by management's own account, unattributed.</b> That is the more important number in this table than the headline decline itself.</p>
+
+<h3>The AI/LLM disruption question &mdash; the central open issue in this report</h3>
+
+<p>This is not speculative industry commentary; it is a live, litigated dispute involving the company itself, and the timeline of management's own public position on it is directly relevant to how much weight to put on management's other forward-looking statements (Section <a href="#mgmt">09</a>):</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Date</th><th class="t">Event</th></tr></thead>
+<tbody>
+<tr><td class="t">December 2025</td><td class="t">IndiaMART sues OpenAI in the Calcutta High Court, alleging ChatGPT selectively excludes IndiaMART's listing links from responses while surfacing rival platforms and individual seller sites &mdash; the exact disintermediation mechanism a classifieds model is structurally exposed to. The court initially finds a "strong prima facie case" of selective discrimination.</td></tr>
+<tr class="hl"><td class="t">30 April 2026</td><td class="t">On the Q4 FY26 earnings call &mdash; while the OpenAI suit is still active &mdash; the CEO tells analysts ChatGPT poses <b>"no B2B threat,"</b> describing such tools as "still limited to more consumer facing entertainment... not yet very, very good at the B2B kind of queries." The company also stops disclosing certain traffic metrics this quarter, citing bot/agent contamination.</td></tr>
+<tr><td class="t">20 May 2026</td><td class="t">The Calcutta High Court reverses course, dismisses IndiaMART's interim application, and rules that ChatGPT's generative output makes OpenAI an <b>"originator," not an "intermediary,"</b> under the IT Act &mdash; finding no obligation for one commercial platform to promote another's links.</td></tr>
+<tr class="hl"><td class="t">21 July 2026</td><td class="t">On the Q1 FY27 call, with unique enquiries down 11% YoY, the CEO concedes: <i>"whether it is to do with... traffic migrating to LLM, or whether it is to do with the war and U.S. tension, I can't really tell."</i> On the underlying measurement problem: <i>"It is difficult for the analytics tools... to be able to classify which traffic is what."</i> Separately, on AI agents scraping IndiaMART's own listings to feed other tools: <i>"Currently there is too much of AI-based agent parsing going on... now we are slowly moving to 100% OTP verification."</i></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The sequence &mdash; litigate the risk privately, reassure publicly, then concede uncertainty once the numbers made the reassurance harder to sustain &mdash; is itself the finding, independent of how the underlying technology question eventually resolves. It is scored explicitly in the management section below.</p>
+
+<h3>Is this an IndiaMART problem or a category-wide one?</h3>
+
+<p>No Indian classifieds peer &mdash; Just Dial included &mdash; has made a comparable disclosure as of this report. That could mean IndiaMART is more exposed, or simply first to be asked and first to answer honestly; the data available cannot distinguish the two. The global precedent, however, is unambiguous and directly on point: <b>Angi Inc.</b> (NASDAQ: ANGI, US home-services classifieds &mdash; the closest global business-model analog) disclosed in its Q2 2026 results that unbranded SEO traffic has fallen to ~5% of total service-request volume "with no expected recovery," and is responding by building its own AI agent layer rather than fighting the shift. <b>Yelp</b> is in active antitrust litigation against Google over AI Overviews self-preferencing Google's own content. Publisher-wide data (Ahrefs, Feb 2026) shows AI Overviews correlating with a <b>58% reduction in click-through rate</b> for top-ranking organic pages, worsening from 34.5% in April 2025 &mdash; a trend line moving the wrong way, not stabilising. Set against that base rate, IndiaMART's ~11% enquiry decline (of which only 4&ndash;5 points are confidently attributed to a non-AI cause) is arguably <i>smaller</i> than the generic AI-disruption hit &mdash; which could mean branded, high-intent B2B search is more resistant, or could mean the true AI-attributable share is being understated. This report cannot resolve that either way, and flags it as the single most important open question a future update needs to re-test.</p>
+
+<h3>BUSY Infotech: the one clean, uncomplicated growth story on offer</h3>
+
+<p>Against that backdrop, BUSY's ~27&ndash;30% billing CAGR since its FY2023 acquisition is the report's most straightforwardly positive growth data point &mdash; a different customer relationship (accounting software, not lead generation), a different competitive set (Tally holds 60&ndash;70% share of the broader market; BUSY competes on cloud/mobile modernisation), and no exposure to the AI-search-disruption mechanism threatening the core marketplace. Management's stated five-year ambition is 35&ndash;40% CAGR. It is a genuine second engine, but at roughly &#8377;36 Cr of quarterly revenue against &#8377;414 Cr for the core consolidated business, it is not yet large enough to offset a continued core stall on its own.</p>
+
+<div class="warn">
+  <div class="lbl">What would resolve this section, one way or the other</div>
+  <p>A single additional quarter of data will not settle this. What would: (1) unique business enquiries stabilising or recovering once the OTP-verification transition fully laps, isolating the residual AI-attributable decline; (2) any Indian peer (Just Dial especially) making a comparable disclosure, which would confirm a category-wide rather than company-specific effect; (3) the final, non-interim outcome of the OpenAI litigation; (4) any quantified update on the "windfall gains" management says its own AI investments (the agentic call centre, content-aggregation tooling) are producing, beyond the vague "most of the value would accrue toward the end of next year" guidance given so far.</p>
+</div>
+</section>
+
+
+<section id="analysts">
+<h2><span class="num">08</span>What institutional investors keep asking</h2>
+<p class="sec-sub">The questions analysts return to quarter after quarter are the clearest signal of where the real uncertainty sits</p>
+
+<h3>1. What, precisely, is causing the enquiry and supplier decline?</h3>
+
+<p>This is the single most repeated question across the last several calls, asked in slightly different forms by nearly every analyst who gets the floor. On the Q1 FY27 call alone, three separate analysts (Samarth Patel, Pratik Kothari, Vivekanand) pressed the same underlying question from different angles &mdash; how much is OTP verification, how much is LLM traffic migration, how much is a deliberate quality trade-off. Management's answer has not sharpened with repetition: <i>"Very difficult... I can't really tell."</i> An analyst directly proposed a better disclosure metric (enquiry fulfilment rate) as a substitute for the now-unreliable raw traffic numbers; management's response &mdash; that fulfilment is only a 2%-response-rate survey figure it does not consider auditable enough to report quarterly &mdash; is honest but leaves the market without a clean number to track the thing everyone is asking about.</p>
+
+<h3>2. Is the churn problem structural, and should the strategy shift from fixing churn to acquiring more gross customers?</h3>
+
+<p>Pratik Kothari's question on the Q1 FY27 call was the sharpest version of this: <i>"Net growth is a function of gross minus churn... do we at some point accept that this churn maybe stays, and then we just add more gross, which solves for the net addition also?"</i> Management's answer &mdash; that acquiring lower-quality customers "will come back again with that" (i.e. simply reproduces the churn problem at a larger scale) and that CAC/LTV economics break down if renewal rates don't improve first &mdash; is analytically sound, but it also means management has, in effect, no near-term lever to reverse the net-customer decline other than waiting for the current cohort of verification and trust initiatives to mature over "a year or so." Silver-tier monthly churn was quoted at 7% on the prior call and confirmed unchanged on the July 2026 call &mdash; a stable but persistently high figure.</p>
+
+<h3>3. Given nearly &#8377;3,553 Cr of cash and treasury, why not a bigger buyback or dividend?</h3>
+
+<p>Raised repeatedly across multiple years (Ruchi Mukhija and others), and management's answer has been consistent: roughly &#8377;1,700&ndash;2,000 Cr of the treasury balance is deferred revenue and customer advances &mdash; a liability, not discretionary cash &mdash; and the company targets returning a large share of genuinely surplus cash annually via buyback or dividend, adjusted for the 2024 change in India's buyback taxation (which shifted the tax burden from the company to the shareholder and made buybacks structurally less attractive, prompting the shift toward larger dividends discussed in Section <a href="#capital">10</a>).</p>
+
+<h3>4. What is the new lending subsidiary actually for, and how much balance-sheet risk does it carry?</h3>
+
+<p>The July 2026 announcement of IndiaMART Finance Limited drew immediate, specific questioning (Kunal Thanvi, Abhishek Banerjee) on structure and risk. Management's answer was reassuring on capital exposure &mdash; "we do not have any plans to lend out of our own balance sheet any large amount," describing the model instead as facilitating partnerships with third-party lenders for short-term transaction financing &mdash; but noticeably vague on product specifics ("I do not understand whether it will be the invoice discounting or reverse invoice discounting, but somewhere near that"), a genuine early-stage initiative rather than a fleshed-out strategy. Worth monitoring for scope creep given the company's stated preference for disciplined, bounded capital commitments elsewhere (Section <a href="#capital">10</a>).</p>
+
+<h3>5. Is the investment portfolio a disciplined venture strategy or a distraction from the core business?</h3>
+
+<p>This recurs in two forms: a pricing question (Aman Thadani, on whether there is a target rupee amount for future strategic investments) and, in earlier years per the ValuePickr record (Section <a href="#sentiment">12</a>), a sharper critique that richly-priced minority stakes in small companies (one 2021 deal valued a target with declining revenue at "340x revenue," per a forum member's own math) divert management attention from a weakening core. Management's most recent framing is disciplined: concentrated follow-on investment in a small number of already-proven bets (Bizom scaled from a 10% to 32% stake; Fleetx from 17% to 25.8%) rather than broad venture-style spraying, with an explicit self-imposed ceiling ("we have a limit of 10%" on stakes like M1xchange). The framing has held up better in 2025&ndash;26 than the 2021&ndash;22 record alone would suggest, but the original criticism was directionally reasonable at the time it was made.</p>
+
+<h3>6. Can the current margin level be sustained without reinvestment?</h3>
+
+<p>Analysts have pressed on this from the cost side specifically &mdash; Sachin Salgaonkar's question on quantifying Gen-AI cost benefits drew a specific, modest answer (roughly &#8377;4&ndash;5 Cr of annual benefit for the last 4&ndash;5 years, i.e. a few tens of crores cumulative against &#8377;1,569 Cr of FY2026 revenue) that is far smaller than the scale of the recent margin expansion, reinforcing that the bulk of the recent margin gain is coming from reduced customer-acquisition spend (Section <a href="#margin">04</a>) rather than AI-driven cost efficiency, whatever the framing in company messaging.</p>
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">09</span>Management scorecard: promises against outcomes</h2>
+<p class="sec-sub">A founder-led team with a strong record on things it controls, and one genuinely serious credibility question on the thing that matters most right now</p>
+
+<div class="warn">
+  <div class="lbl">The one item that dominates this section</div>
+  <p>On 30 April 2026, with an active lawsuit against OpenAI already underway (filed December 2025), the CEO told analysts ChatGPT posed <b>"no B2B threat."</b> Three weeks later the company lost the interim round of that same lawsuit. Eleven weeks after that, on the July 2026 call, the same CEO conceded that LLM-driven traffic migration is a plausible material contributor to an 11% year-on-year enquiry decline. Whatever the eventual truth about AI disruption to this business, <b>the public position was not consistent with the company's own private legal position at the time it was stated</b> &mdash; scored below as Broken, not because the underlying uncertainty is management's fault, but because the April reassurance was not an honest statement of that uncertainty.</p>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Promise / statement</th><th class="t">Made</th><th class="t">Outcome</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">ChatGPT/LLMs pose "no B2B threat"</td><td class="t">Q4 FY26 (30 Apr 2026)</td><td class="t">Q1 FY27: enquiries <b>&minus;11% YoY</b>; CEO concedes LLM traffic migration is a plausible cause he "can't really tell" the size of &mdash; while an OpenAI lawsuit filed months earlier was already litigating exactly this risk</td><td><span class="pill p-broke">Broken</span></td></tr>
+<tr><td class="t">Long-term cash margin target "about 33%"</td><td class="t">Cited on an FY24-era call</td><td class="t">Q1 FY27 consolidated EBITDA margin: <b>35%</b></td><td><span class="pill p-kept">Kept, exceeded</span></td></tr>
+<tr><td class="t">BUSY to become a 35&ndash;40% CAGR business over time</td><td class="t">Ongoing aspiration, reaffirmed Q1 FY27</td><td class="t">Actual run-rate ~27&ndash;30% CAGR since FY2023 acquisition &mdash; strong, short of the stated ambition but in the right direction</td><td><span class="pill p-slip">Tracking below aspiration</span></td></tr>
+<tr><td class="t">"Medium-term... 15-18% customer growth and 7-10% ARPU growth" (a ~25% blended aspiration)</td><td class="t">Reiterated across multiple years</td><td class="t">FY2027 YTD: collections growth 8%, paying-supplier count net <i>declining</i>. CEO has himself conceded "30% at this juncture on a standalone basis sounds little difficult"</td><td><span class="pill p-broke">Broken</span></td></tr>
+<tr><td class="t">Silver-tier churn containment initiatives (GST/bank/OTP verification) will improve retention</td><td class="t">Introduced progressively from ~Q2 FY26</td><td class="t">Silver monthly churn quoted at 7% one quarter, confirmed <b>unchanged</b> the next: "nothing has changed"</td><td><span class="pill p-open">Too early / not yet working</span></td></tr>
+<tr><td class="t">Disciplined, capped strategic investing (not "a venture investing firm")</td><td class="t">Stated policy, reaffirmed Q1 FY27</td><td class="t">Concentrated follow-ons into proven bets (Bizom 10%&rarr;32%, Fleetx 17%&rarr;25.8%), an explicit self-imposed 10% stake ceiling honoured on M1xchange</td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">Consistent capital return to shareholders</td><td class="t">Ongoing policy</td><td class="t">Buybacks in most years to Aug 2023 (last: &#8377;100 Cr, 2022); shifted to a &#8377;60/share FY26 dividend (up from &#8377;20 FY25) after India's 2024 buyback-tax change made buybacks structurally less efficient &mdash; the policy adapted rather than lapsed</td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">"We do not have any plans to lend out of our own balance sheet any large amount" (IndiaMART Finance Ltd)</td><td class="t">Q1 FY27 (Jul 2026)</td><td class="t">Too new to score &mdash; flagged for the next update as a scope-creep watch item, not yet a broken or kept promise</td><td><span class="pill p-open">Too early</span></td></tr>
+</tbody>
+</table>
+<caption>Every promise is scored against a later disclosure, not the same quarter's own results, following the same convention used throughout this report series.</caption>
+</div>
+
+<h3>The pattern</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Category</th><th class="num">Kept</th><th class="num">Broken / open</th><th class="t">What this tells you</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Capital allocation and investment discipline</b></td><td class="num g">2</td><td class="num">0</td><td class="t">Where management controls the outcome directly, the record is genuinely strong</td></tr>
+<tr><td class="t"><b>Margin</b></td><td class="num g">1</td><td class="num">0</td><td class="t">Delivered and exceeded &mdash; though Section <a href="#margin">04</a> questions how the margin was earned, not whether the number was hit</td></tr>
+<tr class="hl"><td class="t"><b>Growth and the AI-disruption narrative</b></td><td class="num">0</td><td class="num l">2 broken, 2 open</td><td class="t">The one area where forecasts have consistently missed, and where the most recent public statement was directly contradicted by the company's own concurrent legal filings</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="key">
+  <div class="lbl">Manager score: strong operator, weak forecaster, one serious lapse in candour</div>
+  <p>On everything within its own control &mdash; capital allocation, investment discipline, cost management, the BUSY acquisition and integration &mdash; this team's record is genuinely good, consistent with the clean RPT audit and the founder-led, stable-shareholding structure (Section <a href="#flags">11</a>). On growth forecasting, the record is poor and has been poor for several years, which is a real but relatively ordinary failing shared by most growth-company management teams who anchor guidance to an earlier, better period. The genuinely disqualifying item is the April 2026 ChatGPT statement: it was not merely an optimistic forecast that didn't pan out, it was a public reassurance issued while the company's own legal team was actively arguing the opposite position in court. A reader should weight every other forward-looking statement in this report's transcripts accordingly &mdash; not by assuming bad faith generally, but by recognising that on the single most consequential question facing this business, management chose reassurance over candour when it had the clearest possible reason to know better.</p>
+</div>
+</section>
+
+
+<section id="capital">
+<h2><span class="num">10</span>Capital allocation and the balance sheet</h2>
+<p class="sec-sub">Net cash, no debt, no credit rating needed &mdash; and a real policy shift on how surplus cash gets returned</p>
+
+<p>IndiaMART carries <b>&#8377;23 Cr of borrowings against &#8377;3,553 Cr of consolidated cash and treasury balance</b> as of the most recent quarter &mdash; a net cash position roughly 150 times the size of its debt. No credit rating agency covers this company, and that is not a pipeline gap: a business that carries essentially no debt has no obligation requiring one, and none was found in this run's search. The balance sheet risk here is not leverage; it is concentration and discipline in how the surplus gets deployed, which is the actual subject of this section.</p>
+
+<h3>The buyback-to-dividend shift, and why it happened</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Date</th><th class="t">Action</th><th class="t">Detail</th></tr></thead>
+<tbody>
+<tr><td class="t">Mid-2022</td><td class="t">Buyback</td><td class="t">&#8377;100 Cr, tender offer at &#8377;6,250/share</td></tr>
+<tr><td class="t">Jul&ndash;Aug 2023</td><td class="t">Buyback</td><td class="t">Up to &#8377;500 Cr, 12.5 lakh shares, tender offer at &#8377;4,000/share; record date 25 Aug 2023</td></tr>
+<tr><td class="t">Apr 2025</td><td class="t">Dividend</td><td class="t">&#8377;20/share final, FY25</td></tr>
+<tr class="hl"><td class="t">Apr&ndash;Jun 2026</td><td class="t">Dividend</td><td class="t">&#8377;60/share total (&#8377;30 final + &#8377;30 special), FY26 &mdash; a 3&times; step-up, approved at the 27th AGM</td></tr>
+</tbody>
+</table>
+<caption>No buyback has been announced since August 2023. Sources: IndiaMART corporate announcements; see <span style="font-family:var(--mono)">research/INE933S01016/news.md</span>.</caption>
+</div>
+
+<p>This is a genuine, deliberate change in mechanism, not a lapse in capital discipline. India's tax treatment of buybacks changed in October 2024, shifting the tax incidence from the company (a flat buyback tax) to the shareholder (taxed as dividend income at slab rate) &mdash; a change that was itself raised directly by an analyst on a call before it took effect ("what are your thoughts on buybacks given the change in taxation policies?"). Moving toward a larger, explicit dividend after that change is a rational adaptation, not a reduction in the underlying commitment to return surplus cash: FY26's combined payout (&#8377;60/share against a base of roughly 6 crore shares, or approximately &#8377;360 Cr) is comparable in scale to the prior buyback programme.</p>
+
+<h3>The investment portfolio: disciplined bolt-ons, not a venture fund</h3>
+
+<p>Beyond the treasury book itself, IndiaMART holds minority and growing-majority stakes in a small set of adjacent MSME-software and logistics businesses &mdash; Mobisy Technologies, Fleetx, Simply Vyapar, Bizom, SuperProcure, Aerchain, IDfy among them &mdash; plus the wholly-owned BUSY Infotech (acquired for &#8377;500 Cr, FY2023) and Finlite Technologies (taken to 100% ownership, May 2025, for a further ~&#8377;27 Cr). Recent follow-ons have concentrated capital into names already showing traction rather than spreading it thin: Fleetx's stake grew from an initial ~17% (2022) to 25.8% (July 2026, a further &#8377;65 Cr investment against FY25 turnover of ~&#8377;78 Cr at Fleetx), and Bizom from 10% to 32%. Management has stated an explicit self-imposed ceiling of 10% on some smaller bets (M1xchange) and has said directly it does not want to "become a venture investing firm which is investing in hundreds of companies."</p>
+
+<p>The earlier record (2021&ndash;22, documented in the ValuePickr thread, Section <a href="#sentiment">12</a>) drew fair criticism for paying rich multiples on small, early-stage targets with limited revenue &mdash; a 2021 deal valuing Agillos at roughly 340&times; a shrinking revenue base was flagged at the time as hard to justify on fundamentals alone. That criticism was directionally reasonable given the information available then; the subsequent performance of several of these bets (Bizom, Fleetx, SuperProcure) has been better than the entry pricing alone would have predicted, which is either evidence of good judgement in target selection or of a favourable overall market for venture-stage software assets since 2022 &mdash; this report cannot cleanly separate the two.</p>
+
+<h3>A new, still-undefined commitment: IndiaMART Finance Limited</h3>
+
+<p>The board approved a wholly-owned NBFC-adjacent subsidiary in July 2026 to facilitate short-term transaction financing for buyers and sellers, structured as a partnership with third-party lenders rather than direct balance-sheet lending. Management has been explicit that it does not intend to commit large capital directly ("we do not have any plans to lend out of our own balance sheet any large amount"), but the product itself &mdash; invoice discounting or similar, per management's own admission still undecided &mdash; is not yet defined. This is the one live item in the capital-allocation story worth tracking rather than scoring: a disciplined, capped pilot is consistent with the rest of the record; an expansion into meaningful on-balance-sheet credit risk would not be.</p>
+</section>
+
+
+<section id="flags">
+<h2><span class="num">11</span>Governance and legal risk</h2>
+<p class="sec-sub">Related-party dealings are genuinely clean. The real exposure is a cluster of live cases testing what kind of platform IndiaMART legally is.</p>
+
+<h3>Related-party transactions: clean, and independently audited on primary sources</h3>
+
+<p>This pipeline's existing related-party audit &mdash; which re-downloaded and read all 8 annual reports directly from BSE source URLs, bypassing the table-stripping defect that affects this pipeline's own markdown pipeline (Section <a href="#gaps">15</a>) &mdash; scores IndiaMART <b>1 out of 3 ("Watch")</b> across every year available. The only recurring related-party items outside wholly-owned subsidiaries are a small, flat office lease with Mansa Enterprises Private Limited (a promoter-linked entity, running &#8377;1.6&ndash;6.85 million a year &mdash; trivial and shrinking as a share of a company that scaled from hundreds of crores to &#8377;1,569 Cr of revenue over the same period) and modest training fees to a non-executive director. Every year's Form AOC-2 records "Not Applicable" for material or non-arm's-length transactions, and every statutory and secretarial audit opinion read was unqualified.</p>
+
+<h3>Two governance claims from retail sentiment, checked against primary sources</h3>
+
+<p>ValuePickr's IndiaMART thread (Section <a href="#sentiment">12</a>) raised two specific governance concerns worth checking rather than repeating uncritically, since a report that only relays forum sentiment without verifying it is not adding value beyond the forum itself.</p>
+
+<div class="key">
+  <div class="lbl">The buyback-participation claim, reconsidered against the primary filing</div>
+  <p>Forum members documented that in the 2022 buyback, roughly 42% of proceeds went to the Agarwal/Agrawal promoter families, and that the CEO tendered close to his full pro-rata entitlement at a 36&ndash;37% premium to market. Checked against the primary board-approval filing: the buyback was structured as a standard SEBI-regulated proportionate tender offer, open to all shareholders including promoters, who held <b>49.19%</b> of the company pre-buyback. Forty-two percent of proceeds going to a holder of 49% of the company is <b>not obviously preferential</b> &mdash; it may in fact be somewhat below pure pro-rata, consistent with the small-shareholder reservation mechanism that all SEBI tender-offer buybacks are required to carry. The final per-category acceptance filing that would settle the exact figure precisely was not located in this run (Section <a href="#gaps">15</a>). A buyback priced at a large premium to market is a normal feature of the tender-offer mechanism designed to induce tendering, not evidence of preferential pricing on its own.</p>
+</div>
+
+<div class="key">
+  <div class="lbl">The 2021 CEO FIR, confirmed real but minor</div>
+  <p>An FIR was genuinely filed in February 2021 against CEO Dinesh Agarwal, co-founder Brijesh Agrawal, and a Mathura-based supplier, under IPC Section 265 and IT Act Section 66, over online listings selling stones reportedly taken from Govardhan Hill, a Hindu pilgrimage site &mdash; confirmed via contemporaneous national press coverage. No arrest occurred, contrary to what some forum discussion implied at the time and what investor relations denied. No escalation, charge, or conviction was found in the years since. This is best read as an early instance of the same intermediary-liability question examined below &mdash; a platform held responsible for what a third-party seller listed &mdash; rather than a standalone governance failing.</p>
+</div>
+
+<h3>The live cluster: what kind of platform is IndiaMART, legally?</h3>
+
+<p>Separately from the AI-disruption litigation (Section <a href="#growth">07</a>), three matters test the same underlying question &mdash; whether IndiaMART is a passive directory protected by IT Act Section 79 safe harbour, or an active marketplace liable for what third parties list on it:</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Matter</th><th class="t">Status</th><th class="t">What it tests</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>CDSCO drug-listing prosecution</b></td><td class="t">Criminal proceeding under the Drugs &amp; Cosmetics Act, over listings of unapproved/prescription drugs. Stayed by Delhi HC (9 Sep 2025), next hearing flagged for 7 April 2026</td><td class="t">Genuine criminal liability exposure &mdash; the sharpest version of the intermediary-defence question, since it carries individual criminal, not just civil, consequence</td></tr>
+<tr><td class="t"><b>Puma trademark case</b></td><td class="t">A 2024 single-judge injunction against IndiaMART's use of "PUMA" as a dropdown search category was substantially reversed by a Division Bench in June 2025, though IndiaMART retains an ongoing obligation to remove notified counterfeit listings promptly</td><td class="t">A partial win for the intermediary defence, with a residual, company-wide obligation to actively police notified infringement &mdash; the fake/counterfeit-listing risk is legally contained, not eliminated</td></tr>
+<tr><td class="t"><b>TRAI spam-call regulation challenge</b></td><td class="t">IndiaMART itself petitioned Delhi HC (Jan 2026) against TCCCPR Regulation 25, arguing as few as 5 complaints in 10 days can trigger enterprise-wide telecom-resource suspension without a prior hearing. Notice issued; listed for March 2026</td><td class="t">A direct operational risk to the outbound-calling model the core lead-conversion business runs on &mdash; on the same "how do buyers and sellers actually connect" axis as the AI-disruption question, but from a regulatory rather than a technological direction</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>None of these three surfaced in the transcripts read for this report &mdash; management does not appear to discuss active litigation on earnings calls, which is itself a real gap between what a call communicates and what a court docket shows, and a reason this section draws entirely on the separate news search rather than the transcript corpus. A lower-severity, chronic issue &mdash; consumer complaints over fake or spam leads on aggregator sites (Voxya, ComplaintsBoard) &mdash; shows no evidence of escalating into a class-scale action or regulatory order in the period searched, and reads as background noise inherent to the subscription-lead-gen model rather than a new development.</p>
+
+<h3>What was not found</h3>
+
+<p>No CCI or competition-law matter naming IndiaMART, no GST or income-tax demand, no promoter share pledging, and no promoter open-market selling outside the buyback-tendering mechanism discussed above. Each of these is a negative finding from a targeted search, not a guarantee of absence (Section <a href="#gaps">15</a>), but none contradicts the otherwise clean governance picture.</p>
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">12</span>What other investors think</h2>
+<p class="sec-sub">A 467-post, seven-year retail thread that has anticipated nearly every theme in this report &mdash; often years early</p>
+
+<p>IndiaMART's ValuePickr thread (opened at IPO, August 2019, 467 posts, 139,905 views) is the most actively re-litigated of the three comparable threads on a per-year basis &mdash; roughly 67 posts a year, against Just Dial's 25 and Info Edge's 32. Read across its full arc rather than its latest page, several of this report's central findings were flagged by retail investors well before they became consensus or reached management's own disclosures.</p>
+
+<h3>The arc</h3>
+
+<p><b>2019 &mdash; IPO scepticism.</b> Early posters questioned why a company would list at all if the profit it was projecting was achievable organically, and criticised the pure-subscription model's lack of a take-rate. The durable bull case &mdash; negative working capital, network effects, an "InfoEdge-style ecosystem" framing &mdash; was also laid out this early and has held up.</p>
+
+<p><b>2020 &mdash; the first quality-of-earnings flag, five years ahead of this report's own version of it.</b> A single post (mrkakade, May 2020) flagged "other income" at roughly 10% of revenue and rising as a quality-of-earnings item worth watching &mdash; the same structural concern this report builds a full core-vs-reported-ROCE decomposition around (Section <a href="#framework">02</a>), five years before the number grew to its current scale. Notably, <b>the forum never revisited it with an updated figure</b> &mdash; a genuine gap in ongoing retail coverage of exactly the issue it was first to spot.</p>
+
+<p><b>2020 &mdash; the churn debate, four years ahead of the "silver crisis" becoming consensus.</b> A April 2020 exchange previewed almost exactly the 2024&ndash;26 narrative: one poster argued subscription value diminishes once a buyer-seller relationship is established (predicting structural churn); another countered that a scaling MSME's subscription becomes a shrinking share of its cost base, making churn irrational, disclosing a ~30% portfolio weighting in the same post.</p>
+
+<p><b>2021 &mdash; euphoria, 65&ndash;90&times; trailing multiples, and a prescient bear call.</b> One member drew the Just Dial parallel explicitly in February 2021 &mdash; rapid early growth followed by a traffic plateau and Google-ranking risk &mdash; and exited. That same Just Dial-vs-IndiaMART comparison resurfaces independently on Just Dial's own thread in 2025.</p>
+
+<p><b>2022&ndash;24 &mdash; the buyback governance debate</b> (examined and reconsidered against primary sources in Section <a href="#flags">11</a>), and a parallel critique of richly-priced minority-stake acquisitions diverting attention from a weakening core.</p>
+
+<p><b>2024&ndash;25 &mdash; growth deceleration becomes the dominant narrative.</b> Jefferies cut its target from &#8377;3,890 to &#8377;2,540 and downgraded to Underperform (October 2024) on muted paid-customer growth; forum members independently tracked net subscriber additions falling to roughly 2,000/quarter against a run-rate the model needs 5,000&ndash;8,000 to sustain. One member flagged, in February 2025, that management itself had admitted on a call it could not identify the root cause of slowing collection growth &mdash; the same admission of uncertainty this report's growth section documents for the AI-disruption question specifically, a pattern rather than a one-off.</p>
+
+<p><b>2026 &mdash; the AI/LLM disruption theme arrives, explicitly and ahead of some of management's own disclosure.</b> A forum member flagged the IndiaMART-vs-OpenAI lawsuit in March 2026 and independently connected it to Silver-tier churn before the July 2026 earnings call made the connection explicit. As of the thread's last post (27 July 2026), the community's own verdict remains open: IndiaMART "needs differentiated value-added services beyond basic search functionality to defend the moat."</p>
+
+<div class="warn">
+  <div class="lbl">The cross-thread finding worth taking seriously</div>
+  <p>The AI-search-disruption question was raised on <b>Just Dial's own ValuePickr thread eight months before it became explicit on IndiaMART's</b> (July 2025 versus March 2026) &mdash; a forum member asked directly whether "AI search disruption" had been priced into Just Dial's growth assumptions, and another conceded a five-year obsolescence scenario was plausible. Retail investors in the adjacent listed name were, in this instance, ahead of both companies' own public disclosure. Separately, one Just Dial thread member made an explicit relative-value call in October 2025 &mdash; "core business trading at 4&times; EV/EBITDA versus IndiaMART's 18&times;" &mdash; framing Just Dial as the deep-value name and IndiaMART as priced for quality within the same category, though without adjusting for Just Dial's post-2022 loss of founder-led governance (Section <a href="#peers">06</a>).</p>
+</div>
+
+<h3>Broker targets referenced in-thread</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">House</th><th class="t">Rating</th><th class="t">Target</th><th class="t">Cited</th></tr></thead>
+<tbody>
+<tr><td class="t">Jefferies</td><td class="t">Underperform</td><td class="num l">&#8377;2,540 <span style="font-size:10px">cut from &#8377;3,890</span></td><td class="t">Oct 2024</td></tr>
+<tr><td class="t">JM Financial / Motilal Oswal</td><td class="t">Buy</td><td class="num g">&#8377;2,750&ndash;2,800</td><td class="t">Mar 2026</td></tr>
+<tr><td class="t">Nomura</td><td class="t">Reduce</td><td class="num l">&#8377;1,975</td><td class="t">Mar 2026</td></tr>
+</tbody>
+</table>
+<caption>Targets as relayed by forum posters, not independently re-verified against each house's primary report. Two fully-worked, assumption-transparent DCF models were also posted on the thread &mdash; one (Feb 2021, Damodaran-style, 15% subscriber growth) implied ~26% upside at the time; one (Feb 2025, 12% growth, 10% WACC) implied a value well below the market price at the time, an implicit bear signal.</caption>
+</div>
+
+<p>Institutional accumulation is visible in the most recent stretch: Nalanda India Equity Fund built a position from a January 2026 bulk-deal entry (~&#8377;2,110/share) to a confirmed <b>7.54% stake</b> by July 2026 &mdash; the single most notable smart-money data point in the thread's final year, and a name several bulls lean on directly.</p>
+</section>
+
+
+<section id="val">
+<h2><span class="num">13</span>Valuation</h2>
+<p class="sec-sub">What the price already assumes &mdash; and, unusually for this pipeline, it assumes something close to permanent stagnation</p>
+
+<div class="hero-row">
+  <div class="stat"><div class="k">Price</div><div class="v">&#8377;1,695</div><div class="n">11 Sep 2026</div></div>
+  <div class="stat"><div class="k">P/E</div><div class="v">20.7&times;</div><div class="n">TTM</div></div>
+  <div class="stat"><div class="k">P/B</div><div class="v">4.24&times;</div><div class="n">BV &#8377;399.6</div></div>
+  <div class="stat"><div class="k">Net cash</div><div class="v">&#8377;3,860 Cr</div><div class="n">38% of market cap</div></div>
+</div>
+
+<h3>The DCF: growth is close to self-funding, which changes the shape of the whole exercise</h3>
+
+<p>Because incremental revenue brings additional float rather than consuming working capital (Section <a href="#wc">05</a>), a DCF on IndiaMART rewards a return to growth far more generously than the equivalent exercise on a capital-intensive business. That makes the choice of growth scenario, not the discount rate, the entire valuation argument here.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Scenario</th><th class="t">Revenue growth (10yr)</th><th class="t">EBITDA margin</th><th class="t">What it assumes</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Severe stress</b></td><td class="t">&minus;5%, &minus;5%, &minus;3%, then 0&ndash;3%</td><td class="t">26% falling to 23%, recovering to 27%</td><td class="t">The AI-disruption risk materialises as a genuine structural impairment: enquiries keep falling, the core business shrinks for three years before stabilising at a lower base</td></tr>
+<tr><td class="t"><b>Bear</b></td><td class="t">Flat 6%</td><td class="t">Flat 28%</td><td class="t">The current stall persists indefinitely &mdash; growth never recovers, but does not reverse either</td></tr>
+<tr><td class="t"><b>Base</b></td><td class="t">Flat 13%</td><td class="t">Flat 32%</td><td class="t">A partial recovery toward historical trend as verification initiatives mature and BUSY scales, well short of management's stated aspiration</td></tr>
+<tr><td class="t"><b>Bull</b></td><td class="t">Flat 20%</td><td class="t">Flat 36%</td><td class="t">A return to something like the growth this company has actually delivered before, with continued margin discipline</td></tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+  <div class="fig-title">Four scenarios against the market price</div>
+  <div class="fig-sub">Value per share, computed via <span style="font-family:var(--mono)">src.modules.equity_research.dcf</span>; 13% WACC (14% in the stress case), 5% terminal growth (4% in the stress case), net cash of &#8377;3,860 Cr added back.</div>
+  <svg viewBox="0 0 720 230" role="img" aria-label="Discounted cash flow valuation scenarios against the current market price"><line class="grid-l" x1="46" y1="186.0" x2="704" y2="186.0"/><text class="ax" x="40" y="189.0" text-anchor="end">0</text><line class="grid-l" x1="46" y1="152.6" x2="704" y2="152.6"/><text class="ax" x="40" y="155.6" text-anchor="end">1200</text><line class="grid-l" x1="46" y1="119.3" x2="704" y2="119.3"/><text class="ax" x="40" y="122.3" text-anchor="end">2400</text><line class="grid-l" x1="46" y1="85.9" x2="704" y2="85.9"/><text class="ax" x="40" y="88.9" text-anchor="end">3600</text><line class="grid-l" x1="46" y1="52.6" x2="704" y2="52.6"/><text class="ax" x="40" y="55.6" text-anchor="end">4800</text><line class="grid-l" x1="46" y1="19.2" x2="704" y2="19.2"/><text class="ax" x="40" y="22.2" text-anchor="end">6000</text><rect x="78.9" y="158.0" width="65.8" height="28.0" rx="4" fill="#d97a5f" opacity="0.85"><title>Severe
+stress: Rs 1,008</title></rect><text class="vlbl" x="111.8" y="151.0" text-anchor="middle" fill="#d97a5f">&#8377;1,008</text><text class="ax" x="111.8" y="200" text-anchor="middle">Severe</text><text class="ax" x="111.8" y="211" text-anchor="middle">stress</text><text class="ax" x="111.8" y="222" text-anchor="middle" fill="#d97a5f">-41%</text><rect x="210.5" y="142.4" width="65.8" height="43.6" rx="4" fill="#d97a5f" opacity="0.85"><title>Bear: Rs 1,567</title></rect><text class="vlbl" x="243.4" y="135.4" text-anchor="middle" fill="#d97a5f">&#8377;1,567</text><text class="ax" x="243.4" y="200" text-anchor="middle">Bear</text><text class="ax" x="243.4" y="222" text-anchor="middle" fill="#d97a5f">-8%</text><rect x="342.1" y="108.3" width="65.8" height="77.7" rx="4" fill="#c9a24b" opacity="0.85"><title>Base: Rs 2,796</title></rect><text class="vlbl" x="375.0" y="101.3" text-anchor="middle" fill="#c9a24b">&#8377;2,796</text><text class="ax" x="375.0" y="200" text-anchor="middle">Base</text><text class="ax" x="375.0" y="222" text-anchor="middle" fill="#8ecbaa">+65%</text><rect x="473.7" y="117.0" width="65.8" height="69.0" rx="4" fill="#c9a24b" opacity="0.45"><title>Weighted: Rs 2,481</title></rect><text class="vlbl" x="506.6" y="110.0" text-anchor="middle" fill="#c9a24b">&#8377;2,481</text><text class="ax" x="506.6" y="200" text-anchor="middle">Weighted</text><text class="ax" x="506.6" y="222" text-anchor="middle" fill="#8ecbaa">+46%</text><rect x="605.3" y="37.1" width="65.8" height="148.9" rx="4" fill="#5fb98a" opacity="0.85"><title>Bull: Rs 5,355</title></rect><text class="vlbl" x="638.2" y="30.1" text-anchor="middle" fill="#5fb98a">&#8377;5,355</text><text class="ax" x="638.2" y="200" text-anchor="middle">Bull</text><text class="ax" x="638.2" y="222" text-anchor="middle" fill="#8ecbaa">+216%</text><line x1="46" y1="138.9" x2="704" y2="138.9" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="131.9" text-anchor="end">market &#8377;1,695</text><line class="zero-l" x1="46" y1="186" x2="704" y2="186"/></svg>
+  <figcaption><b>Why:</b> the bear case &mdash; a permanent continuation of the current stall &mdash; lands almost exactly on the current market price. That is the report's single clearest finding about what the market is pricing in: not a recovery, and not a collapse, but an indefinite freeze at today's depressed growth rate. Even the explicit structural-decline scenario, with three years of outright revenue contraction, still implies roughly &#8377;1,008 &mdash; meaningful downside, but not a wipeout, because the net-cash position alone is worth &#8377;643 per share before the operating business is valued at all. Source: <span style="font-family:var(--mono)">metrics.dcf</span>, base year FY2026 actuals.</figcaption>
+</figure>
+
+<div class="warn">
+  <div class="lbl">The reverse DCF: what &#8377;1,695 actually requires</div>
+  <p>At a 32% EBITDA margin &mdash; below the 35% just delivered &mdash; the current price requires a revenue CAGR of only <b>5.8%</b> for ten years. IndiaMART's own most recent, admittedly depressed, growth rate is <b>8&ndash;11%</b>. Put differently: <b>the market is not pricing in a recovery of the growth engine at all &mdash; it is pricing in something below the company's current, already-weak trajectory.</b> Separately, holding growth at just 10%, the required EBITDA margin is only <b>16.5%</b>, roughly half the 30&ndash;35% margin the business has actually been running. Both tests point the same direction: this is not a stock priced for the AI-disruption risk to resolve well. It is priced for that risk, or something like it, to already be a permanent feature of the business.</p>
+</div>
+
+<h3>A probability-weighted view</h3>
+
+<p>Weighting the four scenarios 15% (severe stress) / 35% (bear) / 35% (base) / 15% (bull) &mdash; deliberately putting more weight on the two downside cases than a typical coffee-can name would warrant, given the AI-disruption question is genuinely unresolved rather than merely cyclical &mdash; produces a probability-weighted value of roughly <b>&#8377;2,481</b>, about 46% above the current price. Even a reader who is materially more pessimistic than this weighting &mdash; say, 30% severe stress / 40% bear / 20% base / 10% bull &mdash; still arrives at roughly <b>&#8377;1,750</b>, essentially at the current price rather than meaningfully below it. It is genuinely difficult to construct a defensible scenario mix, using this business's own historical range of outcomes, that makes the current price look expensive.</p>
+
+<h3>The exit-multiple cross-check</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">PAT CAGR to FY2031</th><th class="num">FY2031 PAT</th><th class="num">Exit 15&times;</th><th class="num">Exit 20&times;</th><th class="num">Exit 25&times;</th></tr></thead>
+<tbody>
+<tr><td class="t">8% <span style="font-size:10px">(current trajectory)</span></td><td class="num">&#8377;697 Cr</td><td class="num l">+0.5%/yr</td><td class="num">+6.5%/yr</td><td class="num g">+11.4%/yr</td></tr>
+<tr><td class="t">12% <span style="font-size:10px">(base-case-like)</span></td><td class="num">&#8377;837 Cr</td><td class="num">+4.7%/yr</td><td class="num g">+10.4%/yr</td><td class="num g">+15.6%/yr</td></tr>
+<tr><td class="t">18% <span style="font-size:10px">(bull-case-like)</span></td><td class="num">&#8377;1,086 Cr</td><td class="num g">+9.9%/yr</td><td class="num g">+16.4%/yr</td><td class="num g">+21.9%/yr</td></tr>
+</tbody>
+</table>
+<caption>Five-year annualised return from &#8377;1,695, excluding dividends. FY2026 base PAT &#8377;475 Cr; current multiple 20.7&times;. Holding today's own multiple (20&ndash;21&times;) and merely matching the company's currently depressed 8% growth rate already returns mid-single digits a year before dividends; the current dividend yield alone (&#8377;60/share FY26 on &#8377;1,695) adds a further ~3.5 percentage points.</caption>
+</div>
+
+<p>Both frames agree in direction, which is the point of running both: a DCF built on this business's own genuinely favourable working-capital dynamics, and a simple exit-multiple frame that assumes nothing about capital structure at all, both conclude that the current price does not require the AI-disruption risk to resolve favourably. It requires, at most, that the core business not deteriorate meaningfully further than it already has &mdash; a considerably lower bar than the "quality expansion" bet most reverse DCFs on this pipeline have had to make.</p>
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">14</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">A clean, cash-generative business facing a real and current threat to its core mechanism &mdash; priced, unusually, as though the threat has already partly won</p>
+
+<h3>What we are confident about</h3>
+
+<p><b>The business as it has existed to date is genuinely good.</b> Nine of nine scored coffee-can years pass both the revenue-growth and ROCE gates. Cumulative operating cash flow is 1.59&times; cumulative profit, ahead of both listed comparables on a like-for-like basis. The company carries essentially no debt, needs no credit rating, and runs a related-party record that an independent, primary-source audit scores 1 out of 3 across all eight years available. It is still run by its own founders, with stable, undiluted promoter holding &mdash; a genuine point of difference from Justdial, now Reliance-controlled. Negative working capital of roughly &minus;125% to &minus;134% of sales means growth has historically been close to self-funding, a structural advantage almost nothing else on this pipeline shares.</p>
+
+<p><b>The market's headline return ratios overstate the core business, and this report has tried to correct for that rather than just note it.</b> Reported ROCE of 26.9% becomes 18.4% once treasury/other income is stripped from the numerator &mdash; still a clean pass of the 15% gate, but a meaningfully different number, and one that both listed comparables share to an even greater degree. That correction, and the parallel correction to the default cash-gate calculation (which mistook treasury purchases for capex and produced a false negative decade capex figure of &#8377;3,512 Cr against a real figure of &#8377;183 Cr), are this report's own contributions rather than a repetition of the headline numbers.</p>
+
+<h3>What we are confident is unresolved, not settled either way</h3>
+
+<p>The paying-supplier base is shrinking. Unique business enquiries fell 11% year-on-year last quarter. Management's own explanation accounts for less than half of that decline with any confidence, and the residual candidate causes &mdash; its own verification changes, AI/LLM traffic migration, even, in the CEO's own words, "war and U.S. tension" &mdash; span from mundane to essentially unfalsifiable. The company is simultaneously suing OpenAI over the exact mechanism (AI answer engines bypassing classifieds sites entirely) that its own CEO told analysts, three weeks before losing that lawsuit's interim round, posed "no B2B threat." That sequence is scored in Section <a href="#mgmt">09</a> as a genuine credibility lapse, independent of how the underlying technology risk eventually plays out.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">The claim</th><th class="t">The record</th></tr></thead>
+<tbody>
+<tr><td class="t">"No B2B threat" from AI/LLMs</td><td class="t">Said 30 April 2026, three weeks before losing the OpenAI lawsuit's interim round, eleven weeks before conceding LLM migration as a plausible cause of an 11% enquiry decline</td></tr>
+<tr><td class="t">Margin expansion signals a stronger, more efficient business</td><td class="t">Decomposed: the gain is genuinely operational (EBITDA margin, not treasury income, drove it), but management's own explanation is reduced customer-acquisition spend during a growth stall &mdash; efficiency and harvesting look identical from the outside for a year or two</td></tr>
+<tr><td class="t">Churn-containment initiatives (OTP, GST, bank verification) are working</td><td class="t">Silver-tier monthly churn quoted at 7% one quarter, confirmed unchanged the next: "nothing has changed"</td></tr>
+<tr><td class="t">Long-standing 20&ndash;25%+ growth aspiration</td><td class="t">FY2027 YTD collections growth 8%; CEO has himself conceded 30% "sounds little difficult" even as the stated long-term aspiration crept up to "33%" in the same period</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Why the price does not require you to resolve the uncertainty in the bull direction</h3>
+
+<p>A reverse DCF at &#8377;1,695 requires only a <b>5.8% ten-year revenue CAGR</b> at a 32% EBITDA margin &mdash; below IndiaMART's own currently depressed 8&ndash;11% growth rate. Modelling the bear case explicitly &mdash; a permanent continuation of today's stall, no recovery, no further deterioration &mdash; produces a value almost exactly at the current market price. Even an explicit, severe structural-decline scenario, with three years of outright revenue contraction, still implies roughly <b>&#8377;1,008</b> &mdash; real downside, but bounded, because net cash alone (&#8377;3,860 Cr, roughly &#8377;643 per share) is worth 38% of the current market capitalisation before the operating business is valued at anything. A return to anything resembling this company's own historical growth implies &#8377;2,800&ndash;5,400.</p>
+
+<div class="warn">
+  <div class="lbl">Position</div>
+  <p><b>Good business, unresolved risk, a price that already leans bearish.</b> This is a different shape of mispricing than the usual "quality priced for perfection" case on this pipeline: the market appears to be pricing in a continuation of the current stall indefinitely, not a recovery. That makes the asymmetry favourable &mdash; probability-weighted value of roughly &#8377;2,481 against a downside case of &#8377;1,008&ndash;1,567 &mdash; provided a reader is comfortable holding a position whose central open question (does generative AI structurally impair a classifieds business's core discovery mechanism) will not be answered by anything in this report, or by any single future quarter either.</p>
+  <p>An investor who needs the AI-disruption question resolved before committing capital should wait; the evidence to resolve it will arrive gradually, not in a single data point. An investor comfortable underwriting a genuinely clean, founder-led, cash-generative business through a period of real uncertainty is being offered a price that does not require the uncertainty to break in their favour.</p>
+</div>
+
+<h3>What would change our mind &mdash; specific, dated, monitorable</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Trigger</th><th class="t">Threshold</th><th class="t">Where to check</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>1. Unique business enquiries stabilise or recover</b></td><td class="t">Flat or positive YoY for two consecutive quarters, once the OTP-verification transition fully laps (roughly Q3 FY27 onward)</td><td class="t">Quarterly earnings presentation</td></tr>
+<tr><td class="t"><b>2. A peer discloses a comparable AI-traffic effect</b></td><td class="t">Just Dial or any other Indian classifieds name makes an equivalent disclosure, confirming a category-wide rather than company-specific effect</td><td class="t">Peer earnings calls</td></tr>
+<tr><td class="t"><b>3. The OpenAI litigation reaches a final, non-interim outcome</b></td><td class="t">Either direction resolves genuine uncertainty about the legal exposure of AI answer engines to classifieds platforms</td><td class="t">Calcutta High Court docket</td></tr>
+<tr><td class="t"><b>4. Silver-tier churn actually improves</b></td><td class="t">Monthly churn below 6%, sustained for two quarters, from the current 7%</td><td class="t">Quarterly calls</td></tr>
+<tr><td class="t"><b>5. Paying-supplier count returns to net growth</b></td><td class="t">A quarter of positive net addition, reversing the current decline</td><td class="t">Quarterly earnings presentation</td></tr>
+<tr><td class="t"><b>6. BUSY scales enough to matter at the consolidated level</b></td><td class="t">BUSY revenue exceeding 15% of consolidated revenue, from roughly 9% now</td><td class="t">Segment disclosure</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The one-paragraph version</h3>
+
+<p>IndiaMART is a founder-led, debt-free, cash-generative classifieds business with a genuinely clean governance record and a return on capital that remains good even after correcting for the treasury income that inflates its headline numbers. Its core growth engine has stalled for reasons management cannot fully explain, and the explanation it offered most confidently &mdash; that generative AI poses no threat &mdash; was contradicted by its own concurrent lawsuit against OpenAI and abandoned within three months. That is a real, current, unresolved risk to the business model, not a solved problem. What makes this report's conclusion different from most others in this series is that the price does not require the risk to resolve well: a reverse DCF, a probability-weighted scenario range, and a simple exit-multiple frame all agree that today's &#8377;1,695 already assumes something close to the worst case that has actually played out so far, and a meaningfully better outcome is not the bet being asked of a buyer at this price &mdash; it is the free option.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">15</span>Data gaps and provenance</h2>
+<p class="sec-sub">What this report is built on, and what it could not see</p>
+
+<p>Every analysis has holes. Most reports hide them. Ours are listed here because a reader making a capital-allocation decision is entitled to know which conclusions rest on primary evidence and which rest on inference.</p>
+
+<h3>What was actually read</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Source</th><th class="t">Coverage</th><th class="t">Status</th></tr></thead>
+<tbody>
+<tr><td class="t">Earnings call transcripts</td><td class="t">18 consecutive quarters, Q4 FY22 &rarr; Q1 FY27 (May 2022 &ndash; Jul 2026), zero gaps</td><td class="t">Read in full and by targeted search across the whole set</td></tr>
+<tr><td class="t">Annual reports</td><td class="t">FY2019&ndash;FY2026, all 8 full-size, no stub years</td><td class="t">Mined by targeted search; see the table-loss caveat below</td></tr>
+<tr><td class="t">Related-party audit</td><td class="t">FY2019&ndash;FY2026, all 8 years</td><td class="t">Existing audit, re-downloaded and read source PDFs directly (bypassing this pipeline's own table-stripping defect), score 1/3 "Watch"</td></tr>
+<tr><td class="t">Financial data</td><td class="t">FY2017&ndash;FY2026 consolidated, Screener basis</td><td class="t">From this pipeline's <span style="font-family:var(--mono)">xbrl_annual</span> and <span style="font-family:var(--mono)">computed_metrics</span>; FY2017&ndash;19 operating-profit data genuinely absent, not zero</td></tr>
+<tr><td class="t">Peer financials (Justdial, Info Edge)</td><td class="t">Multi-year P&amp;L, balance sheet, cash flow, shareholding</td><td class="t">Public Screener pages via WebFetch (no authenticated access in this sandbox), cross-checked with web search for corporate actions</td></tr>
+<tr><td class="t">Unlisted competitors (TradeIndia, ExportersIndia, Udaan)</td><td class="t">Business model, funding, reviews, recent news</td><td class="t">No financial statements exist; qualitative research only, per explicit direction</td></tr>
+<tr><td class="t">ValuePickr forum</td><td class="t">467-post IndiaMART thread read across its full 2019&ndash;2026 arc; Just Dial and Info Edge threads read more lightly for comparison</td><td class="t">Sampled read of ~24 pages (dense coverage of the opening arc, 2021 euphoria, 2022 buyback debate, and the full final two pages); not exhaustive</td></tr>
+<tr><td class="t">Company news</td><td class="t">Acquisitions, capital allocation, litigation, management changes, 2024&ndash;2026</td><td class="t">Filtered search; see the litigation cluster in Section <a href="#flags">11</a></td></tr>
+<tr><td class="t">Industry brief and AI-disruption research</td><td class="t">MSME demand data, ONDC, and the AI/LLM traffic-migration question</td><td class="t">Primary government sources for demand data; news, litigation filings and global peer disclosures for the AI-disruption section</td></tr>
+<tr><td class="t">Price and market data</td><td class="t">12 September 2026</td><td class="t">Refreshed this run &mdash; the cached price was 10 days stale; confirmed &#8377;1,695 via Screener's public page</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Gap 1 &mdash; every annual-report table was stripped by this pipeline's own PDF conversion</h3>
+
+<div class="warn">
+  <div class="lbl">The same defect documented on every report this pipeline has produced</div>
+  <p>All 8 annual report markdown files show zero table rows &mdash; a systemic PDF-to-markdown conversion bug, not a company-specific limitation. The consequence is smaller here than on a capital-intensive contractor's report, precisely because IndiaMART's related-party audit worked around it by re-downloading and reading the source PDFs directly rather than using this pipeline's own transformed output. Where this report still could not go: precise associate-investment carrying values, a detailed contingent-liabilities schedule, and the full FY25&ndash;26 dividend-tranche timeline (interim versus final/special), none of which were needed for this report's central findings but would sharpen the capital-allocation section on a future refresh.</p>
+</div>
+
+<h3>Gap 2 &mdash; pre-listing financial data is genuinely thin, not company-withheld</h3>
+<p>Operating-profit-line data is <b>absent</b>, not zero, in the database for FY2017&ndash;FY2019 &mdash; confirmed by querying the raw table directly rather than trusting the module's coerced-to-zero output. Every trend claim in this report starts from FY2020. The coffee-can scoring already reflects this by scoring 9 periods rather than 10.</p>
+
+<h3>Gap 3 &mdash; the default cash-gate calculation needed a manual correction, and this is a standing caution, not just a one-off fix</h3>
+<p>The CFI-derived capex proxy this pipeline's <span style="font-family:var(--mono)">cash_gates()</span> function uses by default returned a cumulative decade capex of &#8377;3,512 Cr for IndiaMART &mdash; wrong by roughly 19&times;, because the function cannot distinguish treasury-investment purchases from fixed-asset capex, and IndiaMART's investing cash flow is dominated by the former. Corrected against real net-block movements (with the FY2023 BUSY acquisition, ~&#8377;528 Cr of the jump, excluded as M&amp;A rather than organic capex): real decade capex is ~&#8377;183 Cr, and the harder cash-gate test is <b>+&#8377;3,546 Cr</b>, not the false alarm the default calculation implies. <b>Any future company run through this module with a large treasury book relative to its fixed-asset base will show the same distortion</b> unless a <span style="font-family:var(--mono)">capex_override</span> is supplied.</p>
+
+<h3>Gap 4 &mdash; no authenticated Screener access</h3>
+<p>The credentialed login-and-export path is not configured in this sandbox. Peer financials for Justdial and Info Edge were pulled via WebFetch against Screener's public pages instead, which gives P&amp;L, balance-sheet-summary and shareholding history but not a clean cash-versus-investments split (both peers' compact public balance sheet likely understates true treasury size slightly, since some cash sits inside a residual "Other Assets" line). Justdial's FY2013 row is missing from Screener's public table entirely.</p>
+
+<h3>Gap 5 &mdash; two forum-sourced governance claims, one still partially unresolved</h3>
+<p>ValuePickr's claim that 42.12% of a 2022 buyback's proceeds went to the promoter families was checked against the primary board-approval filing this run, which confirms the buyback's proportionate tender-offer structure but <b>does not itself contain the final per-category acceptance table</b> that would settle the exact figure. The 2021 CEO FIR was independently confirmed as real via contemporaneous press coverage. Two smaller forum claims &mdash; a ~40,000-record data breach (June 2020) and a failed EGM webcast (February 2021) &mdash; were not independently checked this run.</p>
+
+<h3>Gap 6 &mdash; the AI/LLM disruption research is the most time-sensitive material in this report</h3>
+<p>Everything in Section <a href="#growth">07</a> on this topic postdates December 2025 and is genuinely still moving. No Indian peer has yet made a comparable disclosure to IndiaMART's own; the global comparables used (Angi, Yelp v. Google) are directly on-point but not India- or B2B-specific. <b>This section should be treated as current-as-of-September-2026, not evergreen, and re-checked at the next refresh regardless of how little else has changed.</b></p>
+
+<h3>Gap 7 &mdash; no credit rating coverage, and this is not a gap in the ordinary sense</h3>
+<p>No credit rating agency covers IndiaMART. Given &#8377;23 Cr of borrowings against &#8377;3,553 Cr of cash and treasury, this reflects the absence of any debt obligation requiring a rating, not a disclosure failure or a data-pipeline limitation.</p>
+
+<h3>What would settle the open questions</h3>
+<ol>
+<li>Track unique business enquiries and paying-supplier count through at least Q3 FY27, once the OTP-verification transition has fully lapped, to isolate the residual AI-attributable decline from the deliberate quality-filtering effect.</li>
+<li>Track the Calcutta High Court's OpenAI matter, the CDSCO prosecution's April 2026 hearing, and the TRAI Regulation 25 challenge's March 2026 hearing for outcomes &mdash; all open as of this report.</li>
+<li>Locate the actual buyback outcome filing (not the board-approval filing found this run) to settle the exact promoter-participation percentage precisely.</li>
+<li>Configure authenticated Screener access so peer financials come from the export path rather than public-page summaries.</li>
+<li>Watch for any Indian classifieds peer &mdash; Just Dial specifically &mdash; making a comparable AI-traffic disclosure, which would confirm a category-wide rather than company-specific effect.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> IndiaMART InterMESH Ltd (NSE: INDIAMART, BSE: 542726, ISIN INE933S01016). Prepared 12 September 2026 against a share price of &#8377;1,695.</p>
+  <p>Built from this pipeline's own indexed corpus: 18 consecutive quarterly earnings call transcripts (Q4 FY22 &ndash; Q1 FY27), 8 complete annual reports (FY2019&ndash;FY2026), an existing related-party audit read from primary source PDFs, consolidated financials FY2017&ndash;FY2026, two listed comparables' public financials, three named unlisted competitors' qualitative intelligence, a 467-post ValuePickr thread read across its full arc, and primary-sourced litigation and industry research. Every numeric claim cites a fiscal year; every quotation cites a document and date. Limitations are stated in full in Section 15.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. Do your own work, and note in particular the data gaps in the final section &mdash; the central question this report raises about AI-driven disruption to the business model is explicitly unresolved. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
