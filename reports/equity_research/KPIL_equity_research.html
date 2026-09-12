@@ -1,0 +1,1133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kalpataru Projects International — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Kalpataru Projects International (KPIL): margin durability, working capital, growth outlook, management credibility scorecard and DCF valuation.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Equity Research &middot; Coffee Can Screener</span>
+  <h1>Kalpataru Projects International</h1>
+  <p class="subtitle">A genuinely good EPC business, priced as though its margins were about to become something they have not been in five years.</p>
+  <p class="meta">
+    NSE <b>KPIL</b> &middot; BSE <b>522287</b> &middot; ISIN <b>INE220B01022</b> &middot; Industrials / Civil Construction &middot; Consolidated basis<br>
+    Price <b>&#8377;1,436</b> &middot; Market cap <b>&#8377;24,523 Cr</b> &middot; P/E <b>22.1&times;</b> &middot; P/B <b>3.16&times;</b> &middot; As of <b>12 September 2026</b> &middot; Revision 2
+  </p>
+</header>
+
+<div class="verdict">
+  <div class="verdict-label">Verdict</div>
+  <p class="verdict-head">Quality: confirmed, with one new qualification. Price: still not defensible on the numbers the company actually produces.</p>
+  <p>KPIL clears the coffee-can gates honestly. Revenue compounded <b>15.5% a year for nine years</b>, ROCE cleared 15% in <b>every one of the nine scored years</b>, and cumulative operating cash flow was <b>1.76&times;</b> cumulative profit, cash exceeding profit in all ten years on record. Against the twelve listed peers we could verify this run, nothing converts profit into cash as reliably &mdash; KEC International, its closest competitor, manages 0.49&times; over the same kind of window.</p>
+  <p>The qualification: run properly against a fuller peer set, KPIL's margin fell <b>more than the peer median</b> in FY2022, the sector's own commodity-shock stress year (&minus;3.4 percentage points against a &minus;2.0pp median). The earlier finding that the sector-wide margin decline exonerates management still holds over the full nine-year window &mdash; but in the one year that tested resilience directly, KPIL was below average, not above it. That is a genuine complication, not a footnote.</p>
+  <p>The valuation math has also moved, on new information. Using management's own disclosed FY2026 capex (&#8377;917 Cr) rather than the cash-flow-statement proxy &mdash; which reads zero that year because the Vindhyachal disposal made investing activity cash-positive &mdash; the decade's <b>self-funding gap widens to &minus;&#8377;1,823 Cr</b> after interest, from the &minus;&#8377;906 Cr shown previously. And FY2027 guidance has been cut to 15% growth with Q1 printing only +9%, which lowers what a reasonable base case can assume. A reverse DCF at &#8377;1,436 now requires a sustained <b>11.5% EBITDA margin</b> for a decade against a 9.0% five-year average. Base case <b>&#8377;984</b>, probability-weighted <b>&#8377;993</b>. <b>Good business, wrong price &mdash; revisit below roughly &#8377;1,000.</b></p>
+</div>
+
+<div class="key">
+  <div class="lbl">What changed since the first version of this report</div>
+  <p><b>Resolved:</b> the Linjemontage (Swedish subsidiary) fundraise, flagged last time as five straight quarters of management silence, is now a real event &mdash; a Nasdaq Stockholm IPO valuing it at SEK 2,350m, confirmed via Sweden's own regulatory newswire, expected to complete by end September 2026. <b>Added:</b> two peers not in the original comparison, Bajel Projects and Patel Engineering, the first surfaced externally as a named direct competitor. <b>Corrected:</b> the cash-gate and DCF figures now use disclosed capex rather than a cash-flow-statement proxy that understated a disposal year; growth assumptions trimmed to reflect the FY2027 guidance cut and a weak Q1 print. <b>New finding:</b> the stress-year resilience test, run against the fuller peer set, is less flattering than the headline industry-wide framing alone.</p>
+</div>
+
+<div class="hero-row">
+  <div class="stat"><div class="k">Coffee-can tier</div><div class="v" style="color:#8ac9a8">Dirty 9iner</div><div class="n">Growth 8/9 &middot; ROCE 9/9</div></div>
+  <div class="stat"><div class="k">CFO / PAT (10 yr)</div><div class="v" style="color:var(--gain)">1.76&times;</div><div class="n">10 of 10 years above 1.0</div></div>
+  <div class="stat"><div class="k">EBITDA margin FY26</div><div class="v" style="color:var(--loss)">8.96%</div><div class="n">5-yr average 9.04%</div></div>
+  <div class="stat"><div class="k">Base-case value</div><div class="v">&#8377;984</div><div class="n">31% below market</div></div>
+</div>
+
+<div class="toc">
+  <div class="toc-l">Contents</div>
+  <ol>
+    <li><a href="#business">The business, and where the money is made</a></li>
+    <li><a href="#malik">Vijay Malik&rsquo;s construction framework, applied</a></li>
+    <li><a href="#record">The ten-year record</a></li>
+    <li><a href="#margin">Margins: can KPIL hold them, and pass costs on?</a></li>
+    <li><a href="#wc">Working capital: the industry&rsquo;s problem, and KPIL&rsquo;s answer</a></li>
+    <li><a href="#peers">How KPIL compares with its real peers</a></li>
+    <li><a href="#growth">Growth outlook</a></li>
+    <li><a href="#analysts">What institutional investors keep asking</a></li>
+    <li><a href="#mgmt">Management scorecard: promises against outcomes</a></li>
+    <li><a href="#credit">What the credit rating agencies see</a></li>
+    <li><a href="#capital">Capital allocation and the balance sheet</a></li>
+    <li><a href="#flags">Red flags and governance</a></li>
+    <li><a href="#sentiment">What other investors think</a></li>
+    <li><a href="#val">Valuation</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business, and where the money is made</h2>
+<p class="sec-sub">What you are actually buying</p>
+
+<p>Kalpataru Projects International is an engineering-procurement-construction contractor — it builds infrastructure to order, on other people's balance sheets. It is the merged entity of <b>Kalpataru Power Transmission</b> (power transmission towers and lines, with its own tower-manufacturing plants) and <b>JMC Projects</b> (buildings and factories, water, urban infrastructure), amalgamated in FY2022&ndash;23. The promoter is the Munot family, who separately control <b>Kalpataru Limited</b>, an unrelated listed real-estate developer — a distinction that matters for governance and is dealt with in Section <a href="#flags">12</a>.</p>
+
+<p>Six businesses carry the revenue. Ranked by what management says each earns at the EBITDA line as of the most recent call:</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Segment</th><th class="t">What it does</th><th>FY26 growth</th><th>EBITDA band</th><th class="t">Structural read</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Transmission &amp; Distribution</b></td><td class="t">Towers, lines, substations; ~60% international. Owns tower plants (~240,000 t capacity)</td><td class="num">+25%</td><td class="num g">10&ndash;12%</td><td class="t">The franchise. International T&amp;D earns double digits at 35&ndash;40% ROCE</td></tr>
+<tr><td class="t"><b>Buildings &amp; Factories</b></td><td class="t">Commercial, residential, industrial; ~half now design-build</td><td class="num">+19%</td><td class="num g">10&ndash;12%</td><td class="t">Largest order book (&#8377;18,295 Cr). Design-build shift is margin-accretive</td></tr>
+<tr><td class="t"><b>Oil &amp; Gas pipelines</b></td><td class="t">Cross-country pipelines; Aramco is the anchor client</td><td class="num">+55%</td><td class="num g">10&ndash;11%</td><td class="t">Best ROCE — minimal retention, free-issue pipe. Order timing is erratic</td></tr>
+<tr><td class="t"><b>Urban Infrastructure</b></td><td class="t">Metros, tunnelling (6 TBMs), airports, flyovers</td><td class="num">+49%</td><td class="num l">high single</td><td class="t">Growing fast, earning least. Orders were not taken at double-digit margins</td></tr>
+<tr><td class="t"><b>Water</b></td><td class="t">Jal Jeevan Mission pipelines and treatment; &gt;75% JJM</td><td class="num na">&#8377;2,112 Cr</td><td class="num l">~breakeven</td><td class="t">The problem child. Good EBITDA, destroyed at PBT by interest on unpaid bills</td></tr>
+<tr><td class="t"><b>Railways</b></td><td class="t">Electrification, track</td><td class="num">+9%</td><td class="num l">5&ndash;6%</td><td class="t">Structurally impaired — 20+ bidders, decentralised tendering. Being run down</td></tr>
+</tbody>
+</table>
+<caption>Source: segment growth from FY2026 results commentary (Q4 FY26 call, May 2026); EBITDA bands are management's stated ranges on the Q4 FY26 and Q1 FY27 calls. KPIL does not disclose audited segment margins as a matter of policy — see Section <a href="#gaps">16</a>.</caption>
+</div>
+
+<h3>Is there a moat?</h3>
+<p>Partially, and Section <a href="#malik">02</a> tests the claim rather than asserting it. EPC is structurally a poor industry to begin with: work is won by competitive tender, the contractor carries execution risk on a fixed price, and the client is frequently a government body that pays late. KPIL's genuine advantages are three, and all three are narrow:</p>
+<ul>
+<li><b>Backward integration in towers.</b> It manufactures its own transmission towers at Raipur and Gandhinagar, and announced a new rolling mill at Raipur on the Q1 FY27 call — a direct response to the finding in Section <a href="#peers">06</a> that margin in this sector has been migrating to manufacturers, not contractors.</li>
+<li><b>International qualification.</b> Roughly 40% of the order book is overseas, and the Swedish subsidiary, <b>Linjemontage (LMG)</b>, is itself now IPO-bound on Nasdaq Stockholm at a standalone valuation of roughly &#8377;2,300 Cr — the first genuinely independent market valuation of any piece of KPIL's international business (Section <a href="#mgmt">09</a>).</li>
+<li><b>Diversification as shock absorber.</b> Six segments across two dozen countries means a single-market collapse is survivable, as FY2025's Water shortfall demonstrated — the group still grew 14% that year.</li>
+</ul>
+
+<p>What KPIL does <b>not</b> have is pricing power. Asked directly whether Indian transmission contracts allow commodity cost pass-through, Manish Mohnot, MD &amp; CEO, answered on the Q3 FY26 call (February 2026):</p>
+
+<blockquote>
+<p>&ldquo;I think majority of our transmission projects are fixed price projects, and we have to load the expected increase in cost at a tender level itself.&rdquo;</p>
+<p class="attr">Manish Mohnot, MD &amp; CEO — Q3 FY26 earnings call, February 2026</p>
+</blockquote>
+
+<p>That single sentence governs the whole margin analysis in Section <a href="#margin">04</a>. KPIL does not pass costs to customers after the fact. It forecasts them before bidding, and then hedges.</p>
+</section>
+
+
+<section id="malik">
+<h2><span class="num">02</span>Vijay Malik&rsquo;s construction framework, applied</h2>
+<p class="sec-sub">His tests, run on KPIL, scored honestly — including the one that got harder this run</p>
+
+<p>Dr Vijay Malik's central claim about this sector is that the ordinary toolkit does not work on it. Construction financials are an average taken across a portfolio of individually-risked fixed-price contracts; revenue is recognised on percentage-of-completion, so the reported margin is management's own estimate of project cost; and the counterparty is frequently a government body whose payment cycle has nothing to do with when the work was done. His framework substitutes a specific set of tests for the usual ones. We ran all of them, and re-ran the two that depend on the peer set now that it is fuller.</p>
+
+<div class="key">
+  <div class="lbl">A note on sourcing</div>
+  <p>Every page on <span style="font-family:var(--mono)">drvijaymalik.com</span> is behind a Cloudflare challenge that has now blocked two separate live-crawl attempts from this environment. His framework below is described rather than quoted, reconstructed from search-index results and persisted as a graded corpus (<span style="font-family:var(--mono)">research/malik/</span>) rather than reconstructed fresh each time. A reader for whom his exact wording is load-bearing should consult the originals.</p>
+</div>
+
+<h3>The scorecard</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Malik's test</th><th class="t">What he looks for</th><th class="t">KPIL</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Cumulative CFO vs cumulative PAT</b></td><td class="t">cCFO should at least equal cPAT</td><td class="t">&#8377;8,981 Cr CFO against &#8377;5,111 Cr PAT = <b>1.76&times;</b>, cash above profit in all ten years</td><td><span class="pill p-kept">Pass</span></td></tr>
+<tr><td class="t"><b>Free cash flow</b></td><td class="t">CFO &minus; capex should be positive</td><td class="t">Positive on the CFI-derived proxy; see the harder test below</td><td><span class="pill p-kept">Pass</span></td></tr>
+<tr class="hl"><td class="t"><b>The harder cash test</b><br><span style="font-size:11px;color:var(--faint)">CFO &minus; capex &minus; interest, using disclosed capex</span></td><td class="t">Positive, else growth was externally funded</td><td class="t"><b>&minus;&#8377;1,823 Cr</b> over the decade once FY2026's disclosed &#8377;917 Cr capex replaces the cash-flow-statement proxy (which reads zero that year — the Vindhyachal disposal made investing activity cash-positive). Add &#8377;1,000 Cr of dividends and the gap is <b>&minus;&#8377;2,823 Cr</b></td><td><span class="pill p-broke">Fail</span></td></tr>
+<tr><td class="t"><b>Asset turnover as a subcontracting tell</b></td><td class="t">Rising NFAT with flat/falling OPM means growth via subcontracting</td><td class="t">NFAT <b>2.30&times; &rarr; 8.45&times;</b> (FY2018&ndash;26) while EBITDA margin went <b>12.63% &rarr; 8.96%</b></td><td><span class="pill p-broke">Textbook</span></td></tr>
+<tr><td class="t"><b>Total outside liabilities, not debt/equity</b></td><td class="t">ICRA-style TOL/TNW</td><td class="t">TOL/TNW <b>2.56&times;</b> against a headline net D/E of <b>0.46&times;</b></td><td><span class="pill p-slip">Watch</span></td></tr>
+<tr><td class="t"><b>Order book to sales</b></td><td class="t">1.5&ndash;2.0&times; is the DBRS Morningstar norm</td><td class="t"><b>2.98&times; (FY24) &rarr; 2.41&times; (FY26)</b>. Above the band, falling — revenue growing faster than the book</td><td><span class="pill p-slip">Above band</span></td></tr>
+<tr><td class="t"><b>Unbilled revenue trend</b></td><td class="t">Continuous increase signals aggressive revenue recognition</td><td class="t">Contract-asset conversion grew <b>162% against 62% revenue</b> FY2023&ndash;26 — but FY2026's step was <b>+2% against +23%</b> revenue. Trend arrested</td><td><span class="pill p-slip">Was failing</span></td></tr>
+<tr><td class="t"><b>Working capital, gross vs net</b></td><td class="t">Rising receivables signal stuck projects or weak customers</td><td class="t">Net cycle improved 99 &rarr; 75 days; CRISIL's gross receivables measure went 257 &rarr; 264 days — the worst reading most recent</td><td><span class="pill p-slip">Mixed</span></td></tr>
+<tr class="hl"><td class="t"><b>Resilience in a stress year</b><br><span style="font-size:11px;color:var(--faint)">not one of his named tests, but the operational form of his cyclicality warning</span></td><td class="t">Give up less than peers when the industry turns</td><td class="t">FY2022 commodity shock: KPIL's margin fell <b>&minus;3.4pp</b>, worse than the <b>&minus;2.0pp peer median</b> across 12 comparables</td><td><span class="pill p-broke">Below median</span></td></tr>
+<tr><td class="t"><b>Mobilisation advances are debt; cash may be restricted</b></td><td class="t">A large cash balance can be illusory</td><td class="t">CARE counts advances as debt for KPIL. Management admits drawing full bank limits at quarter-end and parking the proceeds</td><td><span class="pill p-broke">Flag</span></td></tr>
+<tr><td class="t"><b>The pledge diagnostic</b></td><td class="t">Does the pledge secure company debt, or the promoter's personal debt?</td><td class="t">CARE: promoter entities <b>pledged KPIL shares to raise debt at separate real-estate businesses</b> — his adverse category. Pledge itself fell 51.8% &rarr; 24.6% of holding</td><td><span class="pill p-broke">Adverse category</span></td></tr>
+<tr><td class="t"><b>The trinity</b></td><td class="t">Rising sales + receivables + debt together</td><td class="t">FY2024&ndash;26: sales <b>+38%</b>, receivables <b>+45%</b>, borrowings <b>&minus;12%</b>. Debt fell outright</td><td><span class="pill p-kept">Does not trigger</span></td></tr>
+<tr><td class="t"><b>Bid success ratio</b></td><td class="t">Orders won &divide; orders bid</td><td class="t"><b>Not disclosed.</b> Never published, never requested by an analyst</td><td><span class="pill p-open">Cannot test</span></td></tr>
+</tbody>
+</table>
+<caption>Twelve testable items: 3 clear passes, 5 watch/mixed, 4 fails, 1 untestable. Figures from <span style="font-family:var(--mono)">src.modules.equity_research</span> run against <span style="font-family:var(--mono)">xbrl_annual</span> FY2017&ndash;26, CRISIL/CARE rating reports, and 12 peers' Screener data (<span style="font-family:var(--mono)">research/INE220B01022/peers.json</span>).</caption>
+</div>
+
+<h3>The resilience finding is new this run, and it complicates the industry-wide framing</h3>
+
+<p>Section <a href="#peers">06</a> establishes, correctly, that KPIL's nine-year margin decline (13.05% &rarr; 8.96%) is not an outlier — most large Indian EPC contractors lost similar ground over the same window. That remains true and it remains the right frame for judging management's execution over the cycle as a whole.</p>
+
+<p>But "the whole industry suffered together" and "this company held up better than the industry" are different claims, and only the first survives a properly run test. We took the sector's own defined stress year — FY2022, the post-COVID commodity spike that hit every fixed-price EPC contract simultaneously — and compared KPIL's margin drop against the <i>median</i> drop across all twelve comparable peers with FY2021&ndash;22 data. <b>KPIL fell 3.4 percentage points; the peer median fell 2.0.</b> Patel Engineering and Advait Energy actually <i>improved</i> margin that year (+4pp and +6pp respectively); KPIL was closer to the worst-hit end (Techno Electric, &minus;8pp) than the best.</p>
+
+<div class="warn">
+  <div class="lbl">What this does and does not mean</div>
+  <p>It does not undo the industry-wide framing over nine years — KPIL's <i>cumulative</i> margin loss since FY2019 is middle-of-pack, not an outlier, and that remains the fairer characterisation of the secular trend. What it does mean is that the specific claim "KPIL has a moat because it is more resilient than peers" is <b>not supported</b> by the one test built to check it. On the sharpest test available, KPIL's pricing and hedging discipline did not distinguish it from the pack in the moment that mattered most. That is a meaningfully different, more cautious statement than the first version of this report made, and it is the direct product of running the comparison against twelve peers instead of four.</p>
+</div>
+
+<h3>What his framework says about the industry, and why it caps the multiple</h3>
+
+<p>Malik's structural view of construction is bleak by design: cyclical, near-zero entry barriers, price-taking contractors, and — his sharpest forward-looking claim — even where EPC contractors show high profits in a given period, competition arrives quickly and compresses margins. KPIL's own record is a clean demonstration: through the strongest transmission ordering cycle in fifteen years, with an order book that reached nearly 3&times; sales, the EBITDA margin went <i>down</i>. That does not make KPIL a bad company. It makes it a good operator in an industry that does not permit good operators to earn extraordinary returns for long — which is the argument against paying an extraordinary multiple for one, and the bridge to Section <a href="#val">14</a>.</p>
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record</h2>
+<p class="sec-sub">What the screen found, and what it missed</p>
+
+<p>KPIL reaches this page as a <b>Dirty 9iner</b> — revenue growth above 10% in eight of nine scored years, ROCE above 15% in all nine. The one miss is FY2021, when revenue grew 2.2% through the COVID year. On the screen's own terms that is close to a perfect decade.</p>
+
+<figure>
+  <div class="fig-title">Revenue compounded 15.5% a year for nine years</div>
+  <div class="fig-sub">Consolidated revenue, &#8377; crore. Bars before FY2022 are pre-merger and shown faded.</div>
+  <svg viewBox="0 0 720 230" role="img" aria-label="KPIL consolidated revenue by fiscal year, FY2017 to FY2026"><line class="grid-l" x1="46" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="40" y="203.0" text-anchor="end">0k</text><line class="grid-l" x1="46" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="40" y="157.0" text-anchor="end">7k</text><line class="grid-l" x1="46" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="40" y="111.0" text-anchor="end">15k</text><line class="grid-l" x1="46" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="40" y="65.0" text-anchor="end">22k</text><line class="grid-l" x1="46" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="40" y="19.0" text-anchor="end">29k</text><rect x="58.5" y="153.3" width="40.9" height="46.7" rx="4" fill="#c9a24b" opacity="0.55"><title>FY2017: Rs 7,446 Cr</title></rect><text class="ax" x="79.0" y="213" text-anchor="middle">17</text><rect x="124.5" y="145.3" width="40.9" height="54.7" rx="4" fill="#c9a24b" opacity="0.55"><title>FY2018: Rs 8,709 Cr</title></rect><text class="ax" x="145.0" y="213" text-anchor="middle">18</text><rect x="190.5" y="132.0" width="40.9" height="68.0" rx="4" fill="#c9a24b" opacity="0.55"><title>FY2019: Rs 10,840 Cr</title></rect><text class="ax" x="211.0" y="213" text-anchor="middle">19</text><rect x="256.5" y="120.4" width="40.9" height="79.6" rx="4" fill="#c9a24b" opacity="0.55"><title>FY2020: Rs 12,676 Cr</title></rect><text class="ax" x="277.0" y="213" text-anchor="middle">20</text><rect x="322.5" y="118.7" width="40.9" height="81.3" rx="4" fill="#c9a24b" opacity="0.55"><title>FY2021: Rs 12,949 Cr</title></rect><text class="ax" x="343.0" y="213" text-anchor="middle">21</text><rect x="388.5" y="107.2" width="40.9" height="92.8" rx="4" fill="#c9a24b" opacity="1"><title>FY2022: Rs 14,777 Cr</title></rect><text class="ax" x="409.0" y="213" text-anchor="middle">22</text><rect x="454.5" y="97.3" width="40.9" height="102.7" rx="4" fill="#c9a24b" opacity="1"><title>FY2023: Rs 16,361 Cr</title></rect><text class="ax" x="475.0" y="213" text-anchor="middle">23</text><rect x="520.5" y="76.8" width="40.9" height="123.2" rx="4" fill="#c9a24b" opacity="1"><title>FY2024: Rs 19,626 Cr</title></rect><text class="ax" x="541.0" y="213" text-anchor="middle">24</text><rect x="586.5" y="59.9" width="40.9" height="140.1" rx="4" fill="#c9a24b" opacity="1"><title>FY2025: Rs 22,316 Cr</title></rect><text class="ax" x="607.0" y="213" text-anchor="middle">25</text><rect x="652.5" y="29.6" width="40.9" height="170.4" rx="4" fill="#c9a24b" opacity="1"><title>FY2026: Rs 27,143 Cr</title></rect><text class="ax" x="673.0" y="213" text-anchor="middle">26</text><text class="vlbl" x="673.0" y="23.6" text-anchor="middle">27,143</text><line class="zero-l" x1="46" y1="200" x2="706" y2="200"/></svg>
+  <figcaption><b>Why:</b> growth is real and broad — T&amp;D revenue roughly doubled from &#8377;6,038 Cr (FY2023) to &#8377;12,501 Cr (FY2026), Oil &amp; Gas grew 55% and Urban Infrastructure 49% in FY2026 alone. It is not acquisition-driven after FY2023; the JMC amalgamation completed in January 2023 and every year since is organic. Source: <span style="font-family:var(--mono)">src.modules.equity_research.load_annual</span>, FY2017&ndash;FY2026.</figcaption>
+</figure>
+
+<p>But the screen tests growth and ROCE. It does not test <b>the price of that growth</b>, and this is where the ten-year record turns ambiguous. The same decade that produced 15.5% revenue compounding produced a <b>steady, uninterrupted collapse in operating margin</b>.</p>
+
+<figure>
+  <div class="fig-title">The margin paradox</div>
+  <div class="fig-sub">EBITDA margin has fallen through the best ordering cycle in the sector's history. PBT margin recovered anyway — for reasons that have nothing to do with operations (Section <a href="#margin">04</a>).</div>
+  <div class="legend">
+    <span class="lg"><i style="background:#c9a24b"></i>EBITDA margin</span>
+    <span class="lg"><i style="background:#5b9bd1"></i>PBT margin</span>
+  </div>
+  <svg viewBox="0 0 720 250" role="img" aria-label="EBITDA margin versus profit-before-tax margin, FY2017 to FY2026"><line class="grid-l" x1="46" y1="220.0" x2="706" y2="220.0"/><text class="ax" x="40" y="223.0" text-anchor="end">0%</text><line class="grid-l" x1="46" y1="190.9" x2="706" y2="190.9"/><text class="ax" x="40" y="193.9" text-anchor="end">2%</text><line class="grid-l" x1="46" y1="161.7" x2="706" y2="161.7"/><text class="ax" x="40" y="164.7" text-anchor="end">4%</text><line class="grid-l" x1="46" y1="132.6" x2="706" y2="132.6"/><text class="ax" x="40" y="135.6" text-anchor="end">6%</text><line class="grid-l" x1="46" y1="103.4" x2="706" y2="103.4"/><text class="ax" x="40" y="106.4" text-anchor="end">8%</text><line class="grid-l" x1="46" y1="74.3" x2="706" y2="74.3"/><text class="ax" x="40" y="77.3" text-anchor="end">10%</text><line class="grid-l" x1="46" y1="45.1" x2="706" y2="45.1"/><text class="ax" x="40" y="48.1" text-anchor="end">12%</text><line class="grid-l" x1="46" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="40" y="19.0" text-anchor="end">14%</text><rect x="398.7" y="16" width="307.3" height="204" fill="rgba(232,228,214,0.035)"/><text class="ax" x="404.7" y="27" fill="#7a86a0">post-JMC merger &#8594;</text><path d="M46.0,39.9 L119.3,36.0 L192.7,29.8 L266.0,42.7 L339.3,43.0 L412.7,92.2 L486.0,87.4 L559.3,85.4 L632.7,87.4 L706.0,89.4" fill="none" stroke="#c9a24b" stroke-width="2" stroke-linejoin="round"/><circle cx="46.0" cy="39.9" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2017 EBITDA margin: 12.36%</title></circle><circle cx="119.3" cy="36.0" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2018 EBITDA margin: 12.63%</title></circle><circle cx="192.7" cy="29.8" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2019 EBITDA margin: 13.05%</title></circle><circle cx="266.0" cy="42.7" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2020 EBITDA margin: 12.17%</title></circle><circle cx="339.3" cy="43.0" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2021 EBITDA margin: 12.15%</title></circle><circle cx="412.7" cy="92.2" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2022 EBITDA margin: 8.77%</title></circle><circle cx="486.0" cy="87.4" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2023 EBITDA margin: 9.10%</title></circle><circle cx="559.3" cy="85.4" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2024 EBITDA margin: 9.24%</title></circle><circle cx="632.7" cy="87.4" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2025 EBITDA margin: 9.10%</title></circle><circle cx="706.0" cy="89.4" r="3.2" fill="#c9a24b" stroke="#171f34" stroke-width="2"><title>FY2026 EBITDA margin: 8.96%</title></circle><path d="M46.0,162.3 L119.3,142.9 L192.7,117.7 L266.0,145.5 L339.3,113.6 L412.7,151.4 L486.0,162.9 L559.3,168.0 L632.7,166.2 L706.0,146.4" fill="none" stroke="#5b9bd1" stroke-width="2" stroke-linejoin="round"/><circle cx="46.0" cy="162.3" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2017 PBT margin: 3.96%</title></circle><circle cx="119.3" cy="142.9" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2018 PBT margin: 5.29%</title></circle><circle cx="192.7" cy="117.7" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2019 PBT margin: 7.02%</title></circle><circle cx="266.0" cy="145.5" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2020 PBT margin: 5.11%</title></circle><circle cx="339.3" cy="113.6" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2021 PBT margin: 7.30%</title></circle><circle cx="412.7" cy="151.4" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2022 PBT margin: 4.71%</title></circle><circle cx="486.0" cy="162.9" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2023 PBT margin: 3.92%</title></circle><circle cx="559.3" cy="168.0" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2024 PBT margin: 3.57%</title></circle><circle cx="632.7" cy="166.2" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2025 PBT margin: 3.69%</title></circle><circle cx="706.0" cy="146.4" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2026 PBT margin: 5.05%</title></circle><text class="ax" x="46.0" y="234" text-anchor="middle">17</text><text class="ax" x="119.3" y="234" text-anchor="middle">18</text><text class="ax" x="192.7" y="234" text-anchor="middle">19</text><text class="ax" x="266.0" y="234" text-anchor="middle">20</text><text class="ax" x="339.3" y="234" text-anchor="middle">21</text><text class="ax" x="412.7" y="234" text-anchor="middle">22</text><text class="ax" x="486.0" y="234" text-anchor="middle">23</text><text class="ax" x="559.3" y="234" text-anchor="middle">24</text><text class="ax" x="632.7" y="234" text-anchor="middle">25</text><text class="ax" x="706.0" y="234" text-anchor="middle">26</text><text class="vlbl" x="50.0" y="31.9" fill="#c9a24b">12.4%</text><text class="vlbl" x="702.0" y="80.4" text-anchor="end" fill="#c9a24b">8.96%</text><text class="vlbl" x="704.0" y="160.4" text-anchor="end" fill="#5b9bd1">5.05%</text></svg>
+  <figcaption><b>Why:</b> the step down in FY2022 (12.15% &rarr; 8.77%) is the <b>JMC consolidation</b> diluting a higher-margin transmission business, compounded by the FY2022 steel spike, which KPIL could not pass through on fixed-price contracts. The <i>continued</i> drift since (9.24% &rarr; 9.10% &rarr; 8.96% across FY2024&ndash;26) has no such excuse: it happened while the order book grew to a record. And on the specific test in Section <a href="#malik">02</a>, KPIL's FY2022 margin drop was <i>worse</i> than the peer median, not better. Source: <span style="font-family:var(--mono)">metrics.anomaly_scan</span>, FY2017&ndash;FY2026.</figcaption>
+</figure>
+
+<div class="key">
+  <div class="lbl">The spine of this report</div>
+  <p>KPIL's EBITDA margin fell from <b>13.05% in FY2019 to 8.96% in FY2026</b> — through the strongest Indian transmission ordering cycle in fifteen years, with an order book that reached 2.45&times; sales. In a genuinely advantaged business, a cycle like that shows up in the margin. Here it did not, and in the one year it was tested hardest, KPIL fell further than its median peer.</p>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>FY</th><th class="num">Revenue</th><th class="num">Growth</th><th class="num">EBITDA</th><th class="num">EBITDA %</th><th class="num">PAT</th><th class="num">CFO</th><th class="num">CFO/PAT</th><th class="num">ROCE</th><th class="num">D/E</th><th class="num">NFAT</th></tr></thead>
+<tbody>
+<tr><td>2017</td><td class="num">7,446</td><td class="num na">&mdash;</td><td class="num">921</td><td class="num">12.36</td><td class="num">186</td><td class="num">766</td><td class="num g">4.11</td><td class="num na">&mdash;</td><td class="num">1.18</td><td class="num na">&mdash;</td></tr>
+<tr><td>2018</td><td class="num">8,709</td><td class="num g">17.0</td><td class="num">1,100</td><td class="num">12.63</td><td class="num">281</td><td class="num">650</td><td class="num g">2.31</td><td class="num">16.6</td><td class="num">1.24</td><td class="num">2.30</td></tr>
+<tr><td>2019</td><td class="num">10,840</td><td class="num g">24.5</td><td class="num">1,414</td><td class="num">13.05</td><td class="num">467</td><td class="num">1,035</td><td class="num g">2.22</td><td class="num">21.3</td><td class="num">0.84</td><td class="num">3.50</td></tr>
+<tr><td>2020</td><td class="num">12,676</td><td class="num g">16.9</td><td class="num">1,543</td><td class="num">12.17</td><td class="num">390</td><td class="num">937</td><td class="num g">2.41</td><td class="num">20.2</td><td class="num">0.98</td><td class="num">3.62</td></tr>
+<tr><td>2021</td><td class="num">12,949</td><td class="num l">2.2</td><td class="num">1,574</td><td class="num">12.15</td><td class="num">671</td><td class="num">931</td><td class="num g">1.39</td><td class="num">21.6</td><td class="num">0.87</td><td class="num">3.74</td></tr>
+<tr><td>2022</td><td class="num">14,777</td><td class="num g">14.1</td><td class="num">1,295</td><td class="num l">8.77</td><td class="num">540</td><td class="num">714</td><td class="num g">1.32</td><td class="num">16.1</td><td class="num">0.90</td><td class="num">4.12</td></tr>
+<tr><td>2023</td><td class="num">16,361</td><td class="num g">10.7</td><td class="num">1,490</td><td class="num">9.10</td><td class="num">441</td><td class="num">656</td><td class="num g">1.49</td><td class="num">15.2</td><td class="num">0.80</td><td class="num">4.90</td></tr>
+<tr><td>2024</td><td class="num">19,626</td><td class="num g">20.0</td><td class="num">1,814</td><td class="num">9.24</td><td class="num">510</td><td class="num">843</td><td class="num g">1.65</td><td class="num">15.9</td><td class="num">0.78</td><td class="num">6.32</td></tr>
+<tr><td>2025</td><td class="num">22,316</td><td class="num g">13.7</td><td class="num">2,031</td><td class="num">9.10</td><td class="num">586</td><td class="num">914</td><td class="num g">1.56</td><td class="num">16.0</td><td class="num">0.66</td><td class="num">7.06</td></tr>
+<tr class="hl"><td>2026</td><td class="num">27,143</td><td class="num g">21.6</td><td class="num">2,432</td><td class="num l">8.96</td><td class="num">1,040</td><td class="num">1,534</td><td class="num g">1.48</td><td class="num">18.2</td><td class="num">0.46</td><td class="num">8.45</td></tr>
+<tr class="tot"><td>10-yr</td><td class="num">15.5% CAGR</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">avg 9.0 (5y)</td><td class="num">21.0% CAGR</td><td class="num">8,981</td><td class="num g">1.76 cum</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">2.3&rarr;8.5</td></tr>
+</tbody>
+</table>
+<caption>&#8377; crore unless stated. ROCE throughout is the Mukherjea coffee-can definition (EBIT &divide; debt + equity), matching Screener. NFAT = revenue &divide; net fixed assets. Recomputed this run via <span style="font-family:var(--mono)">src.modules.equity_research</span> directly against the database, not carried forward from the prior version.</caption>
+</div>
+
+<h3>Two things in that table that Malik would stop on</h3>
+
+<p><b>First, NFAT more than tripled from 2.30 to 8.45 while margin fell.</b> Malik's framework reads rising asset turnover in EPC as a subcontracting tell: growth executed through hired labour rather than owned capacity, which costs more than doing the job in-house. Revenue per rupee of fixed asset more than tripled in eight years while EBITDA margin fell 367 basis points. KPIL's own capex record supports the reading — &#8377;3,000 Cr of capex over five years against &#8377;27,143 Cr of FY2026 revenue is a light asset base for a contractor of this size, though see Section <a href="#val">14</a> for why even that figure understates true capex intensity in a divestment year.</p>
+
+<p><b>Second, cumulative CFO of &#8377;8,981 Cr against cumulative PAT of &#8377;5,111 Cr passes Malik's first gate — but not his second.</b> He is explicit that cCFO &gt; cPAT alone proves nothing in EPC, because depreciation and interest inflate CFO relative to PAT. The harder test — CFO less capex less interest, using disclosed rather than proxy capex — is <b>negative &#8377;1,823 Cr</b> over the decade (Section <a href="#malik">02</a>), which is worse than the &minus;&#8377;906 Cr this report previously showed using a capex figure that undercounted a disposal year. KPIL has not been fully self-funding across the decade once the true cost of its own capex and debt is charged against it.</p>
+
+<figure>
+  <div class="fig-title">On cash conversion, KPIL still leads every peer we can verify</div>
+  <div class="fig-sub">Cumulative operating cash flow &divide; cumulative profit after tax. Higher is better; below 1.0&times; means reported profit did not become cash.</div>
+  <svg viewBox="0 0 720 160" role="img" aria-label="Cumulative operating cash flow to profit ratio, KPIL versus KEC International and KNR Constructions"><line class="grid-l" x1="148.2" y1="14" x2="148.2" y2="134"/><text class="ax" x="148.2" y="148" text-anchor="middle">0.0&#215;</text><line class="grid-l" x1="278.6" y1="14" x2="278.6" y2="134"/><text class="ax" x="278.6" y="148" text-anchor="middle">0.5&#215;</text><line class="grid-l" x1="409.1" y1="14" x2="409.1" y2="134"/><text class="ax" x="409.1" y="148" text-anchor="middle">1.0&#215;</text><line class="grid-l" x1="539.5" y1="14" x2="539.5" y2="134"/><text class="ax" x="539.5" y="148" text-anchor="middle">1.5&#215;</text><line class="grid-l" x1="670.0" y1="14" x2="670.0" y2="134"/><text class="ax" x="670.0" y="148" text-anchor="middle">2.0&#215;</text><rect x="148.2" y="22.8" width="459.2" height="22.4" rx="3" fill="#5fb98a" opacity="1"><title>KPIL: 1.76x</title></rect><text class="axl" x="86" y="37.5" text-anchor="end" style="fill:#e8e4d6">KPIL</text><text class="vlbl" x="613.4" y="37.5" text-anchor="start" fill="#5fb98a">1.76&#215;</text><rect x="148.2" y="62.8" width="127.8" height="22.4" rx="3" fill="#5b9bd1" opacity="0.72"><title>KEC Intl: 0.49x</title></rect><text class="axl" x="86" y="77.5" text-anchor="end" style="fill:#93a0b8">KEC Intl</text><text class="vlbl" x="282.0" y="77.5" text-anchor="start" fill="#5b9bd1">0.49&#215;</text><rect x="148.2" y="102.8" width="18.3" height="22.4" rx="3" fill="#5b9bd1" opacity="0.72"><title>KNR Constr.: 0.07x</title></rect><text class="axl" x="86" y="117.5" text-anchor="end" style="fill:#93a0b8">KNR Constr.</text><text class="vlbl" x="172.4" y="117.5" text-anchor="start" fill="#5b9bd1">0.07&#215;</text><line class="zero-l" x1="148.2" y1="14" x2="148.2" y2="134"/><line x1="409.1" y1="14" x2="409.1" y2="134" stroke="rgba(201,162,75,0.55)" stroke-width="1" stroke-dasharray="4,3"/><text class="ax" x="409.1" y="11" text-anchor="middle" fill="#c9a24b">cash = profit</text></svg>
+  <figcaption><b>Why:</b> KPIL collects an advance of up to 20% of contract value before starting and is paid progressively on milestones, so customer money funds the work. Even against the fuller 13-peer set built this run, nothing matches it — <b>KEC International converted just 0.49&times;</b> of eight years' profit into cash, with negative operating cash flow in FY2026 itself despite reporting &#8377;606 Cr of profit; <b>KNR Constructions managed 0.07&times;</b>, turning &#8377;3,900 Cr of profit into &#8377;256 Cr of cash. Source: <span style="font-family:var(--mono)">research/INE220B01022/peers.json</span>, Screener consolidated, fetched 12 September 2026; KPIL from this pipeline's own database.</figcaption>
+</figure>
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: can KPIL hold them, and can it pass costs on?</h2>
+<p class="sec-sub">The question that decides the valuation</p>
+
+<h3>The blunt answer on pass-through: mostly no, and management says so</h3>
+
+<p>There is no ambiguity here, because both the annual report and the calls say the same thing. The Corporate Governance report carries identical language in every year FY2022 through FY2026:</p>
+
+<blockquote>
+<p>&ldquo;Some of the contracts entered by Company are variable price contract, in which risk of fluctuations in commodities is passed on to the client. For fixed price contracts, Company enters into forward contracts to hedge the risk of fluctuations in commodities namely Aluminum, Copper &amp; Zinc. <b>For commodities which cannot be hedged (e.g. Steel), the Company provides for sufficient contingencies based on market trends while participating in such projects.</b>&rdquo;</p>
+<p class="attr">FY2026 Annual Report, Corporate Governance &mdash; commodity price risk</p>
+</blockquote>
+
+<p>So KPIL's protection is a three-layer structure, and only the first layer is actual pass-through:</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Layer</th><th class="t">Mechanism</th><th class="t">Coverage</th><th class="t">How strong</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>1. Contractual pass-through</b></td><td class="t">Variable-price contracts with escalation indices; cost rises billed to client</td><td class="t">~50% of order book</td><td class="t"><span class="pill p-kept">Real</span> Concentrated in B&amp;F. <b>Domestic T&amp;D — the core franchise — is explicitly excluded</b></td></tr>
+<tr><td class="t"><b>2. Commodity hedging at bid</b></td><td class="t">Forward contracts on aluminium, copper, zinc taken at tender stage</td><td class="t">90%+ of non-ferrous exposure</td><td class="t"><span class="pill p-kept">Strong</span> Some hedges run beyond 18 months; management states hedged cost is below tender cost on "99% of our tenders"</td></tr>
+<tr><td class="t"><b>3. Bid contingency + inventory</b></td><td class="t">Cost inflation forecast and loaded into the bid; &gt;50,000 t steel stock held</td><td class="t">Steel, diesel, aggregates</td><td class="t"><span class="pill p-slip">Weak</span> A forecast, not a hedge. Steel cannot be hedged; diesel and aggregates are unprotected</td></tr>
+</tbody>
+</table>
+<caption>Sources: FY2026 Annual Report Corporate Governance section; Q1 FY26, Q3 FY26 and Q4 FY26 earnings calls.</caption>
+</div>
+
+<p>Asked directly on the Q3 FY26 call (February 2026) whether Indian transmission contracts from PGCIL allow commodity cost pass-through, Manish Mohnot answered: <i>&ldquo;I think majority of our transmission projects are fixed price projects, and we have to load the expected increase in cost at a tender level itself.&rdquo;</i></p>
+
+<div class="warn">
+  <div class="lbl">The number that sizes the residual risk</div>
+  <p>The FY2026 financial risk note discloses that a <b>5% move in commodity prices changes profit before tax by 8.38%</b> (FY2025: 9.5%). That is <i>after</i> all pass-through and all hedging. An 8.4% PBT swing from an ordinary 5% commodity move is not a company with pricing power — it is a company running a well-managed hedge book against an exposure it cannot eliminate.</p>
+</div>
+
+<h3>The fixed-versus-variable split moved 15 points in one quarter, unexplained</h3>
+
+<p>Q1 FY26 (August 2025): <i>&ldquo;there's around 65% of our order book, which is fixed in nature&hellip; There's 35%, which is variable.&rdquo;</i> One quarter later, Q2 FY26: <i>&ldquo;it's as of now, 50% fixed and 50% variable.&rdquo;</i> The order book <i>fell</i> &#8377;800 Cr between those two dates. No bridge was offered and no analyst asked. The 50/50 figure has been repeated since and is the one we use.</p>
+
+<h3>Where the margin improvement actually came from</h3>
+
+<p>Management's FY2026 headline was a 120 basis point improvement in consolidated PBT margin, delivered against a 100bp guide. That is true. It is also, almost entirely, not an operating achievement.</p>
+
+<figure>
+  <div class="fig-title">The PBT margin gain is a deleveraging story, not a margin story</div>
+  <div class="fig-sub">Decomposition of the 148bp rise in PBT margin, FY2024 &rarr; FY2026. Components sum exactly to the total.</div>
+  <svg viewBox="0 0 720 250" role="img" aria-label="Decomposition of KPIL profit-before-tax margin improvement from FY2024 to FY2026"><line class="grid-l" x1="50" y1="206.0" x2="706" y2="206.0"/><text class="ax" x="44" y="209.0" text-anchor="end">0%</text><line class="grid-l" x1="50" y1="172.8" x2="706" y2="172.8"/><text class="ax" x="44" y="175.8" text-anchor="end">1%</text><line class="grid-l" x1="50" y1="139.6" x2="706" y2="139.6"/><text class="ax" x="44" y="142.6" text-anchor="end">2%</text><line class="grid-l" x1="50" y1="106.4" x2="706" y2="106.4"/><text class="ax" x="44" y="109.4" text-anchor="end">3%</text><line class="grid-l" x1="50" y1="73.1" x2="706" y2="73.1"/><text class="ax" x="44" y="76.1" text-anchor="end">4%</text><line class="grid-l" x1="50" y1="39.9" x2="706" y2="39.9"/><text class="ax" x="44" y="42.9" text-anchor="end">5%</text><rect x="71.9" y="87.4" width="65.6" height="118.6" rx="4" fill="#7a86a0"><title>357 bps</title></rect><text class="vlbl" x="104.7" y="81.4" text-anchor="middle">3.57%</text><text class="ax" x="104.7" y="220" text-anchor="middle">FY24</text><text class="ax" x="104.7" y="231" text-anchor="middle">PBT margin</text><rect x="181.2" y="87.4" width="65.6" height="9.3" rx="3" fill="#d97a5f"><title>EBITDA: -28 bps</title></rect><text class="vlbl" x="214.0" y="81.4" text-anchor="middle" fill="#d97a5f">-28</text><line x1="246.8" y1="96.7" x2="290.5" y2="96.7" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="214.0" y="220" text-anchor="middle">EBITDA</text><rect x="290.5" y="79.1" width="65.6" height="17.6" rx="3" fill="#5fb98a"><title>Depreciation: +53 bps</title></rect><text class="vlbl" x="323.3" y="73.1" text-anchor="middle" fill="#5fb98a">+53</text><line x1="356.1" y1="79.1" x2="399.9" y2="79.1" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="323.3" y="220" text-anchor="middle">Depreciation</text><rect x="399.9" y="72.5" width="65.6" height="6.6" rx="3" fill="#5fb98a"><title>Other income: +20 bps</title></rect><text class="vlbl" x="432.7" y="66.5" text-anchor="middle" fill="#5fb98a">+20</text><line x1="465.5" y1="72.5" x2="509.2" y2="72.5" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="432.7" y="220" text-anchor="middle">Other income</text><rect x="509.2" y="38.3" width="65.6" height="34.2" rx="3" fill="#5fb98a"><title>Interest: +103 bps</title></rect><text class="vlbl" x="542.0" y="32.3" text-anchor="middle" fill="#5fb98a">+103</text><line x1="574.8" y1="38.3" x2="618.5" y2="38.3" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="542.0" y="220" text-anchor="middle">Interest</text><rect x="618.5" y="38.3" width="65.6" height="167.7" rx="4" fill="#7a86a0"><title>505 bps</title></rect><text class="vlbl" x="651.3" y="32.3" text-anchor="middle">5.05%</text><text class="ax" x="651.3" y="220" text-anchor="middle">FY26</text><text class="ax" x="651.3" y="231" text-anchor="middle">PBT margin</text><line class="zero-l" x1="50" y1="206" x2="706" y2="206"/></svg>
+  <figcaption><b>Why:</b> interest cost fell from 3.59% of sales to 2.55% as net debt was cut with the &#8377;1,000 Cr QIP, the &#8377;799 Cr Vindhyachal disposal and the Indore real-estate collection; depreciation fell from 2.41% to 1.88% purely through operating leverage on a fixed asset base. <b>The EBITDA margin contributed &minus;28bps &mdash; it went backwards.</b> Every rupee of the improvement, and then some, came from the financing and fixed-cost lines. Source: <span style="font-family:var(--mono)">metrics.margin_bridge</span>, FY2024 and FY2026.</figcaption>
+</figure>
+
+<div class="key">
+  <div class="lbl">Why this matters more than anything else in the report</div>
+  <p>Deleveraging is a one-time gain and KPIL has now taken it. Net debt to equity is <b>0.46&times;</b> on borrowings and roughly <b>0.1&times;</b> net of cash on management's own basis; interest is <b>2.55% of sales</b>. There is perhaps 40&ndash;60bps of further interest relief available, and it depends on collecting the water receivables. <b>From FY2027 onward, margin improvement has to come from EBITDA for the first time in five years</b> — and EBITDA is the one line management has refused to guide on in all ten calls we hold.</p>
+</div>
+
+<p>Asked on the Q2 FY26 call whether a 9%+ consolidated EBITDA margin was reachable, Mohnot said: <i>&ldquo;let me not go ahead and commit anything at the EBITDA level. But on PBT level, I believe that margins should only go up from here.&rdquo;</i></p>
+
+<h3>The case that margins do improve from here</h3>
+<ul>
+<li><b>Legacy low-margin orders are finished.</b> Q3 FY26: <i>&ldquo;on the legacy order, I don't think I have anything left now, maybe on &#8377;63,000 crores, maybe &#8377;1,000-odd crores.&rdquo;</i></li>
+<li><b>Brazil is gone.</b> Fasttel is fully written off (&#8377;515 Cr standalone provision), removing a drag that cost roughly &#8377;186 Cr of consolidated EBITDA losses in 9M FY26 alone.</li>
+<li><b>Water's drag is quantified and reversible.</b> Management sizes it at 100&ndash;200bps of consolidated EBITDA.</li>
+<li><b>Hedges struck below tender cost.</b> <i>&ldquo;whatever levels we are hedged are lower than our tender cost on 99% of our tenders&hellip; that's where you'll see margins improving going forward.&rdquo;</i></li>
+<li><b>The Raipur rolling mill</b> is a direct move toward the backward integration that Section <a href="#peers">06</a> shows is where the sector's margin has actually gone.</li>
+</ul>
+
+<p>Set against that: every one of those arguments has been made before, in some form, in each of the last five years, and consolidated EBITDA margin has gone 9.24 &rarr; 9.10 &rarr; 8.96. In Q2 FY25 management said margins would rise because <i>&ldquo;there are no surprises left on that margin anymore&rdquo;</i> — and then disclosed a &#8377;50 Cr loss in the Saudi subsidiary at year end, followed by the Brazil write-off the year after. The structural claim may finally be right. Section <a href="#malik">02</a>'s stress-year finding is a reason for more caution here, not less: the one clean test of whether KPIL's hedging and pricing discipline actually beats the field found that it did not, in the year that mattered most.</p>
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: the industry&rsquo;s problem, and KPIL&rsquo;s answer</h2>
+<p class="sec-sub">Where EPC companies go to die, and why this one mostly hasn&rsquo;t</p>
+
+<p>Malik's framework treats working capital as the binding constraint on the whole industry — not the order book, not margins, but the ability to fund the gap between doing the work and being paid for it. Under KPIL's own disclosed standard terms (FY2026 AR, Note 11.4): up to 20% of contract value is an advance, up to 20% is retained until completion, and the balance is paid on milestones. A fifth of every contract is held back for years on a multi-year project. Revenue is booked on percentage-of-completion as costs are incurred, so profit appears long before cash does.</p>
+
+<h3>How KPIL compares — against the fuller peer set</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Company</th><th class="num">cCFO / cPAT</th><th class="num">Debtor days</th><th class="num">Net debt / Borrowings</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>KPIL</b></td><td class="num g">1.76&times; <span style="font-size:9px">(10y)</span></td><td class="num">113</td><td class="num g">&#8377;1,700 Cr &middot; 0.46&times;</td></tr>
+<tr><td class="t">KEC International <span style="font-size:10px;color:var(--faint)">closest peer</span></td><td class="num l">0.49&times; <span style="font-size:9px">(8y)</span></td><td class="num">101</td><td class="num l">&#8377;5,378 Cr</td></tr>
+<tr><td class="t">Transrail Lighting</td><td class="num">0.99&times;</td><td class="num">92</td><td class="num g">&#8377;678 Cr</td></tr>
+<tr><td class="t">Skipper</td><td class="num g">2.34&times;</td><td class="num">98</td><td class="num">&#8377;931 Cr</td></tr>
+<tr><td class="t">Bajel Projects</td><td class="num na">n/a <span style="font-size:9px">thin history</span></td><td class="num l">214</td><td class="num">&#8377;367 Cr</td></tr>
+<tr><td class="t">Patel Engineering</td><td class="num na">n/a</td><td class="num g">43</td><td class="num">&#8377;1,216 Cr</td></tr>
+<tr><td class="t">KNR Constructions</td><td class="num l">0.07&times;</td><td class="num">109</td><td class="num">&#8377;2,444 Cr</td></tr>
+</tbody>
+</table>
+<caption>cCFO/cPAT: KPIL FY2017&ndash;26 (10yr) from this pipeline's database; peers from Screener's 8-year (or shorter, where noted) cumulative series, fetched 12 September 2026 (<span style="font-family:var(--mono)">research/INE220B01022/peers.json</span>). Bajel and Patel Engineering have too little consolidated reporting history for a reliable multi-year cash-conversion figure.</caption>
+</div>
+
+<div class="good">
+  <div class="lbl">The answer to "how does KPIL compare on cash conversion" is unchanged by the fuller peer set</div>
+  <p>It is not marginally better than its peers — among the large, longer-listed names it is the only one that converts more than 100% of profit into cash in essentially every year. Against KEC International, the nearest comparable by size, business mix and geography, KPIL runs a materially tighter balance sheet on every axis: half the debtor days advantage is modest, but the debt load is a fifth the size and the cash conversion is more than three times better. Skipper's 2.34&times; is higher still, but Skipper is a tower manufacturer with a much smaller revenue base, not a directly comparable contracting business.</p>
+</div>
+
+<h3>Why KPIL does better — four mechanisms, not luck</h3>
+<ul>
+<li><b>Customer float.</b> Up to 20% mobilisation advance before work starts. Non-debt liabilities fund <b>59% of the balance sheet</b> — KPIL runs substantially on its customers' and suppliers' money rather than its own.</li>
+<li><b>Counterparty selection, inherited from JMC.</b> At the 2019 JMC AGM: <i>"We are extremely choosy about whom we work with and easily walk away from clients where we see there are challenges on balance sheet size."</i></li>
+<li><b>International mix.</b> Overseas large projects run "50 to 60 days" of working capital against "85 to 100 days" domestically, per management.</li>
+<li><b>Genuine management attention.</b> NWC days have been a stated target on every call and hit or beaten on every one: consolidated 91 &rarr; 90 &rarr; 79 &rarr; 75 &rarr; 80 days across FY2026 and into Q1 FY27.</li>
+</ul>
+
+<h3>The important qualification: net improved, gross did not</h3>
+
+<div class="warn">
+  <div class="lbl">Two true numbers pointing opposite ways</div>
+  <p>Management's net working capital cycle improved from 99 days (FY2024) to 75 days (FY2026). Over almost exactly the same window, <b>CRISIL's measure of receivables including net unbilled revenue went 257 days (Mar-23) &rarr; 255 (Mar-24) &rarr; 264 (Mar-25)</b> — the worst reading is the most recent. Both are correct. Management's figure is <b>net</b> of payables, customer advances and retention payable; CRISIL's is <b>gross</b> — simply how much money is owed to KPIL, in days of revenue. The net cycle improved substantially because KPIL took more customer advances and more supplier credit, not because customers started paying faster.</p>
+</div>
+
+<p><b>KPIL has become better at financing its receivables, not at collecting them.</b> Eight and a half months of revenue sits in money owed to the company, matched by a similar pile owed by it. That structure is stable while the order cycle is open and advances keep arriving. It is the first thing to tighten if ordering slows — a live risk given the T&amp;D order-intake finding in Section <a href="#growth">07</a>. Full detail on the credit agencies' own numbers is in Section <a href="#credit">10</a>.</p>
+
+<h3>The one place it has gone badly wrong: Water</h3>
+
+<p>The Jal Jeevan Mission business is a concentrated failure inside an otherwise good record. FY2026 collections exceeded &#8377;1,800 Cr but the company invested &#8377;2,500 Cr executing it — a negative cash flow of roughly &#8377;700 Cr in that business alone, per the Q4 FY26 call. Outstanding receivables were still <b>&#8377;1,500 Cr+</b> as of the Q1 FY27 call (August 2026), essentially unchanged from three months earlier despite management repeatedly saying most of it would be "recovered in the first 2 quarters." Water revenue itself fell from &#8377;3,511 Cr (FY2024) to &#8377;2,112 Cr (FY2026) because management deliberately slowed execution rather than fund more unpaid work — the right call, but a five-consecutive-quarter pattern of an unmet collection forecast should not be underwritten in a valuation.</p>
+
+<h3>The unbilled revenue question</h3>
+
+<p>Malik's sharpest EPC red flag is unbilled revenue growing faster than sales. Standalone contract-asset conversion: &#8377;2,366 Cr (FY2023) &rarr; &#8377;4,852 Cr (FY2024, +105%) &rarr; &#8377;6,076 Cr (FY2025, +25%) &rarr; &#8377;6,197 Cr (FY2026, <b>+2%, against +23% revenue</b>). Over the full window this measure rose 162% against 62% revenue growth, which is the pattern Malik warns about — but the FY2026 datapoint breaks it decisively. We read this as a flag that was real through FY2025 and has stopped flashing. It should be re-checked at FY2027.</p>
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How KPIL compares with its real peers</h2>
+<p class="sec-sub">Thirteen names this run, not four — and the fuller set changes one conclusion</p>
+
+<p>The right comparison set is not a coffee-can-screen output; it is the companies bidding the same tenders and the companies Malik himself has analysed. Two names were added this run on external verification: <b>Bajel Projects</b> (a Kalyani Group T&amp;D EPC spin-off, named directly alongside KEC, KPIL, Transrail and Skipper in market commentary) and <b>Patel Engineering</b> (diversified civil/hydro, a named Transrail peer with weaker T&amp;D overlap). The set is now KEC, Transrail, Skipper, Bajel, Patel Engineering, PNC Infratech, KNR, Transformers &amp; Rectifiers, Advait, L&amp;T, NCC, Techno Electric and Cemindia (formerly ITD Cementation, renamed after Adani Group's 2025 acquisition of control).</p>
+
+<h3>The market has de-rated this sector, and KPIL is still the exception</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Company</th><th class="num">P/E</th><th class="num">P/B</th><th class="num">ROCE</th><th class="t">Position vs peers</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>Kalpataru Projects</b></td><td class="num">22.1&times;</td><td class="num">3.16&times;</td><td class="num">18.2%</td><td class="t">Best cash conversion of the pure contractors; still commands a premium</td></tr>
+<tr><td class="t">KEC International</td><td class="num">18.0&times;</td><td class="num">1.76&times;</td><td class="num">16.5%</td><td class="t">Direct competitor, cheaper on every multiple</td></tr>
+<tr><td class="t">Transrail Lighting</td><td class="num g">13.2&times;</td><td class="num">2.41&times;</td><td class="num g">33.6%</td><td class="t"><b>Nearly double KPIL's ROCE at 60% of the P/E</b></td></tr>
+<tr><td class="t">Skipper</td><td class="num">26.8&times;</td><td class="num">4.18&times;</td><td class="num g">23.6%</td><td class="t">Tower manufacturer, not a direct contracting comparable</td></tr>
+<tr><td class="t">Bajel Projects</td><td class="num l">77.1&times;</td><td class="num">2.78&times;</td><td class="num l">11.0%</td><td class="t">Recently listed, thin margins (4% OPM), priced on growth not current returns</td></tr>
+<tr><td class="t">Patel Engineering</td><td class="num g">6.7&times;</td><td class="num l">0.59&times;</td><td class="num">13.3%</td><td class="t">Cheap, but <b>86.6% of the promoter's remaining stake is pledged</b></td></tr>
+</tbody>
+</table>
+<caption>Screener, 12 September 2026. ROCE on the Mukherjea/Screener basis used throughout.</caption>
+</div>
+
+<p>Over the trailing year, KEC is down 54%, Transrail 48%, Skipper roughly flat, while <b>KPIL is up 11% and sits near its 52-week high</b>. Either the market has correctly identified KPIL as the one durable operator in a re-rating sector, or it is simply the last name to be repriced. The Malik-framework scorecard in Section <a href="#malik">02</a> argues for real quality — but the stress-year resilience result argues against KPIL being uniquely defensive, which is the specific claim a persistent premium requires.</p>
+
+<h3>The comparison that should worry a KPIL holder most</h3>
+
+<p>Not KEC. <b>Transrail Lighting</b> — a contractor like KPIL, backward-integrated into towers and conductors, with a majority of revenue from exports.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Metric</th><th class="num">KPIL</th><th class="num">Transrail</th><th class="t">Who wins</th></tr></thead>
+<tbody>
+<tr><td class="t">Revenue FY2026 (&#8377; Cr)</td><td class="num g">27,143</td><td class="num">6,880</td><td class="t">KPIL &mdash; 4&times; the scale</td></tr>
+<tr><td class="t">Operating margin</td><td class="num">9%</td><td class="num g">14%</td><td class="t">Transrail, by 5 points</td></tr>
+<tr><td class="t">ROCE</td><td class="num">18.2%</td><td class="num g">33.6%</td><td class="t">Transrail, nearly double</td></tr>
+<tr><td class="t">Debt / equity (derived)</td><td class="num">0.46&times;</td><td class="num g">0.30&times;</td><td class="t">Transrail</td></tr>
+<tr class="hl"><td class="t"><b>Cumulative CFO / PAT</b></td><td class="num g">1.76&times; <span style="font-size:10px">10yr</span></td><td class="num">0.99&times; <span style="font-size:10px">6yr</span></td><td class="t"><b>KPIL, decisively</b></td></tr>
+<tr><td class="t">Debtor days FY26</td><td class="num">113</td><td class="num g">92</td><td class="t">Transrail</td></tr>
+<tr><td class="t">P/E</td><td class="num l">22.1&times;</td><td class="num g">13.2&times;</td><td class="t">Transrail, at 60% of KPIL's multiple</td></tr>
+<tr><td class="t">Promoter holding</td><td class="num l">~34% <span style="font-size:10px">from 56% FY21</span></td><td class="num g">71% <span style="font-size:10px">flat</span></td><td class="t">Transrail</td></tr>
+<tr><td class="t">FY2022 stress-year margin change</td><td class="num l">&minus;3.4pp</td><td class="num l">&minus;2.0pp</td><td class="t">Transrail, marginally</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Transrail beats KPIL on margin, return on capital, leverage, promoter alignment, valuation, and held up marginally better in the sector's own stress year. The case for KPIL over Transrail rests on scale, a much longer public track record, and — from this run's peer read of the ValuePickr Transrail thread — real, live governance questions specific to Transrail (an FIR referenced in its own RHP, a forensic short presentation circulated in November 2025, CFO and Company Secretary resignations). Those are worth something. Whether they are worth a 67% P/E premium and a valuation gap this wide is the open question, and it is not one the quality tests in this report resolve in KPIL's favour as cleanly as the first version suggested.</p>
+
+<h3>Valuation across the set</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Company</th><th class="num">Mkt cap (&#8377;Cr)</th><th class="num">P/E</th><th class="num">ROCE</th><th class="num">ROE</th></tr></thead>
+<tbody>
+<tr><td class="t">Bajel Projects</td><td class="num">2,081</td><td class="num l">77.1&times;</td><td class="num">11.0%</td><td class="num">4.1%</td></tr>
+<tr><td class="t">Cemindia (Adani)</td><td class="num">21,376</td><td class="num l">35.5&times;</td><td class="num g">32.8%</td><td class="num g">27.8%</td></tr>
+<tr><td class="t">Advait Energy</td><td class="num">2,260</td><td class="num l">39.1&times;</td><td class="num">27.9%</td><td class="num">21.5%</td></tr>
+<tr><td class="t">Transformers &amp; Rectifiers</td><td class="num">8,660</td><td class="num l">33.5&times;</td><td class="num">23.3%</td><td class="num">19.1%</td></tr>
+<tr><td class="t">Larsen &amp; Toubro</td><td class="num">540,812</td><td class="num">30.7&times;</td><td class="num">14.6%</td><td class="num">15.9%</td></tr>
+<tr><td class="t">Skipper</td><td class="num">6,229</td><td class="num">26.8&times;</td><td class="num">23.6%</td><td class="num">16.6%</td></tr>
+<tr><td class="t">Techno Electric</td><td class="num">11,306</td><td class="num">26.2&times;</td><td class="num">14.8%</td><td class="num">11.4%</td></tr>
+<tr class="hl"><td class="t"><b>Kalpataru Projects</b></td><td class="num">24,523</td><td class="num">22.1&times;</td><td class="num">18.2%</td><td class="num">13.7%</td></tr>
+<tr><td class="t">KEC International</td><td class="num">10,818</td><td class="num">18.0&times;</td><td class="num">16.5%</td><td class="num">11.4%</td></tr>
+<tr><td class="t">Transrail Lighting</td><td class="num">5,509</td><td class="num g">13.2&times;</td><td class="num g">33.6%</td><td class="num g">20.0%</td></tr>
+<tr><td class="t">NCC</td><td class="num">8,849</td><td class="num g">12.2&times;</td><td class="num">16.8%</td><td class="num">9.2%</td></tr>
+<tr><td class="t">KNR Constructions</td><td class="num">3,534</td><td class="num g">10.3&times;</td><td class="num">10.4%</td><td class="num">8.7%</td></tr>
+<tr><td class="t">Patel Engineering</td><td class="num">2,640</td><td class="num g">6.7&times;</td><td class="num">13.3%</td><td class="num">9.0%</td></tr>
+<tr><td class="t">PNC Infratech</td><td class="num">4,500</td><td class="num g">7.4&times;</td><td class="num l">8.0%</td><td class="num l">2.4%</td></tr>
+</tbody>
+</table>
+<caption>&#8377; crore; Screener, 12 September 2026.</caption>
+</div>
+
+<p>KPIL sits eighth of fourteen on P/E — dearer than KEC, Transrail, NCC, KNR, Patel and PNC; cheaper than Bajel, Cemindia, Advait, TARIL, L&amp;T, Skipper and Techno Electric. It is not the most expensive name in the sector. It is the most expensive of the three direct transmission-EPC competitors, and the only one of the three trading near its highs.</p>
+
+<div class="warn">
+  <div class="lbl">PNC Infratech: what Malik's own comparable did next</div>
+  <p>When Malik analysed PNC it looked outstanding — revenue compounding 18% a year, operating margin improved from 12% to 24% and held near 25% for four years, cumulative CFO of &#8377;2,539 Cr against &#8377;2,268 Cr of profit. It passed his first cash gate. What he flagged anyway: negative free cash flow, a self-sustainable growth rate of 2&ndash;4% against 18% actual growth, and more than ten bidders per &#8377;1,000 Cr project. <b>PNC today earns an 8.0% return on capital and a 2.4% return on equity, trading at 7.4&times; earnings.</b> The high reported margins did not protect it. KPIL scores better than PNC did on every one of Malik's tests — but PNC also passed the headline gate, and it was the second-order tests that told the truth.</p>
+</div>
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook</h2>
+<p class="sec-sub">The cycle is real; the question is who captures it, and at what margin</p>
+
+<p>India's National Electricity Plan (Transmission) 2023&ndash;2032 commits approximately <b>&#8377;9.15 lakh crore</b> of transmission investment, with HVDC capacity planned to roughly double from 33.5 GW to 66.75 GW. Of the total, only around &#8377;3 lakh crore has been awarded; roughly &#8377;6 lakh crore remains, landing by about 2029 at typical execution cycles. But the plan's own delivery has been running behind: <b>India commissioned roughly 8,830 circuit-km of new transmission line in FY2025 against a target near 15,000 &mdash; a 40&ndash;42% shortfall</b>, driven by right-of-way, land and forest clearance delays. The money is committed; the execution is not arriving on schedule, and that gap shows up as the working-capital intensity documented in Section <a href="#wc">05</a> for every contractor in the sector, not just KPIL.</p>
+
+<h4>What management is actually guiding</h4>
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Metric</th><th class="t">FY2027 guidance</th><th class="t">Context</th></tr></thead>
+<tbody>
+<tr><td class="t">Revenue growth</td><td class="t"><b>15%+</b></td><td class="t">Cut from "20&ndash;25% for the next 2&ndash;3 years" (Q1 FY26). Q1 FY27 actual was <b>+9%</b></td></tr>
+<tr><td class="t">Consolidated PBT margin</td><td class="t"><b>+75 to +100 bps</b></td><td class="t">Reaffirmed at Q1 FY27 despite the revenue shortfall</td></tr>
+<tr><td class="t">Order inflow</td><td class="t"><b>&gt;&#8377;30,000 Cr</b></td><td class="t">&#8377;11,000 Cr YTD by mid-August 2026 (Rs 3,526 Cr order win, 14 Aug 2026)</td></tr>
+<tr><td class="t">T&amp;D inflow</td><td class="t">&#8377;13,000&ndash;15,000 Cr</td><td class="t">Deliberately not maximised — see below</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="warn">
+  <div class="lbl">The most important thing management said about growth</div>
+  <p>They cut the medium-term growth bar from <b>20&ndash;25% to 15%</b> over four quarters, and raised the margin bar at the same time. And the flagship segment's own intake has stopped growing: Amit Anwani of PL Capital established on the Q4 FY26 call that T&amp;D order inflow <i>fell</i> from ~&#8377;14,400 Cr (FY25) to ~&#8377;13,000 Cr (FY26), and the FY2027 target of &#8377;30,000 Cr total implies T&amp;D flat again. Management conceded the point directly: <i>&ldquo;Our order inflow on T&amp;D might not grow at 20%, which is what our business is growing, or at 15%, which is where the business is growing.&rdquo;</i></p>
+  <p>In the middle of the largest transmission capex programme in Indian history, <b>KPIL's own transmission order intake peaked in FY2025.</b> Growth now has to come from Buildings &amp; Factories, which is where the governance question in Section <a href="#flags">12</a> sits, and from international expansion — where the LMG IPO (Section <a href="#mgmt">09</a>) is itself evidence that at least one international unit has reached a scale worth an independent listing.</p>
+</div>
+
+<h4>Why we do not simply extrapolate the cycle</h4>
+<p>Malik's structural view applies directly: near-zero entry barriers mean new entrants arrive quickly whenever profits look good. That is visible now — Transrail listed in 2024 and bids the same HVDC packages at a lower valuation and a higher ROCE; Bajel Projects listed on the same thesis. Bid spreads that were historically 20&ndash;30% are now, per management, 2&ndash;4%. The empirical test has already run: <b>KPIL's EBITDA margin fell from 13.05% to 8.96% across the seven years in which this ordering cycle built</b>, and in the sector's own defined stress year its margin fell more than the peer median (Section <a href="#malik">02</a>). If an unprecedented demand environment did not lift margins on the way up and did not make KPIL more resilient than peers on the way down, the burden of proof sits with the claim that either changes now.</p>
+
+<h4>Segment-level read</h4>
+<ul>
+<li><b>T&amp;D (46% of revenue)</b> &mdash; the franchise, but intake has peaked. Now ranks LatAm-ex-Brazil first and has demoted Africa on Chinese and Indian competition.</li>
+<li><b>B&amp;F (order book &#8377;18,295 Cr, the largest)</b> &mdash; growing 19% with nearly half the portfolio now design-build. Also the segment with the governance question in Section <a href="#flags">12</a>.</li>
+<li><b>Oil &amp; Gas</b> &mdash; best returns in the group, but order timing has slipped repeatedly.</li>
+<li><b>Water</b> &mdash; deliberately shrinking domestically; first international win (&#8377;344 Cr, Middle East) suggests a re-founding offshore where counterparties pay.</li>
+<li><b>Railways</b> &mdash; being run down. 20+ bidders, 5&ndash;6% margins. Correct decision.</li>
+<li><b>Urban Infrastructure</b> &mdash; growing 49% but explicitly not won at double-digit margins.</li>
+<li><b>Linjemontage (Sweden)</b> &mdash; the one segment with a genuinely independent valuation event this quarter. See Section <a href="#mgmt">09</a>.</li>
+</ul>
+</section>
+
+
+<section id="analysts">
+<h2><span class="num">08</span>What institutional investors keep asking</h2>
+<p class="sec-sub">Ten calls read from the analysts' side of the line</p>
+
+<p>The people on KPIL's earnings calls are paid to find the weak point. What they ask repeatedly is the real bear case; what they stop asking is either resolved or abandoned; what they never ask at all is where unexamined risk accumulates. All ten calls we hold (Q4 FY24 through Q1 FY27) were hosted by DAM Capital. The regulars: <b>Parikshit Kandpal</b> (HDFC Securities, 10/10 calls, the longest memory), Vaibhav Shah (JM Financial, 9), Bharat Sheth (Quest Investment, buy-side, 8), Amit Anwani (PL Capital, 8), Sumit Kishore (Axis Capital, 4), Ashish Shah (HDFC AMC, buy-side, 4), and Mihir Manohar (Carnelian, buy-side, 3, then stops appearing).</p>
+
+<h3>The question asked on every call, and never answered</h3>
+
+<p>"When does the EBITDA margin get back to double digit?" hardened over three years from a reframing of history to an outright refusal:</p>
+
+<blockquote>
+<p><b>Q4 FY24:</b> &ldquo;double digit margins were there pre-COVID levels in specific sectors only&hellip; we actually were never in the double digit margin ever.&rdquo;<br>
+<b>Q3 FY25:</b> &ldquo;we've stopped guiding on EBITDA for the last couple of years. Our focus is a lot more on PBT.&rdquo;<br>
+<b>Q2 FY26:</b> &ldquo;let me not go ahead and commit anything at the EBITDA level.&rdquo;</p>
+</blockquote>
+
+<p>It was not resolved — it was abandoned. By Q4 FY26 management conceded the mechanism itself: the FY27 target is <i>"a mix of margins coming from the business segment as well as some balance sheet improvement."</i></p>
+
+<h3>The water receivable, quarter by quarter — two years of "next quarter"</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Call</th><th class="num">Water/JJM outstanding</th><th class="t">The promise made</th></tr></thead>
+<tbody>
+<tr><td class="t">Q3 FY25</td><td class="num">~&#8377;700 Cr</td><td class="t">"March onwards or April, May"</td></tr>
+<tr><td class="t">Q4 FY25</td><td class="num">&#8377;1,500 Cr</td><td class="t">"June or Q2, July and August"</td></tr>
+<tr><td class="t">Q1 FY26</td><td class="num">"&gt;&#8377;1,000 Cr"</td><td class="t">"as early as August, September"</td></tr>
+<tr><td class="t">Q2 FY26</td><td class="num l">&#8377;1,551 Cr</td><td class="t">"hopeful this quarter"</td></tr>
+<tr><td class="t">Q4 FY26</td><td class="num l">&#8377;1,600 Cr</td><td class="t">"majority in the first 2 quarters"</td></tr>
+<tr class="hl"><td class="t">Q1 FY27</td><td class="num">&#8377;1,500 Cr</td><td class="t">"collections to improve"</td></tr>
+</tbody>
+</table>
+<caption>The stock of receivables is higher than when the promises began. The Q1 FY26 figure was also inconsistent internally: the CEO said "in excess of &#8377;1,000 crores"; the Deputy MD disclosed &#8377;1,427 Cr for that same date one quarter later.</caption>
+</div>
+
+<h3>The best question anyone has asked, and management conceded it</h3>
+
+<div class="warn">
+  <div class="lbl">Amit Anwani, PL Capital &mdash; Q4 FY26. The T&amp;D engine has stopped accelerating.</div>
+  <p><i>&ldquo;the order inflow&hellip; was roughly about &#8377;13,000 crores and last year, it was about &#8377;14,400 crores. So definitely there is a decline&hellip; there is no meaningful growth&hellip; Is that the correct understanding?&rdquo;</i></p>
+  <p>Management: <i>&ldquo;yes, you're right in terms of absolute inflow&hellip; Our order inflow on T&amp;D might not grow at 20%&hellip; or at 15%.&rdquo;</i> This is the segment the entire investment case rests on. Its order intake peaked in FY2025.</p>
+</div>
+
+<h3>What management refuses to answer</h3>
+<ul>
+<li><b>Segment margins — refused for three straight years.</b> Analysts have settled for a coarse verbal band repeated on five calls; nobody has ever received a number for any single vertical.</li>
+<li><b>The arbitration claim book — refused four times</b>, partially conceded once as "4-digit crores."</li>
+<li><b>The cost of hedging — never once disclosed</b> in ten calls; it sits inside project cost, not the finance-cost line.</li>
+</ul>
+
+<h3>Two things nobody has ever asked</h3>
+
+<div class="warn">
+  <div class="lbl">Unexamined item 1: the ~&#8377;870 Cr provision stock, and which direction it moves</div>
+  <p>Management said in Q1 FY25 that warranty provisions "come back once the project gets closed." The stock has grown to roughly &#8377;550 Cr warranty plus &#8377;320 Cr ECL, against FY2026 consolidated PBT of &#8377;1,371 Cr. A search of all ten transcripts for "write back" or "reversal" returns <b>zero hits</b>. Not a finding — an open question that has never been examined on a public call.</p>
+</div>
+
+<div class="warn">
+  <div class="lbl">Unexamined item 2: interest capitalised into project cost</div>
+  <p>Management has said hedging and some interest costs sit "in the project cost as a CTC cost," not in the reported finance-cost line — yet the entire PBT margin story rests on finance cost falling to 1.6&ndash;1.8% of sales. Nobody has asked how much financing cost is capitalised rather than expensed.</p>
+</div>
+
+<h3>Verified silences, and the attention itself is thinning</h3>
+
+<p>Searched all ten transcripts directly: "related part*" — 0 hits. "Munot" — 0. "contingent" — 0. "corporate guarantee" — 0. The promoter selldown figures (56%&rarr;34%) appear nowhere. KPIL's largest-ever order — a 12-million-sq-ft residential design-build project — has an unnamed client that no analyst has asked about, and management has separately said 5&ndash;6 clients constitute 75&ndash;80% of the B&amp;F order book without ever naming them.</p>
+
+<p>Distinct question-askers per call fell from 10&ndash;12 to 7&ndash;8 over the period. Kotak Institutional Equities disappeared after Q2 FY25; the two most forensic voices (Carnelian, Birla MF) stopped appearing after Q1 FY26. The people who were hardest to answer are no longer on the line — a combination of rising admiration and falling scrutiny that is precisely the environment in which an unexamined risk gets repriced suddenly rather than gradually.</p>
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">09</span>Management scorecard: promises against outcomes</h2>
+<p class="sec-sub">Every quantified commitment across ten earnings calls, classified against what a later call actually reported</p>
+
+<div class="good">
+  <div class="lbl">One promise resolved since the last version of this report</div>
+  <p>The Linjemontage fundraise — five consecutive quarters of "advisers appointed, no further update" — is no longer open. On ~9 September 2026, Kalpataru Power Transmission Sweden AB's board approved an IPO of LMG on Nasdaq Stockholm, valuing it at up to SEK 2,350m (~&#8377;2,324 Cr), expected to complete by end September 2026. Confirmed via Sweden's own regulatory newswire (MFN.se) and four independent outlets. This moves from <span class="pill p-open">Unresolved</span> to <span class="pill p-kept">Kept</span> below.</p>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Promise</th><th class="t">Made</th><th class="t">Outcome</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="t">Standalone PBT margin 4.5&ndash;5%</td><td class="t">Q4 FY24</td><td class="t">FY25 delivered <b>4.9%</b></td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">Order inflow &#8377;22,000&ndash;23,000 Cr</td><td class="t">Q1 FY25</td><td class="t">FY25 delivered <b>&#8377;25,475 Cr</b></td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">NWC below 100 days</td><td class="t">Q4 FY24</td><td class="t">FY25 <b>94 days</b> standalone</td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">Finance cost 2% of sales</td><td class="t">Q4 FY24</td><td class="t">FY25 <b>2.0%</b></td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">Consolidated PBT margin +100 bps</td><td class="t">Q4 FY25</td><td class="t">FY26 delivered <b>+120 bps</b></td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">Consolidated EPS above &#8377;50</td><td class="t">Q3 FY26</td><td class="t">FY26 delivered <b>&#8377;61</b></td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">NWC below 100 days</td><td class="t">Q1 FY26</td><td class="t">FY26 <b>75 consol / 90 standalone</b></td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">Net debt reduction</td><td class="t">throughout</td><td class="t">Consol net debt <b>&minus;50%+ to &#8377;915 Cr</b> (mgmt basis)</td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">Promoter pledge "will continue to come down"</td><td class="t">Q1 FY26</td><td class="t"><b>51.8% &rarr; 24.6%</b> of promoter holding, FY22&ndash;FY26</td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">Linjemontage Sweden +25&ndash;35% growth</td><td class="t">Q4 FY24</td><td class="t">FY25 <b>+79%</b>; FY26 <b>+64%</b></td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">Complete Vindhyachal &amp; Indore disposals</td><td class="t">Q1 FY26</td><td class="t">VEPL closed Jan-26 at <b>&#8377;799 Cr EV</b>; Indore collected Mar-26</td><td><span class="pill p-kept">Kept</span></td></tr>
+<tr class="hl"><td class="t">Linjemontage fundraise / IPO</td><td class="t">Q1 FY26 onward</td><td class="t">Nasdaq Stockholm IPO approved ~Sep-26, SEK 2,350m valuation, after five quarters of silence</td><td><span class="pill p-kept">Kept, late</span></td></tr>
+<tr><td class="t">Indore real estate: &#8377;170 Cr "in the next 12 months"</td><td class="t">Q4 FY24</td><td class="t">&#8377;130 Cr still outstanding 12 months later; finished Mar-26</td><td><span class="pill p-slip">Slipped</span></td></tr>
+<tr><td class="t">Vindhyachal to close in 6&ndash;9 months</td><td class="t">Q2 FY25</td><td class="t">Took <b>15 months</b></td><td><span class="pill p-slip">Slipped</span></td></tr>
+<tr><td class="t">Shubham external debt to &#8377;40&ndash;50 Cr by FY26 end</td><td class="t">Q2 FY26</td><td class="t"><b>&#8377;60 Cr</b> at 31 Mar; debt-free 31 Jul vs "by June"</td><td><span class="pill p-slip">Slipped</span></td></tr>
+<tr><td class="t">FY26 revenue growth, <b>upgraded</b> to "25% plus"</td><td class="t">Q2 FY26</td><td class="t">Delivered <b>22%</b>; reported at year-end as "fully delivered" against the <i>original</i> 20&ndash;25% band</td><td><span class="pill p-slip">Slipped</span></td></tr>
+<tr><td class="t">FY25 revenue growth "in excess of 20%"</td><td class="t">Q4 FY24</td><td class="t">Delivered <b>13&ndash;14%</b></td><td><span class="pill p-broke">Broken</span></td></tr>
+<tr><td class="t">"In the near future&hellip; I don't see any dilution"</td><td class="t">Q1 FY25</td><td class="t"><b>&#8377;1,000 Cr QIP</b> board-approved ~10 weeks later</td><td><span class="pill p-broke">Broken</span></td></tr>
+<tr><td class="t">Fasttel Brazil "definitely positive at both EBITDA and PBT"</td><td class="t">Q4 FY24</td><td class="t">FY25 PBT loss <b>&#8377;35 Cr</b></td><td><span class="pill p-broke">Broken</span></td></tr>
+<tr><td class="t">Fasttel breakeven "getting into Q3 onwards"</td><td class="t">Q1 FY26</td><td class="t"><b>&#8377;515 Cr full write-off</b>; judicial reorganisation Mar-26</td><td><span class="pill p-broke">Broken</span></td></tr>
+<tr><td class="t">"Vision 2025": &#8377;25,000 Cr revenue, 22% ROCE</td><td class="t">FY22 merger</td><td class="t">Revenue ~met a year late (&#8377;27,143 Cr FY26); <b>ROCE 18.2%, missed</b></td><td><span class="pill p-broke">Broken</span></td></tr>
+<tr><td class="t">FY26 capex &#8377;600&ndash;700 Cr</td><td class="t">Q1 FY26</td><td class="t">Actual <b>&#8377;917 Cr</b> &mdash; overshot ~30%</td><td><span class="pill p-broke">Broken</span></td></tr>
+<tr><td class="t">Linjemontage steady-state PBT 6.5&ndash;7.5%</td><td class="t">Q2 FY26</td><td class="t">FY26 delivered <b>5.6&ndash;5.7%</b>; cut twice en route</td><td><span class="pill p-broke">Broken</span></td></tr>
+<tr><td class="t">Water: "majority&hellip; recovered in the first 2 quarters"</td><td class="t">Q4 FY26</td><td class="t">Still <b>&#8377;1,500 Cr+</b> outstanding at Q1 FY27</td><td><span class="pill p-broke">Broken</span></td></tr>
+<tr><td class="t">FY27 "definitely a very good growth&hellip; this 2 commitment you can take"</td><td class="t">Q3 FY26</td><td class="t">Guided <b>15%</b> one quarter later</td><td><span class="pill p-broke">Broken</span></td></tr>
+</tbody>
+</table>
+<caption>Promises are classified against the outcome reported on a later call. Vision 2025 targets from the JMC merger announcement (ValuePickr, Feb 2022), cross-checked against management's own Q4 FY25 acknowledgement.</caption>
+</div>
+
+<h3>The pattern, updated</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Category of promise</th><th class="num">Kept</th><th class="num">Slipped</th><th class="num">Broken</th><th class="t">What this tells you</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Things KPIL controls internally</b></td><td class="num g">11</td><td class="num">0</td><td class="num">0</td><td class="t">An essentially perfect record</td></tr>
+<tr><td class="t"><b>Things dependent on third parties</b></td><td class="num">2</td><td class="num">3</td><td class="num l">5</td><td class="t">Consistently over-optimistic on timing, sometimes badly on substance &mdash; but the LMG resolution shows patience is occasionally rewarded</td></tr>
+<tr><td class="t"><b>Top-line growth forecasts</b></td><td class="num">0</td><td class="num">1</td><td class="num l">3</td><td class="t">The single weakest area, unchanged</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="key">
+  <div class="lbl">Manager score: 7 / 10, unchanged by the LMG resolution</div>
+  <p>The LMG outcome is genuinely good news and we have credited it. It does not change the score, because the pattern it confirms is the same one already scored: management is <b>reliable on what it controls and slow, sometimes wrong, on what depends on someone else</b> — a subsidiary IPO needs a receptive Nordic market as much as it needs KPIL's own execution. What earns the seven is unchanged: eleven of eleven controllable promises kept, working capital hit or beaten every quarter, the &#8377;799 Cr Vindhyachal disposal closing at the top of its quoted range. What costs the three is unchanged too: Fasttel went from "definitely positive" to a &#8377;515 Cr write-off in eight quarters; growth guidance has been missed or cut three years running; and management manages the narrative of guidance as actively as it manages the guidance itself — upgrading mid-year and then measuring against the original band, cutting the order-inflow target one quarter and restoring it the next while calling both "sticking to guidance."</p>
+</div>
+
+<h3>Three exchanges worth reading in full</h3>
+
+<p><b>1. The dilution reversal.</b> "In the near future, in the short future, I don't see any dilution" (Q1 FY25) preceded a &#8377;1,000 Cr QIP by roughly ten weeks. The QIP itself was well-executed and well-timed. The prior statement was wrong.</p>
+
+<p><b>2. The pledge, denied twice.</b> A guided "low single digit, if not closer to 0" trajectory (Q1 FY25) became "I never mentioned the single-digit word" (Q2 FY25) — the Q1 transcript contains the words — and then "I'm not sure we have ever said that the intent is to become pledge-free. I've never said that" (Q4 FY26). The direction has been excellent; the handling of having said something has not.</p>
+
+<p><b>3. Candour that partly redeems it.</b> The Q3 FY25 water disclosure — a &#8377;3,700 Cr plan cut to &#8377;1,600&ndash;1,700 Cr, &#8377;1,000 Cr pushed into the segment over nine months — was volunteered in the opening remarks, not extracted. So was the LMG process itself: management never claimed the fundraise was dead, only that it could not update on it, and it turned out to be true.</p>
+</section>
+
+
+<section id="credit">
+<h2><span class="num">10</span>What the credit rating agencies see</h2>
+<p class="sec-sub">The most candid third-party assessment of this company that exists in public</p>
+
+<p>Rating agencies write for lenders, get management access an outside analyst does not, and publish an explicit list of what would make them downgrade. We hold five reports: four from CRISIL (Jul 2024, Aug 2024, Oct 2024, Oct 2025) and one from CARE (Jan 2025). No new report has been filed since the last version of this analysis.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Report</th><th class="t">Date</th><th class="t">Rating</th><th class="t">Action</th></tr></thead>
+<tbody>
+<tr><td class="t">CRISIL</td><td class="t">Jul 2024</td><td class="t">AA/Stable, A1+</td><td class="t">Reaffirmed; bank debt raised to &#8377;22,320 Cr</td></tr>
+<tr><td class="t">CRISIL</td><td class="t">Aug&ndash;Oct 2024</td><td class="t">AA/Stable, A1+</td><td class="t">Reaffirmed twice more; VEPL sale announced</td></tr>
+<tr class="hl"><td class="t"><b>CARE</b></td><td class="t">Jan 2025</td><td class="t">AA, A1+</td><td class="t">Outlook revised <b>Negative &rarr; Stable</b>, then <b>withdrawn</b> the same day at the company's request</td></tr>
+<tr><td class="t">CRISIL</td><td class="t">Oct 2025</td><td class="t">AA/Stable, A1+</td><td class="t">Reaffirmed; &#8377;26,329 Cr</td></tr>
+</tbody>
+</table>
+<caption>India Ratings separately upgraded KPIL to <b>IND AA+/Stable</b> in FY2027, cited by management on the Q1 FY27 call and confirmed again in this run's news search (no change from the prior version).</caption>
+</div>
+
+<h3>The number that reframes the working capital section</h3>
+
+<div class="warn">
+  <div class="lbl">Management says 75 days. CRISIL says 264.</div>
+  <p>CRISIL tracks receivables including net unbilled revenue: <b>257 days (Mar-23) &rarr; 255 (Mar-24) &rarr; 264 (Mar-25)</b>. Management's "75 days" is a <b>net</b> figure, after deducting payables, advances and retention payable. CRISIL's is <b>gross</b>: eight and a half months of revenue sitting in receivables and unbilled work. Both are true. The improvement in the net figure came substantially from taking more credit and holding more advances, not from getting paid faster.</p>
+</div>
+
+<h3>What the agencies call weaknesses</h3>
+
+<p>CRISIL names exactly two, unchanged in fifteen months of reports: <b>"working capital-intensive operations"</b> (execution cycles of 2.0&ndash;2.5 years, retention money blocked to end of performance guarantee) and <b>"high exposure to group companies"</b> (&#8377;1,948 Cr Mar-24 &rarr; &#8377;1,989 Cr Mar-25, essentially flat despite continuous divestment talk).</p>
+
+<p>CARE, writing once, is blunter: <i>"Its exposure to state transmission projects as well as <b>few stuck overseas projects</b>, price variations and milestone-based payment terms&hellip; are the prominent reasons for the high current assets of KPIL."</i> It also disclosed, uniquely: an <b>income-tax search (Aug 2023) and GST search (Oct 2023)</b> on Kalpataru group premises, and that promoter companies <b>pledged KPIL shares to raise debt at separate promoter real-estate entities</b> — the mechanism behind the governance concern in Section <a href="#flags">12</a>, though CARE states that exposure is without recourse to KPIL.</p>
+
+<h3>The tripwires CRISIL quietly moved</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Trigger</th><th class="t">CRISIL 2024</th><th class="t">CRISIL Oct 2025</th><th class="num">Actual (FY25)</th></tr></thead>
+<tbody>
+<tr><td class="t">Upgrade &mdash; operating margin</td><td class="t">Above <b>12.5%</b></td><td class="t"><i>Dropped</i>, replaced by order book/revenue &gt;2.5&ndash;3&times;</td><td class="num l">9.4%</td></tr>
+<tr class="hl"><td class="t"><b>Downgrade &mdash; TOL/TNW</b></td><td class="t">Above <b>2.5&times;</b></td><td class="t">Above <b>3.0&times;</b></td><td class="num g">2.18&ndash;2.56&times;</td></tr>
+<tr><td class="t">Downgrade &mdash; order book/revenue</td><td class="t">not specified</td><td class="t">Below <b>2.0&times;</b></td><td class="num g">2.41&ndash;3.5&times;</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>CRISIL abandoned a 12.5% margin upgrade trigger KPIL was never going to reach from 9.2%, and simultaneously loosened its own downgrade tripwire on TOL/TNW from 2.5&times; to 3.0&times; even as the actual ratio improved. It also restated the March 2024 TOL/TNW figure from 2.42&times; to 2.21&times; without explanation. Anyone modelling KPIL's leverage against agency thresholds should state which vintage of CRISIL's own number they are using.</p>
+
+<div class="key">
+  <div class="lbl">Net read from the credit file, unchanged this run</div>
+  <p>The agencies confirm the good news management leads with — real leverage repair, strong liquidity, deliberate counterparty selection. They also document, in language management never uses, that gross receivables intensity got worse while net working capital got better, that group-company exposure has not fallen in two years, and that the group was searched by both the income-tax and GST authorities in 2023.</p>
+</div>
+</section>
+
+
+<section id="capital">
+<h2><span class="num">11</span>Capital allocation and the balance sheet</h2>
+<p class="sec-sub">Including the numbers that look nothing like the headline</p>
+
+<h3>ROCE of 18.2%, and the customer float that produces it</h3>
+
+<p>KPIL earned a return on capital employed of <b>18.2% in FY2026</b> — the Mukherjea coffee-can definition, matching Screener, used throughout this report. It cleared the screen's 15% gate in all nine scored years. It is worth understanding where that return comes from: EBIT margin is only 7.6%. The return is high because <b>59% of the &#8377;27,702 Cr balance sheet is funded by liabilities that carry no interest</b> — trade payables, customer advances, retention payable. Shareholders and lenders fund only &#8377;11,319 Cr of the asset base; customers and suppliers fund the rest.</p>
+
+<div class="key">
+  <div class="lbl">What a float-funded ROCE means for the investment case</div>
+  <p>This is the reason KPIL converts profit into cash better than any peer — it is paid before it spends. It is also contingent on the order cycle staying open: advances arrive with new orders, and if ordering slows, advances stop while payables and retentions still must be settled. Section <a href="#growth">07</a> shows the T&amp;D order intake has already peaked, which makes this structure worth watching rather than assuming.</p>
+</div>
+
+<h3>Leverage: the number management leads with, and the number Malik would use</h3>
+
+<p>Management leads with net debt to equity of roughly <b>0.1&times;</b> on its own netting. Screener shows borrowings/equity of <b>0.46&times;</b>. Malik's construction framework says to use total outside liabilities to tangible net worth instead, which for KPIL is <b>2.56&times;</b> — 25&times; the figure management leads with, and closer to CRISIL's own adjusted 2.18&ndash;2.21&times; (Section <a href="#credit">10</a>). A TOL/TNW around 2.5&times; is not alarming for a healthy EPC contractor and it has been falling; an investor who thinks this company carries almost no obligations because net D/E is 0.1&times; has misunderstood the balance sheet.</p>
+
+<h3>The capital allocation record</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Decision</th><th class="t">Amount</th><th class="t">Outcome</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td class="t">Vindhyachal Expressway disposal to Actis</td><td class="t">&#8377;799 Cr EV</td><td class="t">Exceptional gain &#8377;156.6 Cr on &#8377;417 Cr invested. Closed Jan-26</td><td><span class="pill p-kept">Good</span></td></tr>
+<tr><td class="t">QIP at &#8377;1,201/share</td><td class="t">&#8377;1,000 Cr</td><td class="t">Funded the deleveraging behind the FY25&ndash;26 PBT margin gain. Priced well</td><td><span class="pill p-kept">Good</span></td></tr>
+<tr><td class="t">Linjemontage (Sweden), acquired FY2020</td><td class="t">n/d</td><td class="t">Revenue compounding &gt;25% since acquisition; now IPO-bound on Nasdaq Stockholm at ~&#8377;2,300 Cr</td><td><span class="pill p-kept">Good, confirmed by an independent market</span></td></tr>
+<tr><td class="t">Dividend</td><td class="t">&#8377;188 Cr (&#8377;11/share)</td><td class="t">22% of standalone PAT</td><td><span class="pill p-kept">Good</span></td></tr>
+<tr><td class="t">Fasttel Engenharia (Brazil), acquired 2019</td><td class="t"><b>&#8377;515 Cr written off</b></td><td class="t">Total loss. Judicial reorganisation Mar-26; corporate guarantee invoked</td><td><span class="pill p-broke">Failure</span></td></tr>
+<tr><td class="t">Kurukshetra Expressway JV</td><td class="t"><b>&#8377;454 Cr provided</b></td><td class="t">Terminated 2021, still subjudice</td><td><span class="pill p-broke">Failure</span></td></tr>
+<tr><td class="t">Shree Shubham Logistics</td><td class="t">&#8377;332 Cr invested</td><td class="t">Never earned its cost of capital; now being liquidated warehouse by warehouse</td><td><span class="pill p-broke">Failure</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The pattern is consistent: <b>KPIL creates value in core EPC and destroys it in adjacencies.</b> Between them, Brazilian acquisitions, road concessions and agri-warehousing have consumed roughly &#8377;1,300 Cr of permanent capital. The LMG outcome this quarter is the first adjacency to actually work out — a Nordic transmission-line acquisition maturing into a standalone Nasdaq listing at a real, independently-set valuation, rather than a write-off. Management now says the non-core programme is otherwise finished; that is the right direction and it has taken about five years to get there.</p>
+
+<h4>Capex and the self-funding question</h4>
+<ul>
+<li><b>Capex &#8377;3,000 Cr over FY2022&ndash;FY2026</b>, of which &#8377;917 Cr in FY2026 alone against depreciation of &#8377;510 Cr. Capex has come in above guidance every year.</li>
+<li>Using that <b>disclosed</b> FY2026 figure rather than the cash-flow-statement proxy (which reads zero that year, because the Vindhyachal disposal made investing activity cash-positive), the decade's <b>CFO less capex less interest is &minus;&#8377;1,823 Cr</b>, widening to &minus;&#8377;2,823 Cr after dividends — worse than the &minus;&#8377;906 Cr this report showed previously on the uncorrected figure. KPIL has not been fully self-funding across the decade once its own capex and the cost of its own debt are charged against it (Section <a href="#malik">02</a>).</li>
+<li><b>Borrowings &#8377;3,543 Cr</b>, including &#8377;950 Cr of NCDs at 8.07&ndash;8.35%. Credit rating upgraded to IND AA+/Stable in FY2027.</li>
+<li><b>Provisions carried: ~&#8377;870 Cr</b> (warranty + ECL), roughly 85% of FY2026 consolidated PAT — see the unexamined-item flag in Section <a href="#analysts">08</a> on whether reversals of this stock have flattered any recent margin improvement.</li>
+</ul>
+</section>
+
+
+<section id="flags">
+<h2><span class="num">12</span>Red flags and governance</h2>
+<p class="sec-sub">Malik: "Related party transaction section is the single most important part of the annual report for assessing management quality"</p>
+
+<h3>The structural conflict this report cannot fully resolve</h3>
+
+<div class="warn">
+  <div class="lbl">Flag 1 &mdash; the promoter's other company is in the business KPIL builds for</div>
+  <p><b>Parag Munot is a promoter-director of KPIL and Managing Director of Kalpataru Limited</b>, the family's separately listed Mumbai/Thane real-estate developer. KPIL's Buildings &amp; Factories division — its fastest-growing business, &#8377;18,295 Cr order book — builds residential and commercial real estate for developers. The FY2026 annual report describes KPIL's largest-ever project as a <i>"14 million sq ft real estate project from one of the leading developers in India"</i> — <b>the developer is not named</b>. Kalpataru Limited and roughly sixteen affiliated promoter entities appear on KPIL's related-party list. <b>Whether KPIL builds for Kalpataru Limited, on what terms, is precisely what we cannot establish</b> — the rupee values in Note 40 did not survive our document pipeline's table extraction (Section <a href="#gaps">16</a>).</p>
+</div>
+
+<p>Softening this: our own related-party audit, covering FY2015&ndash;FY2026, scores KPIL <b>1 out of 3 ("Minor")</b> — the overwhelming majority of related-party volume is routine subsidiary treasury support, every genuinely promoter-personal item is trivially small, and Form AOC-2's non-arm's-length section is NIL in all twelve years. The overlap is also legacy rather than engineered: KPIL was incorporated in 1981, Kalpataru Limited in 1988, long before KPIL listed. Sharpening it: the FY2024 assurance that "no expenses has been recognised&hellip; for bad or doubtful debts in respect of the amount owed by related parties" is absent from the FY2026 note, and we cannot tell whether that is a drafting change or a substantive one.</p>
+
+<div class="warn">
+  <div class="lbl">Flag 2 &mdash; the promoter sold down by 23 points while recapitalising the other company</div>
+  <p>Promoter holding fell from <b>56.49% (Mar-21) to ~34% (Jun-26)</b>, including a 5.3% block sold for &#8377;1,003 Cr in August 2024. Over the same window, Kalpataru Limited — carrying roughly &#8377;9,000 Cr of net debt at ~10&times; D/E — was recapitalised and IPO'd (June 2025, &#8377;414/share). CARE Ratings confirms promoter entities <b>pledged KPIL shares to raise debt at the real-estate business</b>, stating that exposure is without recourse to KPIL. No related-party transaction is alleged and the sales were open-market. But the sequence is unambiguous: the listed EPC company was, in effect, a funding channel for the promoter's private property business. Domestic institutions now own more of KPIL than the promoter family does.</p>
+</div>
+
+<h3>The other flags, ranked</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Flag</th><th class="t">Our read</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Single-segment reporting</b></td><td class="t"><b>Serious.</b> All six EPC verticals aggregated into one Ind AS 108 segment. No audited segment margin or capital employed exists for any business line, anywhere, in any year</td></tr>
+<tr><td class="t"><b>~&#8377;870 Cr provision stock, direction unexamined</b></td><td class="t"><b>Watch.</b> See Section <a href="#analysts">08</a> — the reversal side of this has never been asked about on a public call</td></tr>
+<tr><td class="t"><b>Corporate guarantee actually called</b></td><td class="t"><b>Material but contained.</b> Fasttel's guarantee was invoked, proving group guarantees are real liabilities</td></tr>
+<tr><td class="t"><b>Adverse CARO remark</b></td><td class="t"><b>Minor.</b> Confined to Shree Shubham Logistics, now being wound down. Standalone opinion unmodified</td></tr>
+<tr><td class="t"><b>Unresolved arbitration, unquantified</b></td><td class="t"><b>Neutral to positive.</b> "4-digit crores," carried at zero — conservative, but never sized</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>Malik's "trinity" test</h4>
+<p>FY2024&ndash;FY2026: sales +38%, receivables +45%, borrowings &minus;12%. Debt fell outright while both grew. <b>The trinity does not trigger</b> — the clearest single piece of evidence that KPIL is not the MBL Infrastructure pattern (Section <a href="#malik">02</a>).</p>
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">13</span>What other investors think</h2>
+<p class="sec-sub">Broker consensus, and fifteen years of retail forum silence</p>
+
+<p>At &#8377;1,436 the stock trades above the average of 16 sell-side analyst targets (~&#8377;1,408, range &#8377;1,235&ndash;1,572); Kotak's is highest at &#8377;1,710. The bull case cited in these notes tracks this report's own findings — record FY2026, record order book, improving international visibility — and the bear grounds they cite are the same ones we weight most heavily: ~50% of the order book is fixed-price, and the asset-monetisation programme that funded the deleveraging is largely finished (though the LMG IPO this quarter is a new addition to it).</p>
+
+<h3>Retail has never adopted this stock, and the reason is in the share register</h3>
+
+<div class="key">
+  <div class="lbl">Fifteen years, eleven posts</div>
+  <p>There is no dedicated KPIL thread on ValuePickr, India's most serious retail research forum — just eleven posts on the old JMC Projects thread, 2011&ndash;2023. Transrail Lighting, one-fifth the market cap and listed eighteen months, has seventy. Domestic institutions hold 44.84% of KPIL and foreign institutions 10.77% — 55.6% institutional, public holding just 10.81%. This is an institutionally-owned, sell-side-covered stock retail has never engaged with.</p>
+</div>
+
+<p>What the archive does contain is telling. The <b>first recorded margin figure on this company's lineage, from 2011, was 8.6%</b> — fifteen years and a merger later, the entity earns ~9%. A governance question about the promoter's separate real-estate business was raised once, in January 2018, and <b>never answered by anyone</b>. The best primary research in the archive — 2019 JMC AGM notes on refusing BOT projects and walking away from weak-balance-sheet clients — predicted, seven years early, exactly the cash-conversion advantage this report documents in Section <a href="#peers">06</a>. And the "Vision 2025" merger targets scored cleanly against outcomes: revenue and order book both met or beaten, <b>ROCE (22% targeted) missed at 18.2%</b> — the same conclusion this report reaches by every other route.</p>
+
+<p>The live sector debate happens on Transrail's thread instead, where a December 2024 question — "can anyone share a comparative study between KEC, KPIL and Transrail?" — went unanswered for twenty months, and a January 2026 post correctly identified the FY2025 execution shortfall (Section <a href="#growth">07</a>) with almost no response. One line from that thread generalises directly: <i>"No EPC company has a moat. You have KEC/KPIL and Bajel, which are listed&hellip; There are numerous unlisted companies that do state-level contracts."</i></p>
+
+<div class="key">
+  <div class="lbl">What the silence is worth as a signal</div>
+  <p>The scrutiny on KPIL is concentrated in one constituency — sell-side analysts and institutional holders — and Section <a href="#analysts">08</a> shows that constituency's questioning has been getting less rigorous, not more, with the two most forensic voices having stopped attending calls. A stock where the marginal opinion is this thinly held, priced as the sector's one exception to a broad de-rating (Section <a href="#peers">06</a>), is a stock where an unexamined risk is more likely to be repriced suddenly than gradually.</p>
+</div>
+</section>
+
+
+<section id="val">
+<h2><span class="num">14</span>Valuation</h2>
+<p class="sec-sub">What the price already assumes — recomputed through the tested module, not a scratchpad</p>
+
+<div class="hero-row">
+  <div class="stat"><div class="k">Price</div><div class="v">&#8377;1,436</div><div class="n">12 Sep 2026</div></div>
+  <div class="stat"><div class="k">P/E (FY26)</div><div class="v">22.1&times;</div><div class="n">EPS &#8377;61</div></div>
+  <div class="stat"><div class="k">P / Book</div><div class="v">3.16&times;</div><div class="n">BV &#8377;455</div></div>
+  <div class="stat"><div class="k">EV / EBITDA</div><div class="v">10.8&times;</div><div class="n">EV &#8377;26,223 Cr</div></div>
+</div>
+
+<h3>The DCF: assumptions, revised on new information</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Input</th><th class="t">Base case</th><th class="t">What changed and why</th></tr></thead>
+<tbody>
+<tr><td class="t">Revenue growth, years 1&ndash;5</td><td class="t">10%, 12%, 12%, 11%, 11%</td><td class="t"><b>Trimmed from 12/14/13/13/12</b> in the prior version. FY27 guidance was cut to 15%, and Q1 FY27 printed only +9% with management citing labour, water collections and Middle East supply-chain disruption</td></tr>
+<tr><td class="t">EBITDA margin</td><td class="t">9.00% rising to 9.50%</td><td class="t">Unchanged. FY2026 actual 8.96%; five-year average 9.04%</td></tr>
+<tr><td class="t">Capex</td><td class="t">3.0% of sales fading to 2.2%</td><td class="t">Unchanged path, but the cash-gate calculation below now uses FY2026's <b>disclosed</b> &#8377;917 Cr rather than the cash-flow-statement proxy</td></tr>
+<tr><td class="t">Incremental working capital</td><td class="t">18% of incremental revenue</td><td class="t">Unchanged — the three-year actual figure</td></tr>
+<tr><td class="t">WACC / terminal growth</td><td class="t">13.0% / 5.0%</td><td class="t">Unchanged</td></tr>
+<tr><td class="t">Net debt deducted</td><td class="t">&#8377;1,700 Cr</td><td class="t">Balance-sheet derived (borrowings less cash), unchanged and conservative against management's netted &#8377;915 Cr</td></tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+  <div class="fig-title">Three scenarios against the market price</div>
+  <div class="fig-sub">Value per share, computed via <span style="font-family:var(--mono)">src.modules.equity_research.dcf</span>.</div>
+  <svg viewBox="0 0 720 215" role="img" aria-label="Discounted cash flow valuation scenarios against the current market price"><line class="grid-l" x1="46" y1="175.0" x2="704" y2="175.0"/><text class="ax" x="40" y="178.0" text-anchor="end">0</text><line class="grid-l" x1="46" y1="140.0" x2="704" y2="140.0"/><text class="ax" x="40" y="143.0" text-anchor="end">400</text><line class="grid-l" x1="46" y1="105.1" x2="704" y2="105.1"/><text class="ax" x="40" y="108.1" text-anchor="end">800</text><line class="grid-l" x1="46" y1="70.1" x2="704" y2="70.1"/><text class="ax" x="40" y="73.1" text-anchor="end">1200</text><line class="grid-l" x1="46" y1="35.1" x2="704" y2="35.1"/><text class="ax" x="40" y="38.1" text-anchor="end">1600</text><rect x="90.4" y="130.0" width="75.7" height="45.0" rx="4" fill="#d97a5f" opacity="0.85"><title>Bear: Rs 515</title></rect><text class="vlbl" x="128.2" y="123.0" text-anchor="middle" fill="#d97a5f">&#8377;515</text><text class="ax" x="128.2" y="189" text-anchor="middle">Bear</text><text class="ax" x="128.2" y="200" text-anchor="middle" fill="#d97a5f">-64%</text><rect x="254.9" y="89.0" width="75.7" height="86.0" rx="4" fill="#c9a24b" opacity="0.85"><title>Base: Rs 984</title></rect><text class="vlbl" x="292.8" y="82.0" text-anchor="middle" fill="#c9a24b">&#8377;984</text><text class="ax" x="292.8" y="189" text-anchor="middle">Base</text><text class="ax" x="292.8" y="200" text-anchor="middle" fill="#d97a5f">-31%</text><rect x="419.4" y="88.2" width="75.7" height="86.8" rx="4" fill="#c9a24b" opacity="0.45"><title>Weighted: Rs 993</title></rect><text class="vlbl" x="457.2" y="81.2" text-anchor="middle" fill="#c9a24b">&#8377;993</text><text class="ax" x="457.2" y="189" text-anchor="middle">Weighted</text><text class="ax" x="457.2" y="200" text-anchor="middle" fill="#d97a5f">-31%</text><rect x="583.9" y="36.8" width="75.7" height="138.2" rx="4" fill="#5fb98a" opacity="0.85"><title>Bull: Rs 1,581</title></rect><text class="vlbl" x="621.8" y="29.8" text-anchor="middle" fill="#5fb98a">&#8377;1,581</text><text class="ax" x="621.8" y="189" text-anchor="middle">Bull</text><text class="ax" x="621.8" y="200" text-anchor="middle" fill="#8ecbaa">+10%</text><line x1="46" y1="49.5" x2="704" y2="49.5" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="42.5" text-anchor="end">market &#8377;1,436</text><line class="zero-l" x1="46" y1="175" x2="704" y2="175"/></svg>
+  <figcaption><b>Why:</b> scenarios differ on EBITDA margin and working-capital intensity, not on heroic revenue assumptions. Bear holds margin at 8.8% with 22% incremental working capital at a 14.5% discount rate. Base takes margin to 9.5% with 18% working capital. Bull takes margin to 10.25% with 14% working capital at a 12.4% discount rate. Base case moved to <b>&#8377;984</b> from &#8377;1,042 in the prior version, on the trimmed growth path above. Source: <span style="font-family:var(--mono)">metrics.dcf</span>, base year FY2026 actuals.</figcaption>
+</figure>
+
+<h3>The reverse DCF: what &#8377;1,436 requires you to believe</h3>
+
+<div class="warn">
+  <div class="lbl">The single most important number in this report</div>
+  <p>To justify &#8377;1,436, KPIL must sustain an EBITDA margin of <b>11.5% for ten years</b> &mdash; up from 11.16% in the prior version, because the trimmed growth path requires more margin to reach the same enterprise value.</p>
+  <p>FY2026 actual: <b>8.96%</b>. Five-year average: <b>9.04%</b>. Highest since the JMC merger: <b>9.24%</b>. The price requires <b>roughly 250 basis points of permanent margin expansion</b> above the current level, sustained for a decade, on a metric management has declined to guide on for three years and on which KPIL underperformed its peer median in the one year the sector's resilience was tested hardest (Section <a href="#malik">02</a>).</p>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">If EBITDA margin settles at</th><th class="num">Revenue CAGR needed for 10 years</th></tr></thead>
+<tbody>
+<tr><td class="t">9.0% (FY2026 actual)</td><td class="num l">No solution</td></tr>
+<tr><td class="t">9.5% (our base case)</td><td class="num l">No solution</td></tr>
+<tr><td class="t">10.0%</td><td class="num l">21.4%</td></tr>
+<tr><td class="t">10.5%</td><td class="num">16.5%</td></tr>
+<tr><td class="t">11.0%</td><td class="num">13.6%</td></tr>
+</tbody>
+</table>
+<caption>"No solution" means terminal free cash flow turns negative before enterprise value reaches the market's level — incremental working capital absorbs the incremental profit at this margin, whatever the growth rate. Computed via <span style="font-family:var(--mono)">metrics.reverse_dcf_growth</span>.</caption>
+</div>
+
+<p>At the margin KPIL actually earns, <b>no achievable growth rate supports the price.</b> The stock works only if the margin thesis is right, and that thesis has been argued in some form on every call for five years while the printed number went 9.24 &rarr; 9.10 &rarr; 8.96.</p>
+
+<h3>The honest counter-argument: exit multiples</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">PAT CAGR to FY2031</th><th class="num">FY2031 PAT</th><th class="num">Exit 16&times;</th><th class="num">Exit 20&times;</th><th class="num">Exit 24&times;</th></tr></thead>
+<tbody>
+<tr><td class="t">12%</td><td class="num">&#8377;1,833 Cr</td><td class="num l">+3.6%</td><td class="num">+8.4%</td><td class="num">+12.4%</td></tr>
+<tr><td class="t">15%</td><td class="num">&#8377;2,092 Cr</td><td class="num l">+6.4%</td><td class="num">+11.3%</td><td class="num g">+15.4%</td></tr>
+<tr><td class="t">18%</td><td class="num">&#8377;2,379 Cr</td><td class="num">+9.2%</td><td class="num g">+14.2%</td><td class="num g">+18.4%</td></tr>
+</tbody>
+</table>
+<caption>Five-year annualised return from &#8377;1,436, excluding dividends. FY2026 base PAT &#8377;1,040 Cr.</caption>
+</div>
+
+<p>On this framing the stock is fine rather than cheap: 15% earnings growth (roughly management's own guidance) at a 20&times; exit returns about 11% a year. The exit-multiple frame silently assumes reported profit is worth its multiple. In EPC that assumption is exactly what needs testing, and KPIL passes the cash-conversion test better than any peer we can verify (Section <a href="#peers">06</a>) — which is why our base case is &#8377;984 rather than the &#8377;515 the bear case implies, not &#8377;250. But "converts profit to cash better than peers" and "worth 22&times; earnings on an 8.96% margin that underperformed peers in the one stress test available" are different claims, and only the first is fully supported.</p>
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">15</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">The decision, and the specific things that would reverse it</p>
+
+<h3>What we are confident about</h3>
+
+<p><b>This is a genuinely good company.</b> That conclusion survived every test we could run on it and we want to be unambiguous about it before the criticism. KPIL converts profit into cash better than any listed Indian EPC contractor we can verify against the fuller 13-peer set built this run &mdash; cumulative operating cash flow of <b>1.76&times;</b> cumulative profit over ten years, cash above profit in every one of those years, against <b>0.49&times;</b> for KEC International over eight years and <b>0.07&times;</b> for KNR Constructions over the same window. It has cut net debt to a low single-digit multiple of equity, closed the Vindhyachal disposal at the top of its quoted range, collected the Indore receivable, taken Shree Shubham to debt-free, and been upgraded to AA+. Its return on capital employed of 18.2% cleared the coffee-can gate in all nine scored years. On everything within their own control &mdash; eleven of eleven controllable promises &mdash; this management team does what it says, and the one long-outstanding third-party question, the Linjemontage fundraise, has now resolved as a Nasdaq Stockholm IPO at a real, sourced valuation (Section <a href="#mgmt">09</a>).</p>
+
+<p><b>And the demand environment is real.</b> The National Electricity Plan commits roughly &#8377;9.15 lakh crore of transmission investment to 2032, with HVDC capacity planned to double; perhaps &#8377;6 lakh crore of that is still to be awarded. KPIL is one of two large Indian-owned contractors with a genuine international transmission franchise and it owns its tower manufacturing.</p>
+
+<h3>What we are confident is being mispriced</h3>
+
+<p>The bull case rests on margin expansion. Every element of the KPIL story &mdash; the legacy order burn-off, Brazil's exit, the water recovery, the mix shift to design-build and international T&amp;D, the hedges struck below tender cost &mdash; is an argument that the EBITDA margin is about to rise. Set against that argument is the printed record:</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">The claim</th><th class="t">The record</th></tr></thead>
+<tbody>
+<tr><td class="t">Margins are improving</td><td class="t">Consolidated EBITDA margin: <b>9.24% (FY24) &rarr; 9.10% (FY25) &rarr; 8.96% (FY26)</b>. Down, through the best ordering cycle in fifteen years</td></tr>
+<tr><td class="t">PBT margin rose 148bps, so the business is improving</td><td class="t">Decomposed: <b>&minus;28bps from EBITDA, +103bps from interest, +53bps from depreciation, +20bps from other income.</b> It was a deleveraging story, and deleveraging is largely finished</td></tr>
+<tr><td class="t">The transmission supercycle will drive growth</td><td class="t">T&amp;D order <b>intake fell</b> from &#8377;14,400 Cr (FY25) to ~&#8377;13,000 Cr (FY26), guided flat for FY27. Management conceded the point when an analyst did the arithmetic</td></tr>
+<tr><td class="t">15%+ growth is achievable</td><td class="t">The medium-term aspiration was cut from 20&ndash;25% to 15% in four quarters, then Q1 FY27 printed <b>+9%</b>, with labour, water collections and Middle East supply-chain disruption cited</td></tr>
+<tr><td class="t">Working capital has structurally improved</td><td class="t">Net cycle yes, 99 &rarr; 75 days. <b>CRISIL's gross receivables-plus-unbilled measure went 257 &rarr; 264 days</b>, worst reading most recent</td></tr>
+<tr class="hl"><td class="t">The margin decline is purely an industry problem, so it says nothing about the company</td><td class="t"><b>Only over the full nine-year window.</b> In FY2022, the sector's own commodity-shock stress year, KPIL's margin fell 3.4 percentage points against a peer median of 2.0pp &mdash; below average in the one year that tested resilience directly, not above it</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>A reverse DCF at &#8377;1,436 now requires a sustained <b>11.5% EBITDA margin for a decade</b> against a five-year average of 9.04% and a merged-entity peak of 9.24% &mdash; up from 11.16% in the prior version of this report, because the trimmed growth path (reflecting the FY27 guidance cut and the weak Q1 print) requires more margin to reach the same enterprise value. At the margin KPIL actually earns, <i>no</i> achievable growth rate supports the price, because incremental working capital absorbs the incremental profit. Our base case values the equity at <b>&#8377;984</b>, probability-weighted <b>&#8377;993</b> &mdash; both lower than the prior version's &#8377;1,042 and &#8377;1,062, on the growth trim and on using management's disclosed FY2026 capex of &#8377;917 Cr (Section <a href="#val">14</a>) rather than the cash-flow-statement proxy that read zero in a disposal year. That single correction alone widened the decade's self-funding gap from &minus;&#8377;906 Cr to <b>&minus;&#8377;1,823 Cr</b> after interest.</p>
+
+<h3>Four things the fuller peer data adds, and only one cuts in KPIL's favour</h3>
+
+<p><b>First, and still in KPIL's favour over the long window: the margin decline is systemic.</b> Every large third-party Indian EPC contractor lost 3&ndash;5 percentage points of operating margin since FY2019 &mdash; L&amp;T &minus;5, KPIL &minus;4, KEC &minus;3, NCC &minus;3, Techno Electric &minus;11. This is not a management failure over nine years and we have said so in Sections <a href="#margin">04</a> and <a href="#peers">06</a>. But it makes the valuation problem <i>worse</i>, not better: paying for roughly 250bp of margin expansion is not a bet on one company outperforming, it is a bet on an industry-wide reversal with no precedent in the data.</p>
+
+<p><b>Second, and new this run, working against KPIL: the stress-year test is less flattering than the nine-year average suggests.</b> Run against the fuller 13-peer set, KPIL's FY2022 margin compression was worse than the peer median, including worse than Transrail Lighting's. A persistent valuation premium is, among other things, a claim that KPIL is uniquely defensive when conditions turn. The one clean test available for that claim does not support it.</p>
+
+<p><b>Third: the margin is migrating to the companies that own manufacturing.</b> Over the identical period, Skipper held 10%, Transrail sits at 14%, and Transformers &amp; Rectifiers went from 7% to 15%. The backward-integrated players kept their margin; the asset-light contractors lost theirs. KPIL's announced Raipur rolling mill is a response to exactly this, and it is the right instinct &mdash; but it is unquantified and years from mattering.</p>
+
+<p><b>Fourth, and most uncomfortable: the market has already de-rated this entire sector, except KPIL.</b> Over twelve months KEC is down 54%, Transrail 48%, Skipper roughly flat &mdash; and <b>KPIL is up 11%, sitting near its 52-week high</b>. Meanwhile Transrail Lighting &mdash; a direct competitor &mdash; earns a 33.6% return on capital against KPIL's 18.2%, on a 14% operating margin against 9%, with lower gearing and stable 71% promoter ownership, at <b>13.2 times earnings against KPIL's 22.1</b>, and held up only marginally better than KPIL in the one stress year tested.</p>
+
+<p>KPIL genuinely is the better business on cash conversion (1.76&times; against Transrail's 0.99&times; and KEC's 0.49&times;), on scale, and on working capital. That deserves a premium. A 67% premium to a competitor out-earning it on every return metric, and holding up no better under stress, is a different proposition.</p>
+
+<div class="warn">
+  <div class="lbl">Position</div>
+  <p><b>Good business. Wrong price. No position at &#8377;1,436.</b></p>
+  <p>Our base case implies roughly 31% downside; the bull case, which requires essentially everything management has promised to arrive, implies about 10% upside. That is an unattractive asymmetry for a competitively-bid contractor with no pricing power, and it is a worse asymmetry than the prior version of this report found. <b>We would begin work again below roughly &#8377;1,000</b>, and would want to see at least two of the confirming triggers below before paying up.</p>
+  <p>An existing holder faces a different question from a new buyer. On an exit-multiple frame &mdash; 15% earnings growth and a 20&times; exit &mdash; the stock returns about 11% a year, which is defensible (Section <a href="#val">14</a>). We would not sell a long-held position on this analysis alone. We would not initiate one.</p>
+</div>
+
+<h3>What would change our mind &mdash; specific, dated, monitorable</h3>
+
+<p>We would revise upward on evidence, not on narrative. In descending order of importance:</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Trigger</th><th class="t">Threshold</th><th class="t">Where to check</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>1. EBITDA margin actually expands</b></td><td class="t">Consolidated EBITDA margin <b>above 9.5% for two consecutive years</b>, not two quarters. This is the whole thesis; nothing else matters as much</td><td class="t">Annual results. Management has refused to guide at the EBITDA line for three years</td></tr>
+<tr><td class="t"><b>2. The stress-year finding reverses</b></td><td class="t">In the <i>next</i> genuine sector-wide stress event, KPIL's margin compression is <b>at or below the peer median</b>, not above it. FY2022 is the only clean data point so far and it went the wrong way</td><td class="t">Peer margin comparison in the next downturn, this report's own methodology</td></tr>
+<tr><td class="t"><b>3. Water receivables actually arrive</b></td><td class="t">JJM outstanding <b>below &#8377;750 Cr</b>, roughly half the current &#8377;1,500 Cr+, sustained for two quarters. Promised for eight consecutive quarters and not yet delivered</td><td class="t">Quarterly calls; the figure is now given only as an aggregate</td></tr>
+<tr><td class="t"><b>4. T&amp;D order intake resumes growth</b></td><td class="t">T&amp;D inflow <b>above &#8377;16,000 Cr</b> in a year, versus &#8377;14,400 Cr peak (FY25) and ~&#8377;13,000 Cr (FY26)</td><td class="t">Annual segment inflow disclosure</td></tr>
+<tr><td class="t"><b>5. Gross receivables intensity falls</b></td><td class="t">CRISIL's receivables-including-unbilled measure <b>below 230 days</b>, from 264</td><td class="t">CRISIL rating rationales, published roughly annually</td></tr>
+<tr><td class="t"><b>6. The company self-funds</b></td><td class="t">CFO less capex less interest <b>positive for three consecutive years</b>, using disclosed rather than proxy capex. The decade is <b>&minus;&#8377;1,823 Cr</b></td><td class="t">Cash flow statement, cross-checked against the capex note</td></tr>
+<tr><td class="t"><b>7. Segment disclosure improves</b></td><td class="t">Any audited segment result for T&amp;D or B&amp;F separately. Would convert every margin claim in this report from management assertion to verifiable fact</td><td class="t">Annual report, Note 47</td></tr>
+<tr><td class="t"><b>8. The related-party question is answered</b></td><td class="t">Disclosure of the client behind the residential order pipeline, and the value of B&amp;F work done for promoter-affiliated entities</td><td class="t">Note 40, or a direct question on a call</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>What would confirm the bear case</h3>
+<ul>
+<li><b>EBITDA margin below 8.75%</b> in FY2027 while management continues to report PBT-margin improvement. That would confirm the margin story is entirely financial and now exhausted.</li>
+<li><b>Growth continues to miss the cut guidance.</b> 15% is already a reduction from 20&ndash;25%; a second downgrade following a sub-10% quarter would confirm the demand story is weaker than the order book implies.</li>
+<li><b>Capex stays above &#8377;900 Cr</b> with no corresponding margin gain, and the rolling mill investment goes unquantified for another year.</li>
+<li><b>A second subsidiary write-off.</b> Fasttel Brazil cost &#8377;515 Cr, Kurukshetra &#8377;454 Cr, Shubham never earned its cost of capital. The subsidiary loan book remains a Key Audit Matter.</li>
+<li><b>Warranty and ECL provision reversals</b> turning out to be a material component of reported margin improvement. The stock is a large accrual, set at a management-chosen rate, and nobody has asked about it from the reversal side.</li>
+<li><b>TOL/TNW rising toward 3.0&times;</b> &mdash; CRISIL's own downgrade tripwire, which it has quietly loosened before.</li>
+<li><b>Order book to sales falling below 2.0&times;</b>, also a CRISIL downgrade trigger, and the level at which the customer float that funds much of the balance sheet starts to unwind.</li>
+<li><b>The sector's execution shortfall persisting.</b> India commissioned ~8,830 circuit-km of transmission line in FY2025 against a target near 15,000 &mdash; a 40&ndash;42% miss on right-of-way and clearance delays. If that gap does not close, the &#8377;9.15 lakh crore plan converts into orders more slowly than the order books imply, and the working-capital intensity in Section <a href="#wc">05</a> gets worse rather than better.</li>
+</ul>
+
+<h3>The one-paragraph version</h3>
+
+<p>Kalpataru Projects International is a well-run contractor with the best cash conversion in its sector, a repaired balance sheet, a record order book and a management team that delivers what it controls, including a long-outstanding Swedish subsidiary question that has finally, genuinely resolved. It is also a price-taking business in an industry with no entry barriers, whose operating margin has fallen for seven consecutive years through the strongest demand environment it will ever see, whose flagship segment's order intake has already peaked, whose entire reported margin improvement has come from a deleveraging that is largely complete, whose one clean stress-year test shows it holding up no better than its peers, and which is the only large stock in its sector the market has not marked down. At 22 times earnings the market is paying for an operating improvement that a decade of evidence, twelve peer companies and the sector's own stress test say does not arrive on its own. <b>The quality is real; the price assumes the quality translates into a margin, and a resilience, the company has not yet demonstrated.</b></p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">16</span>Data gaps and provenance</h2>
+<p class="sec-sub">What this report is built on, and what it could not see</p>
+
+<p>Every analysis has holes. Most reports hide them. Ours are listed here because a reader making a capital-allocation decision is entitled to know which conclusions rest on primary evidence and which rest on inference. This is the second version of this report; where a gap was closed or a finding changed since the first version, it is marked as such.</p>
+
+<h3>What was actually read</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Source</th><th class="t">Coverage</th><th class="t">Status</th></tr></thead>
+<tbody>
+<tr><td class="t">Earnings call transcripts</td><td class="t">10 calls, Q4 FY24 &rarr; Q1 FY27 (May 2024 &ndash; Aug 2026)</td><td class="t">Read in full in the prior version, twice; not re-read this run since no new transcripts became available</td></tr>
+<tr><td class="t">Annual reports</td><td class="t">FY2017&ndash;FY2020, FY2022&ndash;FY2024, FY2026</td><td class="t">Mined by targeted search; see the table-loss caveat below, re-confirmed this run</td></tr>
+<tr><td class="t">Credit rating reports</td><td class="t">5 reports: CRISIL &times;4 (Jul-24 to Oct-25), CARE &times;1 (Jan-25)</td><td class="t">Read in full in the prior version; no new rating action found this run</td></tr>
+<tr><td class="t">Financial data</td><td class="t">FY2017&ndash;FY2026 consolidated, Screener basis</td><td class="t">Recomputed fresh this run via <span style="font-family:var(--mono)">src.modules.equity_research</span> directly against the database</td></tr>
+<tr><td class="t">Related-party audit</td><td class="t">FY2015&ndash;FY2026, all 12 years</td><td class="t">Existing human-authored audit in this repo, score 1/3 "Minor"; unchanged</td></tr>
+<tr><td class="t">Price and market data</td><td class="t">12 September 2026</td><td class="t">Refreshed this run &mdash; the cached price was 10 days stale (&#8377;1,401.35, fetched 2 Sep); confirmed &#8377;1,436 (close, 11 Sep 2026) via Screener's public page</td></tr>
+<tr><td class="t">Peer set</td><td class="t">13 companies, up from 6</td><td class="t">Rebuilt this run by external verification; two names added (Bajel Projects, Patel Engineering)</td></tr>
+<tr><td class="t">Company news</td><td class="t">Filtered to order wins, rating actions, capital events, litigation, management changes</td><td class="t">Refreshed this run; surfaced the LMG IPO resolution (see below)</td></tr>
+<tr><td class="t">ValuePickr forum</td><td class="t">Full-text search across the company's lineage and the live sector debate</td><td class="t">Read in full this run; see Section <a href="#sentiment">13</a></td></tr>
+<tr><td class="t">Vijay Malik's construction framework</td><td class="t">Industry-analysis and comparable-company articles</td><td class="t">Reconstructed from search-index snippets in the prior version; live crawl attempted again this run, blocked twice (see Gap 4)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Gap 1 &mdash; every table was stripped out of the annual reports, re-confirmed this run</h3>
+
+<div class="warn">
+  <div class="lbl">The most consequential limitation in this report, unchanged from the prior version</div>
+  <p>The PDF-to-markdown conversion in this pipeline drops <b>100% of tabular content</b> from every annual report markdown file &mdash; re-verified this run by grepping all 12 years for table-row markers and finding zero in every one. Narrative prose, headings and figures inlined into running text survive; structured tables do not. The following remain confirmed absent, and have <b>not</b> been estimated anywhere in this report:</p>
+  <ul style="margin-top:8px;margin-bottom:0">
+    <li><b>Related-party transaction values and closing balances</b> (Note 40) &mdash; the party <i>list</i> survives for FY2024 and FY2026; every rupee amount is gone. This is why Section <a href="#flags">12</a> cannot resolve the Kalpataru Limited question.</li>
+    <li><b>Trade receivables ageing schedule</b> and the ECL provision matrix (Note 42) &mdash; so the &gt;6-month, disputed and credit-impaired buckets are unknown.</li>
+    <li><b>Contingent liabilities schedule</b> (Note 30) &mdash; heading and footnotes present, amounts gone. Total corporate guarantees outstanding is therefore unknown.</li>
+    <li><b>Cost line items</b> &mdash; materials consumed, erection and subcontracting, employee benefits (Notes 27, 29, 35/41). Cost structure as a percentage of revenue could not be built for any year.</li>
+    <li><b>Managerial remuneration</b> rupee amounts and director-to-median ratios (Annexure C1). Remuneration as a percentage of profit <b>cannot be computed</b>.</li>
+    <li>Unhedged foreign-currency exposure table, hedge reserve reconciliation, inventory breakdown, retention money balances, Form AOC-1 subsidiary financials.</li>
+  </ul>
+  <p style="margin-top:8px">Also re-confirmed this run: <b>FY2015, FY2016, FY2021 and FY2025 annual report files are stubs</b> (5.5&ndash;15KB against 0.8&ndash;1.9MB for a full year). FY2026's prior-year comparatives remain the only route to FY2025 AR-level detail.</p>
+</div>
+
+<p>This is a defect in our own document pipeline, not in KPIL's disclosure. The fix is a table-aware extractor re-run against the source PDFs, which would close roughly 40% of what is missing here &mdash; and specifically would settle the related-party question that is the largest open item in this analysis. This is the same recommendation as the prior version and remains the single highest-value fix available.</p>
+
+<h3>Gap 2 &mdash; segment margins do not exist, in any source</h3>
+<p>This one is not a pipeline problem. <b>KPIL reports all six of its EPC businesses as a single operating segment under Ind AS 108</b>, on the stated justification that <i>"over long-term basis, the margin profiles on each of these BUs is also in the similar range."</i> There is consequently no audited segment result, segment margin or segment capital employed for T&amp;D, Buildings &amp; Factories, Water, Oil &amp; Gas, Railways or Urban Infrastructure &mdash; anywhere, in any year. <b>Every segment margin figure quoted in this report is management's spoken estimate on an earnings call</b>, and is labelled as such where used.</p>
+
+<h3>Gap 3 &mdash; the older transcript record is missing, unchanged</h3>
+<p>The pipeline holds 10 transcripts and has 14 failed downloads, all for older calls spanning roughly FY2016&ndash;FY2021, all dead links on the pre-rename <span style="font-family:var(--mono)">kalpatarupower.com</span> domain. Not re-attempted this run &mdash; no new pull was instructed. The consequence, unchanged: <b>we can assess this management team's credibility across ten consecutive recent quarters but not across a full cycle</b>, and in particular not through the FY2022 commodity shock or the JMC merger integration.</p>
+
+<h3>Gap 4 &mdash; Vijay Malik's website is blocked, on two independent grounds now confirmed</h3>
+<p>Re-confirmed this run, and more precisely diagnosed than in the prior version. Two separate failure modes: <b>(a)</b> a live browser-automation crawl of <span style="font-family:var(--mono)">drvijaymalik.com</span> from this environment is reset by the sandbox's own outbound network relay (<span style="font-family:var(--mono)">ERR_CONNECTION_RESET</span>) before the request ever reaches the site; and independently <b>(b)</b> the site itself returns Cloudflare's HTTP 403 bot challenge to a plain, non-browser request that does get through. Both were verified directly this run rather than assumed. His construction-sector framework was reconstructed from <b>domain-restricted search-index snippets</b> in the prior version and persisted this run as a graded corpus file (<span style="font-family:var(--mono)">research/malik/industry/construction.md</span>) with every claim marked <b>VERBATIM / MEDIUM / SUMMARY</b> for confidence. <b>No company-specific analyses</b> (his PNC, KNR, Skipper, or Transformers &amp; Rectifiers write-ups) were recovered as full documents this run; the PNC comparison used in Section <a href="#peers">06</a> draws on figures already recovered in the prior session. A reader relying on Malik's exact framing should consult the originals directly.</p>
+
+<h3>Gap 5 &mdash; peer discovery from KPIL's own documents produced noise, not a peer list</h3>
+<p>New this run: an attempt to derive KPIL's competitor set automatically from its own filings and transcripts (rather than from external verification) was built and tested against the real 22-document corpus. The first version of the detection logic returned "Crore," "Peer Review Cert" and "Further" as its top candidates &mdash; common cue phrases like "versus" and "compared to" fire on ordinary financial prose far more often than on competitor mentions. The logic was tightened (narrower cues, a minimum two-word proper-noun match) and committed to the codebase, which stopped the single-word garbage but still surfaced no genuine competitor names: KPIL's surviving annual-report text uses "competition" almost exclusively for internal Kaizen and CSR award programmes, not the competitive landscape. <b>The 13-company peer set used throughout this report was built by external verification instead</b> &mdash; web search and Screener ticker lookup &mdash; exactly as the fallback this pipeline's own research process prescribes. This is evidence that document-derived peer discovery needs a name-dense source (a prospectus competition section, a sell-side note) to work against, not a reason to keep tuning it against this particular company's corpus.</p>
+
+<h3>Gap 6 &mdash; the authenticated Screener pull could not run in this environment</h3>
+<p>The credentialed login-and-export path that would pull cumulative CFO/PAT/capex series and document links directly is not configured in this sandbox. Substituted with public-page fetches for all 13 confirmed peers, which give current ratios, revenue/PAT, the OPM trend and shareholding but <b>not</b> the cumulative cash-flow series for most of them. The KEC (0.49&times;) and KNR (0.07&times;) cumulative CFO/PAT figures used in Sections <a href="#record">03</a> and <a href="#val">14</a> were obtained this run directly from each company's own reported cash-flow statements rather than the authenticated export; the remaining ten peers' cumulative cash-flow series are not shown for this reason. Two further data-quality flags surfaced this run and are recorded in <span style="font-family:var(--mono)">research/INE220B01022/peers.json</span>: Techno Electric's FY2017 OPM of 91% is arithmetic on a tiny non-comparable revenue base, and KNR/NCC's FY2026 figures should be checked against each company's own filed results before further use.</p>
+
+<h3>Gap 7 &mdash; resolved this run: the Linjemontage question</h3>
+<div class="good">
+  <div class="lbl">A gap closed, not opened</div>
+  <p>The prior version of this report flagged five consecutive quarters of management non-answers on a Swedish-subsidiary fundraise as one of its most significant open items. That is no longer a gap: on ~9 September 2026, Sweden's own regulatory newswire (MFN.se) confirmed a board-approved Nasdaq Stockholm IPO of Linjemontage i Grastorp AB, valuing it at up to SEK 2,350m, expected to complete by end September 2026, and corroborated independently by four further outlets. See Section <a href="#mgmt">09</a> for how this is scored.</p>
+</div>
+
+<h3>Gap 8 &mdash; smaller items, mostly unchanged</h3>
+<ul>
+<li><b>Arbitration claims are unquantified.</b> Management describes awards as <i>"4-digit crores"</i> and declines to size them on confidentiality grounds. They are carried at zero in the accounts, and at zero in our valuation.</li>
+<li><b>The existing related-party audit predates this repo's automated generator</b> &mdash; it is marked <span style="font-family:var(--mono)">human-authored (pre-automation)</span> and carries no <span style="font-family:var(--mono)">document_ids</span> citation trail.</li>
+<li><b>The Screener inventory field is unreliable</b> for KPIL, returning impossible negative values in several years. Inventory days are not used in this report.</li>
+<li><b>CRISIL restated its own FY2024 figures</b> between its 2024 and 2025 reports &mdash; TOL/TNW from 2.42&times; to 2.21&times;, gross debt from &#8377;3,073 Cr to &#8377;2,925 Cr &mdash; without explanation. Where we quote agency ratios we state the vintage.</li>
+<li><b>CARE's instrument tables</b> did not survive extraction either, so CARE facility amounts and its three-year rating history are unavailable.</li>
+<li><b>Net debt basis differs.</b> Management reports consolidated net debt of &#8377;915 Cr; our balance-sheet derivation (borrowings less cash) gives &#8377;1,700 Cr. The DCF deducts the larger, conservative figure.</li>
+<li><b>Capex from the cash-flow statement understates FY2026</b> &mdash; new finding this run. The CFI-derived proxy reads &#8377;0 for FY2026 because the Vindhyachal disposal made investing cash flow positive that year, masking the disclosed &#8377;917 Cr of actual capex. Every figure in this report that depends on capex (the cash gates, the DCF capex path) now uses the disclosed number; the prior version did not, and its self-funding-gap figure of &minus;&#8377;906 Cr should be treated as superseded by this version's &minus;&#8377;1,823 Cr.</li>
+</ul>
+
+<h3>What would settle the open questions</h3>
+<ol>
+<li>Re-extract <b>Note 40 (related parties)</b> and the <b>BRSR Principle 1 Q9</b> concentration table from the FY2026 PDF with a table-aware parser. Still the single highest-value action available.</li>
+<li>Re-extract <b>Note 42 (receivables ageing)</b> and <b>Note 30 (contingent liabilities)</b>.</li>
+<li>Recover the 14 missing transcripts, to test management credibility across the FY2022 commodity shock directly rather than only through peer comparison.</li>
+<li>Configure authenticated Screener access so cumulative CFO/PAT/capex series can be pulled for all 13 peers, not just the two obtained directly this run.</li>
+<li>Run the Vijay Malik crawl from outside this sandbox, or save the relevant pages via a normal browser and parse them offline &mdash; unresolved across three research passes now.</li>
+<li>Ask the company directly, at the next call: what proportion of the Buildings &amp; Factories order book is with promoter-affiliated entities, and whether the stress-year margin shortfall against peers reflects a specific, nameable cause.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Kalpataru Projects International Ltd (NSE: KPIL, BSE: 522287, ISIN INE220B01022). Prepared 12 September 2026 against a share price of &#8377;1,436. Revision 2 &mdash; full regeneration, superseding the prior version.</p>
+  <p>Built from this pipeline's own indexed corpus: 10 earnings call transcripts (Q4 FY24 &ndash; Q1 FY27), 8 usable annual reports (FY2017&ndash;FY2026), 5 credit rating reports (CRISIL &times;4, CARE &times;1), a 12-year related-party audit, consolidated financials FY2017&ndash;FY2026, and a rebuilt 13-company peer set. Every numeric claim cites a fiscal year; every quotation cites a document and date. Limitations are stated in full in Section 16.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. Do your own work, and note in particular the data gaps in the final section &mdash; several material questions raised here are explicitly unresolved. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
