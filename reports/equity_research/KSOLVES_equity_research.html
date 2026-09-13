@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ksolves India — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Ksolves India: extraordinary ROCE at tiny scale, a genuine margin collapse and a disclosed failed product bet, management credibility scorecard and DCF valuation.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Equity Research &middot; Coffee Can Screener</span>
+  <h1>Ksolves India</h1>
+  <p class="subtitle">A tiny, founder-led IT-services boutique with the highest capital efficiency this pipeline has measured &mdash; that just took a genuine, self-inflicted margin hit and was unusually candid about it.</p>
+  <p class="meta">
+    NSE <b>KSOLVES</b> &middot; BSE <b>543599</b> &middot; ISIN <b>INE0D6I01023</b> &middot; IT Services / Digital Engineering &amp; Big Data Consulting &middot; Consolidated basis<br>
+    Price <b>&#8377;258.00</b> &middot; Market cap <b>&#8377;612 Cr</b> &middot; P/E <b>17.8&times;</b> &middot; ROCE <b>131%</b> (reported, FY2026) &middot; As of <b>12 September 2026</b>
+  </p>
+</header>
+
+<div class="verdict">
+  <div class="verdict-label">Verdict</div>
+  <p class="verdict-head">Quality: genuinely high, with one real cash-conversion caveat. Growth: real, but margin took a self-inflicted hit. Price: already assumes something close to a bear-case outcome, not a recovery.</p>
+  <p>Ksolves clears the coffee-can gates as cleanly as any company measured on this pipeline &mdash; a perfect 9/9 "9iner" on revenue growth and ROCE, with capital employed of only ~&#8377;35 Cr producing reported ROCE of 89&ndash;193% in recent years. That is a genuine structural feature of a people-based services business with a high-payout capital policy, not a data error, and the highest capital efficiency this pipeline has measured to date.</p>
+  <p>The one test it fails: cumulative CFO/PAT of 0.88&times; over the decade, driven by receivable days rising from near-zero to 70 as the client base shifted toward larger, slower-paying global enterprises. Layered on top, management spent roughly two years building a data-flow-management product (DFM) into a second growth engine, promoted it heavily through an "Agentic AI" relaunch in February 2026, then killed it within twelve weeks &mdash; taking EBITDA margin from 34.8% to 29.7% in a single year and pulling FY2027 guidance down to 25-30%, well below the historical 42-43% range.</p>
+  <p>Run through a reverse DCF, &#8377;258 requires a flat EBITDA margin of only <b>22.4%</b> &mdash; below management's own guided floor &mdash; or growth of only <b>11.4%</b> against an 18-20% guide. An explicit bear scenario mirroring further industry-wide AI-pricing pressure lands almost exactly at today's price; a base case that simply takes management's own guidance at face value implies <b>&#8377;327</b>, 27% higher. <b>A well-run business that made one real mistake and owned it, priced as though the mistake keeps compounding.</b></p>
+</div>
+
+<div class="hero-row">
+  <div class="stat"><div class="k">Coffee-can gates</div><div class="v" style="color:#8ac9a8">9 / 9</div><div class="n">Revenue growth &amp; ROCE, all scored years</div></div>
+  <div class="stat"><div class="k">CFO / PAT (decade)</div><div class="v" style="color:var(--loss)">0.88&times;</div><div class="n">The one gate this company fails</div></div>
+  <div class="stat"><div class="k">EBITDA margin, FY25&rarr;FY26</div><div class="v" style="color:var(--loss)">34.8%&rarr;29.7%</div><div class="n">DFM write-off + industry pricing pressure</div></div>
+  <div class="stat"><div class="k">Base-case DCF value</div><div class="v">&#8377;327</div><div class="n">27% above market, at guidance held flat</div></div>
+</div>
+
+<div class="toc">
+  <div class="toc-l">Contents</div>
+  <ol>
+    <li><a href="#business">The business, and where the money is made</a></li>
+    <li><a href="#framework">A services-business checklist, applied</a></li>
+    <li><a href="#record">The ten-year record</a></li>
+    <li><a href="#margin">Margins: a real deterioration, honestly explained</a></li>
+    <li><a href="#wc">Working capital: where the cash-conversion gap comes from</a></li>
+    <li><a href="#peers">How Ksolves compares with its real peers</a></li>
+    <li><a href="#growth">Growth outlook: a real niche, and a live question about billing</a></li>
+    <li><a href="#analysts">What outside scrutiny exists — and how little of it there is</a></li>
+    <li><a href="#mgmt">Management scorecard: candid once the numbers forced the issue</a></li>
+    <li><a href="#credit">What the credit rating agency sees</a></li>
+    <li><a href="#capital">Capital allocation and the balance sheet</a></li>
+    <li><a href="#flags">Governance: clean on the record, thin on disclosure quality</a></li>
+    <li><a href="#sentiment">What retail investors have been saying since 2022</a></li>
+    <li><a href="#valuation">Valuation: what the price actually assumes</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business, and where the money is made</h2>
+<p class="sec-sub">A founder-led, ~₹163 Cr niche IT-services boutique selling developer time on hard technologies to global enterprise clients</p>
+
+<p>Ksolves India Limited, incorporated in July 2014 and listed since 2021, is a small Indian IT-services company built around a specific bet: rather than competing as a generalist outsourcing shop, it specialises in technologies that are genuinely hard to hire for — Big Data (Hadoop, Spark, Apache NiFi), Salesforce implementation and development, artificial intelligence and machine learning, Odoo and ERPNext ERP implementation, plus a long tail of related services (iOS/Android, Node.js, React, Ruby on Rails, DevOps/SecOps, cybersecurity, SaaS and API integration). The model is straightforward: bill clients for skilled developer and consultant time, mostly on a time-and-materials or fixed-price project basis, for technologies where the talent pool is thin enough that Ksolves can charge a premium most generalist vendors cannot.</p>
+
+<p>The client base is global and concentrated: <b>77% of revenue is overseas</b>, with North America the largest single geography (~60%) and Europe the rest. <b>82% of revenue is repeat business</b> from existing clients — a genuinely sticky book, though top 5 clients still account for 40% of revenue and top 10 for 54%, real concentration risk for a company this size. Two wholly-owned subsidiaries extend the model: <b>Kartik Solutions Private Limited</b> (acquired 2019, Indian, web/mobile/cloud/e-commerce services) and <b>Ksolves LLC</b> (US, established 2021, primarily an onshore sales and delivery presence for the American market).</p>
+
+<h3>An extraordinary return on an almost nonexistent capital base</h3>
+
+<p>What makes this company worth analysing closely is not scale — at ₹163 Cr of FY2026 revenue it is by far the smallest company covered on this pipeline — but capital efficiency. Because the business needs almost no fixed assets (a services company's core asset is its people, who don't sit on a balance sheet) and because management distributes most of what it earns as dividends rather than retaining capital, <b>capital employed is tiny — around ₹35 Cr against ₹48 Cr of FY2026 EBITDA</b> — which produces a reported ROCE that has run <b>89% to 193%</b> in recent years. This is not a data error; it is a genuine structural feature of a people-based service business with a high-payout capital policy, and it is the highest capital efficiency this pipeline has measured on any company to date. Section <a href="#framework">02</a> treats what that number does and does not tell you about durability.</p>
+
+<h3>A live, disclosed strategic pivot: from pure services toward a products bet, and back again</h3>
+
+<p>Beginning around FY2025, management attempted to diversify beyond billed developer time into a product business — most visibly <b>DFM</b>, a data-flow-management tool built on top of the open-source Apache NiFi platform, aimed at automating and monitoring data pipelines. Management spent on development and heavy marketing (conference stalls, exhibitions, a dedicated "DFM 2.0 Agentic AI" launch webinar in early 2026) before concluding, on the very next earnings call, that customer traction had not materialised and further investment was not justified. That reversal — its timeline, and what it says about management's own forecasting discipline — is central to Section <a href="#mgmt">09</a> and is the single largest driver of the margin and profit story in Section <a href="#margin">04</a>.</p>
+
+<p>Demand for the underlying niche is real: CRISIL's own credit assessments describe intense competition constraining scalability but a durable position "in a niche segment" that "will continue to support revenue growth over the medium term." The open question this report examines is whether that niche stays defensible as generative AI tools change what a billable hour of specialist developer time is actually worth — covered in full in Section <a href="#growth">07</a>.</p>
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>A services-business checklist, applied</h2>
+<p class="sec-sub">Ksolves passes the headline gates perfectly. The second-order tests tell a different, more useful story.</p>
+
+<p>A people-based services business fails differently from a capital-intensive one. There is no order book to overstate, no treasury book to flatter returns, no float to fund growth. The risks here are: client concentration, whether reported profit actually turns into collected cash as the client base shifts toward larger, slower-paying enterprises, and whether management's capital-allocation choices (a product bet, a dividend policy) are disciplined or opportunistic. The checklist below is built around those specific questions.</p>
+
+<h3>The scorecard</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Test</th><th class="t">What it looks for</th><th class="t">Ksolves</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Coffee-can gates</b></td><td class="t">Revenue growth &gt;10% and ROCE &gt;15%, every scored year</td><td class="t">Rev score <b>9/9</b>, ROCE score <b>9/9</b> — a perfect "9iner," the top tier this pipeline scores</td><td><span class="pill p-kept">Pass, cleanly</span></td></tr>
+<tr class="hl"><td class="t"><b>Cumulative CFO vs cumulative PAT</b></td><td class="t">cCFO should at least equal cPAT</td><td class="t">₹135.5 Cr CFO against ₹153.3 Cr PAT = <b>0.88&times;</b> — cash fell short of profit over the decade; only <b>2 of 10</b> individual years cleared the gate</td><td><span class="pill p-broke">Fails</span></td></tr>
+<tr><td class="t"><b>The harder cash test</b><br><span style="font-size:11px;color:var(--faint)">CFO &minus; capex &minus; interest</span></td><td class="t">Positive, else growth was externally funded</td><td class="t">₹135.5 Cr &minus; ₹11.9 Cr &minus; ₹1.9 Cr = <b>+₹121.6 Cr</b> — comfortably funded the decade's ₹93.6 Cr of dividends, with capex this small the harder test is easy to pass even when the first gate fails</td><td><span class="pill p-kept">Pass</span></td></tr>
+<tr class="hl"><td class="t"><b>Receivable days trend</b></td><td class="t">Rising days against a services business signal weaker collection discipline as clients get bigger/slower</td><td class="t">Near <b>zero</b> through FY2020 (tiny, fast-paying clients) &rarr; <b>70 days</b> by FY2026 as the client base shifted to larger global enterprises</td><td><span class="pill p-slip">Real structural shift, not yet alarming</span></td></tr>
+<tr><td class="t"><b>Reported ROCE, sense-checked</b></td><td class="t">Is an extreme ROCE a real signal or an artefact of a tiny capital base</td><td class="t">89&ndash;193% ROCE against <b>~₹35 Cr</b> of capital employed — genuine (low fixed-asset need, high dividend payout keeps equity thin), but a number this extreme also means the "moat" is not capital-intensity-based at all</td><td><span class="pill p-slip">Real, but read carefully</span></td></tr>
+<tr><td class="t"><b>Total outside liabilities / net worth</b></td><td class="t">Rising TOL/TNW against a thin equity base</td><td class="t"><b>0.38&times; &rarr; 1.16&times;</b> (FY2017&ndash;26) — tripled, though off a tiny base and still a conservative absolute level</td><td><span class="pill p-slip">Watch</span></td></tr>
+<tr><td class="t"><b>Founder-led, or controlled by someone else's capital</b></td><td class="t">A change of control changes what every other test means</td><td class="t">Promoters hold <b>58.9%</b>, stable since listing. Essentially <b>zero institutional ownership</b> (FII + DII under 0.1% combined) — a pure-retail-owned, under-covered micro-cap</td><td><span class="pill p-kept">Founder-led</span></td></tr>
+<tr><td class="t"><b>Related-party transactions</b></td><td class="t">Existing audit score, all years read</td><td class="t"><b>1 / 3 ("Watch")</b> — the only related parties are the two wholly-owned subsidiaries and KMP compensation; every AOC-2 "not at arm's length" section reads Nil</td><td><span class="pill p-kept">Clean</span></td></tr>
+<tr><td class="t"><b>Client concentration</b></td><td class="t">Revenue reliance on a small number of accounts</td><td class="t">Top 5 clients = <b>40%</b> of revenue, top 10 = <b>54%</b> — real concentration for a ₹163 Cr company</td><td><span class="pill p-slip">Watch</span></td></tr>
+<tr class="hl"><td class="t"><b>Capital allocation discipline under a failed bet</b></td><td class="t">Does management cut losses on a failing strategic investment, or keep funding it</td><td class="t">Spent on DFM product development and heavy marketing through FY2026, then explicitly stopped after concluding "we could not generate revenue from that" — a genuinely fast, candid reversal (Section <a href="#mgmt">09</a>)</td><td><span class="pill p-kept">Disciplined, after the fact</span></td></tr>
+<tr><td class="t"><b>Dividend policy vs the credit rating agency's own downgrade trigger</b></td><td class="t">Is the payout policy itself flagged as a risk by an independent party</td><td class="t">CRISIL names <b>"any large... sizeable dividend payment"</b> as an explicit downward rating trigger, even as Ksolves pays out 40&ndash;74% of profit/FCF as policy</td><td><span class="pill p-slip">A live tension, not resolved</span></td></tr>
+</tbody>
+</table>
+<caption>Figures from <span style="font-family:var(--mono)">src.modules.equity_research</span> run against this pipeline's database, FY2017&ndash;FY2026 (FY2017/18/20 operating-profit data absent, not zero — Section <a href="#gaps">16</a>), cross-checked against the existing related-party audit, CRISIL rating reports and management's own transcript commentary.</caption>
+</div>
+
+<h3>The one line in that table that matters more than the others</h3>
+
+<p>A "9iner" coffee-can tier plus a cCFO/cPAT ratio of 0.88&times; is an unusual combination, and it is worth being precise about what it does and does not mean. It does not mean profit is fictional — the harder cash test (CFO less real capex less interest) is comfortably positive, and dividends have been paid in cash, not accrued. What it means is that <b>reported profit has been running ahead of collected cash for several years running</b>, and the mechanism is visible in the receivable-days trend: a company that used to be paid almost immediately by small, fast-moving clients is now waiting 50&ndash;70 days to collect from larger global enterprise accounts. That is a normal, even necessary, consequence of moving upmarket — but it is exactly the kind of quality-of-earnings drift that a headline ROCE of 131% will not show you, and it is the reason this report treats the coffee-can tier as a starting point for the analysis rather than its conclusion.</p>
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record</h2>
+<p class="sec-sub">From ₹1.7 Cr to ₹163 Cr — an extraordinary compounding run from a tiny base, with margin only turning over in the last two years</p>
+
+<figure>
+  <div class="fig-title">Revenue, FY2019&ndash;FY2026</div>
+  <div class="fig-sub">&#8377; crore, consolidated. FY2017&ndash;FY2018 (shaded, off-chart scale) carry incomplete operating-profit data and a near-zero base — shown for context only.</div>
+  <svg viewBox="0 0 720 230" role="img" aria-label="Ksolves consolidated revenue by fiscal year, FY2019 to FY2026"><line class="grid-l" x1="46" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="40" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="46" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="40" y="157.0" text-anchor="end">44</text><line class="grid-l" x1="46" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="40" y="111.0" text-anchor="end">88</text><line class="grid-l" x1="46" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="40" y="65.0" text-anchor="end">132</text><line class="grid-l" x1="46" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="40" y="19.0" text-anchor="end">176</text><rect x="66.7" y="194.3" width="52.8" height="5.7" rx="4" fill="#c9a24b"><title>FY2019: Rs 5.4 Cr</title></rect><text class="vlbl" x="93.1" y="188.3" text-anchor="middle">5.4</text><text class="ax" x="93.1" y="213" text-anchor="middle">'19</text><rect x="161.0" y="170.5" width="52.8" height="29.5" rx="4" fill="#c9a24b"><title>FY2021: Rs 28.2 Cr</title></rect><text class="vlbl" x="187.4" y="164.5" text-anchor="middle">28.2</text><text class="ax" x="187.4" y="213" text-anchor="middle">'21</text><rect x="255.3" y="150.7" width="52.8" height="49.3" rx="4" fill="#c9a24b"><title>FY2022: Rs 47.1 Cr</title></rect><text class="vlbl" x="281.7" y="144.7" text-anchor="middle">47.1</text><text class="ax" x="281.7" y="213" text-anchor="middle">'22</text><rect x="349.6" y="118.0" width="52.8" height="82.0" rx="4" fill="#c9a24b"><title>FY2023: Rs 78.3 Cr</title></rect><text class="vlbl" x="376.0" y="112.0" text-anchor="middle">78.3</text><text class="ax" x="376.0" y="213" text-anchor="middle">'23</text><rect x="443.9" y="86.3" width="52.8" height="113.7" rx="4" fill="#c9a24b"><title>FY2024: Rs 108.6 Cr</title></rect><text class="vlbl" x="470.3" y="80.3" text-anchor="middle">108.6</text><text class="ax" x="470.3" y="213" text-anchor="middle">'24</text><rect x="538.2" y="56.1" width="52.8" height="143.9" rx="4" fill="#c9a24b"><title>FY2025: Rs 137.4 Cr</title></rect><text class="vlbl" x="564.6" y="50.1" text-anchor="middle">137.4</text><text class="ax" x="564.6" y="213" text-anchor="middle">'25</text><rect x="632.5" y="29.6" width="52.8" height="170.4" rx="4" fill="#c9a24b"><title>FY2026: Rs 162.7 Cr</title></rect><text class="vlbl" x="658.9" y="23.6" text-anchor="middle">162.7</text><text class="ax" x="658.9" y="213" text-anchor="middle">'26</text><line class="zero-l" x1="46" y1="200" x2="706" y2="200"/></svg>
+  <figcaption><b>Why:</b> revenue compounded at extraordinary rates through FY2024 (management cites a 42% five-year CAGR), before decelerating to +26.5% (FY2025) and +18.4% (FY2026) as the base grew large enough that percentage growth naturally moderates — management's own framing on the Q4 FY26 call was blunt about this: "now the base is large... the absolute number is increasing, but percent is decreasing." Source: <span style="font-family:var(--mono)">xbrl_annual</span>, FY2017&ndash;FY2026.</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Revenue</th><th class="num">OPM</th><th class="num">PBT margin</th><th class="num">ROCE</th><th class="num">Receivable days</th></tr></thead>
+<tbody>
+<tr><td class="t">2019</td><td class="num">5.4</td><td class="num">5.7%</td><td class="num">n/m</td><td class="num">120.0%</td><td class="num">0</td></tr>
+<tr><td class="t">2021</td><td class="num">28.2</td><td class="num">43.3%</td><td class="num">42.4%</td><td class="num">89.2%</td><td class="num">47</td></tr>
+<tr><td class="t">2022</td><td class="num">47.1</td><td class="num">43.1%</td><td class="num">44.4%</td><td class="num">126.4%</td><td class="num">72</td></tr>
+<tr><td class="t">2023</td><td class="num">78.3</td><td class="num">42.2%</td><td class="num">42.1%</td><td class="num">148.1%</td><td class="num">71</td></tr>
+<tr><td class="t">2024</td><td class="num">108.6</td><td class="num">42.8%</td><td class="num">42.2%</td><td class="num">192.9%</td><td class="num">54</td></tr>
+<tr><td class="t">2025</td><td class="num">137.4</td><td class="num">34.9%</td><td class="num">33.3%</td><td class="num">132.2%</td><td class="num">56</td></tr>
+<tr class="hl"><td class="t"><b>2026</b></td><td class="num"><b>162.7</b></td><td class="num"><b>29.7%</b></td><td class="num"><b>27.7%</b></td><td class="num"><b>131.0%</b></td><td class="num"><b>70</b></td></tr>
+</tbody>
+</table>
+<caption>&#8377; crore unless stated. FY2017/18/20 excluded: operating-profit-line data is genuinely absent for those years, not zero (Section <a href="#gaps">16</a>). ROCE is the Mukherjea/Screener basis (EBIT &divide; debt + equity). Recomputed via <span style="font-family:var(--mono)">src.modules.equity_research</span> against the database.</caption>
+</div>
+
+<h3>Two things in that table worth stopping on</h3>
+
+<p><b>First, the four years FY2021&ndash;FY2024 were a genuinely rare run: OPM held in a tight 42&ndash;43% band while revenue nearly quadrupled.</b> That combination — margin stability <i>through</i> rapid scaling — is unusual and is exactly what CRISIL's rating reports credited to "niche technologies... usually used by larger service providers" commanding premium pricing with limited direct competition. It is the strongest evidence in this report that the underlying positioning was, for a period, a real and durable advantage rather than a temporary pricing anomaly.</p>
+
+<p><b>Second, the FY2024&rarr;FY2026 margin collapse is real, large, and management-explained — not an accounting artefact.</b> The margin bridge below decomposes it precisely.</p>
+
+<figure>
+  <div class="fig-title">What actually moved PBT margin, FY2024 &rarr; FY2026</div>
+  <div class="fig-sub">Decomposition of the 1,448bp fall in PBT margin. Components sum exactly to the total.</div>
+  <svg viewBox="0 0 720 250" role="img" aria-label="Decomposition of Ksolves profit-before-tax margin change from FY2024 to FY2026"><line class="grid-l" x1="50" y1="204.0" x2="706" y2="204.0"/><text class="ax" x="44" y="207.0" text-anchor="end">0%</text><line class="grid-l" x1="50" y1="172.0" x2="706" y2="172.0"/><text class="ax" x="44" y="175.0" text-anchor="end">8%</text><line class="grid-l" x1="50" y1="140.0" x2="706" y2="140.0"/><text class="ax" x="44" y="143.0" text-anchor="end">16%</text><line class="grid-l" x1="50" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="44" y="111.0" text-anchor="end">24%</text><line class="grid-l" x1="50" y1="76.0" x2="706" y2="76.0"/><text class="ax" x="44" y="79.0" text-anchor="end">32%</text><line class="grid-l" x1="50" y1="44.0" x2="706" y2="44.0"/><text class="ax" x="44" y="47.0" text-anchor="end">40%</text><rect x="73.0" y="35.2" width="63.4" height="168.8" rx="4" fill="#7a86a0"><title>42.21%</title></rect><text class="vlbl" x="104.7" y="29.2" text-anchor="middle">42.21%</text><text class="ax" x="104.7" y="218" text-anchor="middle">FY24</text><text class="ax" x="104.7" y="229" text-anchor="middle">PBT margin</text><rect x="182.3" y="35.2" width="63.4" height="52.4" rx="3" fill="#d97a5f"><title>EBITDA margin: -1310 bps</title></rect><text class="vlbl" x="214.0" y="29.2" text-anchor="middle" fill="#d97a5f">-1310</text><line x1="245.7" y1="87.6" x2="291.6" y2="87.6" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="214.0" y="218" text-anchor="middle">EBITDA</text><text class="ax" x="214.0" y="229" text-anchor="middle">margin</text><rect x="291.6" y="87.6" width="63.4" height="4.6" rx="3" fill="#d97a5f"><title>Depreciation: -116 bps</title></rect><text class="vlbl" x="323.3" y="81.6" text-anchor="middle" fill="#d97a5f">-116</text><line x1="355.0" y1="92.2" x2="401.0" y2="92.2" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="323.3" y="218" text-anchor="middle">Depreciation</text><rect x="401.0" y="91.4" width="63.4" height="2.0" rx="3" fill="#5fb98a"><title>Other income: +20 bps</title></rect><text class="vlbl" x="432.7" y="85.4" text-anchor="middle" fill="#5fb98a">+20</text><line x1="464.4" y1="91.4" x2="510.3" y2="91.4" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="432.7" y="218" text-anchor="middle">Other</text><text class="ax" x="432.7" y="229" text-anchor="middle">income</text><rect x="510.3" y="91.4" width="63.4" height="2.0" rx="3" fill="#d97a5f"><title>Interest cost: -42 bps</title></rect><text class="vlbl" x="542.0" y="85.4" text-anchor="middle" fill="#d97a5f">-42</text><line x1="573.7" y1="93.1" x2="619.6" y2="93.1" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="542.0" y="218" text-anchor="middle">Interest</text><text class="ax" x="542.0" y="229" text-anchor="middle">cost</text><rect x="619.6" y="93.1" width="63.4" height="110.9" rx="4" fill="#7a86a0"><title>27.73%</title></rect><text class="vlbl" x="651.3" y="87.1" text-anchor="middle">27.73%</text><text class="ax" x="651.3" y="218" text-anchor="middle">FY26</text><text class="ax" x="651.3" y="229" text-anchor="middle">PBT margin</text><line class="zero-l" x1="50" y1="204" x2="706" y2="204"/></svg>
+  <figcaption><b>Why:</b> unlike a margin story built on financing or one-off items, almost the entire decline (&minus;1,310bps of &minus;1,448bps) came from the EBITDA line itself — genuine operating deterioration, not a treasury or leverage effect. Management's own account across two calls: ESOP costs introduced for the first time, senior leadership hires, higher travel and event spend "to strengthen global presence," a one-time ₹1.1 Cr labour-regulation cost, and — the largest single identifiable piece — spend on the DFM product that "did not yield the expected outcome" (Section <a href="#mgmt">09</a>). Source: <span style="font-family:var(--mono)">metrics.margin_bridge</span>, FY2024 and FY2026.</figcaption>
+</figure>
+
+<p>Cumulative operating cash flow over the decade (₹135.5 Cr) has actually run <i>behind</i> cumulative profit (₹153.3 Cr) — a 0.88&times; ratio that would fail the first cash gate almost every other company on this pipeline has passed. Section <a href="#wc">05</a> traces this to a specific, identifiable mechanism: receivable days rising from near-zero to 70 as the client base shifted toward larger, slower-paying global enterprises — not a sign that profit is fictitious, but a real cost of the same upmarket move that earned the premium margins in the first place.</p>
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: a real deterioration, honestly explained, not yet proven temporary</h2>
+<p class="sec-sub">Management says the investment phase is over. The guidance range they've set for next year is, by their own admission, below what they think they can do.</p>
+
+<p>The margin story here is the opposite of the usual finding on this pipeline. It is not an accounting illusion, not a treasury effect, not a deleveraging story dressed up as operating improvement. EBITDA margin genuinely fell from 42.8% (FY2024) to 29.7% (FY2026), and management has explained why, in real time, across three consecutive earnings calls, with escalating specificity.</p>
+
+<figure>
+  <div class="fig-title">Operating margin, FY2019&ndash;FY2026, against the FY2027 guided band</div>
+  <div class="fig-sub">A tight 42&ndash;43% band for four years, then a two-year fall to 29.7% &mdash; guidance now set below even that</div>
+  <svg viewBox="0 0 720 250" role="img" aria-label="Ksolves operating margin, FY2019 to FY2026, against the FY2027 guided band of 25 to 30 percent"><line class="grid-l" x1="46" y1="216.0" x2="704" y2="216.0"/><text class="ax" x="40" y="219.0" text-anchor="end">0%</text><line class="grid-l" x1="46" y1="176.0" x2="704" y2="176.0"/><text class="ax" x="40" y="179.0" text-anchor="end">10%</text><line class="grid-l" x1="46" y1="136.0" x2="704" y2="136.0"/><text class="ax" x="40" y="139.0" text-anchor="end">20%</text><line class="grid-l" x1="46" y1="96.0" x2="704" y2="96.0"/><text class="ax" x="40" y="99.0" text-anchor="end">30%</text><line class="grid-l" x1="46" y1="56.0" x2="704" y2="56.0"/><text class="ax" x="40" y="59.0" text-anchor="end">40%</text><line class="grid-l" x1="46" y1="16.0" x2="704" y2="16.0"/><text class="ax" x="40" y="19.0" text-anchor="end">50%</text><rect x="46" y="96.0" width="658.0" height="20.0" fill="rgba(201,162,75,0.14)"/><text class="ax" x="704" y="92.0" text-anchor="end" fill="#c9a24b">FY27 guided band</text><path d="M46.0,193.2 L155.7,42.8 L265.3,43.6 L375.0,47.2 L484.7,44.8 L594.3,76.4 L704.0,97.2" fill="none" stroke="#5b9bd1" stroke-width="2" stroke-linejoin="round"/><circle cx="46.0" cy="193.2" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2019 OPM: 5.7%</title></circle><text class="ax" x="46.0" y="230" text-anchor="middle">'19</text><circle cx="155.7" cy="42.8" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2021 OPM: 43.3%</title></circle><text class="ax" x="155.7" y="230" text-anchor="middle">'21</text><circle cx="265.3" cy="43.6" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2022 OPM: 43.1%</title></circle><text class="ax" x="265.3" y="230" text-anchor="middle">'22</text><circle cx="375.0" cy="47.2" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2023 OPM: 42.2%</title></circle><text class="ax" x="375.0" y="230" text-anchor="middle">'23</text><circle cx="484.7" cy="44.8" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2024 OPM: 42.8%</title></circle><text class="ax" x="484.7" y="230" text-anchor="middle">'24</text><circle cx="594.3" cy="76.4" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2025 OPM: 34.9%</title></circle><text class="ax" x="594.3" y="230" text-anchor="middle">'25</text><circle cx="704.0" cy="97.2" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2026 OPM: 29.7%</title></circle><text class="ax" x="704.0" y="230" text-anchor="middle">'26</text><text class="vlbl" x="480.7" y="35.8" text-anchor="end">42.8%</text><text class="vlbl" x="708.0" y="111.2" text-anchor="start">29.7%</text></svg>
+  <figcaption><b>Why:</b> the flat shaded band marks management's own FY2027 guidance (25-30% EBITDA margin) &mdash; a range whose top edge sits below FY2021-24's realised margin and whose midpoint sits below FY2026's actual outcome, i.e. a deliberately conservative floor rather than a forecast of recovery. Source: <span style="font-family:var(--mono)">src.modules.equity_research</span>, FY2019-FY2026; FY2027 band from the Q4 FY26 transcript.</figcaption>
+</figure>
+
+<h3>The explanation, in management's own words, in order</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Call</th><th class="t">What was said</th></tr></thead>
+<tbody>
+<tr><td class="t">Q3 FY26 (Jan 2026)</td><td class="t">"We did experience margin compression due to strategic investment in events and marketing, and <b>some of these initiatives did not yield the expected outcome.</b> However, we do not expect similar level of spending at the same intensity going forward." Medium-term EBITDA margin outlook reaffirmed at "around 30%."</td></tr>
+<tr class="hl"><td class="t">Q4 FY26 (Apr 2026)</td><td class="t">Full-year margin: 29.7%, "at the upper end of the range guided." Attributed to <b>ESOP-related costs</b> (introduced for the first time), <b>senior leadership hires and compensation</b>, <b>higher travel and event spend</b>, and a <b>one-time ₹1.1 Cr cost from new labour regulations</b>. On the specific product bet: "we have taken the money from the services and spent it on the product [DFM]. And that's why you can see that PAT growth is flat as compared to last year."</td></tr>
+<tr><td class="t">FY27 guidance, same call</td><td class="t">Revenue growth 18&ndash;20%, <b>EBITDA margin 25&ndash;30%</b> — a range whose midpoint sits <i>below</i> FY2026's actual 29.7%. Management's own framing: "we are trying to be conservative so that in future, if anything goes wrong, nobody should say we gave a high number and then missed it... 25% to 30% is something we are able to manage easily."</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Read plainly: management is guiding to a margin band it explicitly says it expects to beat, which is a defensible way to set expectations after a year in which an internal investment did not pay off, but it also means the FY27 guidance range is not really a forecast of the business's underlying trajectory — it is a floor set deliberately low enough to avoid a repeat of the credibility cost of over-promising. Section <a href="#mgmt">09</a> scores this pattern explicitly against what actually gets delivered.</p>
+
+<h3>What this margin compression is not</h3>
+
+<p>It is worth naming two hypotheses this report can rule out. First, it is <b>not primarily a pricing-power failure</b>: on the same Q3 FY26 call, management was explicit that clients are "focused on improving output and accelerating... programs with AI rather than negotiating lower rates," and that fixed-price/outcome-based engagements are being favoured precisely because they let Ksolves keep the benefit of any AI-driven productivity gain rather than passing it to the client as a lower bill. Second, it is <b>not a currency effect</b> — management quantified an FX tailwind of roughly ₹20 lakhs in Q4 FY26, immaterial against a margin move measured in thousands of lakhs. The decline is a cost-side story: real money spent on people, marketing, and one product that did not work, disclosed candidly as it happened.</p>
+
+<div class="warn">
+  <div class="lbl">What would confirm the "temporary investment phase" reading, and what would contradict it</div>
+  <p>Confirming evidence: EBITDA margin recovering toward 35%+ over FY2027&ndash;28 as the ESOP/hiring/marketing step-up laps and no further product spend recurs. Contradicting evidence: margin settling durably in the 25&ndash;30% band management has now guided to, which would suggest the FY2021&ndash;24 42% margin was itself the anomaly — a temporary period of underinvestment in the sales, brand and leadership capacity a company of this scale eventually needs, now normalising to what a ~₹160&ndash;200 Cr niche IT-services business actually costs to run. The one data point in this report's favour for the first reading: CRISIL's own medium-term margin outlook, set independently of the DFM episode, was "around 30%" — roughly matching where FY2026 actually landed, which suggests the agency saw this moderation coming from staffing/scale dynamics alone, before the DFM write-off made it worse.</p>
+</div>
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: the real cost of moving upmarket</h2>
+<p class="sec-sub">Not a red flag in absolute terms, but the clearest explanation for why cash has run behind profit</p>
+
+<p>Ksolves' working capital profile has changed shape completely over its listed life, and the change tracks its own strategy exactly: a shift from small, immediate-paying clients toward larger global enterprise accounts that pay on standard commercial terms.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Receivable days</th><th class="num">Net operating WC / sales</th><th class="num">Incremental WC ratio</th></tr></thead>
+<tbody>
+<tr><td class="t">2019</td><td class="num g">0</td><td class="num g">&minus;3.0%</td><td class="num">&minus;0.03&times;</td></tr>
+<tr><td class="t">2020</td><td class="num g">0</td><td class="num g">&minus;1.8%</td><td class="num">&minus;0.00&times;</td></tr>
+<tr><td class="t">2021</td><td class="num l">47</td><td class="num l">+15.2%</td><td class="num l">+0.25&times;</td></tr>
+<tr><td class="t">2022</td><td class="num l">72</td><td class="num l">+18.4%</td><td class="num l">+0.23&times;</td></tr>
+<tr><td class="t">2023</td><td class="num l">71</td><td class="num l">+16.2%</td><td class="num">+0.13&times;</td></tr>
+<tr><td class="t">2024</td><td class="num">54</td><td class="num">+12.4%</td><td class="num">+0.03&times;</td></tr>
+<tr><td class="t">2025</td><td class="num">56</td><td class="num">+12.4%</td><td class="num l">+0.12&times;</td></tr>
+<tr class="hl"><td class="t"><b>2026</b></td><td class="num l"><b>70</b></td><td class="num l"><b>+13.6%</b></td><td class="num l"><b>+0.20&times;</b></td></tr>
+</tbody>
+</table>
+<caption>Receivable and payable days via <span style="font-family:var(--mono)">metrics.working_capital</span>. The FY2019&ndash;20 near-zero readings reflect a pre-scale business collecting almost immediately from small clients, not a structural strength that later "deteriorated."</caption>
+</div>
+
+<p>The mechanism is straightforward and not, on its own, a cause for concern: a $50,000 project for a New York advisory firm or a UAE enterprise settles on 45&ndash;70 day terms; a small early-days client paid on delivery or upfront. As Ksolves' revenue mix shifted toward the former, working capital intensity rose from effectively negative (cash collected before it was earned) to a genuine, if still modest, funding requirement of 12&ndash;18% of sales. <b>70 days of receivables is unremarkable for a B2B services exporter</b> — nowhere near the levels that would signal collection trouble.</p>
+
+<h3>Why it matters anyway, for this specific report</h3>
+
+<p>The reason this section earns real estate in this report, rather than a passing mention, is that it is the direct explanation for the one test Ksolves actually fails (Section <a href="#framework">02</a>): cumulative operating cash flow running behind cumulative profit, 0.88&times; over the decade. That is not evidence of aggressive revenue recognition or a hidden problem — it is the mechanical consequence of a company whose reported profit growth has consistently outpaced its cash collection as the client base has gotten larger and further away. The trend bears watching for one specific reason: <b>if receivable days keep climbing past 70&ndash;80 as the company continues chasing larger enterprise logos, the gap between reported profit and collectable cash will widen further</b>, at exactly the same time margin is already compressed. Two structural headwinds moving together would be a meaningfully worse story than either alone.</p>
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How Ksolves compares with its real peers</h2>
+<p class="sec-sub">Sixteen names across the listed Indian IT-services universe, several of which turned out to be poor comparables on closer inspection — which is itself the finding</p>
+
+<p>Ksolves names no competitor on its own calls or in its annual reports beyond generic references to "global technology service providers." Per instruction, this report cast a wide net across the listed Indian IT-services universe rather than a narrow 2-3 name set. Three of the sixteen candidates turned out to be poor comparables once checked closely — a change of control, a captive-subsidiary structure, and outright financial distress — which is a finding worth stating plainly rather than quietly dropping.</p>
+
+<h3>The headline comparison</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Company</th><th class="num">Mkt Cap (₹Cr)</th><th class="num">P/E</th><th class="num">ROCE</th><th class="num">OPM (latest)</th><th class="t">OPM trend</th><th class="t">Promoter</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>Ksolves</b></td><td class="num">612</td><td class="num">16.5&times;</td><td class="num g">131%</td><td class="num g">30%</td><td class="t">43%&rarr;30%, declining</td><td class="t">58.9%, founder-led</td></tr>
+<tr><td class="t">eClerx Services</td><td class="num">17,866</td><td class="num">24.5&times;</td><td class="num g">34.4%</td><td class="num">26%</td><td class="t">37%&rarr;22%(trough)&rarr;26%</td><td class="t">54.5%</td></tr>
+<tr><td class="t">Nucleus Software</td><td class="num">1,833</td><td class="num">16.0&times;</td><td class="num">16.8%</td><td class="num">14%</td><td class="t">27%&rarr;14%, sharp decline</td><td class="t">73.6%, founder-led</td></tr>
+<tr><td class="t">Saksoft</td><td class="num">1,942</td><td class="num">14.5&times;</td><td class="num">25.5%</td><td class="num">19%</td><td class="t">11%&rarr;19%, improving</td><td class="t">66.7%</td></tr>
+<tr><td class="t">Zensar Technologies</td><td class="num">9,678</td><td class="num">12.2&times;</td><td class="num">22.8%</td><td class="num">16%</td><td class="t">stable 12&ndash;18%</td><td class="t">49.0%</td></tr>
+<tr><td class="t">Datamatics Global</td><td class="num">4,493</td><td class="num">17.7&times;</td><td class="num">20.4%</td><td class="num">19%</td><td class="t">9%&rarr;19%, improving</td><td class="t">66.3%</td></tr>
+<tr><td class="t">Newgen Software</td><td class="num">7,145</td><td class="num">20.8&times;</td><td class="num">25.0%</td><td class="num">26%</td><td class="t">cyclical, 19&ndash;29%</td><td class="t">53.5%</td></tr>
+<tr><td class="t">Mastek</td><td class="num">5,043</td><td class="num">11.5&times;</td><td class="num">17.7%</td><td class="num">16%</td><td class="t">21%&rarr;16%, declining</td><td class="t">35.8%</td></tr>
+<tr><td class="t">R Systems Intl</td><td class="num">2,848</td><td class="num">13.5&times;</td><td class="num">19.5%</td><td class="num">17%</td><td class="t">6%&rarr;17%, improving</td><td class="t">51.9%</td></tr>
+<tr><td class="t">Sonata Software</td><td class="num">7,455</td><td class="num">14.7&times;</td><td class="num">30.7%</td><td class="num">7%</td><td class="t">structurally low, declining</td><td class="t">28.2%</td></tr>
+<tr><td class="t">Happiest Minds</td><td class="num">5,061</td><td class="num">21.6&times;</td><td class="num">13.3%</td><td class="num">17%</td><td class="t">25%&rarr;17%, declining</td><td class="t">44.2%, <b>changing</b></td></tr>
+<tr><td class="t">Mindteck India</td><td class="num">507</td><td class="num">15.3&times;</td><td class="num">15.1%</td><td class="num">9%</td><td class="t">structurally thin</td><td class="t">64.2%</td></tr>
+<tr><td class="t">Trigyn Technologies</td><td class="num">173</td><td class="num">19.3&times;</td><td class="num">10.8%</td><td class="num">6%</td><td class="t">erratic, often negative</td><td class="t">44.5%</td></tr>
+<tr><td class="t">Allied Digital</td><td class="num">568</td><td class="num">14.6&times;</td><td class="num">7.4%</td><td class="num">6%</td><td class="t">21%&rarr;6%, steep decline</td><td class="t">51.0%</td></tr>
+</tbody>
+</table>
+<caption>Screener.in, fetched 11&ndash;12 September 2026. Three candidates (Cigniti, Xchanging, Cambridge Technology Enterprises) excluded from this table — see below. See <span style="font-family:var(--mono)">research/INE0D6I01023/peers.md</span> for full detail and per-company caveats.</caption>
+</div>
+
+<h3>Three names dropped or heavily caveated, and why that itself is informative</h3>
+
+<div class="warn">
+  <div class="lbl">A pattern now visible across three different reports on this pipeline</div>
+  <p><b>Cigniti Technologies</b>, a digital-assurance/testing boutique that scaled to roughly $150&ndash;180M revenue — several multiples larger than Ksolves — was amalgamated into Coforge, effective 5 May 2026, and ceased to exist as an independent listed company. <b>Happiest Minds Technologies</b>, the AI-first digital-engineering comparable most naturally reached for as Ksolves' "grown-up" version, announced in August 2026 a merger with ITC Infotech alongside a 22.1% promoter stake sale for ₹1,330 Cr — converting it from founder-led to ITC-group-controlled. This is now the <b>third</b> report on this pipeline where the most natural "successful, larger version of this business" comparable turned out to be losing its independence during the research window (Justdial to Reliance Retail; Cigniti to Coforge; Happiest Minds to ITC). Individually each is a company-specific transaction. Collectively, they are a real base-rate data point on where a successful boutique or specialist Indian services/platform business seems to end up once it reaches meaningful scale — acquired by a larger, better-capitalised group rather than continuing as an independent public compounder — and it bears directly on how much confidence to place in Ksolves reaching Happiest Minds' scale on its own.</p>
+</div>
+
+<p><b>Xchanging Solutions</b> was dropped for a different reason: it is 75%-owned by DXC Technology, a US multinational, making it a captive subsidiary rather than an independent Indian operator — its revenue has structurally collapsed to ₹40 Cr TTM from ₹150 Cr a decade ago, propped up by one-off gains rather than an operating business worth comparing against. <b>Cambridge Technology Enterprises</b> — superficially the closest name-match to Ksolves' own "AI/Big Data boutique" positioning — is kept only as a cautionary contrast: a FY2025 net loss of ₹48 Cr, negative profit CAGR across every window measured, rising leverage against a tiny balance sheet, and a fast, opaque promoter stake increase (47%&rarr;57% in eighteen months) via an entity not named on its own shareholding disclosure. It is what the same niche looks like when the growth story fails outright, not a peer to benchmark against.</p>
+
+<h3>The two most useful analogs, for different reasons</h3>
+
+<p><b>eClerx Services</b> is the best available margin precedent. Its OPM ran 34&ndash;37% in FY2015&ndash;17, compressed to a 22% trough by FY2019 — a ~40% relative decline, similar in shape to Ksolves' own 43%&rarr;30% fade — before partially recovering to a new, lower structural level of 24&ndash;27%, where it has held since FY2022. The read-through for Ksolves: margin mean-reversion of this magnitude in a high-margin Indian services business is not unprecedented and has partially recovered elsewhere before, but the recovery took eClerx three to four years and landed well below its original peak, not back at it — a useful base-rate caution against assuming a clean return to 42&ndash;43%. eClerx's cumulative CFO/PAT of 114% is also the strongest cash-conversion benchmark on this list, well ahead of Ksolves' own 88%. Its capital-return policy, worth noting precisely: Screener's dividend-payout field understates it badly — eClerx returns capital mainly through large periodic tender-offer buybacks (₹1,750/share in 2022, ₹2,800/share covering ~25% of capital in 2024), not dividends, so it is a more generous capital returner than the headline "1&ndash;2% payout" figure implies.</p>
+
+<figure>
+  <div class="fig-title">Cumulative CFO / PAT: Ksolves against its two most useful analogs</div>
+  <div class="fig-sub">The one test in Section <a href="#framework">02</a> Ksolves fails &mdash; and eClerx is the peer that shows what passing it looks like</div>
+  <svg viewBox="0 0 720 140" role="img" aria-label="Cumulative operating cash flow to profit ratio, Ksolves versus eClerx Services"><line class="grid-l" x1="96.0" y1="14" x2="96.0" y2="114"/><text class="ax" x="96.0" y="128" text-anchor="middle">0.0&#215;</text><line class="grid-l" x1="301.0" y1="14" x2="301.0" y2="114"/><text class="ax" x="301.0" y="128" text-anchor="middle">0.5&#215;</text><line class="grid-l" x1="506.0" y1="14" x2="506.0" y2="114"/><text class="ax" x="506.0" y="128" text-anchor="middle">1.0&#215;</text><line class="grid-l" x1="670.0" y1="14" x2="670.0" y2="114"/><text class="ax" x="670.0" y="128" text-anchor="middle">1.4&#215;</text><rect x="96.0" y="26.5" width="467.4" height="25.0" rx="3" fill="#5fb98a" opacity="0.78"><title>eClerx: 1.14x</title></rect><text class="axl" x="86" y="42.5" text-anchor="end" style="fill:#93a0b8">eClerx</text><text class="vlbl" x="569.4" y="42.5" text-anchor="start" fill="#5fb98a">1.14&#215;</text><rect x="96.0" y="76.5" width="360.8" height="25.0" rx="3" fill="#d97a5f" opacity="1"><title>Ksolves: 0.88x</title></rect><text class="axl" x="86" y="92.5" text-anchor="end" style="fill:#e8e4d6">Ksolves</text><text class="vlbl" x="462.8" y="92.5" text-anchor="start" fill="#d97a5f">0.88&#215;</text><line class="zero-l" x1="96.0" y1="14" x2="96.0" y2="114"/><line x1="506.0" y1="14" x2="506.0" y2="114" stroke="rgba(201,162,75,0.55)" stroke-width="1" stroke-dasharray="4,3"/><text class="ax" x="506.0" y="11" text-anchor="middle" fill="#c9a24b">cash = profit</text></svg>
+  <figcaption><b>Why:</b> eClerx's 1.14&times; cumulative CFO/PAT is the strongest cash-conversion benchmark on this peer list, well ahead of Ksolves' own 0.88&times; &mdash; a useful concrete target for what "collected cash keeping pace with reported profit" looks like at this end of the Indian IT-services market. Nucleus Software's ratio is not independently verified in this run and is shown for governance comparison only, not cash-conversion benchmarking. Source: this report's own decade cash-gate computation for Ksolves; eClerx figure from <span style="font-family:var(--mono)">research/INE0D6I01023/peers.md</span>.</figcaption>
+</figure>
+
+<p><b>Nucleus Software Exports</b> is the closest governance analog rather than a margin one: 73.6% promoter holding, debt-free, a profitable BFSI-focused product company that has been through its own sharp margin decline (27%&rarr;14%, FY2023&ndash;26) for reasons this report did not investigate further. It is the one name on the list that looks most like what a genuinely founder-controlled, product/IP-driven Indian technology company is supposed to look like, for comparison against Ksolves' own founder-led structure.</p>
+
+<p>Set against this set, Ksolves' 131% ROCE dwarfs every peer's — none crosses 35% — which is entirely a function of Ksolves' unusually thin capital base (Section <a href="#framework">02</a>) rather than superior operating economics; on OPM alone, several peers (eClerx, Newgen) are closer to Ksolves' current, post-compression 30% than to its historical 43%, which is a more honest peer-relative anchor for where Ksolves' margin may settle than its own five-year-old numbers.</p>
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: a real niche, and a live question about what a billable hour is worth</h2>
+<p class="sec-sub">Demand for the underlying skills is not the issue. Whether generative AI compresses the effort-based billing model this entire company is built on is the one that matters</p>
+
+<h3>The demand case is genuine and not the constraint</h3>
+
+<p>NASSCOM puts India's total tech-industry revenue at ~$315bn for FY26 (+6.1% y-o-y), with the broader IT-services export base growing mid-single digits. Ksolves does not compete in that broad base — it sits inside the narrower digital-engineering / Big Data / AI-ML implementation niche, which every source that touches it (NASSCOM's own community research, Zinnov, third-party market sizing) describes as growing several multiples faster, in the ~20% range, than the headline export number. Salesforce's own ecosystem data (IDC-authored, Salesforce-sponsored, so read as directionally useful rather than independent) projects continued double-digit growth in implementation-partner demand through 2028. None of this is the constraint on Ksolves' growth. The constraint, if there is one, is on the economics of delivering that demand — covered below.</p>
+
+<h3>The large Indian IT majors are already disclosing AI-driven pricing deflation, in their own words</h3>
+
+<p>This is not analyst speculation. HCLTech's CEO, C Vijayakumar, told Forbes India in May 2026 that a contract that would once have been priced at "$100 million... would be much less today — maybe $80 million" under client productivity-based pricing demands, while the same work now requires "25-30% more effort to deliver the same value" internally. TCS's own CEO called the net effect of AI on the business "accretive" only in the sense of "arresting degrowth" — even the sector's most confident management is framing AI as offsetting a headwind, not describing a clean tailwind. Motilal Oswal's sell-side view, from a 4 May 2026 note, is blunter: roughly 12-15% of Indian IT-sector revenue faces direct AI-driven displacement risk, and the productivity gains being generated are "extracted almost entirely by enterprise buyers through productivity demands and vendor price pressure" rather than captured by the vendor as margin. Everest Group's own 2026 research frames it as a structural threat to the entire effort-based billing model this company category is built on, not a peripheral efficiency story: providers succeed by "redesign[ing] pricing and value propositions around outcomes rather than effort."</p>
+
+<p>Gartner is the one dissenting voice on headcount, projecting AI restructuring the workforce mix rather than reducing it overall — but even Gartner does not dispute that the pricing and billing model is under pressure, and separately notes the type of talent required is shifting toward senior/architectural skill, which is a headcount-mix reassurance, not a pricing one. No source reviewed for this report claims boutique-scale vendors are insulated from this dynamic; if anything, the evidence on entry-level hiring compression (juniors' share of IT employment falling from ~15% to ~7% over three years, entry-level hiring down 25-53% depending on market) points the other way, since a small boutique's economics depend on a junior-to-senior staffing pyramid that AI tooling appears to compress from both ends — the exact leverage a firm like Ksolves is built on.</p>
+
+<h3>What this looks like in companies Ksolves' own size, right now</h3>
+
+<p>Two matched-scale Indian IT-services boutiques — sub-₹600 Cr revenue, developer-time-billed, comparable business model to Ksolves — reported the identical "record revenue, compressing margin" pattern in the same FY26 quarters this report's own record shows for Ksolves:</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Company</th><th class="t">FY26 result</th><th class="t">Headline used by the reporting outlet</th></tr></thead>
+<tbody>
+<tr><td class="t">Kellton Tech Solutions</td><td class="t">Q4 FY26 net sales ₹313.9 Cr (+9.6% y-o-y, its highest-ever quarterly revenue), net profit −23.2% q-o-q, operating margin at a multi-quarter low in the same quarter</td><td class="t">"Margin Compression Overshadows Revenue Growth"</td></tr>
+<tr><td class="t">InfoBeans Technologies</td><td class="t">FY26 full year revenue +32% to ₹539 Cr, PAT +128%, EBITDA margin <i>expanded</i> 20%&rarr;27% on "AI-augmented software development" (43% of revenue) — but its own Q3 FY26 quarter separately reported</td><td class="t">"Strong Revenue Growth Masks Margin Pressure"</td></tr>
+</tbody>
+</table>
+<caption>MarketsMojo result-analysis coverage; see <span style="font-family:var(--mono)">research/industry/india-it-services-boutique.md</span>.</caption>
+</div>
+
+<p>InfoBeans is the closer thing to a counter-example — full-year margin expansion, not compression — but even that company shows quarter-to-quarter volatility under the same headline pressure, not a clean monotonic trend. No comparable-scale company was found in researching this report that sustained multi-year margin expansion alongside high revenue growth through the FY25-26 AI-disruption window without at least one quarter of the "growth masks margin pressure" pattern. Read against that base rate, Ksolves' own margin compression (Section <a href="#margin">04</a>) should be treated as <b>partly structural and category-wide</b>, not purely a company-specific DFM-spending mistake — while the DFM episode itself remains a real, additional, company-specific layer on top of whatever the industry-wide pressure was already doing.</p>
+
+<h3>Management's own framing, and the honest gap in verifying it</h3>
+
+<p>On the Q3 FY26 call, management framed AI adoption as a demand accelerant rather than a pricing threat: clients, in the CEO's telling, are "focused on improving output and accelerating... programs with AI rather than negotiating lower rates" — the opposite of the HCLTech/Motilal Oswal pattern above, at least as management chooses to characterise client conversations. This report could not independently corroborate that framing against a primary transcript quote on the specific mechanism (developer output per head under AI tooling) with enough confidence to publish a figure — a claim surfaced in secondary research about efficiency gains at the company could not be verified against this report's own transcript corpus closely enough to quote, and is deliberately omitted rather than published with uncertain attribution. What can be said with confidence: management's public framing of AI as a pure tailwind is <i>more optimistic</i> than either the large-cap disclosures or the sell-side view above, and the FY2027 guidance of a 25-30% margin band (down from a historical 42-43%, Section <a href="#margin">04</a>) is itself a tacit admission that something is compressing margin even if management does not name AI-driven pricing pressure as a cause.</p>
+
+<div class="warn">
+  <div class="lbl">What would resolve this section, one way or the other</div>
+  <p>(1) Whether Ksolves' realised billing rates or effective per-head revenue hold, rise, or fall over the next several quarters as AI tooling adoption deepens — the single cleanest test of whether it is capturing productivity gains as margin or ceding them to clients as the majors describe; (2) whether the FY2027 25-30% margin guidance is met, undershot, or beaten, since CRISIL's own independent 35-40% projection (Section <a href="#credit">10</a>) already proved too optimistic once; (3) whether InfoBeans' full-year margin-expansion outcome or Kellton's compression outcome turns out to be the more representative base case for this size class as more FY27 data arrives; (4) any Indian boutique-scale peer making the kind of explicit AI-pricing disclosure the large-cap CEOs have already made, which would confirm the mechanism operates at this end of the market too rather than remaining an inference from the majors' own numbers.</p>
+</div>
+</section>
+
+
+<section id="analysts">
+<h2><span class="num">08</span>What outside scrutiny exists — and how little of it there is</h2>
+<p class="sec-sub">No sell-side broker covers this stock. The closest thing to institutional Q&amp;A is retail forum diligence, and three of management's own recent client-win claims remain unverified</p>
+
+<h3>There is no institutional coverage to interrogate</h3>
+
+<p>A direct search for brokerage initiation, upgrade or downgrade notes (Nirmal Bang, Choice, ICICI Securities/Direct, Anand Rathi, and a generic sweep) found none. The only "target price" figure surfacing anywhere is ₹352 from Univest.in, a retail investing-app content page — not a brokerage research report, and not treated as one here. Ksolves is, at its current size, followed almost entirely by retail investors, aggregator sites and the company's own investor-relations content, not by institutional research desks. That absence is itself a fact worth stating plainly: the DFM launch, the hyped "Agentic AI" relaunch, and the subsequent write-off all happened with essentially no independent press or sell-side scrutiny at any point in the cycle — only the company's own transcript and a handful of algorithmic aggregator summaries cover the reversal at all.</p>
+
+<h3>What the earnings calls do get asked, and where management's answers hold up</h3>
+
+<p>Absent sell-side analysts, the two questions this report treats as the real test of management's credibility are the ones a rigorous outside reader would ask given everything else in this report:</p>
+
+<h4>Has the acquisition stance actually reversed?</h4>
+<p>Management said in an earlier period that it explored acquisitions and stepped back. Asked again directly on the Q4 FY26 call, the answer was unchanged: <i>"We tried for acquisition but unfortunately we could not find good company. So we dropped that idea."</i> No later disclosure reverses this. Score: <b>KEPT</b> — a stated position, re-tested a year-plus later, that held.</p>
+
+<h4>Are the cited client wins real and verifiable?</h4>
+<p>On the same Q4 FY26 call, management cited three specific new engagements: a SAP-to-Odoo migration for "a listed Indian infrastructure company in power transmission/green energy," a data-science deployment for a New York-based risk/financial-crime advisory firm, and an ERP implementation for a member of a top-six global accounting network in East Africa. None of the three counterparties is named anywhere — not in the transcript, not in company case studies, not in independent press. A company case study that superficially matches the first win in service type (a SAP-to-Odoo migration for a listed Indian multi-plant company) in fact names a different client industry entirely (bulk ferro-alloys manufacturing, not power transmission) — a different engagement, not corroboration. Score: <b>UNRESOLVED</b> — not shown false, simply unverifiable from any source available to this report, and worth treating as company-asserted pipeline color rather than confirmed wins until a future filing or press report names a counterparty.</p>
+
+<h3>The one governance thread this report could not close</h3>
+
+<p>A general web search surfaced an uncorroborated claim, sourced only to an anonymous Substack post, that "promoters seem not to be bullish about the company and have been selling shares in the open market." This report could not verify it against a SAST/insider-trading disclosure table in the time available — promoter holding is widely reported at a broadly stable ~58.9% through mid-2026, which argues against a *material* sell-down, but does not rule out a smaller one. This is flagged here explicitly as an open item rather than either repeated as fact or silently dropped; see Section <a href="#gaps">16</a> for what a future update should pull directly (BSE/Trendlyne SAST filings) to close it.</p>
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">09</span>Management scorecard: candid once the numbers forced the issue, looser in real time</h2>
+<p class="sec-sub">The DFM episode is the one significant broken promise in this record — and management's own account of it, read call by call, is unusually candid after the fact</p>
+
+<h3>The DFM promise, tracked call to call</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Date</th><th class="t">What management said</th><th class="t">Classification</th></tr></thead>
+<tbody>
+<tr><td class="t">FY2025, various calls</td><td class="t">DFM positioned as a major new product growth lever alongside the existing services business; heavy conference and marketing spend follows</td><td class="t">Forward-looking commitment</td></tr>
+<tr><td class="t">2 Feb 2026</td><td class="t">"DFM 2.0 Agentic AI" launch webinar — an autonomous, agentic control plane for Apache NiFi claiming up to 90% reduction in operations costs for customers</td><td class="t">Forward-looking commitment, reiterated and escalated</td></tr>
+<tr><td class="t">Q3 FY26 call (Jan 2026)</td><td class="t">"Some of these initiatives did not yield the expected outcome" — first, mild admission</td><td class="t">Early hedge</td></tr>
+<tr class="hl"><td class="t">Q4 FY26 call (30 Apr 2026)</td><td class="t">"Expectation was more okay and that we could not achieve till now"; "I do not see a lot of opportunities in DFM"; FY27 focus "only and only on the services," DFM marketing spend cut &ge;60%, no further product investment planned</td><td class="t"><b>BROKEN</b> — reversed within ~12 weeks of the escalated relaunch</td></tr>
+</tbody>
+</table>
+<caption>AlphaStreet transcripts, Q3 and Q4 FY26 calls; company webinar listing.</caption>
+</div>
+
+<p>Two things are worth separating here, because they cut in opposite directions on management's credibility. The commitment itself was broken, and broken fast — a splashy "Agentic AI" relaunch in early February followed by a full admission of failure at the very next quarterly call is a short runway for a product management had spent roughly two years building up as a second growth engine. Roughly ₹2 crore was expensed on DFM in FY2026, a modest absolute sum, but the real cost was the marketing spend, senior hires and management attention that Section <a href="#margin">04</a> shows compressed EBITDA margin from 34.8% to 29.7% in a single year. Set against that: once the failure was accepted internally, management did not try to dress it up. The CEO's own words — <i>"we have taken the money from the services and spent it on the product"</i> — are a plain, self-critical accounting of what happened, not a narrative pivot to a new flattering metric. FY27 guidance of 25-30% margin, well below the historical 42-43% range, is a conservative reset rather than a promise of quick recovery. That combination — genuinely broken commitment, unusually candid post-mortem — is scored as broken with credit for the disclosure quality, not as a wash.</p>
+
+<h3>Other tracked commitments</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Commitment</th><th class="t">Outcome</th><th class="t">Classification</th></tr></thead>
+<tbody>
+<tr><td class="t">"We tried for acquisition but unfortunately we could not find good company. So we dropped that idea" (stated position, re-affirmed on the Q4 FY26 call a year-plus later)</td><td class="t">No reversal found in any later disclosure through the most recent quarter searched</td><td class="t"><b>KEPT</b></td></tr>
+<tr><td class="t">"Net debt-free" / "debt-free" framing used on multiple calls</td><td class="t">Real borrowings of ₹14.2 Cr (FY2025) and ₹5.7 Cr (FY2026) appear on the balance sheet; cash exceeds gross debt in both years</td><td class="t"><b>PARTIALLY MISLEADING</b> — "net debt-free" holds, "total debt-free" does not; a language-precision issue, not a solvency concern (Section <a href="#capital">11</a>)</td></tr>
+<tr><td class="t">Three named new client wins cited on the Q4 FY26 call (power-transmission SAP-Odoo migration, NY risk-advisory data science deployment, East Africa ERP implementation)</td><td class="t">No counterparty named or independently corroborated in any source found; one superficially similar company case study is confirmed to be a different, unrelated engagement</td><td class="t"><b>UNRESOLVED</b> (Section <a href="#analysts">08</a>)</td></tr>
+<tr><td class="t">FY26 initial guidance vs. actual</td><td class="t">Revenue landed within the guided range (+18.4% YoY, first ₹150cr+ year); margin guidance was not held — CRISIL's own independent 35-40% medium-term projection and management's own earlier framing both proved too optimistic against the actual 29.7% outcome</td><td class="t"><b>SLIPPED</b> on margin, <b>KEPT</b> on revenue</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The pattern, stated plainly</h3>
+
+<p>This is a management team whose word on things fully inside its own control — a stated capital-allocation stance, its own decision not to pursue M&amp;A — has held up under repeat testing. Where it has been weaker is on forward-looking product and margin claims, and on precision of language ("debt-free" used loosely; DFM's prospects oversold right up to the point they were killed). None of this rises to the fabrication or self-dealing the related-party audit and the ValuePickr forum's own multi-year scrutiny (Section <a href="#sentiment">13</a>) both found no evidence of — but it does mean a specific, quantified, forward-looking claim from this management (a margin target, a new product's addressable opportunity, an unnamed client win) should be weighted as optimistic until confirmed, while a claim about what management has already decided not to do should be weighted as reliable.</p>
+</section>
+
+
+<section id="credit">
+<h2><span class="num">10</span>What the credit rating agency sees</h2>
+<p class="sec-sub">CRISIL BBB/Stable — a modest investment-grade rating, for a modest-scale reason, with a downgrade trigger aimed squarely at the dividend policy</p>
+
+<p>CRISIL rates Ksolves <b>BBB/Stable</b> — reaffirmed across all four rating actions read for this report, with no upgrade or downgrade in the period covered. BBB is the lowest investment-grade rung, and the agency's own stated reason has nothing to do with leverage or governance — it is scale, stated plainly: <i>"Modest scale of operations. Intense competition constrains scalability, as reflected in revenue of Rs 108.64 crore in fiscal 2024."</i> For a rating agency whose universe runs from tiny SMEs to sovereign-scale borrowers, a ₹100&ndash;160 Cr company is a genuinely small credit, whatever its margins.</p>
+
+<h3>Strengths and weaknesses, as CRISIL itself frames them</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Weakness (CRISIL's own language)</th><th class="t">What it means in practice</th></tr></thead>
+<tbody>
+<tr><td class="t">Modest scale of operations</td><td class="t">The core constraint on the rating itself — not a solvency concern, a size concern</td></tr>
+<tr><td class="t">Vulnerability of operating margin to forex fluctuations</td><td class="t">Nearly all revenue is international; a sharp rupee move (either direction) hits realisation directly, though this run found only a small, quantified FX tailwind so far (Section <a href="#margin">04</a>)</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>On strengths, CRISIL credits the "extensive experience of the promoters" and "established relationships with clients," and — specifically and usefully corroborating this report's own finding in Section <a href="#record">03</a> — notes the company's positioning "in a niche segment" as the basis for continued growth, while flagging as early as its September 2024 update that operating margin had already "moderated to 37.98%... due to higher spending on marketing initiatives," projecting a medium-term range of "around 35-40%." <b>The actual FY2026 outcome, 29.7%, came in below even that cautious agency projection</b> — CRISIL saw the marketing-driven moderation coming before the DFM write-off made it worse, but did not anticipate the full scale of it.</p>
+
+<h3>Liquidity: adequate, and structurally low-risk</h3>
+
+<p>CRISIL's liquidity assessment is unambiguous: <i>"In the absence of any repayment obligation, the cash accrual... will be sufficient to meet dividend payout and aid financial flexibility."</i> Current ratio was 9.87&times; as of March 2024 — extraordinarily high, reflecting a business with almost no short-term liabilities relative to its cash and receivables. This is consistent with everything else in this report: Ksolves is not a leverage story in any direction.</p>
+
+<h3>The rating triggers, and the one aimed at the dividend</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Direction</th><th class="t">Trigger</th></tr></thead>
+<tbody>
+<tr><td class="t">Upward</td><td class="t">Revenue increasing by more than ₹200 Cr with operating margin sustained, leading to higher-than-expected cash accrual; continued improvement in working capital management</td></tr>
+<tr class="hl"><td class="t">Downward</td><td class="t">Revenue dropping 20% with a steep margin decline; <b>or any large, debt-funded capital expenditure or sizeable dividend payment</b> weakening the financial risk profile</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>That second downward trigger is worth pausing on, because it names — independently of anything this report has argued — the exact tension raised in Section <a href="#capital">11</a>: a company that returns 40&ndash;74% of profit and free cash flow to shareholders as policy is, by the rating agency's own explicit criteria, one large dividend away from its own credit profile weakening. Nothing in this report's own review found the current payout level to be excessive relative to cash generation — CRISIL's own liquidity note says accrual comfortably covers it — but the agency has drawn the line for a reason, and it is the one number in the capital-allocation story worth watching quarter to quarter rather than assuming is permanently safe.</p>
+
+<p>On the upward side, FY2026 revenue of ₹162.7 Cr sits meaningfully closer to CRISIL's own ₹200 Cr upgrade threshold than it did two years ago — but the same trigger requires margin <i>sustenance</i>, which is precisely what has not happened. An upgrade on scale alone, without the margin also holding, would not meet CRISIL's own stated bar.</p>
+</section>
+
+
+<section id="capital">
+<h2><span class="num">11</span>Capital allocation and the balance sheet</h2>
+<p class="sec-sub">A high-payout policy that was actually cut in half this year — not the steady picture management's own framing implies</p>
+
+<p>Ksolves pays dividends quarterly via frequent interim declarations rather than a single annual payout, and has described its policy in terms ranging from "74% of free cash flow" to "40% to 60% of profits" depending on which call and which base is being discussed. The more useful record is what was actually paid, and it moved sharply this year.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Period</th><th class="t">Interim dividends declared</th><th class="t">Total for the year</th></tr></thead>
+<tbody>
+<tr><td class="t">FY2025</td><td class="t">₹8.00 (Jun 2024) + ₹8.00 (Oct 2024) + ₹7.50 (Mar 2025)</td><td class="num">₹23.50/share</td></tr>
+<tr class="hl"><td class="t">FY2026</td><td class="t">₹1.00 (Jul 2025) + ₹5.00 (Oct 2025) + ₹5.00 (Jan 2026) — <b>no fourth/final dividend declared</b></td><td class="num l">₹11.00/share</td></tr>
+<tr><td class="t">FY2027 (to date)</td><td class="t">₹4.00 (Jul 2026)</td><td class="t">In progress</td></tr>
+</tbody>
+</table>
+<caption>Sourced from exchange announcements; see <span style="font-family:var(--mono)">research/INE0D6I01023/news.md</span>. Face value ₹5/share.</caption>
+</div>
+
+<p>The FY2026 total is roughly <b>half</b> the FY2025 total, and the pattern within the year is itself informative: the first interim (₹1.00) was a fraction of the prior year's opening instalments, and no fourth dividend was declared at all going into year-end — precisely the year in which margin compressed and the DFM product spend was absorbed. Read alongside the appearance of working-capital borrowings in the same two years (₹14.2 Cr FY2025, ₹5.7 Cr FY2026 — see below), the picture is a company that quietly tightened its own cash distribution and borrowed a modest amount, in the same period it was funding a product bet that did not pay off, rather than a company mechanically sticking to a fixed payout formula regardless of what else was happening internally. That is a more defensible sequence of decisions than either the "74% payout" framing or a static policy would suggest — capital was pulled back from shareholders before it needed to be, not after.</p>
+
+<h3>The "debt-free" framing is not quite accurate, and worth a small correction</h3>
+
+<p>Management describes Ksolves as "net debt-free" or "total debt-free" on nearly every call. The more precise picture: the company took on real, if small, borrowings for the first time in FY2025 (₹14.2 Cr) and continued carrying ₹5.7 Cr in FY2026. On one call, the CFO characterised part of this as a working-capital facility "to manage short-term cash flow mismatches on account of overall growth," and separately the CEO admitted taking "a very small loan... just to have some history with the bank... in case if we need any loan, it will be very easy" — an unusually candid admission that at least part of the borrowing was voluntary rather than necessary. Cash still exceeds gross debt in both years, so "net debt-free" is defensible; "total debt-free," used interchangeably on the same calls, is not. This is a minor precision issue, not a material misstatement, but it belongs in the same file as the DFM episode in Section <a href="#mgmt">09</a>: this management's language is occasionally looser than its actual numbers.</p>
+
+<h3>The one attempted lever that was tried and abandoned: acquisitions</h3>
+
+<p>Management has stated directly that it explored inorganic growth and stepped back: <i>"We tried acquisition, but unfortunately, we could not find good companies. So, we dropped that idea."</i> No reversal of that position was found in this run's news search. Combined with the disciplined (if late) exit from the DFM product bet, the pattern on capital allocation outside the core services business is: willing to experiment, willing to admit when an experiment does not work, and — so far — unwilling to force a deal or a product simply to show growth optionality. That is a genuinely reassuring pattern for a company this small, where a single bad acquisition could be far more damaging than a single failed internal product.</p>
+</section>
+
+
+<section id="flags">
+<h2><span class="num">12</span>Governance: clean on the record, thin on disclosure quality</h2>
+<p class="sec-sub">No fabrication, self-dealing or pledge risk found. What is found is a pattern of loose or unverifiable specifics around otherwise sound decisions</p>
+
+<h3>What is clean</h3>
+
+<ul>
+<li><b>Related-party transactions.</b> The existing audit rates Ksolves 1/3 ("Watch," the cleanest working tier this pipeline's scale uses) — the only related parties are the two wholly-owned subsidiaries and KMP compensation, and every AOC-2 "not at arm's length" disclosure reads Nil across the years reviewed.</li>
+<li><b>Promoter pledging.</b> A SEBI SAST Regulation 31(4) filing dated 9 April 2026 confirms no direct or indirect encumbrance was created or invoked on promoter shares during FY2026 — independently re-verifying the related-party audit's own prior finding on this specific point.</li>
+<li><b>Regulatory and litigation record.</b> No GST notice, income-tax notice, SEBI enforcement action or exchange penalty was found. No material lawsuit or legal dispute was found; the only litigation-adjacent disclosure located is the standard boilerplate contingent-liabilities line every company carries, not evidence of an active case.</li>
+<li><b>Key management stability.</b> No resignation, appointment or role change was found for the CFO, the whole-time director, or the Chairman-MD across the 2024-2026 window searched; the Q4 FY26 transcript itself confirms "No KMP or leadership transitions mentioned in the call."</li>
+</ul>
+
+<h3>What is not clean enough to call resolved</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Item</th><th class="t">Status</th></tr></thead>
+<tbody>
+<tr><td class="t">A claim, sourced only to an anonymous Substack post, that promoters have been "selling shares in the open market"</td><td class="t">Could not be corroborated against a SAST/insider-trading disclosure table in this search. Promoter holding is reported at a broadly stable ~58.9% through mid-2026, arguing against a material sell-down, but a smaller one cannot be ruled out from this evidence alone. Treated here as <b>unverified</b>, not repeated as fact.</td></tr>
+<tr><td class="t">Three named client wins cited on the Q4 FY26 call, none independently corroborated (Section <a href="#analysts">08</a>)</td><td class="t">Company-asserted only; one superficially similar case study is confirmed to describe a different client. Not evidence of fabrication — small companies routinely cannot name enterprise clients under NDA — but not verifiable either.</td></tr>
+<tr><td class="t">"Debt-free" language used interchangeably with "net debt-free" despite real (if small) borrowings in FY2025-26</td><td class="t">A precision issue rather than a material misstatement (Section <a href="#capital">11</a>), included here because it is a governance-adjacent disclosure-quality pattern, not a one-off.</td></tr>
+<tr><td class="t">DFM marketing material and case studies remained live on the company website into 2026, after the April 2026 admission that the product had failed</td><td class="t">Not a regulatory disclosure failure — the admission itself was made clearly on the earnings call — but it means an investor relying on the company's own website rather than the transcript would not see the reversal reflected there.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Ownership structure</h3>
+
+<p>Promoters hold 58.9% of the company, essentially unchanged since listing; institutional ownership (FII plus DII combined) is under 0.1% — this is a founder-controlled, almost entirely retail-owned micro-cap with no institutional shareholder base to provide an additional layer of external monitoring. That cuts both ways: it means capital-allocation decisions are made without the pressure (or the discipline) an institutional register can impose, but it also means the promoter's own economic interest is closely aligned with the minority shareholders sitting alongside them, since there is no separate controlling entity extracting value through a different structure.</p>
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">13</span>What retail investors have been saying since 2022 — and their silence when it mattered most</h2>
+<p class="sec-sub">The single ValuePickr thread on Ksolves did unusually rigorous diligence years before the DFM failure, then went quiet through the event itself</p>
+
+<p>Ksolves has exactly one substantive retail-forum thread — "Ksolves - a newage software development firm," opened 14 January 2022, 120 surviving posts across 39,037 views, still nominally open but essentially dormant (two posts in all of 2026). By raw post count and views, it has drawn more engagement than the primary ValuePickr threads on either Happiest Minds or Cigniti Technologies — a genuinely counterintuitive result for the smallest-cap name of the three — but that engagement was heavily front-loaded into 2022-2023 and has thinned sharply since.</p>
+
+<h3>The best diligence happened years before the DFM failure, and on a different question entirely</h3>
+
+<p>In November 2022, forum member <b>COMLB26</b> ran a full line-by-line annual-report teardown, opening with: <i>"Looked too good to be true… So wanted to explore in depth."</i> The post flagged a 25-year-old CFO with three years of total work experience, the statutory and internal auditors sharing the same registered address, a median employee salary that did not obviously square with 40%+ operating margins when large listed IT peers were running under 20%, and a dividend payout exceeding after-tax operating cash flow in FY2022. His conclusion was blunt: <i>"I would not put my money here… I think the high payout is to attract investors into trusting the financial nos., to prop up stock price."</i> Days later, member <b>dd1474</b> went further and emailed Ksolves investor relations directly with COMLB26's questions, then posted the verbatim reply. On the central question — how a subcontractor-heavy IT shop sustains 40%+ margins against Infosys' 24-33% and TCS' 26-30% — the company's own written answer dodged it entirely ("There must be some variation in calculation..."), and dd1474's own conclusion was that "the main question about superior operating margin remain unaswered." This direct-to-management exercise, unprompted and published in full, is the single most rigorous piece of retail diligence found across this pipeline's forum research to date, and it predates any DFM discussion by more than two years.</p>
+
+<p>The most prescient single post, from <b>vnktshb</b> in July 2023, argued the extraordinary growth years were a one-time COVID-era cloud-demand pull-forward rather than a durable trend: <i>"Ksolves is a tiny company, hence the revenues will disappear later as the base is small... The promoters are aware the revenues wont be there in 3 to 4 years. So they are cleaning the coffers the right way... So net net the terminal value of this stock is perhaps 0 unless they come up with a new sustainable business."</i> Growth and margins did in fact decelerate sharply starting FY2025-26 — roughly on his stated three-to-four-year timeline — though the causal mechanism he named (cyclical demand reversion) is not quite the one management ultimately gave (a specific failed product bet). Directionally right, for a related but distinct reason.</p>
+
+<h3>DFM: flagged weakly and late, then met with near-total silence</h3>
+
+<p>Nobody on the thread predicted DFM would be abandoned. The closest advance warnings were mild: <b>singhi08</b> (May 2025) noted DFM had become management's stated primary focus, a concentration-of-strategic-risk observation rather than a prediction of failure; <b>Prateek_Sen</b> (November 2025) quantified that product revenue including DFM was stuck at 2-3% of sales despite years of promotion, calling the company's own ">80% recurring revenue" framing "a bit confusing" given it is "largely implementation projects" — a real, data-driven skepticism, five months ahead of management's own admission, but one that stopped at "wait and see" rather than "this will fail." Both posters remained invested and tracking. What followed the actual event is more striking than either hedge: the February 2026 "DFM 2.0 Agentic AI" launch and the April 2026 write-off produced <b>zero posts</b> on the thread. The only activity since is a June 2026 member asking "Is anyone else tracking this company? Thread seems to have gone eerily quiet," and a reply eight days later that discusses the results generically without mentioning DFM, the launch event, the reversal, or management credibility at all. A forum that produced the COMLB26 teardown and the vnktshb bear call three to four years earlier went silent through the one event that most directly validated years of margin-sustainability skepticism — this reads as retail disengagement coinciding with management's climbdown, not retail foresight anticipating it.</p>
+
+<h3>The dividend debate has never resolved, and the "no growth conviction" reading has grown louder since the slowdown</h3>
+
+<p>Two readings of the high payout policy have coexisted on the thread since 2022. The favorable one treats it as proof the earnings are real: <i>"the cash going out is definitely the profit the company generates. And cash is the most tangible proof to me that the business is not a fluke"</i> (i_mustafa, March 2025); <i>"if they were faking the numbers, they wouldn't be paying so much dividends"</i> (pranshukh, November 2024). The skeptical reading treats it as an absence of growth conviction — most explicitly stated after the slowdown had already begun: <i>"because of lack of growth opportunities they are making themselves rich through dividend"</i> (cdas3317, June 2025). Both readings are defensible and neither is resolved by the record; this report's own view, developed independently in Section <a href="#capital">11</a>, is closer to the second reading for FY2026 specifically — the payout cut coincided with, rather than preceded, the year performance actually weakened.</p>
+
+<h3>No institutional voice anywhere in the record</h3>
+
+<p>No broker price target, sell-side note, or independent third-party research write-up is cited or linked anywhere across the thread's four-and-a-half-year life — only BSE/NSE filing PDFs and the company's own promotional content. Members converged on dividend yield and back-of-envelope PE/PEG framing as substitutes for institutional coverage once conventional multiples were judged unworkable given earnings volatility, echoing the reverse-DCF and multiple cross-check approach this report takes independently in Section <a href="#valuation">14</a>. Ksolves' retail following is genuinely do-it-yourself, for better and worse — sharp when it chose to look closely (2022-2023), and silent through the one event since that most needed scrutiny.</p>
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">14</span>Valuation: what the price actually assumes</h2>
+<p class="sec-sub">Unusually for this pipeline, the reverse DCF says the market is already pricing in further margin deterioration below management's own guidance floor — not betting on recovery</p>
+
+<h3>Starting point</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Item</th><th class="num">Value</th></tr></thead>
+<tbody>
+<tr><td class="t">Share price (12 Sep 2026)</td><td class="num">&#8377;258.00</td></tr>
+<tr><td class="t">Shares outstanding</td><td class="num">2.372 Cr</td></tr>
+<tr><td class="t">Market capitalisation</td><td class="num">&#8377;612.0 Cr</td></tr>
+<tr><td class="t">Net debt (FY2026: &#8377;5.7 Cr borrowings &minus; &#8377;7.1 Cr cash)</td><td class="num">&minus;&#8377;1.4 Cr (net cash)</td></tr>
+<tr class="hl"><td class="t">Enterprise value</td><td class="num">&#8377;610.6 Cr</td></tr>
+<tr><td class="t">Trailing P/E (FY2026 PAT &#8377;34.3 Cr)</td><td class="num">17.8&times;</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Because Ksolves carries essentially no net debt, enterprise value and market capitalisation are almost identical here &mdash; a genuine structural simplicity most companies on this pipeline do not have. The trailing 17.8&times; P/E sits squarely mid-pack against the peer set in Section <a href="#peers">06</a> (11.5&ndash;24.5&times;), unremarkable despite Ksolves' ROCE dwarfing every one of those peers &mdash; the market is not paying a premium for the extreme return ratio, consistent with this report's own reading that the ROCE is a function of a thin capital base rather than a superior, durable moat.</p>
+
+<h3>Reverse DCF: what growth and margin does &#8377;258 actually require?</h3>
+
+<p>Assumptions common to every scenario below: tax rate 24% (FY2026 actual), depreciation 2.0% of sales (in line with the FY2026 ratio), capex 2.0% of sales (above the noisy recent actual range of 0.3&ndash;5.5%, deliberately conservative), incremental working capital 11.2% of incremental revenue (this pipeline's regression fit across FY2017&ndash;26, reflecting the real receivable-days lengthening documented in Section <a href="#wc">05</a>), WACC 13% and terminal growth 5%. Revenue growth is held at a single decelerating path in both reverse-DCF solves &mdash; management's own FY2027 guidance of 19% at the top, fading a point or two a year toward 8% by year ten &mdash; so that only one variable moves at a time.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Solved for</th><th class="t">What the price requires</th><th class="t">What the business has actually guided or delivered</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Flat EBITDA margin (holding the growth path above fixed)</td><td class="num">22.4%</td><td class="t">FY2027 guidance: 25&ndash;30%. Historical FY2021&ndash;24 range: 42&ndash;43%. <b>The price requires a margin below the bottom of management's own guided floor.</b></td></tr>
+<tr><td class="t">Flat revenue CAGR (holding margin fixed at the 27.5% guidance midpoint)</td><td class="num">11.4%</td><td class="t">FY2027 guidance: 18&ndash;20%. FY2019&ndash;26 realised CAGR: well above this. <b>The price requires growth roughly 7&ndash;9 points below current guidance.</b></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Both solves point the same way: at a 13% discount rate, &#8377;258 does not require Ksolves to prove the DFM-episode margin compression was a one-off, or to hit its own FY2027 targets. It requires results <i>meaningfully worse</i> than management's own guidance &mdash; either a margin near the bear end of what industry-wide AI-pricing pressure (Section <a href="#growth">07</a>) could plausibly produce, or growth decelerating faster than the company itself is currently projecting. Raising the discount rate to 14% (a reasonable adjustment for this stock's thin institutional coverage and low liquidity, Section <a href="#analysts">08</a>) narrows but does not reverse the conclusion: the required margin rises only to 25.1%, still at the very bottom of guidance.</p>
+
+<h3>Three explicit scenarios, for a concrete range</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Scenario</th><th class="t">Margin path (10yr)</th><th class="t">Value / share</th><th class="t">vs. price</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Bear</b> — margin fades further, 27.5%&rarr;22% over 5 years, holds</td><td class="t">Consistent with continued AI-driven pricing pressure (Section <a href="#growth">07</a>) on top of the DFM hangover</td><td class="num">&#8377;261</td><td class="num r">+1%</td></tr>
+<tr class="hl"><td class="t"><b>Base</b> — flat at the 27.5% guidance midpoint</td><td class="t">Management's own FY2027 guidance holds for the full explicit period</td><td class="num">&#8377;327</td><td class="num g">+27%</td></tr>
+<tr><td class="t"><b>Bull</b> — partial recovery, 27.5%&rarr;33% over 5 years, holds</td><td class="t">An eClerx-style partial recovery (Section <a href="#peers">06</a>: 37%&rarr;22% trough&rarr;24&ndash;27% new normal, translated to Ksolves' own higher starting range)</td><td class="num">&#8377;394</td><td class="num g">+53%</td></tr>
+</tbody>
+</table>
+<caption>All three scenarios use the identical growth path (19% decelerating to 8% over 10 years), tax, capex, depreciation and working-capital assumptions above; only the margin path varies.</caption>
+</div>
+
+<figure>
+  <div class="fig-title">Three DCF scenarios against the current price</div>
+  <div class="fig-sub">The bear case, built from the industry's own AI-pricing-pressure evidence, lands almost exactly at &#8377;258</div>
+  <svg viewBox="0 0 720 220" role="img" aria-label="Discounted cash flow valuation scenarios for Ksolves against the current market price"><line class="grid-l" x1="46" y1="186.0" x2="704" y2="186.0"/><text class="ax" x="40" y="189.0" text-anchor="end">0</text><line class="grid-l" x1="46" y1="156.2" x2="704" y2="156.2"/><text class="ax" x="40" y="159.2" text-anchor="end">80</text><line class="grid-l" x1="46" y1="126.4" x2="704" y2="126.4"/><text class="ax" x="40" y="129.4" text-anchor="end">160</text><line class="grid-l" x1="46" y1="96.5" x2="704" y2="96.5"/><text class="ax" x="40" y="99.5" text-anchor="end">240</text><line class="grid-l" x1="46" y1="66.7" x2="704" y2="66.7"/><text class="ax" x="40" y="69.7" text-anchor="end">320</text><line class="grid-l" x1="46" y1="36.9" x2="704" y2="36.9"/><text class="ax" x="40" y="39.9" text-anchor="end">400</text><rect x="109.6" y="88.7" width="92.1" height="97.3" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs 261</title></rect><text class="vlbl" x="155.7" y="81.7" text-anchor="middle" fill="#d97a5f">&#8377;261</text><text class="ax" x="155.7" y="200" text-anchor="middle">Bear</text><text class="ax" x="155.7" y="212" text-anchor="middle" fill="#8ecbaa">+1%</text><rect x="328.9" y="64.1" width="92.1" height="121.9" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 327</title></rect><text class="vlbl" x="375.0" y="57.1" text-anchor="middle" fill="#c9a24b">&#8377;327</text><text class="ax" x="375.0" y="200" text-anchor="middle">Base</text><text class="ax" x="375.0" y="212" text-anchor="middle" fill="#8ecbaa">+27%</text><rect x="548.3" y="39.1" width="92.1" height="146.9" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 394</title></rect><text class="vlbl" x="594.3" y="32.1" text-anchor="middle" fill="#5fb98a">&#8377;394</text><text class="ax" x="594.3" y="200" text-anchor="middle">Bull</text><text class="ax" x="594.3" y="212" text-anchor="middle" fill="#8ecbaa">+53%</text><line x1="46" y1="89.8" x2="704" y2="89.8" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="82.8" text-anchor="end">market &#8377;258</text><line class="zero-l" x1="46" y1="186" x2="704" y2="186"/></svg>
+  <figcaption><b>Why:</b> all three bars use the identical growth path and only vary the margin assumption (Section <a href="#valuation">14</a> above) &mdash; the spread between them is purely a margin-durability question, not a growth or working-capital disagreement. Source: <span style="font-family:var(--mono)">src.modules.equity_research.dcf</span>.</figcaption>
+</figure>
+
+<p>The bear case &mdash; a scenario built to mirror the single most negative, plausible reading of the industry evidence in Section <a href="#growth">07</a> &mdash; lands almost exactly at the current price. That is the same conclusion the reverse DCF reaches from the other direction: <b>the market is not pricing this stock for a return to historical margins, or even for management's own guided range holding &mdash; it is pricing something close to the bear case already.</b> This is a materially different valuation picture from a stock priced for a turnaround that has not yet been earned; if anything, meeting or modestly beating the FY2027 guidance band would already be worth a meaningfully higher price on these assumptions, and only a further, deeper margin deterioration than even the bear scenario contemplates would make &#8377;258 look expensive in hindsight.</p>
+
+<div class="warn">
+  <div class="lbl">What this valuation does not resolve</div>
+  <p>A DCF this sensitive to a single margin assumption is only as good as the range it is tested against. Section <a href="#growth">07</a>'s own base rate &mdash; no comparable-scale Indian IT boutique found sustaining margin expansion through the FY25-26 AI-disruption window without at least one "growth masks margin pressure" quarter &mdash; argues the base case above is a reasonable central assumption, not a floor. If the industry-wide pricing pressure in Part B of the industry brief proves more severe than the bear scenario assumes here, terminal value (56% of enterprise value in the base case, a normal share for a ten-year explicit forecast but still the single largest unverified input) would fall further than any of the three scenarios shown.</p>
+</div>
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">15</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">A genuinely high-quality, thin-capital-base services business that just failed its first real capital-allocation test &mdash; priced, on the numbers, for the failure to keep compounding</p>
+
+<h3>What we are confident about</h3>
+
+<p>Ksolves passes the coffee-can gates as cleanly as any company measured on this pipeline &mdash; a perfect 9/9 "9iner" on both revenue growth and ROCE. The harder cash test (CFO less real capex less interest) is comfortably positive at +&#8377;121.6 Cr across the decade, funding the entire &#8377;93.6 Cr of cumulative dividends without external capital. The related-party audit is clean (1/3, "Watch"), there is no pledging, no litigation, no regulatory action, and no key-management turnover found in the window searched. Promoters have held a stable 58.9% since listing, and the business needs almost no fixed capital to run &mdash; genuinely rare structural traits, and the reason this company's return ratios are the highest measured on this pipeline to date.</p>
+
+<h3>What is a real, current weakness &mdash; not a data artefact</h3>
+
+<p>Two things earn that label. First, cumulative CFO/PAT of 0.88&times; over the decade is a genuine cash-conversion shortfall, and the mechanism is traceable and specific: receivable days rose from near-zero to 70 as the client base shifted toward larger, slower-paying global enterprises (Section <a href="#framework">02</a>, <a href="#wc">05</a>). It is not yet alarming, but it is a trend, not a one-off. Second, and larger: management spent roughly two years and a heavily promoted "Agentic AI" relaunch building DFM into a second growth engine, then killed it within twelve weeks of that relaunch, with the CEO's own account making the mechanism explicit &mdash; "we have taken the money from the services and spent it on the product." That episode, plus the industry-wide AI-pricing-pressure evidence in Section <a href="#growth">07</a>, took EBITDA margin from 34.8% to 29.7% in a single year and pulled FY2027 guidance down to 25-30%, well below the historical 42-43% range.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">The claim</th><th class="t">The record</th></tr></thead>
+<tbody>
+<tr><td class="t">"Net debt-free" / "debt-free"</td><td class="t">Real borrowings of &#8377;14.2 Cr (FY2025) and &#8377;5.7 Cr (FY2026) exist; cash exceeds gross debt in both years, so "net debt-free" holds but "total debt-free" does not (Section <a href="#capital">11</a>)</td></tr>
+<tr><td class="t">DFM as a major second growth lever</td><td class="t">Written off as a strategic dead end roughly 12 weeks after its most heavily promoted relaunch (Section <a href="#mgmt">09</a>)</td></tr>
+<tr><td class="t">Steady, policy-driven dividend payout</td><td class="t">FY2026 total (&#8377;11.00/share) was roughly half FY2025's (&#8377;23.50/share) &mdash; a real cut, coinciding with the margin-compression year, not a fixed formula (Section <a href="#capital">11</a>)</td></tr>
+<tr><td class="t">Three new client wins cited on the Q4 FY26 call</td><td class="t">None independently corroborated; unresolved rather than confirmed (Section <a href="#analysts">08</a>)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Why the price does not require betting that the DFM episode was the low point</h3>
+
+<p>This is the finding that most changes the shape of the verdict. A reverse DCF at &#8377;258, using management's own FY2027 growth guidance as the starting point and a 13% discount rate, requires a flat EBITDA margin of only <b>22.4%</b> &mdash; below the bottom of management's own 25-30% guided range &mdash; or, holding margin at the guidance midpoint, requires revenue growth of only <b>11.4%</b>, seven to nine points below the 18-20% currently guided. An explicit bear scenario built to mirror the single most negative reading of the industry-wide AI-pricing evidence in Section <a href="#growth">07</a> (margin fading further to 22% and holding) lands at &#8377;261 &mdash; almost exactly today's price. The base case, which simply assumes management's own guidance holds for ten years with no further deterioration and no recovery, implies &#8377;327, roughly 27% above the current price (Section <a href="#valuation">14</a>).</p>
+
+<div class="warn">
+  <div class="lbl">Position</div>
+  <p><b>Quality grade: high, with one real and disclosed cash-conversion caveat. Value grade: not demanding.</b> Ksolves is a genuinely well-run, founder-controlled, high-return-on-thin-capital services business that made and then honestly reversed one significant capital-allocation mistake. Unlike this pipeline's more typical case &mdash; a good business priced for a margin recovery that has not yet happened &mdash; the market here appears to already be pricing something close to continued deterioration below management's own guidance floor. That is a favourable asymmetry for a buyer willing to underwrite the going-concern quality of the core services business (the 82% repeat-revenue base, the founder alignment, the disciplined-if-late product exit) without needing the DFM episode to prove a one-off, or the margin to recover, for the price to be justified.</p>
+  <p>The specific risk this does not resolve is structural, not company-specific: if the AI-driven pricing pressure documented in Section <a href="#growth">07</a> across the large-cap disclosures and the InfoBeans/Kellton comparables proves more severe than even this report's bear scenario over the next several years &mdash; a real possibility this report cannot rule out &mdash; today's price would still be too high, because the effort-based billing model this entire company is built on would itself be under sustained pressure, not just recovering from one bad product bet.</p>
+</div>
+
+<h3>What would change our mind &mdash; specific, dated, monitorable</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Trigger</th><th class="t">Threshold</th><th class="t">Where to check</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>1. FY2027 margin outcome vs. guidance</b></td><td class="t">EBITDA margin below 25% for two consecutive quarters would confirm deterioration past even the guided floor; above 30% would confirm the DFM episode was the trough, not the start of a longer slide</td><td class="t">Quarterly results</td></tr>
+<tr><td class="t"><b>2. Receivable days</b></td><td class="t">A move past 80-85 days (from 70 in FY2026) without a corresponding revenue-mix explanation would turn the cash-conversion caveat from a trend into a real red flag</td><td class="t">Quarterly/annual balance sheet</td></tr>
+<tr><td class="t"><b>3. Realised billing rates or effective revenue per developer</b></td><td class="t">Any disclosed figure showing per-head realisation falling even as AI-driven output per head rises would confirm the HCLTech/Motilal Oswal pattern (Section <a href="#growth">07</a>) operates at Ksolves' own scale</td><td class="t">Earnings call commentary; no such disclosure exists today</td></tr>
+<tr><td class="t"><b>4. Named, verifiable corroboration of the three Q4 FY26 client wins</b></td><td class="t">Any press or filing confirmation would resolve the currently unresolved item in Section <a href="#analysts">08</a></td><td class="t">Company disclosures, press</td></tr>
+<tr><td class="t"><b>5. Dividend policy in the next full year</b></td><td class="t">A return to something near the FY2025 payout level would signal management sees the margin compression as behind it; a further cut would signal the opposite</td><td class="t">Dividend announcements</td></tr>
+<tr><td class="t"><b>6. A confirmed, named promoter share sale</b></td><td class="t">Any SAST filing showing a material reduction from the current ~58.9% would need to be weighed against the currently unverified Substack-sourced claim (Section <a href="#flags">12</a>)</td><td class="t">BSE/NSE SAST disclosures</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The one-paragraph version</h3>
+
+<p>Ksolves is a small, founder-led, extraordinarily capital-efficient IT-services boutique that made a real strategic mistake &mdash; a product bet pursued too hard and abandoned only after the damage to margin was done &mdash; and was unusually candid about it once the numbers forced the issue. That episode, layered onto a genuine industry-wide question about whether generative AI structurally compresses the effort-based billing model this entire company category depends on, is a real and current risk, not a solved one. What makes this report's conclusion notable is that, unlike the more common case of a good business priced for a recovery it has not yet earned, the price here already assumes something close to the bear case: a reverse DCF, an explicit bear scenario, and a base case that simply takes management's own guidance at face value all point the same way. A buyer at &#8377;258 is not being asked to bet that the DFM episode marks a permanent, structural decline being priced correctly by the market — they are being asked to accept that if it does not, there is room above today's price, and if it turns out worse than even this report's bear case allows, there is not much cushion left.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">16</span>Data gaps and provenance</h2>
+<p class="sec-sub">What this report is built on, and what it could not see</p>
+
+<p>Every analysis has holes. Most reports hide them. Ours are listed here because a reader making a capital-allocation decision is entitled to know which conclusions rest on primary evidence and which rest on inference.</p>
+
+<h3>What was actually read</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Source</th><th class="t">Coverage</th><th class="t">Status</th></tr></thead>
+<tbody>
+<tr><td class="t">Earnings call transcripts</td><td class="t">Q3 FY26 and Q4 FY26 read in full; earlier quarters covered via secondary summaries and the ValuePickr thread's own verbatim quotes</td><td class="t">Primary transcripts for the two most decision-relevant quarters (the DFM hedge and the DFM admission); earlier-year commentary is secondary-sourced and flagged as such throughout</td></tr>
+<tr><td class="t">Related-party audit</td><td class="t">Existing pipeline audit</td><td class="t">Score 1/3 ("Watch"); re-used, not re-run, this cycle</td></tr>
+<tr><td class="t">Financial data</td><td class="t">FY2017&ndash;FY2026 consolidated</td><td class="t">From this pipeline's <span style="font-family:var(--mono)">xbrl_annual</span> and <span style="font-family:var(--mono)">computed_metrics</span>; FY2017/2018/2020 operating-profit data genuinely absent, not zero (see Gap 1)</td></tr>
+<tr><td class="t">Peer financials (14 companies)</td><td class="t">Multi-year P&amp;L, balance sheet, ROCE, shareholding</td><td class="t">Public Screener.in pages, fetched 11-12 September 2026; three additional candidates (Cigniti, Xchanging, Cambridge Technology Enterprises) checked and excluded or heavily caveated (Section <a href="#peers">06</a>)</td></tr>
+<tr><td class="t">ValuePickr forum</td><td class="t">All 120 surviving posts of the single substantive Ksolves thread, read in full via the Discourse API, 2022-01-14 to 2026-06-16</td><td class="t">Complete read of the only thread that exists; Happiest Minds and Cigniti threads checked for activity metadata only, not read post-by-post</td></tr>
+<tr><td class="t">Company news</td><td class="t">DFM arc, dividend history, borrowings, management/KMP changes, litigation, M&amp;A stance, 2024-2026</td><td class="t">Filtered search across primary transcripts, exchange-filing mirrors and major/lower-tier press; every item source-tiered explicitly in the underlying research file</td></tr>
+<tr><td class="t">Industry brief (Indian boutique IT-services / AI-disruption)</td><td class="t">NASSCOM/Zinnov demand data; HCLTech, Motilal Oswal, Everest Group and Gartner positions on AI-driven pricing pressure; InfoBeans/Kellton Tech/Happiest Minds matched-scale comparables</td><td class="t">Built fresh this cycle; Part B (the AI-disruption case) is explicitly flagged in its own source file as the fastest-moving, least-settled material and should be re-checked quarterly</td></tr>
+<tr><td class="t">Price and market data</td><td class="t">12 September 2026</td><td class="t">Refreshed this run &mdash; the cached price was stale at &#8377;273.95; confirmed &#8377;258.00 and updated in the pipeline database</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Gap 1 &mdash; pre-FY2021 operating data is genuinely thin, and one year's ROCE reads oddly as a result</h3>
+<p>Operating-profit-line data is <b>absent</b>, not zero, for FY2017, FY2018 and FY2020 in the underlying database. The FY2019 figures used in Section <a href="#record">03</a> (sales, OPM, ROCE) are real and complete, but sit on a base so small (₹5.4 Cr revenue) that the resulting ratios are noisy in a way later years are not; this report treats FY2019 as a data point, not as evidence of a trend on its own. All coffee-can and CAGR scoring already reflects the years genuinely available rather than assuming a fixed ten-year window.</p>
+
+<h3>Gap 2 &mdash; three specific news claims could not be independently verified, and are flagged rather than dropped or asserted</h3>
+<div class="warn">
+  <div class="lbl">Held to the same standard as everything else in this report</div>
+  <ul>
+<li><b>The three Q4 FY26 client wins</b> (a power-transmission/green-energy SAP-to-Odoo migration, a New York risk/financial-crime advisory data-science deployment, and an East Africa accounting-network ERP implementation) are cited by management on the record but named nowhere &mdash; not in the transcript, not in company case studies, not in independent press. A superficially similar company case study in fact describes a different client (bulk ferro-alloys manufacturing, not power transmission). Treated throughout as company-asserted pipeline colour, not confirmed wins (Section <a href="#analysts">08</a>).</li>
+<li><b>A promoter share-sale claim</b>, sourced only to an anonymous Substack post, could not be corroborated against a SAST/insider-trading disclosure table in this search pass; promoter holding is reported stable at ~58.9% through mid-2026, which argues against a material sell-down but does not rule out a smaller one (Section <a href="#flags">12</a>).</li>
+<li><b>Why FY2025-26 borrowings (₹14.2 Cr &rarr; ₹5.7 Cr) were taken</b> is inferred from the balance-sheet trend and management's general, undated statement that it sees "no reason to take debt" absent a specific need, plus a separate, unrelated CEO comment about taking "a very small loan... just to have some history with the bank." No transcript excerpt directly and specifically explains the FY25-26 borrowings; a targeted pull of the FY25/FY26 annual report's borrowings schedule (notes to accounts) would settle this more precisely than further news search.</li>
+  </ul>
+</div>
+
+<h3>Gap 3 &mdash; one piece of secondary research was deliberately excluded rather than published unverified</h3>
+<p>Secondary research surfaced a quote attributed to Ksolves' own Q4 FY26 call &mdash; management framing AI-driven efficiency as "what four people were doing earlier now being done by almost two people." This report could not locate or verify that specific line against its own primary transcript material with enough confidence to publish it as a direct quotation, and it is deliberately omitted from Section <a href="#growth">07</a> rather than repeated on secondary authority. What that section does say &mdash; that management frames AI adoption as a demand accelerant rather than a pricing threat, per the verified Q3 FY26 quote used there &mdash; stands on its own without needing the unverified figure.</p>
+
+<h3>Gap 4 &mdash; no BSE PDF fetch access, and no primary-source contingent-liabilities pull</h3>
+<p>A specific BSE exchange filing referencing the DFM 2.0 webinar (dated 28 January 2026) returned a 403 on direct PDF fetch; its existence is noted but its content unconfirmed. Separately, no direct pull of the FY2025/FY2026 annual report's contingent-liabilities note was made this cycle &mdash; the "no material litigation found" conclusion in Section <a href="#flags">12</a> rests on press and aggregator search, not a direct read of that note, though nothing in the search suggested a specific undisclosed matter exists.</p>
+
+<h3>Gap 5 &mdash; no institutional/sell-side coverage exists to cross-check against</h3>
+<p>This is not a research gap in the ordinary sense &mdash; it is a fact about the stock. No brokerage initiation, upgrade or downgrade note was found anywhere; the only published "target price" (₹352, Univest.in) comes from a retail-app content page, not sell-side research, and is not treated as a benchmark anywhere in this report (Section <a href="#analysts">08</a>). Every valuation view in Section <a href="#valuation">14</a> is this report's own, with no external institutional view available to triangulate against.</p>
+
+<h3>What would settle the open questions</h3>
+<ol>
+<li>Pull the FY2025 and FY2026 annual report notes to accounts directly &mdash; the borrowings schedule (why the loans exist) and the contingent-liabilities note (confirming the absence of litigation) &mdash; rather than relying on news search for either.</li>
+<li>Pull a line-item SAST/insider-trading disclosure table for the promoter group across FY25-26 to settle the unverified share-sale claim one way or the other.</li>
+<li>Track realised billing rates or effective per-developer revenue over the next several quarters &mdash; no such disclosure exists today, and it is the single cleanest test of whether the AI-driven pricing pressure documented in Section <a href="#growth">07</a> operates at Ksolves' own scale.</li>
+<li>Re-read the Q3 FY26 and Q4 FY26 full transcripts (and any subsequent quarter) specifically hunting for the "four people... two people" efficiency claim from a primary source, before it is used in any future update.</li>
+<li>Watch for any named, independent corroboration of the three Q4 FY26 client wins.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Ksolves India Ltd (NSE: KSOLVES, BSE: 543599, ISIN INE0D6I01023). Prepared 13 September 2026 against a share price of &#8377;258.00.</p>
+  <p>Built from this pipeline's own indexed corpus: Q3 FY26 and Q4 FY26 earnings call transcripts read in full (earlier quarters via secondary summaries and the ValuePickr thread's own verbatim quotes), an existing related-party audit, consolidated financials FY2017&ndash;FY2026, fourteen listed peer comparables' public financials, CRISIL's rating history, a 120-post ValuePickr thread read in full, and primary-sourced news and industry research on AI-driven pricing pressure across the Indian IT-services sector. Every numeric claim cites a fiscal year; every quotation cites a document and date. Limitations are stated in full in Section 16.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. Do your own work, and note in particular the data gaps in the final section &mdash; several claims in this report (three cited client wins, a promoter share-sale allegation, the reason for FY2025-26 borrowings) remain explicitly unresolved rather than confirmed. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
