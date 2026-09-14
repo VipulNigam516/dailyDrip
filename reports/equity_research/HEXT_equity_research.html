@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hexaware Technologies — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Hexaware Technologies: a Carlyle-sponsored, freshly-relisted mid-tier IT major that missed its own growth framing in its first full year back on the market, and was candid about it.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Equity Research &middot; Coffee Can Screener</span>
+  <h1>Hexaware Technologies</h1>
+  <p class="subtitle">A genuinely well-run mid-tier IT major, taken private, sold between two global PE sponsors, and relisted — whose first eighteen months back on the public market were a lesson in overpromising, candidly admitted, and repeated once more.</p>
+  <p class="meta">
+    NSE <b>HEXT</b> &middot; BSE <b>544362</b> &middot; ISIN <b>INE093A01041</b> &middot; IT Services &amp; Digital Engineering &middot; Consolidated basis, calendar-year reporting<br>
+    Price <b>&#8377;497.00</b> &middot; Market cap <b>&#8377;30,368 Cr</b> &middot; P/E <b>22.2&times;</b> &middot; ROCE <b>30.1%</b> (reported, CY2025) &middot; As of <b>11 September 2026</b>
+  </p>
+</header>
+
+<div class="verdict">
+  <div class="verdict-label">Verdict</div>
+  <p class="verdict-head">Quality: genuinely high, on every structural measure. Value: priced for management's optimistic aspiration, not its own current guidance.</p>
+  <p>Hexaware clears the coffee-can gates cleanly on a real, large capital base — a 9/9 "9iner" with ROCE holding 24-32% for a decade through a full change of control. Cash conversion, working capital and the related-party record are all clean. Relisted in February 2025 via a ₹8,750 Cr Offer for Sale (100% a Carlyle Group exit, zero proceeds to the company), the stock now trades ~30% below its ₹708 issue price.</p>
+  <p>The problem is guidance credibility. The first post-listing call framed "double-digit" CY2025 growth as "a solid baseline" — the year closed at 7.6%. Management's own words on the next call: "given how CY25 panned out, clearly, we have some lessons learnt on how to communicate with you." The reset CY2026 guidance was then cut again, from a stated "floor" of 7.6% to 6-7%, within weeks of this report. Twelve days before this report, the CEO who set every one of those commitments announced he is stepping down before CY2026 is proven out.</p>
+  <p>Run through a reverse DCF, &#8377;497 requires either a margin recovery beyond current guidance or growth near management's "low-teens" long-term aspiration — not its own 6-7% near-term number. The explicit bull scenario, a genuine but unproven recovery, lands almost exactly at today's price; simply holding current guidance flat implies roughly 14% downside. <b>A clean, well-run business, a real and recent credibility gap, and a price that needs the aspiration, not the guidance, to come true.</b></p>
+</div>
+
+<div class="hero-row">
+  <div class="stat"><div class="k">Coffee-can gates</div><div class="v" style="color:#8ac9a8">9 / 9</div><div class="n">Revenue growth &amp; ROCE, on a real capital base</div></div>
+  <div class="stat"><div class="k">CY2025 growth vs. framing</div><div class="v" style="color:var(--loss)">7.6% vs "double-digit"</div><div class="n">The central, acknowledged miss</div></div>
+  <div class="stat"><div class="k">CY2026 guidance cut</div><div class="v" style="color:var(--loss)">7.6%&rarr;6-7%</div><div class="n">Cut again, weeks before this report</div></div>
+  <div class="stat"><div class="k">Base-case DCF value</div><div class="v">&#8377;425</div><div class="n">14% below market, guidance held flat</div></div>
+</div>
+
+<div class="toc">
+  <div class="toc-l">Contents</div>
+  <ol>
+    <li><a href="#business">The business, and a genuinely unusual ownership history</a></li>
+    <li><a href="#framework">A large-cap IT-services checklist, applied</a></li>
+    <li><a href="#record">The ten-year record</a></li>
+    <li><a href="#margin">Margins: a lower, AI-adjusted guide-down</a></li>
+    <li><a href="#wc">Working capital: a genuine strength</a></li>
+    <li><a href="#peers">How Hexaware compares with its real peers</a></li>
+    <li><a href="#growth">Growth outlook: a real pipeline, a guidance floor that moved</a></li>
+    <li><a href="#analysts">What institutional analysts have gotten wrong so far</a></li>
+    <li><a href="#mgmt">Management scorecard: an honest miss, a leadership change mid-lesson</a></li>
+    <li><a href="#capital">Capital allocation: a PE exit, then a growing dividend</a></li>
+    <li><a href="#flags">Governance: clean at the operating company, leverage one level up</a></li>
+    <li><a href="#sentiment">What retail investors have said</a></li>
+    <li><a href="#valuation">Valuation: the price already assumes the recovery</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business, and a genuinely unusual ownership history</h2>
+<p class="sec-sub">A ~$1.6bn mid-tier IT major, taken private in 2021, sold between two global private-equity sponsors, and relisted via a fresh IPO in February 2025</p>
+
+<p>Hexaware Technologies Limited is a Navi Mumbai-headquartered IT services company offering digital transformation, cloud, AI/automation and application services across banking &amp; financial services, healthcare &amp; insurance, high-tech &amp; professional services, manufacturing &amp; consumer, travel &amp; transportation, and banking verticals, for a largely US- and Europe-based client base. On revenue of ₹13,430 Cr (CY2025), it sits below the "big five" Indian IT majors (TCS, Infosys, Wipro, HCLTech, Cognizant, each $10bn+) but is a genuine scale player in the tier analyst houses like Everest Group sometimes call "Top ITS Challengers" — materially larger than every other company this pipeline has covered to date.</p>
+
+<h3>Taken private, sold between two PE sponsors, relisted</h3>
+
+<p>Hexaware was previously listed, then taken private via a delisting completed around 2020-21 by <b>Baring Private Equity Asia</b>. Baring then sold its stake to an affiliate of <b>The Carlyle Group</b> (via an acquisition vehicle, CA Magnum Holdings) for approximately $3 billion in 2021. It is Carlyle's vehicle, not Baring, that has controlled Hexaware since. CA Magnum relisted the company via a <b>₹8,750 Cr Offer for Sale</b> that opened 12 February 2025 and listed on <b>19 February 2025</b> at ₹708/share — <b>entirely a secondary sale of existing shares; no primary capital was raised and the company itself received zero IPO proceeds</b>. As of the most recent shareholding disclosure, CA Magnum (Carlyle) still holds roughly 74.3% of the company, classified as "Promoter" in exchange filings despite being a private-equity sponsor rather than a founder or family — a classification worth keeping in mind whenever this report or any data source uses the word "promoter" for Hexaware. Retail and HNI demand for the IPO was notably weak (0.11x and 0.20x subscribed respectively, against 9.09x from institutions) — the issue was rescued by QIB demand, not broad retail enthusiasm, and the stock now trades meaningfully below its issue price (Section <a href="#valuation">13</a>).</p>
+
+<p>This history has two direct, practical consequences for this report. First, <b>Hexaware's own annual reports for FY2021-FY2023 do not exist in the form this pipeline (or any public filing search) can retrieve</b> — the company had no public shareholders and hence no listed-company disclosure obligation for those years, a genuine gap in the record rather than a pipeline defect (Section <a href="#gaps">15</a>). Second, the company now trades with barely seven months of continuous public history as of this report — its own management has openly said, on the record, that it is still learning how to set expectations with public shareholders (Section <a href="#mgmt">09</a>).</p>
+
+<h3>How the company reports: calendar year, not April-March</h3>
+
+<p>Unlike every other company this pipeline has covered, Hexaware's statutory fiscal year <b>is the calendar year</b> — confirmed directly from the FY2025 annual report itself, addressed "for the financial year ended December 31, 2025." Management refers to "CY24," "CY25" interchangeably with "FY24," "FY25" on every call, and this report follows that convention throughout: <b>every "CY20XX" figure in this report is January-December of that year</b>, not the April-March convention used elsewhere on this pipeline. (Third-party aggregators sometimes display a generic "Mar-20XX" column label for Hexaware out of habit; that label does not reflect the company's actual reporting period and should be disregarded wherever it appears.)</p>
+
+<h3>An extraordinary, real return on real capital — not a thin-base artefact</h3>
+
+<p>Unlike the small companies this pipeline has recently covered, Hexaware's high return ratios are not an artefact of a tiny capital base — this is a company with a genuine, substantial fixed-asset and working-capital footprint (net block alone grew from ₹479 Cr to ₹5,130 Cr over the decade, largely delivery campuses and, since FY2019, capitalised lease assets under Ind AS 116). ROCE has run in a stable 25-30% band for the past five years (Section <a href="#framework">02</a>), a genuinely durable level of capital efficiency for a company of this scale, not a number that collapses once the capital base is sense-checked.</p>
+
+<h3>What this report is really about</h3>
+
+<p>The central story here is not a governance or accounting question — the related-party record is clean (Section <a href="#flags">11</a>), and the business itself is real and well-run. It is a growth and communication question: CY2025, the company's first full calendar year back on the public market, delivered revenue growth of only 7.6% against a framing management itself set up as "double-digit... a solid baseline" at its very first post-listing call. Management's own words, on its most recent call: <i>"given how CY25 panned out, clearly, we have some lessons learnt on how to communicate with you."</i> That admission, and what it means for how much weight to put on the company's current guidance, is this report's central thread (Section <a href="#mgmt">09</a>).</p>
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>A large-cap IT-services checklist, applied</h2>
+<p class="sec-sub">Hexaware passes almost every structural test cleanly. The one place this report spends real time is not on the balance sheet at all — it is on what management's own words are worth</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Test</th><th class="t">What it looks for</th><th class="t">Hexaware</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Coffee-can gates</b></td><td class="t">Revenue growth &gt;10% and ROCE &gt;15%, every scored year</td><td class="t">Rev score <b>9/9</b>, ROCE score <b>9/9</b> — a "9iner," and on a genuinely large capital base, not a thin-base artefact (Section <a href="#business">01</a>)</td><td><span class="pill p-kept">Pass, cleanly</span></td></tr>
+<tr><td class="t"><b>Cumulative CFO vs cumulative PAT</b></td><td class="t">cCFO should at least equal cPAT</td><td class="t">₹10,135 Cr CFO against ₹7,941 Cr PAT = <b>1.28&times;</b> over the decade — cumulative gate passes, though only 6 of 10 individual years cleared it on their own</td><td><span class="pill p-kept">Pass</span></td></tr>
+<tr><td class="t"><b>The harder cash test</b><br><span style="font-size:11px;color:var(--faint)">CFO &minus; capex &minus; interest</span></td><td class="t">Positive, else growth was externally funded</td><td class="t">₹10,135 Cr &minus; ₹3,788 Cr &minus; ₹361 Cr = <b>+₹5,986 Cr</b> over the decade. Note: roughly ₹1,350 Cr (~$182m) of that decade's cumulative "capex" was actually the FY2019 all-cash acquisition of Mobiquity Inc., not organic fixed-asset spend (Section <a href="#gaps">15</a>) — even without that correction, the test passes comfortably</td><td><span class="pill p-kept">Pass, comfortably</span></td></tr>
+<tr><td class="t"><b>Receivable days / DSO</b></td><td class="t">A rising trend signals weaker collection discipline</td><td class="t">45-75 days across the decade, no sustained one-directional drift; management's own guided range (65-72 days) has been met or beaten in every recent quarter (67 days actual vs. 70-72 guided, Q4 CY25)</td><td><span class="pill p-kept">Best-in-class, by management's own account</span></td></tr>
+<tr><td class="t"><b>Reported ROCE, sense-checked</b></td><td class="t">Is the return genuine or a thin-capital artefact</td><td class="t">25-30% ROCE, stable for five years, against a real and growing capital base (₹5,130 Cr net block by FY2025) — a genuinely durable capital-efficiency level for a company this size</td><td><span class="pill p-kept">Real</span></td></tr>
+<tr><td class="t"><b>Total outside liabilities / net worth, interest cost trend</b></td><td class="t">Rising leverage relative to net worth</td><td class="t">TOL/TNW rose from 0.33&times; to 0.73&times; and interest-as-%-of-sales rose sharply (decade low to ~0.79%) — but management describes the balance sheet as "completely debt-free" as of the most recent call, and the rise is most likely the accounting effect of Ind AS 116 lease-liability capitalisation (office space, not bank debt) rather than real financial leverage (Section <a href="#gaps">15</a>)</td><td><span class="pill p-slip">Needs the accounting-standard caveat, not a real leverage concern</span></td></tr>
+<tr><td class="t"><b>Ownership and control</b></td><td class="t">Who actually controls the company, and does that change what every other test means</td><td class="t">~74.3% held by a Carlyle Group affiliate, classified as "Promoter" in filings — a private-equity sponsor, not a founder family. Institutional ownership (DII+FII) ~19.3%, public float only ~6.2%</td><td><span class="pill p-slip">PE-controlled, not founder-led — a different governance profile from most of this pipeline's coverage</span></td></tr>
+<tr><td class="t"><b>Related-party transactions</b></td><td class="t">Existing audit score, all years available</td><td class="t"><b>1/3 ("Watch")</b> across every year read — the related-party universe is essentially Hexaware's own wholly-owned foreign subsidiaries (routine intercompany services billing, working-capital loans), no personal-interest counterparties found in any year</td><td><span class="pill p-kept">Clean</span></td></tr>
+<tr><td class="t"><b>Client concentration</b></td><td class="t">Revenue reliance on a small number of accounts</td><td class="t">Top 10 clients ~36% of revenue, a level management describes as having <i>declined</i> over a multi-year period even as the company crossed its first, then second, $100m client — concentration moderating even as marquee-account scale grows</td><td><span class="pill p-kept">Moderating, not a risk flag</span></td></tr>
+<tr class="hl"><td class="t"><b>Guidance credibility</b></td><td class="t">Does management's own framing hold up against delivery</td><td class="t">The first post-listing call (March 2025) framed "double-digit" growth as "a solid baseline." CY2025 delivered 7.6%. Management's own words on the next call: "given how CY25 panned out, clearly, we have some lessons learnt on how to communicate with you." Full scorecard in Section <a href="#mgmt">09</a></td><td><span class="pill p-slip">A real, acknowledged miss — scored in full below</span></td></tr>
+</tbody>
+</table>
+<caption>Figures from <span style="font-family:var(--mono)">src.modules.equity_research</span> run against this pipeline's database, calendar/fiscal years 2016-2025, cross-checked against the existing related-party audit and management's own transcript commentary across six calls read for this report.</caption>
+</div>
+
+<h3>The one line that matters more than the others</h3>
+
+<p>Every structural test in that table — cash conversion, capital efficiency, leverage (once the lease-accounting effect is understood), client concentration, related-party cleanliness — reads as a genuinely high-quality large IT-services franchise. That is not really in dispute, and it is not where this report's attention goes. What is in dispute, and what a company with barely seven months of continuous public trading history cannot yet answer with a long track record, is how much weight to put on what management says about the future. Section <a href="#mgmt">09</a> scores that question directly, using the one tool available: what was said on the first call, against what actually happened across the three calls since.</p>
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record: steady compounding, a margin dip through the private years, and no data for why</h2>
+<p class="sec-sub">Revenue has compounded at a genuinely consistent clip for a decade. Margin took a real step down exactly during the one window this pipeline cannot see into</p>
+
+<figure>
+  <div class="fig-title">Revenue, CY2016&ndash;CY2025</div>
+  <div class="fig-sub">&#8377; crore, consolidated, calendar year (Section <a href="#business">01</a>)</div>
+  <svg viewBox="0 0 720 230" role="img" aria-label="Hexaware consolidated revenue by calendar year, CY2016 to CY2025"><line class="grid-l" x1="46" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="40" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="46" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="40" y="157.0" text-anchor="end">3626</text><line class="grid-l" x1="46" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="40" y="111.0" text-anchor="end">7252</text><line class="grid-l" x1="46" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="40" y="65.0" text-anchor="end">10879</text><line class="grid-l" x1="46" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="40" y="19.0" text-anchor="end">14505</text><rect x="59.9" y="155.2" width="38.3" height="44.8" rx="4" fill="#c9a24b" opacity="1"><title>CY2016: Rs 3,534.9 Cr</title></rect><text class="ax" x="79.0" y="213" text-anchor="middle">'16</text><rect x="125.9" y="150.0" width="38.3" height="50.0" rx="4" fill="#c9a24b" opacity="1"><title>CY2017: Rs 3,942.0 Cr</title></rect><text class="ax" x="145.0" y="213" text-anchor="middle">'17</text><rect x="191.9" y="141.0" width="38.3" height="59.0" rx="4" fill="#c9a24b" opacity="1"><title>CY2018: Rs 4,647.8 Cr</title></rect><text class="ax" x="211.0" y="213" text-anchor="middle">'18</text><rect x="257.9" y="129.2" width="38.3" height="70.8" rx="4" fill="#c9a24b" opacity="1"><title>CY2019: Rs 5,582.5 Cr</title></rect><text class="ax" x="277.0" y="213" text-anchor="middle">'19</text><rect x="323.9" y="120.6" width="38.3" height="79.4" rx="4" fill="#c9a24b" opacity="1"><title>CY2020: Rs 6,262.1 Cr</title></rect><text class="ax" x="343.0" y="213" text-anchor="middle">'20</text><rect x="389.9" y="108.9" width="38.3" height="91.1" rx="4" fill="#7a86a0" opacity="0.7"><title>CY2021: Rs 7,177.6 Cr (private ownership, no annual report)</title></rect><text class="ax" x="409.0" y="213" text-anchor="middle">'21</text><rect x="455.9" y="83.3" width="38.3" height="116.7" rx="4" fill="#7a86a0" opacity="0.7"><title>CY2022: Rs 9,199.6 Cr (private ownership, no annual report)</title></rect><text class="ax" x="475.0" y="213" text-anchor="middle">'22</text><rect x="521.9" y="68.3" width="38.3" height="131.7" rx="4" fill="#c9a24b" opacity="1"><title>CY2023: Rs 10,380.3 Cr</title></rect><text class="ax" x="541.0" y="213" text-anchor="middle">'23</text><rect x="587.9" y="48.1" width="38.3" height="151.9" rx="4" fill="#c9a24b" opacity="1"><title>CY2024: Rs 11,974.4 Cr</title></rect><text class="ax" x="607.0" y="213" text-anchor="middle">'24</text><rect x="653.9" y="29.6" width="38.3" height="170.4" rx="4" fill="#c9a24b" opacity="1"><title>CY2025: Rs 13,430.4 Cr</title></rect><text class="ax" x="673.0" y="213" text-anchor="middle">'25</text><line class="zero-l" x1="46" y1="200" x2="706" y2="200"/></svg>
+  <figcaption><b>Why:</b> revenue has compounded through every regime this company has been in &mdash; publicly listed (through 2020), privately held under Baring then Carlyle (2021-2024, no public disclosure), and relisted (2025 onward) &mdash; without a single down year in the decade this pipeline can measure. 10-year CAGR ~16%. Source: <span style="font-family:var(--mono)">xbrl_annual</span>, CY2016-CY2025.</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">CY</th><th class="num">Revenue</th><th class="num">OPM</th><th class="num">PBT margin</th><th class="num">ROCE</th></tr></thead>
+<tbody>
+<tr><td class="t">2016</td><td class="num">3,534.9</td><td class="num">16.3%</td><td class="num">15.9%</td><td class="num">32.3%</td></tr>
+<tr><td class="t">2017</td><td class="num">3,942.0</td><td class="num">16.6%</td><td class="num">16.3%</td><td class="num">32.0%</td></tr>
+<tr><td class="t">2018</td><td class="num">4,647.8</td><td class="num">15.8%</td><td class="num">15.6%</td><td class="num">30.5%</td></tr>
+<tr><td class="t">2019</td><td class="num">5,582.5</td><td class="num">15.8%</td><td class="num">14.0%</td><td class="num">27.1%</td></tr>
+<tr><td class="t">2020</td><td class="num">6,262.1</td><td class="num">16.8%</td><td class="num">12.8%</td><td class="num">24.5%</td></tr>
+<tr class="hl"><td class="t"><b>2021</b></td><td class="num"><b>7,177.6</b></td><td class="num"><b>15.8%</b></td><td class="num"><b>13.1%</b></td><td class="num"><b>25.5%</b></td></tr>
+<tr class="hl"><td class="t"><b>2022</b></td><td class="num"><b>9,199.6</b></td><td class="num"><b>13.3%</b></td><td class="num"><b>12.2%</b></td><td class="num"><b>25.3%</b></td></tr>
+<tr><td class="t">2023</td><td class="num">10,380.3</td><td class="num">15.1%</td><td class="num">12.2%</td><td class="num">26.1%</td></tr>
+<tr><td class="t">2024</td><td class="num">11,974.4</td><td class="num">15.3%</td><td class="num">13.0%</td><td class="num">27.5%</td></tr>
+<tr><td class="t">2025</td><td class="num">13,430.4</td><td class="num">14.3%</td><td class="num">12.9%</td><td class="num">26.2%</td></tr>
+</tbody>
+</table>
+<caption>&#8377; crore unless stated. Highlighted rows (2021-2022) fall inside the private-ownership window for which no annual report is publicly available (Section <a href="#gaps">15</a>) &mdash; figures are sourced from this pipeline's XBRL database, not from a document this report could read directly. ROCE via <span style="font-family:var(--mono)">src.modules.equity_research</span>.</caption>
+</div>
+
+<h3>A real margin step-down lands exactly inside the one window this report cannot see into</h3>
+
+<p>Operating margin fell from 15.8% (2021) to 13.3% (2022) &mdash; a single-year move this pipeline's own anomaly scan flags as more than double the company's typical year-to-year step. This is precisely the window in which Hexaware had no public shareholders and hence no annual report obligation: Carlyle completed its acquisition from Baring in mid-2021, and the company remained privately held through 2023. <b>No primary source available to this report explains why operating margin fell in 2022</b> &mdash; consistent with this pipeline's binding rule that an unexplained anomaly gets a sourced cause or an explicit "not found," this is the "not found" case. Margin partially recovered from 2023 onward (15.1% &rarr; 15.3%) before the more recent, better-documented CY2025 compression covered in Section <a href="#margin">04</a>, which this report can explain because it happened entirely on the public record.</p>
+
+<p>ROCE has held in a genuinely durable 24-32% band across the full decade &mdash; including through the margin dip &mdash; on a real, growing capital base (Section <a href="#framework">02</a>). That stability through a change of control, a full delisting cycle, and a margin compression episode is itself informative: whatever drove the 2022 margin move, it did not impair the underlying capital-efficiency of the business.</p>
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: a lower, AI-adjusted guide-down — disclosed candidly, but genuine</h2>
+<p class="sec-sub">CY2026 guidance sits below CY2025's actual margin, on a metric management itself just changed. The reason given is not deleveraging or a one-off — it is a stated, quantified pricing effect from AI</p>
+
+<p>CY2025 EBITDA margin came in at 17.1% (reported), up 120bps year-on-year and roughly in line with the 17.1-17.4% range management set at its first post-listing call. On the surface, CY2025 was a margin success. What changed materially is the outlook: starting Q1 CY2026, <b>management switched its primary reported metric from EBITDA to EBIT</b> ("based on what we see in the market," per the CEO) and guided <b>CY2026 EBIT margin to 13-14%</b> — a genuine reduction from the prior year's level on a comparable basis, not merely a metric-definition artefact, with management explicit that H1 will be weaker than H2 and that the full-year number is not meant to be read as a new permanent floor.</p>
+
+<figure>
+  <div class="fig-title">What actually moved PBT margin, CY2023 &rarr; CY2025</div>
+  <div class="fig-sub">A modest net decline, with rising other income (likely IPO-related treasury income) partially offsetting real EBITDA compression</div>
+  <svg viewBox="0 0 720 250" role="img" aria-label="Decomposition of Hexaware profit-before-tax margin change from CY2023 to CY2025"><line class="grid-l" x1="50" y1="204.0" x2="706" y2="204.0"/><text class="ax" x="44" y="207.0" text-anchor="end">0%</text><line class="grid-l" x1="50" y1="167.2" x2="706" y2="167.2"/><text class="ax" x="44" y="170.2" text-anchor="end">3%</text><line class="grid-l" x1="50" y1="130.4" x2="706" y2="130.4"/><text class="ax" x="44" y="133.4" text-anchor="end">6%</text><line class="grid-l" x1="50" y1="93.6" x2="706" y2="93.6"/><text class="ax" x="44" y="96.6" text-anchor="end">9%</text><line class="grid-l" x1="50" y1="56.8" x2="706" y2="56.8"/><text class="ax" x="44" y="59.8" text-anchor="end">12%</text><line class="grid-l" x1="50" y1="20.0" x2="706" y2="20.0"/><text class="ax" x="44" y="23.0" text-anchor="end">15%</text><rect x="73.0" y="54.1" width="63.4" height="149.9" rx="4" fill="#7a86a0"><title>12.22%</title></rect><text class="vlbl" x="104.7" y="48.1" text-anchor="middle">12.22%</text><text class="ax" x="104.7" y="218" text-anchor="middle">CY23</text><text class="ax" x="104.7" y="229" text-anchor="middle">PBT margin</text><rect x="182.3" y="54.1" width="63.4" height="10.7" rx="3" fill="#d97a5f"><title>EBITDA margin: -87 bps</title></rect><text class="vlbl" x="214.0" y="48.1" text-anchor="middle" fill="#d97a5f">-87</text><line x1="245.7" y1="64.8" x2="291.6" y2="64.8" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="214.0" y="218" text-anchor="middle">EBITDA</text><text class="ax" x="214.0" y="229" text-anchor="middle">margin</text><rect x="291.6" y="64.3" width="63.4" height="2.0" rx="3" fill="#5fb98a"><title>Depreciation: +4 bps</title></rect><text class="vlbl" x="323.3" y="58.3" text-anchor="middle" fill="#5fb98a">+4</text><line x1="355.0" y1="64.3" x2="401.0" y2="64.3" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="323.3" y="218" text-anchor="middle">Depreciation</text><rect x="401.0" y="41.6" width="63.4" height="22.7" rx="3" fill="#5fb98a"><title>Other income: +185 bps</title></rect><text class="vlbl" x="432.7" y="35.6" text-anchor="middle" fill="#5fb98a">+185</text><line x1="464.4" y1="41.6" x2="510.3" y2="41.6" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="432.7" y="218" text-anchor="middle">Other</text><text class="ax" x="432.7" y="229" text-anchor="middle">income</text><rect x="510.3" y="41.6" width="63.4" height="4.7" rx="3" fill="#d97a5f"><title>Interest cost: -38 bps</title></rect><text class="vlbl" x="542.0" y="35.6" text-anchor="middle" fill="#d97a5f">-38</text><line x1="573.7" y1="46.3" x2="619.6" y2="46.3" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="542.0" y="218" text-anchor="middle">Interest</text><text class="ax" x="542.0" y="229" text-anchor="middle">cost</text><rect x="619.6" y="46.3" width="63.4" height="157.7" rx="4" fill="#7a86a0"><title>12.86%</title></rect><text class="vlbl" x="651.3" y="40.3" text-anchor="middle">12.86%</text><text class="ax" x="651.3" y="218" text-anchor="middle">CY25</text><text class="ax" x="651.3" y="229" text-anchor="middle">PBT margin</text><line class="zero-l" x1="50" y1="204" x2="706" y2="204"/></svg>
+  <figcaption><b>Why:</b> the underlying operating margin softened by 87bps, but the reported PBT margin barely moved (+64bps) because other income rose 185bps &mdash; a reminder that the headline PBT line, on its own, understated the operating story here. Source: <span style="font-family:var(--mono)">metrics.margin_bridge</span>, CY2023 and CY2025.</figcaption>
+</figure>
+
+<h3>The Q4 CY2025 quarter, in detail — genuinely messy, and disclosed in full</h3>
+
+<p>Reported EBITDA for Q4 CY2025 was 17%, but management itself flagged that normalized for one-timers the quarter's real margin was 15.4%, a 210bps sequential drop. The one-timers were real and specific, not vague: a $25m earnout reversal and a $15m impairment charge tied to the underperforming Softcrylic acquisition (2024), a $4m additional expected-credit-loss provision, and a $3.5m accelerated lease-amortisation charge tied to a European restructuring — a combined ~160bps EBITDA-level headwind, plus a further ~64bps at the EBIT level, plus a ~$12.5m India labour-code cost expected to recur at ~20bps/year going forward. This level of itemised, dated disclosure is a genuine positive on transparency, even though the underlying quarter was weak.</p>
+
+<h3>The stated reason for the CY2026 guide-down: AI, quantified</h3>
+
+<p>Unlike every other company this pipeline has covered, Hexaware's own CEO has put a specific number on AI-driven pricing pressure, twice: on the Q4 CY2025 call, asked directly what an existing renewal looks like under AI, he answered <i>"if the scope were to remain the same, it could be in that 30 to 40%... 20 to 40% depending on the type of work"</i> reduction. In August 2026 press commentary (not a transcript this report read directly, but corroborated across five independent outlets), he is quoted putting the client-facing price effect at up to 25%, while estimating the underlying productivity gain at roughly 40% — leaving, in management's own framing, a "productivity gap" the vendor can still capture as margin if it executes well. Whether that gap is actually captured, rather than competed away as it has been at other Indian IT-services companies this pipeline has covered (Section <a href="#growth">07</a>), is an open, unresolved question — but the mechanism itself is stated by management in specific, quantified terms rather than left as vague industry commentary.</p>
+
+<div class="warn">
+  <div class="lbl">What would confirm the margin guidance holds, and what would contradict it</div>
+  <p>Confirming: EBIT margin exiting CY2026 above the 13-14% full-year range, as management's own "stronger H2 exit" framing implies. The Q1 CY2026 update (13% reported EBIT, flat normalized sequentially) is a modestly encouraging early data point — management explicitly said the quarter came in "better than we expected" on profitability. Contradicting: a full year that lands at or below the bottom of the guided range despite the stated H2 recovery, which would suggest the AI-pricing "productivity gap" is smaller in practice than management's own 40%-gross/25%-conceded framing implies.</p>
+</div>
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: a genuine strength, by management's own guided range and this pipeline's own numbers</h2>
+<p class="sec-sub">One of the few areas of this report with no caveat attached</p>
+
+<p>Receivable days (billed plus unbilled DSO, management's own preferred measure) have run 45-75 days across the full decade this pipeline can measure, with no sustained one-directional drift — a genuinely different pattern from every other company this pipeline has recently covered. Management has been explicit and specific about its own target range (70-72 days) and has beaten it in every recent quarter reported: 65 days (Q4 CY2024), 67 days (Q4 CY2025). OCF-to-EBITDA on an LTM basis has run 75-76%, again ahead of management's own stated 70% comfort range.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Metric</th><th class="t">Management's stated range</th><th class="t">Recent actual</th></tr></thead>
+<tbody>
+<tr><td class="t">DSO (billed + unbilled)</td><td class="t">70-72 days</td><td class="num">65 days (Q4 CY24) &rarr; 67 days (Q4 CY25)</td></tr>
+<tr><td class="t">OCF / EBITDA (LTM)</td><td class="t">~70%</td><td class="num">75-76%</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>This pipeline's own cumulative cash-conversion test (Section <a href="#framework">02</a>) confirms the same picture from a different angle: 1.28&times; cumulative CFO/PAT over the decade, and a comfortably positive harder cash test even before adjusting for the one-off FY2019 Mobiquity acquisition being mislabelled as capex by the module's default proxy (Section <a href="#gaps">15</a>). Whatever this report finds to caution about elsewhere — guidance credibility (Section <a href="#mgmt">09</a>), margin durability (Section <a href="#margin">04</a>) — the quality of reported profit turning into collected cash is not among them.</p>
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How Hexaware compares with its real peers</h2>
+<p class="sec-sub">On growth and margin, Hexaware sits mid-pack among genuine mid-tier IT majors. On ownership structure, only one other listed Indian company is genuinely comparable</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Company</th><th class="num">Revenue (₹Cr)</th><th class="num">Scale vs. Hexaware</th><th class="num">ROCE</th><th class="num">ROE</th><th class="num">OPM</th><th class="t">Promoter</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>Hexaware</b></td><td class="num">13,430</td><td class="num">1.0&times;</td><td class="num g">30.1%</td><td class="num g">24.9%</td><td class="num">14%</td><td class="t">74.3%, PE-sponsor (Carlyle)</td></tr>
+<tr><td class="t">LTIMindtree</td><td class="num">42,308</td><td class="num">3.15&times;</td><td class="num">29.6%</td><td class="num">23.1%</td><td class="num">18%</td><td class="t">68.5%, L&amp;T group</td></tr>
+<tr><td class="t">Coforge</td><td class="num">16,403</td><td class="num">1.22&times;</td><td class="num">23.5%</td><td class="num">21.4%</td><td class="num">19%*</td><td class="t">0% — no promoter</td></tr>
+<tr><td class="t">Persistent Systems</td><td class="num">14,748</td><td class="num">1.10&times;</td><td class="num g">34.4%</td><td class="num g">27.2%</td><td class="num">19%</td><td class="t">30.3%, founder</td></tr>
+<tr class="hl"><td class="t">Mphasis</td><td class="num">15,880</td><td class="num">1.18&times;</td><td class="num">22.1%</td><td class="num">18.5%</td><td class="num">18%</td><td class="t">30.5%, PE-sponsor (Blackstone), 100% pledged</td></tr>
+<tr><td class="t">Zensar Technologies</td><td class="num">5,687</td><td class="num">0.42&times;</td><td class="num">22.8%</td><td class="num">17.3%</td><td class="num">15%</td><td class="t">49.0%, RPG Group</td></tr>
+<tr><td class="t">Birlasoft</td><td class="num">5,310</td><td class="num">0.40&times;</td><td class="num">21.2%</td><td class="num">14.1%</td><td class="num">16%</td><td class="t">40.4%, CK Birla Group</td></tr>
+<tr><td class="t">eClerx Services</td><td class="num">4,117</td><td class="num">0.31&times;</td><td class="num g">34.4%</td><td class="num g">28.4%</td><td class="num">23%</td><td class="t">54.5%, founder</td></tr>
+</tbody>
+</table>
+<caption>Screener.in, fetched 11 September 2026. *Coforge's FY26 OPM is inflated by post-merger consolidation accounting following its amalgamation of Cigniti Technologies (effective 5 May 2026); its 5-year revenue CAGR (29%) is similarly merger-distorted. Full detail in <span style="font-family:var(--mono)">research/INE093A01041/peers.md</span>.</caption>
+</div>
+
+<h3>On growth and margin, a genuine mid-pack player — not a laggard, not a standout</h3>
+
+<p><b>Persistent Systems</b> is the closest scale and business-model match (1.10&times;, digital-engineering positioning), and comfortably the stronger operator on every quality metric — 34.4% ROCE, 27.2% ROE, both meaningfully ahead of Hexaware's own 30.1%/24.9%, on faster revenue and profit growth. This is the name most likely to anchor a "Hexaware should trade at a discount to the best-in-class digital-engineering peer" argument. <b>LTIMindtree</b>, roughly three times Hexaware's size, shows what the next scale tier looks like: similar ROCE (29.6%) but a richer OPM (18% vs. 14%) — a reasonable "what does Hexaware look like once operating leverage from scale fully plays out" reference, if it gets there. <b>Zensar</b> and <b>Birlasoft</b>, both roughly 0.4&times; Hexaware's scale, sit at the lower end of the mid-tier band on every metric and are useful mainly as a floor, not an aspiration. <b>eClerx</b> posts this set's best margins and returns, but on a BPM/analytics model genuinely different from Hexaware's classic IT-services mix — a margin benchmark, not an operating comparable.</p>
+
+<h3>On ownership structure, the comparison that actually matters</h3>
+
+<p><b>Mphasis</b> is the single most important name on this list, for a reason that has nothing to do with the numbers above: it is the closest available Indian precedent for a global private-equity sponsor holding controlling, "Promoter"-classified ownership of a listed IT-services company. Blackstone has controlled Mphasis since acquiring HP's stake in 2016, and — directly relevant to Section <a href="#flags">11</a> — <b>Blackstone's entire Mphasis stake is pledged</b>, per Screener's own flags, the same structural feature this report found at CA Magnum Holdings' stake in Hexaware. Mphasis was never delisted, so it does not share Hexaware's specific gap in public trading history, but its return ratios (22.1% ROCE, 18.5% ROE, both softer than Hexaware's) and its own rising-debtor-days caution are a useful, sobering data point on what a mature PE-controlled IT-services company's numbers can look like once growth slows.</p>
+
+<p><b>Sagility India</b> — a US-healthcare-focused BPM company, EQT-sponsored, IPO'd via a pure Offer for Sale in November 2024 with the sponsor retaining 82.4% — is arguably an even closer ownership analog than Mphasis on one specific dimension: like Hexaware, it is a company investors are seeing on the public market for the first time under its current sponsor, not a decades-continuously-listed name a PE firm bought into later. Its business (US payer/provider healthcare outsourcing) is different enough from Hexaware's diversified BFSI/travel/manufacturing IT-services mix that it does not belong in the quantitative table above, but the pattern it represents — a global buyout fund relisting a majority stake it still controls, shortly after acquisition — is the same pattern this report is examining in Hexaware itself, and is worth knowing it is not unique to this one company.</p>
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: a genuine pipeline, a guidance floor that has already moved once</h2>
+<p class="sec-sub">A $4 billion pipeline and real deal wins sit alongside a second, more recent growth-guidance cut — worth tracking as a pattern, not a one-off</p>
+
+<h3>CY2025: the framing, and what actually happened</h3>
+
+<p>At its first post-listing call (March 2025), management described "double-digit" growth as "a solid baseline you can assume," while flagging that macro conditions had "trended marginally negative" in the two weeks since listing. By its next call (July 2025), the quarter had come in "a little bit softer than what we had anticipated, predominantly driven by delayed decision-making from customers." <b>CY2025 closed at 7.6% reported revenue growth (7.1% constant currency)</b> — below the "double-digit" framing set eleven months earlier, driven by a combination of macro/tariff-driven softness in Manufacturing &amp; Consumer, two client bankruptcies, an underperforming 2024 acquisition (Softcrylic), and — management's own candid characterisation — a genuine forecasting miss on their part (Section <a href="#mgmt">09</a>).</p>
+
+<h3>CY2026: guided better than CY2025, then cut again within the year</h3>
+
+<p>At the Q4 CY2025 call (February 2026), management reset expectations more cautiously: CY2026 growth guided only to be "better than 7.6%," explicitly not treated as a new lower baseline, with the long-term "low-teens to mid-teens" thesis reaffirmed as intact. By the Q1 CY2026 call (May 2026), management reiterated "our guidance of 7.6%, which is a floor right now for us" after a quarter that came in "better than we expected" on profitability. <b>By the Q2 CY2026 results (reported ~August 2026), that floor was cut to 6-7%</b> — below the previous quarter's own stated floor — citing delayed deal ramp-ups (several large contracts pushed to start mid-to-late Q3) and a narrowing runway to execute delayed deals before year-end. The stock fell roughly 7-8% on the news. EBIT margin guidance (13-14%) was reaffirmed despite the revenue cut.</p>
+
+<div class="warn">
+  <div class="lbl">A pattern worth naming plainly</div>
+  <p>This is now the second time in three quarters that a growth number management called a "floor" has moved down rather than up. That does not mean the $4bn pipeline or the deal wins described below are not real — the evidence in this section says they are. It does mean that, per the guidance-credibility scorecard in Section <a href="#mgmt">09</a>, a reader should treat any specific forward growth number from this management team as a current best estimate rather than a number to anchor a valuation on without a margin of safety.</p>
+</div>
+
+<h3>The deal pipeline is genuinely large, and increasingly diversified by type</h3>
+
+<p>Management reported the sales pipeline crossing <b>$4 billion for the first time</b> as of the Q4 CY2025 call, and Q4 2025 itself as "the best part of the quarter" on deal wins — including a large vendor-consolidation deal with a major technology company, a second-phase consolidation win at a large global bank, a full-stack engagement with what management described as the world's largest pet insurance holding company, a role in a large insurer's Guidewire core-platform modernisation, and an agentic-AI clinical-research-process deal. High-value ($10m+) client count grew from 32 to 34 in the most recent reported quarter. Two customers now exceed $100m in annual revenue (up from one a year earlier), and top-10 client concentration has moderated to ~36% even as marquee-account scale has grown (Section <a href="#framework">02</a>) — a genuinely healthy diversification trend sitting underneath the growth-guidance volatility.</p>
+
+<h3>Vertical detail: Banking and Healthcare &amp; Insurance expected to lead CY2026; Professional Services lags</h3>
+
+<p>Per the Feb 2026 outlook, Banking and Healthcare &amp; Insurance (H&amp;I) are expected to grow "probably quite a bit higher than company average" in CY2026, Manufacturing &amp; Consumer (M&amp;C) is expected back to growth after a macro/tariff-driven CY2025 downturn, Financial Services and the newly-separated GTT (Global Travel &amp; Transportation) vertical are expected at company average, and Professional Services is expected to grow but below company average, still absorbing the after-effects of two large account-specific issues (one large vendor-consolidation win still ramping, one large account that saw a "75% decline... year over year" before stabilising). The newly-created TPP (Technology, Products &amp; Platforms) vertical, split out of the former HTPS reporting line starting Q1 CY2026, is expected to grow fastest but from a small base.</p>
+
+<h3>AI: a stated dampener on the existing book, and a stated source of new offerings</h3>
+
+<p>Management's own framing, repeated across multiple calls: AI is simultaneously compressing the value of existing, same-scope renewals (quantified at 20-40% depending on work type, Section <a href="#margin">04</a>) and creating new billable service lines Hexaware has moved quickly to launch — a legacy-modernisation platform (RapidX), a "vibe coding" offering (claimed first-to-market, July 2025), and a "Zero License" SaaS-replacement offering (launched January 2026, aimed at a stated $400bn SaaS market). When challenged directly by a JPMorgan analyst on whether Hexaware is more exposed to AI disruption than peers given a growth deceleration from "16% organic growth... to perhaps flat," the CEO's response was that CY2025's underperformance was not primarily an AI story but a combination of the factors above, while acknowledging an industry-wide AI growth "dampener" that the company has "accounted for" in its CY2026 numbers. Whether the new AI-native offerings grow fast enough to offset the dampener on the existing book is, by management's own account, still to be proven in the numbers rather than already visible in them.</p>
+</section>
+
+
+<section id="analysts">
+<h2><span class="num">08</span>What institutional analysts have gotten wrong so far, and what they think now</h2>
+<p class="sec-sub">Real, substantial sell-side coverage exists here — unlike this pipeline's usual small-cap subjects — and its own track record on this stock has been notably poor</p>
+
+<h3>Unanimous Buy ratings at listing, now stale against the price</h3>
+
+<p>Every specific brokerage initiation found in the months after the February 2025 relisting was a <b>Buy</b>, with price targets clustered between ₹820 and ₹950 — JM Financial (₹820), DAM Capital (₹820, 30&times; FY27E EPS), Kotak Institutional Equities (₹940), Motilal Oswal (₹950, 32&times; March-2027E EPS), Jefferies (₹930), and Nuvama (₹950, 30&times; CY27E P/E). Every one of these targets sits <b>50-90% above</b> the price this report values the stock at (₹497). This is not a case of the stock simply not having moved toward a still-live target yet — it has fallen well below even the most conservative name on this list, and this report found no confirmation that any of the six formally revised its target downward, though that does not mean none has.</p>
+
+<h3>Current consensus: real coverage, genuinely split</h3>
+
+<p>As of early September 2026, <b>17 analysts</b> cover the stock (cross-checked across two independent aggregators, Investing.com and MarketScreener, which returned identical underlying figures): <b>10 Buy, 3 Hold, 4 Sell</b>, average 12-month target <b>₹594</b> (high ₹730, low ₹440) against a price of ₹497 — roughly 20% implied upside on the consensus average, but with a wide enough spread (and a real Sell minority) that "consensus" undersells the genuine disagreement among analysts who have actually modelled this stock. One valuation screen flagged Hexaware as trading at a premium to TCS and Infosys on a trailing P/E basis as recently as November 2025 — a fact worth weighing against the growth-guidance cuts documented in Section <a href="#growth">07</a> before assuming the stock is cheap simply because it sits well below its IPO price and its initiation targets.</p>
+
+<h3>Retail forum coverage: thin, but the one voice that spoke up called it early</h3>
+
+<p>Unlike the institutional side, ValuePickr's coverage of the 2025 relisting is a single three-post thread, all posted the week before the IPO opened, with zero activity since listing day — a genuine gap for a company this size. The one substantive post, however, is worth reading in full: benchmarking Hexaware's revenue growth against Persistent and Coforge and applying a peer-multiple valuation framework, the poster calculated a fair value of ₹508-553 against the ₹708 issue price — <i>"I am skeptical of their 'AI at its core' messaging since efficiency gains from AI should be reflected in profit margins but there has been no significant margin expansion"</i> — and explicitly declined to subscribe. Eighteen months later, with the stock at ₹497, that single, off-the-cuff peer-multiple estimate has held up better than the sell-side's collective initiation-target cluster (Section <a href="#mgmt">09</a> treats this the same way it treats management's own guidance: judged against what actually happened, not against how confidently it was stated).</p>
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">09</span>Management scorecard: an honest miss, an admitted lesson, and a leadership change mid-lesson</h2>
+<p class="sec-sub">The CEO who set the framing that missed is departing before the guidance he reset has been proven right</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Commitment</th><th class="t">What actually happened</th><th class="t">Classification</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">"Double-digit... a solid baseline you can assume" for CY2025 growth (March 2025, first post-listing call)</td><td class="t">CY2025 closed at <b>7.6%</b> reported growth (7.1% CC)</td><td class="t"><span class="pill p-broke">BROKEN</span></td></tr>
+<tr><td class="t">Reported EBITDA for CY2025 to reach "close to the adjusted EBITDA for '24," i.e. ~17.3-17.4% (March 2025)</td><td class="t">CY2025 reported EBITDA: <b>17.1%</b> — essentially met</td><td class="t"><span class="pill p-kept">KEPT</span></td></tr>
+<tr><td class="t">CY2026 growth "better than 7.6%," a "floor," reiterated on two subsequent calls (Feb 2026, May 2026)</td><td class="t">Cut to <b>6-7%</b> by the Q2 CY2026 results (~August 2026) — below the company's own most recently stated floor</td><td class="t"><span class="pill p-broke">BROKEN, again, within the same fiscal year</span></td></tr>
+<tr><td class="t">CY2026 EBIT margin guided 13-14% (Feb 2026), reaffirmed May 2026</td><td class="t">Reaffirmed again in the same Q2 CY2026 release that cut revenue guidance — the one guided number that has held so far</td><td class="t"><span class="pill p-kept">KEPT, to date</span></td></tr>
+<tr><td class="t">DSO target 70-72 days; OCF/EBITDA target ~70%</td><td class="t">Beaten in every quarter reported (65-67 days DSO; 75-76% OCF/EBITDA)</td><td class="t"><span class="pill p-kept">KEPT, comfortably</span></td></tr>
+<tr><td class="t">Two acquisition-quality criteria stated explicitly: "capability on day one" and "a clear pathway to EPS accretive" (July 2025, on the SMC acquisition)</td><td class="t">SMC's own contribution has not yet been separately, quantitatively disclosed against this standard. Separately, the 2024 Softcrylic acquisition explicitly did not meet its own targets — management's own words: "the payout goals were aggressive... the performance was not good"</td><td class="t"><span class="pill p-slip">Mixed — one clear miss (Softcrylic), one not yet testable (SMC/CyberSolve)</span></td></tr>
+</tbody>
+</table>
+<caption>Sources: six earnings-call transcripts read for this report (March 2025 through May 2026), Q2 CY2026 results coverage (press-corroborated, not independently fetched from a primary transcript — Section <a href="#gaps">15</a>).</caption>
+</div>
+
+<h3>The candour is real, and worth crediting</h3>
+
+<p>Unlike most guidance misses this pipeline has scored, this one comes with a direct, unprompted admission from the CEO himself, on the very next call after the miss became clear: <i>"Now, given how CY25 panned out, clearly, we have some lessons learnt on how to communicate with you."</i> He went further, explicitly distinguishing the "floor" language from a new baseline: <i>"I don't want to mention that we don't think of this as a new baseline."</i> That is a materially more transparent response than silence, or a narrative pivot to a more flattering metric — and the itemised, dollar-quantified one-timer disclosure in Q4 CY2025 (Section <a href="#margin">04</a>) is the same instinct applied to the numbers themselves. The problem this report flags is not dishonesty; it is that the guidance itself has now missed twice in three quarters, most recently just weeks before this report was written, which means the "lesson learnt" has not yet visibly translated into a number that held.</p>
+
+<h3>A leadership transition, announced twelve days before this report, mid-way through the correction</h3>
+
+<p>On 2 September 2026 — after the Q2 CY2026 guidance cut, and while this exact credibility question was live — Hexaware announced that CEO Srikrishna Ramakarthikeyan ("Keech"), a 12-year veteran and the CEO who made every commitment scored in the table above, will step down effective 28 October 2026. His successor, Vivek Jetley (previously President at EXL, 25+ years in AI/data/enterprise transformation), was named CEO Designate. Shares fell roughly 4-4.5% on the announcement. The board's own framing — "he leaves a strong foundation for its next phase of accelerated growth" — is standard succession language, and there is no evidence in any source reviewed that the departure is anything other than planned. But the timing is what matters for this report's purposes: <b>the CEO whose guidance record this section has just scored will not be the one delivering, defending, or being held accountable for the CY2026 numbers his own commitments set up.</b> Whatever credibility Hexaware's guidance has rebuilt through CY2026 will be inherited, not earned, by the incoming CEO — a genuine, near-term discontinuity in exactly the one thing this report has found most in need of a track record.</p>
+</section>
+
+
+<section id="capital">
+<h2><span class="num">10</span>Capital allocation: the IPO itself was a PE exit, not a capital raise — the dividend since has been real and growing</h2>
+<p class="sec-sub">Every rupee of the February 2025 offering went to Carlyle. Every rupee of dividend since has gone to shareholders, and the per-payment amount has grown</p>
+
+<h3>The relisting funded nobody but the seller</h3>
+
+<p>The ₹8,750 Cr February 2025 offering was <b>100% an Offer for Sale by CA Magnum Holdings (Carlyle)</b> — no fresh shares were issued, and Hexaware itself received zero proceeds. This is a structurally different event from a typical growth IPO: it was a liquidity event for the private-equity sponsor, priced at ₹708/share against a cost basis reported around ₹385/share, implying Carlyle realised roughly 1.5-1.8&times; its investment on the shares sold while retaining ~74% of the company. None of this is unusual for a PE-sponsor exit, and it is not evidence of anything adverse to the company itself — but it does mean the IPO's purpose was never to fund Hexaware's growth, and any investor who bought expecting fresh capital to be deployed into the business misunderstood the transaction's structure from the outset.</p>
+
+<h3>The dividend has been real, twice-yearly, and growing</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Payment</th><th class="num">Amount / share</th><th class="t">Timing</th></tr></thead>
+<tbody>
+<tr><td class="t">Interim, FY2025</td><td class="num">₹5.75</td><td class="t">~April 2025</td></tr>
+<tr><td class="t">Interim, FY2025</td><td class="num">₹5.75</td><td class="t">Later in CY2025</td></tr>
+<tr class="hl"><td class="t">Interim, FY2026</td><td class="num"><b>₹8.50</b></td><td class="t">Declared 27 April 2026, record date 5 May 2026</td></tr>
+<tr class="hl"><td class="t">Interim, FY2026</td><td class="num"><b>₹8.50</b></td><td class="t">Alongside Q2 CY2026 results (~August 2026)</td></tr>
+</tbody>
+</table>
+<caption>Sourced from exchange announcements aggregated across multiple outlets; exact record dates for the two FY2025 payments were not independently pinned down — see Section <a href="#gaps">15</a>. Dividend yield at the current price is approximately 2.3%, per Screener.</caption>
+</div>
+
+<p>Unlike every microcap this pipeline has recently reviewed, the per-payment dividend here has genuinely grown (₹5.75 &rarr; ₹8.50, roughly +48%) since relisting, funded by real, well-converted operating cash flow (Section <a href="#wc">05</a>) rather than a treasury drawdown. No buyback has been announced. No capital raise by the company itself has occurred since relisting. This is a straightforward, unremarkable capital-return pattern for a mature, cash-generative IT-services business — the interesting capital-structure questions in this report sit one level up, at the Carlyle/CA Magnum holding-company level, covered in full in Section <a href="#flags">11</a>.</p>
+</section>
+
+
+<section id="flags">
+<h2><span class="num">11</span>Governance: clean at the operating company, real leverage and a full share pledge one level up</h2>
+<p class="sec-sub">Nothing found implicates Hexaware Technologies Ltd itself. The structural risk here sits at the controlling shareholder's own holding company, and it is worth understanding precisely</p>
+
+<h3>The related-party record is clean</h3>
+
+<p>The existing audit rates Hexaware 1/3 ("Watch") across every year available — the related-party universe is essentially the company's own wholly-owned foreign subsidiaries (routine intercompany services billing, working-capital loans), with no personal-interest counterparty found in any year, including the post-relisting FY2025 report read in full. AOC-2's non-arm's-length section reads "None" in every year available. The genuine limitation — FY2021-FY2023 have no public annual report to audit, because the company had no public shareholders during that window — is a real gap in the record, not a governance red flag; nothing found on either side of that gap suggests anything adverse happened inside it.</p>
+
+<h3>The 2020 delisting was, by the available evidence, executed fairly</h3>
+
+<p>Baring Private Equity Asia's 2020 take-private priced the exit at ₹475/share — 67% above the ₹264.97 regulatory floor and close to a ₹447.50 private reference price from a 2018 transaction cited by ValuePickr's own contemporaneous discussion (Section <a href="#sentiment">12</a>). No SEBI enforcement action, shareholder litigation, or NCLT challenge tied to the delisting was found in this research — an absence-of-evidence finding, not a confirmed clean bill, but one corroborated by genuinely bullish, opportunistic retail sentiment on the forum at the time rather than any hint of controversy.</p>
+
+<h3>The structural risk that does exist: CA Magnum Holdings' entire stake is pledged</h3>
+
+<div class="warn">
+  <div class="lbl">A real overhang, one level above the listed company</div>
+  <p>In November 2025, <b>CA Magnum Holdings (the Carlyle vehicle) pledged its entire 74.55% Hexaware stake</b> (45.39 crore shares) as security for a <b>$1.26 billion refinancing facility led by HSBC</b>, structured to refinance debt originally taken on to fund the 2021 acquisition from Baring. This does not, on its own, signal an imminent further sale of shares — refinancing existing LBO-era debt is a routine treasury action for a PE-owned structure. But it does mean two things worth holding onto: a sharp, sustained decline in Hexaware's own share price could, in principle, trigger margin-call dynamics on that pledge, and the refinancing/rollover risk on that debt sits structurally above the listed entity, invisible in Hexaware's own (genuinely close to debt-free) standalone balance sheet.</p>
+</div>
+
+<p>This financing sits alongside a separate, and separately informative, data point: <b>Fitch rated the CA Magnum Holdings / Hexaware group structure at 'BB-'</b> (sub-investment grade), most recently affirmed with a Stable outlook, before <b>withdrawing all ratings for commercial reasons around 1 December 2025</b>. Fitch's own commentary put EBITDA net leverage at the group level at 3.7&times; in 2024, projected to ease to ~3.2&times; by end-2026, and explicitly flagged uncertainty over "whether capital management initiatives will lead to the upstreaming of cash to the private-equity sponsor, The Carlyle Group." That is a rating agency naming, in its own words, the exact tension this section is describing: a listed operating company that is itself nearly debt-free, sitting beneath a holding structure that is not, with an explicit question mark over whether cash moves upward to service that debt. No CRISIL, ICRA, CARE or India Ratings coverage of Hexaware Technologies Ltd itself was found — consistent with the operating company genuinely carrying little debt of its own.</p>
+
+<h3>An open Supreme Court tax matter, and one resolved favourably</h3>
+
+<p>A GST demand of ₹15.13 Cr (FY2020-21) was set aside entirely in Hexaware's favour by an appellate order communicated in May 2026 — a clean, resolved, favourable outcome. Separately, a more consequential income-tax reassessment dispute remains open: the Bombay High Court quashed certain post-2021 reassessment notices in Hexaware's favour, a ruling now cited as a precedent in Indian tax procedure; the Income Tax Department has appealed to the Supreme Court, with a hearing that was scheduled for 10 April 2026. This report could not find the outcome of that hearing — it should be treated as unresolved as of the report date (Section <a href="#gaps">15</a>), and re-checked before relying on any assumption about its outcome.</p>
+
+<h3>What is otherwise clean</h3>
+
+<ul>
+<li><b>No SEBI enforcement action</b> against Hexaware Technologies Ltd itself was found, distinct from the delisting-era procedural extension noted above.</li>
+<li><b>No promoter (CA Magnum) share sale</b> beyond the original Feb 2025 OFS has been announced.</li>
+<li><b>No KMP changes</b> beyond the announced CEO transition (Section <a href="#mgmt">09</a>) and routine independent-director rotation (Milind Sarwate's term completion, succeeded by Alok Chandra Misra, February 2026).</li>
+</ul>
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">12</span>What retail investors have said: bullish on the exit, skeptical of the re-entry</h2>
+<p class="sec-sub">The same forum that treated the 2020 delisting as a fair, well-signalled trade treated the 2025 relisting as a full-priced PE cash-out — and has said almost nothing since</p>
+
+<h3>2020: a special-situation arbitrage, read correctly in real time</h3>
+
+<p>ValuePickr's coverage of the delisting lives inside a broader "Delisting Discussions" thread (opened specifically as a Hexaware writeup in June 2020, later generalised to other companies), and the sentiment across it is consistently opportunistic rather than adversarial. The thread's opening post laid out the trade precisely: floor price ₹264.97, promoter's initial indicative offer ₹285 (itself a discount to the pre-announcement close of ₹332), and a stated reason for the delisting — HT Global IT's own bonds coming due in July 2021 — that gave the trade a hard catalyst. The same post flagged the key valuation anchor that turned out to matter most: <i>"The promoters sold 7.8% stake of the company at Rs 447.50 in August 2018."</i> The reverse book-building process ultimately discovered a final exit price of <b>₹475/share</b> — close to, and slightly above, that 2018 anchor — and the thread's own retrospective, three years later, cited Hexaware as a delisting "executed without any delay at any stage," a positive contrast to messier delistings (Vedanta, Adani Power, Allcargo) discussed on the same thread. No post found alleges retail shareholders were treated unfairly.</p>
+
+<h3>2025: a single thread, read skeptically, and — so far — read correctly</h3>
+
+<p>The relisting drew exactly one ValuePickr thread — "Hexaware - AI first IT Services Co or just hype?" — three posts, two participants, all posted on 10 February 2025, two days before the IPO subscription window even opened. No member returned to the thread after listing day; there has been no forum discussion of the actual listing pop, the subsequent 16% correction, or any quarter of results since. For a company this size, that is a genuine, striking gap in retail coverage.</p>
+
+<p>The one substantive post is worth reading in full. Flagging that Hexaware is "100% owned by a PE fund, Carlyle," the poster built a peer-multiple valuation using Persistent's and Mphasis's trading multiples as anchors and concluded:</p>
+
+<blockquote>
+<p>"Calculating its P/E ratio using upper IPO price band of Rs 708 gives us a current P/E multiple of 37.76 ... If we assume Persistent-like 29.5x as its valuation, its fair price is Rs 553.12. If we assume Coforge-like 27.1x as its valuation, its fair price is Rs 508.12."</p>
+<p class="attr">vada_buffet, ValuePickr, 10 February 2025</p>
+</blockquote>
+
+<p>The same post was explicitly skeptical of the "AI at its core" marketing framing the IPO was sold on: <i>"efficiency gains from AI should be reflected in profit margins but there has been no significant margin expansion nor any margin differentials relevant to its listed competitors."</i> The poster did not subscribe to the IPO. Eighteen months later, with the stock at ₹497 — inside the ₹508-553 range this single forum post estimated as fair value, and well below the ₹708 issue price — that off-the-cuff peer-multiple call has held up at least as well as the cluster of ₹820-950 sell-side initiation targets published in the months that followed (Section <a href="#analysts">08</a>).</p>
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">13</span>Valuation: the price already assumes the recovery, not the guidance</h2>
+<p class="sec-sub">Holding management's own current guidance flat implies real downside. What the price actually requires is the optimistic case playing out over the next several years</p>
+
+<h3>Starting point</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Item</th><th class="num">Value</th></tr></thead>
+<tbody>
+<tr><td class="t">Share price (11 Sep 2026)</td><td class="num">&#8377;497.00</td></tr>
+<tr><td class="t">Shares outstanding</td><td class="num">61.10 Cr</td></tr>
+<tr><td class="t">Market capitalisation</td><td class="num">&#8377;30,368 Cr</td></tr>
+<tr><td class="t">Net debt (CY2025: &#8377;680.7 Cr borrowings &minus; &#8377;1,982.5 Cr cash &minus; &#8377;145.1 Cr investments)</td><td class="num">&minus;&#8377;1,447 Cr (net cash)</td></tr>
+<tr class="hl"><td class="t">Enterprise value</td><td class="num">&#8377;28,921 Cr</td></tr>
+<tr><td class="t">Trailing P/E on CY2025 PAT (&#8377;1,369 Cr)</td><td class="num">22.2&times;</td></tr>
+</tbody>
+</table>
+<caption>Net debt here treats the "Borrowings" line at face value; Section <a href="#gaps">15</a> notes this is most likely predominantly Ind AS 116 lease liabilities rather than financial debt, and is unrelated to the separate, real leverage that sits at the CA Magnum Holdings level (Section <a href="#flags">11</a>), which this valuation does not net against Hexaware's own equity value since it sits outside the company's own balance sheet.</caption>
+</div>
+
+<h3>Reverse DCF: what does &#8377;497 actually require?</h3>
+
+<p>Assumptions: tax rate 25.5% (management's own guided ETR), depreciation 2.5% of sales, capex 3.0% of sales (in line with the decade's real, Mobiquity-adjusted capital intensity — Section <a href="#gaps">15</a>), working capital held neutral to incremental revenue (a conservative simplification against the decade's actual negative incremental-WC trend, Section <a href="#wc">05</a>), a 10-year growth path starting at the newly-cut 6.5% CY2026 guidance and gradually accelerating toward management's own stated "low-teens" aspiration by year four before decelerating to a high-single-digit terminal rate, terminal growth 5%, and a 12.5% discount rate.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Solved for</th><th class="t">What the price requires</th><th class="t">Context</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Flat EBITDA-equivalent margin (holding the growth path fixed)</td><td class="num">18.3%</td><td class="t">Guided CY2026 EBIT of 13-14% translates to roughly 16.0% on this basis. <b>The price requires a margin meaningfully above current guidance</b> &mdash; closer to a full recovery toward the historical 2016-2021 range than to where management says the business sits today.</td></tr>
+<tr><td class="t">Flat revenue CAGR (holding margin at the guided-equivalent 16.0%)</td><td class="num">11.6%</td><td class="t">CY2026 guidance (just cut): 6-7%. Long-term aspiration management has reiterated: "low-teens to mid-teens." <b>The price requires the optimistic end of management's own long-term framing to actually materialise</b>, not the near-term guided number.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Both solves point the same way: &#8377;497 is not pricing in a continuation of the current, twice-cut guidance. It is pricing in a real recovery — either back toward historical margins, or toward the "low-teens" growth management has repeatedly asserted remains its long-term thesis despite two consecutive quarters of guiding the near term down. Given this report's own finding in Section <a href="#mgmt">09</a> — that specific, numeric guidance from this management team has missed twice in three quarters, most recently within weeks of this report — that is a real, not a trivial, assumption to be underwriting at the current price.</p>
+
+<div class="warn">
+  <div class="lbl">Sensitive to the discount rate, shown rather than hidden</div>
+  <p>At an 11.5% discount rate, the required margin falls to 16.1% — essentially exactly the guided-equivalent base case, meaning the price would already be fair without any recovery. At 13.5%, the required margin rises to 20.5% — above even this report's own bull scenario. The 12.5% central case is a judgment call; a reader who weighs the holding-company pledge and guidance-credibility risk (Sections <a href="#flags">11</a>, <a href="#mgmt">09</a>) more heavily should use the higher end of that range.</p>
+</div>
+
+<h3>Three explicit scenarios</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Scenario</th><th class="t">Margin path (10yr, EBIT-equivalent)</th><th class="t">Value / share</th><th class="t">vs. price</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Bear</b> &mdash; margin fades to 11% over 5 years, holds</td><td class="t">The guided 13-14% floor does not hold; AI-driven pricing pressure proves larger than management's stated "productivity gap"</td><td class="num">&#8377;356</td><td class="num l">&minus;28%</td></tr>
+<tr class="hl"><td class="t"><b>Base</b> &mdash; flat at the guided-equivalent 13.5%</td><td class="t">Management's current CY2026 guidance holds exactly, for the full ten-year explicit period, with no further recovery</td><td class="num">&#8377;425</td><td class="num l">&minus;14%</td></tr>
+<tr><td class="t"><b>Bull</b> &mdash; recovers to 16% over 5 years, holds</td><td class="t">H2 CY2026 recovery materialises as guided and continues toward the top of the historical range</td><td class="num">&#8377;494</td><td class="num r">&minus;1%</td></tr>
+</tbody>
+</table>
+<caption>All three scenarios use the identical growth path and the 12.5% central discount rate; only the margin path varies.</caption>
+</div>
+
+<figure>
+  <div class="fig-title">Three DCF scenarios against the current price</div>
+  <div class="fig-sub">The bull case — a genuine, not-yet-proven recovery — is the one that matches today's price</div>
+  <svg viewBox="0 0 720 220" role="img" aria-label="Discounted cash flow valuation scenarios for Hexaware against the current market price"><line class="grid-l" x1="46" y1="186.0" x2="704" y2="186.0"/><text class="ax" x="40" y="189.0" text-anchor="end">0</text><line class="grid-l" x1="46" y1="156.2" x2="704" y2="156.2"/><text class="ax" x="40" y="159.2" text-anchor="end">100</text><line class="grid-l" x1="46" y1="126.4" x2="704" y2="126.4"/><text class="ax" x="40" y="129.4" text-anchor="end">200</text><line class="grid-l" x1="46" y1="96.5" x2="704" y2="96.5"/><text class="ax" x="40" y="99.5" text-anchor="end">300</text><line class="grid-l" x1="46" y1="66.7" x2="704" y2="66.7"/><text class="ax" x="40" y="69.7" text-anchor="end">400</text><line class="grid-l" x1="46" y1="36.9" x2="704" y2="36.9"/><text class="ax" x="40" y="39.9" text-anchor="end">500</text><rect x="109.6" y="79.8" width="92.1" height="106.2" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs 356</title></rect><text class="vlbl" x="155.7" y="72.8" text-anchor="middle" fill="#d97a5f">&#8377;356</text><text class="ax" x="155.7" y="200" text-anchor="middle">Bear</text><text class="ax" x="155.7" y="212" text-anchor="middle" fill="#d97a5f">-28%</text><rect x="328.9" y="59.3" width="92.1" height="126.7" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 425</title></rect><text class="vlbl" x="375.0" y="52.3" text-anchor="middle" fill="#c9a24b">&#8377;425</text><text class="ax" x="375.0" y="200" text-anchor="middle">Base</text><text class="ax" x="375.0" y="212" text-anchor="middle" fill="#d97a5f">-14%</text><rect x="548.3" y="38.7" width="92.1" height="147.3" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 494</title></rect><text class="vlbl" x="594.3" y="31.7" text-anchor="middle" fill="#5fb98a">&#8377;494</text><text class="ax" x="594.3" y="200" text-anchor="middle">Bull</text><text class="ax" x="594.3" y="212" text-anchor="middle" fill="#d97a5f">-1%</text><line x1="46" y1="37.8" x2="704" y2="37.8" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="30.8" text-anchor="end">market &#8377;497</text><line class="zero-l" x1="46" y1="186" x2="704" y2="186"/></svg>
+  <figcaption><b>Why:</b> all three bars share the identical growth path and discount rate; only the margin assumption changes. Source: <span style="font-family:var(--mono)">src.modules.equity_research.dcf</span>.</figcaption>
+</figure>
+
+<p>The bull case sits almost exactly at today's price. The base case — simply taking management's own current, twice-revised guidance at face value and assuming no further improvement — implies meaningful downside. That is the single most important number in this section: <b>the market is not pricing Hexaware for its own current guidance to hold; it is pricing a recovery beyond it.</b> Set against a consensus of 17 analysts whose average target (₹594) sits well above even this report's bull case, and a cluster of initiation-era targets (₹820-950) that have already proven too optimistic once (Section <a href="#analysts">08</a>), this report's own range is deliberately closer to the guidance actually on the table than to the aspiration repeatedly layered on top of it.</p>
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">14</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">A genuinely high-quality, cleanly-run IT-services business, still finding its feet as a public company, priced for a recovery its own management has not yet delivered — under new leadership before it does</p>
+
+<h3>What we are confident about</h3>
+
+<p>Hexaware clears the coffee-can gates cleanly — a 9/9 "9iner" on a genuinely large, real capital base, not a thin-base artefact. Cumulative cash generation exceeds cumulative profit (1.28&times;), working capital is best-in-class by management's own stated targets and this report's own numbers, and the related-party record is clean across every year available. The 2020 delisting that took the company private appears, on the available evidence, to have been executed fairly. This is a real, well-run, cash-generative business, not a story stock.</p>
+
+<h3>What is a real, current issue — not a data artefact</h3>
+
+<p>Three things earn that label, and they compound each other. First, guidance credibility: the company's very first post-listing framing ("double-digit... a solid baseline") missed by a wide margin in CY2025, and the reset guidance that followed has already been cut once more, within the same year, just weeks before this report. Second, a leadership transition landing squarely inside that credibility gap: the CEO who set every commitment this report scored is departing before CY2026's numbers — set up on his watch — are proven out, handing an unproven successor the job of either vindicating or further eroding that record. Third, a governance structure one level above the listed company: CA Magnum Holdings (Carlyle) has pledged its entire ~74.5% stake against a $1.26bn refinancing facility, sitting atop a group structure Fitch rated sub-investment-grade before withdrawing coverage — a real, if not imminent, overhang that does not show up anywhere in Hexaware's own, genuinely clean balance sheet.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">The claim</th><th class="t">The record</th></tr></thead>
+<tbody>
+<tr><td class="t">"Double-digit... a solid baseline" (March 2025)</td><td class="t">CY2025 delivered 7.6% — a genuine, acknowledged miss ("lessons learnt on how to communicate")</td></tr>
+<tr><td class="t">CY2026 growth "better than 7.6%," a "floor" (Feb and May 2026)</td><td class="t">Cut to 6-7% by August 2026 — the floor itself moved down</td></tr>
+<tr><td class="t">AI framed as a manageable "productivity gap" the vendor can capture (25% price concession against ~40% productivity gain)</td><td class="t">Directionally plausible and unusually candidly quantified by management itself, but not yet proven in the numbers &mdash; the whole thesis rests on execution not yet demonstrated</td></tr>
+<tr><td class="t">"The balance sheet is completely debt-free" (Feb 2026)</td><td class="t">True at the operating-company level; a separate, real, sub-investment-grade-rated leverage structure exists one level up, at the controlling shareholder</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Why the price does not need the bear case to be wrong — it needs the bull case to be right</h3>
+
+<p>A reverse DCF at ₹497 requires either a margin recovery to ~18.3% (EBITDA-equivalent) &mdash; above even this report's own bull scenario's exit level &mdash; or sustained growth near management's "low-teens" long-term aspiration, not its current 6-7% near-term guidance. The explicit bull scenario, a genuine but gradual margin recovery, lands almost exactly at today's price; the base case, which simply takes management's own current guidance at face value with no further improvement, implies roughly 14% downside (Section <a href="#valuation">13</a>). Set against a sell-side consensus whose own initiation-era targets have already proven too optimistic once, this report's range sits deliberately closer to what management has actually guided than to what it continues to aspire to.</p>
+
+<div class="warn">
+  <div class="lbl">Position</div>
+  <p><b>Quality grade: genuinely high, on every structural measure this report can compute. Value grade: priced for the optimistic case, not the guided one.</b> Hexaware is a clean, cash-generative, well-diversified IT-services business with real deal momentum (a $4bn pipeline, moderating client concentration, two $100m+ clients) sitting underneath a genuinely disappointing first eighteen months as a rebuilt public company. The price is not demanding the bear case be wrong &mdash; it is demanding that management's own repeatedly-revised optimism turns out to be right this time, under a CEO who was not the one who set it.</p>
+</div>
+
+<h3>What would change our mind — specific, monitorable</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Trigger</th><th class="t">Threshold</th><th class="t">Where to check</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>1. CY2026 full-year growth vs. the 6-7% guidance</b></td><td class="t">A third consecutive downward revision would confirm a genuine pattern rather than one-off miscalibration; meeting or beating 7% would begin rebuilding the credibility this report currently withholds</td><td class="t">Quarterly results, remainder of CY2026</td></tr>
+<tr><td class="t"><b>2. H2 CY2026 EBIT margin exit rate</b></td><td class="t">Management's own claim is that H2 exits above the 13-14% full-year range; a clean beat of that claim, verified against Q3/Q4 actuals, would be the first concrete evidence the "productivity gap" thesis is being captured, not just asserted</td><td class="t">Q3/Q4 CY2026 results</td></tr>
+<tr><td class="t"><b>3. How the CEO transition is handled through Q4 CY2026 and into CY2027 guidance</b></td><td class="t">A smooth handover with continuity in guidance discipline vs. a reset/downgrade cycle under new leadership</td><td class="t">Q4 CY2026 call (incoming CEO's first full quarter)</td></tr>
+<tr><td class="t"><b>4. Any change in CA Magnum Holdings' pledge or stake</b></td><td class="t">A further stake sale, a pledge release, or (adverse) a margin-call event would all be significant, in different directions</td><td class="t">BSE/NSE shareholding and encumbrance disclosures</td></tr>
+<tr><td class="t"><b>5. Realised billing-rate or per-employee revenue disclosure, if any future call provides one</b></td><td class="t">The cleanest available test of whether AI-driven pricing pressure is being captured as margin or ceded to clients &mdash; no such disclosure exists today</td><td class="t">Future earnings calls</td></tr>
+<tr><td class="t"><b>6. Resolution of the Supreme Court income-tax appeal</b></td><td class="t">Outcome was pending as of this report; a resolution either way removes a genuine, if secondary, uncertainty</td><td class="t">Court records, subsequent exchange disclosures</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The one-paragraph version</h3>
+
+<p>Hexaware is a genuinely well-run, cash-generative mid-tier IT major that spent its first eighteen months back on the public market overpromising and underdelivering on growth, then candidly said so, then cut its own reset guidance again within weeks of that admission, then announced its CEO is leaving before the next set of numbers comes in. None of that is evidence the underlying business is broken — the coffee-can gates, the cash conversion, the working-capital discipline, and a genuinely diversifying, growing deal pipeline all say otherwise. What it is evidence of is that this specific management team's forward guidance should currently be treated as an aspiration rather than a plan, and that the price at ₹497 is not asking a buyer to bet against the bear case &mdash; it is asking them to bet that the aspiration, not the guidance, is what actually plays out from here, delivered by a CEO who is new to the job of proving it.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">15</span>Data gaps and provenance</h2>
+<p class="sec-sub">This is the largest, best-documented company this pipeline has covered — and it still has real, specific gaps worth stating plainly</p>
+
+<h3>What was actually read</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Source</th><th class="t">Coverage</th><th class="t">Status</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Earnings call transcripts</td><td class="t">6 of 8 available transcripts read in full (Mar 2025, Apr/Jul 2025, Feb 2026, May 2026, plus two shorter 2025 calls skimmed); Q2 CY2026 (~Aug 2026, the call that cut CY2026 guidance) not yet transcribed in this pipeline's document store</td><td class="t">The Q2 CY2026 guidance cut is covered in this report via press coverage, corroborated across five independent outlets, not a primary transcript read directly &mdash; treat any specific Q2 CY2026 figure in this report as press-sourced, not transcript-verified</td></tr>
+<tr class="hl"><td class="t">Annual reports</td><td class="t">FY2015, FY2017-FY2020, FY2025 (6 of the years this report cites)</td><td class="t"><b>FY2021-FY2023 have no public annual report and could not be crawled &mdash; a real corporate-history gap, not a pipeline defect.</b> The company had no public shareholders during that window (private under Baring, then Carlyle). This report's data for those years comes entirely from this pipeline's XBRL database, not from a document this report could read directly (Section <a href="#record">03</a>)</td></tr>
+<tr><td class="t">Related-party audit</td><td class="t">FY2015-FY2020, FY2024-FY2025 (existing pipeline audit)</td><td class="t">Score 1/3 ("Watch"); reused, not re-run, this cycle. Shares the same FY2021-2023 gap as the annual reports</td></tr>
+<tr><td class="t">Peer financials (7 companies)</td><td class="t">Revenue, ROCE, ROE, margin, promoter holding</td><td class="t">Public Screener.in pages, fetched 11 September 2026; no authenticated access configured</td></tr>
+<tr><td class="t">ValuePickr forum</td><td class="t">Full-text search across the entire forum; both the delisting-era thread and the 2025 relisting thread read in full or in substantial sample</td><td class="t">The pre-2021 "Delisting Discussions" thread is a 290-post general thread, of which ~34 posts concern Hexaware specifically; roughly 10 of those 34 were read in full, the rest as search-result summaries &mdash; the "no controversy found" conclusion in Section <a href="#sentiment">12</a> rests on that partial sample</td></tr>
+<tr><td class="t">Company news, ownership history, credit ratings</td><td class="t">2020-2026 window</td><td class="t">Extensive primary and major-outlet sourcing on the delisting and relisting mechanics; several 2026 items (Q2 CY26 results, CEO transition full article text) are press-synthesized rather than independently fetched (Gap 4 below)</td></tr>
+<tr><td class="t">Price and market data</td><td class="t">11 September 2026</td><td class="t">Refreshed this run &mdash; cached price was 12 days stale at &#8377;542.70; confirmed &#8377;497.00 via Screener's consolidated page</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Gap 1 &mdash; the private-ownership years (2021-2023) are genuinely dark</h3>
+<p>No annual report, no transcript, and no related-party audit exists for the three years Hexaware spent privately held. This pipeline's own anomaly scan flags a real, unexplained operating-margin step-down inside that exact window (15.8% &rarr; 13.3%, 2021 to 2022, Section <a href="#record">03</a>) &mdash; this report states plainly that no primary source explains it, rather than speculating. Any reader relying on year-by-year detail from this period should treat the XBRL-sourced figures as the only available account, not as independently verified against a document.</p>
+
+<h3>Gap 2 &mdash; a real discrepancy between this pipeline's "operating profit" field and management's own "reported EBITDA"</h3>
+<p>This pipeline's database shows CY2025 operating profit (EBITDA-basis) at 14.3% of sales; management's own CY2025 call reports "reported EBITDA" of 17.1%. The gap (roughly 280bps) was not fully reconciled in this research pass &mdash; it may reflect a different treatment of other income, exceptional items, or a segment/consolidation difference between the XBRL field and management's own presentation metric. Section <a href="#margin">04</a> and Section <a href="#valuation">13</a> use management's own stated figures wherever a transcript quote is available, and flag explicitly wherever a figure is sourced from the database field instead &mdash; but a future refresh should resolve this discrepancy directly against the primary financial statements rather than triangulating between the two sources as this report has had to.</p>
+
+<h3>Gap 3 &mdash; the FY2019 Mobiquity acquisition inflates the default capex proxy</h3>
+<p>This pipeline's default, CFI-derived capex calculation returns a FY2019 figure of ~₹1,001 Cr &mdash; in fact the all-cash, ~$182m acquisition of Mobiquity Inc., confirmed directly from the FY2019 annual report's own language ("After years of patiently accumulating capital, we put it to great work in the form of acquiring Mobiquity Inc."). This report's harder-cash-test conclusion in Section <a href="#framework">02</a> is unaffected either way (the test passes comfortably with or without the correction), but the raw cumulative capex figure quoted there (₹3,788 Cr) should not be read as pure organic fixed-asset spend without this caveat.</p>
+
+<h3>Gap 4 &mdash; several recent, highly decision-relevant items are press-sourced, not primary-verified</h3>
+<div class="warn">
+  <div class="lbl">Held to the same standard as every other claim in this report, flagged explicitly rather than silently treated as equally solid</div>
+  <ul>
+<li><b>The Q2 CY2026 guidance cut</b> (6-7% from 7.6%, margin guidance reaffirmed) is corroborated across five independent press/aggregator outlets but was not read from a primary transcript or exchange filing in this pass.</li>
+<li><b>The CEO-transition market reaction</b> (shares "fell ~4-4.5%") is sourced to a single outlet's headline; the full article text returned a fetch error, so the underlying reporting and analyst quotes beyond the headline were not independently read.</li>
+<li><b>CRISIL/ICRA/CARE coverage of Hexaware</b> &mdash; this report states "no rating found," which is an absence-of-evidence finding from search tooling, not a confirmed "Hexaware has no rating" disclosure from the company or the agencies directly. A direct issuer-lookup on each agency's own site was not possible in this research pass.</li>
+<li><b>Exact FY2025 dividend record dates</b> for the two ₹5.75 payments were not independently pinned down to a specific exchange filing.</li>
+<li><b>Whether the "public bond" reference on the March 2025 call</b> ("it's a public bond, so we do have calls on that," when asked about "the bond as a shareholder") refers to the same CA Magnum Holdings debt structure later refinanced via the November 2025 HSBC facility is this report's own inference, not independently confirmed &mdash; treated as likely but unverified in Section <a href="#flags">11</a>.</li>
+  </ul>
+</div>
+
+<h3>Gap 5 &mdash; the Supreme Court tax appeal outcome</h3>
+<p>The income-tax reassessment matter (Section <a href="#flags">11</a>) had a Supreme Court hearing scheduled for 10 April 2026; no outcome was found in this research pass. Treat as unresolved as of the report date rather than assuming either outcome.</p>
+
+<h3>Gap 6 &mdash; no Vijay Malik framework corpus available</h3>
+<p>The Malik industry-framework corpus has not been crawled in this environment (a standing limitation across every report this pipeline has produced) &mdash; this report proceeds without citing his framework directly.</p>
+
+<h3>What would most improve the next refresh</h3>
+<ol>
+<li>A primary Q2 CY2026 (and any subsequent) transcript, once available, to replace the press-synthesized account of the guidance cut.</li>
+<li>Direct reconciliation of the "operating profit" XBRL field against management's own "reported EBITDA" figure.</li>
+<li>A direct issuer-lookup against CRISIL, ICRA and CARE's own sites for Hexaware Technologies Ltd specifically.</li>
+<li>Resolution of the Supreme Court income-tax appeal.</li>
+<li>The incoming CEO's first full quarterly call, for a first read on continuity of guidance discipline.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Hexaware Technologies Ltd (NSE: HEXT, BSE: 544362, ISIN INE093A01041). Prepared 14 September 2026 against a share price of &#8377;497.00.</p>
+  <p>Built from this pipeline's own indexed corpus: six earnings-call transcripts read in full or substantial depth (March 2025 through May 2026), six annual reports spanning both the pre-delisting and post-relisting eras (FY2021-FY2023 genuinely unavailable during the company's private-ownership years &mdash; see Section 15), an existing related-party audit, consolidated financials CY2016-CY2025, seven listed peer comparables' public financials, a full-forum ValuePickr search spanning both the 2020 delisting and 2025 relisting, and primary and major-outlet-sourced research on the company's ownership history, credit structure and recent leadership transition. Every numeric claim cites a period; every quotation cites a document and date. Limitations are stated in full in Section 15.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. This report covers a company with a genuinely unusual recent history &mdash; a 2021-2023 gap in public disclosure, a leadership transition announced days before this report, and a guidance-credibility question that remains open. Do your own work, and read the data-gaps section in full before acting on anything here. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
