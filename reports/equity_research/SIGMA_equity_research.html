@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sigma Solve — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Sigma Solve: a tiny, high-ROCE offshore software exporter whose revenue runs almost entirely through one US subsidiary, a management guidance-vs-delivery scorecard, and a DCF valuation.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Equity Research &middot; Coffee Can Screener</span>
+  <h1>Sigma Solve</h1>
+  <p class="subtitle">A tiny, capital-efficient software exporter with a genuinely favourable minority-shareholder outcome on its books — and a management team that stopped taking questions right as its numbers turned.</p>
+  <p class="meta">
+    NSE <b>SIGMA</b> &middot; BSE <b>543917</b> &middot; ISIN <b>INE0A0S01028</b> &middot; IT Services &amp; Consulting &middot; Consolidated basis<br>
+    Price <b>&#8377;44.20</b> &middot; Market cap <b>&#8377;454 Cr</b> &middot; P/E <b>19.0&times;</b> (consolidated) &middot; ROCE <b>40.4%</b> (reported, FY2026) &middot; As of <b>13 September 2026</b>
+  </p>
+</header>
+
+<div class="verdict">
+  <div class="verdict-label">Verdict</div>
+  <p class="verdict-head">Quality: genuinely strong unit economics, with real and currently unresolved credibility gaps. Value: balanced, not a clear mispricing either way.</p>
+  <p>Sigma Solve clears the coffee-can gates cleanly — a 9/9 "9iner" — and cumulative cash generation exceeds cumulative profit once this pipeline's own capex-proxy distortion is corrected (harder cash test: +&#8377;86.4 Cr over the decade). Nearly all of its revenue is booked through a wholly-owned US subsidiary that was, until FY2023-24, roughly 40% owned by the promoter's own relatives — a structure that reached full ownership through a subsidiary-level buyback costing the parent nothing in cash, and appears, on the facts available, to have favoured public shareholders.</p>
+  <p>The problem is not fraud or self-dealing. It is that EBITDA margin has fallen from 40.5% (FY2023) to 29.5% (FY2026), every specific guidance commitment management made on its last two calls has since been missed, and <b>the company has not held an investor call since February 2024</b> — independently confirmed via Screener's own concall archive. Two SEBI adjudication orders landed in 2025: a modest, company-specific IPO-proceeds compliance lapse, and a separate, apparently still-open investigation into suspected fraudulent trading in the stock by outside entities unconnected to the company.</p>
+  <p>Run through a reverse DCF, &#8377;44.20 requires either a partial margin recovery (to ~34%, roughly halfway back to the FY2023 peak) or continued growth at the company's own recent, realised pace — neither a stretch on the historical record, neither confirmed as currently happening. <b>A genuinely good business, real and current credibility gaps, and a price that sits in a real grey zone rather than an obvious mispricing.</b></p>
+</div>
+
+<div class="hero-row">
+  <div class="stat"><div class="k">Coffee-can gates</div><div class="v" style="color:#8ac9a8">9 / 9</div><div class="n">Revenue growth &amp; ROCE, all scored years</div></div>
+  <div class="stat"><div class="k">Days since last investor call</div><div class="v" style="color:var(--loss)">~950</div><div class="n">No call since 9 Feb 2024</div></div>
+  <div class="stat"><div class="k">EBITDA margin, FY23&rarr;FY26</div><div class="v" style="color:var(--loss)">40.5%&rarr;29.5%</div><div class="n">Three straight years, unexplained</div></div>
+  <div class="stat"><div class="k">Base-case DCF value</div><div class="v">&#8377;37.9</div><div class="n">14% below market, margin held flat</div></div>
+</div>
+
+<div class="toc">
+  <div class="toc-l">Contents</div>
+  <ol>
+    <li><a href="#business">The business, and an unusual way of booking revenue</a></li>
+    <li><a href="#framework">A services-business checklist, applied</a></li>
+    <li><a href="#record">The record: from thin base to scale, margin turning over</a></li>
+    <li><a href="#margin">Margins: a real decline, no management explanation on record</a></li>
+    <li><a href="#wc">Working capital: a receivable cycle that swung sharply</a></li>
+    <li><a href="#peers">How Sigma Solve compares with its real peers</a></li>
+    <li><a href="#growth">Growth outlook: a real niche, an untested new bet</a></li>
+    <li><a href="#analysts">What outside scrutiny exists — essentially none</a></li>
+    <li><a href="#mgmt">Management scorecard: confident guidance, repeated misses</a></li>
+    <li><a href="#capital">Capital allocation: a frozen dividend, a growing treasury</a></li>
+    <li><a href="#flags">Governance: two SEBI orders, one unanswered structural question</a></li>
+    <li><a href="#sentiment">What retail investors have said — almost nothing</a></li>
+    <li><a href="#valuation">Valuation: a price in a genuine grey zone</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business, and an unusual way of booking revenue</h2>
+<p class="sec-sub">A tiny, founder-led Ahmedabad software exporter whose income is billed almost entirely through its own US subsidiary — a structure worth understanding before anything else</p>
+
+<p>Sigma Solve Limited was incorporated in Ahmedabad in 2010 by promoter Prakash Parikh, listed on NSE's SME platform in October 2020, and migrated to the NSE/BSE mainboard in June 2023 — a genuinely new mainboard name, with a listed history of barely three years on the market this report values it in. The company describes itself as an enterprise software consultancy: custom application development, web and e-commerce development, business intelligence and analytics, CRM development, digital marketing, UI/UX design, and automation testing/QA, increasingly organised around a small number of industry verticals (logistics, construction technology, process automation, and a newly-started Microsoft Dynamics practice) rather than as a generalist body-shop. Promoters Prakash and Kalpana Parikh together control 73.2% of the company; institutional ownership is effectively zero (FII and DII combined under 0.1%).</p>
+
+<h3>The structure that matters more than any other fact in this report</h3>
+
+<p>Sigma Solve's own FY2025 annual report states plainly: <i>"Our Company do not have any identified customers being almost 100% of sales are booked by Sigma Solve Inc., and subsequently, our company 'Sigma' is charging on monthly basis to Sigma Solve Inc. for providing the execution facilities on per man hour basis."</i> In other words, the Ahmedabad-listed entity does not sell to end clients directly — it bills its own wholly-owned US subsidiary, Sigma Solve Inc. (Florida), for developer hours, and Sigma Solve Inc. is the entity that actually holds the client relationships, signs the contracts, and (per management) drives sales, marketing and delivery leadership from the US.</p>
+
+<p>That subsidiary was <b>not always wholly owned</b>. Sigma Solve Ltd acquired a 51.04% stake in Sigma Solve Inc. in 2019; by the FY2023 annual report the parent's holding was 59.81% — meaning roughly 40% of the entity that generates essentially all of the group's revenue was, for years, held outside the listed company, by its own co-founders Biren Zaverchand and Prerak Parikh, both relatives of the promoter family. That stake reached 100% only during FY2023-24, through a mechanism examined in full in Section <a href="#flags">11</a>. Prerak Parikh was appointed a formal Director of Sigma Solve Ltd only on 30 June 2025 — meaning he had been presented to investors as "management" on earnings calls for at least a year and a half before holding a board seat.</p>
+
+<p>Two further entities round out the current group structure: <b>Rish Info Logistics Private Limited</b> (70%-owned, incorporated April 2024 — the vehicle for the logistics-vertical SaaS ambitions management has discussed on calls) and <b>Sigma Accounting Private Limited</b> (a 33% associate incorporated August 2023 for accounting-software development, which the company exited in December 2025). The company also approved a 10-for-1 stock split (face value ₹10 to ₹1) during FY2025, which is reflected in all per-share figures in this report.</p>
+
+<h3>An extraordinary return on a genuinely thin capital base</h3>
+
+<p>Because the business needs almost no fixed assets — a services company's real asset is people, and the group owns only a small Ahmedabad office property beyond that — capital employed has stayed small even as profit has scaled. ROCE has run <b>40-75%</b> over the last five years on this pipeline's own calculation, among the highest this pipeline has measured, though the trend has been declining as the balance sheet's treasury book (retained profit invested in mutual funds and deposits, given a dividend payout frozen for four straight years — Section <a href="#capital">10</a>) has grown faster than operating profit. Section <a href="#framework">02</a> works through what that combination does and does not tell you about durability, and Section <a href="#margin">04</a> covers the real margin compression that has accompanied the revenue growth since FY2023.</p>
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>A services-business checklist, applied</h2>
+<p class="sec-sub">Sigma Solve passes the headline gates cleanly. The structural and disclosure questions underneath them are where this report spends most of its time.</p>
+
+<p>A tiny, founder-led services exporter fails differently from a capital-intensive industrial or a consumer marketplace. There is no order book worth overstating (Sigma Solve's own disclosed pipeline runs to a few hundred thousand dollars — smaller than one month of revenue), no float, and no treasury book large enough to distort return ratios the way it does at bigger companies on this pipeline. The risks here are narrower and sharper: whether the near-total dependence on a single revenue-booking subsidiary is fully disclosed, whether reported profit turns into collected cash as receivable days lengthen, and whether management's own guidance is a reliable guide to what actually gets delivered.</p>
+
+<h3>The scorecard</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Test</th><th class="t">What it looks for</th><th class="t">Sigma Solve</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Coffee-can gates</b></td><td class="t">Revenue growth &gt;10% and ROCE &gt;15%, every scored year</td><td class="t">Rev score <b>9/9</b>, ROCE score <b>9/9</b> — a "9iner," this pipeline's top tier</td><td><span class="pill p-kept">Pass, cleanly</span></td></tr>
+<tr><td class="t"><b>Cumulative CFO vs cumulative PAT</b></td><td class="t">cCFO should at least equal cPAT</td><td class="t">₹98.0 Cr CFO against ₹85.1 Cr PAT = <b>1.15&times;</b> over the decade — but only <b>5 of 10</b> individual years cleared the gate, and FY2020 CFO was outright negative against positive profit</td><td><span class="pill p-slip">Passes cumulatively, uneven year to year</span></td></tr>
+<tr class="hl"><td class="t"><b>The harder cash test</b><br><span style="font-size:11px;color:var(--faint)">CFO &minus; capex &minus; interest</span></td><td class="t">Positive, else growth was externally funded</td><td class="t">The module's own default capex proxy returns a cumulative decade figure of <b>₹94.5 Cr</b> — implausible for a company whose actual net fixed assets never exceed ₹8 Cr. Corrected against real net-block movement, true decade capex is <b>₹10.4 Cr</b>, and the test reads <b>+₹86.4 Cr</b>, not the near-failure the uncorrected number implies</td><td><span class="pill p-kept">Pass, once corrected (Section <a href="#gaps">15</a>)</span></td></tr>
+<tr><td class="t"><b>Receivable days trend</b></td><td class="t">Rising days signal weaker collection discipline</td><td class="t">32 days (FY2017) &rarr; peaked at <b>100 days</b> (FY2025) &rarr; eased to <b>70 days</b> (FY2026) — a real, sizeable swing, tracked in Section <a href="#wc">05</a></td><td><span class="pill p-slip">Real, worth watching</span></td></tr>
+<tr><td class="t"><b>Reported ROCE, sense-checked</b></td><td class="t">Is an extreme ROCE a real signal or a thin-capital artefact</td><td class="t"><b>69% &rarr; 40%</b> (FY2022-26), declining as the treasury book (Section <a href="#capital">10</a>) grows faster than operating profit — genuinely high, but the trend line matters more than any single year's level</td><td><span class="pill p-slip">Real, declining</span></td></tr>
+<tr><td class="t"><b>Total outside liabilities / net worth</b></td><td class="t">Rising TOL/TNW against a thin equity base</td><td class="t"><b>0.78&times; &rarr; 0.16&times;</b> (FY2017-26) — declining, conservative</td><td><span class="pill p-kept">Conservative</span></td></tr>
+<tr><td class="t"><b>Founder-led, or controlled by someone else's capital</b></td><td class="t">A change of control changes what every other test means</td><td class="t">Promoters hold <b>73.2%</b>, stable. Institutional ownership (FII + DII) is under 0.1% — a pure promoter-and-retail-owned micro-cap, three years into a mainboard listing</td><td><span class="pill p-kept">Founder-led</span></td></tr>
+<tr class="hl"><td class="t"><b>Related-party transactions</b></td><td class="t">Existing audit score, all years read</td><td class="t"><b>Score 1/3 ("Watch")</b> on the standard AOC-2 lens — but the single largest capital transaction in the company's history (the Sigma Solve Inc. ownership consolidation) sits outside that lens entirely (Section <a href="#flags">11</a>)</td><td><span class="pill p-slip">Clean on paper, thin in practice</span></td></tr>
+<tr><td class="t"><b>Client concentration</b></td><td class="t">Revenue reliance on a small number of accounts</td><td class="t">Top 5 clients ~35-40% of revenue, top 10 ~65-70% (management's own figures, Feb 2024 call) — real concentration for a ~$11M-revenue company</td><td><span class="pill p-slip">Watch</span></td></tr>
+<tr class="hl"><td class="t"><b>Guidance credibility</b></td><td class="t">Does management's own multi-year targets hold up against delivery</td><td class="t">FY2024 revenue guided at ₹80-95 Cr (Dec 2023 call); delivered ₹65.1 Cr. Margins called "sustainable... if anything better" in the same call; margin has instead fallen every year since. Section <a href="#mgmt">09</a> scores this in full</td><td><span class="pill p-broke">Repeated, material misses</span></td></tr>
+<tr><td class="t"><b>Capital allocation: dividend policy</b></td><td class="t">Does the payout track profit growth</td><td class="t">₹0.50/share (post-split) paid for <b>four consecutive years</b> (FY2023-FY2026) while consolidated PAT roughly doubled — a frozen, not growing, payout</td><td><span class="pill p-slip">Static despite profit growth</span></td></tr>
+</tbody>
+</table>
+<caption>Figures from <span style="font-family:var(--mono)">src.modules.equity_research</span> run against this pipeline's database, FY2017-FY2026, cross-checked against the existing related-party audit, both available earnings-call transcripts, and Screener.in's public financial pages (fetched 11-13 September 2026).</caption>
+</div>
+
+<h3>The two lines in that table that matter more than the others</h3>
+
+<p>A 9iner coffee-can tier with a cumulative cash-conversion ratio above 1&times; looks, at a glance, like an unusually clean small-cap. It is — on the numbers the module computes by default. What that first pass does not surface is the same distortion this pipeline has now found on more than one treasury-heavy company: a capex proxy contaminated by investment purchases, which here would have manufactured a near-failing cash test out of a business that, once corrected, comfortably self-funds. That correction matters, but it is a data-quality fix, not a finding about the business — the more important line in the table is the last one but two: <b>guidance credibility</b>. Every other row in this scorecard describes a company that looks, mechanically, like a clean small-cap compounder. The guidance record describes a management team whose specific, quantified, multi-year commitments — both on revenue and on margin — have not held up under the one real test available: what a later quarter's actuals showed against an earlier call's promise. That gap, not the accounting technicalities, is this report's central finding.</p>
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The record: from ₹2 Cr to ₹96 Cr, with margin turning over the last three years</h2>
+<p class="sec-sub">A genuinely extraordinary compounding run from a tiny base — and a margin peak that has now faded for three consecutive years</p>
+
+<figure>
+  <div class="fig-title">Revenue, FY2020&ndash;FY2026</div>
+  <div class="fig-sub">&#8377; crore, consolidated. FY2017&ndash;FY2019 (near-zero base, incomplete operating-profit data) omitted — see Section <a href="#gaps">15</a>.</div>
+  <svg viewBox="0 0 720 230" role="img" aria-label="Sigma Solve consolidated revenue by fiscal year, FY2020 to FY2026"><line class="grid-l" x1="46" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="40" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="46" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="40" y="157.0" text-anchor="end">26</text><line class="grid-l" x1="46" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="40" y="111.0" text-anchor="end">52</text><line class="grid-l" x1="46" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="40" y="65.0" text-anchor="end">77</text><line class="grid-l" x1="46" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="40" y="19.0" text-anchor="end">103</text><rect x="66.7" y="181.3" width="52.8" height="18.7" rx="4" fill="#c9a24b"><title>FY2020: Rs 10.5 Cr</title></rect><text class="vlbl" x="93.1" y="175.3" text-anchor="middle">10.5</text><text class="ax" x="93.1" y="213" text-anchor="middle">'20</text><rect x="161.0" y="162.2" width="52.8" height="37.8" rx="4" fill="#c9a24b"><title>FY2021: Rs 21.2 Cr</title></rect><text class="vlbl" x="187.4" y="156.2" text-anchor="middle">21.2</text><text class="ax" x="187.4" y="213" text-anchor="middle">'21</text><rect x="255.3" y="126.8" width="52.8" height="73.2" rx="4" fill="#c9a24b"><title>FY2022: Rs 41.1 Cr</title></rect><text class="vlbl" x="281.7" y="120.8" text-anchor="middle">41.1</text><text class="ax" x="281.7" y="213" text-anchor="middle">'22</text><rect x="349.6" y="100.6" width="52.8" height="99.4" rx="4" fill="#c9a24b"><title>FY2023: Rs 55.8 Cr</title></rect><text class="vlbl" x="376.0" y="94.6" text-anchor="middle">55.8</text><text class="ax" x="376.0" y="213" text-anchor="middle">'23</text><rect x="443.9" y="84.0" width="52.8" height="116.0" rx="4" fill="#c9a24b"><title>FY2024: Rs 65.1 Cr</title></rect><text class="vlbl" x="470.3" y="78.0" text-anchor="middle">65.1</text><text class="ax" x="470.3" y="213" text-anchor="middle">'24</text><rect x="538.2" y="64.2" width="52.8" height="135.8" rx="4" fill="#c9a24b"><title>FY2025: Rs 76.2 Cr</title></rect><text class="vlbl" x="564.6" y="58.2" text-anchor="middle">76.2</text><text class="ax" x="564.6" y="213" text-anchor="middle">'25</text><rect x="632.5" y="29.6" width="52.8" height="170.4" rx="4" fill="#c9a24b"><title>FY2026: Rs 95.6 Cr</title></rect><text class="vlbl" x="658.9" y="23.6" text-anchor="middle">95.6</text><text class="ax" x="658.9" y="213" text-anchor="middle">'26</text><line class="zero-l" x1="46" y1="200" x2="706" y2="200"/></svg>
+  <figcaption><b>Why:</b> revenue compounded at extraordinary rates through FY2022 (management's own five-year framing on calls), before decelerating to the still-strong but much slower 16-25% range of FY2024-26 as the base grew large enough that percentage growth naturally moderates. Source: <span style="font-family:var(--mono)">xbrl_annual</span>, FY2020-FY2026.</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Revenue</th><th class="num">OPM</th><th class="num">PBT margin</th><th class="num">ROCE</th><th class="num">Receivable days</th></tr></thead>
+<tbody>
+<tr><td class="t">2020</td><td class="num">10.5</td><td class="num">18.2%</td><td class="num">20.4%</td><td class="num">26.0%</td><td class="num">142</td></tr>
+<tr><td class="t">2021</td><td class="num">21.2</td><td class="num">34.8%</td><td class="num">34.8%</td><td class="num">35.8%</td><td class="num">62</td></tr>
+<tr><td class="t">2022</td><td class="num">41.1</td><td class="num">36.6%</td><td class="num">39.3%</td><td class="num">69.2%</td><td class="num">29</td></tr>
+<tr class="hl"><td class="t"><b>2023</b></td><td class="num"><b>55.8</b></td><td class="num"><b>40.5%</b></td><td class="num"><b>42.4%</b></td><td class="num"><b>58.9%</b></td><td class="num"><b>35</b></td></tr>
+<tr><td class="t">2024</td><td class="num">65.1</td><td class="num">35.5%</td><td class="num">38.8%</td><td class="num">72.8%</td><td class="num">82</td></tr>
+<tr><td class="t">2025</td><td class="num">76.2</td><td class="num">33.9%</td><td class="num">33.7%</td><td class="num">49.1%</td><td class="num">100</td></tr>
+<tr><td class="t">2026</td><td class="num">95.6</td><td class="num">29.5%</td><td class="num">33.0%</td><td class="num">40.4%</td><td class="num">70</td></tr>
+</tbody>
+</table>
+<caption>&#8377; crore unless stated. FY2017-19 excluded: operating-profit-line data is genuinely absent or the base is too small (₹2-3 Cr revenue) to read a margin from (Section <a href="#gaps">15</a>). ROCE is this pipeline's own calculation via <span style="font-family:var(--mono)">src.modules.equity_research</span>. FY2020's 142-day receivable figure reflects the tiny base of that year (₹10.5 Cr revenue) rather than a collection-discipline signal on its own.</caption>
+</div>
+
+<h3>Two things in that table worth stopping on</h3>
+
+<p><b>First, FY2023 was the peak year on almost every measure — OPM 40.5%, PBT margin 42.4%, and the tightest receivable cycle (35 days) since the company's earliest, tiniest years.</b> That combination coincided with the year Sigma Solve Inc. became a wholly-owned subsidiary (Section <a href="#flags">11</a>) — a fact worth holding in mind rather than treating as a coincidence, since a chunk of the FY2024 PAT growth the company highlighted on its Q3 FY24 call ("PAT attributable to owners grew by 59% year-over-year... as a result of our successful group simplification") reflects removing minority interest from the P&L, not operating improvement.</p>
+
+<p><b>Second, the FY2023&rarr;FY2026 slide is real and multi-dimensional, not a single bad quarter.</b> OPM fell 40.5%&rarr;29.5% (a decline of more than a quarter of its peak level) over three straight years, while receivable days more than doubled from 35 to a peak of 100 before easing to 70. Both moved in the same direction at the same time as revenue kept growing at a respectable 16-25% a year — exactly the "record revenue, compressing margin, lengthening collection cycle" pattern that this pipeline's other reports have found is common, not rare, among small Indian IT-services exporters navigating FY2025-26 (Section <a href="#growth">07</a>). The margin bridge below decomposes the FY2023-to-FY2026 move precisely.</p>
+
+<figure>
+  <div class="fig-title">What actually moved PBT margin, FY2023 &rarr; FY2026</div>
+  <div class="fig-sub">Decomposition of the 937bp fall in PBT margin. Components sum exactly to the total.</div>
+  <svg viewBox="0 0 720 250" role="img" aria-label="Decomposition of Sigma Solve profit-before-tax margin change from FY2023 to FY2026"><line class="grid-l" x1="50" y1="204.0" x2="706" y2="204.0"/><text class="ax" x="44" y="207.0" text-anchor="end">0%</text><line class="grid-l" x1="50" y1="172.0" x2="706" y2="172.0"/><text class="ax" x="44" y="175.0" text-anchor="end">8%</text><line class="grid-l" x1="50" y1="140.0" x2="706" y2="140.0"/><text class="ax" x="44" y="143.0" text-anchor="end">16%</text><line class="grid-l" x1="50" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="44" y="111.0" text-anchor="end">24%</text><line class="grid-l" x1="50" y1="76.0" x2="706" y2="76.0"/><text class="ax" x="44" y="79.0" text-anchor="end">32%</text><line class="grid-l" x1="50" y1="44.0" x2="706" y2="44.0"/><text class="ax" x="44" y="47.0" text-anchor="end">40%</text><rect x="73.0" y="34.4" width="63.4" height="169.6" rx="4" fill="#7a86a0"><title>42.41%</title></rect><text class="vlbl" x="104.7" y="28.4" text-anchor="middle">42.41%</text><text class="ax" x="104.7" y="218" text-anchor="middle">FY23</text><text class="ax" x="104.7" y="229" text-anchor="middle">PBT margin</text><rect x="182.3" y="34.4" width="63.4" height="44.0" rx="3" fill="#d97a5f"><title>EBITDA margin: -1101 bps</title></rect><text class="vlbl" x="214.0" y="28.4" text-anchor="middle" fill="#d97a5f">-1101</text><line x1="245.7" y1="78.4" x2="291.6" y2="78.4" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="214.0" y="218" text-anchor="middle">EBITDA</text><text class="ax" x="214.0" y="229" text-anchor="middle">margin</text><rect x="291.6" y="78.4" width="63.4" height="2.0" rx="3" fill="#d97a5f"><title>Depreciation: -24 bps</title></rect><text class="vlbl" x="323.3" y="72.4" text-anchor="middle" fill="#d97a5f">-24</text><line x1="355.0" y1="79.4" x2="401.0" y2="79.4" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="323.3" y="218" text-anchor="middle">Depreciation</text><rect x="401.0" y="70.4" width="63.4" height="9.0" rx="3" fill="#5fb98a"><title>Other income: +224 bps</title></rect><text class="vlbl" x="432.7" y="64.4" text-anchor="middle" fill="#5fb98a">+224</text><line x1="464.4" y1="70.4" x2="510.3" y2="70.4" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="432.7" y="218" text-anchor="middle">Other</text><text class="ax" x="432.7" y="229" text-anchor="middle">income</text><rect x="510.3" y="70.4" width="63.4" height="2.0" rx="3" fill="#d97a5f"><title>Interest cost: -36 bps</title></rect><text class="vlbl" x="542.0" y="64.4" text-anchor="middle" fill="#d97a5f">-36</text><line x1="573.7" y1="71.8" x2="619.6" y2="71.8" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="542.0" y="218" text-anchor="middle">Interest</text><text class="ax" x="542.0" y="229" text-anchor="middle">cost</text><rect x="619.6" y="71.8" width="63.4" height="132.2" rx="4" fill="#7a86a0"><title>33.04%</title></rect><text class="vlbl" x="651.3" y="65.8" text-anchor="middle">33.04%</text><text class="ax" x="651.3" y="218" text-anchor="middle">FY26</text><text class="ax" x="651.3" y="229" text-anchor="middle">PBT margin</text><line class="zero-l" x1="50" y1="204" x2="706" y2="204"/></svg>
+  <figcaption><b>Why:</b> almost the entire decline came from the EBITDA line itself, partially offset by a meaningful rise in other income (likely interest/gains on the growing treasury book, Section <a href="#capital">10</a>) — a genuine operating deterioration cushioned, not caused, by the balance sheet. Source: <span style="font-family:var(--mono)">metrics.margin_bridge</span>, FY2023 and FY2026.</figcaption>
+</figure>
+
+<p>Cumulative operating cash flow over the period this pipeline can measure (₹98.0 Cr) exceeds cumulative profit (₹85.1 Cr) — a 1.15&times; ratio that clears the standard cash-conversion gate. But that headline number smooths over real year-to-year unevenness: only 5 of 10 individual years cleared the gate on their own, FY2020's cash flow was outright negative against a positive profit, and the two most recent margin-compression years (FY2024 at 0.46&times;, FY2025 at 0.94&times;) both fell short — directly traceable to the receivable-days spike documented in Section <a href="#wc">05</a>.</p>
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: a real decline, and no management explanation on record for it</h2>
+<p class="sec-sub">The last time this company spoke to investors, it promised margins would hold or improve. They have fallen every year since — and there has been no call since to ask why.</p>
+
+<p>EBITDA margin fell from a peak of 40.5% (FY2023) to 29.5% (FY2026) — a decline of more than a quarter of its peak level, spread across three consecutive years, not a single bad quarter. Unlike every other company on this pipeline, this report cannot show what management says caused it, because <b>the company has not held an investor call since 9 February 2024</b> — the entire margin decline documented in Section <a href="#record">03</a> happened after the last time Sigma Solve spoke to the investors who own its stock. This is independently confirmed via Screener.in's own concall archive, not merely an artefact of this pipeline's document collection.</p>
+
+<h3>What the record shows, and what it contradicts</h3>
+
+<p>On the two calls that exist, both held while margin was still near its peak, management was directly asked whether the then-prevailing 35-40% margin was sustainable, and answered with specific confidence:</p>
+
+<blockquote>
+<p>"I strongly feel they are sustainable because for us to even get to these kinds of top lines and continue to grow, we also have to get into higher end technologies. And when you get into those, the cost goes up, but at the same time, what you can demand a premium for those services as well. So yes, the cost will go up but I feel that the value of the services also goes higher."</p>
+<p class="attr">Prerak Parikh, Co-founder, Sigma Solve Inc. — Management Interaction call, 1 December 2023</p>
+</blockquote>
+
+<blockquote>
+<p>"Obviously they are not going to come with lower salaries, but those expectations and that constant crunch and the attrition that has very much levelled out... our margins are going to be a little better."</p>
+<p class="attr">Prerak Parikh — same call, on wage-inflation pressure specifically</p>
+</blockquote>
+
+<p>Both statements have been contradicted by what actually happened: margin did not hold, and it did not improve — it fell in every one of the three fiscal years since. That is not, on its own, proof of bad faith; industry-wide pricing and cost pressure on small Indian IT-services exporters is real and documented at other companies this pipeline has covered (Section <a href="#growth">07</a>). What is unusual, and worth stating plainly, is that <b>no later call exists to update, walk back, or explain the miss</b> — the record simply goes silent at the exact point the company's own confident guidance started to diverge from its results.</p>
+
+<figure>
+  <div class="fig-title">Operating margin, FY2020&ndash;FY2026 — the last call fell right at the peak</div>
+  <div class="fig-sub">Every quarter of the margin's three-year decline happened after management last spoke to investors</div>
+  <svg viewBox="0 0 720 250" role="img" aria-label="Sigma Solve operating margin, FY2020 to FY2026, with the last investor call marked"><line class="grid-l" x1="46" y1="216.0" x2="704" y2="216.0"/><text class="ax" x="40" y="219.0" text-anchor="end">0%</text><line class="grid-l" x1="46" y1="176.0" x2="704" y2="176.0"/><text class="ax" x="40" y="179.0" text-anchor="end">10%</text><line class="grid-l" x1="46" y1="136.0" x2="704" y2="136.0"/><text class="ax" x="40" y="139.0" text-anchor="end">20%</text><line class="grid-l" x1="46" y1="96.0" x2="704" y2="96.0"/><text class="ax" x="40" y="99.0" text-anchor="end">30%</text><line class="grid-l" x1="46" y1="56.0" x2="704" y2="56.0"/><text class="ax" x="40" y="59.0" text-anchor="end">40%</text><line class="grid-l" x1="46" y1="16.0" x2="704" y2="16.0"/><text class="ax" x="40" y="19.0" text-anchor="end">50%</text><line x1="484.7" y1="16" x2="484.7" y2="216" stroke="rgba(224,96,74,0.45)" stroke-width="1.5" stroke-dasharray="4,3"/><text class="ax" x="484.7" y="12" text-anchor="middle" fill="#ef937f">last call, Feb 2024</text><path d="M46.0,143.2 L155.7,76.8 L265.3,69.6 L375.0,54.0 L484.7,74.0 L594.3,80.4 L704.0,98.0" fill="none" stroke="#5b9bd1" stroke-width="2" stroke-linejoin="round"/><circle cx="46.0" cy="143.2" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2020 OPM: 18.2%</title></circle><text class="ax" x="46.0" y="230" text-anchor="middle">'20</text><circle cx="155.7" cy="76.8" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2021 OPM: 34.8%</title></circle><text class="ax" x="155.7" y="230" text-anchor="middle">'21</text><circle cx="265.3" cy="69.6" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2022 OPM: 36.6%</title></circle><text class="ax" x="265.3" y="230" text-anchor="middle">'22</text><circle cx="375.0" cy="54.0" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2023 OPM: 40.5%</title></circle><text class="ax" x="375.0" y="230" text-anchor="middle">'23</text><circle cx="484.7" cy="74.0" r="3.2" fill="#5b9bd1" stroke="#171f34" stroke-width="2"><title>FY2024 OPM: 35.5%</title></circle><text class="ax" x="484.7" y="230" text-anchor="middle">'24</text><circle cx="594.3" cy="80.4" r="3.2" fill="#ef937f" stroke="#171f34" stroke-width="2"><title>FY2025 OPM: 33.9%</title></circle><text class="ax" x="594.3" y="230" text-anchor="middle">'25</text><circle cx="704.0" cy="98.0" r="3.2" fill="#ef937f" stroke="#171f34" stroke-width="2"><title>FY2026 OPM: 29.5%</title></circle><text class="ax" x="704.0" y="230" text-anchor="middle">'26</text><text class="vlbl" x="371.0" y="45.0" text-anchor="end">40.5%</text><text class="vlbl" x="708.0" y="112.0" text-anchor="start" fill="#ef937f">29.5%</text></svg>
+  <figcaption><b>Why:</b> the marked point is the February 2024 call, the last one on record. Everything to its right in this chart is undocumented from management's own mouth. Source: <span style="font-family:var(--mono)">src.modules.equity_research</span>, FY2020-FY2026; concall history from Screener.in, confirming no call after Feb 2024.</figcaption>
+</figure>
+
+<h3>What this report can and cannot rule out</h3>
+
+<p>Per this pipeline's binding rule on anomalies: an unexplained move gets a sourced cause, or an explicit statement that no cause was found. Here, none was found in any retrieved filing, transcript, or news item covering the FY2024-FY2026 period specifically. Plausible candidates exist — the same industry-wide AI-driven pricing pressure on effort-based billing this pipeline has documented at other small Indian IT-services exporters (Section <a href="#growth">07</a>), continued investment in the new logistics and Microsoft Dynamics verticals mentioned on the last call, or simply normal competitive margin normalisation from an unusually high FY2023 peak — but none of these is confirmed by a primary source, and this report does not present any of them as the explanation. The honest position is that the cause is unknown because the company has not been asked, and has not said.</p>
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: a receivable cycle that swung sharply, twice</h2>
+<p class="sec-sub">Not a one-directional drift like this pipeline usually finds — a genuine W-shape, unexplained in the same way the margin is</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Receivable days</th><th class="num">Net operating WC</th><th class="num">WC % of sales</th><th class="num">Incremental WC ratio</th></tr></thead>
+<tbody>
+<tr><td class="t">2020</td><td class="num">142</td><td class="num">&minus;0.6</td><td class="num">&minus;5.8%</td><td class="num">&minus;10.7%</td></tr>
+<tr><td class="t">2021</td><td class="num">62</td><td class="num">3.2</td><td class="num">15.0%</td><td class="num">35.3%</td></tr>
+<tr class="hl"><td class="t"><b>2022</b></td><td class="num"><b>29</b></td><td class="num"><b>&minus;9.9</b></td><td class="num"><b>&minus;24.0%</b></td><td class="num"><b>&minus;65.4%</b></td></tr>
+<tr><td class="t">2023</td><td class="num">35</td><td class="num">&minus;15.9</td><td class="num">&minus;28.4%</td><td class="num">&minus;40.5%</td></tr>
+<tr><td class="t">2024</td><td class="num">82</td><td class="num">13.1</td><td class="num">20.1%</td><td class="num">314%</td></tr>
+<tr><td class="t">2025</td><td class="num">100</td><td class="num">18.8</td><td class="num">24.7%</td><td class="num">52.1%</td></tr>
+<tr><td class="t">2026</td><td class="num">70</td><td class="num">25.5</td><td class="num">26.6%</td><td class="num">34.0%</td></tr>
+</tbody>
+</table>
+<caption>&#8377; crore unless stated. Source: <span style="font-family:var(--mono)">src.modules.equity_research.working_capital</span>, FY2020-FY2026.</caption>
+</div>
+
+<p>Through FY2022-23, the company was in an unusually favourable position — negative net working capital, meaning customers and the payment cycle were effectively funding operations rather than the other way round, with receivable days as low as 29. That reversed sharply and quickly: net working capital swung from &minus;₹15.9 Cr (FY2023) to +₹25.5 Cr (FY2026) in three years, and the incremental working-capital ratio for FY2024 alone — 314% of that year's incremental revenue — means working capital grew more than three times faster than sales did that year, an extreme, one-year spike rather than a gradual drift.</p>
+
+<p>This tracks precisely with the margin decline documented in Section <a href="#margin">04</a>, and it suffers from the identical evidentiary problem: <b>no management explanation exists on record</b>, because the FY2024 spike happened in the same window the company stopped holding investor calls. A slower-paying client mix, a specific large receivable dispute, or simply the mechanical effect of the group-simplification accounting change around the Sigma Solve Inc. consolidation (Section <a href="#flags">11</a>) are all plausible candidates; none is confirmed. The FY2026 easing (100 days &rarr; 70 days) is a genuinely positive signal that whatever drove the FY2024-25 spike may be resolving, but a single year of improvement after a two-year deterioration is not yet a trend, and there is no primary source explaining that improvement either.</p>
+
+<div class="warn">
+  <div class="lbl">What is not in dispute</div>
+  <p>Whatever the cause, cumulative cash generation over the full period remains ahead of cumulative profit (Section <a href="#framework">02</a>) — this is a real, sizeable swing in the working-capital cycle, not evidence that reported profit is fictitious. It is the kind of unexplained multi-year move that a company holding regular investor calls would ordinarily be asked about directly; this one has not been, because there has been no call to ask it on.</p>
+</div>
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How Sigma Solve compares with its real peers</h2>
+<p class="sec-sub">No listed Indian company matches its scale, its structure and its business mix all at once — the peer set here is a spectrum, not a tight match</p>
+
+<p>Sigma Solve names no competitor anywhere in its filings. Twenty-one candidates were researched to build the set below; roughly half were dropped outright for a genuinely different business model (defence-electronics manufacturing, e-waste recycling, ad-tech, BFSI staffing, pharmaceuticals) or outright financial distress unrelated to the operating comparison this report needs. What is left is a real constraint worth stating plainly: <b>almost every listed Indian IT-services company is larger than Sigma Solve</b>, and the one company found that most precisely replicates its unusual "Indian company billing 100% through a wholly-owned US subsidiary" structure — Trigyn Technologies — is roughly ten times its size and financially much weaker today.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Company</th><th class="num">Revenue (₹Cr)</th><th class="num">Scale vs. Sigma Solve</th><th class="num">ROCE</th><th class="num">ROE</th><th class="t">Promoter</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>Sigma Solve</b></td><td class="num">96</td><td class="num">1.0&times;</td><td class="num g">40.4%</td><td class="num g">28.0%</td><td class="t">73.2%</td></tr>
+<tr><td class="t">Alphalogic Techsys</td><td class="num">51</td><td class="num">0.5&times;</td><td class="num">n/d</td><td class="num">~15% NPM</td><td class="t">73.8%</td></tr>
+<tr><td class="t">Virtual Galaxy Infotech</td><td class="num">182</td><td class="num">1.9&times;</td><td class="num g">33.7%</td><td class="num">29.6%</td><td class="t">65.0%</td></tr>
+<tr><td class="t">Exato Technologies</td><td class="num">167-180</td><td class="num">1.9&times;</td><td class="num">26.7%</td><td class="num">24.4%</td><td class="t">54.7%</td></tr>
+<tr><td class="t">Sagarsoft (India)</td><td class="num">164</td><td class="num">1.7&times;</td><td class="num l">&minus;15.7%</td><td class="num l">&minus;10.4%</td><td class="t">51.4%</td></tr>
+<tr><td class="t">Silver Touch Technologies</td><td class="num">288</td><td class="num">3.0&times;</td><td class="num">29.8%</td><td class="num">24.4%</td><td class="t">74.7%</td></tr>
+<tr><td class="t">InfoBeans Technologies</td><td class="num">514</td><td class="num">5.4&times;</td><td class="num">29.2%</td><td class="num">23.2%</td><td class="t">72.8%</td></tr>
+<tr><td class="t">Saksoft</td><td class="num">1,007</td><td class="num">10.5&times;</td><td class="num">25.5%</td><td class="num">19.6%</td><td class="t">66.7%</td></tr>
+<tr><td class="t">Trigyn Technologies</td><td class="num">976</td><td class="num">10.2&times;</td><td class="num l">2.3%</td><td class="num l">0.3%</td><td class="t">44.5%</td></tr>
+</tbody>
+</table>
+<caption>Screener.in, fetched 11-13 September 2026 (public pages, no authenticated access configured — see Section <a href="#gaps">15</a>). Full detail and per-company caveats in <span style="font-family:var(--mono)">research/INE0A0S01028/peers.md</span>.</caption>
+</div>
+
+<h3>The closest match on scale is the closest warning on margin durability</h3>
+
+<p><b>Alphalogic Techsys</b> is the only listed company found smaller than Sigma Solve, with a near-identical promoter holding (73.8% vs. 73.2%) — the best available answer to "who else is actually this size." Its net margin runs meaningfully thinner (~15% against Sigma Solve's 25%+), and its stock has derated roughly 49% over the past year, worth understanding before leaning on it as reassurance rather than caution. <b>Sagarsoft (India)</b> is the more pointed cautionary comparable: the same broad model — US-facing IT services, similar revenue scale — has gone from profitable to a &minus;₹15 Cr net loss in its most recent year, illustrating concretely what margin and pricing-power failure looks like for a company built the way Sigma Solve is.</p>
+
+<h3>Virtual Galaxy Infotech and Exato Technologies: the closest quality match, with one important caveat</h3>
+
+<p>Both companies sit at roughly twice Sigma Solve's scale with genuinely comparable margin and return quality (Virtual Galaxy's 33.7% ROCE is the closest any peer comes to Sigma Solve's own number). The caveat that matters: both serve identifiable domestic clients (BFSI/government software, customer-experience services) rather than booking revenue through a single, opaque, wholly-owned offshore subsidiary — the specific structural risk theme this report treats as central (Section <a href="#flags">11</a>) simply does not exist for either of them. They are useful for benchmarking growth and margin, not for benchmarking disclosure quality.</p>
+
+<h3>Trigyn Technologies: the one structural match, and a warning about where this model can end up</h3>
+
+<p><b>Trigyn Technologies</b> is the only listed company found that replicates Sigma Solve's specific structure — an Indian parent billed against, and consolidated through, a wholly-owned US subsidiary (Trigyn Technologies Inc., New Jersey) that holds the actual client relationships. It is roughly ten times Sigma Solve's revenue and has been for years, but its profitability has collapsed — net profit fell from ₹39 Cr (FY2022) to ₹2 Cr (FY2026), ROCE now sits at 2.3%, essentially break-even. This is not offered as a prediction that Sigma Solve will follow the same path; the two companies' recent trajectories (accelerating margin compression here, a multi-year structural decline there) look different in shape. It is offered as the only available evidence on what this specific "single offshore billing subsidiary" structure looks like once growth stops paying for it.</p>
+
+<h3>Silver Touch Technologies: the closest qualitative and geographic match</h3>
+
+<p><b>Silver Touch Technologies</b> — also Ahmedabad-based, also promoter-controlled (74.7%), also SME-platform-IPO heritage, of a similar company vintage — is the best "same city, same era, same ownership structure" comparable, at roughly three times Sigma Solve's scale. Its business mix (SAP implementation and e-governance for identifiable enterprise and government clients) is more diversified and transparent than Sigma Solve's single-subsidiary export model, which is itself the point of the comparison: two companies that started from a similar place have ended up with very different disclosure profiles.</p>
+
+<p>Set against this spread, Sigma Solve's 40.4% current-year ROCE and 28.0% ROE remain at or near the top of the set — but, as Section <a href="#framework">02</a> already notes, both are on a declining trend from a materially higher peak, and none of the peers with genuinely comparable numbers (Virtual Galaxy, Exato) share the specific structural feature that makes Sigma Solve's own numbers harder to verify against an identifiable customer base.</p>
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: a real niche, a new logistics bet, and the same AI-pricing question this pipeline keeps finding</h2>
+<p class="sec-sub">Demand for the underlying work is genuine. Whether Sigma Solve captures it at its historical margin is the open question — and unlike this pipeline's other reports, there is no recent management commentary to weigh against the external evidence</p>
+
+<h3>The demand case is not the constraint</h3>
+
+<p>Sigma Solve sits in the same broad category this pipeline's industry research has already mapped for a comparable small Indian IT-services exporter: NASSCOM puts India's total tech-industry revenue at ~$315bn for FY26 (+6.1% y-o-y), with the specific digital-engineering / custom-software-development niche consistently flagged by NASSCOM, Zinnov and third-party market research as growing several multiples faster (~20% range) than that headline figure. Nothing in this niche's demand backdrop explains Sigma Solve's own margin and receivable-cycle deterioration (Sections <a href="#margin">04</a>, <a href="#wc">05</a>) — the addressable market for offshore enterprise software development, US-facing, is not shrinking.</p>
+
+<h3>The same AI-pricing-pressure question this pipeline has now found repeatedly</h3>
+
+<p>The large Indian IT majors are already disclosing measurable pricing deflation from generative-AI coding tools in FY26 earnings calls — HCLTech's CEO has described a contract that would once have been priced at "$100 million" now going for "maybe $80 million" under client productivity-based pricing demands. Motilal Oswal's sell-side view: roughly 12-15% of Indian IT-sector revenue faces direct AI-driven displacement risk, with productivity gains "extracted almost entirely by enterprise buyers through productivity demands and vendor price pressure" rather than captured by the vendor as margin. Two matched-scale Indian IT-services boutiques this pipeline has already examined — InfoBeans Technologies and Kellton Tech Solutions, both sub-₹600 Cr revenue, developer-time-billed — showed the identical "record revenue, compressing margin" pattern in the same FY26 quarters. Sigma Solve's own three-year margin slide (Section <a href="#margin">04</a>) is consistent with this broader, category-wide pattern, though — critically — no management commentary exists to confirm or rule this out as the actual cause, because the company has not held a call since before most of this pricing pressure became visible industry-wide (Section <a href="#analysts">08</a>).</p>
+
+<h3>The one concrete new growth vehicle: Rish Info Logistics</h3>
+
+<p>On both available calls, management pointed to a logistics-industry vertical — a SaaS platform for transportation management and route optimisation — as a specific product-led growth ambition, distinct from the core billed-hours business. That ambition now has a concrete corporate form: <b>Rish Info Logistics Private Limited</b>, a 70%-owned subsidiary incorporated in April 2024 (Section <a href="#flags">11</a>). No standalone financial disclosure for this entity was found in any source reviewed, so this report cannot say whether it is generating meaningful revenue, remains pre-revenue, or has been scaled back — an open item for a future update, and a genuine gap given management's own past framing of logistics-vertical SaaS as a margin-accretive differentiator ("if anything, it's only going to boost those margins up," Prerak Parikh, December 2023).</p>
+
+<h3>What would resolve this section, and why it currently cannot be resolved</h3>
+
+<div class="warn">
+  <div class="lbl">The evidentiary gap this section cannot close on its own</div>
+  <p>Every other report on this pipeline that has examined a margin-compression episode could weigh management's own explanation against external evidence and score the two against each other. This report cannot, because the compression happened entirely inside a window with no primary management commentary. What would resolve it: (1) a new investor call, at any point, addressing the margin and working-capital trends directly; (2) any standalone financial disclosure for Rish Info Logistics showing whether the logistics-SaaS ambition has produced revenue; (3) a subsequent quarter's realised billing rates or per-developer revenue, the cleanest available test of whether AI-driven pricing pressure is the operative mechanism here as it appears to be at comparable-scale peers; (4) resolution of the open SEBI "Delhi Group" trading investigation (Section <a href="#flags">11</a>), which bears on confidence in the stock's price discovery generally, if not on the operating business directly.</p>
+</div>
+</section>
+
+
+<section id="analysts">
+<h2><span class="num">08</span>What outside scrutiny exists — essentially none</h2>
+<p class="sec-sub">No broker covers this stock, no forum has ever discussed it seriously, and the company itself has not taken a question from an investor in two and a half years</p>
+
+<h3>Zero institutional coverage</h3>
+
+<p>Investing.com's consensus-estimates page for Sigma Solve confirms it is covered by <b>0 analysts</b>. A search for brokerage initiation notes, target prices, or independent research write-ups returned nothing beyond data-aggregator pages (Screener, Tickertape, TradingView and similar) carrying live ratios with no analytical commentary. This is unsurprising for an ~$11M-revenue company three years into a mainboard listing, but it means every valuation view in Section <a href="#valuation">13</a> is this report's own, with no external institutional check to weigh against it.</p>
+
+<h3>The retail forum came close to the right question once, and never followed up</h3>
+
+<p>Sigma Solve has never had a dedicated thread on ValuePickr — a genuine rarity for a company covered on this pipeline. Its entire retail-forum footprint is eight posts across three threads, none company-specific. The one substantive exchange, in a general Q&A megathread in November 2023, has a retail investor flagging exactly the structural question this report treats as central: how did the parent's stake in Sigma Solve Inc. rise from 59.81% to 100% "with no outflow of cash"? The answer he received explained the buyback mechanics correctly but never asked the more pointed question — <i>who were the other shareholders, and why was the entity carrying nearly all of the group's revenue not wholly owned by the listed company in the first place?</i> That question was never asked by anyone, on that thread or any other. A single ChatGPT-generated restatement of the same mechanical explanation appears a month later; nothing else follows. No promoter-shareholding trend, valuation debate, order-book discussion, or competitor comparison exists anywhere on the forum for this stock.</p>
+
+<h3>The company has not spoken to investors since February 2024</h3>
+
+<p>Five investor interactions took place between December 2022 and February 2024, each with a transcript and presentation archived on Screener.in. <b>None has taken place since</b> — independently confirmed via Screener's own concall history, not merely an absence in this pipeline's document collection. The silence began at almost exactly the point margin and working capital started moving against the company (Sections <a href="#margin">04</a>, <a href="#wc">05</a>), and it directly contradicts a specific commitment made on the record: <i>"You'll get an update every quarter... we'll try to do conference call at least half yearly if not every quarter,"</i> said by the company's own IR advisor at the close of the December 2023 call. That has not happened even once since. Scored explicitly in Section <a href="#mgmt">09</a>.</p>
+
+<p>Put together: no analyst asks Sigma Solve hard questions, no forum applies sustained scrutiny, and the company has stopped giving anyone the opportunity to ask on a call. Whatever this report cannot verify about the company's recent performance is not unverifiable by choice — it is unverifiable because the normal channels through which a small-cap earns outside scrutiny are all, for different reasons, empty.</p>
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">09</span>Management scorecard: confident guidance, repeated misses, then silence</h2>
+<p class="sec-sub">Every specific, quantified commitment on the two available calls has since been missed — and there has been no later call to explain any of them</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Commitment</th><th class="t">What actually happened</th><th class="t">Classification</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">FY2024 revenue guided at "somewhere between 80 and 95 crore" (Dec 2023 call, extrapolating from the ₹16 Cr/quarter run-rate plus a stated $1.5-2.5M pipeline)</td><td class="t">Actual FY2024 revenue: <b>₹65.1 Cr</b> — 19-31% below the bottom of the guided range</td><td class="t"><span class="pill p-broke">BROKEN</span></td></tr>
+<tr class="hl"><td class="t">Margins "sustainable," with cost inflation offset by pricing power for higher-end work; separately, wage pressure easing meant margins "going to be a little better" (Dec 2023 call)</td><td class="t">EBITDA margin fell every year since: 40.5% (FY2023) &rarr; 35.5% &rarr; 33.9% &rarr; <b>29.5%</b> (FY2026) — no later call exists to explain the reversal (Section <a href="#margin">04</a>)</td><td class="t"><span class="pill p-broke">BROKEN</span></td></tr>
+<tr><td class="t">30-35% year-on-year growth, reaching a $30M revenue run-rate within 4-5 years of the Dec 2023 call (i.e. by roughly FY2028)</td><td class="t">Actual growth since: +16.5% (FY24), +17.1% (FY25), +25.5% (FY26) — a ~19.7% three-year CAGR, meaningfully below the guided 30-35% pace, though revenue growth remains real and positive</td><td class="t"><span class="pill p-slip">SLIPPED — behind pace, deadline not yet reached</span></td></tr>
+<tr><td class="t">"You'll get an update every quarter... we'll try to do conference call at least half yearly if not every quarter" (IR advisor, closing the Dec 2023 call)</td><td class="t">Zero investor calls held since February 2024 — independently confirmed via Screener.in's own concall archive</td><td class="t"><span class="pill p-broke">BROKEN, outright</span></td></tr>
+<tr><td class="t">Sigma Solve Inc. minority buyout completed "at way below the market price," explicitly credited as putting "minority shareholders' interest up front"</td><td class="t">Structurally confirmed: the parent's stake rose from 59.81% to 100% at no cash cost to Sigma Solve Ltd. Actual consideration/valuation terms remain undisclosed in every source reviewed (Section <a href="#flags">11</a>)</td><td class="t"><span class="pill p-kept">Directionally KEPT, audit trail thin</span></td></tr>
+<tr><td class="t">Active M&A search for a company "strong on execution" in India to accelerate growth (Feb 2024 call)</td><td class="t">No acquisition found in any source through the most recent filing reviewed; two new entities (Rish Info Logistics, Sigma Accounting) were incorporated organically, not acquired</td><td class="t"><span class="pill p-open">UNRESOLVED — ambition not converted, not disproven</span></td></tr>
+</tbody>
+</table>
+<caption>Sources: AlphaStreet-style verbatim transcripts of the 1 Dec 2023 and 9 Feb 2024 calls (this pipeline's own document store); consolidated financials via <span style="font-family:var(--mono)">xbrl_annual</span>; Screener.in concall archive (fetched 13 September 2026).</caption>
+</div>
+
+<h3>The pattern, stated plainly</h3>
+
+<p>This is not a management team whose promises were vague enough to escape testing — the opposite. Every commitment scored above was specific, numeric, and made with real confidence: a dollar-denominated pipeline figure, a percentage growth rate, an explicit statement that margins would improve, a specific commitment about call frequency. Every one of them has since missed, and — unlike every other company on this pipeline — there is no later call on which management was asked to account for the gap, walk back the guidance, or explain what changed. The one item that reads favourably (the Sigma Solve Inc. buyout) is favourable in direction but thin on disclosed detail, which is itself consistent with the broader pattern: confident claims, followed by silence rather than a scored update.</p>
+
+<p>What this does <i>not</i> mean: there is no evidence here of fabricated numbers, self-dealing, or promoter enrichment at shareholders' expense. The FY2023-24 buyout, on the facts available, benefited public shareholders. Revenue has grown every year, cash conversion remains cumulatively positive (Section <a href="#framework">02</a>), and the SEBI compliance matter (Section <a href="#flags">11</a>) is a modest, regulator-characterised procedural lapse, not a fraud finding. What the record does support is a specific, narrower conclusion: <b>this management's forward-looking numeric commitments should be weighted as optimistic rather than reliable, and its willingness to explain a miss once one occurs is untested</b> — because the company has not given anyone the chance to ask.</p>
+</section>
+
+
+<section id="capital">
+<h2><span class="num">10</span>Capital allocation: a dividend that hasn't moved in four years, and a growing treasury book</h2>
+<p class="sec-sub">Almost everything the business earns is retained. What it's retained into is a straightforward, growing pile of cash and investments — not a second product bet or an acquisition</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Dividend / share</th><th class="num">Total outflow</th><th class="t">Standalone payout ratio (company's own basis)</th></tr></thead>
+<tbody>
+<tr><td class="t">2023 (paid FY24)</td><td class="num">₹0.50</td><td class="num">₹51.39L</td><td class="t">26.95%</td></tr>
+<tr><td class="t">2024</td><td class="num">₹0.50</td><td class="num">₹51.39L</td><td class="t">12.20%</td></tr>
+<tr><td class="t">2025</td><td class="num">₹0.50</td><td class="num">₹51.39L</td><td class="t">9.22%</td></tr>
+<tr class="hl"><td class="t"><b>2026</b></td><td class="num"><b>₹0.50</b></td><td class="num"><b>₹51.39L (approved)</b></td><td class="t">Not yet disclosed</td></tr>
+</tbody>
+</table>
+<caption>Figures post the 10-for-1 stock split (FY2025). The absolute per-share amount and total cash outflow have been identical, to the rupee, in all four years. Sources: FY2024, FY2025 annual reports; Screener.in corporate-action page (fetched 13 September 2026) for the FY2026 declaration.</caption>
+</div>
+
+<p>The company's own reported payout ratios look like a shrinking commitment (27% down to 9%), but that is arithmetic, not policy: the percentage falls only because the denominator — <b>standalone</b> profit — has grown while the absolute dividend has not moved at all. On a consolidated basis (where nearly all of the group's real economic profit now sits, given Sigma Solve Inc. is wholly owned), the effective payout ratio has fallen even faster, from roughly 4% of consolidated PAT in FY2023 toward closer to 2% by FY2026, while consolidated PAT itself roughly doubled over the same period.</p>
+
+<h3>Where the retained cash has gone: a growing, unremarkable treasury book</h3>
+
+<p>Cash and short-term investments on the balance sheet grew from a negligible base to <b>₹47.3 Cr</b> by FY2026 (₹8.7 Cr cash, ₹38.6 Cr investments) — against a market capitalisation of ₹454 Cr, a meaningful but not dominant cushion (roughly 10% of market cap), unlike the treasury-heavy balance sheets this pipeline has found at larger, older companies. This pipeline's own cash-gates calculation, corrected for the default capex proxy's known distortion (Section <a href="#gaps">15</a>), shows the harder cash test — CFO less real capex less interest — comfortably positive at +₹86.4 Cr over the decade, meaning the treasury build-up is genuine retained operating cash, not a financing artefact.</p>
+
+<p>Set against the two capital-allocation episodes this report has examined closely — the Sigma Solve Inc. buyout (Section <a href="#flags">11</a>, favourable in direction, thin on disclosed terms) and the SEBI finding that IPO proceeds were redirected toward funding an office purchase beyond the disclosed cap (Section <a href="#flags">11</a>) — the broader pattern on capital allocation is one of caution rather than aggression: no debt-funded expansion, no large acquisition, a small step into a new logistics vertical via a majority-owned but modestly capitalised subsidiary, and a dividend policy that has simply not grown alongside profit rather than one that has been cut or suspended. That is a defensible, if unexciting, use of a small company's retained capital — but it also means shareholders have not yet been shown what management intends to do with an accumulating cash pile beyond letting it sit in short-term investments.</p>
+</section>
+
+
+<section id="flags">
+<h2><span class="num">11</span>Governance: two real SEBI orders in 2025, and one structural question the standard audit doesn't reach</h2>
+<p class="sec-sub">Neither order implicates promoter self-dealing. Both are worth understanding precisely rather than either dismissed or overstated</p>
+
+<h3>SEBI order one: a real, regulator-confirmed compliance lapse on IPO proceeds</h3>
+
+<p>On 25 September 2025, SEBI issued a joint adjudication order against <b>Sigma Solve Limited and Beeline Broking Limited</b> (the company's SME-IPO merchant banker). The finding: Sigma Solve spent ₹151.57 lakh — 30.6% of total IPO proceeds — on "General Corporate Purpose," against a 25% cap disclosed in its own prospectus. Specifically, ₹31.57 lakh originally earmarked for public-issue expenses was instead redirected to pay down an overdraft used to fund the purchase of the company's Ahmedabad office — the same office-property purchase visible independently in this pipeline's own balance-sheet data as the FY2023 capital-work-in-progress and FY2024 net-block jump (Section <a href="#record">03</a>). The order also cites a 50-day delay in filing a required proceeds-deviation statement (for the half-year ended March 2021) and inadequate Director's Report disclosure of the variation.</p>
+
+<p>Two things are worth holding at once here. First, this is real: a public company breached its own IPO prospectus's spending cap and disclosed the deviation late. Second, SEBI's own order explicitly found that the later reallocation did not render the original prospectus disclosures <i>misleading</i> — citing a 2021 precedent on exactly this distinction — and the penalty imposed on Sigma Solve was ₹2 lakh, small in absolute terms against ₹28 Cr of FY2026 operating profit. This reads as a genuine but modest compliance failure, the kind many small SME-heritage IPOs commit in their early years, not a disclosure-fraud finding.</p>
+
+<h3>SEBI order two: an open investigation into trading in the stock — not into the company</h3>
+
+<p>A separate order, dated 28 August 2025, concerns SEBI's investigation into suspected fraudulent or manipulative trading in <b>Sigma Solve's own listed shares</b>, under the standard Prohibition of Fraudulent and Unfair Trade Practices framework. <b>This order does not name Sigma Solve Limited, its promoters, or any director as a noticee.</b> The party actually penalised — ₹1 lakh — is Capital Finance and Investments LLP, fined not for manipulation itself but for repeatedly failing to appear before SEBI's investigators despite three summonses. SEBI's order describes that firm as suspected of links to a group it calls "Delhi Group entities," citing large fund transactions connected to an individual named Kulbhushan Parashar and call records connecting the firm to a second individual, Manish Kumar.</p>
+
+<div class="warn">
+  <div class="lbl">What this is, and what this report will not claim</div>
+  <p>No source found in this research implicates Sigma Solve Limited, the Parikh family, or any company director in the trading activity under investigation, and no order resolving the underlying manipulation question — whether the scrip was actually subject to fraudulent trading, and by whom — was found. What is confirmed is narrower but still material: SEBI considered trading in this specific, thinly-held micro-cap's stock suspicious enough to open a formal investigation, tied it to a named group of outside entities, and that investigation appears to remain open rather than resolved as of the most recent order found. For a stock with under 0.1% institutional ownership and zero analyst coverage (Section <a href="#analysts">08</a>), an active regulatory question mark over the integrity of its own trading is a fact worth knowing, independent of whether the company itself is ever implicated.</p>
+</div>
+
+<h3>The structural question the standard RPT lens doesn't reach</h3>
+
+<p>The existing related-party audit rates Sigma Solve 1/3 ("Watch") — every AOC-2 not-at-arm's-length disclosure reads "NA," and the only related-party items found across FY2023-25 are ordinary intercompany billing with the (now wholly-owned) US subsidiary, KMP remuneration, and two small entities (Sigma Solve Australia Pty Ltd, Sigma Accounting Pvt Ltd) with negligible transaction values. That audit is accurate on its own terms. What it does not capture is the single largest capital event in the company's history: <b>Sigma Solve Inc. — the entity that books essentially all of the group's revenue — was, until FY2023-24, roughly 40% owned by the promoter's own relatives (co-founders Biren Zaverchand and Prerak Parikh), and reached 100% ownership through a subsidiary-level share buyback that cost the parent company nothing in cash</b> (Section <a href="#business">01</a>). Because this was structured as a buyback at the subsidiary level rather than a direct contract between the listed company and a related party, it falls outside the standard Section 188/AOC-2 disclosure lens the audit checks — and so it appears nowhere in that audit's scoring, despite being, by a wide margin, the most consequential related-party-adjacent transaction this company has ever done.</p>
+
+<p>The direction of that transaction appears to have favoured Sigma Solve Ltd's public shareholders: value moved from promoter-relative co-founders to the listed entity, for no cash outlay, and management was explicitly praised for it on the record by an analyst on the December 2023 call — praise this report has no basis to dispute. What is genuinely missing is the audit trail: no source found discloses the actual consideration, valuation basis, or funding mechanism behind Sigma Solve Inc.'s buyback of its own minority shareholders. A retail investor asked exactly this question on ValuePickr in November 2023 (Section <a href="#analysts">08</a>) and received only a mechanical explanation of how a buyback works, never an answer to why the entity carrying nearly all the group's revenue was jointly held with promoter relatives in the first place, or on what terms that changed. This report cannot resolve that either — it is recorded here as an open item, not glossed over and not treated as a red flag it has no evidence to support.</p>
+
+<h3>What is otherwise clean</h3>
+
+<ul>
+<li><b>No litigation</b> beyond the two SEBI matters above was found in this research.</li>
+<li><b>No GST or income-tax notice</b> was found.</li>
+<li><b>No promoter share pledge</b> was found.</li>
+<li><b>Promoter holding</b> stable at 73.2%, unchanged in every recent snapshot reviewed.</li>
+<li><b>No KMP resignation</b> was found beyond Prerak Parikh's formal director appointment in June 2025 (a governance-tidying step, not a departure).</li>
+</ul>
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">12</span>What retail investors have said — almost nothing, and the one near-miss</h2>
+<p class="sec-sub">No dedicated thread has ever existed for this stock. The closest anyone came to the right question, they never followed up on</p>
+
+<p>Sigma Solve has never had a dedicated ValuePickr thread — a genuine rarity among companies this pipeline has covered. Its entire footprint on the forum, across its full history, is <b>eight posts spread across three threads</b>, none of them company-specific. A parallel search for Silver Touch Technologies, its closest geographic and structural peer (Section <a href="#peers">06</a>), returns zero results of any kind.</p>
+
+<h3>November 2023: a retail investor asks almost the right question</h3>
+
+<p>In a general "ask a basic question" megathread, forum member Suraj Tripathi flagged the exact structural fact this report treats as central, five months after Sigma Solve's mainboard migration:</p>
+
+<blockquote>
+<p>"So their majority of revenue comes from Sigma Solve Inc (a subsidiary of Sigma Solve ltd) which they owned 60% earlier and now it is raised to 100%. I don't understand how the raising to 100% is done (as there is no outflow of cash)."</p>
+<p class="attr">Suraj Tripathi (srt), ValuePickr, 7 November 2023</p>
+</blockquote>
+
+<p>A reply from another member correctly worked out the mechanics — a subsidiary-level buyback that retired the non-parent shares — and, in doing so, confirmed something the original poster hadn't stated: <i>"remaining stake were with some other shareholders"</i>, i.e. Sigma Solve Inc. had owners besides the listed parent before the buyback. Neither that poster nor anyone else on the thread asked who those other shareholders were, or raised the fact — knowable even then from the company's own filings — that they were promoter relatives. The sub-thread ends there. A follow-up reply seven weeks later is explicitly an AI-generated (ChatGPT) restatement of the same mechanical explanation, not independent human analysis. No related-party framing, no governance question, is ever raised. This report picks up exactly where that thread left off (Section <a href="#flags">11</a>).</p>
+
+<h3>Two other mentions, both incidental</h3>
+
+<p>A personal portfolio-log post in May 2024 discloses a token 13-share position ("small cap highly risky bet," no further elaboration, never revisited). A quantitative screener thread lists Sigma Solve once, in July 2024, as an unremarked-upon entry generated by a backtested ROE-and-growth rule — no discussion follows. Neither promoter shareholding, valuation, order book, client concentration, nor competitors has ever been discussed for this stock on ValuePickr.</p>
+
+<h3>Zero institutional coverage, independently confirmed</h3>
+
+<p>Investing.com's consensus-estimates page confirms Sigma Solve is covered by <b>0 analysts</b>. No broker note, initiating-coverage report, or independent published write-up was found anywhere. Combined with the retail-forum silence and the absence of any investor call since February 2024 (Section <a href="#analysts">08</a>), the picture is consistent across every channel this report checked: <b>this is a stock that has never been meaningfully scrutinised by anyone outside the company itself.</b> That is not evidence of anything being wrong — plenty of genuinely clean small companies go unscrutinised simply because they are small and new to the mainboard. But it does mean every governance and credibility question this report raises is being asked, in most cases, for the first time.</p>
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">13</span>Valuation: a price that sits between "fair at today's margin" and "requires a real recovery"</h2>
+<p class="sec-sub">Unlike a clean bear-case or bull-case read, this one is genuinely sensitive to the discount rate — and this report says so rather than picking the number that tells the better story</p>
+
+<h3>Starting point</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Item</th><th class="num">Value</th></tr></thead>
+<tbody>
+<tr><td class="t">Share price (13 Sep 2026)</td><td class="num">&#8377;44.20</td></tr>
+<tr><td class="t">Shares outstanding (post 10:1 split)</td><td class="num">10.28 Cr</td></tr>
+<tr><td class="t">Market capitalisation</td><td class="num">&#8377;454.2 Cr</td></tr>
+<tr><td class="t">Net debt, including treasury investments (FY2026: &#8377;2.0 Cr borrowings &minus; &#8377;8.7 Cr cash &minus; &#8377;38.6 Cr short-term investments)</td><td class="num">&minus;&#8377;45.3 Cr (net cash)</td></tr>
+<tr class="hl"><td class="t">Enterprise value</td><td class="num">&#8377;409.0 Cr</td></tr>
+<tr><td class="t">Trailing P/E on FY2026 consolidated PAT (&#8377;23.9 Cr)</td><td class="num">19.0&times;</td></tr>
+</tbody>
+</table>
+<caption>Net debt here deliberately nets out the treasury investment book, not just cash, since roughly 85% of the company's ~&#8377;47 Cr liquid balance sits in short-term investments rather than cash on this pipeline's own data (Section <a href="#capital">10</a>) — treating it as anything other than non-operating value would misstate what the operating business is actually worth.</caption>
+</div>
+
+<p>19.0&times; trailing P/E sits mid-pack against the peer set in Section <a href="#peers">06</a> — not the extreme premium a naive glance at Sigma Solve's return ratios might suggest, and not a discount either. Screener's own headline P/E occasionally cites a higher figure (~60&times;) sourced from the <b>standalone</b>, not consolidated, entity's own thin cost-plus P&L — a reconciliation worth flagging explicitly (Section <a href="#gaps">15</a>) so a reader checking a different data source isn't misled into thinking this stock trades at a far richer multiple than it does on the consolidated basis that reflects actual shareholder economics.</p>
+
+<h3>Reverse DCF: what does &#8377;44.20 actually require?</h3>
+
+<p>Assumptions: tax rate 24% (FY2026 actual), depreciation 1.0% of sales, capex 1.2% of sales (reflecting the corrected, genuinely low capital intensity of this business — Section <a href="#gaps">15</a>), incremental working capital 35% of incremental revenue (a deliberate judgment call, explained below), a 10-year growth path decelerating from 20% to 7% (below management's own 30-35% guidance, closer to the company's actual realised pace), terminal growth 5%, and a 14.5% discount rate — set above this pipeline's usual range given the specific, elevated uncertainty here: zero analyst coverage, no investor call in over two and a half years, and an open SEBI investigation into trading in the stock (Section <a href="#flags">11</a>).</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Solved for</th><th class="t">What the price requires</th><th class="t">Context</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Flat EBITDA margin (holding the growth path fixed)</td><td class="num">34.0%</td><td class="t">Current FY2026 margin: 29.5%. Historical FY2023 peak: 40.5%. <b>The price requires roughly halfway back to the historical peak</b> &mdash; not a stretch target given the company has held margins this high before, but not the "no recovery needed" case either.</td></tr>
+<tr><td class="t">Flat revenue CAGR (holding margin fixed at the current 29.5%)</td><td class="num">17.8%</td><td class="t">FY2026 actual growth: 25.5%. Three-year realised CAGR: ~19.7%. <b>The price does not require growth above what the company has actually delivered recently</b> &mdash; achievable on the current trend without any margin recovery at all.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Read together, these two solves describe a stock priced for <b>one</b> of two plausible, non-heroic outcomes: either margin claws back meaningfully from its current level (not all the way to the FY2023 peak, but a real move), or growth simply continues at something close to its actual recent pace with no margin recovery required at all. That is a materially different, more balanced shape than this pipeline's more typical finding of a price demanding an outcome the company has never achieved.</p>
+
+<div class="warn">
+  <div class="lbl">This conclusion is genuinely sensitive to the discount rate — shown, not hidden</div>
+  <p>At a 13% discount rate (this pipeline's more typical assumption for a founder-led small-cap), the required flat margin falls to <b>29.0%</b> — essentially exactly where the business sits today, meaning the price would already be fair without any recovery at all. At 15.5% (reflecting a harsher read of the governance and disclosure uncertainty), the required margin rises to <b>37.5%</b>, close to the historical peak. The 14.5% central case above is a judgment call, not a precise number this report can defend to the decimal &mdash; a reader who weighs the SEBI and disclosure risks more heavily than this report does should use the higher end of that range, and one who weighs them less heavily should use the lower end.</p>
+</div>
+
+<h3>Three explicit scenarios</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Scenario</th><th class="t">Margin path (10yr)</th><th class="t">Value / share</th><th class="t">vs. price</th></tr></thead>
+<tbody>
+<tr><td class="t"><b>Bear</b> &mdash; margin fades further, 29.5%&rarr;22% over 5 years, holds</td><td class="t">Consistent with continued industry-wide AI-pricing pressure (Section <a href="#growth">07</a>) and no resolution of the unexplained FY24-26 decline</td><td class="num">&#8377;28.9</td><td class="num l">&minus;35%</td></tr>
+<tr class="hl"><td class="t"><b>Base</b> &mdash; flat at the current 29.5%</td><td class="t">No further deterioration, no recovery &mdash; today's margin simply persists</td><td class="num">&#8377;37.9</td><td class="num l">&minus;14%</td></tr>
+<tr><td class="t"><b>Bull</b> &mdash; partial recovery, 29.5%&rarr;35% over 5 years, holds</td><td class="t">A meaningful but not complete recovery toward the FY2023 peak (40.5%)</td><td class="num">&#8377;44.5</td><td class="num g">+1%</td></tr>
+</tbody>
+</table>
+<caption>All three scenarios use the identical growth path (20% decelerating to 7% over 10 years) and the 14.5% central discount rate; only the margin path varies.</caption>
+</div>
+
+<figure>
+  <div class="fig-title">Three DCF scenarios against the current price</div>
+  <div class="fig-sub">The bull case, a partial margin recovery, lands closest to today's price</div>
+  <svg viewBox="0 0 720 220" role="img" aria-label="Discounted cash flow valuation scenarios for Sigma Solve against the current market price"><line class="grid-l" x1="46" y1="186.0" x2="704" y2="186.0"/><text class="ax" x="40" y="189.0" text-anchor="end">0</text><line class="grid-l" x1="46" y1="153.2" x2="704" y2="153.2"/><text class="ax" x="40" y="156.2" text-anchor="end">10</text><line class="grid-l" x1="46" y1="120.4" x2="704" y2="120.4"/><text class="ax" x="40" y="123.4" text-anchor="end">20</text><line class="grid-l" x1="46" y1="87.6" x2="704" y2="87.6"/><text class="ax" x="40" y="90.6" text-anchor="end">30</text><line class="grid-l" x1="46" y1="54.8" x2="704" y2="54.8"/><text class="ax" x="40" y="57.8" text-anchor="end">40</text><line class="grid-l" x1="46" y1="22.0" x2="704" y2="22.0"/><text class="ax" x="40" y="25.0" text-anchor="end">50</text><rect x="109.6" y="91.2" width="92.1" height="94.8" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs 28.9</title></rect><text class="vlbl" x="155.7" y="84.2" text-anchor="middle" fill="#d97a5f">&#8377;28.9</text><text class="ax" x="155.7" y="200" text-anchor="middle">Bear</text><text class="ax" x="155.7" y="212" text-anchor="middle" fill="#d97a5f">-35%</text><rect x="328.9" y="61.7" width="92.1" height="124.3" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 37.9</title></rect><text class="vlbl" x="375.0" y="54.7" text-anchor="middle" fill="#c9a24b">&#8377;37.9</text><text class="ax" x="375.0" y="200" text-anchor="middle">Base</text><text class="ax" x="375.0" y="212" text-anchor="middle" fill="#d97a5f">-14%</text><rect x="548.3" y="40.0" width="92.1" height="146.0" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 44.5</title></rect><text class="vlbl" x="594.3" y="33.0" text-anchor="middle" fill="#5fb98a">&#8377;44.5</text><text class="ax" x="594.3" y="200" text-anchor="middle">Bull</text><text class="ax" x="594.3" y="212" text-anchor="middle" fill="#8ecbaa">+1%</text><line x1="46" y1="41.0" x2="704" y2="41.0" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="34.0" text-anchor="end">market &#8377;44.2</text><line class="zero-l" x1="46" y1="186" x2="704" y2="186"/></svg>
+  <figcaption><b>Why:</b> all three bars use the identical growth path and discount rate; only the margin assumption varies (table above). Source: <span style="font-family:var(--mono)">src.modules.equity_research.dcf</span>.</figcaption>
+</figure>
+
+<p>The bull case — a genuine but partial margin recovery, not a full return to FY2023's peak — is the scenario that lands closest to today's price. The base case, simply holding today's already-compressed margin flat with no further deterioration, implies meaningful downside. That ordering is worth sitting with: <b>the market is not pricing this stock as though the margin decline is over and done; it is pricing something closer to a partial recovery actually happening</b>, at a moment when there is no management commentary available to confirm whether that recovery is underway.</p>
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">14</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">A genuinely high-return business with real, unresolved credibility and disclosure gaps — priced for a partial recovery this report cannot confirm is happening</p>
+
+<h3>What we are confident about</h3>
+
+<p>Sigma Solve clears the coffee-can gates cleanly — a 9/9 "9iner" on revenue growth and ROCE — and cumulative cash generation over the decade (₹98.0 Cr CFO) exceeds cumulative profit (₹85.1 Cr), a 1.15&times; ratio that clears the standard cash-conversion gate once this pipeline's own capex-proxy distortion is corrected (Section <a href="#framework">02</a>). The related-party record is clean on the standard AOC-2 lens. Promoters hold a stable 73.2%, and the one large capital-structure event in the company's history — the consolidation of Sigma Solve Inc. into a wholly-owned subsidiary — appears, on the facts available, to have favoured public shareholders rather than extracted value from them. This is a genuinely capital-efficient, founder-controlled business that has grown from a ₹2 Cr revenue base to ₹96 Cr in under a decade.</p>
+
+<h3>What is a real, current weakness — not a data artefact</h3>
+
+<p>Three things earn that label, and they compound each other. First, EBITDA margin has fallen from a 40.5% peak (FY2023) to 29.5% (FY2026), three consecutive years of decline, and <b>no management explanation exists on record for any of it</b> — the company has not held an investor call since February 2024. Second, every specific, quantified commitment management made on its last two calls — FY2024 revenue guidance, margin sustainability, call frequency itself — has since been missed, with no later call to account for any of it (Section <a href="#mgmt">09</a>). Third, two SEBI adjudication orders landed in 2025: a real, if modest, IPO-proceeds compliance lapse (₹2 lakh penalty, company-specific), and a separate, still-apparently-open investigation into suspected fraudulent trading in the stock by outside entities SEBI links to a named group — not an accusation against the company, but a live fact about the integrity of trading in this name that a buyer needs to know (Section <a href="#flags">11</a>).</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">The claim</th><th class="t">The record</th></tr></thead>
+<tbody>
+<tr><td class="t">FY2024 revenue guided at ₹80-95 Cr</td><td class="t">Delivered ₹65.1 Cr — a 19-31% miss against the guided range, never explained on a later call because there wasn't one</td></tr>
+<tr><td class="t">"Margins are sustainable... if anything, going to be a little better" (Dec 2023)</td><td class="t">Fell every year since, 40.5%&rarr;29.5%, no cause confirmed by any primary source</td></tr>
+<tr><td class="t">"We'll try to do conference call at least half yearly if not every quarter"</td><td class="t">Zero calls held in the two and a half years since that statement was made</td></tr>
+<tr><td class="t">Sigma Solve Inc. buyout "at way below the market price," crediting minority-shareholder-friendly intent</td><td class="t">Structurally plausible and directionally favourable, but the actual consideration and valuation basis remain undisclosed in every source found</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Why the price sits in a genuine grey zone, not a clean mispricing either way</h3>
+
+<p>A reverse DCF at ₹44.20 requires either a partial margin recovery (to ~34%, roughly halfway back to the FY2023 peak) or continued growth at the company's own recent, realised pace (~18%, below its own guidance but not below what it has actually delivered). Neither is an unreasonable ask on its own — this company has held 40%+ margins before, and it has grown faster than 18% in three of the last four years. But neither is confirmed as currently happening, because there is no primary source recent enough to say. The explicit bull scenario (a genuine but partial margin recovery) lands almost exactly at today's price; the base case (today's already-compressed margin simply persisting) implies real downside (Section <a href="#valuation">13</a>).</p>
+
+<div class="warn">
+  <div class="lbl">Position</div>
+  <p><b>Quality grade: genuinely good unit economics, with real and currently unresolved credibility and disclosure gaps. Value grade: balanced, not a clear mispricing in either direction.</b> This is not a story of promoter self-dealing or fabricated numbers — the evidence available does not support either claim. It is a story of a management team that made confident, specific promises, missed most of them, and then stopped taking questions at almost exactly the moment a careful reader would most want to ask one. Layered on top is an open regulatory question about the integrity of trading in the stock itself, unconnected to the company's own conduct but relevant to anyone sizing a position in a name this thinly covered.</p>
+  <p>A buyer here is not being asked to bet against the business — the underlying economics remain genuinely attractive on almost every measure this report can compute. They are being asked to underwrite a management team's credibility and disclosure discipline with meaningfully less evidence than this pipeline's other reports have had available, at a price that requires a real, currently unconfirmed improvement to be fully justified.</p>
+</div>
+
+<h3>What would change our mind — specific, monitorable</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Trigger</th><th class="t">Threshold</th><th class="t">Where to check</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t"><b>1. A new investor call, at any point</b></td><td class="t">Any call addressing the FY2024-26 margin and working-capital trends directly would resolve the single largest evidentiary gap in this report</td><td class="t">Screener.in concall archive; BSE/NSE announcements</td></tr>
+<tr><td class="t"><b>2. EBITDA margin, next two reported quarters</b></td><td class="t">Sustained recovery above 32-33% would support the bull case; a further fall below 27% would confirm the bear case is playing out</td><td class="t">Quarterly results</td></tr>
+<tr><td class="t"><b>3. Receivable days</b></td><td class="t">A further rise past the FY2025 peak (100 days) without explanation would turn a currently-improving trend back into a red flag</td><td class="t">Quarterly/annual balance sheet</td></tr>
+<tr><td class="t"><b>4. Resolution of the SEBI trading investigation</b></td><td class="t">Any follow-up order clarifying whether the "Delhi Group" trading activity implicated any party connected to the company, or confirming it did not</td><td class="t">SEBI enforcement orders page</td></tr>
+<tr><td class="t"><b>5. Disclosed terms of the Sigma Solve Inc. buyout</b></td><td class="t">Any filing or disclosure specifying the actual consideration/valuation would close the single largest related-party disclosure gap this report found</td><td class="t">Annual report notes, exchange filings</td></tr>
+<tr><td class="t"><b>6. Rish Info Logistics revenue disclosure</b></td><td class="t">Any segment or subsidiary-level financial disclosure showing whether the logistics-SaaS vertical is generating revenue</td><td class="t">Annual report subsidiary financials (Form AOC-1)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The one-paragraph version</h3>
+
+<p>Sigma Solve is a capital-efficient, founder-controlled software exporter that has compounded revenue nearly 50-fold in under a decade, with a cash-conversion record that holds up once this pipeline's own data-quality corrections are applied. It has also missed every specific commitment it made on its last two investor calls, stopped holding calls entirely at almost exactly the point its numbers started disappointing, and now carries an unresolved SEBI question mark over trading in its own stock alongside a real but modest compliance penalty. None of this proves the business is broken — margins have recovered from compression before, and the growth the market is effectively pricing in in the base case is no higher than what the company has actually delivered recently. But a reader underwriting this stock at ₹44.20 is underwriting a management team's credibility with materially thinner recent evidence than usual, at a price that requires a real improvement most other reports on this pipeline don't have to ask for.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">15</span>Data gaps and provenance</h2>
+<p class="sec-sub">This report has more open questions than most on this pipeline — stated plainly, because a reader deciding on this stock is entitled to know exactly which conclusions rest on primary evidence</p>
+
+<h3>What was actually read</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Source</th><th class="t">Coverage</th><th class="t">Status</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Earnings call transcripts</td><td class="t">Only 2 exist: 1 December 2023 and 9 February 2024</td><td class="t">Read in full, both. No call has been held since &mdash; independently confirmed via Screener.in's own concall archive, not a collection gap</td></tr>
+<tr><td class="t">Annual reports</td><td class="t">FY2021-FY2025 (5 of 5 listed on this pipeline)</td><td class="t">FY2021-22 show the table-stripping conversion defect documented elsewhere on this pipeline (near-zero table rows survived); FY2023-25 converted cleanly and were read in detail</td></tr>
+<tr><td class="t">Related-party audit</td><td class="t">FY2023-FY2025, existing pipeline audit</td><td class="t">Score 1/3 ("Watch"); reused, not re-run, this cycle. Does not cover the Sigma Solve Inc. ownership consolidation (Section <a href="#flags">11</a>) &mdash; that transaction sits outside its standard AOC-2 scope</td></tr>
+<tr><td class="t">Financial data</td><td class="t">FY2017-FY2026 consolidated</td><td class="t">From this pipeline's <span style="font-family:var(--mono)">xbrl_annual</span>; FY2017 and FY2019 operating-profit data genuinely absent, not zero (Section <a href="#record">03</a>)</td></tr>
+<tr><td class="t">Peer financials (9 companies)</td><td class="t">Revenue, ROCE, ROE, promoter holding</td><td class="t">Public Screener.in pages, fetched 11-13 September 2026; no authenticated access configured (Gap 3 below)</td></tr>
+<tr><td class="t">ValuePickr forum</td><td class="t">Full-text search across the entire forum, not just a company thread (none exists)</td><td class="t">Complete for what exists: 8 posts total, none in a dedicated Sigma Solve thread</td></tr>
+<tr class="hl"><td class="t">Company news &amp; SEBI enforcement record</td><td class="t">2022-2026 window</td><td class="t">Two SEBI orders found and detailed in Section <a href="#flags">11</a>; primary order PDFs could not be fetched directly (Gap 1 below)</td></tr>
+<tr><td class="t">Price and market data</td><td class="t">13 September 2026</td><td class="t">Refreshed this run &mdash; cached price was 11 days stale at &#8377;47.09; confirmed &#8377;44.20 via Screener's public page</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Gap 1 &mdash; the primary SEBI order documents could not be fetched directly</h3>
+<p>Both 2025 SEBI adjudication orders are detailed in Section <a href="#flags">11</a> from SEBI's own order-listing pages, a law firm's public summary, and press coverage of the associated non-cooperation penalty &mdash; not from the primary order PDFs themselves, which returned blocked/header-only responses from both SEBI's own site and the NSE-hosted covering letter. Confidence is <b>high</b> on the substantive facts (dates, entities named, the nature of each violation) because multiple independent sources converge on the same account, but <b>medium</b> on exact wording and the precise penalty figure for the September order. A direct read of the full order text would sharpen this section on any future refresh.</p>
+
+<h3>Gap 2 &mdash; the Sigma Solve Inc. buyout's actual terms are undisclosed everywhere this report looked</h3>
+<p>The mechanism (a subsidiary-level buyback that raised the parent's stake from 59.81% to 100% at no cash cost to the parent) is confirmed from primary sources. The consideration, valuation basis, and funding mechanism behind Sigma Solve Inc.'s own buyback of its minority shareholders' shares is not disclosed in any annual report, transcript, or filing reviewed. A retail investor asked essentially this question on ValuePickr in November 2023 and never received an answer beyond the buyback mechanics. This is the single largest open item in this report (Section <a href="#flags">11</a>) &mdash; a targeted read of the FY2024 standalone financial statement notes, if it exists and covers this, would be the most direct way to close it.</p>
+
+<h3>Gap 3 &mdash; no authenticated Screener access; two peer figures unreconciled</h3>
+<p>All peer financials were pulled from Screener.in's public pages rather than an authenticated export, consistent with every other report on this pipeline. Two specific figures were flagged as unreconciled by the underlying peer research and are not resolved here: Silver Touch Technologies' FY26 revenue (₹288 Cr per one Screener column vs. ₹342 Cr per a separate web search snippet, likely a period-labelling mismatch rather than a real discrepancy) and Maxgrow India's implausible reported revenue figure (excluded from this report entirely rather than used).</p>
+
+<h3>Gap 4 &mdash; the FY2024-26 margin and working-capital moves have no primary explanation</h3>
+<div class="warn">
+  <div class="lbl">Stated as a finding in its own right, not just a limitation</div>
+  <p>This is the central evidentiary gap running through Sections <a href="#margin">04</a>, <a href="#wc">05</a> and <a href="#mgmt">09</a>: the entire three-year margin decline and the sharp FY2024 working-capital swing happened after the company's last investor call. This report deliberately does not offer a causal narrative for either move &mdash; industry-wide AI-pricing pressure (Section <a href="#growth">07</a>), the new logistics-vertical investment, or simple mean-reversion from an unusually high FY2023 peak are all plausible, none is confirmed, and this report treats the absence of an explanation as itself the most important fact in it, not a gap to be quietly filled with plausible speculation.</p>
+</div>
+
+<h3>Gap 5 &mdash; one date inconsistency in the source annual report</h3>
+<p>The FY2025 annual report's subsidiary table shows Sigma Accounting Pvt Ltd's stake as "Nil" with a footnote dated 11 December 2025 &mdash; a date that falls after the report's own 6 August 2025 sign-off. This was not resolved; it may reflect a later-amended version of the report captured by this pipeline's document source, or a typo in the underlying filing. Not treated as material to any conclusion in this report, but flagged for a future refresh.</p>
+
+<h3>Gap 6 &mdash; no Vijay Malik framework corpus available</h3>
+<p>The Malik industry-framework corpus has not been crawled in this environment (a standing limitation across every report this pipeline has produced, not specific to Sigma Solve) &mdash; this report proceeds without citing his framework directly rather than reconstructing it from search snippets.</p>
+
+<h3>What would most improve the next refresh</h3>
+<ol>
+<li>Any new investor call &mdash; the single highest-value piece of evidence this report is missing.</li>
+<li>A direct, full read of both SEBI order PDFs rather than secondary summaries.</li>
+<li>A targeted search of standalone financial statement notes for the Sigma Solve Inc. buyout's actual consideration.</li>
+<li>Any subsidiary-level financial disclosure for Rish Info Logistics Private Limited.</li>
+<li>Confirmation of whether the SEBI "Delhi Group" trading investigation has been resolved, and how.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Sigma Solve Ltd (NSE: SIGMA, BSE: 543917, ISIN INE0A0S01028). Prepared 14 September 2026 against a share price of &#8377;44.20.</p>
+  <p>Built from this pipeline's own indexed corpus: both available earnings-call transcripts (1 Dec 2023, 9 Feb 2024 &mdash; no call has been held since, independently confirmed), 5 annual reports (FY2021-FY2025), an existing related-party audit, consolidated financials FY2017-FY2026, nine listed peer comparables' public financials, a full-forum ValuePickr search (no dedicated thread exists), and primary-sourced SEBI enforcement records. Every numeric claim cites a fiscal year; every quotation cites a document and date. Limitations, and a full account of what remains unresolved, are stated in Section 15.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. This report in particular rests on materially less recent management commentary than usual for this pipeline &mdash; the company has not held an investor call since February 2024 &mdash; and covers an open SEBI investigation into trading in the stock unconnected to the company itself. Do your own work, and read the data-gaps section in full before acting on anything here. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
