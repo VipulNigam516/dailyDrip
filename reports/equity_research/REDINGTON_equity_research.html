@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Redington Ltd — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Redington Ltd: a no-promoter IT and mobility products distributor whose cash conversion has not kept pace with its own growth, and whose valuation is unusually sensitive to a single number — how much working capital its next rupee of growth consumes.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Equity Research &middot; Coffee Can Screener</span>
+  <h1>Redington Ltd</h1>
+  <p class="subtitle">A no-promoter distributor of IT hardware and mobility products across India, the Middle East, Turkey and Africa — a genuinely strong market position and a decade-long habit of collecting less cash than it books as profit, both real, both quietly compounding.</p>
+  <p class="meta">
+    NSE <b>REDINGTON</b> &middot; BSE <b>532805</b> &middot; ISIN <b>INE891D01026</b> &middot; IT &amp; Mobility Products Distribution &middot; Consolidated basis, Indian fiscal year (April&ndash;March)<br>
+    Price <b>&#8377;394.00</b> &middot; Market cap <b>&#8377;30,778 Cr</b> &middot; P/E <b>17.1&times;</b> (trailing twelve months) &middot; ROCE <b>18.4%</b> (reported, FY2026) &middot; As of <b>22 September 2026</b>
+  </p>
+</header>
+
+<div class="verdict">
+  <div class="verdict-label">Verdict</div>
+  <p class="verdict-head">Quality: a real, defensible distribution franchise with an unusually clean governance record for its size. Value: priced for cash conversion this business has never actually delivered.</p>
+  <p>Redington is India's number-two IT and mobility products distributor by most accounts (behind only the unlisted Ingram Micro India), a genuinely diversified business spanning 40 markets, ~440 brands and 70,000+ channel partners, run without a promoter since 2017 under a Taiwanese anchor shareholder, Synnex Technology International Corp (24.1%). Both rating agencies that cover it &mdash; CRISIL and ICRA &mdash; hold it at AA+/Stable/A1+, a genuinely strong investment-grade profile for a working-capital-heavy trading business.</p>
+  <p>The problem is cash. Over the ten fiscal years FY2017&ndash;FY2026, cumulative operating cash flow was &#8377;6,436 Cr against cumulative profit of &#8377;9,713 Cr &mdash; a 0.66&times; conversion ratio, not a proxy artefact but the real, measured shortfall of a business whose gross receivable days have lengthened from 45 to 66 even as management's own preferred net working-capital metric has improved. Real, growing interest costs (&#8377;3,114 Cr cumulative) sit on top of that.</p>
+  <p>Run through a reverse DCF, the current price requires either an EBITDA margin sustained at or above the company's own decade-high (2.9%, set in FY2022 and never repeated since) or working-capital efficiency on every future rupee of growth that is meaningfully better than the best year Redington has ever actually delivered. <b>A well-run, clean, real business — priced for a version of its own cash economics that has not yet happened.</b></p>
+</div>
+
+<div class="hero-row">
+  <div class="stat"><div class="k">Coffee-can tier</div><div class="v" style="color:#e3c076">Dirty 9iner</div><div class="n">8/9 revenue growth, 9/9 ROCE (capital-employed basis)</div></div>
+  <div class="stat"><div class="k">Decade cash conversion</div><div class="v" style="color:var(--loss)">0.66&times; CFO/PAT</div><div class="n">&#8377;6,436 Cr CFO vs &#8377;9,713 Cr PAT, FY17&ndash;26</div></div>
+  <div class="stat"><div class="k">Working capital, two ways</div><div class="v" style="color:var(--loss)">Gross days worsening</div><div class="n">Net WC days improving on management's own metric</div></div>
+  <div class="stat"><div class="k">Base-case DCF value</div><div class="v">&#8377;219</div><div class="n">44% below market, on the company's own recent average economics</div></div>
+</div>
+
+<div class="toc">
+  <div class="toc-l">Contents</div>
+  <ol>
+    <li><a href="#business">The business: distribution, not a brand</a></li>
+    <li><a href="#framework">The checklist, applied to a trading business</a></li>
+    <li><a href="#record">The ten-year record</a></li>
+    <li><a href="#margin">Margins: a real operating decline, not a financing story</a></li>
+    <li><a href="#wc">Working capital: gross and net disagree</a></li>
+    <li><a href="#peers">How Redington compares with its real peers</a></li>
+    <li><a href="#growth">Growth outlook: a genuine acceleration, partly borrowed</a></li>
+    <li><a href="#analysts">What institutional analysts have been saying</a></li>
+    <li><a href="#mgmt">Management scorecard: one clean cycle, one early miss</a></li>
+    <li><a href="#capital">Capital allocation</a></li>
+    <li><a href="#flags">Governance and credit risk</a></li>
+    <li><a href="#sentiment">What retail investors have said</a></li>
+    <li><a href="#valuation">Valuation: a price that needs cash conversion not yet shown</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business: distribution, not a brand</h2>
+<p class="sec-sub">A 33-year-old middleman between global technology vendors and 70,000 channel partners across four continents, structurally thin-margin by design</p>
+
+<p>Redington was set up in 1993 and listed on the Indian exchanges in early 2007. What it does has not changed since: it buys IT hardware, mobility devices, enterprise technology and software from global vendors &mdash; Apple, Dell, HP, Lenovo, Microsoft and dozens of others &mdash; and moves it through 70,000+ channel partners into 40 markets across India and what the company calls the META region (Middle East, Turkey, Africa). It owns almost none of the demand it serves and very little of the manufacturing capacity behind it; its job is working capital, logistics, credit and relationships, at scale, run at a margin the whole global industry treats as normal rather than a company-specific failing (Section <a href="#framework">02</a>).</p>
+
+<p>The FY2026 revenue mix across four internally-reported business units, Q4 FY2026 basis:</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Segment</th><th class="num">Share of Q4 topline</th><th class="t">What it is</th></tr></thead>
+<tbody>
+<tr><td class="t">Mobility Solutions Group (MSG)</td><td class="num">33%</td><td class="t">Smartphones and mobility devices; volume-driven, thinnest margin, includes the direct-to-retail premium-phone business</td></tr>
+<tr><td class="t">Endpoint Solutions Group (ESG)</td><td class="num">30%</td><td class="t">PCs, laptops, AI PCs &mdash; management flagged 41% of India ESG revenue now from AI-capable PCs (&gt;40 TOPS) on the FY2026 Q4 call</td></tr>
+<tr><td class="t">Technology Solutions Group (TSG)</td><td class="num">19%</td><td class="t">Data centre, networking, server and storage hardware; the segment now competing directly for neo-cloud/hyperscaler data-centre deals</td></tr>
+<tr class="hl"><td class="t">Software Solutions Group (SSG)</td><td class="num">17%</td><td class="t">Cloud, cybersecurity and software distribution &mdash; the highest-margin, highest-quality-of-earnings segment, growing share (15% of FY2025 revenue &rarr; 17% of FY2026)</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Geographically, FY2026 consolidated revenue of &#8377;1,19,162 Cr splits almost evenly: India + Middle East (the company's "SISA" grouping) contributed &#8377;65,033 Cr, the rest of the world (Africa, Turkey and other markets) &#8377;54,182 Cr. Management's own strategic language, from the FY2025-26 annual report's MD letter, buckets the footprint into "Growth Geographies" (India and the Middle East), "Emerging Geographies" (Africa, Turkey, South Asia) and "New Geographies" (ASEAN, CIS, South Africa) &mdash; Turkey is explicitly filed under the higher-risk "Emerging" bucket in the company's own internal framing, consistent with the sustained losses at its Turkish subsidiary Arena (Section <a href="#flags">11</a>).</p>
+
+<h3>No promoter, one large anchor shareholder</h3>
+<p>Redington has had no promoter since March 2017 (fully diluted, per Screener's own shareholding series) and was formally classified a "listed entity with no promoter" from September 2019 (CRISIL's own company-background note). Its largest shareholder is <b>Synnex Technology International Corporation</b>, a Taiwanese technology distributor, holding 24.1% as of 31 March 2026 through its investment arm Synnex Mauritius Ltd. As of June 2026, FIIs held 61.96%, DIIs 16.37% and public shareholders 21.61% &mdash; an institutionally-owned, professionally-run company with no controlling family or PE sponsor, a genuinely unusual structure among the companies this pipeline has covered and one that recurs as a theme in Sections <a href="#capital">10</a> and <a href="#flags">11</a>.</p>
+
+<h3>Subsidiaries that matter to the numbers</h3>
+<ul>
+<li><b>ProConnect Supply Chain Solutions Ltd</b> &mdash; the group's logistics arm, fully consolidated, referenced repeatedly in peer-comparison and diversification commentary.</li>
+<li><b>Redington Gulf FZE and its regional network</b> &mdash; the Middle East and Africa operating entities (UAE, Saudi, Egypt, Kenya, Nigeria and dozens more, per the CRISIL rating rationale's consolidation annexure, which lists 48 fully-consolidated step-down subsidiaries).</li>
+<li><b>Arena Bilgisayar Sanayi Ve Ticaret A.S.</b> (Turkey) &mdash; ~49.4%-owned per this research's news file, the subsidiary at the centre of the company's one clearly identified structural weak point (Section <a href="#flags">11</a>).</li>
+<li><b>RedServ Global Solutions / RedServ Business Solutions</b> &mdash; the group's financing, insurance-broking and value-added-services arm.</li>
+<li><b>Redington Green Energy Ltd</b> (Kenya) &mdash; a small but growing solar-distribution push, the same business line the FY2026 Third Wave Power related-party item plausibly touches (Section <a href="#flags">11</a>).</li>
+</ul>
+
+<h3>The structural risks of the model itself</h3>
+<p>These are not Redington-specific failings; they are what distribution economics look like everywhere, and the same list applies to Rashi Peripherals, Ingram Micro and TD Synnex (Section <a href="#peers">06</a>):</p>
+<ul>
+<li><b>Vendor-mandate concentration.</b> The relationship with any single large OEM (Apple, Dell, HP, and now the hyperscalers for cloud) can be lost or repriced at the vendor's discretion; Redington does not control the terms on which it earns its margin.</li>
+<li><b>Channel and dealer stocking risk.</b> Management itself flagged, on the FY2026 Q4 call, that a large part of the year's PC and mobility growth was driven by "anticipated component shortage" and channel partners "stocking up" ahead of expected price increases &mdash; a pattern that pulls demand forward and can reverse.</li>
+<li><b>Direct-to-retail disintermediation.</b> Vendors periodically shift go-to-market strategy toward selling direct, cutting out layers of distribution; this is precisely what forced the 2015 wind-down of Redington's own last-mile subsidiary, Nook Micro Distribution Ltd (Section <a href="#capital">10</a>), and is a standing risk to the core distribution model itself, not a one-off historical event.</li>
+<li><b>Hyperscaler marketplace risk.</b> Cloud vendors increasingly sell and support customers directly through their own marketplaces. Management's own framing, on the May 2026 call, was that this is "an opportunity, more than a threat" &mdash; a claim this report treats as a management assertion to monitor, not a settled fact, given it is precisely the kind of structural risk a distributor is least positioned to counter if it materialises.</li>
+<li><b>Currency and country risk.</b> A META-and-Turkey footprint means real exposure to currency depreciation (the Lira collapse is the clearest live example, Section <a href="#flags">11</a>) and episodic geopolitical shocks &mdash; the West Asia conflict beginning 28 February 2026 is the most recent, disrupting a full quarter of Middle East operations mid-way through this report's own coverage window.</li>
+</ul>
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>The checklist, applied to a trading business</h2>
+<p class="sec-sub">Coffee-can gates clear on a strong-looking basis; the harder cash tests need the business model in mind before they mean anything</p>
+
+<h3>The two mechanical gates</h3>
+<p>Over the trailing nine fiscal years, Redington's consolidated revenue cleared 10% year-on-year growth in eight of nine years &mdash; the single miss was FY2018, when sales grew just 1.19% (a slow year for the whole business, not explained by any single disclosed cause in the documents this pipeline holds for that period). Return on capital employed &mdash; on the Coffee Can Investing (Mukherjea/Ranjan) definition, which nets current liabilities out of the capital base &mdash; cleared 15% in <b>every one</b> of the same nine years, ranging 15.96%&ndash;29.32%. Combined, that classifies as a <b>Dirty 9iner</b>: one gate at a perfect 9/9, the other at 8/9.</p>
+
+<div class="warn">
+<div class="lbl">The same ROCE, computed the other way, tells a materially different story</div>
+<p>This pipeline also carries Dr. Vijay Malik's own ROCE formula alongside the Mukherjea one, and for Redington the two diverge more than for almost any other company this pipeline has covered. Malik's formula does <b>not</b> net current liabilities out of the capital base; Mukherjea's does. On Malik's basis, Redington's ROCE has fallen from 22.5% in FY2017 to 12.97% in FY2026 &mdash; a real, sustained decline, not a rounding difference.</p>
+<p>The reason the two disagree this much is itself informative: Redington funds a large share of its working capital with trade payables and other current liabilities rather than owners' capital or borrowings. Net that out (Mukherjea) and the capital base looks small and stable, producing a consistently strong-looking ROCE. Leave it in (Malik) and the true, growing size of the balance sheet the business needs to run &mdash; receivables and inventory, funded however they are funded &mdash; shows up directly, and it has been growing faster than profit. Both numbers are "correct"; they are answering different questions. The coffee-can tier above uses the Mukherjea definition, as this pipeline's classifier always does, but the Malik-basis decline is the more useful number for judging whether the balance sheet is getting more or less capital-intensive over time, and it says the business is not standing still.</p>
+</div>
+
+<h3>The three cash gates</h3>
+<p>Gate 1 (cumulative CFO against cumulative PAT) is the one everyone runs, and it is the central finding of this report: over FY2017&ndash;FY2026, cumulative CFO was &#8377;6,436 Cr against cumulative PAT of &#8377;9,713 Cr &mdash; a <b>0.66&times;</b> conversion ratio. Gate 3, which Malik actually computes (CFO less capex less interest), reads: &#8377;6,436 Cr &minus; &#8377;981 Cr &minus; &#8377;3,114 Cr = <b>&#8377;2,342 Cr</b> positive over the decade &mdash; roughly a quarter of cumulative reported profit, once the business's own real financing cost is charged against it.</p>
+<p>The capex figure needs a caveat this pipeline flags on every distribution or asset-light business it covers: the CFI-derived capex proxy reads as literally zero in six of the ten years (2020, 2023, 2024, 2025 among them), because a trading business this asset-light genuinely spends very little on fixed assets, and any investing-cash-flow line is dominated by treasury movements (deposits, investments), not capex. That is a real, structural feature of the business &mdash; not a data gap &mdash; and it means the binding constraint on Gate 3 for Redington is <b>financing cost</b>, not capital expenditure. A distributor's growth is funded by working capital and, where that is insufficient, by borrowings; the interest bill is the real toll the balance sheet pays for scale, and it has been rising in absolute terms even as it has fallen as a share of sales (Section <a href="#margin">04</a>).</p>
+
+<h3>The subcontracting test, reinterpreted for a distributor</h3>
+<p>This pipeline's anomaly scan flags Redington's net fixed-asset turnover (NFAT) rising 86% over the decade (86.3&times; to 160.7&times;, on this pipeline's own indexed scale) &mdash; in Malik's own manufacturing- and EPC-context framework, rising turnover paired with falling margin is the signature of a subcontracting shift: growth bought by pushing work to outside vendors, which costs more than doing it in-house. That test does not transfer cleanly to a pure distribution business. Redington's operating margin has moved in a narrow 2.0&ndash;2.9% band over the same period with no sustained decline tracking the turnover rise (Section <a href="#margin">04</a>), and a distributor's fixed-asset base is inherently tiny and slow-growing relative to revenue &mdash; warehouses and IT systems, not plant and machinery. The more likely reading is that this is simply what asset-light revenue scaling looks like for this business model, not a Malik-style red flag. It is included here for completeness and because the underlying metric is real, but this report does not treat it as an operational warning sign.</p>
+
+<h3>What both rating agencies independently flag as the real structural weakness</h3>
+<p>CRISIL and ICRA &mdash; the two agencies that rate Redington, both currently at AA+/Stable/A1+ &mdash; use almost identical language for the offsetting factor against an otherwise strong profile: "modest operating margin and large working capital requirement in the distribution business" (CRISIL, 27 May 2026 rationale). That is the same finding this section's own gate analysis reaches independently, from the company's own numbers rather than the raters' opinion of them &mdash; a genuine cross-source confirmation rather than a restatement of the same source (Section <a href="#flags">11</a> covers the ratings in full, including both agencies' explicit downgrade triggers).</p>
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record</h2>
+<p class="sec-sub">Steady, real growth on the top line; a far less steady relationship between profit and the cash that is supposed to follow it</p>
+
+<figure>
+<div class="fig-title">Consolidated revenue, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, this pipeline's own indexed database (Screener basis)</div>
+<svg viewBox="0 0 720 230" role="img" aria-label="Redington consolidated revenue by fiscal year, FY2017 to FY2026"><line class="grid-l" x1="52" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="46" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="46" y="157.0" text-anchor="end">32,174</text><line class="grid-l" x1="52" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="46" y="111.0" text-anchor="end">64,348</text><line class="grid-l" x1="52" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="46" y="65.0" text-anchor="end">96,522</text><line class="grid-l" x1="52" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="46" y="19.0" text-anchor="end">128,695</text><rect x="65.7" y="141.2" width="37.9" height="58.8" rx="4" fill="#c9a24b"><title>FY2017: Rs 41,115 Cr</title></rect><text class="ax" x="84.7" y="213" text-anchor="middle">'17</text><rect x="131.1" y="140.5" width="37.9" height="59.5" rx="4" fill="#7a86a0"><title>FY2018: Rs 41,603 Cr (the one year that missed the coffee-can growth gate, +1.2% YoY)</title></rect><text class="ax" x="150.1" y="213" text-anchor="middle">'18</text><rect x="196.5" y="133.5" width="37.9" height="66.5" rx="4" fill="#c9a24b"><title>FY2019: Rs 46,536 Cr</title></rect><text class="ax" x="215.5" y="213" text-anchor="middle">'19</text><rect x="261.9" y="126.4" width="37.9" height="73.6" rx="4" fill="#c9a24b"><title>FY2020: Rs 51,465 Cr</title></rect><text class="ax" x="280.9" y="213" text-anchor="middle">'20</text><rect x="327.3" y="118.6" width="37.9" height="81.4" rx="4" fill="#c9a24b"><title>FY2021: Rs 56,946 Cr</title></rect><text class="ax" x="346.3" y="213" text-anchor="middle">'21</text><rect x="392.7" y="110.4" width="37.9" height="89.6" rx="4" fill="#c9a24b"><title>FY2022: Rs 62,644 Cr</title></rect><text class="ax" x="411.7" y="213" text-anchor="middle">'22</text><rect x="458.1" y="86.5" width="37.9" height="113.5" rx="4" fill="#c9a24b"><title>FY2023: Rs 79,377 Cr</title></rect><text class="ax" x="477.1" y="213" text-anchor="middle">'23</text><rect x="523.5" y="72.3" width="37.9" height="127.7" rx="4" fill="#c9a24b"><title>FY2024: Rs 89,346 Cr</title></rect><text class="ax" x="542.5" y="213" text-anchor="middle">'24</text><rect x="588.9" y="58.0" width="37.9" height="142.0" rx="4" fill="#c9a24b"><title>FY2025: Rs 99,334 Cr</title></rect><text class="ax" x="607.9" y="213" text-anchor="middle">'25</text><rect x="654.3" y="29.6" width="37.9" height="170.4" rx="4" fill="#c9a24b"><title>FY2026: Rs 119,162 Cr</title></rect><text class="ax" x="673.3" y="213" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="200" x2="706" y2="200"/></svg>
+<figcaption><b>Why:</b> revenue nearly tripled over the decade (&#8377;41,115 Cr &rarr; &#8377;1,19,162 Cr, a 12.6% CAGR), with the single largest jump in FY2023 (+26.7%) and continued acceleration into FY2026 (+20%) and Q1 FY2027 (+34% YoY, not shown &mdash; Section <a href="#growth">07</a>). The one year that missed the coffee-can growth gate, FY2018 (+1.19%), sits almost flat against FY2017 with no single disclosed cause found in this research pass.</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Sales (&#8377;Cr)</th><th class="num">OPM %</th><th class="num">PAT (&#8377;Cr)</th><th class="num">CFO (&#8377;Cr)</th><th class="num">Borrowings (&#8377;Cr)</th><th class="num">Interest (&#8377;Cr)</th></tr></thead>
+<tbody>
+<tr><td class="t">2017</td><td class="num">41,115</td><td class="num">2.07%</td><td class="num">464</td><td class="num">1,361</td><td class="num">1,516</td><td class="num">183</td></tr>
+<tr><td class="t">2018</td><td class="num">41,603</td><td class="num">2.03%</td><td class="num">482</td><td class="num">186</td><td class="num">1,458</td><td class="num">197</td></tr>
+<tr><td class="t">2019</td><td class="num">46,536</td><td class="num">2.08%</td><td class="num">508</td><td class="num">1,068</td><td class="num">1,307</td><td class="num">271</td></tr>
+<tr><td class="t">2020</td><td class="num">51,465</td><td class="num">2.12%</td><td class="num">515</td><td class="num">966</td><td class="num">2,775</td><td class="num">289</td></tr>
+<tr><td class="t">2021</td><td class="num">56,946</td><td class="num">2.44%</td><td class="num">758</td><td class="num">3,497</td><td class="num">622</td><td class="num">205</td></tr>
+<tr class="hl"><td class="t">2022</td><td class="num">62,644</td><td class="num">2.94%</td><td class="num">1,280</td><td class="num">989</td><td class="num">831</td><td class="num">163</td></tr>
+<tr class="hl"><td class="t">2023</td><td class="num">79,377</td><td class="num">2.77%</td><td class="num">1,393</td><td class="num" style="color:var(--loss)">&minus;3,234</td><td class="num">3,321</td><td class="num">356</td></tr>
+<tr><td class="t">2024</td><td class="num">89,346</td><td class="num">2.25%</td><td class="num">1,219</td><td class="num">1,079</td><td class="num">2,958</td><td class="num">517</td></tr>
+<tr><td class="t">2025</td><td class="num">99,334</td><td class="num">2.17%</td><td class="num">1,605</td><td class="num">293</td><td class="num">2,809</td><td class="num">456</td></tr>
+<tr><td class="t">2026</td><td class="num">1,19,162</td><td class="num">1.97%</td><td class="num">1,490</td><td class="num">231</td><td class="num">2,842</td><td class="num">477</td></tr>
+<tr class="tot"><td class="t">Cumulative</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">9,713</td><td class="num">6,436</td><td class="num">&mdash;</td><td class="num">3,114</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>What this pipeline's own anomaly scan flags, and what explains each one</h3>
+<ul>
+<li><b>Receivable days, up 46% over the decade (45.2 &rarr; 66.1 days).</b> A sustained drift, not a single bad year &mdash; the load-bearing finding of Section <a href="#wc">05</a>, where it is set against management's own, more favourable net working-capital metric.</li>
+<li><b>NFAT, up 86% over the decade.</b> Addressed in Section <a href="#framework">02</a> as more likely asset-light scaling than Malik's classic subcontracting signal, given this is a distribution business with a naturally tiny, slow-growing fixed-asset base.</li>
+<li><b>EBITDA margin step up, FY2021&rarr;FY2022 (2.44% &rarr; 2.94%, +20%, more than twice the series' typical year-on-year move).</b> This coincides with the global component-shortage cycle management itself later described (May 2026 call) as a period when "there was also an uptick in end user demand" alongside constrained supply, a combination the same management explicitly said produced higher gross margin in COVID-era conditions than the FY2026 shortage cycle has managed to repeat &mdash; a plausible, management-corroborated explanation, though not a transaction-level one; this pipeline could not find a document that breaks out the FY2022 margin improvement by specific driver.</li>
+<li><b>CFO turning sharply negative in FY2023 (&minus;&#8377;3,234 Cr), the single largest cash-flow swing in the record.</b> This is the same year revenue grew 26.7% &mdash; the decade's fastest &mdash; and borrowings jumped by roughly &#8377;2,490 Cr to fund it. This pipeline's own working-capital series (Section <a href="#wc">05</a>) shows FY2023's incremental working-capital ratio at 31% of incremental revenue, roughly three times every other year in the record bar FY2025. <b>This report was not able to find a primary-source document (transcript or annual report) that explains the FY2023 build in specific, transaction-level terms</b> &mdash; the explanation above is this pipeline's own derivation from the raw financials, corroborated only in general terms by the growth-consumes-working-capital pattern documented elsewhere in this report, not by a management quote for that specific year. Flagged accordingly in Section <a href="#gaps">15</a>.</li>
+<li><b>EBITDA margin step down, FY2023&rarr;FY2024 (2.77% &rarr; 2.25%, &minus;19%).</b> This is the window in which Arena's Turkish-lira cost pressures and rising factoring costs first became a visible drag, per later management commentary describing factoring costs as elevated in this period before falling back (Q4 FY2026 call: factoring cost "for Q4 last year [FY2025]... INR22 crores," down to "INR2 crores" by Q4 FY2026) &mdash; directionally consistent, though the FY2024 margin step itself predates the specific factoring figures management later disclosed, so this report treats the link as plausible rather than confirmed.</li>
+</ul>
+
+<p>Borrowings nearly doubled over the decade (&#8377;1,516 Cr &rarr; &#8377;2,842 Cr) and interest cost more than doubled (&#8377;183 Cr &rarr; &#8377;477 Cr, cumulative &#8377;3,114 Cr) &mdash; both consistent with a growing, increasingly working-capital-intensive balance sheet funded partly by debt, and both a real, rising cost this report charges against cash flow in Section <a href="#framework">02</a>'s Gate 3 and in the valuation (Section <a href="#valuation">13</a>).</p>
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: a real operating decline, not a financing story</h2>
+<p class="sec-sub">The opposite pattern from most companies this pipeline has covered &mdash; here the balance sheet has been the good news, not the disguise</p>
+
+<p>The margin bridge from FY2023 to FY2026 &mdash; three years, deliberately spanning more than one annual print &mdash; decomposes profit-before-tax margin from 2.31% to 1.42%, an 89 basis-point decline:</p>
+
+<figure>
+<div class="fig-title">PBT margin bridge, FY2023 &rarr; FY2026</div>
+<div class="fig-sub">Basis points, this pipeline's own decomposition (src.modules.equity_research.margin_bridge)</div>
+<svg viewBox="0 0 720 250" role="img" aria-label="Decomposition of Redington profit-before-tax margin change from FY2023 to FY2026"><line class="grid-l" x1="50" y1="204.0" x2="706" y2="204.0"/><text class="ax" x="44" y="207.0" text-anchor="end">0.0%</text><line class="grid-l" x1="50" y1="171.1" x2="706" y2="171.1"/><text class="ax" x="44" y="174.1" text-anchor="end">0.5%</text><line class="grid-l" x1="50" y1="138.3" x2="706" y2="138.3"/><text class="ax" x="44" y="141.3" text-anchor="end">1.0%</text><line class="grid-l" x1="50" y1="105.4" x2="706" y2="105.4"/><text class="ax" x="44" y="108.4" text-anchor="end">1.5%</text><line class="grid-l" x1="50" y1="72.6" x2="706" y2="72.6"/><text class="ax" x="44" y="75.6" text-anchor="end">2.0%</text><line class="grid-l" x1="50" y1="39.7" x2="706" y2="39.7"/><text class="ax" x="44" y="42.7" text-anchor="end">2.5%</text><rect x="73.0" y="52.2" width="63.4" height="151.8" rx="4" fill="#7a86a0"><title>2.31%</title></rect><text class="vlbl" x="104.7" y="46.2" text-anchor="middle">2.31%</text><text class="ax" x="104.7" y="218" text-anchor="middle">FY23</text><text class="ax" x="104.7" y="229" text-anchor="middle">PBT margin</text><rect x="182.3" y="52.2" width="63.4" height="52.6" rx="3" fill="#d97a5f"><title>EBITDA margin: -80 bps</title></rect><text class="vlbl" x="214.0" y="46.2" text-anchor="middle" fill="#d97a5f">-80</text><line x1="245.7" y1="104.8" x2="291.6" y2="104.8" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="214.0" y="218" text-anchor="middle">EBITDA</text><text class="ax" x="214.0" y="229" text-anchor="middle">margin</text><rect x="291.6" y="103.5" width="63.4" height="2.0" rx="3" fill="#5fb98a"><title>Depreciation: +2 bps</title></rect><text class="vlbl" x="323.3" y="97.5" text-anchor="middle" fill="#5fb98a">+2</text><line x1="355.0" y1="103.5" x2="401.0" y2="103.5" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="323.3" y="218" text-anchor="middle">Depreciation</text><rect x="401.0" y="103.5" width="63.4" height="9.9" rx="3" fill="#d97a5f"><title>Other income: -15 bps</title></rect><text class="vlbl" x="432.7" y="97.5" text-anchor="middle" fill="#d97a5f">-15</text><line x1="464.4" y1="113.3" x2="510.3" y2="113.3" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="432.7" y="218" text-anchor="middle">Other</text><text class="ax" x="432.7" y="229" text-anchor="middle">income</text><rect x="510.3" y="110.0" width="63.4" height="3.3" rx="3" fill="#5fb98a"><title>Interest cost: +5 bps</title></rect><text class="vlbl" x="542.0" y="104.0" text-anchor="middle" fill="#5fb98a">+5</text><line x1="573.7" y1="110.0" x2="619.6" y2="110.0" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="542.0" y="218" text-anchor="middle">Interest</text><text class="ax" x="542.0" y="229" text-anchor="middle">cost</text><rect x="619.6" y="110.7" width="63.4" height="93.3" rx="4" fill="#7a86a0"><title>1.42%</title></rect><text class="vlbl" x="651.3" y="104.7" text-anchor="middle">1.42%</text><text class="ax" x="651.3" y="218" text-anchor="middle">FY26</text><text class="ax" x="651.3" y="229" text-anchor="middle">PBT margin</text><line class="zero-l" x1="50" y1="204" x2="706" y2="204"/></svg>
+<figcaption><b>Why:</b> almost the entire decline (&minus;80bp of the &minus;89bp total) is an <b>EBITDA-margin</b> compression &mdash; a genuine operating deterioration, not a balance-sheet effect. Interest cost actually helped slightly (+5bp): despite the absolute interest bill rising every year in this window, revenue grew faster, so interest as a share of sales fell. That is the reverse of the pattern this pipeline found at Kalpataru Projects, where an apparent margin improvement was almost entirely deleveraging rather than operations &mdash; here, the operating business is where the real story sits.</figcaption>
+</figure>
+
+<p>What sits behind the &minus;80bp EBITDA-margin move, on the evidence available:</p>
+<ul>
+<li><b>Arena/Turkey.</b> Continuing losses at the Turkish subsidiary, compounded by a FY2026 impairment of the Arena trade-name intangible (management's own words, May 2026 call: "the impact on the group PAT after minority interest is INR75.2 crores") and, in earlier years of this window, factoring costs on Turkish receivables that management later disclosed had run as high as &#8377;22 Cr in a single quarter (Q4 FY2025) before falling to &#8377;2 Cr by Q4 FY2026 as the lira-denominated phone business was wound down.</li>
+<li><b>Opex investment ahead of revenue.</b> Management has been explicit and consistent that capability-building spend &mdash; in SSG/cloud/security technology, and in enterprise-segment reach &mdash; is running ahead of the revenue it is meant to eventually support: "the opex... because we want to create required capabilities... is going to be more for some time... that elevated opex for next couple of quarters, maybe 1 or 2 years would continue is our expectation" (Q4 FY2026 call). This is a stated, ongoing choice, not a one-off cost.</li>
+<li><b>Large-deal mix.</b> Big data-centre and enterprise deals (TSG) are explicitly lower-margin by management's own account: "in terms of margins, it's much lower. I mean you cannot get compared with the regular business" (same call, on large deals) &mdash; a growing share of large-deal revenue mechanically drags blended margin down even as it adds absolute profit.</li>
+</ul>
+
+<p>Two things this decline is <b>not</b>, on the evidence available. It is not a financing-driven illusion &mdash; the bridge shows interest cost was mildly favourable across this window, so a reader cannot dismiss the margin story as "just deleveraging in reverse." And it is not obviously company-specific mismanagement either: Redington's operating margin has moved in a narrow 2.0&ndash;2.9% band for a decade (Section <a href="#record">03</a>), a range this report's peer work (Section <a href="#peers">06</a>) shows is close to the global norm for IT-product distribution at scale &mdash; Ingram Micro Holding Corp ran a 1.7% operating margin in FY2025, TD Synnex 2.2&ndash;3.0%, ALSO Holding AG a 1.9% EBITDA margin. Redington's FY2026 print, at 1.97%, sits inside that band, not below it. The decline is real; whether it is temporary (capability-building spend that eventually pays off, as management argues) or a structural step-down toward the lower end of the industry's own range is the open question Section <a href="#valuation">13</a> has to price.</p>
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: gross and net disagree, and the disagreement is the finding</h2>
+<p class="sec-sub">Management's own metric has been improving. The gross number that actually measures credit risk has not.</p>
+
+<p>Redington, CRISIL and this pipeline's own database all report a working-capital metric for this company, and they do not tell the same story:</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Measure</th><th class="t">Source</th><th class="t">Direction, recent years</th></tr></thead>
+<tbody>
+<tr><td class="t">Net working-capital days (net of payables, customer advances)</td><td class="t">Management, on quarterly calls</td><td class="t"><span class="g">Improving</span> &mdash; "37 &rarr; 32 days YoY" (Q1 FY2027 call); "lowering our working capital days to 30 days" (Q4 FY2026, full-year basis)</td></tr>
+<tr><td class="t">Net working-capital days</td><td class="t">CRISIL rating rationale</td><td class="t"><span class="g">Improving</span> &mdash; CRISIL's own tracked NWC-day metric has moved favourably across recent rating cycles, corroborating management's own framing rather than merely repeating it</td></tr>
+<tr class="hl"><td class="t">Gross receivable days</td><td class="t">This pipeline's own database (Screener basis)</td><td class="t"><span class="l">Worsening</span> &mdash; 63.7 days (FY2025) &rarr; 66.1 days (FY2026), part of a sustained decade-long drift from 45.2 days (FY2017)</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Both readings are true, and both are computed correctly from real disclosures &mdash; they are answering different questions. Net working capital nets receivables and inventory against payables and customer advances; it measures how much of the balance sheet the company itself has to fund. Gross receivable days measures something narrower and, for a credit-risk read, more important: how long the company's own customers are actually taking to pay, full stop, independent of how generous Redington's own suppliers have been in the meantime.</p>
+
+<p>The mechanism is visible directly in this pipeline's own series: payable days lengthened from 39.4 to 55.3 over the same decade that receivable days lengthened from 45.2 to 66.1 (Section <a href="#record">03</a>). Redington has been extending more credit to its own channel partners <b>and</b> taking more credit from its own vendors, roughly in step &mdash; which is exactly how a net metric can hold flat or improve even as the gross number that actually represents counterparty credit exposure keeps drifting the wrong way. Net operating working capital in absolute terms has grown from &#8377;3,461 Cr to &#8377;11,139 Cr over the decade (3.2&times;, against a 2.9&times; growth in sales) &mdash; broadly proportionate to revenue, which is why the working-capital-as-percent-of-sales ratio (8.4% &rarr; 9.3%) looks far less alarming than the receivable-days trend on its own.</p>
+
+<div class="key">
+<div class="lbl">Why this matters more than a rounding difference</div>
+<p>A distributor's receivable book is its principal credit exposure to 70,000 channel partners across 40 markets, several of them (Turkey, parts of the Middle East and Africa) genuinely higher-risk. A net metric that improves because payables are being extended in parallel says something about balance-sheet efficiency; it says very little about whether the underlying customer base is paying any faster. This report treats the gross receivable-days trend as the more decision-relevant number for judging counterparty risk, and the net-day improvement as a real but separate fact about funding structure &mdash; not as evidence that the credit-risk picture is actually getting better.</p>
+</div>
+
+<h3>The incremental picture has actually been good, recently</h3>
+<p>One genuinely favourable, less-discussed number: the <i>incremental</i> working-capital intensity of growth &mdash; how much net working capital each additional rupee of revenue has consumed &mdash; has been much better in the last two years than the decade average. FY2024 absorbed just 6.5% of incremental revenue into working capital; FY2026, 9.4%. Compare that with FY2023, the year revenue jumped 26.7%, when incremental working capital consumed 31% of the additional revenue &mdash; roughly three to five times the recent rate. If FY2024's efficiency is closer to the new normal than FY2023's, the balance-sheet drag from further growth is more manageable than the gross receivable-days trend alone would suggest; if FY2023 is what happens whenever growth accelerates sharply (as it has again in Q1 FY2027, Section <a href="#growth">07</a>), the recent efficiency may not hold. This is precisely the assumption the valuation in Section <a href="#valuation">13</a> has to take a position on, and it is the single input the DCF there is most sensitive to.</p>
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How Redington compares with its real peers</h2>
+<p class="sec-sub">One genuine listed Indian comparable, two large private rivals invisible to public-market investors, and a global band that shows Redington's own thin margin is the industry norm</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Company</th><th class="t">Listed?</th><th class="num">Revenue (&#8377;Cr, FY26)</th><th class="num">ROCE</th><th class="num">OPM</th><th class="num">P/E</th><th class="t">WC days (Debtor/Inv/Payable)</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Redington (anchor)</td><td class="t">Y</td><td class="num">1,19,162</td><td class="num">18.4%</td><td class="num">2.0%</td><td class="num">17.1&times;</td><td class="t">66 / 26 / 58</td></tr>
+<tr><td class="t">Rashi Peripherals (RPTECH)</td><td class="t">Y, Feb-2024 IPO</td><td class="num">15,827</td><td class="num">17.0%</td><td class="num">2.9%</td><td class="num">17.1&times;</td><td class="t">50 / 62 / 53</td></tr>
+<tr><td class="t">Ingram Micro Holding Corp (NYSE:INGM)</td><td class="t">Y (US), not India-tradeable</td><td class="num">~4,37,000</td><td class="num">&mdash;</td><td class="num">1.7% (op. margin)</td><td class="num">&mdash;</td><td class="t">&mdash;</td></tr>
+<tr><td class="t">TD Synnex (NYSE:SNX)</td><td class="t">Y (US), not India-tradeable</td><td class="num">~5,21,000</td><td class="num">&mdash;</td><td class="num">2.2&ndash;3.0% (op. margin)</td><td class="num">&mdash;</td><td class="t">&mdash;</td></tr>
+<tr><td class="t">ALSO Holding AG (SIX:ALSN)</td><td class="t">Y (Swiss), not India-tradeable</td><td class="num">~1,42,000</td><td class="num">&mdash;</td><td class="num">1.9% (EBITDA margin)</td><td class="num">&mdash;</td><td class="t">&mdash;</td></tr>
+<tr><td class="t">Arrow Electronics (NYSE:ARW)</td><td class="t">Y (US), not India-tradeable</td><td class="num">~2,58,000</td><td class="num">11.1% (non-GAAP ROIC)</td><td class="num">3.4&ndash;3.8% (op. margin)</td><td class="num">&mdash;</td><td class="t">&mdash;</td></tr>
+<tr><td class="t">Ingram Micro India Pvt Ltd</td><td class="t">N &mdash; private subsidiary</td><td class="num">not disclosed</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="t">India's reported #1 distributor by scale, ahead of Redington</td></tr>
+<tr><td class="t">Savex Technologies</td><td class="t">N &mdash; private</td><td class="num">~32,900 (est., FY25)</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="t">Large private third player, comparable scale to Rashi</td></tr>
+<tr><td class="t">Compuage Infocom (COMPINFO)</td><td class="t">Y, but in NCLT insolvency (CIRP since Nov-2023)</td><td class="num">~3 (from ~4,200 pre-CIRP)</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="t">Cautionary case, not a valuation comp &mdash; see below</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Rashi Peripherals: the one genuine listed comparable, and it makes Redington look good on the one metric that matters most here</h3>
+<p>Rashi Peripherals is a domestic IT-product distributor (PCs, mobiles, networking, storage) roughly 13% of Redington's scale, IPO'd February 2024. Its margin band (2.7&ndash;2.9% OPM) and return profile (17.0% ROCE, 14.7% ROE) sit close to Redington's own, confirming this is genuinely the same business model at a different scale rather than a loosely-related comparator. Its P/E, 17.1&times;, is coincidentally near-identical to Redington's own at the time both were fetched.</p>
+<p>The one place the two diverge sharply, and in Redington's favour, is working capital: Rashi's cash-conversion cycle runs 60 days against Redington's 34, driven almost entirely by inventory (62 days against Redington's 26). Redington's inventory efficiency is a genuine, citable advantage over its closest domestic listed peer &mdash; a point in tension with, but not a rebuttal of, this report's own receivable-days concern (Section <a href="#wc">05</a>): the two companies' working-capital problems, if either has one, sit in different parts of the cycle.</p>
+<p>The other clear divergence is governance structure: Rashi's promoter holding is 64.0% and rising; Redington has had no promoter since 2017. Section <a href="#flags">11</a> treats Redington's no-promoter, institutionally-owned structure as a genuine positive relative to the conventional promoter-controlled peer.</p>
+
+<h3>The two biggest competitors are invisible to a public-market investor</h3>
+<p>Multiple secondary sources describe <b>Ingram Micro India Pvt Ltd</b> &mdash; the Indian subsidiary of the globally-listed Ingram Micro Holding Corp (NYSE: INGM) &mdash; as India's largest IT distributor by scale, ahead of Redington. It does not disclose India-specific financials and cannot be compared quantitatively. <b>Savex Technologies</b>, a large private distributor (~&#8377;32,900 Cr estimated FY2025 revenue, comparable to Rashi's scale), is the market's third significant player and likewise unlisted. Together, this means Redington's true competitive position &mdash; and the intensity of pricing and vendor-mandate competition it actually faces &mdash; is harder to see than the listed universe alone would suggest, and this report treats Redington's "number two" market-position framing (Section <a href="#business">01</a>) as directionally correct but not independently verifiable against audited private-company financials.</p>
+
+<h3>Global peers confirm the thin margin is structural, not a Redington-specific failing</h3>
+<p>Operating margins across the world's largest listed IT distributors cluster in a narrow 1.7&ndash;3.8% band: Ingram Micro Holding 1.7%, TD Synnex 2.2&ndash;3.0%, ALSO Holding 1.9% (EBITDA basis), Arrow Electronics 3.4&ndash;3.8% (the best of the group, alongside an 11.1% non-GAAP ROIC). Redington's own FY2026 OPM of 1.97% sits squarely inside that range, not below it &mdash; direct support for the framing in Section <a href="#margin">04</a> that the recent margin decline is a real operating problem, but not evidence of a company running structurally worse than the global industry it competes in. Arrow's figures are the one useful upper bound: a distribution model <i>can</i> sustain a meaningfully better margin and capital return than the Ingram/TD Synnex/ALSO band, which is worth keeping in mind when this report's own bull-case valuation scenario (Section <a href="#valuation">13</a>) assumes some margin recovery rather than treating 2% as an absolute ceiling.</p>
+
+<h3>Compuage Infocom: what happens when this business model goes wrong</h3>
+<p>Compuage Infocom was a genuine, long-established (1999) listed Indian IT distributor of comparable type, generating roughly &#8377;4,200 Cr of revenue as recently as FY2022. It entered Corporate Insolvency Resolution Process on 2 November 2023, and by its FY2025-26 results (run under a Resolution Professional) revenue had collapsed to approximately &#8377;3 Cr. This is not a valuation comparable &mdash; its current financials are not meaningful &mdash; but it is a genuine, sourced illustration of the tail risk this exact business model carries: a working-capital-heavy distributor with concentrated vendor and channel-partner exposure can go from a real, mid-sized competitor to insolvency inside roughly eighteen months if credit lines, vendor confidence, or channel-partner receivables sour. Redington's own investment-grade AA+/A1+ ratings from both CRISIL and ICRA (Section <a href="#flags">11</a>) and its 34-day cash-conversion cycle are the direct counter-evidence that this is not the path Redington itself is on &mdash; but the existence of a real, recent precedent in the same industry is worth stating plainly rather than treating the risk as purely theoretical.</p>
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: a genuine acceleration, partly borrowed from the future</h2>
+<p class="sec-sub">A record quarter, a real data-centre and AI-PC tailwind, and a component-shortage pre-buying cycle management itself says is not the same as COVID</p>
+
+<p>Q1 FY2027 (quarter ended June 2026), the most recent results this pipeline holds, was Redington's best quarter on record: consolidated revenue &#8377;34,966 Cr, up 34% year-on-year; PAT (excluding exceptional items) up 77% to &#8377;486 Cr; PBT &#8377;610.9 Cr, up 54.6% quarter-on-quarter and 100.7% year-on-year. India revenue grew 63%, India PAT 60%. Middle East and Africa grew 15% year-on-year <b>despite</b> the West Asia conflict that began 28 February 2026 &mdash; a result that beat management's own guidance from the prior call, which had explicitly flagged expected softness in the region for the first one to two quarters of FY2027 (Section <a href="#mgmt">09</a>). The stock hit an all-time high, up roughly 18% on results day (30 July 2026).</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Segment</th><th class="num">Q1 FY2027 YoY growth</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Software Solutions Group (SSG)</td><td class="num">+52%</td></tr>
+<tr><td class="t">Technology Solutions Group (TSG)</td><td class="num">+50%</td></tr>
+<tr><td class="t">Endpoint Solutions Group (ESG)</td><td class="num">+35%</td></tr>
+<tr><td class="t">Mobility Solutions Group (MSG)</td><td class="num">+21%</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Three genuine structural tailwinds</h3>
+<ul>
+<li><b>Data-centre demand.</b> Management's own figure, Q4 FY2026 call: India's data-centre market is "1.5 gigawatts and it's going to 7.5 in a few years" &mdash; a five-fold expansion management frames as a multi-year TSG opportunity, tempered by its own stated discipline ("it's a question of how much we want to play at what margin, at what ROCE").</li>
+<li><b>AI-PC refresh cycle.</b> 41% of India ESG (PC) revenue was already from AI-capable PCs (&gt;40 TOPS) as of the Q4 FY2026 call &mdash; a genuine hardware upgrade cycle with a defined multi-year runway as enterprise fleets refresh.</li>
+<li><b>SSG mix shift.</b> Software Solutions Group grew from 15% of FY2025 revenue to 17% of FY2026, and is both the fastest-growing segment (Q1 FY2027: +52%) and the highest-margin one (Section <a href="#margin">04</a>). Management's own framing: "tremendous room for growth still," with cloud and software both growing above the segment average and security "growing slower for us... we will drive security much harder."</li>
+</ul>
+
+<h3>The part of this quarter that is a pull-forward, not new demand</h3>
+<p>Management was unusually direct about this on the Q4 FY2026 call, when asked directly whether the current component-shortage cycle would repeat COVID-era economics: "the biggest difference between COVID and now... [is] the corresponding demand spike is not something that we generally see" today. A meaningful share of ESG and mobility growth is explicitly attributed to channel partners "stocking up" ahead of anticipated price increases from component shortages, not to a genuine step-up in end-user demand &mdash; management's own words, describing customers who "would want to buy now and avoid higher price increase in the next couple of quarters." This is precisely the channel-stocking risk flagged as structural to the distribution model in Section <a href="#business">01</a>, now visibly present in the numbers being reported.</p>
+
+<h3>New growth initiatives, not yet material</h3>
+<p>A FIMER solar-inverter distribution partnership (April 2026, Pan-India, aimed at Redington Solar's channel), a five-year Resulticks AI customer-engagement distribution deal (July 2026, a stated &gt;$150m combined addressable opportunity across the Middle East, India and South/South-East Asia over the deal's life) and "Frontier Distributor" status in Microsoft's AI Cloud Partner Program are all real, recent and directionally positive, but none is yet visible in reported segment numbers and none has a disclosed near-term revenue contribution. This report treats them as evidence of continued business-development activity, not as quantified growth drivers.</p>
+
+<h3>Management's own near-term guidance</h3>
+<p>From the Q4 FY2026 call: EBITDA margin outside Arena guided at 2.2&ndash;2.4%; ROCE guided to be maintained above 18%, described as "closer to 20%" at the time of the call; large-deal momentum expected to continue building through the first half of FY2027. Section <a href="#mgmt">09</a> scores this guidance against the one quarter of actual results available since it was given.</p>
+</section>
+
+
+<section id="analysts">
+<h2><span class="num">08</span>What institutional analysts have been saying, and how reliable that picture is</h2>
+<p class="sec-sub">A genuinely noisy data environment for this specific question &mdash; worth stating plainly rather than picking one aggregator's number and presenting it as settled</p>
+
+<p>Analyst-coverage aggregators disagreed with each other more than usual for this company: coverage counts ranged from 3 to 51 analysts and target prices from &#8377;225 to over &#8377;500 depending on the source, a spread wide enough that this report treats no single aggregator figure as reliable on its own. The most directly verifiable single data point, fetched from Investing.com and dated 9 November 2025: <b>5 analysts, consensus rating Strong Buy, average target &#8377;431.80 (range &#8377;380&ndash;500)</b>. Investec was the one specifically named bear in that set, rated Hold with a &#8377;305 target &mdash; below the current &#8377;394 price at the time this report was written, a genuinely useful data point precisely because it is the outlier rather than the consensus.</p>
+
+<p>Additional, lower-confidence signals found in this research, each graded on how it was recovered rather than presented as equally solid:</p>
+<ul>
+<li><b>MNCL (Motilal Oswal or a similarly-abbreviated broking house, name not fully disambiguated in this research pass)</b> reportedly initiated coverage and later raised its target from &#8377;310 to &#8377;379 &mdash; recovered only from search-result snippets; the underlying research notes returned server errors (503) on direct fetch and could not be read in full. <i>Confidence: medium.</i></li>
+<li>A Reuters-sourced piece quoting Redington management framed the AI-PC refresh cycle (Section <a href="#growth">07</a>) as a specific tailwind analysts are tracking. <i>Confidence: medium</i> &mdash; the underlying Reuters article was not independently re-fetched in full.</li>
+<li>An unattributed downgrade note, recovered only as a search snippet, cited weak emerging-market macro conditions and elevated factoring costs (consistent with the real, disclosed Turkey factoring-cost pattern in Section <a href="#margin">04</a>) as the stated rationale. The issuing brokerage could not be identified. <i>Confidence: summary</i> &mdash; this is reported here as a data point that a downgrade rationale exists and cites real, corroborated facts, not as an attributable analyst call.</li>
+</ul>
+
+<p>Two structured aggregator sources this pipeline normally relies on for a cleaner brokerage list &mdash; MarketScreener and Trendlyne &mdash; were not accessible in this research pass (a wrong-company redirect on one, a 405 error on the other). This is a genuine gap, not a considered omission, and the reader should not infer either an unusually thin or an unusually thick coverage universe from its absence. Section <a href="#gaps">15</a> flags this as the single most useful follow-up for a future refresh of this report.</p>
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">09</span>Management scorecard: one clean cycle, one early miss, and a thinner ledger than usual</h2>
+<p class="sec-sub">A genuine limitation stated up front: this report reads two of Redington's 44 available transcripts in depth, not the decade-spanning ledger built for other companies in this pipeline</p>
+
+<div class="warn">
+<div class="lbl">Scope of this scorecard</div>
+<p>This research pass read the Q4 FY2026 (14 May 2026) and Q1 FY2027 (5 August 2026) earnings calls in full, plus the CRISIL and ICRA rating rationales, but did not build the multi-year, transcript-by-transcript guidance ledger this pipeline has produced for other companies. What follows is therefore a single guidance-to-actual comparison cycle &mdash; the most recent one available &mdash; not a track record. Section <a href="#gaps">15</a> flags reading a broader run of historical transcripts as the highest-priority improvement for a future refresh of this report.</p>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Guided (Q4 FY2026 call, 14 May 2026)</th><th class="t">Delivered (Q1 FY2027, reported 5 Aug 2026)</th><th class="t">Verdict</th></tr></thead>
+<tbody>
+<tr><td class="t">"Some softness this quarter and maybe a bit next quarter" in the Middle East, due to the West Asia conflict (started 28 Feb 2026)</td><td class="t">Middle East &amp; Africa revenue grew +15% YoY "despite continued geopolitical uncertainty"</td><td class="t"><span class="pill p-kept">Beat</span></td></tr>
+<tr><td class="t">ROCE "maintained above 18%... closer to 20%" as of the call</td><td class="t">ROCE reported at 22%</td><td class="t"><span class="pill p-kept">Beat</span></td></tr>
+<tr><td class="t">EBITDA margin outside Arena guided at 2.2&ndash;2.4%</td><td class="t">Consolidated EBITDA margin (including Arena's ongoing drag) approximately 2.15% on Q1 FY2027 revenue and reported EBITDA &mdash; consistent with an ex-Arena figure inside or above the guided band, but this report could not isolate the ex-Arena figure directly from the disclosures read</td><td class="t"><span class="pill p-open">Unresolved</span></td></tr>
+<tr><td class="t">Arena/Turkey losses expected to continue into FY2027 "but the quantum would keep coming down," full turnaround expected the year after (FY2028)</td><td class="t">Arena reported a loss of approximately &#8377;64 Cr in Q1 FY2027, alongside what the transcript describes as unexpected new gross-margin compression at the subsidiary &mdash; a larger loss than the run-rate implied by the "coming down" framing, on the one quarter of evidence available</td><td class="t"><span class="pill p-slip">Early slip</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Read together, the pattern in this single cycle is: management was appropriately, not excessively, cautious about the one risk everyone could see coming (the Middle East conflict), and results came in ahead of that caution on both revenue growth and returns &mdash; the opposite failure mode from the guidance-credibility problem this pipeline found at Hexaware, where "double-digit growth" framing was not met. The one place this cycle's guidance looks shakier on early evidence is Arena, where management's own stated expectation of a steadily reducing loss quantum did not hold in the very next quarter reported. One quarter is not a pattern, and this report does not treat it as one &mdash; but it is the one item worth watching closely on the next call, given Arena is also the subject of a fresh FY2026 intangible impairment and the company's own repeated acknowledgment that "the conditions are not going to be less challenging" in Turkey (Section <a href="#flags">11</a>).</p>
+
+<h3>A separate governance-adjacent credibility item: the 2023 CEO transition</h3>
+<p>In September&ndash;November 2023, proxy advisory firm SES publicly objected (a matter that reached both a BSE filing and CNBC-TV18 coverage, per ValuePickr forum discussion of the primary sources) to V S Hariharan's transition from Independent Director to Managing Director &amp; Group CEO without serving a stated one-year cooling-off period. This predates the current CEO's FY2026-2027 guidance record covered above and this report found no evidence it recurred or escalated after 2023, but it is the one concrete, sourced governance flag this pipeline's forum research surfaced on the current CEO specifically, and belongs in the same picture as the guidance record above when judging management credibility as a whole (Section <a href="#flags">11</a> covers the company's broader governance record, including the unrelated, more recent Third Wave Power item).</p>
+</section>
+
+
+<section id="capital">
+<h2><span class="num">10</span>Capital allocation: dividends funded from operations, one honest wind-down, and conserved cash for the next move</h2>
+<p class="sec-sub">No buyback history, a growing dividend, and a decade-old episode of shutting down a strategically redundant subsidiary rather than propping it up</p>
+
+<h3>Dividends, not buybacks</h3>
+<p>Redington paid a &#8377;6.00 per share final dividend for FY2026 (30% of profits), recommended 13 May 2026, record date 3 July 2026, approved at the 33rd AGM on 29 July 2026. No buyback was identified in any source for FY2026 or the period since &mdash; consistent with the company's history of returning capital via regular dividends rather than buybacks. With no controlling shareholder whose stake-dilution concerns would typically motivate a buyback preference (Section <a href="#business">01</a>), the dividend-only pattern is the expected one for this ownership structure, not a notable choice in itself.</p>
+<p>A minor but genuine positive shareholder-administration data point: the FY2025-26 annual report discloses a "special voluntary initiative to reduce the quantum of unclaimed dividends," which cut unclaimed dividends from &#8377;1.56 Cr (30 June 2025) to &#8377;0.73 Cr (31 March 2026) through structured shareholder outreach.</p>
+
+<h3>Nook Micro: a strategically redundant subsidiary, wound down honestly rather than propped up</h3>
+<p>Redington set up Nook Micro Distribution Ltd, a wholly-owned subsidiary, in 2010 to pursue last-mile/micro-distribution into smaller Indian towns. As vendors in IT and telecom shifted their own go-to-market strategy toward Direct-to-Retail models, Nook Micro's niche collapsed &mdash; it ended up, in the company's own words from its FY2015-16 annual report, competing "in the same market for similar opportunities" as its own parent, "which reduced the differentiation between these companies." By FY2015, Nook Micro's accumulated losses exceeded 50% of its net worth. The Board approved a merger of Nook Micro back into Redington (a common-control transaction under Ind AS 103, not a write-off or fire sale) effective 1 April 2015, court-sanctioned by the Madras High Court on 11 March 2016, with Nook Micro formally dissolved on 15 April 2016.</p>
+<p>This is a decade-old, fully resolved episode, not a current risk &mdash; it is included here as a data point on management's capital-allocation discipline: a wholly-owned venture that became strategically redundant was recognised and shut down within roughly five years of the market shift that undermined it, disclosed frankly in the company's own words, rather than left to bleed capital indefinitely. It is also a direct, real-world instance of the same Direct-to-Retail disintermediation risk this report flags as a standing structural feature of the distribution model itself (Section <a href="#business">01</a>), not merely a hypothetical one.</p>
+
+<h3>Minimal capex, cash conserved for optionality</h3>
+<p>Consistent with the asset-light distribution model (Section <a href="#framework">02</a>), Redington's own capital expenditure has been negligible for most of the past decade &mdash; the cumulative capex proxy across FY2017&ndash;FY2026 is just &#8377;981 Cr against &#8377;9,713 Cr of cumulative profit. The company has not needed, and has not undertaken, a large external capital raise of the kind seen elsewhere in this pipeline's coverage (contrast Section <a href="#peers">06</a>'s Poly Medicure-style QIP pattern seen at other companies this pipeline tracks). Management's own stated capital priority, from the Q4 FY2026 call, is to conserve cash for two purposes simultaneously: absorbing the working-capital and risk impact of the ongoing West Asia crisis, and funding inorganic growth opportunities the company says it is "actively going through the discussion" on, specifically in professional services around cloud and security &mdash; an announced intent, not yet a transaction, and treated here as a stated priority to monitor rather than a completed capital-allocation decision.</p>
+</section>
+
+
+<section id="flags">
+<h2><span class="num">11</span>Governance and credit risk: clean at scale, one small fresh flag, one real structural weak point</h2>
+<p class="sec-sub">Two independent AA+/A1+ ratings, a first-ever personal-interest related-party item, a genuine tension between a Secretarial Auditor's language and the Board's own summary of it, and Turkey</p>
+
+<h3>Credit ratings: both agencies converged at the same strong level</h3>
+<p>Redington is rated by both CRISIL and ICRA &mdash; the same two agencies, no CARE or India Ratings coverage found. Both currently hold Redington at <b>AA+/Stable</b> (long-term) and <b>A1+</b> (short-term):</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Agency</th><th class="t">Latest action</th><th class="t">Rating</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">CRISIL</td><td class="t">27 May 2026, reaffirmed</td><td class="t">AA+/Stable (&#8377;3,000 Cr bank facilities) / A1+ (&#8377;1,900 Cr commercial paper)</td></tr>
+<tr><td class="t">ICRA</td><td class="t">30 Sep 2025, reaffirmed</td><td class="t">AA+(Stable) / A1+, on a rising trajectory (AA&minus; &rarr; AA &rarr; AA+ over recent years, per this pipeline's research), now converged with CRISIL</td></tr>
+</tbody>
+</table>
+</div>
+<p>Both agencies use almost identical language: a "strong business risk profile" from an "established market position," "improving product and geographical diversification" and "healthy liquidity," offset by "modest operating margin and large working capital requirement in the distribution business" &mdash; independent confirmation, from lenders' own analysts with management access, of the same structural finding this report reaches from the raw numbers in Section <a href="#framework">02</a>.</p>
+<p>CRISIL's own stated triggers are specific and worth stating in full. <b>Upward:</b> sustained healthy revenue growth and operating-margin improvement benefiting cash generation, continued prudent working-capital management keeping TOL/TNW below 1.30&times;. <b>Downward:</b> weak business performance hurting profitability or cash generation, or RoCE falling below 15&ndash;16%; a stretched working-capital cycle or a significant debt-funded acquisition or capex deteriorating interest cover or TOL/TNW. These are the concrete, monitorable thresholds Section <a href="#verdict">14</a> carries forward as this report's own triggers.</p>
+
+<h3>A first-ever personal-interest related-party item, disclosed narrowly and flagged by the company's own Secretarial Auditor</h3>
+<p>Redington's FY2025-26 annual report discloses, for the first time in over a decade of this pipeline's related-party audit coverage, a transaction with an entity in which a sitting KMP has a personal interest: <b>Third Wave Power Pte Ltd</b>, described in the Ind AS 24 note only as "entity in which director (Mr. V S Hariharan) has interest." Sales to the counterparty were &#8377;9.09 Cr (FY2025: nil) and the year-end receivable &#8377;6.56 Cr (FY2025: nil) &mdash; both genuinely new this year, not a continuing pattern.</p>
+<p>Three things about how this is disclosed and framed matter more than the rupee amount itself:</p>
+<ul>
+<li><b>It is invisible in the disclosure most investors would actually read.</b> Form AOC-2 &mdash; the Board's Report annexure specifically meant to surface related-party transactions &mdash; states "Not Applicable" for both non-arm's-length and material transactions. At &#8377;9.09 Cr against &#8377;1,19,162 Cr of consolidated revenue (roughly 0.008% of turnover), this sits far below any plausible materiality threshold, so the AOC-2 answer is not itself irregular &mdash; but it does mean the item surfaces only in the far more granular Ind AS 24 note, not in the summary document.</li>
+<li><b>The Secretarial Auditor's language and the Board's own summary of it do not fully square.</b> The FY2025-26 Secretarial Audit Report (Form MR-3, 13 May 2026) states the company "needs to review the system of obtaining approval for the related party transactions under the SEBI (Listing Obligations and disclosure Requirements) Regulations 2015" &mdash; a genuine, specific observation. The Board's Report, in the same annual report, separately states "the Secretarial Audit report does not contain any qualification, reservation or adverse remark." Both statements are technically defensible (the MR-3 report did not use the formal word "qualification"), but a reader relying on the Board's own characterization alone would not learn that the audit report contains language calling for exactly this kind of review, filed in the same year the company's first personal-interest RPT in over a decade appears.</li>
+<li><b>The commercial rationale is not disclosed anywhere this research found.</b> No filing, transcript or press source explains what was actually sold. Third Wave Power is an off-grid solar-hardware venture; Redington operates a growing solar-distribution business (Redington Solar, Redington Green Energy Ltd in Kenya, and the April 2026 FIMER partnership, Section <a href="#growth">07</a>) and it is plausible the transaction runs through that channel &mdash; but this is this report's own inference, not a sourced fact, and no evidence of Hariharan's current formal role or shareholding at Third Wave Power (multiple sources call him founder/CEO; one calls him "former CEO," and none is a Redington disclosure) was found. No analyst or press commentary on this item exists as of this report's writing.</li>
+</ul>
+<div class="key">
+<div class="lbl">How this report weighs it</div>
+<p>Small in rupee terms, immaterial by any reasonable threshold, and not evidence of a pattern &mdash; but a first-time personal-interest counterparty for the sitting MD &amp; Group CEO, appearing in the same year the company's own Secretarial Auditor flags a related-party approval-process weakness, is exactly the kind of item that deserves a management explanation at the next AGM or earnings call rather than being left as a bare Ind AS 24 line. This report treats it as a genuine, if modest, open item &mdash; not as a settled governance failure.</p>
+</div>
+
+<h3>The 2023 CEO cooling-off controversy</h3>
+<p>Proxy advisory firm SES publicly objected, in September&ndash;November 2023, to V S Hariharan's transition from Independent Director to Managing Director &amp; Group CEO without serving a stated one-year cooling-off period &mdash; a matter that reached both a BSE filing and CNBC-TV18 coverage, surfaced via ValuePickr forum discussion of the primary sources. This predates the guidance record discussed in Section <a href="#mgmt">09</a> and no evidence of recurrence or escalation after 2023 was found, but it belongs in the same governance picture as the Third Wave Power item above &mdash; both concern the same individual, three years apart, and neither is disqualifying on its own.</p>
+
+<h3>Turkey: the one genuinely structural weak point in an otherwise clean profile</h3>
+<p>Redington's Turkish operations (principally the ~49.4%-owned Arena Bilgisayar group) sit inside a macro environment CRISIL itself explicitly names as a credit-relevant headwind: Turkish lira depreciation, inflation, and local borrowing costs management describes as running "42%, 45%." Redington has been actively de-risking &mdash; exiting the lira-denominated phone business and other lira-mix business lines through FY2026, halving Arena's revenue base by deliberate choice (from roughly $1 billion to $0.5 billion, management's own figures) &mdash; but continuing losses, a fresh FY2026 trade-name impairment (&#8377;75.2 Cr impact on group PAT after minority interest), and an early sign in Q1 FY2027 that losses are not yet reducing as guided (Section <a href="#mgmt">09</a>) mean this remains a live, unresolved exposure rather than a closed chapter. Management's own internal strategic language now files Turkey under "Emerging Geographies" &mdash; the company's own, higher-risk bucket &mdash; alongside Africa and South Asia.</p>
+
+<h3>Litigation and regulatory: routine, not escalating</h3>
+<p>Redington has actively litigated a series of GST and income-tax disputes spanning FY2018&ndash;FY2022 assessment years through 2025&ndash;2026, and has largely won: a &#8377;91.74 Cr GST demand quashed on appeal (October 2025), a &#8377;136.25 Cr income-tax demand quashed (February 2026), a &#8377;230.21 Cr income-tax demand quashed (March 2026), against one still-pending &#8377;148.33 Cr GST assessment (December 2025) the company states it does not expect to be material. This is a fairly ordinary pattern for a large Indian distribution business and this report does not read it as an escalating risk. No SEBI enforcement action, and no customs/import-duty litigation, was found in this research pass &mdash; the latter is flagged as a gap rather than a confirmed absence, since it is a plausible risk area for an importer/distributor that was not specifically searched to exhaustion.</p>
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">12</span>What retail investors have said, over ten years in one thread</h2>
+<p class="sec-sub">A single long-running ValuePickr thread, its own sentiment arc tracking the business almost exactly, and one very recent item it has not yet caught up to</p>
+
+<p>Redington has exactly one dedicated ValuePickr thread &mdash; <i>"Redington India: Strong Performance history, re-rating candidate"</i> (topic 4741) &mdash; created 28 February 2016, still active as of its most recent post on 5 April 2026: 115 posts, 44,446 views, 257 likes, 56 participants over a full decade. Read in full via the forum's own API, its arc tracks the business closely enough to be a genuine secondary source in its own right, not merely chatter:</p>
+<ul>
+<li><b>2016:</b> cautious optimism at the thread's founding &mdash; a re-rating candidate thesis, not yet a conviction call.</li>
+<li><b>2016&ndash;2017:</b> visible unease specifically about the move to a no-promoter structure (Section <a href="#business">01</a>) &mdash; a genuine, contemporaneous governance concern about ownership rather than a retrospective footnote.</li>
+<li><b>2018&ndash;2020:</b> the thread goes quiet &mdash; low posting activity, consistent with the flat FY2018 revenue print (Section <a href="#record">03</a>) and a stretch with little to say.</li>
+<li><b>2020&ndash;2022:</b> a genuine bull run in the posting activity itself, coinciding with the balance-sheet transformation and record-earnings years this report's own numbers confirm (Section <a href="#record">03</a>, the FY2021&ndash;FY2022 margin and cash-flow strength) &mdash; with a live, two-sided debate in the thread about cyclicality and free-cash-flow yield, not one-sided cheerleading.</li>
+<li><b>2023:</b> growth-stall questions appear alongside the one concrete, sourced governance flag this pipeline found on the current CEO &mdash; the SES cooling-off-period objection (Section <a href="#flags">11</a>), discussed on the forum with reference to the actual BSE filing and CNBC-TV18 coverage, not merely speculation.</li>
+<li><b>2024&ndash;2026:</b> Turkey currency and financing cost is the dominant, repeatedly-cited live concern, named again and again as the reason the market has persistently discounted the stock &mdash; resolved in part, in the forum's own telling, by the Paynet stake sale (closed February 2025), though posters continued raising it after that sale as an ongoing rather than closed issue (consistent with this report's own reading in Section <a href="#flags">11</a> that Turkey remains a live exposure, not a resolved one). The most recent post (April 2026) questions the stock's sub-median P/E (cited around 12&times; at that time) against a recent price selloff.</li>
+</ul>
+
+<p>A direct search of the forum for "Third Wave Power" &mdash; the FY2026 related-party item covered in Section <a href="#flags">11</a> &mdash; returned zero results. Given the annual report disclosing it was only published in July 2026 and the item is both small and buried in a note rather than a headline disclosure, this reads as a genuinely fresh finding the forum has simply not yet reached, not as a signal that informed retail opinion has reviewed it and found nothing concerning.</p>
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">13</span>Valuation: a price that needs the cash conversion this company has never actually delivered</h2>
+<p class="sec-sub">Reverse DCF first &mdash; not because the discount rate is uncontroversial, but because the real question is what the business itself has to do</p>
+
+<p>Assumptions common to every scenario below: tax rate 23% (recent three-year average), depreciation 0.18% of sales (FY2026 actual ratio), capex 0.3% of sales (above the noisy, often-zero CFI-derived proxy &mdash; deliberately conservative for a genuinely asset-light business, Section <a href="#framework">02</a>), a 10-year decelerating growth path, terminal growth 5%, and a 12% discount rate. The one input every scenario varies deliberately is incremental working capital as a share of incremental revenue &mdash; because, as the sensitivity below shows, this is the input this specific business's value is most exposed to.</p>
+
+<figure>
+<div class="fig-title">DCF value per share under three scenarios, against the current price</div>
+<div class="fig-sub">Computed via <span style="font-family:var(--mono)">src.modules.equity_research.dcf</span>; 12% WACC, 5% terminal growth, net debt of &#8377;1,720 Cr added back</div>
+<svg viewBox="0 0 720 220" role="img" aria-label="Discounted cash flow valuation scenarios for Redington against the current market price"><line class="grid-l" x1="46" y1="186.0" x2="704" y2="186.0"/><text class="ax" x="40" y="189.0" text-anchor="end">0</text><line class="grid-l" x1="46" y1="154.5" x2="704" y2="154.5"/><text class="ax" x="40" y="157.5" text-anchor="end">100</text><line class="grid-l" x1="46" y1="122.9" x2="704" y2="122.9"/><text class="ax" x="40" y="125.9" text-anchor="end">200</text><line class="grid-l" x1="46" y1="91.4" x2="704" y2="91.4"/><text class="ax" x="40" y="94.4" text-anchor="end">300</text><line class="grid-l" x1="46" y1="59.8" x2="704" y2="59.8"/><text class="ax" x="40" y="62.8" text-anchor="end">400</text><line class="grid-l" x1="46" y1="28.3" x2="704" y2="28.3"/><text class="ax" x="40" y="31.3" text-anchor="end">500</text><rect x="109.6" y="172.1" width="92.1" height="13.9" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs 44</title></rect><text class="vlbl" x="155.7" y="165.1" text-anchor="middle" fill="#d97a5f">&#8377;44</text><text class="ax" x="155.7" y="200" text-anchor="middle">Bear</text><text class="ax" x="155.7" y="212" text-anchor="middle" fill="#d97a5f">-89%</text><rect x="328.9" y="116.9" width="92.1" height="69.1" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 219</title></rect><text class="vlbl" x="375.0" y="109.9" text-anchor="middle" fill="#c9a24b">&#8377;219</text><text class="ax" x="375.0" y="200" text-anchor="middle">Base</text><text class="ax" x="375.0" y="212" text-anchor="middle" fill="#d97a5f">-44%</text><rect x="548.3" y="42.8" width="92.1" height="143.2" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 454</title></rect><text class="vlbl" x="594.3" y="35.8" text-anchor="middle" fill="#5fb98a">&#8377;454</text><text class="ax" x="594.3" y="200" text-anchor="middle">Bull</text><text class="ax" x="594.3" y="212" text-anchor="middle" fill="#8ecbaa">+15%</text><line x1="46" y1="61.7" x2="704" y2="61.7" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="54.7" text-anchor="end">market &#8377;394</text><line class="zero-l" x1="46" y1="186" x2="704" y2="186"/></svg>
+<figcaption><b>Why:</b> the base case uses the company's own decade-average operating margin (2.3%) and a working-capital intensity (10% of incremental revenue) close to its two best non-outlier recent years (FY2024: 6.5%, FY2026: 9.4%) &mdash; and still lands 44% below the current price. Getting to the current price requires the bull-case combination: margin above the decade average and working-capital efficiency at the single best level this company has ever actually delivered (FY2024's 6.5%), sustained for a decade.</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Scenario</th><th class="num">EBITDA margin</th><th class="num">Incremental WC / incremental revenue</th><th class="num">Value/share</th><th class="num">vs. market (&#8377;394)</th></tr></thead>
+<tbody>
+<tr><td class="t">Bear</td><td class="num">1.97% (FY2026 actual)</td><td class="num">16% (deterioration toward FY2023-style stress)</td><td class="num">&#8377;44</td><td class="num l">&minus;89%</td></tr>
+<tr class="hl"><td class="t">Base</td><td class="num">2.3% (decade average)</td><td class="num">10% (recent normal-year average)</td><td class="num">&#8377;219</td><td class="num l">&minus;44%</td></tr>
+<tr><td class="t">Bull</td><td class="num">2.6% (above decade average, below the FY2022 peak)</td><td class="num">6.5% (the company's own best-ever year, FY2024, sustained)</td><td class="num">&#8377;454</td><td class="num g">+15%</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>What the price actually requires, run in reverse</h3>
+<p>Holding the base-case growth path and a 10% incremental-working-capital assumption fixed, and solving for the flat EBITDA margin the current market price requires: <b>2.93%</b>, sustained for ten years. Redington's own decade-high operating margin, set in FY2022, was 2.94% &mdash; the market price is effectively asking this company to run at its single best-ever margin, every year, for a decade, having averaged well below that for nine of the last ten years (Section <a href="#record">03</a>).</p>
+<p>Run the other direction &mdash; holding margin at the 2.3% decade average and solving for the flat working-capital intensity the price requires &mdash; the answer is <b>4.3%</b> of incremental revenue. Redington's actual best year on this measure, FY2024, was 6.5%; every other year in the ten-year record was worse, several considerably so (FY2023: 31%). The price requires sustained working-capital efficiency roughly a third better than anything this company has ever actually delivered.</p>
+<p>And at the 2.3% margin with no working-capital improvement assumed at all beyond the base case, <b>no growth rate gets the model to the current price</b> &mdash; the solver returns infeasible, because at this margin, incremental working capital absorbs the incremental profit faster than growth can outrun it. This is precisely the dynamic the equity-research skill this pipeline runs on anticipates for a working-capital-heavy business: past a point, growth at a thin margin destroys value rather than creating it, and a naive "just grow faster" story does not rescue the valuation on its own.</p>
+
+<h3>The P/E cross-check, and why it understates the question</h3>
+<p>Redington trades at 17.1&times; trailing P/E &mdash; almost identical to Rashi Peripherals, its closest listed peer (Section <a href="#peers">06</a>), and not, on its face, an obviously demanding multiple for a company with an 18.4% reported ROCE and two AA+ credit ratings. But a P/E multiple silently assumes reported earnings convert to cash at whatever rate the market is used to; it does not charge, the way the DCF above explicitly does, for the fact that this company has converted only 66 cents of every rupee of profit into operating cash flow over the last decade (Section <a href="#framework">02</a>). Applying the current 17.1&times; multiple to trailing earnings is close to circular &mdash; it reproduces close to the current price by construction. The more useful question this report can ask instead is the one the reverse DCF answers directly: what does the business have to do, in cash terms, to be worth what the multiple already implies &mdash; and the answer, on the evidence in this report, is a margin and working-capital combination this company has not yet sustained.</p>
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">14</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">Quality and value, kept on separate axes &mdash; this is not a buy or sell call</p>
+
+<h3>Quality: genuinely high on structure and governance, real but not disqualifying weaknesses on cash</h3>
+<p>Redington clears the coffee-can gates on a real, large capital base (Dirty 9iner &mdash; 8/9 revenue growth, 9/9 ROCE on a capital-employed basis, Section <a href="#framework">02</a>), holds two independent AA+/A1+ credit ratings, and runs with a no-promoter, institutionally-owned structure this pipeline has not seen replicated elsewhere in its coverage &mdash; a genuine governance positive, not merely an absence of a negative. The one FY2026 personal-interest related-party item is small, disclosed (if narrowly), and sits alongside a Secretarial Auditor observation worth a direct management answer rather than silence (Section <a href="#flags">11</a>). None of this is disqualifying.</p>
+<p>Set against that: cumulative cash conversion of 0.66&times; CFO-to-PAT over ten years is a real, structural shortfall, not a proxy artefact (Section <a href="#framework">02</a>); the recent margin decline is a genuine operating deterioration rather than a financing illusion (Section <a href="#margin">04</a>); and Turkey remains an unresolved, currently-worsening exposure on the one data point available since the last guidance was given (Section <a href="#mgmt">09</a>). This report's own management-track-record read rests on a single guidance cycle, not the decade-long ledger built for other companies in this pipeline (Section <a href="#gaps">15</a>) &mdash; a real limitation on how much confidence this report can place in that one otherwise-encouraging cycle.</p>
+
+<h3>Value: priced for cash economics this company has not yet shown it can sustain</h3>
+<p>The base-case reverse DCF, built on Redington's own decade-average margin and a working-capital assumption close to its two best non-outlier recent years, values the stock 44% below the current &#8377;394 price. Reaching the current price requires either an EBITDA margin sustained at the company's own all-time decade high, or working-capital efficiency on every future rupee of growth that is better than the single best year Redington has ever delivered &mdash; and at the company's own long-run average margin with no working-capital improvement, no growth rate gets the model to today's price at all (Section <a href="#valuation">13</a>). <b>This is a real, well-run business priced for a version of its own cash conversion that has not yet happened, not for the one it has actually shown across a decade.</b></p>
+
+<h3>Specific triggers, with thresholds</h3>
+<ul>
+<li><b>Gross receivable days.</b> A move meaningfully past the current 66 days without a matching extension in payable days would confirm the credit-risk deterioration Section <a href="#wc">05</a> flags, independent of what management's own net metric shows. Check: quarterly and annual trade-receivables disclosures.</li>
+<li><b>Incremental working-capital intensity.</b> With growth already running at 34% YoY in Q1 FY2027, whether the next few years' incremental WC ratio holds near FY2024&ndash;26's 6.5&ndash;9.4% or reverts toward FY2023's 31% is the single number this report's own valuation is most sensitive to. Check: this pipeline's own working-capital series, refreshed each quarter.</li>
+<li><b>Arena/Turkey loss trajectory.</b> Whether the Q1 FY2027 &#8377;64 Cr loss (larger than the "coming down" guidance implied) proves a one-quarter blip or the start of a trend, over the next two quarters. Check: the Arena-specific figures management discloses on each earnings call.</li>
+<li><b>Ex-Arena EBITDA margin against the guided 2.2&ndash;2.4% band.</b> A sustained move toward the FY2022 peak (2.9%+) would support the bull case; continued drift toward the low end of the global distributor band (1.7&ndash;1.9%, Section <a href="#peers">06</a>) would support the bear case.</li>
+<li><b>A direct management answer on Third Wave Power and the Secretarial Auditor's RPT-approval observation</b>, at the next AGM or earnings call &mdash; silence on a flag this specific, one year running, would itself be worth noting.</li>
+</ul>
+
+<p><b>What would change this verdict:</b> a base-case DCF value near the current price would require the working-capital efficiency of FY2024&ndash;26 to prove durable rather than a temporary window inside a longer, worse-trending cycle &mdash; the single most important open question this report leaves unresolved, and the one worth revisiting first at the next quarterly print.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">15</span>Data gaps and provenance</h2>
+<p class="sec-sub">A thinner transcript base than usual, a three-way profit reconciliation this report could not close to the rupee, and a related-party question left open for management to answer</p>
+
+<h3>What was actually read</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Source</th><th class="t">Coverage</th><th class="t">Status</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Earnings call transcripts</td><td class="t">2 of 44 available transcripts read in full (Q4 FY2026, Q1 FY2027)</td><td class="t"><b>The management scorecard in Section <a href="#mgmt">09</a> is scoped to a single guidance cycle, not a multi-year ledger</b> &mdash; a real limitation on this report's confidence in that section, stated there directly</td></tr>
+<tr><td class="t">Credit rating reports</td><td class="t">3 CRISIL reports on file; 0 ICRA reports on file (ICRA detail sourced from a one-off direct fetch this pass, not the pipeline's own store)</td><td class="t">Flagged to the pipeline as a document-ingestion gap worth fixing &mdash; ICRA actively rates this company at the same level as CRISIL and should be a standing source</td></tr>
+<tr><td class="t">Annual reports</td><td class="t">FY2025-26 read directly and in full for the related-party and governance detail in Section <a href="#flags">11</a></td><td class="t">Full text access confirmed, no table-stripping defect found in the sections used</td></tr>
+<tr><td class="t">ValuePickr forum</td><td class="t">The single dedicated thread (topic 4741) read in full via the forum API, 115 posts across a decade</td><td class="t">High confidence &mdash; a genuinely complete read, not a sample</td></tr>
+<tr><td class="t">Institutional analyst coverage</td><td class="t">Genuinely inconsistent across aggregators (3-51 analysts, &#8377;225-500+ targets)</td><td class="t">Reported with the inconsistency stated explicitly (Section <a href="#analysts">08</a>), not resolved by picking one source</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Gap 1 &mdash; a three-way FY2026 profit discrepancy this report could not close</h3>
+<p>This pipeline's own database shows FY2026 consolidated net profit of &#8377;1,490.2 Cr. Screener's own consolidated page and CRISIL's Key Financial Indicators table both instead show &#8377;1,284 Cr. Management's own Q4 FY2026 call states full-year "PAT growth excluding exceptional items was 17%, PAT margin 1.3%" &mdash; implying a third figure, roughly &#8377;1,551 Cr. The most likely explanation, based on management's own quarterly reconciliation on the same call (three different PAT figures for one quarter alone, differing by minority-interest and exceptional-item treatment), is that the three annual numbers differ the same way &mdash; but this report could not verify that line by line against the primary financial statements. Every figure in this report is cited to its specific source rather than the three being conflated into one.</p>
+
+<h3>Gap 2 &mdash; the FY2023 cash-flow collapse has no primary-source explanation</h3>
+<p>FY2023's &minus;&#8377;3,234 Cr operating cash flow (Section <a href="#record">03</a>) is the single largest swing in the decade's record, coinciding with the year's 26.7% revenue growth and a 31%-of-incremental-revenue working-capital build. No transcript or annual report available to this research explains the specific drivers of that year's build in management's own words &mdash; the explanation offered in this report is this pipeline's own derivation from the raw financials, corroborated only in general terms elsewhere in the record, not confirmed by a primary source for that specific year.</p>
+
+<h3>Gap 3 &mdash; the Third Wave Power related-party item's commercial substance is undisclosed</h3>
+<p>No filing, transcript or press source found in this research explains what was actually sold in the &#8377;9.09 Cr FY2026 transaction with Third Wave Power Pte Ltd, or the current formal nature of CEO V S Hariharan's interest in that entity (Section <a href="#flags">11</a>). This report's suggestion that it may relate to Redington's own solar-distribution business is a plausible inference, stated as such, not a confirmed fact.</p>
+
+<h3>Gap 4 &mdash; no Vijay Malik framework corpus available for a distribution business</h3>
+<p>The Malik industry-framework corpus has not been crawled in this environment (a standing limitation across every report this pipeline has produced) &mdash; Section <a href="#framework">02</a>'s discussion of how the subcontracting/NFAT test should be reinterpreted for a distribution business is this report's own reasoning from first principles, not a citation of Malik's own published view on this specific industry.</p>
+
+<h3>What would most improve the next refresh</h3>
+<ol>
+<li>A broader run of historical transcripts (FY2022-2025) to build a genuine multi-cycle management guidance ledger.</li>
+<li>Direct ICRA document ingestion into this pipeline's own document store, alongside the existing CRISIL coverage.</li>
+<li>Line-by-line reconciliation of the FY2026 three-way PAT discrepancy against the primary consolidated financial statements.</li>
+<li>A primary-source account of the FY2023 cash-flow swing, if one exists in a document this pass did not surface.</li>
+<li>The next one to two quarters' Arena-specific loss figures, to confirm or refute whether the Q1 FY2027 guidance miss (Section <a href="#mgmt">09</a>) was a one-off or the start of a trend.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Redington Ltd (NSE: REDINGTON, BSE: 532805, ISIN INE891D01026). Prepared 22 September 2026 against a share price of &#8377;394.00.</p>
+  <p>Built from this pipeline's own indexed corpus: two earnings-call transcripts read in full (Q4 FY2026 and Q1 FY2027, the most recent available), the two most recent CRISIL rating rationales plus a direct fetch of ICRA's most recent rationale, the FY2025-26 annual report read directly for governance and related-party detail, an existing related-party audit's underlying primary-source annual reports (FY2015-2017) for the Nook Micro history, one listed peer's full financials (Rashi Peripherals) plus four global distributors as margin reference points, a full ValuePickr thread spanning ten years, and primary and major-outlet-sourced news research on credit ratings, litigation, capital allocation and the FY2026 Third Wave Power related-party item. Every numeric claim cites a period; every quotation cites a document and date. This report's management-track-record read rests on a single guidance cycle rather than a multi-year ledger, and a three-way FY2026 profit discrepancy across sources was not fully reconciled &mdash; both stated plainly in Section 15.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. This report's central finding &mdash; a genuine, decade-long cash-conversion shortfall and a valuation unusually sensitive to a single working-capital assumption &mdash; rests on this pipeline's own database and a thinner-than-usual transcript sample; read the data-gaps section in full before acting on anything here. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
