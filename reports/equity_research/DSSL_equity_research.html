@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dynacons Systems &amp; Solutions Ltd — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Dynacons Systems &amp; Solutions Ltd: a hyper-growth Mumbai IT systems integrator with genuinely improving operating margins but a decade-long cash-conversion problem, a newly-leveraged As-a-Service capex model, and a reverse DCF that tests whether the growth can continue.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<span class="kicker">Coffee Can Screener &middot; Equity Research</span>
+<h1>Dynacons Systems &amp; Solutions Ltd</h1>
+<p class="subtitle">A ten-year, 60%-PAT-CAGR growth story that clears this pipeline's headline gates &mdash; and fails its cash-conversion gate almost as decisively as it clears the others</p>
+<div class="meta">
+<b>NSE/BSE:</b> DSSL &middot; <b>BSE code:</b> 532365 &middot; <b>ISIN:</b> INE417B01040<br>
+<b>Prepared:</b> 22 September 2026 &middot; <b>Price:</b> &#8377;1,019.85 &middot; <b>Market cap:</b> &#8377;1,299 Cr &middot; <b>P/E:</b> 15.3&times;
+</div>
+</header>
+
+<div class="verdict">
+<div class="verdict-label">The one-paragraph version</div>
+<div class="verdict-head">Real growth, real margin expansion, and a cash-conversion record this report cannot wave away</div>
+<p>Dynacons is a Mumbai-based IT systems integrator that has grown revenue from &#8377;158 Cr to &#8377;1,424 Cr and PAT from &#8377;1.2 Cr to &#8377;85 Cr over ten years &mdash; a roughly 60% PAT CAGR, clearing this pipeline's revenue-growth gate in eight of nine years and its own ROCE gate in eight of nine. But cumulative operating cash flow over the same decade was only 53% of cumulative PAT (a cash-gate score of 2 out of 10), with two individual years of outright negative operating cash flow despite reported profit, and Vijay Malik's own, stricter ROCE formula &mdash; run as a cross-check by this pipeline's own tooling &mdash; never once qualifies this company at all. Set against that: none of this is hidden. Three CARE Ratings reports, the company's own annual reports, and three earnings-call transcripts this report read directly all disclose the same lengthening receivable cycle (68 days &rarr; 154 days) and the same recent, sharp re-leveraging (gearing 0.23&times; in FY2024 to 0.75&times; in FY2026) as the company funds a new As-a-Service, lease-heavy capex model. This is a genuine growth business whose accounting profit has run well ahead of its cash for most of a decade &mdash; a fact this report treats as the central question, not a footnote.</p>
+</div>
+
+<div class="hero-row">
+<div class="stat"><div class="k">Tier (this pipeline)</div><div class="v">8eighter</div><div class="n">8/9 revenue, 8/9 ROCE gates</div></div>
+<div class="stat"><div class="k">Cumulative CFO/PAT</div><div class="v">0.53&times;</div><div class="n">FY2017&ndash;FY2026, score 2/10</div></div>
+<div class="stat"><div class="k">Gross gearing</div><div class="v">0.75&times;</div><div class="n">FY2026, up from 0.23&times; FY2024</div></div>
+<div class="stat"><div class="k">Vijay Malik ROCE cross-check</div><div class="v">Never qualifies</div><div class="n">Best year: 16.4%, FY2024</div></div>
+</div>
+
+<div class="toc">
+<div class="toc-l">Contents</div>
+<ol>
+    <li><a href="#business">The business: a systems integrator riding the AI buildout</a></li>
+    <li><a href="#framework">The checklist: growth and ROCE clear it, cash conversion fails</a></li>
+    <li><a href="#record">The ten-year record</a></li>
+    <li><a href="#margin">Margins</a></li>
+    <li><a href="#wc">Working capital</a></li>
+    <li><a href="#peers">How Dynacons compares</a></li>
+    <li><a href="#growth">Growth outlook</a></li>
+    <li><a href="#mgmt">Management scorecard</a></li>
+    <li><a href="#capital">Capital allocation</a></li>
+    <li><a href="#flags">Governance and risk</a></li>
+    <li><a href="#sentiment">What retail investors have said</a></li>
+    <li><a href="#valuation">Valuation: cheap on P/E, not on DCF</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business: a systems integrator riding India's data-center and AI-infrastructure buildout</h2>
+<p class="sec-sub">Thirty years old, founder-run, and now pivoting from selling projects to selling annuities</p>
+
+<p>Incorporated in 1995 and headquartered in Mumbai, Dynacons Systems &amp; Solutions (DSSL) is an IT systems integrator and managed-services provider: it designs, deploys, secures and manages IT infrastructure &mdash; data center and cloud, networking, cybersecurity, digital workplace &mdash; for large BFSI, public-sector and global enterprise clients, buying hardware from OEM partners (Dell, HPE, Lenovo, Cisco) and distributors (Redington, Ingram Micro, Rashi Peripherals) rather than manufacturing it. The company holds ISO 9001/20000/27001/14001 certifications and a CMMI Maturity Level 5 rating, and operates from 11 branch offices with a presence in over 300 locations across India &mdash; the qualifications and delivery footprint management repeatedly cites as its edge in competing for large tenders against much bigger rivals.</p>
+
+<p>Three founder-promoters &mdash; Shirish Anjaria, Dharmesh Anjaria (also CFO) and Parag Dalal (Executive Director) &mdash; control the company and continue to run it hands-on; both hold seats on every earnings call this report read. DSSL's marquee client roster spans the Reserve Bank of India, ICICI Bank, State Bank of India, Bank of Baroda, J&amp;K Bank, LIC, Brihanmumbai Municipal Corporation, and global names including Facebook/Meta, Uber, Amazon, Google and S&amp;P Global &mdash; management states global customers contribute roughly 35% of revenue, with BFSI the largest domestic vertical.</p>
+
+<h3>A business model in transition: from project EPC to As-a-Service annuities</h3>
+<p>Historically an asset-light, "buy hardware, integrate, bill on milestones" business, DSSL has spent the last two years building out Device-as-a-Service (DaaS) and Core Banking-as-a-Service offerings &mdash; most visibly a NABARD-driven rollout that brought 38 cooperative banks live on shared core-banking infrastructure during FY2026. This has genuinely changed the balance sheet: fixed assets (property, plant and equipment plus right-of-use lease assets) rose from roughly &#8377;9 Cr as recently as FY2024 to approximately &#8377;158 Cr by Q1 FY2027, and the company now carries meaningful lease liabilities and term borrowings to fund it, a structural shift examined in Section <a href="#capital">09</a>. Management frames this as diversifying revenue toward recurring, annuity-based streams (roughly 21% of revenue as of the most recent disclosure) and improving revenue quality; this report treats it as a genuine, real change in the business's asset intensity and financing needs, not a bookkeeping footnote.</p>
+
+<h3>A order book and pipeline that has scaled with the business</h3>
+<p>As of the Q1 FY2027 earnings call (14 August 2026), DSSL's order book stood at approximately &#8377;3,104 Cr and its bidding pipeline at approximately &#8377;6,650 Cr &mdash; both up sharply from &#8377;3,000 Cr and &#8377;5,100 Cr respectively just two and a half months earlier (May 2026), and management cites a historical bid-to-win conversion rate of roughly 30%. Average order execution timelines run around 18&ndash;24 months, with individual contracts ranging from immediate delivery to five-year build-and-operate structures. As a matter of stated company policy, management does not give revenue or margin guidance on any of the three earnings calls this report read in full.</p>
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>The checklist: growth and returns clear the bar easily; cash conversion fails almost as decisively</h2>
+<p class="sec-sub">Computed directly through this pipeline's own tested equity_research module against a current internal database</p>
+
+<h3>Revenue growth: eight of nine years clear the gate</h3>
+<p>Applying this pipeline's own &gt;10% year-on-year growth test to FY2018&ndash;FY2026: <b>eight of nine pass</b>, with one miss &mdash; FY2019 at +5.8%, sandwiched between a +45.4% FY2018 and a +32.6% FY2020, and not independently explained in the documents available to this research (Section <a href="#gaps">14</a>). Every other year has grown at least 12%, and five of the nine years grew above 25%.</p>
+
+<h3>ROCE: the gate this pipeline scores on says one thing; Vijay Malik's own formula says another</h3>
+<p>On this pipeline's primary Mukherjea/Screener-basis ROCE, DSSL clears the 15% gate in eight of nine years, reaching a peak of 44.1% in FY2024 before easing to 39.2% (FY2025) and 29.8% (FY2026) as the capital base has grown with the As-a-Service build-out. Run as a cross-check, Vijay Malik's own, more conservative ROCE formula tells a materially different story: it runs in an 11&ndash;16% band throughout the decade and <b>never sustains a qualifying level long enough for this company to pass Malik's own screen at all</b> &mdash; its best year, FY2024, reaches only 16.4%. This is exactly the kind of divergence this pipeline's own methodology notes warn about for working-capital-funded businesses: the two formulas price the same operating result differently once the growing receivables book (Section <a href="#wc">05</a>) is treated as capital employed. Both numbers are real; this report treats the gap itself, not either number alone, as the more honest signal &mdash; a headline-gate pass sitting on top of a much thinner underlying-formula pass.</p>
+
+<figure>
+<div class="fig-title">Cumulative CFO vs. cumulative PAT, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, ten-year running total</div>
+<svg viewBox="0 0 720 240" role="img" aria-label="Dynacons cumulative operating cash flow versus cumulative net profit, FY2017 to FY2026"><g><rect x="52" y="0" width="9" height="9" rx="2" fill="#c9a24b"/><text class="ax" x="65" y="8" text-anchor="start">Cumulative PAT</text><rect x="182" y="0" width="9" height="9" rx="2" fill="#5b9bd1"/><text class="ax" x="195" y="8" text-anchor="start">Cumulative CFO</text></g><line class="grid-l" x1="52" y1="208.0" x2="706" y2="208.0"/><text class="ax" x="46" y="211.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="160.5" x2="706" y2="160.5"/><text class="ax" x="46" y="163.5" text-anchor="end">77</text><line class="grid-l" x1="52" y1="113.0" x2="706" y2="113.0"/><text class="ax" x="46" y="116.0" text-anchor="end">153</text><line class="grid-l" x1="52" y1="65.5" x2="706" y2="65.5"/><text class="ax" x="46" y="68.5" text-anchor="end">230</text><line class="grid-l" x1="52" y1="18.0" x2="706" y2="18.0"/><text class="ax" x="46" y="21.0" text-anchor="end">306</text><rect x="59.2" y="207.2" width="23.5" height="0.8" rx="3" fill="#c9a24b"><title>FY2017 cumulative PAT: Rs 1 Cr</title></rect><rect x="86.7" y="205.3" width="23.5" height="2.7" rx="3" fill="#5b9bd1"><title>FY2017 cumulative CFO: Rs 4 Cr</title></rect><text class="ax" x="84.7" y="221" text-anchor="middle">'17</text><rect x="124.6" y="205.9" width="23.5" height="2.1" rx="3" fill="#c9a24b"><title>FY2018 cumulative PAT: Rs 3 Cr</title></rect><rect x="152.1" y="208.0" width="23.5" height="0.0" rx="3" fill="#5b9bd1"><title>FY2018 cumulative CFO: Rs -8 Cr</title></rect><text class="ax" x="150.1" y="221" text-anchor="middle">'18</text><rect x="190.0" y="202.7" width="23.5" height="5.3" rx="3" fill="#c9a24b"><title>FY2019 cumulative PAT: Rs 8 Cr</title></rect><rect x="217.5" y="208.0" width="23.5" height="0.0" rx="3" fill="#5b9bd1"><title>FY2019 cumulative CFO: Rs -4 Cr</title></rect><text class="ax" x="215.5" y="221" text-anchor="middle">'19</text><rect x="255.4" y="199.2" width="23.5" height="8.8" rx="3" fill="#c9a24b"><title>FY2020 cumulative PAT: Rs 14 Cr</title></rect><rect x="282.9" y="208.0" width="23.5" height="0.0" rx="3" fill="#5b9bd1"><title>FY2020 cumulative CFO: Rs -0 Cr</title></rect><text class="ax" x="280.9" y="221" text-anchor="middle">'20</text><rect x="320.8" y="193.9" width="23.5" height="14.1" rx="3" fill="#c9a24b"><title>FY2021 cumulative PAT: Rs 23 Cr</title></rect><rect x="348.3" y="202.5" width="23.5" height="5.5" rx="3" fill="#5b9bd1"><title>FY2021 cumulative CFO: Rs 9 Cr</title></rect><text class="ax" x="346.3" y="221" text-anchor="middle">'21</text><rect x="386.2" y="183.7" width="23.5" height="24.3" rx="3" fill="#c9a24b"><title>FY2022 cumulative PAT: Rs 39 Cr</title></rect><rect x="413.7" y="208.0" width="23.5" height="0.0" rx="3" fill="#5b9bd1"><title>FY2022 cumulative CFO: Rs -4 Cr</title></rect><text class="ax" x="411.7" y="221" text-anchor="middle">'22</text><rect x="451.6" y="163.0" width="23.5" height="45.0" rx="3" fill="#c9a24b"><title>FY2023 cumulative PAT: Rs 73 Cr</title></rect><rect x="479.1" y="202.6" width="23.5" height="5.4" rx="3" fill="#5b9bd1"><title>FY2023 cumulative CFO: Rs 9 Cr</title></rect><text class="ax" x="477.1" y="221" text-anchor="middle">'23</text><rect x="517.0" y="129.6" width="23.5" height="78.4" rx="3" fill="#c9a24b"><title>FY2024 cumulative PAT: Rs 126 Cr</title></rect><rect x="544.5" y="184.5" width="23.5" height="23.5" rx="3" fill="#5b9bd1"><title>FY2024 cumulative CFO: Rs 38 Cr</title></rect><text class="ax" x="542.5" y="221" text-anchor="middle">'24</text><rect x="582.4" y="84.6" width="23.5" height="123.4" rx="3" fill="#c9a24b"><title>FY2025 cumulative PAT: Rs 199 Cr</title></rect><rect x="609.9" y="143.5" width="23.5" height="64.5" rx="3" fill="#5b9bd1"><title>FY2025 cumulative CFO: Rs 104 Cr</title></rect><text class="ax" x="607.9" y="221" text-anchor="middle">'25</text><rect x="647.8" y="32.1" width="23.5" height="175.9" rx="3" fill="#c9a24b"><title>FY2026 cumulative PAT: Rs 284 Cr</title></rect><rect x="675.3" y="114.9" width="23.5" height="93.1" rx="3" fill="#5b9bd1"><title>FY2026 cumulative CFO: Rs 150 Cr</title></rect><text class="ax" x="673.3" y="221" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="208" x2="706" y2="208"/></svg>
+<figcaption><b>Why:</b> ten years of reported profit have produced barely half as much cash &mdash; the single number this report weighs most heavily against the growth story.</figcaption>
+</figure>
+
+<h3>Gate 1 (cash conversion): fails decisively</h3>
+<div class="warn">
+<div class="lbl">The central finding of this report</div>
+<p>Cumulative CFO over FY2017&ndash;FY2026 was <b>&#8377;150.1 Cr against cumulative PAT of &#8377;283.6 Cr</b> &mdash; a ratio of just <b>0.53&times;</b>, and this pipeline's own cash-gate scorer rates it 2 out of 10, among the weakest this pipeline has recorded. Two individual years &mdash; FY2018 and FY2022 &mdash; show outright <i>negative</i> operating cash flow (&minus;&#8377;12.9 Cr and &minus;&#8377;13.4 Cr respectively) despite positive reported PAT in both. The driver is not disputed by any source this report read: receivable days have run from 68 (FY2017) to 154 (FY2026), a company whose own FY2025 annual report describes "strong cash flows from operations and prudent working capital management" in the same year its own cumulative decade ratio sat at 0.53&times;. FY2025 in isolation was in fact the best single year of the decade on this metric (0.91&times;) &mdash; the company's self-description is not false for that one year, but it is not the multi-year pattern either, and FY2026 reverted to 0.54&times;.</p>
+</div>
+
+<h3>Gate 3: mildly negative, and about to be tested harder</h3>
+<p>Gate 3 &mdash; cumulative CFO less capex less interest &mdash; is a modest <b>&minus;&#8377;20.6 Cr</b> over the decade (&#8377;150.1 Cr CFO, &#8377;77.6 Cr disclosed capex, &#8377;93.1 Cr interest), small relative to the company's current scale but trending in the wrong direction: capex from investing activities alone was &#8377;27.95 Cr in FY2025 and &#8377;43.55 Cr in FY2026, against a decade total of &#8377;77.6 Cr &mdash; meaning roughly 92% of ten years of disclosed capex landed in the last two, exactly as the As-a-Service build-out accelerated (Section <a href="#capital">09</a>).</p>
+
+<h3>NFAT: a real capital-intensity shift, not a subcontracting signature</h3>
+<p>Net fixed-asset turnover fell 83% over the decade (52.2&times; &rarr; 8.9&times;), almost entirely in the last two years as the As-a-Service asset base was built. Because EBITDA margin rose over the same window (8.3% &rarr; 10.2%) rather than falling, this does not read as Malik's subcontracting tell &mdash; it reads as a genuine shift from an asset-light integration model to a capital-heavier annuity model, the same shift management describes on every recent call. Whether that shift earns an adequate return on the new capital it consumes is the open question Section <a href="#capital">09</a> takes up directly.</p>
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record: nine years of near-uninterrupted growth, then the first down quarter</h2>
+<p class="sec-sub">FY2017&ndash;FY2026, consolidated basis, this pipeline's own database, extended with the two most recent quarters from earnings-call transcripts</p>
+
+<div class="table-wrap">
+<table>
+<caption>Source: this pipeline's internal xbrl_annual database.</caption>
+<thead><tr><th>FY</th><th class="num">Sales (&#8377;Cr)</th><th class="num">Growth</th><th class="num">EBITDA margin</th><th class="num">PAT (&#8377;Cr)</th><th class="num">ROCE</th></tr></thead>
+<tbody>
+<tr><td>2017</td><td class="num">158.29</td><td class="num na">&mdash;</td><td class="num">2.98%</td><td class="num">1.21</td><td class="num na">&mdash;</td></tr>
+<tr><td>2018</td><td class="num">213.77</td><td class="num g">+35.05%</td><td class="num">3.22%</td><td class="num">2.10</td><td class="num">14.02%</td></tr>
+<tr class="hl"><td>2019</td><td class="num">310.73</td><td class="num g">+45.36%</td><td class="num">4.17%</td><td class="num">5.17</td><td class="num">21.28%</td></tr>
+<tr><td>2020</td><td class="num">328.85</td><td class="num">+5.83%</td><td class="num">4.45%</td><td class="num">5.71</td><td class="num">21.65%</td></tr>
+<tr><td>2021</td><td class="num">435.94</td><td class="num g">+32.56%</td><td class="num">4.26%</td><td class="num">8.54</td><td class="num">22.26%</td></tr>
+<tr><td>2022</td><td class="num">653.98</td><td class="num g">+50.02%</td><td class="num">4.68%</td><td class="num">16.43</td><td class="num">27.57%</td></tr>
+<tr><td>2023</td><td class="num">804.47</td><td class="num g">+23.01%</td><td class="num">6.80%</td><td class="num">33.45</td><td class="num">36.41%</td></tr>
+<tr><td>2024</td><td class="num">1,024.46</td><td class="num g">+27.35%</td><td class="num">7.62%</td><td class="num">53.83</td><td class="num">44.14%</td></tr>
+<tr><td>2025</td><td class="num">1,267.22</td><td class="num g">+23.70%</td><td class="num">8.31%</td><td class="num">72.39</td><td class="num">39.21%</td></tr>
+<tr class="tot"><td>2026</td><td class="num">1,424.28</td><td class="num g">+12.39%</td><td class="num">10.25%</td><td class="num">84.74</td><td class="num">29.76%</td></tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+<div class="fig-title">Revenue, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, consolidated basis</div>
+<svg viewBox="0 0 720 230" role="img" aria-label="Dynacons revenue by fiscal year, FY2017 to FY2026"><line class="grid-l" x1="52" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="46" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="46" y="157.0" text-anchor="end">385</text><line class="grid-l" x1="52" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="46" y="111.0" text-anchor="end">769</text><line class="grid-l" x1="52" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="46" y="65.0" text-anchor="end">1,154</text><line class="grid-l" x1="52" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="46" y="19.0" text-anchor="end">1,538</text><rect x="65.7" y="181.1" width="37.9" height="18.9" rx="4" fill="#c9a24b"><title>FY2017: Rs 158.3 Cr</title></rect><text class="ax" x="84.7" y="213" text-anchor="middle">'17</text><rect x="131.1" y="174.4" width="37.9" height="25.6" rx="4" fill="#c9a24b"><title>FY2018: Rs 213.8 Cr</title></rect><text class="ax" x="150.1" y="213" text-anchor="middle">'18</text><rect x="196.5" y="162.8" width="37.9" height="37.2" rx="4" fill="#7a86a0"><title>FY2019: Rs 310.7 Cr (the one soft growth year, +5.8%, cause not identified)</title></rect><text class="ax" x="215.5" y="213" text-anchor="middle">'19</text><rect x="261.9" y="160.7" width="37.9" height="39.3" rx="4" fill="#c9a24b"><title>FY2020: Rs 328.9 Cr</title></rect><text class="ax" x="280.9" y="213" text-anchor="middle">'20</text><rect x="327.3" y="147.9" width="37.9" height="52.1" rx="4" fill="#c9a24b"><title>FY2021: Rs 435.9 Cr</title></rect><text class="ax" x="346.3" y="213" text-anchor="middle">'21</text><rect x="392.7" y="121.8" width="37.9" height="78.2" rx="4" fill="#c9a24b"><title>FY2022: Rs 654.0 Cr</title></rect><text class="ax" x="411.7" y="213" text-anchor="middle">'22</text><rect x="458.1" y="103.8" width="37.9" height="96.2" rx="4" fill="#c9a24b"><title>FY2023: Rs 804.5 Cr</title></rect><text class="ax" x="477.1" y="213" text-anchor="middle">'23</text><rect x="523.5" y="77.5" width="37.9" height="122.5" rx="4" fill="#c9a24b"><title>FY2024: Rs 1,024.5 Cr</title></rect><text class="ax" x="542.5" y="213" text-anchor="middle">'24</text><rect x="588.9" y="48.4" width="37.9" height="151.6" rx="4" fill="#c9a24b"><title>FY2025: Rs 1,267.2 Cr</title></rect><text class="ax" x="607.9" y="213" text-anchor="middle">'25</text><rect x="654.3" y="29.6" width="37.9" height="170.4" rx="4" fill="#c9a24b"><title>FY2026: Rs 1,424.3 Cr</title></rect><text class="ax" x="673.3" y="213" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="200" x2="706" y2="200"/></svg>
+<figcaption><b>Why:</b> nine straight years of double-digit growth, slowing but not reversing through FY2026 &mdash; the reversal, when it came, arrived one quarter later than this table shows (see below).</figcaption>
+</figure>
+
+<h3>FY2019's one soft year: not independently explained</h3>
+<p>Growth slowed to 5.8% in FY2019 after 35% and 45% in the two years either side of it, with no cause identified in the FY2019 annual report or elsewhere in the documents available to this research. Flagged rather than guessed at (Section <a href="#gaps">14</a>).</p>
+
+<h3>Q4 FY2026: a margin shock, explained and then reversed</h3>
+<p>The full-year FY2026 table above understates a real intra-year swing. EBITDA margin, which had reached 11.9% in Q3 FY2026, fell to approximately 9.0% in Q4 FY2026 &mdash; a roughly 290 basis-point sequential drop management attributed directly to a global AI-infrastructure-driven spike in hardware component prices (servers, GPUs, memory) squeezing gross margins on in-flight orders. Management called it "a temporary blip... not a structural shift" and said it expected normalization "as supply conditions improve." The very next quarter (Q1 FY2027, reported August 2026) delivered on that specific claim: EBITDA margin recovered to 13.0%, the highest of the three quarters this report has primary-source data for &mdash; a genuinely kept, testable promise (Section <a href="#mgmt">08</a>).</p>
+
+<h3>Q1 FY2027: the first revenue decline this report can document, blamed on the same root cause</h3>
+<div class="warn">
+<div class="lbl">A live, current inflection point</div>
+<p>Revenue for Q1 FY2027 (quarter ended 30 June 2026) came in at &#8377;313 Cr, down from &#8377;328 Cr in the same quarter a year earlier &mdash; a 4.6% year-on-year decline, the first such decline in any quarter this report has documentary evidence for. Management's explanation is the same AI-infrastructure supply-chain tightness that hit Q4 FY2026 margins, this time causing "extended delivery lead-times" that deferred revenue recognition on already-won orders rather than reflecting weaker demand: order book grew to &#8377;3,104 Cr and the bidding pipeline to &#8377;6,650 Cr over the same quarter, both up sharply. Whether this is genuinely a timing issue that reverses in Q2/Q3 FY2027, as management asserts, or the first sign of the deceleration a base-effect argument (Section <a href="#growth">07</a>) would predict, is not yet resolved by any source available to this report &mdash; it is the single most important thing to watch in the next quarterly disclosure.</p>
+</div>
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: a genuine decade-long improvement, now being partly given back to depreciation and interest</h2>
+<p class="sec-sub">Margin bridge computed through this pipeline's own tested margin_bridge function</p>
+
+<p>EBITDA margin rose from 2.98% in FY2017 to 10.25% in FY2026 &mdash; a real, sustained 7.3 percentage-point improvement as the business shifted toward higher-value data-center, cloud, cybersecurity and managed-services work, and pre-tax margin over the same decade rose almost in lockstep (1.02% &rarr; 8.00%), since depreciation and interest were both a modest net drag or roughly neutral across the full window. This is the cleanest possible reading of the story management tells on every call: a richer solution mix has genuinely lifted operating profitability.</p>
+
+<h3>The last three years tell a less clean story</h3>
+<p>Over FY2024&ndash;FY2026, EBITDA margin contributed a further +262 basis points to pre-tax margin &mdash; but depreciation (&minus;87bp) and interest cost (&minus;76bp) together gave back nearly two-thirds of that gain, leaving pre-tax margin up only 96bp net (7.03% &rarr; 8.00%). This is the arithmetic signature of the As-a-Service capex build-out discussed throughout this report: as fixed assets and borrowings have grown sharply (Sections <a href="#framework">02</a>, <a href="#capital">09</a>), a growing share of every incremental point of operating margin is being consumed by the financing and depreciation cost of the assets that produced it, rather than flowing through to the bottom line.</p>
+
+<h3>Two anomalies, one explained, one not</h3>
+<p>The FY2025&rarr;FY2026 EBITDA margin step (8.31% &rarr; 10.25%, more than three times the decade's typical annual move) is corroborated across every source this report read: the company's own FY2026 disclosures, the CARE rating reports, and management's own repeated description of a richer solutions mix and growing managed-services contribution. The FY2022&rarr;FY2023 step (4.68% &rarr; 6.80%) has no specific cause identified in the FY2022 or FY2023 annual reports available to this research beyond the same general "solutions mix" narrative management applies throughout the period &mdash; plausible, but not independently sourced to a specific driver the way the more recent step is (Section <a href="#gaps">14</a>).</p>
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: a lengthening cycle funded almost entirely by supplier credit, and a management metric this report could not reconcile</h2>
+<p class="sec-sub">Computed through this pipeline's own working_capital function; cross-checked against three CARE Ratings reports and management's own stated figures</p>
+
+<p>Receivable days have lengthened from 68 (FY2017) to 154 (FY2026) &mdash; a sustained, decade-long drift, not a single bad year &mdash; while payable days have lengthened almost as far, from 18 to 114 over the same window. Net operating working capital in absolute terms has grown from &#8377;28.2 Cr to &#8377;278.8 Cr, roughly a tenfold increase against a ninefold increase in revenue, and working capital as a share of sales has stayed in a fairly narrow 15&ndash;22% band throughout &mdash; meaning the business consumes roughly a fifth of every rupee of revenue in working capital, consistently, at every point in its growth. This pipeline's own incremental working-capital intensity, the figure a DCF should charge growth for, runs at 25.6% over the last three years and 21.8% over the last five (Section <a href="#valuation">12</a>).</p>
+
+<h3>The company's own explanation, and an independent confirmation</h3>
+<p>Management's explanation, repeated on every call this report read, is structural to the business: large infrastructure projects bill upfront on milestones but customers pay on completion-linked schedules, while suppliers extend correspondingly longer credit &mdash; "we've got very good support from all the OEMs and the distributors there," as CFO Dharmesh Anjaria put it, funding the receivables gap through payables rather than debt. CARE Ratings' own November 2024 report independently corroborates the scale of this, citing gross current asset days of 204 in FY2024 (up from 176 in FY2023) "largely due to extended credit period offered to customers, which is majorly financed through credit offered by suppliers" &mdash; language and figures this pipeline's own TOL/TNW computation (2.73&times; at FY2024) matches exactly.</p>
+
+<div class="warn">
+<div class="lbl">A management-cited figure this report could not reconcile</div>
+<p>On the Q4 FY2026 call, management stated that "the net working capital days which was 14 days in the last year is now actually 17 days" &mdash; a very small number, and one this pipeline's own computation, using the same disclosed receivables and payables balances, cannot reproduce under any working-capital definition this report tried (receivable days minus payable days: 11.7 days FY2025 &rarr; 40.0 days FY2026; net working capital as a share of sales converted to days: comfortably above 60 days in both years). This is stated as an open methodology question, not an accusation &mdash; management may be using an internal definition (e.g. averaged rather than year-end balances, or a narrower operating-cycle definition) this report was not given enough detail to replicate &mdash; but the direction of travel both figures agree on (working capital intensity rising, modestly, year over year) is the one this report relies on; the specific "14 to 17 days" figure is not (Section <a href="#gaps">14</a>).</p>
+</div>
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How Dynacons compares: named directly by management, verified independently</h2>
+<p class="sec-sub">This pipeline's own document store returned nothing usable; the peer set below comes entirely from names management and analysts raised on the three earnings calls, cross-checked against external data</p>
+
+<p>DSSL's management was reluctant to name competitors directly when asked outright ("we have a lot of contemporaries, but I would rather not name them on a public platform"), but named or engaged with six specific companies when analysts raised them across the three calls this report read. Each is checked below against independent data rather than taken at face value.</p>
+
+<div class="table-wrap">
+<table>
+<caption>Market data approximate, gathered alongside this report (September 2026), Screener.in basis.</caption>
+<thead><tr><th>Company</th><th class="num">Mkt cap (&#8377;Cr)</th><th class="num">P/E</th><th class="num">ROCE</th><th class="num">OPM</th><th class="num">Promoter hold.</th><th class="t">Fit</th></tr></thead>
+<tbody>
+<tr class="hl"><td>Dynacons</td><td class="num">1,304</td><td class="num">15.4&times;</td><td class="num">29.7%</td><td class="num">10%</td><td class="num">60.9%</td><td class="t">&mdash;</td></tr>
+<tr><td>Orient Technologies</td><td class="num">1,073</td><td class="num">51.2&times;</td><td class="num">9.3%</td><td class="num">4.8%</td><td class="num">70.7%</td><td class="t">Closest listed SI peer &mdash; but FY26 PAT collapsed &#8377;50Cr&rarr;&#8377;3Cr, OPM 8%&rarr;4.8%, the same year DSSL's own margin dipped</td></tr>
+<tr><td>Unified Data-Tech Solutions</td><td class="num">882</td><td class="num">36.1&times;</td><td class="num">45.2%</td><td class="num">14%</td><td class="num">60.4%</td><td class="t">Names DSSL as a peer in its own IPO documents (independently corroborated) &mdash; smaller, capital-light, ~14% OPM</td></tr>
+<tr><td>Netweb Technologies</td><td class="num">28,637</td><td class="num">110&times;</td><td class="num">37.5%</td><td class="num">13%</td><td class="num">67.0%</td><td class="t">Not a like-for-like peer &mdash; a GPU/server manufacturer selling to SIs, not a project-execution competitor; useful only as an AI-cycle read-through</td></tr>
+<tr><td>iValue Infosolutions</td><td class="num">~1,350</td><td class="num na">&mdash;</td><td class="num">25.5%</td><td class="num na">&mdash;</td><td class="num">32.1%</td><td class="t">Not a competitor &mdash; a multi-OEM distributor DSSL and its peers buy through, structurally upstream</td></tr>
+<tr><td>Inspirisys Solutions</td><td class="num">~360</td><td class="num">8.6&times;</td><td class="num">27.4%</td><td class="num">9%</td><td class="num">70.0%</td><td class="t">Small, slow-growing (~3.3% 5yr revenue CAGR) subsidiary of Japan's CAC Holdings &mdash; management's downplaying is well-founded</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The one genuine peer just had DSSL's own problem, worse</h3>
+<p>Orient Technologies is the only company here with the same core business model &mdash; IT infrastructure systems integration &mdash; management explicitly called "a similar space like us." Its FY2026 numbers show a much sharper version of the margin shock DSSL itself reported in Q4 FY2026: PAT fell from &#8377;50 Cr to &#8377;3 Cr and operating margin from 8% to 4.8%. This report could not independently confirm whether Orient's collapse traces to the same GPU/component supply-chain tightness DSSL cites (Section <a href="#growth">07</a>) or to company-specific factors, but the coincidence of timing at the closest available comp is a real data point worth weighing against DSSL's own "temporary, industry-wide" framing &mdash; it did happen to more than one systems integrator in the same window.</p>
+
+<h3>The valuation gap runs the opposite way from the other reports in this pipeline this cycle</h3>
+<p>Where several other companies covered this cycle traded at demanding multiples this report's own screening set aside, DSSL at 15.4&times; is priced well below Orient (51.2&times;), Unified Data-Tech (36.1&times;) and Netweb (110&times;) despite comparable or better ROCE and margins than most of them. Whether that reflects the market correctly discounting the cash-conversion and leverage concerns central to this report (Sections <a href="#framework">02</a>, <a href="#capital">09</a>), or an under-followed micro-cap simply mispriced by near-zero institutional attention (FII 0.18%, DII 0.24% &mdash; Section <a href="#sentiment">11</a>), is the question Section <a href="#valuation">12</a> takes up directly.</p>
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: a genuine industry tailwind, a base effect setting in, and a supply-chain constraint cutting both ways</h2>
+<p class="sec-sub">India's AI-infrastructure buildout is real and large; whether DSSL captures it faster than it is currently constrained by it is the open question</p>
+
+<h3>The tailwind is real, not promotional framing</h3>
+<p>India's data-center and AI-infrastructure investment cycle, which management cites on every call as the demand driver behind its order book, is independently well-documented: installed data-center colocation capacity of roughly 1.5 GW as of 2025 is projected to reach 6.5&ndash;10.5 GW by 2030&ndash;31 under a roughly $60 billion capex cycle, and the government's IndiaAI Mission (a &#8377;10,372 Cr budget, the largest component &#8377;4,563 Cr for compute capacity) had deployed over 38,000 subsidised GPUs by mid-2026 &mdash; nearly four times its original target &mdash; via the Shakti Cloud program. Union Budget 2026-27 introduced a 20-year tax holiday for foreign cloud providers building Indian data-center infrastructure, formally reframing data centers and cybersecurity as foundational infrastructure alongside roads and power. This is the same demand DSSL's own order wins reflect directly &mdash; a &#8377;280 Cr Canara Bank data-center upgrade, a &#8377;267.58 Cr NPCI data-center augmentation order, and a &#8377;125.88 Cr Central Bank of India order for NVIDIA H200/Blackwell-based private cloud and containerization infrastructure, among others.</p>
+<p>One caveat worth weighing against the headline figures: independent reporting on IndiaAI Mission execution found only roughly &#8377;400 Cr of the &#8377;10,372 Cr budget actually disbursed as of April 2026, with less than half of the FY2026 allocation spent &mdash; a real gap between the scale of announced government commitment and the pace at which it has so far converted into executed spend, worth bearing in mind against any assumption that the headline figures translate one-for-one into near-term order flow.</p>
+
+<h3>The same supply constraint cuts against near-term growth</h3>
+<p>The GPU and server-component tightness management cites as the cause of Q4 FY2026's margin dip and Q1 FY2027's revenue decline (Section <a href="#record">03</a>) is independently corroborated: the binding constraint is not GPU die output but HBM memory and TSMC's CoWoS advanced-packaging capacity, with NVIDIA reported to have secured over 60% of TSMC's total 2026 CoWoS output, and CNBC reporting in March 2026 that major OEM clients were receiving only 50&ndash;66% of ordered memory volumes at 30&ndash;60% price premiums over 2024 levels. This is a genuine, checkable, industry-wide phenomenon, not a company-specific excuse &mdash; and Orient Technologies, DSSL's closest listed peer, reported a far sharper margin collapse in the same window (Section <a href="#peers">06</a>), which is consistent with (though not proof of) the same root cause hitting more than one systems integrator. Analysts cited in this research expect the supply-demand gap to narrow from roughly 20% to 10% by the end of 2026 as new capacity comes online &mdash; a plausible but unconfirmed basis for management's expectation that the Q1 FY2027 revenue dip normalizes within the fiscal year.</p>
+
+<h3>The base effect management itself acknowledges</h3>
+<p>Revenue growth has decelerated from a ~27% five-year CAGR (FY2019&ndash;FY2024, per CARE Ratings) to a ~21% three-year CAGR (FY2023&ndash;FY2026) to 12.4% in FY2026 alone, before the Q1 FY2027 decline. Asked directly about this on the Q1 FY2027 call, CFO Dharmesh Anjaria did not dispute the pattern: "obviously with a higher base, the base effect will always catch up with all companies once the base increases over a period of time." This is a candid, self-aware acknowledgment rather than a denial, and it sits alongside &mdash; without resolving &mdash; the separate, supply-chain-specific explanation given for the most recent quarter's decline specifically.</p>
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">08</span>Management scorecard: three consecutive quarters, one kept promise, one still open</h2>
+<p class="sec-sub">DSSL began holding earnings calls only in February 2026 &mdash; this report has all three that exist</p>
+
+<div class="warn">
+<div class="lbl">Scope of this scorecard</div>
+<p>DSSL's first-ever earnings call was held in February 2026 (for Q3 FY2026); this report reads all three calls held since, in full, rather than a sample. This is a genuine guidance-to-actual ledger across three consecutive quarters &mdash; short by this pipeline's usual multi-year standard, but complete for the period in which the company has actually made trackable, quotable statements. Founder-directors Parag Dalal and Dharmesh Anjaria (also CFO) have run every call.</p>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Guided</th><th class="t">Delivered</th><th class="t">Verdict</th></tr></thead>
+<tbody>
+<tr><td class="t">Q3 FY26 call (Feb 2026): "we do believe that this level is sustainable" regarding the quarter's 11.9% EBITDA margin</td><td class="t">Q4 FY26: EBITDA margin fell to approximately 9.0%, a ~290bp sequential drop, attributed to AI-driven hardware cost pressure</td><td class="t"><span class="pill p-slip">Slipped, one quarter later</span></td></tr>
+<tr><td class="t">Q4 FY26 call (June 2026): the Q4 margin drop is "a temporary blip... not a structural shift," expected to "normalize as supply conditions improve"</td><td class="t">Q1 FY27: EBITDA margin recovered to 13.0%, the highest of the three quarters on record</td><td class="t"><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">Q1 FY27 call (Aug 2026): the quarter's 4.6% YoY revenue decline is "a timing-related issue rather than any change in customer demand," expected to normalize "over the coming quarters"</td><td class="t">Not yet testable &mdash; Q2 FY27 results not available to this report</td><td class="t"><span class="pill p-open">Unresolved</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Read together: management's explanation for the Q4 FY26 margin dip was specific, plausible (a genuine, independently corroborated global AI-hardware supply squeeze, not a vague excuse) and testable &mdash; and it was borne out the very next quarter. That is a real point in management's favour on this pipeline's usual credibility test. The Q1 FY27 revenue-decline claim uses the identical framing ("timing, not demand") for what could plausibly be a related but distinct problem &mdash; and this report explicitly declines to assume it will resolve the same way just because the margin claim did. It is the single most important open item for the next quarterly disclosure to answer (Section <a href="#growth">07</a>).</p>
+
+<h3>A consistent, stated no-guidance policy</h3>
+<p>On all three calls, management declined every direct request for revenue, margin, ROCE, IRR or segment-level guidance, citing company policy and client confidentiality &mdash; including from analysts asking pointed, reasonable questions about the return profile of the new As-a-Service business specifically (Section <a href="#capital">09</a>). This is disclosed and consistent rather than evasive on any single occasion, but it does mean this report's guidance ledger above is necessarily narrow: there is very little forward-looking, quantified language from management to hold against outcomes, by the company's own explicit choice.</p>
+</section>
+
+
+<section id="capital">
+<h2><span class="num">09</span>Capital allocation: from near-zero leverage to a fast re-leveraging, inside two years</h2>
+<p class="sec-sub">Gearing has moved more in the last two years than in the eight before it</p>
+
+<p>Gross gearing (borrowings/equity) has not moved in one direction over the decade: it ran high in the early growth years (0.88&ndash;1.52&times; through FY2017&ndash;FY2020), eased through FY2021&ndash;FY2023, bottomed at a genuinely conservative 0.23&times; in FY2024 &mdash; the year CARE Ratings' November 2024 report cited this exact figure as a credit strength &mdash; and has since risen sharply back to 0.60&times; (FY2025) and 0.75&times; (FY2026). Net debt swung from a net-cash position of &minus;&#8377;52.3 Cr in FY2024 to net debt of &#8377;125.0 Cr by FY2026, a &#8377;177 Cr swing in two years, and interest expense rose 75% year-on-year in FY2026 alone (&#8377;13.3 Cr &rarr; &#8377;23.2 Cr) as borrowings nearly doubled. This is the direct financing counterpart of the As-a-Service capex build-out described throughout this report: capex from investing activities was &#8377;27.95 Cr in FY2025 and &#8377;43.55 Cr in FY2026, against a combined &#8377;6.3 Cr across the eight years before that.</p>
+
+<h3>Management's own acknowledgment</h3>
+<p>Asked directly on the Q1 FY2027 call whether returns on the new asset base would hold up, CFO Dharmesh Anjaria did not simply reassert confidence: "while the ROCE may moderate compared to the historically high levels as our business mix evolves... our focus definitely remains on maintaining the healthy returns that we have seen through disciplined capital allocation." This pipeline's own ROCE series bears this out already &mdash; down from a 44.1% FY2024 peak to 29.8% by FY2026 &mdash; and management's own framing suggests this is expected to continue moderating further as the As-a-Service asset base scales, not a one-off step. Whether the new business generates returns that clear this pipeline's 15% gate on a standalone basis once fully utilised is not yet disclosed by the company and not independently verifiable from public filings (Section <a href="#gaps">14</a>); management has repeatedly declined to give a project-level ROCE, IRR or payback figure for the DaaS and Core Banking-as-a-Service lines specifically, citing confidentiality.</p>
+
+<h3>A token, and possibly misdated, dividend</h3>
+<p>DSSL pays a small interim dividend &mdash; &#8377;0.50 per equity share (5% of &#8377;10 face value) &mdash; and its FY2025 annual report states this was declared for both FY2025 and FY2026. This pipeline's own database, however, records zero dividend outflow in the cash-flow statement for FY2024, FY2025 and FY2026, against a small &#8377;0.63 Cr dividend line in FY2023. This most likely reflects a timing difference between a dividend declared late in a fiscal year (paid in the following year's cash flow) and the accounting-year cash-flow line this pipeline's database captures, rather than a discrepancy in the dividend itself, but it was not independently reconciled (Section <a href="#gaps">14</a>). In any case the payout is immaterial to the capital-allocation picture &mdash; well under 1% of PAT in every year &mdash; and essentially all retained earnings are being reinvested into growth and, increasingly, the As-a-Service asset base.</p>
+</section>
+
+
+<section id="flags">
+<h2><span class="num">10</span>Governance and risk: a clean related-party record, an unusual credit-rating sequence, and near-total absence of independent oversight</h2>
+<p class="sec-sub">Nothing disqualifying found; several things worth an investor's own attention</p>
+
+<h3>Related-party transactions: Score 1 (Watch) &mdash; routine, disclosed, nothing off-market</h3>
+<div class="good">
+<div class="lbl">This pipeline's own related-party audit, ten available annual reports (FY2015, FY2017&ndash;FY2025)</div>
+<p>Disclosures follow a consistent pattern across every year read: rent to promoter firm S.P. Corporation (a steady ~&#8377;1.8 lakh/year), KMP remuneration to the three founder-directors (growing roughly 4&ndash;5&times; from FY2021 to FY2025 as the business scaled, but disclosed at every step), and a FY2020-2022 preferential warrant allotment to Trigem InfoSolutions Ltd, a promoter-group entity, handled with proper SEBI ICDR disclosure. Form AOC-2's "not at arm's length" section is explicitly NIL in every year read. The one item flagged for continued tracking rather than as a current concern: Cybercons Infosec Pvt Ltd, a 50%-owned associate DSSL itself controls (not a director's personal outside vehicle), saw purchase and advance transactions grow sharply in FY2025 (&#8377;165.97 lakh advances, up 11&times;, plus &#8377;254.74 lakh in new purchases) &mdash; disclosed and co-controlled, but a real growth rate worth watching in the FY2026 filing once available.</p>
+</div>
+
+<h3>A credit-rating sequence this report cannot fully explain</h3>
+<div class="warn">
+<div class="lbl">Withdrawn, reassigned, withdrawn again &mdash; within eleven months</div>
+<p>CARE Ratings withdrew DSSL's bank-facility ratings in April 2024 at the company's own request (facilities surrendered, no amount outstanding). CARE then reassigned and reaffirmed a rating &mdash; CARE BBB+, Positive outlook &mdash; in November 2024, citing the company's improving scale, margins and comfortable capital structure. CARE withdrew the rating a second time in February 2025, again at the company's own request, again with a "No Objection Certificate" from lenders. This research found no independent media or analyst commentary on this withdraw&rarr;reassign&rarr;withdraw pattern &mdash; itself unsurprising given DSSL's near-total lack of institutional coverage (below), but this report cannot say whether the pattern reflects routine facility restructuring the company had good commercial reasons for, or something this research simply could not see. DSSL currently holds an active rating from Acuit&eacute; Ratings &amp; Research &mdash; ACUITE A- (Stable) on &#8377;85 Cr long-term facilities and ACUITE A2+ on &#8377;292 Cr short-term facilities, reaffirmed 28 January 2026 &mdash; and a separate SMERA rating updated December 2025. No live CARE rating exists as of this report.</p>
+</div>
+
+<h3>Near-total absence of institutional and analyst oversight</h3>
+<p>FII holding stands at 0.18% and DII holding at 0.24% as of the most recent shareholding disclosure available to this research &mdash; essentially negligible. No broker or institutional analyst appears to formally cover DSSL; the only "ratings" this research found are automated quant-screen outputs (MarketsMojo), which swung between Hold, Sell and Hold across 2025&ndash;2026 on technicals alone, not fundamental analysis. This is a company that has grown PAT roughly 60&times; in a decade, holds its first earnings call only from February 2026, and remains almost entirely outside the scrutiny of professional analysts &mdash; a genuine information gap this report's own valuation section (Section <a href="#valuation">12</a>) must be read with in mind.</p>
+
+<h3>No litigation, promoter pledge or management-change red flags found</h3>
+<p>Targeted searches for litigation, promoter share pledges, insider-trading activity and unusual management changes returned nothing. One piece of forum chatter (December 2025) about apparent large promoter-linked share trades was correctly identified by other ValuePickr posters themselves as algorithmic/high-frequency trading activity from an unrelated entity sharing a similar name, not genuine promoter or insider activity. This is an absence-of-evidence finding, not a confirmed-clean audit of BSE's own corporate-announcements archive, and is stated with that caveat (Section <a href="#gaps">14</a>).</p>
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">11</span>What retail investors have said: the cash-conversion concern in this report was raised on ValuePickr four years before the company's own numbers made it undeniable</h2>
+<p class="sec-sub">One active thread since September 2022, essentially zero institutional presence anywhere else</p>
+
+<h3>2022: skepticism about the business model, from the earliest posts</h3>
+<p>The Dynacons ValuePickr thread opened in September 2022, already past the company's steepest growth years, and early posters were sharply divided between the growth story and the balance sheet. One flagged interest expense consuming roughly 30% of operating profit as concerning for a thin-margin IT business; another argued that with roughly 90% of expenses being "Purchases of Information Technology Products," DSSL functioned more like a hardware reseller than a services company; a third, within weeks of the thread opening, flagged a growing gap between revenue growth and trade-receivables growth &mdash; the same working-capital concern this report's own Section <a href="#wc">05</a> independently arrives at four years later. By early 2023 one contributor had tracked debt growing from roughly &#8377;7 Cr (FY2012) to &#8377;68 Cr (FY2022) and CFO/PAT conversion running negative or below 40% in multiple periods &mdash; a materially earlier, forum-sourced version of this report's own cash-gate finding (Section <a href="#framework">02</a>).</p>
+
+<h3>2025&ndash;2026: the thread reactivates around exactly the numbers this report flags</h3>
+<p>Coverage went quiet for roughly two years, then reactivated heavily around the FY2026 results season. Posters independently tracked debtor days deteriorating to 154 (FY2026, up from 126 in FY2025), trade receivables rising 38% to &#8377;602 Cr, and &mdash; most directly relevant to this report's central finding &mdash; OCF/PAT conversion falling from 91% to 54% year-on-year, alongside capex surging from roughly &#8377;5 Cr to &#8377;65 Cr. One long-time bull on the thread wrote that he needed to "revalidate my thesis from an Asset Light to Asset Heavy Business Model" &mdash; a genuine, public tone shift from the original thesis, arriving at the same asset-intensity conclusion this report reaches independently in Section <a href="#capital">09</a>.</p>
+
+<h3>One claim this report checked and corrected</h3>
+<div class="good">
+<div class="lbl">A forum figure this report could verify directly, and correct</div>
+<p>A January 2026 post flagged the company's Singapore subsidiary as reporting a loss of "~&#8377;129 Cr in FY25 with negative reserves" &mdash; a figure that, if true, would be a serious undisclosed problem. This report checked it directly against the company's own FY2025 Form AOC-1 subsidiary disclosure: the subsidiary's reserves, turnover and profit/loss figures are reported in <b>US dollars</b>, not rupees, and the actual FY2025 loss was <b>US$12,992</b> (roughly &#8377;11 lakh at prevailing rates) against negative reserves of US$10,702 &mdash; a small, dormant entity, not a material loss by any measure. This appears to be a straightforward unit-conversion misreading on the original poster's part, not a data problem at the company. Included here as a concrete example of why this report verifies forum-sourced numeric claims against primary filings before repeating them, rather than as a criticism of the ValuePickr community, whose other findings on this stock have generally proven directionally accurate and, in the case of the working-capital concern, years ahead of this report's own independent arrival at the same conclusion.</p>
+</div>
+
+<h3>No coverage of the closest listed peer, and no broker targets anywhere</h3>
+<p>Orient Technologies &mdash; the closest business-model peer identified in Section <a href="#peers">06</a> &mdash; has no dedicated ValuePickr thread despite listing in August 2024, a genuine gap in retail coverage relative to its closer fit. No broker target prices or independent equity-research write-ups for DSSL were found anywhere, consistent with the near-zero institutional holding documented in Section <a href="#flags">10</a>.</p>
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">12</span>Valuation: a 15x multiple that looks cheap on earnings and expensive once cash is charged for properly</h2>
+<p class="sec-sub">Free-cash-flow-to-firm DCF, seven-year explicit window, computed through this pipeline's own tested dcf/reverse_dcf functions</p>
+
+<p>At 15.3&times; trailing earnings, DSSL is priced well below every peer with a comparable growth or margin profile (Section <a href="#peers">06</a>): Orient Technologies at 51.2&times;, Unified Data-Tech at 36.1&times;, Netweb at 110&times;. On a P/E basis alone, this looks like one of the cheaper growth stories in its space. A reverse DCF, which charges explicitly for the working capital growth actually consumes &mdash; this pipeline's own computed 22&ndash;26% incremental-working-capital intensity over the last three to five years (Section <a href="#wc">05</a>) &mdash; tells a materially different story.</p>
+
+<div class="table-wrap">
+<table>
+<caption>WACC 15.0%, terminal growth 5.0%, 7-year explicit window, tax rate 26%, depreciation 2.2% of sales (reflecting the new, larger fixed-asset base). Assumptions grounded in the company's own FY2017&ndash;FY2026 range and recent quarterly trend (Sections <a href="#record">03</a>, <a href="#margin">04</a>, <a href="#wc">05</a>).</caption>
+<thead><tr><th>Scenario</th><th class="num">Growth</th><th class="num">EBITDA margin</th><th class="num">Incremental WC</th><th class="num">Value/share</th><th class="num">vs. price (&#8377;1,019.85)</th></tr></thead>
+<tbody>
+<tr><td>Bear</td><td class="num">5%</td><td class="num">9%</td><td class="num">24%</td><td class="num">&#8377;382</td><td class="num l">&minus;63%</td></tr>
+<tr><td>Base</td><td class="num">10%</td><td class="num">10.25%</td><td class="num">22%</td><td class="num">&#8377;457</td><td class="num l">&minus;55%</td></tr>
+<tr><td>Bull</td><td class="num">15%</td><td class="num">13%</td><td class="num">16%</td><td class="num">&#8377;901</td><td class="num l">&minus;12%</td></tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+<div class="fig-title">DCF scenarios vs. current price</div>
+<div class="fig-sub">Value per share, &#8377;</div>
+<svg viewBox="0 0 720 240" role="img" aria-label="Discounted cash flow valuation scenarios for Dynacons against the current market price"><line class="grid-l" x1="56" y1="206.0" x2="704" y2="206.0"/><text class="ax" x="50" y="209.0" text-anchor="end">0</text><line class="grid-l" x1="56" y1="175.3" x2="704" y2="175.3"/><text class="ax" x="50" y="178.3" text-anchor="end">200</text><line class="grid-l" x1="56" y1="144.7" x2="704" y2="144.7"/><text class="ax" x="50" y="147.7" text-anchor="end">400</text><line class="grid-l" x1="56" y1="114.0" x2="704" y2="114.0"/><text class="ax" x="50" y="117.0" text-anchor="end">600</text><line class="grid-l" x1="56" y1="83.3" x2="704" y2="83.3"/><text class="ax" x="50" y="86.3" text-anchor="end">800</text><line class="grid-l" x1="56" y1="52.7" x2="704" y2="52.7"/><text class="ax" x="50" y="55.7" text-anchor="end">1,000</text><line class="grid-l" x1="56" y1="22.0" x2="704" y2="22.0"/><text class="ax" x="50" y="25.0" text-anchor="end">1,200</text><rect x="118.6" y="147.4" width="90.7" height="58.6" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs 382</title></rect><text class="vlbl" x="164.0" y="140.4" text-anchor="middle" fill="#d97a5f">&#8377;382</text><text class="ax" x="164.0" y="220" text-anchor="middle">Bear</text><text class="ax" x="164.0" y="232" text-anchor="middle" fill="#d97a5f">-63%</text><rect x="334.6" y="135.9" width="90.7" height="70.1" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 457</title></rect><text class="vlbl" x="380.0" y="128.9" text-anchor="middle" fill="#c9a24b">&#8377;457</text><text class="ax" x="380.0" y="220" text-anchor="middle">Base</text><text class="ax" x="380.0" y="232" text-anchor="middle" fill="#d97a5f">-55%</text><rect x="550.6" y="67.8" width="90.7" height="138.2" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 901</title></rect><text class="vlbl" x="596.0" y="60.8" text-anchor="middle" fill="#5fb98a">&#8377;901</text><text class="ax" x="596.0" y="220" text-anchor="middle">Bull</text><text class="ax" x="596.0" y="232" text-anchor="middle" fill="#d97a5f">-12%</text><line x1="56" y1="49.6" x2="704" y2="49.6" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="42.6" text-anchor="end">market &#8377;1,020</text><line class="zero-l" x1="56" y1="206" x2="704" y2="206"/></svg>
+<figcaption><b>Why:</b> even the bull case &mdash; margin at the Q1 FY2027 peak (13%) held for seven years, AND working-capital intensity falling by a third from its actual recent level &mdash; still falls short of the current price. The base case, built on the company's own FY2026 actual margin and a still-optimistic 22% working-capital intensity, values the stock at under half of where it trades.</figcaption>
+</figure>
+
+<h3>The finding that drives all three scenarios: at DSSL's own actual working-capital intensity, growth is currently value-destructive on a DCF basis</h3>
+<div class="warn">
+<div class="lbl">Not an artefact &mdash; a direct consequence of the cash-conversion problem in Section <a href="#framework">02</a></div>
+<p>Holding EBITDA margin at DSSL's actual FY2026 level (10.25%) and incremental working capital at its actual recent intensity (24%), this pipeline's own DCF function produces value per share that <i>falls</i> as assumed growth rises &mdash; &#8377;373 at 5% growth, &#8377;353 at 10%, &#8377;298 at 15%, &#8377;16 at 25% &mdash; because each incremental rupee of revenue at this margin and working-capital intensity consumes more cash in growing receivables than it returns in after-tax profit. A reverse DCF confirms the same point from the other direction: at this margin and working-capital intensity, <b>no growth rate up to 60% reaches the current market value</b> &mdash; the model reports the scenario as infeasible outright, not merely expensive. Holding growth at a modest 10% and improving working-capital intensity to 22% (still worse than the bull case above), the price requires a flat EBITDA margin of <b>15.3%</b> for seven years, well above anything DSSL has delivered even in its single best quarter (13.0%, Q1 FY2027). <b>This is the arithmetic version of the cash-gate finding in Section <a href="#framework">02</a></b>: a company that converts only 53 cents of every rupee of profit to cash cannot support a growth-story valuation on a DCF basis without either materially higher margins or a materially shorter working-capital cycle than it has ever actually achieved &mdash; and, per Section <a href="#wc">05</a>, that cycle has been lengthening, not shortening, for most of the decade.</p>
+</div>
+
+<h3>What would close the gap</h3>
+<p>Two, not one, things would need to move together: EBITDA margin sustaining at or above the Q1 FY2027 peak (13%) rather than a one-quarter high, and working-capital intensity falling meaningfully below its actual recent 22&ndash;26% level &mdash; something this report found no disclosed plan for and no historical precedent of in DSSL's own ten-year record. The As-a-Service pivot (Section <a href="#capital">09</a>) could plausibly help on the margin side over time; it does nothing to shorten the underlying milestone-billing receivables cycle that drives the working-capital intensity, and in fact adds a second, separate capital demand (leased and owned infrastructure) on top of it.</p>
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">13</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">Quality and value, kept on separate axes &mdash; this is not a buy or sell call</p>
+
+<h3>Quality: a real growth business whose cash generation has never matched its reported profit</h3>
+<p>DSSL's growth record is genuine: revenue up roughly ninefold and PAT up roughly seventyfold over a decade, clearing this pipeline's revenue-growth gate in eight of nine years and its ROCE gate in eight of nine, with a governance record this pipeline's own related-party audit scores Score 1 (Watch) &mdash; clean, disclosed, nothing off-market. Order book and bidding pipeline have both grown sharply into 2026, and the demand tailwind behind them &mdash; India's AI-infrastructure and data-center buildout &mdash; is independently well-documented, not promotional framing.</p>
+<p>Set against that: cumulative operating cash flow over the same decade was just 53% of cumulative PAT, with two individual years of outright negative operating cash flow despite reported profit &mdash; a cash-gate score of 2 out of 10, among the weakest this pipeline has recorded. Vijay Malik's own, stricter ROCE cross-check never once qualifies this company. Receivable days have lengthened from 68 to 154 over the decade, funded increasingly by supplier credit rather than resolved, and gross gearing has moved from a genuinely conservative 0.23&times; (FY2024) to 0.75&times; (FY2026) in two years as a new, capital-heavier As-a-Service business is built out &mdash; a business whose standalone returns management has consistently declined to disclose. None of this is hidden: three CARE Ratings reports, the company's own annual reports, and management on every earnings call describe the same lengthening cycle and rising leverage this report independently arrives at. The quality picture is therefore not one of concealment, but of a genuinely fast-growing business whose accounting profit has, for most of a decade, run well ahead of the cash it actually generates.</p>
+
+<h3>Value: a P/E that looks cheap is not supported once cash is charged for properly</h3>
+<p>At 15.3&times; earnings, DSSL is the cheapest name in its comparable set by a wide margin &mdash; Orient Technologies trades at 51.2&times;, Unified Data-Tech at 36.1&times;, Netweb at 110&times;. A reverse DCF built on DSSL's own actual margin and working-capital intensity finds this multiple is not supported: at the company's actual FY2026 cash-conversion profile, no growth rate reaches the current market value at all, and even a materially improved 22% working-capital intensity (still worse than DSSL has ever sustained) would require a 15.3% flat EBITDA margin for seven years &mdash; above anything the company has delivered even in its single best quarter. <b>Both readings are genuine, and this report does not collapse them into one number</b>: the P/E says this is cheap growth; the DCF says the price is not supported without a working-capital improvement this report found no disclosed plan for and no historical precedent of.</p>
+
+<h3>Specific triggers, with thresholds</h3>
+<ul>
+<li><b>Q1 FY2027's revenue decline, resolved or not</b> &mdash; the single nearest-term test. A Q2/Q3 FY2027 rebound consistent with management's "timing, not demand" framing would support the growth thesis; a continued decline would suggest the base-effect deceleration management itself has acknowledged (Section <a href="#growth">07</a>) is arriving faster than the AI-infrastructure tailwind can offset it.</li>
+<li><b>Cumulative CFO/PAT against the decade's 0.53&times; average</b> &mdash; a sustained run above 0.9&times; (FY2025's own best year) across two or more consecutive years would be the clearest evidence the cash-conversion problem is structurally improving rather than merely fluctuating.</li>
+<li><b>Gross gearing against the 0.75&times; FY2026 level</b> &mdash; how the Alumina Hydrate-scale Cybercons/As-a-Service capital commitments are funded from here (Section <a href="#capital">09</a>) is the next real test of whether the FY2024 low-leverage discipline was a genuine floor or a temporary dip between two re-leveraging cycles.</li>
+<li><b>EBITDA margin against the 15.3% the reverse DCF requires at even a modest 10% growth rate</b> &mdash; a sustained move toward the low-to-mid teens, beyond the Q1 FY2027 one-quarter peak of 13%, would be the clearest evidence the As-a-Service mix shift is genuinely margin-accretive rather than merely capital-intensive.</li>
+<li><b>Vijay Malik's own ROCE cross-check against a sustained 15%+</b> &mdash; the one gate this company has never cleared under this pipeline's more conservative formula; clearing it even once would meaningfully narrow the gap between the two ROCE readings this report treats as its central quality tension.</li>
+</ul>
+
+<p><b>What would change this verdict:</b> two consecutive years of cumulative CFO/PAT above 0.9&times;, combined with gearing stabilising rather than continuing to rise, would meaningfully improve confidence that this is a genuine, sustainable growth business rather than one whose reported profit has simply been running ahead of its cash generation. Conversely, a Q2/Q3 FY2027 revenue decline that repeats rather than reverses, alongside continued re-leveraging, would argue this report's already-skeptical base case is still too generous.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">14</span>Data gaps and provenance</h2>
+<p class="sec-sub">A fresh internal database, three primary transcripts, a corrected forum figure, and several absence-of-evidence findings stated as such</p>
+
+<h3>Methodology: this pipeline's own database was current; no workaround was needed</h3>
+<p>DSSL's internal `xbrl_annual` database was current at the time of this report, and all financial-metric computations in Sections <a href="#framework">02</a>, <a href="#record">03</a>, <a href="#margin">04</a>, <a href="#wc">05</a> and <a href="#valuation">12</a> run directly against it through this pipeline's own tested functions. The two most recent quarters (Q4 FY2026, Q1 FY2027) come from this pipeline's own primary-source reading of the earnings-call transcripts, since the FY2026 annual report itself had not yet been filed/ingested at the time of this report.</p>
+
+<h3>One anomaly with no confirmed cause</h3>
+<p>The FY2022&rarr;FY2023 EBITDA margin step (4.68% &rarr; 6.80%) has no specific driver identified in the FY2022 or FY2023 annual reports beyond the general "richer solutions mix" narrative management applies throughout the period &mdash; plausible, consistent with the broader trend, but not independently sourced to a specific event the way the FY2025&rarr;FY2026 step is. FY2019's growth slowdown (45.4% &rarr; 5.8% &rarr; 32.6%) is similarly undocumented in the FY2019 annual report available to this research.</p>
+
+<h3>A management-cited working-capital figure this report could not reproduce</h3>
+<p>Management's own "14 days to 17 days" net working-capital-days figure (Q4 FY2026 call) does not reconcile with this pipeline's own computation from the same disclosed balance-sheet figures under any definition this report tried (Section <a href="#wc">05</a>). Stated as an open methodology question rather than a discrepancy in the underlying data, since the direction of travel (working capital intensity rising modestly) is consistent across both readings.</p>
+
+<h3>A forum figure checked directly and corrected</h3>
+<p>A ValuePickr claim of a "~&#8377;129 Cr FY2025 loss with negative reserves" at DSSL's Singapore subsidiary was checked directly against the company's own FY2025 Form AOC-1 disclosure: the figures are reported in US dollars, and the actual FY2025 loss was US$12,992 against negative reserves of US$10,702 &mdash; a small, dormant entity, not a material loss. Corrected in Section <a href="#sentiment">11</a> rather than repeated uncritically.</p>
+
+<h3>An unexplained credit-rating sequence</h3>
+<p>CARE Ratings withdrew DSSL's rating in April 2024, reassigned it (BBB+, Positive) in November 2024, then withdrew it again in February 2025 &mdash; each withdrawal at the company's own request with lender NOCs. This research found no independent commentary on the pattern, most plausibly because DSSL has almost no institutional or analyst following to have generated any, but this report cannot rule out that a genuine explanation exists in a source (e.g. the BSE corporate-announcements archive) not reached by this research (Section <a href="#flags">10</a>).</p>
+
+<h3>Several absence-of-evidence findings, stated as such rather than as confirmed-clean</h3>
+<ul>
+<li>No litigation, promoter share pledge, or insider-trading activity was found in targeted searches &mdash; this is an absence-of-evidence finding from web search, not a direct crawl of BSE's own corporate-announcements archive, which would be the authoritative source if this needs to be closed out definitively.</li>
+<li>No independent media commentary was found on the credit-rating withdrawal sequence above, for the same reason.</li>
+<li>No dedicated ValuePickr thread exists for Orient Technologies, DSSL's closest business-model peer, despite multiple targeted searches &mdash; noted as a genuine coverage gap in Section <a href="#sentiment">11</a>, not a claim that no online discussion of Orient exists anywhere.</li>
+</ul>
+
+<h3>One primary source not read directly</h3>
+<p>Unified Data-Tech Solutions' own IPO prospectus naming Dynacons as a peer (Section <a href="#peers">06</a>) was confirmed via a secondary IPO-information aggregator's summary of the RHP, not a direct read of the SEBI-filed document itself. This report treats the claim as well-corroborated rather than verbatim-verified; a direct read of the actual RHP would upgrade this to a fully verbatim citation.</p>
+
+<h3>What would most improve the next refresh</h3>
+<ol>
+<li>DSSL's FY2026 annual report, once filed, to replace the transcript-sourced Q4 FY2026/Q1 FY2027 figures with audited, fully-disclosed numbers.</li>
+<li>A direct read of the Unified Data-Tech Solutions RHP for a verbatim citation of the peer-comparison language.</li>
+<li>A direct crawl of BSE's corporate-announcements archive for DSSL, to close out the litigation/pledge/insider-activity and credit-rating-sequence absence-of-evidence findings definitively.</li>
+<li>Clarification, from the company directly, of its own working-capital-days methodology against this pipeline's own computation.</li>
+<li>Q2 and Q3 FY2027 results, the direct test of whether the Q1 FY2027 revenue decline was genuinely a timing issue.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Dynacons Systems &amp; Solutions Ltd (NSE/BSE: DSSL, BSE: 532365, ISIN INE417B01040). Prepared 22 September 2026 against a share price of &#8377;1,019.85.</p>
+  <p>Built from this pipeline's own current internal database, run through its own tested margin-bridge, cash-gates, anomaly-scan and DCF arithmetic; an existing related-party audit covering ten annual reports; three CARE Ratings reports and the company's own current Acuit&eacute; rating; three earnings-call transcripts (Q3 FY26, Q4/FY26 annual, Q1 FY27) read in full, the entirety of the company's public disclosure record to date; a ValuePickr thread active since September 2022; and independent research on named comparable companies, industry data-center/AI-infrastructure spending, and the global GPU/component supply-chain constraint management cites as the cause of its most recent quarter's numbers. One forum-sourced figure (a claimed &#8377;129 Cr subsidiary loss) was checked directly against the company's own filings and corrected. Every numeric claim cites a period; every quotation cites a document. This company's cumulative decade-long cash conversion (CFO/PAT of 0.53&times;) is the central finding this report weighs against its otherwise clean growth and governance record &mdash; stated plainly in Section 14 and throughout, rather than glossed over.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. This report covers a fast-growing company with a weak decade-long cash-conversion record, a sharply rising leverage trend over the last two years, and a live, unresolved question about whether its most recent quarter's revenue decline is temporary; read the framework and valuation sections in full before acting on anything here. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
