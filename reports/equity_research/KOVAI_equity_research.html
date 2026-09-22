@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kovai Medical Center &amp; Hospital — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Kovai Medical Center & Hospital: a Coimbatore-concentrated hospital chain with a genuinely strong, improving credit profile and a large, steadily growing purchase relationship with a director-family-owned medical supplier.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Equity Research &middot; Coffee Can Screener</span>
+  <h1>Kovai Medical Center &amp; Hospital</h1>
+  <p class="subtitle">A Coimbatore-built, Coimbatore-concentrated hospital chain with genuinely strong returns and a decade-long related-party question its own retail investors have raised five separate times &mdash; through a leadership transition that happened three months before this report.</p>
+  <p class="meta">
+    NSE/BSE <b>KOVAI</b> &middot; BSE <b>523323</b> &middot; ISIN <b>INE177F01017</b> &middot; Hospitals &amp; Medical Education &middot; Standalone basis (no subsidiaries), Indian fiscal year (April&ndash;March)<br>
+    Price <b>&#8377;6,174.00</b> &middot; Market cap <b>&#8377;6,755 Cr</b> &middot; P/E <b>26.4&times;</b> &middot; ROCE <b>22.6%</b> &middot; ROE <b>20.5%</b> &middot; As of <b>22 September 2026</b>
+  </p>
+</header>
+
+<div class="verdict">
+  <div class="verdict-label">Verdict</div>
+  <p class="verdict-head">Quality: real, high returns and a genuine credit-rating upgrade, clouded by a related-party question that has recurred for a decade and a leadership transition still in its first months. Value: priced at a large discount to listed hospital peers, for reasons that are at least partly explicable.</p>
+  <p>KMCH has grown revenue from &#8377;402 Cr to &#8377;1,586 Cr since FY2015, holding a 20&ndash;28% EBITDA margin throughout and clearing 10% revenue growth in seven of the last nine years. Its rating has moved from CARE A+/Stable to CRISIL AA-/Stable, gearing has fallen and interest coverage has nearly doubled. Against six listed hospital peers, KMCH's ROCE (22.6%) ranks at or near the top of the group &mdash; while its P/E (26.4&times;) is the lowest by a wide margin.</p>
+  <p>Two things explain part of that discount. First, roughly 90% of revenue still comes from one region, and the stated remedy &mdash; a Chennai hospital &mdash; is KMCH's <i>second</i> attempt: an earlier Chennai plan was scrapped in 2017 in favour of the medical college, and the current one has already seen its timeline slip from "18-24 months" to "3-5 years." Second, a purchase relationship with Purani Hospital Supplies Ltd, a director-family-linked medical distributor, has grown from &#8377;15 Cr to &#8377;96.5 Cr a year over twelve years &mdash; and has been directly, independently flagged by KMCH's own retail-investor base five separate times since 2016, including a specific, unproven "siphoning" allegation in 2021 and a 2020 investigation tying an undisclosed shareholding vehicle to the same family entities.</p>
+  <p>Separately and very recently: co-founder and Joint Managing Director Dr Thavamani Devi Palaniswami passed away in June 2026; her son was elevated to Joint MD in August 2026, weeks before this report. <b>A well-run, high-return regional hospital business, priced at a real discount to its peers &mdash; some of it earned by genuine concentration and governance questions, not all of it obviously excessive.</b></p>
+</div>
+
+<div class="hero-row">
+  <div class="stat"><div class="k">Credit rating trajectory</div><div class="v" style="color:#8ac9a8">CARE A+ &rarr; CRISIL AA-</div><div class="n">Interest cover 6.4x (FY23) &rarr; 10.8x (FY25)</div></div>
+  <div class="stat"><div class="k">Purani Hospital Supplies</div><div class="v" style="color:var(--loss)">&#8377;15cr &rarr; &#8377;96.5cr</div><div class="n">Flagged by name on ValuePickr 5x since 2016, incl. a 2021 "siphoning" claim</div></div>
+  <div class="stat"><div class="k">Leadership transition</div><div class="v" style="color:#e3c076">3 months old</div><div class="n">Joint MD Dr Thavamani Devi Palaniswami d. Jun 2026; son elevated Aug 2026</div></div>
+  <div class="stat"><div class="k">Valuation vs. peers</div><div class="v">26.4x P/E</div><div class="n">vs. 39-160x peer range, on a top-of-group 22.6% ROCE</div></div>
+</div>
+
+<div class="toc">
+  <div class="toc-l">Contents</div>
+  <ol>
+    <li><a href="#business">The business: one dominant hospital</a></li>
+    <li><a href="#framework">The checklist: growth, returns, and a debt-funded capex history</a></li>
+    <li><a href="#record">The ten-year-plus record</a></li>
+    <li><a href="#margin">Margins</a></li>
+    <li><a href="#wc">Working capital</a></li>
+    <li><a href="#peers">How KMCH compares with listed hospital peers</a></li>
+    <li><a href="#growth">Growth outlook: Chennai's second attempt</a></li>
+    <li><a href="#mgmt">Management: a broken promise, and a new Joint MD</a></li>
+    <li><a href="#capital">Capital allocation</a></li>
+    <li><a href="#flags">Governance and credit risk</a></li>
+    <li><a href="#sentiment">What retail investors have said</a></li>
+    <li><a href="#valuation">Valuation: growth must stop decelerating</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business: one dominant hospital, a growing medical college, and a concentration problem by design</h2>
+<p class="sec-sub">A promoter-doctor-run, NABH-accredited multispecialty hospital chain built almost entirely around a single flagship campus in Coimbatore</p>
+
+<p>Kovai Medical Center and Hospital Ltd (KMCH) was incorporated in 1985 and began operations in 1990 with its flagship multispecialty hospital in Coimbatore, Tamil Nadu &mdash; now an 854-bed facility on a large campus near Coimbatore's airport. Around it sit smaller satellite centres in Coimbatore (City Center, Sulur, Kovilpalayam) and Erode. In 2019-20 the company added a second business line: KMCH Institute of Health Sciences &amp; Research, a medical college offering an MBBS degree with an annual intake of 150 students, alongside a 750-bed medical-college teaching hospital. By FY2024, healthcare contributed around 92% of revenue and education around 8% &mdash; a genuine, if still modest, diversification of the revenue base beyond pure hospital operations.</p>
+
+<p>The company is run by its founding promoters, Dr Nalla G Palaniswami and Dr Thavamani Devi Palaniswami, both with over four decades of experience in the healthcare sector; Dr Thavamani Devi Palaniswami was reappointed Joint Managing Director in July 2025. KMCH is NABH-accredited and describes itself as a regional forerunner in transplant and gynaecology surgery; in FY2023 it installed IceCure, a cancer-treatment system it describes as the third such installation in India and the first in South India. The company has no subsidiaries, joint ventures or associates &mdash; standalone and consolidated financials are identical, a genuine simplification relative to most companies this pipeline covers.</p>
+
+<h3>The structural risk built into this model: geographic concentration</h3>
+<p>CRISIL's own rating rationale states the fact plainly: the flagship Coimbatore hospital alone contributed roughly 75% of FY2024 revenue, and the Coimbatore region as a whole around 90%. This is not a diversified regional chain in the way some listed hospital peers are (Section <a href="#peers">06</a>) &mdash; it is, in substance, one very large, very well-run hospital plus a growing medical college, with a handful of much smaller satellite centres around it. CRISIL frames the company's own stated plan to establish a hospital in Chennai as the intended remedy over the medium term (Section <a href="#growth">07</a>), but as of this report that hospital is not yet operating, and the concentration risk is live today, not merely historical.</p>
+
+<h3>Regulatory exposure common to the Indian hospital sector</h3>
+<p>CRISIL specifically names two precedents: price caps imposed on cardiac stents and knee implants in the final quarter of FY2017, which materially affected private-hospital earnings sector-wide at the time, and a cap on cash transactions above &#8377;2 lakh introduced in FY2018, which caused temporary operational disruption. A Supreme Court proposal to standardise procedure pricing across public and private hospitals is described by CRISIL as a live matter worth monitoring, with no resolution timeline given. None of these are KMCH-specific failures; they are sector-wide regulatory risks any Indian listed hospital operator carries, and are noted here because they apply directly to a company this concentrated in a single flagship facility.</p>
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>The checklist: a strong growth-and-returns record, and a capex history that was genuinely debt-funded</h2>
+<p class="sec-sub">Computed directly through this pipeline's own tested equity_research module, using Screener.in's public data sheet in place of the stale internal database</p>
+
+<div class="warn">
+<div class="lbl">A methodology note, stated up front</div>
+<p>This pipeline's structured financial database (`xbrl_annual`) has not been refreshed for KMCH since FY2018, and this environment had no working credential to trigger a refresh. Rather than publish on eight-year-old numbers, this report fed twelve years of KMCH's own published financials (Screener.in's public, unauthenticated data sheet &mdash; sales, EBITDA, PBT, tax, PAT, balance sheet and cash flow, standalone basis) directly into this pipeline's own `margin_bridge`, `cash_gates` and `anomaly_scan` functions, the same tested arithmetic every other report in this pipeline uses. What follows is a genuine run of that engine, not a manual approximation &mdash; the only difference from other reports is the data's origin (a public financial-data aggregator rather than this pipeline's own screener_worker pull). One caveat: Screener's page rounds figures to whole crores, so the margin bridge below shows a small (~10bp) reconciliation gap versus its exact decomposition identity &mdash; immaterial to any conclusion drawn from it.</p>
+</div>
+
+<h3>Revenue growth: seven of nine years clear the gate</h3>
+<p>Applying this pipeline's own &gt;10% year-on-year growth test to the trailing nine fiscal years (FY2018&ndash;FY2026): <b>seven of nine pass</b>, with two clean, explicable misses &mdash; FY2019 (+6.8%, no specific documented cause) and FY2021 (&minus;3.1%, the COVID year, explained in full in Section <a href="#record">03</a>). ROCE, per Screener's own calculation, has ranged 13% (FY2021) to 31% (FY2017), settling at a stable 22&ndash;23% for the last three years &mdash; comfortably above the 15% coffee-can threshold in every one of the last five years.</p>
+
+<figure>
+<div class="fig-title">Interest coverage, FY2023&ndash;FY2025</div>
+<div class="fig-sub">From three independent CRISIL rating rationales (Dec 2024, Jan 2025, Sep 2025)</div>
+<svg viewBox="0 0 720 200" role="img" aria-label="Kovai Medical Center and Hospital interest coverage ratio, FY2023 to FY2025"><line class="grid-l" x1="44" y1="170.0" x2="706" y2="170.0"/><text class="ax" x="38" y="173.0" text-anchor="end">0x</text><line class="grid-l" x1="44" y1="144.7" x2="706" y2="144.7"/><text class="ax" x="38" y="147.7" text-anchor="end">2x</text><line class="grid-l" x1="44" y1="119.3" x2="706" y2="119.3"/><text class="ax" x="38" y="122.3" text-anchor="end">4x</text><line class="grid-l" x1="44" y1="94.0" x2="706" y2="94.0"/><text class="ax" x="38" y="97.0" text-anchor="end">6x</text><line class="grid-l" x1="44" y1="68.7" x2="706" y2="68.7"/><text class="ax" x="38" y="71.7" text-anchor="end">8x</text><line class="grid-l" x1="44" y1="43.3" x2="706" y2="43.3"/><text class="ax" x="38" y="46.3" text-anchor="end">10x</text><line class="grid-l" x1="44" y1="18.0" x2="706" y2="18.0"/><text class="ax" x="38" y="21.0" text-anchor="end">12x</text><rect x="108.0" y="88.4" width="92.7" height="81.6" rx="4" fill="#5fb98a"><title>FY2023: 6.44x</title></rect><text class="vlbl" x="154.3" y="81.4" text-anchor="middle">6.44x</text><text class="ax" x="154.3" y="184" text-anchor="middle">FY2023</text><rect x="328.7" y="49.3" width="92.7" height="120.7" rx="4" fill="#5fb98a"><title>FY2024: 9.53x</title></rect><text class="vlbl" x="375.0" y="42.3" text-anchor="middle">9.53x</text><text class="ax" x="375.0" y="184" text-anchor="middle">FY2024</text><rect x="549.3" y="33.2" width="92.7" height="136.8" rx="4" fill="#5fb98a"><title>FY2025: 10.80x</title></rect><text class="vlbl" x="595.7" y="26.2" text-anchor="middle">10.80x</text><text class="ax" x="595.7" y="184" text-anchor="middle">FY2025</text><line class="zero-l" x1="44" y1="170" x2="706" y2="170"/></svg>
+<figcaption><b>Why:</b> interest coverage nearly doubled in two years, the clearest single number this report has for the genuine deleveraging behind KMCH's CARE-to-CRISIL rating upgrade (Section <a href="#flags">10</a>).</figcaption>
+</figure>
+
+<h3>Gate 1 (cash conversion): genuinely strong</h3>
+<p>Cumulative CFO over FY2015&ndash;FY2026 was &#8377;2,412 Cr against cumulative PAT of &#8377;1,283 Cr &mdash; a <b>1.88&times;</b> conversion ratio, well ahead of reported profit. This is a real structural feature of the hospital business model: patients and insurers generally settle faster than a hospital pays its own suppliers and staff, producing negative working capital (Section <a href="#wc">05</a>) and hence a cash-conversion ratio above 1&times; almost every year.</p>
+
+<h3>Gate 3 (the harder test): capex has genuinely been debt-funded, historically</h3>
+<div class="warn">
+<div class="lbl">A real, not proxy-distorted, finding</div>
+<p>Gate 3 &mdash; cumulative CFO less capex less interest &mdash; is <b>&minus;&#8377;1,313 Cr</b> over FY2015&ndash;FY2026 (&#8377;2,412 Cr CFO, &#8377;3,396 Cr capex, &#8377;329 Cr interest). Unlike the QIP-distorted capex proxies this pipeline has flagged at other companies, this figure for KMCH is real: it is a hospital operator that has spent more on physical capacity (the original hospital expansion, then the ~&#8377;500 Cr medical-college campus, and now new beds plus Chennai land) than its own operations have generated in cash, financed by borrowings that peaked at &#8377;623 Cr in FY2021 before falling to &#8377;403 Cr by FY2026 as growth cash flow caught up. The improving leverage and interest-coverage metrics in Section <a href="#flags">10</a> are the visible evidence of that catch-up actually happening, not merely a forecast.</p>
+</div>
+<p>Whether the next round of capex &mdash; the &#8377;250&ndash;300 Cr medium-term plan CRISIL guides, plus whatever Chennai ultimately costs &mdash; can be funded from internal accrual as CRISIL currently expects (Section <a href="#capital">09</a>), or repeats the debt-funded pattern of the medical-college years, is the single question this report's own verdict weighs most heavily behind the concentration and related-party issues (Section <a href="#verdict">13</a>).</p>
+
+<h3>The subcontracting test, and two other anomalies with clean explanations</h3>
+<p>Net fixed-asset turnover fell 27% over the period (1.35&times; &rarr; 0.99&times;) without margin falling in tandem &mdash; the same "capacity built ahead of demand" reading this pipeline applies to genuinely capital-intensive builders, not Malik's subcontracting signature. Total-outside-liabilities-to-net-worth fell 69% and interest-as-a-share-of-sales fell 54%, both consistent with the real deleveraging documented above. Two single-year EBITDA-margin steps (FY2016 down, FY2017 up) predate the documents available to this research and are not explained further; both fall inside the pre-2019 window this report has thinner primary-source coverage of (Section <a href="#gaps">14</a>).</p>
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The record: twelve years, two explicable growth misses, no lost decade</h2>
+<p class="sec-sub">Sourced directly from Screener.in's public, unauthenticated data sheet (standalone basis) &mdash; this pipeline's own database has not been refreshed for this company since FY2018</p>
+
+<figure>
+<div class="fig-title">Revenue, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, standalone basis (Screener.in)</div>
+<svg viewBox="0 0 720 230" role="img" aria-label="Kovai Medical Center and Hospital revenue by fiscal year, FY2017 to FY2026"><line class="grid-l" x1="52" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="46" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="46" y="157.0" text-anchor="end">428</text><line class="grid-l" x1="52" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="46" y="111.0" text-anchor="end">856</text><line class="grid-l" x1="52" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="46" y="65.0" text-anchor="end">1,284</text><line class="grid-l" x1="52" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="46" y="19.0" text-anchor="end">1,712</text><rect x="65.7" y="142.9" width="37.9" height="57.1" rx="4" fill="#c9a24b"><title>FY2017: Rs 531 Cr</title></rect><text class="ax" x="84.7" y="213" text-anchor="middle">'17</text><rect x="131.1" y="136.3" width="37.9" height="63.7" rx="4" fill="#c9a24b"><title>FY2018: Rs 592 Cr</title></rect><text class="ax" x="150.1" y="213" text-anchor="middle">'18</text><rect x="196.5" y="132.5" width="37.9" height="67.5" rx="4" fill="#c9a24b"><title>FY2019: Rs 628 Cr</title></rect><text class="ax" x="215.5" y="213" text-anchor="middle">'19</text><rect x="261.9" y="123.5" width="37.9" height="76.5" rx="4" fill="#c9a24b"><title>FY2020: Rs 712 Cr</title></rect><text class="ax" x="280.9" y="213" text-anchor="middle">'20</text><rect x="327.3" y="125.8" width="37.9" height="74.2" rx="4" fill="#7a86a0"><title>FY2021: Rs 690 Cr (COVID, the one down year)</title></rect><text class="ax" x="346.3" y="213" text-anchor="middle">'21</text><rect x="392.7" y="102.7" width="37.9" height="97.3" rx="4" fill="#c9a24b"><title>FY2022: Rs 906 Cr</title></rect><text class="ax" x="411.7" y="213" text-anchor="middle">'22</text><rect x="458.1" y="90.4" width="37.9" height="109.6" rx="4" fill="#c9a24b"><title>FY2023: Rs 1,020 Cr</title></rect><text class="ax" x="477.1" y="213" text-anchor="middle">'23</text><rect x="523.5" y="69.0" width="37.9" height="131.0" rx="4" fill="#c9a24b"><title>FY2024: Rs 1,220 Cr</title></rect><text class="ax" x="542.5" y="213" text-anchor="middle">'24</text><rect x="588.9" y="52.7" width="37.9" height="147.3" rx="4" fill="#c9a24b"><title>FY2025: Rs 1,371 Cr</title></rect><text class="ax" x="607.9" y="213" text-anchor="middle">'25</text><rect x="654.3" y="29.6" width="37.9" height="170.4" rx="4" fill="#c9a24b"><title>FY2026: Rs 1,586 Cr</title></rect><text class="ax" x="673.3" y="213" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="200" x2="706" y2="200"/></svg>
+<figcaption><b>Why:</b> revenue grew from &#8377;531 Cr to &#8377;1,586 Cr, with only one down year &mdash; FY2021, the COVID year, when revenue fell 3% even as EBITDA rose 17.7% (elective-procedure deferral cut both revenue and the medicine/consumables cost line; see the PAT anomaly discussed below).</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Revenue (&#8377;Cr)</th><th class="num">EBITDA (&#8377;Cr)</th><th class="num">EBITDA margin</th><th class="num">PAT (&#8377;Cr)</th><th class="num">Net margin</th></tr></thead>
+<tbody>
+<tr><td class="t">2020</td><td class="num">712</td><td class="num">171</td><td class="num">24.0%</td><td class="num">95</td><td class="num">13.3%</td></tr>
+<tr class="hl"><td class="t">2021</td><td class="num">690</td><td class="num">195</td><td class="num">28.3%</td><td class="num" style="color:var(--loss)">78</td><td class="num">11.3%</td></tr>
+<tr><td class="t">2022</td><td class="num">905</td><td class="num">261</td><td class="num">28.8%</td><td class="num">104</td><td class="num">11.5%</td></tr>
+<tr><td class="t">2023</td><td class="num">1,020</td><td class="num">274</td><td class="num">26.9%</td><td class="num">116</td><td class="num">11.4%</td></tr>
+<tr><td class="t">2024</td><td class="num">1,220</td><td class="num">346</td><td class="num">28.4%</td><td class="num">180</td><td class="num">14.7%</td></tr>
+<tr><td class="t">2025</td><td class="num">1,371</td><td class="num">390</td><td class="num">28.4%</td><td class="num">209</td><td class="num">15.2%</td></tr>
+<tr><td class="t">2026</td><td class="num">1,586</td><td class="num">445</td><td class="num">28.1%</td><td class="num">244</td><td class="num">15.4%</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The FY2021 anomaly, now explained</h3>
+<p>FY2021 is the one year in this record where PAT moved opposite to EBITDA: EBITDA rose 17.7% year-on-year while PAT fell 17.9%. This pipeline's own ValuePickr research resolves the gap: the annual report itself records medicine and consumables cost <i>falling</i> that year (&#8377;204.8 Cr &rarr; &#8377;193.6 Cr) "due to reduction in surgeries due to COVID-19" &mdash; lower elective-procedure volume cut a cost line and helped EBITDA, but total borrowings had risen to &#8377;582 Cr as construction costs for the medical-college campus rolled off the balance sheet's capitalised-interest treatment and into the P&L as real depreciation and interest expense once the assets were commissioned. A contemporaneous forum post also flagged that FY2020's PAT had itself been flattered by one-off tax deferrals, meaning part of the FY2021 "decline" is a normalisation off an unusually favourable prior-year base, not a pure operating deterioration. Both effects moving together explain the gap without either being a red flag on its own.</p>
+
+<h3>Margin has held through both a pandemic and a genuine capacity build-out</h3>
+<p>EBITDA margin has held a 27&ndash;29% band every year since FY2022, despite the company simultaneously running new-bed capex and, more recently, funding land acquisition for a second Chennai attempt (Section <a href="#growth">07</a>) &mdash; a genuinely stable cost structure through a real, ongoing investment cycle.</p>
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: stable at a level most Indian hospital operators would envy</h2>
+<p class="sec-sub">A 27&ndash;30% EBITDA margin held through a pandemic, a new medical college, and a fresh capex cycle</p>
+
+<figure>
+<div class="fig-title">EBITDA margin, FY2020&ndash;FY2026</div>
+<div class="fig-sub">From KMCH's own annual reports (Results of Operations)</div>
+<svg viewBox="0 0 720 220" role="img" aria-label="Kovai Medical Center and Hospital EBITDA margin, FY2020 to FY2026"><line class="grid-l" x1="44" y1="190.0" x2="706" y2="190.0"/><text class="ax" x="38" y="193.0" text-anchor="end">0%</text><line class="grid-l" x1="44" y1="140.9" x2="706" y2="140.9"/><text class="ax" x="38" y="143.9" text-anchor="end">10%</text><line class="grid-l" x1="44" y1="91.7" x2="706" y2="91.7"/><text class="ax" x="38" y="94.7" text-anchor="end">20%</text><line class="grid-l" x1="44" y1="42.6" x2="706" y2="42.6"/><text class="ax" x="38" y="45.6" text-anchor="end">30%</text><rect x="63.9" y="66.7" width="54.9" height="123.3" rx="4" fill="#5b9bd1"><title>FY2020: 25.1%</title></rect><text class="vlbl" x="91.3" y="60.7" text-anchor="middle" style="font-size:9px">25.1</text><text class="ax" x="91.3" y="203" text-anchor="middle">'20</text><rect x="158.4" y="44.0" width="54.9" height="146.0" rx="4" fill="#5b9bd1"><title>FY2021: 29.7%</title></rect><text class="vlbl" x="185.9" y="38.0" text-anchor="middle" style="font-size:9px">29.7</text><text class="ax" x="185.9" y="203" text-anchor="middle">'21</text><rect x="253.0" y="43.9" width="54.9" height="146.1" rx="4" fill="#5b9bd1"><title>FY2022: 29.7%</title></rect><text class="vlbl" x="280.4" y="37.9" text-anchor="middle" style="font-size:9px">29.7</text><text class="ax" x="280.4" y="203" text-anchor="middle">'22</text><rect x="347.6" y="52.9" width="54.9" height="137.1" rx="4" fill="#5b9bd1"><title>FY2023: 27.9%</title></rect><text class="vlbl" x="375.0" y="46.9" text-anchor="middle" style="font-size:9px">27.9</text><text class="ax" x="375.0" y="203" text-anchor="middle">'23</text><rect x="442.1" y="43.8" width="54.9" height="146.2" rx="4" fill="#5b9bd1"><title>FY2024: 29.7%</title></rect><text class="vlbl" x="469.6" y="37.8" text-anchor="middle" style="font-size:9px">29.7</text><text class="ax" x="469.6" y="203" text-anchor="middle">'24</text><rect x="536.7" y="43.8" width="54.9" height="146.2" rx="4" fill="#5b9bd1"><title>FY2025: 29.7%</title></rect><text class="vlbl" x="564.1" y="37.8" text-anchor="middle" style="font-size:9px">29.7</text><text class="ax" x="564.1" y="203" text-anchor="middle">'25</text><rect x="631.3" y="45.2" width="54.9" height="144.8" rx="4" fill="#5b9bd1"><title>FY2026: 29.5%</title></rect><text class="vlbl" x="658.7" y="39.2" text-anchor="middle" style="font-size:9px">29.5</text><text class="ax" x="658.7" y="203" text-anchor="middle">'26</text><line class="zero-l" x1="44" y1="190" x2="706" y2="190"/></svg>
+<figcaption><b>Why:</b> margin has held a tight band since FY2022 (27.9&ndash;29.7%) regardless of revenue growth rate that year (12% to 20%) &mdash; a genuinely stable cost structure, not one visibly stressed by scale.</figcaption>
+</figure>
+
+<p>Section <a href="#record">03</a>'s table shows EBITDA margin holding a tight 25.1&ndash;29.7% band across the last six fiscal years, with FY2026's 29.5% essentially matching the decade's best levels even as the company simultaneously runs a new-bed capex programme (Section <a href="#growth">07</a>). CRISIL's own framing attributes this to "stable margins from the healthcare sector and higher margins from the education sector" &mdash; the medical college segment, still a small share of total revenue (Section <a href="#business">01</a>), appears to be margin-accretive to the blended figure rather than dilutive, a genuinely favourable mix effect as it scales.</p>
+
+<h3>The cost-side risk CRISIL names directly</h3>
+<p>CRISIL's own weakness list for the sector, applied to KMCH specifically, names "dependence on scarcely available medical professionals and growing competition in the industry" as a standing risk &mdash; a direct cost-structure and staffing concern for a business whose largest input cost is specialist medical talent, and one this report found no further primary-source detail on (no specific attrition figures, wage-inflation data, or specialist-vacancy disclosures were available in the documents this research covered). Given the margin record has held steady despite this named risk, this report treats it as a real, monitored, but not yet materially binding constraint &mdash; worth watching rather than treating as a current problem.</p>
+
+<h3>What this report could not verify</h3>
+<p>Without the granular income-statement breakdown (staff cost, medical consumables, other operating expenses as separate line items) that this pipeline's database would normally supply, this report cannot decompose the EBITDA-margin stability into its underlying drivers the way Section <a href="#margin">04</a>-style bridges do for other companies in this pipeline. The stability itself is well-evidenced (three independent CRISIL rationales and the company's own six years of "Results of Operations" disclosures all agree); the specific cost-line mechanics behind it are not.</p>
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: negative throughout, but drifting toward breakeven</h2>
+<p class="sec-sub">A genuine structural strength of the hospital model &mdash; and a real, gradual erosion worth watching rather than ignoring</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Debtor days</th><th class="num">Inventory days</th><th class="num">Days payable</th><th class="num">Cash conversion cycle</th><th class="num">Working capital days</th></tr></thead>
+<tbody>
+<tr><td class="t">2015</td><td class="num">9</td><td class="num">25</td><td class="num">53</td><td class="num" style="color:var(--gain-soft)">&minus;19</td><td class="num" style="color:var(--gain-soft)">&minus;60</td></tr>
+<tr><td class="t">2019</td><td class="num">6</td><td class="num">20</td><td class="num">47</td><td class="num" style="color:var(--gain-soft)">&minus;21</td><td class="num" style="color:var(--gain-soft)">&minus;55</td></tr>
+<tr><td class="t">2021</td><td class="num">7</td><td class="num">19</td><td class="num">29</td><td class="num" style="color:var(--gain-soft)">&minus;2</td><td class="num" style="color:var(--gain-soft)">&minus;56</td></tr>
+<tr class="hl"><td class="t">2022</td><td class="num">8</td><td class="num">19</td><td class="num">20</td><td class="num">6</td><td class="num" style="color:var(--gain-soft)">&minus;49</td></tr>
+<tr><td class="t">2024</td><td class="num">5</td><td class="num">17</td><td class="num">30</td><td class="num" style="color:var(--gain-soft)">&minus;7</td><td class="num" style="color:var(--gain-soft)">&minus;49</td></tr>
+<tr class="hl"><td class="t">2026</td><td class="num">9</td><td class="num">17</td><td class="num">20</td><td class="num">6</td><td class="num" style="color:var(--gain-soft)">&minus;58</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>KMCH runs a genuinely negative cash-conversion cycle for most of this record &mdash; patients and insurers pay faster than the hospital pays its own drug and consumables suppliers, which is exactly the "Strong" liquidity CRISIL rates the company on (Section <a href="#flags">10</a>). The clear, real trend inside that record is a compression: the cash conversion cycle has moved from a comfortably negative &minus;19 to &minus;21 days in the earlier part of this record toward roughly breakeven (+6 days) in FY2022 and again in FY2026 &mdash; driven almost entirely by <b>days payable roughly halving</b>, from 53 days (FY2015) to 20 days (FY2026), while debtor and inventory days have stayed low and roughly stable throughout.</p>
+
+<p>This report cannot say from the data available whether faster payable turnover reflects tighter supplier terms being demanded of KMCH, or the company voluntarily paying faster (plausible given the improving liquidity position documented in Section <a href="#flags">10</a>) &mdash; but it is worth noting that Purani Hospital Supplies, the company's single largest disclosed related-party purchase counterparty (Section <a href="#flags">10</a>), is also a supplier, and this report found no data that isolates payment terms specifically extended to or by that entity versus the supplier base as a whole. Working capital remains a genuine structural positive for this business either way &mdash; net operating working capital is negative in every year shown &mdash; but the direction of travel is toward less negative, not more, and is worth tracking at each future annual report alongside the credit-rating trend it sits inside.</p>
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How KMCH compares with listed hospital peers</h2>
+<p class="sec-sub">Near the top of the group on returns, and the cheapest stock in it by a wide margin</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Company</th><th class="num">Mkt cap (&#8377;Cr)</th><th class="num">Sales TTM (&#8377;Cr)</th><th class="num">P/E</th><th class="num">ROCE</th><th class="num">ROE</th><th class="num">OPM</th><th class="num">5Y sales CAGR</th><th class="num">5Y profit CAGR</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">KMCH (anchor)</td><td class="num">6,755</td><td class="num">1,644</td><td class="num">26.4</td><td class="num">22.6%</td><td class="num">20.5%</td><td class="num">28%</td><td class="num">18%</td><td class="num">26%</td></tr>
+<tr><td class="t">Shalby Ltd</td><td class="num">1,520</td><td class="num">1,176</td><td class="num">38.6</td><td class="num">6.1%</td><td class="num">2.5%</td><td class="num">12%</td><td class="num">22%</td><td class="num" style="color:var(--loss)">&minus;11%</td></tr>
+<tr><td class="t">Rainbow Children's Medicare</td><td class="num">14,636</td><td class="num">1,820</td><td class="num">51.1</td><td class="num">17.4%</td><td class="num">15.9%</td><td class="num">32%</td><td class="num">21%</td><td class="num">44%</td></tr>
+<tr><td class="t">Yatharth Hospital &amp; Trauma Care</td><td class="num">10,680</td><td class="num">1,334</td><td class="num">59.0</td><td class="num">12.4%</td><td class="num">10.4%</td><td class="num">23%</td><td class="num">41%</td><td class="num">57%</td></tr>
+<tr><td class="t">Vijaya Diagnostic Centre</td><td class="num">15,963</td><td class="num">857</td><td class="num">85.1</td><td class="num">20.5%</td><td class="num">18.3%</td><td class="num">42%</td><td class="num">17%</td><td class="num">14%</td></tr>
+<tr><td class="t">Krishna Institute of Medical Sciences (KIMS)*</td><td class="num">33,418</td><td class="num">4,212</td><td class="num">160</td><td class="num">9.5%</td><td class="num">11.3%</td><td class="num">20%</td><td class="num">24%</td><td class="num">4%</td></tr>
+<tr><td class="t">Global Health (Medanta)*</td><td class="num">40,696</td><td class="num">4,683</td><td class="num">71.1</td><td class="num">17.4%</td><td class="num">15.2%</td><td class="num">21%</td><td class="num">25%</td><td class="num">81%</td></tr>
+</tbody>
+</table>
+<caption>* KIMS and Global Health are 2.6-2.9&times; KMCH's revenue scale &mdash; included for margin/return context, not as close valuation comparables. Fetched from Screener.in, 22 September 2026.</caption>
+</div>
+
+<p>On this data, KMCH's 22.6% ROCE is at or near the top of this peer group &mdash; only Vijaya Diagnostic's 20.5% comes close among the closer-scale names, and every other peer trails it by a meaningful margin (Shalby's 6.1% is a genuine outlier to the downside despite comparable revenue scale, a useful reminder that scale alone says nothing about quality). Yet KMCH's 26.4&times; P/E is the lowest in the table by a wide margin &mdash; the next-cheapest peer, Shalby, trades at 38.6&times; despite dramatically worse returns, and the group median sits well above 50&times;. This is the same conclusion KMCH's own retail-investor base has reached independently (a forum-posted peer table in April 2026 found a comparable 45-60% valuation discount to sector medians), cross-checked here against independently-pulled data rather than taken on the forum's word alone.</p>
+
+<h3>What plausibly explains the discount, and what might not</h3>
+<p>Some of the gap is explicable by facts this report has already established: KMCH's single-region concentration (Section <a href="#business">01</a>) is a real, rating-agency-acknowledged risk none of these peers carries to the same degree (Rainbow, Yatharth and Vijaya Diagnostic all operate genuinely multi-city networks); KMCH holds no investor concalls, a real visibility gap versus peers that do; and the Purani Hospital Supplies related-party pattern (Section <a href="#flags">10</a>), while never substantiated as misconduct, is a live, recurring overhang none of these listed peers appears to carry at comparable scale. Institutional coverage is also essentially absent for KMCH (Section <a href="#sentiment">11</a>), while several of these peers carry active sell-side coverage that itself supports a higher multiple through visibility alone.</p>
+<p>What is harder to explain purely by risk: a 22.6% ROCE trading at roughly a third of the multiple Vijaya Diagnostic commands for a comparable 20.5% ROCE, or a fraction of what Rainbow and Yatharth command despite materially higher, not lower, capital efficiency. This report does not resolve that gap into a single fair-value number (Section <a href="#valuation">12</a>) &mdash; but the peer table on its own is a genuine, evidence-based reason to ask whether the market is pricing KMCH's real risks accurately, or simply has not looked closely at a small, illiquid, concall-free stock with strong fundamentals.</p>
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: a real capex cycle, and a Chennai plan with a documented history of slipping</h2>
+<p class="sec-sub">This is KMCH's second attempt at Chennai. The first one was scrapped. The current one has already widened its own timeline once.</p>
+
+<h3>A genuine, ongoing capacity build in Coimbatore</h3>
+<p>CRISIL's most recent rationale guides &#8377;250&ndash;300 Cr of capex over the medium term, funded "majorly through internal accrual." Capital work in progress rose from &#8377;150 Cr (March 2025) to &#8377;224 Cr by the November 2025 quarterly update, consistent with new-bed capacity nearing completion; a new bed block became operational in February 2026, and a further 300-bed brownfield expansion at the existing Sulur satellite centre was announced the same month. This is a real, largely cash-funded expansion of the existing Coimbatore footprint.</p>
+
+<h3>Chennai: KMCH's second attempt, with a documented history of slipping</h3>
+<p>This is the single most important correction this report can make to a naive reading of KMCH's own current messaging: <b>Chennai has been tried before, and abandoned.</b> A first Chennai hospital plan &mdash; a 300-bed, roughly &#8377;300 Cr facility at Sholinganallur, for which environmental clearance was actually obtained in March 2017 &mdash; was explicitly scrapped in July 2017 in favour of building the &#8377;500 Cr medical college instead. Contemporaneous forum commentary at the time was explicitly skeptical of Chennai as a market ("Apollo for cardio, MIOT for orthopedics... a highly competitive market"), and welcomed the pivot.</p>
+<p>The current attempt began with a 1.28-acre land purchase on Chennai's OMR corridor in August 2024 for approximately &#8377;121 Cr. At the time, management guided a 300-bed hospital, &#8377;300 Cr capex, and an 18-24 month completion timeline. By the August 2025 AGM, that guidance had already widened to <b>3-5 years</b>, with the bed count increased to 400 &mdash; a real, documented instance of the company's own stated timeline moving against it within a single year, not merely this report's speculation. A single, unverified forum post from August 2026 further claims a Supreme Court case over environmental clearance is affecting the project; general web search found no independent corroboration of this specific claim (only an unrelated Madras High Court ruling on medical colleges generally), and this report treats it as an unconfirmed, single-source claim worth a direct follow-up rather than either an established fact or something to dismiss, given how directly it would bear on the one expansion plan meant to address KMCH's central concentration risk.</p>
+<p>Until Chennai (or an equivalent) is actually operating, the concentration risk quantified in Section <a href="#business">01</a> remains exactly as concentrated as it is today &mdash; and this company's own history gives a specific, documented reason for skepticism about how firmly any current timeline should be relied upon.</p>
+
+<h3>The medical college continues to scale</h3>
+<p>A postgraduate (PG) course began in September 2025, a genuine expansion of the medical college beyond its original MBBS-only offering. Education-segment EBIT swings sharply between quarters (&#8377;16 Cr in one quarter, &#8377;5 Cr in the next, per a November 2025 investor update) purely as a function of when the company books each academic period's revenue (Q1 and Q3) &mdash; not a sign of the underlying business deteriorating.</p>
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">08</span>Management: a founding family, a promise on Chennai it has broken once already, and a new Joint MD</h2>
+<p class="sec-sub">No investor concalls, thin forward guidance, and a real track record of announcing and then dropping a major expansion</p>
+
+<h3>The one scored promise this report can make: Chennai</h3>
+<p>Unlike most companies in this pipeline, KMCH does not hold investor concalls &mdash; a specific, repeated complaint from its own retail-investor base ("the only issue I see with Kovai is their lack of concalls," 2024), which limits how much of a multi-cycle guidance ledger this report can build. The one clear, trackable promise in the record is Chennai, and it has already been broken once: management told the market a Chennai hospital was coming in 2014, secured environmental clearance for it in March 2017, and scrapped the plan in July 2017 for the medical college instead. The current attempt, begun in August 2024, has already had its own timeline slip once &mdash; from a guided 18-24 months to 3-5 years within a single year (Section <a href="#growth">07</a>). <b>Score: one broken promise, one live promise already showing the same early warning sign (a widening timeline) that preceded the first one being dropped entirely.</b> This is not a reason to assume Chennai will be scrapped again &mdash; the medical-college pivot was itself a reasonable capital-allocation decision in hindsight, not a failure of execution &mdash; but it is a documented, specific reason to discount management's own current Chennai timeline more than a first read of the AGM notes would suggest.</p>
+
+<h3>A leadership transition still finding its footing</h3>
+<p>Founding promoters Dr Nalla G. Palaniswami and the late Dr Thavamani Devi Palaniswami built KMCH from a single hospital (1990) into its current scale over more than three decades. Following Dr Thavamani Devi Palaniswami's death in June 2026, her son Dr Arun N. Palaniswami &mdash; already an Executive Director and head of the group's quality/accreditation function since 2015 &mdash; was elevated to Joint Managing Director in August 2026. He is not an outside hire or an unknown quantity; he has been inside the business for over a decade. But he is, as of this report, three months into a materially larger role, at a company simultaneously running its largest-ever capex programme and its second attempt at the one expansion meant to fix its central structural risk. This report treats the transition as orderly but genuinely untested, and flags the next one or two AGMs and annual reports as the first real evidence of how continuity holds under the new leadership structure.</p>
+</section>
+
+
+<section id="capital">
+<h2><span class="num">09</span>Capital allocation: real debt-funded growth, now deleveraging, with dividends rising alongside it</h2>
+<p class="sec-sub">No equity dilution, a capex programme genuinely funded by debt during the medical-college years, and a payout that has grown five-fold in five years as the balance sheet has improved</p>
+
+<p>KMCH's share capital has not changed across the record this report covers &mdash; 1,09,42,262 equity shares of &#8377;10 each &mdash; meaning every year of PAT growth in Section <a href="#record">03</a> has accrued to a fixed share count, not been diluted by fresh equity issuance. Borrowings, by contrast, tell a real story: they rose from &#8377;163 Cr (FY2015) to a peak of &#8377;623 Cr (FY2021) as the medical-college campus was built, then fell to &#8377;403 Cr by FY2026 as growth cash flow caught up &mdash; the balance-sheet evidence behind Section <a href="#framework">02</a>'s Gate 3 finding that historical capex genuinely outpaced organic cash generation, financed by debt that is now being worked down rather than a proxy-distorted artefact.</p>
+
+<p>The dividend has grown substantially alongside this deleveraging: &#8377;3 per share (30% of face value) for FY2021, rising to &#8377;15 per share (150%) for FY2026 &mdash; a five-fold increase in five years, broadly tracking the roughly 3.1&times; growth in PAT over the same window and a payout ratio that has stayed low (roughly 6-7% of PAT), consistent with a company still prioritising reinvestment. CRISIL's own January 2025 forecast that the company was "unlikely to pay dividends over the medium term" (Section <a href="#flags">10</a>) turned out wrong within about a year &mdash; a useful reminder that even a well-informed credit rater's own liquidity-use assumption can miss.</p>
+
+<p>Looking forward, CRISIL guides the next &#8377;250-300 Cr of capex to be funded "majorly through internal accrual" rather than further debt &mdash; a credible expectation given the real improvement in interest coverage and gearing already achieved (Section <a href="#framework">02</a>), though this report notes it as CRISIL's forward expectation, not yet a demonstrated fact, particularly if the Chennai expansion's own cost or timeline continues to grow the way its schedule already has (Section <a href="#growth">07</a>).</p>
+</section>
+
+
+<section id="flags">
+<h2><span class="num">10</span>Governance and credit risk: a genuine rating upgrade, a decade of recurring related-party questions, and a leadership transition three months old</h2>
+<p class="sec-sub">Every individual disclosure is compliant. The pattern across twelve years of retail-investor scrutiny is still worth stating in full.</p>
+
+<h3>Credit rating: a real, multi-year upgrade trajectory</h3>
+<p>KMCH's rating history shows genuine improvement, not just reaffirmation: CARE Ratings held the company at <b>CARE A+/Stable/CARE A1+</b> through FY2022-2024, then <b>withdrew the rating at KMCH's own request</b> (with a No-Objection Certificate from the relevant banks) once CRISIL had separately assigned <b>CRISIL AA-/Stable/CRISIL A1+</b> in December 2024. CRISIL has since reaffirmed AA-/Stable twice (January and September 2025), enhancing the rated bank-debt quantum from &#8377;400 Cr to &#8377;500 Cr as the company's own credit metrics improved (Section <a href="#framework">02</a>). CRISIL's own stated offsetting weakness, in its own words: <b>"geographic concentration in revenue and exposure to regulatory risks."</b> Its explicit upgrade trigger is "steady revenue growth and stable healthy operating margin over 25% ... [and] geographical diversification"; its downgrade trigger is sluggish growth, margin decline, or large debt-funded capex pushing debt/EBITDA above 2.25&times; &mdash; both concrete thresholds this report carries into its own verdict (Section <a href="#verdict">13</a>).</p>
+
+<h3>Purani Hospital Supplies: flagged by name, five times, over a decade &mdash; not a silent issue</h3>
+<p>An existing internal audit already documents the core pattern: KMCH has purchased hospital consumables, medicines and drugs from <b>Purani Hospital Supplies Ltd</b>, an entity the company discloses as one in which its directors are interested, every year for at least twelve years. The value has grown from &#8377;15.09 Cr (FY2015) to &#8377;96.50 Cr in FY2026 &mdash; roughly 6.4&times;. Every year, Form AOC-2 is filed "not annexed" (no non-arm's-length or material transaction found), with no CARO qualification or fraud finding on record.</p>
+<p>What this research adds is a direct, full-text search of the single ValuePickr thread covering this stock (492 visible posts, 13 years) for "Purani," which returned seven hits across five distinct episodes:</p>
+<ul>
+<li><b>2016</b> &mdash; an early, neutral mention conflating Purani Hospital Supplies with a separate promoter shareholding vehicle.</li>
+<li><b>2018-2019</b> &mdash; a poster identifies <b>Kovai Purani Finance Private Limited</b>, an NBFC the promoters own, as indirectly holding roughly 36% of KMCH, and asks directly about the shareholding structure; a second post links a BSE filing showing this same vehicle acquiring a further 0.17% stake.</li>
+<li><b>April 2020 (the most substantive episode)</b> &mdash; a poster identifies <b>Pavai Property Developers Pvt Ltd</b>, a top-10 shareholder (4.75%), as having been <b>reclassified from "Promoter" to "non-promoter/private corporate bodies"</b> between shareholding filings, and cross-references MCA (Ministry of Corporate Affairs) registry data to show Pavai Property Developers shares a registered address with both Kovai Purani Finance and Purani Hospital Supplies, and that one of its directors holds common directorships with KMCH promoters at other entities. His question, verbatim: <i>"What prompted the company to move PAVAI PROPERTY from promoter to non-promoter entity? Even the company does not find its place among related party disclosures. How can we be sure that KMCH does no transactions with the company?"</i> No response resolving this question is visible in the thread.</li>
+<li><b>June 2021</b> &mdash; the sharpest allegation: a poster identifying as a Coimbatore-based doctor states, verbatim, <i>"Purani (his daughter name) hospital supply is a clear way of siphoning 40+ cr money"</i>, in the course of a broader (and much less specific) claim that most large Indian hospital chains "do siphoning." The thread's most credible long-term contributor responded immediately: <i>"Do you have proof of your claims? ... how did you come to the conclusion that the entirety of the Related Party Transaction is being 'siphoned'?"</i> No reply or supporting evidence followed. <b>The allegation was made once, directly challenged for lack of evidence, and never substantiated.</b></li>
+<li><b>2023</b> &mdash; two further posts, independently of each other, flag the purchases-from-related-parties growth pattern directly (one citing a jump from &#8377;48 Cr to &#8377;67 Cr FY21-FY22 and asking "is it a cause for concern?"; another stating plainly the company "should buy those materials directly to enhance minority investors' confidence").</li>
+</ul>
+<p>A separate, earlier governance episode: in 2018, KMCH's statutory auditor resigned in the same period a forum poster described "bad reporting of related party transactions including their purchase of medicines from pharmacy subsidiary in Erode." Other contributors pushed back at the time, noting the same audit firm resigned from two other Coimbatore-listed companies around the same period citing internal restructuring &mdash; the forum's own eventual consensus leaned toward a genuine multi-client auditor exit rather than KMCH-specific malfeasance, though the related-party characterization itself was never fully resolved on the thread.</p>
+<div class="key">
+<div class="lbl">How this report weighs it</div>
+<p>Every individual year's AOC-2 disclosure is compliant; no non-arm's-length transaction, qualified audit opinion, or fraud finding exists on the record across twelve years. But this is not a case where retail scrutiny has been absent and might excuse the company for not having addressed it &mdash; it has been asked <b>directly, repeatedly, and specifically</b>, including a substantive, MCA-cross-referenced question about an undisclosed shareholding entity's address matching the same family's related-party counterparties, and no answer to that specific question is visible on the record this research could access. Forum attention to the issue has gone quiet since 2023 even as the purchase value has kept growing (&#8377;86.0 Cr FY2025 &rarr; &#8377;96.5 Cr FY2026) &mdash; whether because it has been tacitly resolved, or has simply fallen off the current poster base's radar relative to Chennai and valuation questions (Section <a href="#sentiment">11</a>), this report cannot determine.</p>
+</div>
+
+<h3>A leadership transition three months old</h3>
+<p>Dr Thavamani Devi Palaniswami &mdash; co-founder promoter, Joint Managing Director, and a KMCH director since 2000 &mdash; passed away on 6 June 2026. Her son, Dr Arun N. Palaniswami (previously Executive Director, having joined KMCH in 2015 after eight years practising medicine in the US, and who had headed the group's quality/accreditation function), was elevated to Joint Managing Director effective 7 August 2026 through a shareholder postal ballot, with a roughly 10% increase in monthly remuneration. This is a genuine, very recent succession event &mdash; occurring within the three months before this report &mdash; and this research found no evidence it was discussed on the one forum covering this stock as of the most recent sampled posts, which instead focus on the AGM and Chennai's environmental-clearance question. This report treats the transition itself as orderly (an internal family successor already embedded in the business for over a decade, approved through the correct shareholder process) but notes it as a fresh, unstress-tested change at the top of a company already carrying real single-region and related-party questions.</p>
+
+<h3>One unconfirmed regulatory item, stated as such</h3>
+<p>A single forum post (August 2024) describes a construction-worker fatality at KMCH's Outpatient Block and a resulting show-cause notice from the Directorate of Industrial Safety and Health, Madurai, over a delayed incident report. This research could not independently corroborate this via general web search, and treats it as forum-sourced only, not confirmed &mdash; included because it names a specific regulator and a specific alleged failure, not because it has been verified.</p>
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">11</span>What retail investors have said, across thirteen years in one thread &mdash; because nobody else is covering this stock</h2>
+<p class="sec-sub">492 posts, 157 participants, and the closest thing this company has to institutional analyst coverage</p>
+
+<p>KMCH has one dedicated ValuePickr thread &mdash; <i>"Kovai Medical Center and Hospital - Health and Wealth"</i> (topic 986), created 20 February 2013, 492 visible posts, 144,955 views, 157 participants, still active as of its most recent post on 10 September 2026. Read across roughly 340 of its posts spanning all thirteen years, its arc is a genuinely useful secondary record of the company's history, not merely chatter:</p>
+<ul>
+<li><b>2013 (founding thesis, and an early, unsubstantiated perquisite allegation):</b> the thread opens framing KMCH as a "3-5 bagger in 2-4 years," flagging "high debt and capital intensive" as the stated risk. A separate early post makes a specific, uncorroborated claim &mdash; "buying a luxurious BMW for promoter using company money" &mdash; with no supporting document visible; treated here as an early, structurally similar instance of the same category of unsubstantiated personal-benefit allegation that recurs with Purani in 2021 (Section <a href="#flags">10</a>), not as an established fact.</li>
+<li><b>2014-2017 (Chennai's first act):</b> the thread documents, in real time, KMCH's first Chennai hospital plan being floated (2014), progressing to secured environmental clearance (March 2017), and then explicitly scrapped weeks later in favour of the medical college &mdash; the full history behind the "Chennai has form" finding in Sections <a href="#growth">07</a> and <a href="#mgmt">08</a>.</li>
+<li><b>2018:</b> a statutory auditor resignation coincides with a forum-raised related-party/medicine-purchase concern (Section <a href="#flags">10</a>); the thread's own eventual consensus leaned toward a routine multi-client auditor exit rather than company-specific malfeasance.</li>
+<li><b>2019-2021:</b> unusually technical, real-time dissection of interest-capitalisation and depreciation timing tied to the medical college's construction &mdash; the same mechanics this report's own Section <a href="#record">03</a> uses to explain the FY2021 PAT anomaly &mdash; plus an ARPOB (average revenue per occupied bed) benchmarking exercise pegging KMCH meaningfully below Narayana Hrudayalaya, Apollo, Fortis and Artemis Gurgaon, read by the forum as embedded pricing upside rather than a quality gap. This window also contains the sharpest Purani-related allegation on the thread (Section <a href="#flags">10</a>).</li>
+<li><b>2022-2024:</b> explicit skepticism from the thread's most technically engaged contributor about whether KMCH can actually execute a new-city hospital ("we are yet to see clear evidence that they can scale the hub-and-spoke model to a completely new city") &mdash; posted two years before the actual Chennai land purchase, and a documented instance of a real Chennai-expansion promise being doubted before it was even made. A construction-worker fatality and regulatory show-cause notice (August 2024, forum-sourced, unconfirmed elsewhere) also surfaces in this window.</li>
+<li><b>2024-2026:</b> the Chennai land purchase, the timeline slippage from the 2024 to 2025 AGM, a substantive valuation debate (one camp arguing KMCH trades at one of the sector's lowest multiples precisely because of its concentration and thin visibility; another calling it "a steady compounder... not a screaming buy"), a full peer comparison table independently corroborating the discount this report's own Section <a href="#peers">06</a> documents, and the unconfirmed August 2026 environmental-clearance/Supreme Court mention (Section <a href="#growth">07</a>). The thread's most recent posts (September 2026) show a cautious-neutral tenor from both new and long-standing participants, despite the stock trading near all-time highs &mdash; not euphoria.</li>
+</ul>
+
+<h3>Institutional coverage: essentially absent</h3>
+<p>Consistent with KMCH's small scale, BSE-heavy listing, low liquidity and absence of investor concalls, this research found no verifiable, dated sell-side research note with an explicit rating and target price. The only identified brokerage document (an HDFC Securities note, February 2024) returned a broken link and could not be verified. Retail-facing algorithmic target-price aggregators exist but are not analyst coverage. The most substantive independent writing found on this stock is two retail/independent-blogger pieces (Substack), not institutional research. <b>The ValuePickr community functions, in practice, as the closest thing this stock has to an analyst base</b> &mdash; which is itself a partial explanation for the valuation discount in Section <a href="#peers">06</a>: a stock nobody covers is a stock the market has had less opportunity to price efficiently, in either direction.</p>
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">12</span>Valuation: a price that needs growth to stop decelerating, not to accelerate</h2>
+<p class="sec-sub">A genuine reverse DCF, built from Screener's public financials rather than this pipeline's own stale database</p>
+
+<p>Assumptions common to every scenario: tax rate 25%, depreciation 6.9% of sales (FY2026 actual ratio), a 10-year growth path, terminal growth 5%, and a 13% discount rate. Net debt is estimated at roughly &#8377;129 Cr (FY2026 borrowings of &#8377;403 Cr less an estimated &#8377;274 Cr cash and bank balance, per a November 2025 investor update &mdash; not a precisely dated balance-sheet figure, flagged in Section <a href="#gaps">14</a>).</p>
+
+<figure>
+<div class="fig-title">DCF value per share under three scenarios, against the current price</div>
+<div class="fig-sub">Computed via <span style="font-family:var(--mono)">src.modules.equity_research.dcf</span>; 13% WACC, 5% terminal growth</div>
+<svg viewBox="0 0 720 240" role="img" aria-label="Discounted cash flow valuation scenarios for Kovai Medical Center and Hospital against the current market price"><line class="grid-l" x1="56" y1="206.0" x2="704" y2="206.0"/><text class="ax" x="50" y="209.0" text-anchor="end">0</text><line class="grid-l" x1="56" y1="179.7" x2="704" y2="179.7"/><text class="ax" x="50" y="182.7" text-anchor="end">1,000</text><line class="grid-l" x1="56" y1="153.4" x2="704" y2="153.4"/><text class="ax" x="50" y="156.4" text-anchor="end">2,000</text><line class="grid-l" x1="56" y1="127.1" x2="704" y2="127.1"/><text class="ax" x="50" y="130.1" text-anchor="end">3,000</text><line class="grid-l" x1="56" y1="100.9" x2="704" y2="100.9"/><text class="ax" x="50" y="103.9" text-anchor="end">4,000</text><line class="grid-l" x1="56" y1="74.6" x2="704" y2="74.6"/><text class="ax" x="50" y="77.6" text-anchor="end">5,000</text><line class="grid-l" x1="56" y1="48.3" x2="704" y2="48.3"/><text class="ax" x="50" y="51.3" text-anchor="end">6,000</text><line class="grid-l" x1="56" y1="22.0" x2="704" y2="22.0"/><text class="ax" x="50" y="25.0" text-anchor="end">7,000</text><rect x="118.6" y="198.9" width="90.7" height="7.1" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs 269</title></rect><text class="vlbl" x="164.0" y="191.9" text-anchor="middle" fill="#d97a5f">&#8377;269</text><text class="ax" x="164.0" y="220" text-anchor="middle">Bear</text><text class="ax" x="164.0" y="232" text-anchor="middle" fill="#d97a5f">-96%</text><rect x="334.6" y="148.8" width="90.7" height="57.2" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 2,175</title></rect><text class="vlbl" x="380.0" y="141.8" text-anchor="middle" fill="#c9a24b">&#8377;2,175</text><text class="ax" x="380.0" y="220" text-anchor="middle">Base</text><text class="ax" x="380.0" y="232" text-anchor="middle" fill="#d97a5f">-65%</text><rect x="550.6" y="102.0" width="90.7" height="104.0" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 3,957</title></rect><text class="vlbl" x="596.0" y="95.0" text-anchor="middle" fill="#5fb98a">&#8377;3,957</text><text class="ax" x="596.0" y="220" text-anchor="middle">Bull</text><text class="ax" x="596.0" y="232" text-anchor="middle" fill="#d97a5f">-36%</text><line x1="56" y1="43.7" x2="704" y2="43.7" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="36.7" text-anchor="end">market &#8377;6,174</text><line class="zero-l" x1="56" y1="206" x2="704" y2="206"/></svg>
+<figcaption><b>Why:</b> even the bull case, assuming 18% growth decelerating to 10% at a near-record 29% margin, reaches only 64% of the current price &mdash; the gap only closes if growth stops decelerating altogether (see the reverse-DCF finding below).</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Scenario</th><th class="num">EBITDA margin</th><th class="num">Growth path</th><th class="num">Value/share</th><th class="num">vs. market (&#8377;6,174)</th></tr></thead>
+<tbody>
+<tr><td class="t">Bear</td><td class="num">24%</td><td class="num">9% decelerating to 6%</td><td class="num">&#8377;269</td><td class="num l">&minus;96%</td></tr>
+<tr class="hl"><td class="t">Base</td><td class="num">27% (recent actual)</td><td class="num">15% decelerating to 9%</td><td class="num">&#8377;2,175</td><td class="num l">&minus;65%</td></tr>
+<tr><td class="t">Bull</td><td class="num">29% (near FY2025 peak)</td><td class="num">18% decelerating to 10%</td><td class="num">&#8377;3,957</td><td class="num l">&minus;36%</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>What the reverse DCF actually says</h3>
+<p>Holding margin at 27% (the recent actual) and a naturally decelerating growth path, no EBITDA margin up to 40% closes the gap to the current price &mdash; the same "infeasible" result this pipeline has found at other richly-valued, high-growth companies it has covered. But solving instead for the single <b>flat</b> growth rate that, held for a full decade at 27% margin, does reach the current price: <b>25.1%</b>. That is a demanding but not unprecedented bar for this specific company &mdash; KMCH grew revenue 31.2% in FY2022 alone, and its own five-year CAGR is 18% (Section <a href="#peers">06</a>) &mdash; but it requires growth to <i>stop</i> decelerating from its recent 12-20% range and hold near its best historical rate for ten straight years, not merely continue at its recent pace.</p>
+<p>This reframes the valuation question usefully: the price is not asking whether KMCH's margin can expand further (it already assumes today's margin holds), or whether growth needs to accelerate from here (it doesn't, if 25%+ is achievable) &mdash; it is asking whether the deceleration visible in the last three years of actual results (19.6% &rarr; 12.4% &rarr; 15.7%) is a temporary lull ahead of Chennai and the new-bed capacity contributing, or the start of a structural slowdown toward the company's own longer-run average. Section <a href="#growth">07</a>'s finding that Chennai's own timeline has already slipped once is directly relevant here: the capacity that would plausibly support a return to 25%+ growth is, on the company's own most recent guidance, further away than it was guided to be a year ago.</p>
+
+<h3>The peer cross-check points the other way</h3>
+<p>Section <a href="#peers">06</a>'s comparison shows KMCH trading at a large discount to hospital-sector peers with comparable or worse returns &mdash; a multiple-based framing that, unlike the DCF above, suggests the stock may be cheap rather than expensive. Both readings can be correct simultaneously: a DCF charges explicitly for the growth rate needed to justify today's price in cash terms, while a peer multiple simply asks whether the market is paying a similar price for similar businesses &mdash; and on that narrower question, KMCH looks inexpensive. This report weighs both rather than picking one: the DCF says the price requires sustained, un-decelerated growth this company has not shown in the last three years; the peer comparison says the market is nonetheless paying less for that requirement here than it pays elsewhere in the same sector for less.</p>
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">13</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">Quality and value, kept on separate axes &mdash; this is not a buy or sell call</p>
+
+<h3>Quality: real returns and a genuine credit upgrade, set against a decade-long unresolved question and a leadership transition still finding its footing</h3>
+<p>KMCH's operating record is genuinely strong: revenue growth clearing 10% in seven of the last nine years, EBITDA margin held in a 27-29% band since FY2022 through a real, ongoing capex cycle, cumulative cash conversion of 1.9&times; PAT, ROCE at or near the top of its listed peer group, and a real multi-year credit-rating upgrade (CARE A+ &rarr; CRISIL AA-) backed by falling gearing and near-doubled interest coverage. None of this is manufactured or borrowed quality, and the historical debt-funded capex behind the medical-college build (Section <a href="#framework">02</a>) has genuinely been worked down since, not merely promised to be.</p>
+<p>Set against that: roughly 90% of revenue still depends on one region, and the stated remedy is a second attempt at a plan the company scrapped once already, with its own current timeline already having slipped from 18-24 months to 3-5 years within a single year. A purchase relationship with Purani Hospital Supplies Ltd, a director-family-linked medical distributor, has grown 6.4&times; over twelve years to &#8377;96.5 Cr a year &mdash; and has been directly, specifically flagged by KMCH's own retail-investor base five separate times since 2016, including a substantive, MCA-cross-referenced 2020 investigation into an undisclosed shareholding vehicle sharing an address with the same family entities, and a 2021 "siphoning" allegation that was challenged for lack of evidence and never substantiated. And the company is three months into a leadership transition following the death of a founding, co-managing promoter.</p>
+
+<h3>Value: a DCF that says the price is demanding, a peer table that says it might be cheap</h3>
+<p>A reverse DCF built on Screener's public financials finds no EBITDA margin up to 40% reaches the current price along a naturally decelerating growth path &mdash; the price instead requires growth to hold flat near 25% for a full decade, well above the 12-20% range KMCH has actually delivered in its last three years, though not above its own historical best (31% in FY2022). Set against that: KMCH trades at the lowest P/E in its listed hospital peer group (26.4&times;, against a 39-160&times; peer range) despite ROCE at or near the top of the same group. <b>Both readings are genuine and this report does not collapse them into one number</b> &mdash; the DCF says the price bets on growth re-accelerating from its recent trend; the peer table says the market is pricing that bet more cheaply here than it prices similar or weaker businesses elsewhere in the same sector.</p>
+
+<h3>Specific triggers, with thresholds</h3>
+<ul>
+<li><b>The Chennai hospital's timeline</b> &mdash; any further slippage beyond the current "3-5 years" guidance, or confirmation/denial of the unverified Supreme Court environmental-clearance claim, would be the clearest evidence of whether this attempt follows the first one's path.</li>
+<li><b>Revenue growth against the ~25% the reverse DCF requires</b> &mdash; a return toward FY2022-style acceleration would support the current price; continued deceleration toward the FY2019 (6.8%) end of the range would not.</li>
+<li><b>Debt/EBITDA against CRISIL's explicit 2.25&times; downgrade threshold</b> for any future large debt-funded capex &mdash; the company has stayed well below 1&times; through the current cycle.</li>
+<li><b>Any resolution of the 2020 Pavai Property Developers question</b> &mdash; whether the company or an independent party ever directly addresses why that entity was reclassified from promoter to non-promoter status without appearing in related-party disclosures.</li>
+<li><b>Continuity through the leadership transition</b> &mdash; the next one or two annual reports and AGMs are the first real evidence of how the business runs under the new Joint MD structure.</li>
+</ul>
+
+<p><b>What would change this verdict:</b> a direct, on-the-record management answer to the Purani/Pavai Property Developers questions specifically, and confirmed progress (not merely renewed guidance) on Chennai, would meaningfully improve confidence in both the governance picture and the growth assumption the current price requires &mdash; independent of anything else in this report.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">14</span>Data gaps and provenance</h2>
+<p class="sec-sub">A stale internal database worked around with Screener's own public data, one unresolved shareholding question, and two claims this research could not confirm</p>
+
+<h3>Methodology: this pipeline's database is stale; Screener.in's public page substitutes</h3>
+<p>This pipeline's own database (`xbrl_annual`) has not been refreshed for KMCH since FY2018, and no Screener credential was available in this environment to trigger a refresh. This report instead fetched KMCH's full public, unauthenticated Screener.in data sheet &mdash; twelve years of P&L, balance sheet, cash flow and ratio data &mdash; and ran it directly through this pipeline's own tested `margin_bridge`, `cash_gates` and `anomaly_scan` functions (Section <a href="#framework">02</a>), the same arithmetic every other report in this pipeline uses. The one real limitation: Screener's public page rounds to whole crores and bundles cash into a combined asset line, so the margin bridge shows a small (~10bp) rounding gap and the DCF's net-debt figure (Section <a href="#valuation">12</a>) uses an estimated, not precisely-dated, cash balance.</p>
+
+<h3>Two claims this research flags as unconfirmed, not established</h3>
+<div class="warn">
+<div class="lbl">Stated plainly rather than silently upgraded to fact</div>
+<ul>
+<li>A single ValuePickr post (August 2026) claims a Supreme Court case over environmental clearance is affecting the Chennai project. General web search found no independent corroboration.</li>
+<li>A construction-worker fatality and regulatory show-cause notice (August 2024) is sourced only to a single forum post, not independently corroborated.</li>
+</ul>
+</div>
+
+<h3>One question this report could not answer</h3>
+<p>The exact mechanism and seller-side counterparty behind the 2020 reclassification of Pavai Property Developers Pvt Ltd from "Promoter" to "non-promoter" shareholding status &mdash; and why that entity, which shares a registered address with Purani Hospital Supplies and Kovai Purani Finance per one forum contributor's MCA cross-reference, does not appear in KMCH's related-party disclosures &mdash; has no visible answer in the sources available to this research (Section <a href="#flags">10</a>).</p>
+
+<h3>Data reconciliation</h3>
+<p>Q1 and Q2 FY2026 quarterly growth/margin figures differ between the ValuePickr thread's own numbers and a financial-news aggregator's numbers for the same quarters; one aggregator's reported FY2026 PAT figure (₹2,444.60 Cr) is an evident decimal/unit error, and this report uses the internally-consistent ₹244.46 Cr figure instead. Neither discrepancy was reconciled against a primary BSE filing.</p>
+
+<h3>What would most improve the next refresh</h3>
+<ol>
+<li>Screener credentials, for exact figures and a precisely-dated cash balance.</li>
+<li>Reconciliation of Q1/Q2 FY2026 figures against primary BSE filings.</li>
+<li>Direct confirmation or refutation of the Chennai Supreme Court claim.</li>
+<li>A direct answer to the 2020 Pavai Property Developers question.</li>
+<li>A full, post-by-post read of the ValuePickr thread's currently-unsampled windows.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Kovai Medical Center &amp; Hospital Ltd (NSE/BSE: KOVAI, BSE: 523323, ISIN INE177F01017). Prepared 22 September 2026 against a share price of &#8377;6,174.00.</p>
+  <p>Built from Screener.in's full public, unauthenticated financial data sheet (twelve years, standalone basis) run through this pipeline's own tested margin-bridge, cash-gates and anomaly-scan arithmetic in place of this pipeline's own stale internal database; three independent CRISIL rating rationales; an existing related-party audit covering twelve annual reports; a single ValuePickr thread sampled across roughly 340 of 492 posts spanning thirteen years; and primary and major-outlet-sourced news research on the Chennai expansion, credit ratings, litigation and a recent leadership transition. Every numeric claim cites a period; every quotation cites a document and date. This report's peer and forum research was sampled, not exhaustively read, and two specific claims (a Chennai environmental-clearance court case, a 2024 construction-site fatality) could not be independently corroborated &mdash; both stated plainly in Section 14.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. This report covers a company with a genuine, recent leadership transition (three months old at the time of writing) and a related-party question raised repeatedly by retail investors but never independently resolved; read the data-gaps section in full before acting on anything here. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
