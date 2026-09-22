@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Alufluoride Limited — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Alufluoride Limited: a debt-light, family-run niche aluminium fluoride producer with a decade of improving margins, one dominant customer, and a live Middle East supply-chain risk the company itself has not yet been able to quantify.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<span class="kicker">Coffee Can Screener &middot; Equity Research</span>
+<h1>Alufluoride Limited</h1>
+<p class="subtitle">A debt-light family business that turns fertiliser waste into aluminium flux &mdash; a decade of real margin improvement, one customer at 69% of revenue, and a live Middle East supply shock the company itself has declined to quantify</p>
+<div class="meta">
+<b>NSE/BSE:</b> ALUFLUOR &middot; <b>BSE code:</b> 524634 &middot; <b>ISIN:</b> INE058F01019<br>
+<b>Prepared:</b> 22 September 2026 &middot; <b>Price:</b> &#8377;498.10 &middot; <b>Market cap:</b> &#8377;389.5 Cr &middot; <b>P/E:</b> 15.5&times;
+</div>
+</header>
+
+<div class="verdict">
+<div class="verdict-label">The one-paragraph version</div>
+<div class="verdict-head">A genuinely good decade on the numbers, run by one family, sold almost entirely to one customer, and now exposed to a raw-material shock nobody &mdash; including the company &mdash; can currently size</div>
+<p>Alufluoride is a &#8377;209 Cr-revenue niche chemical producer that clears eight of the last nine years on this pipeline's revenue-growth gate and has taken operating margin from single digits to the low-20s over a decade, funded mostly by its own retained earnings rather than debt (net debt is 0.32&times; equity). Cumulative cash conversion is solid (1.48&times; CFO/PAT over ten years) and the one real related-party audit finding is a clean Score&nbsp;1 (Watch) &mdash; routine family dealings, nothing off-market. Set against that: a single customer now accounts for 69.27% of revenue, up from 52.51% the year before; a Jordan joint venture was written off after two years when the regional political situation deteriorated; and a live, company-disclosed raw-material supply disruption tied to the Middle East conflict led the board to decline FY2026-27 guidance entirely. This is not a leverage story or a governance story &mdash; it is a concentration-and-geopolitics story wrapped around an otherwise well-run micro-cap.</p>
+</div>
+
+<div class="hero-row">
+<div class="stat"><div class="k">Tier (this pipeline)</div><div class="v">Dirty 8er</div><div class="n">8/9 revenue, 7/9 ROCE gates</div></div>
+<div class="stat"><div class="k">Cumulative CFO/PAT</div><div class="v">1.48&times;</div><div class="n">FY2017&ndash;FY2026</div></div>
+<div class="stat"><div class="k">Net debt / equity</div><div class="v">0.32&times;</div><div class="n">FY2026</div></div>
+<div class="stat"><div class="k">Top customer</div><div class="v">69.27%</div><div class="n">of FY2025 AlF3 revenue</div></div>
+</div>
+
+<div class="toc">
+<div class="toc-l">Contents</div>
+<ol>
+    <li><a href="#business">The business: a niche AlF3 producer, one customer</a></li>
+    <li><a href="#framework">The checklist: growth, returns and the cash gates</a></li>
+    <li><a href="#record">The ten-year record</a></li>
+    <li><a href="#margin">Margins</a></li>
+    <li><a href="#wc">Working capital</a></li>
+    <li><a href="#peers">How Alufluoride compares</a></li>
+    <li><a href="#growth">Growth outlook</a></li>
+    <li><a href="#mgmt">Management: the Akkineni family</a></li>
+    <li><a href="#capital">Capital allocation</a></li>
+    <li><a href="#flags">Governance and risk</a></li>
+    <li><a href="#sentiment">What retail investors have said</a></li>
+    <li><a href="#valuation">Valuation: a low P/E that isn't cheap</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business: the only Andhra Pradesh producer of a niche smelting input, sold almost entirely to one customer</h2>
+<p class="sec-sub">A waste-to-value chemical process, a captive domestic market, and a customer book that has concentrated sharply in the last two years</p>
+
+<p>Alufluoride Limited manufactures Aluminium Fluoride (AlF3), a flux that lowers the melting point of alumina during the electrolytic smelting of aluminium, cutting both energy use and the carbon footprint of the process. Its own Visakhapatnam plant, commissioned in 1995, converts Hydrofluosilicic Acid (FSA) &mdash; a fluorine-bearing waste byproduct of phosphatic-fertiliser manufacture &mdash; into AlF3, under an original supply agreement with Coromandel International Ltd (CIL) that CIL has never fully honoured, with the balance of FSA sourced from IFFCO Paradeep and Paradeep Phosphates in Odisha. The company describes itself as the only Andhra Pradesh producer of high-purity AlF3, and its own management discussion states it is qualified to supply every major Indian primary aluminium smelter &mdash; Hindalco Industries, Vedanta and NALCO among them.</p>
+
+<p>Because Alufluoride's process runs off a fertiliser-industry waste stream rather than mined fluorspar, it sidesteps the raw-material path most global AlF3 producers depend on (fluorspar is overwhelmingly a China-linked supply chain) &mdash; a structural cost and import-substitution advantage a ValuePickr poster worked out in detail in January 2022 (Section <a href="#sentiment">11</a>). The trade-off, as this report's flags section (Section <a href="#flags">10</a>) sets out, is that Alufluoride has swapped a fluorspar/China dependency for a different one: its FSA suppliers are themselves dependent on imported sulphur, ammonia and rock phosphate, reaching India via the Strait of Hormuz and the Red Sea &mdash; and that route is where the company's current, unresolved risk actually sits.</p>
+
+<h3>A closely-held family business</h3>
+<p>The Akkineni family &mdash; Venkat Akkineni (Managing Director), Jyothsana Akkineni (Executive Director), and their son Aditya Akkineni, who has risen from Operations Lead to Whole-time Director &amp; CEO over the period covered by this report &mdash; controls the company, with the promoter group holding 59.94% as of 31 March 2025. An existing related-party audit of all twelve annual reports available to this pipeline (FY2015&ndash;FY2026) found a clean pattern: routine KMP remuneration, dividends and small flat rent payments to family-linked entities, an explicitly NIL "not at arm's length" disclosure in every single year, and no fraud or qualified-audit findings &mdash; Score 1 (Watch), the cleanest verdict this pipeline has produced across the four reports built so far this cycle (Section <a href="#flags">10</a>).</p>
+
+<h3>A capacity build that has run for a decade</h3>
+<p>AlF3 production capacity has expanded in five disclosed phases &mdash; 4,000 TPA at commissioning, 8,000 TPA through debottlenecking, 12,000 TPA, 18,000 TPA, and 24,000 TPA on completion of the final phase in June 2026 &mdash; funded overwhelmingly from retained earnings rather than debt (Section <a href="#capital">09</a>). A parallel diversification attempt &mdash; a 20,000 TPA greenfield AlF3 joint venture with Jordan Phosphate Mines Company in Jordan's Eshidiya Free Trade Zone, signed January 2020 &mdash; was wound down through FY2025 and FY2026 after the regional political situation deteriorated and Jordanian lenders required a parent-company corporate guarantee the board was unwilling to give, taking a combined &#8377;3.57 Cr write-down across the two years (Section <a href="#flags">10</a>). The company is now pursuing a domestic backward-integration project instead &mdash; a greenfield Alumina Hydrate facility, a key AlF3 input, approved by shareholders via postal ballot in April 2025 (Section <a href="#growth">07</a>).</p>
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>The checklist: growth and returns clear the bar in eight of nine years; the cash-gate story is more mixed</h2>
+<p class="sec-sub">Computed directly through this pipeline's own tested equity_research module against a fresh, current internal database &mdash; no workaround needed for this company</p>
+
+<h3>Revenue growth: eight of nine years clear the gate</h3>
+<p>Applying this pipeline's own &gt;10% year-on-year growth test to FY2018&ndash;FY2026: <b>eight of nine pass</b>, with one clean, fully explained miss &mdash; FY2021 (&minus;49.2%), when the company's own annual report says its plant ran on commissioning trials rather than regular production from 1 November 2020 to 31 March 2021, not a demand or customer loss (Section <a href="#record">03</a>). FY2026's growth (+10.7%) clears the threshold only narrowly, and was itself dented by a weak fourth quarter tied to the raw-material disruption discussed in Section <a href="#flags">10</a>.</p>
+
+<h3>ROCE: seven of nine years above 15%, with the same two-year dip</h3>
+<p>ROCE (Mukherjea/Screener basis, the gate this pipeline scores on) ran 28&ndash;32% in FY2018&ndash;FY2020, collapsed to &minus;0.2% in the FY2021 shutdown year, recovered only partially to 9.0% in FY2022 (a still-ramping plant, not yet at full-year run-rate), then settled at a healthy 22&ndash;26% band from FY2023 onward. Vijay Malik's own ROCE formula, computed as a cross-check, tells the identical story on a slightly lower absolute level (19&ndash;26% in the same recovered years) &mdash; the two measures agree here, which is not always the case in this pipeline's reports.</p>
+
+<figure>
+<div class="fig-title">EBITDA margin, FY2017&ndash;FY2026</div>
+<div class="fig-sub">A decade-long improvement, interrupted by one five-month production shutdown</div>
+<svg viewBox="0 0 720 220" role="img" aria-label="Alufluoride EBITDA margin, FY2017 to FY2026"><line class="grid-l" x1="44" y1="190.0" x2="706" y2="190.0"/><text class="ax" x="38" y="193.0" text-anchor="end">0%</text><line class="grid-l" x1="44" y1="155.6" x2="706" y2="155.6"/><text class="ax" x="38" y="158.6" text-anchor="end">5%</text><line class="grid-l" x1="44" y1="121.2" x2="706" y2="121.2"/><text class="ax" x="38" y="124.2" text-anchor="end">10%</text><line class="grid-l" x1="44" y1="86.8" x2="706" y2="86.8"/><text class="ax" x="38" y="89.8" text-anchor="end">15%</text><line class="grid-l" x1="44" y1="52.4" x2="706" y2="52.4"/><text class="ax" x="38" y="55.4" text-anchor="end">20%</text><line class="grid-l" x1="44" y1="18.0" x2="706" y2="18.0"/><text class="ax" x="38" y="21.0" text-anchor="end">25%</text><rect x="57.9" y="139.0" width="38.4" height="51.0" rx="4" fill="#5b9bd1"><title>FY2017: 7.4%</title></rect><text class="vlbl" x="77.1" y="133.0" text-anchor="middle" style="font-size:9px">7.4</text><text class="ax" x="77.1" y="203" text-anchor="middle">'17</text><rect x="124.1" y="65.1" width="38.4" height="124.9" rx="4" fill="#5b9bd1"><title>FY2018: 18.2%</title></rect><text class="vlbl" x="143.3" y="59.1" text-anchor="middle" style="font-size:9px">18.2</text><text class="ax" x="143.3" y="203" text-anchor="middle">'18</text><rect x="190.3" y="87.5" width="38.4" height="102.5" rx="4" fill="#5b9bd1"><title>FY2019: 14.9%</title></rect><text class="vlbl" x="209.5" y="81.5" text-anchor="middle" style="font-size:9px">14.9</text><text class="ax" x="209.5" y="203" text-anchor="middle">'19</text><rect x="256.5" y="42.8" width="38.4" height="147.2" rx="4" fill="#5b9bd1"><title>FY2020: 21.4%</title></rect><text class="vlbl" x="275.7" y="36.8" text-anchor="middle" style="font-size:9px">21.4</text><text class="ax" x="275.7" y="203" text-anchor="middle">'20</text><rect x="322.7" y="161.8" width="38.4" height="28.2" rx="4" fill="#7a86a0"><title>FY2021: 4.1%</title></rect><text class="vlbl" x="341.9" y="155.8" text-anchor="middle" style="font-size:9px">4.1</text><text class="ax" x="341.9" y="203" text-anchor="middle">'21</text><rect x="388.9" y="85.4" width="38.4" height="104.6" rx="4" fill="#5b9bd1"><title>FY2022: 15.2%</title></rect><text class="vlbl" x="408.1" y="79.4" text-anchor="middle" style="font-size:9px">15.2</text><text class="ax" x="408.1" y="203" text-anchor="middle">'22</text><rect x="455.1" y="61.8" width="38.4" height="128.2" rx="4" fill="#5b9bd1"><title>FY2023: 18.6%</title></rect><text class="vlbl" x="474.3" y="55.8" text-anchor="middle" style="font-size:9px">18.6</text><text class="ax" x="474.3" y="203" text-anchor="middle">'23</text><rect x="521.3" y="49.6" width="38.4" height="140.4" rx="4" fill="#5b9bd1"><title>FY2024: 20.4%</title></rect><text class="vlbl" x="540.5" y="43.6" text-anchor="middle" style="font-size:9px">20.4</text><text class="ax" x="540.5" y="203" text-anchor="middle">'24</text><rect x="587.5" y="67.4" width="38.4" height="122.6" rx="4" fill="#5b9bd1"><title>FY2025: 17.8%</title></rect><text class="vlbl" x="606.7" y="61.4" text-anchor="middle" style="font-size:9px">17.8</text><text class="ax" x="606.7" y="203" text-anchor="middle">'25</text><rect x="653.7" y="41.9" width="38.4" height="148.1" rx="4" fill="#5b9bd1"><title>FY2026: 21.5%</title></rect><text class="vlbl" x="672.9" y="35.9" text-anchor="middle" style="font-size:9px">21.5</text><text class="ax" x="672.9" y="203" text-anchor="middle">'26</text><line class="zero-l" x1="44" y1="190" x2="706" y2="190"/></svg>
+<figcaption><b>Why:</b> margin nearly tripled from 7.4% to 21.5% over the decade even after the FY2021 collapse &mdash; the clearest single number behind this pipeline's revenue-growth and ROCE gates both passing in most years (Section <a href="#margin">04</a>).</figcaption>
+</figure>
+
+<h3>Gate 1 (cash conversion): comfortably passes</h3>
+<p>Cumulative CFO over FY2017&ndash;FY2026 was &#8377;155.3 Cr against cumulative PAT of &#8377;105.2 Cr &mdash; a <b>1.48&times;</b> conversion ratio. The ratio is volatile year to year (0.67&times; in FY2025, 4.07&times; in the loss-making FY2021, when a CFO outflow was still smaller than the PAT outflow it tracked) but the cumulative trend is unambiguous: reported profit has consistently been backed by cash.</p>
+
+<h3>Gate 3 (the harder test): fails, but on the back of a self-funded capacity build, not distress</h3>
+<div class="warn">
+<div class="lbl">A real finding, with an important qualifier</div>
+<p>Gate 3 &mdash; cumulative CFO less capex less interest &mdash; is <b>&minus;&#8377;33.1 Cr</b> over FY2017&ndash;FY2026 (&#8377;155.3 Cr CFO, &#8377;172.6 Cr capex from CFI, &#8377;15.7 Cr interest). Unlike a business funding a capex shortfall with rising leverage, Alufluoride's borrowings only appeared from FY2020 onward and have stayed low throughout: net debt was &#8377;40.4 Cr against equity of &#8377;125.7 Cr at FY2026 close (0.32&times;), and interest coverage has actually improved through the period covered by this report, from roughly 7.2&times; in FY2023 to 14.3&times; in FY2026, as EBITDA grew faster than the modest incremental borrowing. Even excluding FY2026's outsized &#8377;58.9 Cr capex spike (the final capacity phase to 24,000 TPA, completed June 2026, plus the newly-approved Alumina Hydrate backward-integration project and a smaller solar expansion &mdash; Section <a href="#capital">09</a>), Gate 3 for FY2017&ndash;FY2025 alone is still mildly negative (roughly &minus;&#8377;18 Cr) &mdash; this has been a decade of the company reinvesting close to everything it generates, funded mostly by its own retained earnings rather than by debt.</p>
+</div>
+
+<h3>NFAT and one anomaly this report could not independently resolve</h3>
+<p>Net fixed-asset turnover fell 81% over the decade (11.6&times; &rarr; 2.2&times;) while margin rose rather than fell &mdash; the opposite of Malik's subcontracting signature, and consistent instead with a manufacturer building capacity ahead of the revenue it will eventually support. The one early-window anomaly this report flags without a confirmed cause: EBITDA margin jumped from 7.4% to 18.2% between FY2017 and FY2018, a move more than twice the decade's typical year-on-year step. The FY2017 and FY2018 annual reports available to this research contain no capacity-change or cost-structure narrative that explains it; it is left as an unresolved, low-materiality item from the thinnest-documented window of the ten years covered (Section <a href="#gaps">14</a>).</p>
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record: one clean shutdown year, then a steady climb to the largest revenue and profit in the company's history</h2>
+<p class="sec-sub">FY2017&ndash;FY2026, standalone basis, this pipeline's own database</p>
+
+<div class="table-wrap">
+<table>
+<caption>Source: this pipeline's internal xbrl_annual database, current as of this report.</caption>
+<thead><tr><th>FY</th><th class="num">Sales (&#8377;Cr)</th><th class="num">Growth</th><th class="num">EBITDA margin</th><th class="num">PAT (&#8377;Cr)</th><th class="num">ROCE</th></tr></thead>
+<tbody>
+<tr><td>2017</td><td class="num">36.27</td><td class="num na">&mdash;</td><td class="num">7.42%</td><td class="num">3.45</td><td class="num na">&mdash;</td></tr>
+<tr><td>2018</td><td class="num">49.67</td><td class="num g">+36.95%</td><td class="num">18.16%</td><td class="num">6.46</td><td class="num">32.35%</td></tr>
+<tr><td>2019</td><td class="num">65.51</td><td class="num g">+31.89%</td><td class="num">14.90%</td><td class="num">8.26</td><td class="num">30.22%</td></tr>
+<tr><td>2020</td><td class="num">75.73</td><td class="num g">+15.60%</td><td class="num">21.40%</td><td class="num">10.34</td><td class="num">28.85%</td></tr>
+<tr class="hl"><td>2021</td><td class="num">38.50</td><td class="num l">&minus;49.16%</td><td class="num">4.10%</td><td class="num">&minus;0.55</td><td class="num l">&minus;0.20%</td></tr>
+<tr><td>2022</td><td class="num">87.95</td><td class="num g">+128.44%</td><td class="num">15.20%</td><td class="num">3.52</td><td class="num">9.02%</td></tr>
+<tr><td>2023</td><td class="num">136.11</td><td class="num g">+54.76%</td><td class="num">18.63%</td><td class="num">12.82</td><td class="num">22.46%</td></tr>
+<tr><td>2024</td><td class="num">164.71</td><td class="num g">+21.01%</td><td class="num">20.41%</td><td class="num">17.66</td><td class="num">25.92%</td></tr>
+<tr><td>2025</td><td class="num">188.52</td><td class="num g">+14.46%</td><td class="num">17.82%</td><td class="num">18.09</td><td class="num">22.04%</td></tr>
+<tr class="tot"><td>2026</td><td class="num">208.76</td><td class="num g">+10.74%</td><td class="num">21.52%</td><td class="num">25.13</td><td class="num">24.25%</td></tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+<div class="fig-title">Revenue, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, standalone basis</div>
+<svg viewBox="0 0 720 230" role="img" aria-label="Alufluoride revenue by fiscal year, FY2017 to FY2026"><line class="grid-l" x1="52" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="46" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="46" y="157.0" text-anchor="end">56</text><line class="grid-l" x1="52" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="46" y="111.0" text-anchor="end">113</text><line class="grid-l" x1="52" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="46" y="65.0" text-anchor="end">169</text><line class="grid-l" x1="52" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="46" y="19.0" text-anchor="end">225</text><rect x="65.7" y="170.4" width="37.9" height="29.6" rx="4" fill="#c9a24b"><title>FY2017: Rs 36.3 Cr</title></rect><text class="ax" x="84.7" y="213" text-anchor="middle">'17</text><rect x="131.1" y="159.5" width="37.9" height="40.5" rx="4" fill="#c9a24b"><title>FY2018: Rs 49.7 Cr</title></rect><text class="ax" x="150.1" y="213" text-anchor="middle">'18</text><rect x="196.5" y="146.5" width="37.9" height="53.5" rx="4" fill="#c9a24b"><title>FY2019: Rs 65.5 Cr</title></rect><text class="ax" x="215.5" y="213" text-anchor="middle">'19</text><rect x="261.9" y="138.2" width="37.9" height="61.8" rx="4" fill="#c9a24b"><title>FY2020: Rs 75.7 Cr</title></rect><text class="ax" x="280.9" y="213" text-anchor="middle">'20</text><rect x="327.3" y="168.6" width="37.9" height="31.4" rx="4" fill="#7a86a0"><title>FY2021: Rs 38.5 Cr (planned production shutdown for capacity expansion)</title></rect><text class="ax" x="346.3" y="213" text-anchor="middle">'21</text><rect x="392.7" y="128.2" width="37.9" height="71.8" rx="4" fill="#c9a24b"><title>FY2022: Rs 88.0 Cr</title></rect><text class="ax" x="411.7" y="213" text-anchor="middle">'22</text><rect x="458.1" y="88.9" width="37.9" height="111.1" rx="4" fill="#c9a24b"><title>FY2023: Rs 136.1 Cr</title></rect><text class="ax" x="477.1" y="213" text-anchor="middle">'23</text><rect x="523.5" y="65.6" width="37.9" height="134.4" rx="4" fill="#c9a24b"><title>FY2024: Rs 164.7 Cr</title></rect><text class="ax" x="542.5" y="213" text-anchor="middle">'24</text><rect x="588.9" y="46.1" width="37.9" height="153.9" rx="4" fill="#c9a24b"><title>FY2025: Rs 188.5 Cr</title></rect><text class="ax" x="607.9" y="213" text-anchor="middle">'25</text><rect x="654.3" y="29.6" width="37.9" height="170.4" rx="4" fill="#c9a24b"><title>FY2026: Rs 208.8 Cr</title></rect><text class="ax" x="673.3" y="213" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="200" x2="706" y2="200"/></svg>
+<figcaption><b>Why:</b> a single mechanical shutdown produced the only revenue decline in the decade; every other year grew, five of them by more than 20%.</figcaption>
+</figure>
+
+<h3>FY2021: a planned five-month production stoppage, not a demand collapse</h3>
+<p>Revenue fell 49% and the company posted its only loss of the decade in FY2021. The cause is stated directly, in the company's own words, in its FY2021 annual report:</p>
+<blockquote>
+<p>"The expansion project was completed in April 2021. Commercial production of the new plant was declared with effect from 1st May 2021&hellip; Debtors Turnover ratio is less due to reduction in sales and receipt of receivables on time, Inventory turnover ratio, Operating Profit ratio and Net Profit ratio are less compared to previous years, due to majority of the period of operations of the plant during the year ran on trials i.e., regular production of the plant stopped from 1st November 2020 to 31st March 2021."</p>
+<p class="attr">&mdash; Alufluoride FY2020-21 Annual Report, Management Discussion and Analysis</p>
+</blockquote>
+<p>The plant was mechanically offline for regular production for five months while a capacity-expansion project was commissioned; commercial production resumed only on 1 May 2021, into FY2022. A ValuePickr post from December 2020 flagged, in real time, that commercial production had not started on the schedule investors expected &mdash; independent corroboration that this was a known, visible event as it happened, not a surprise buried in a later filing. COVID-19 almost certainly made the timing of a multi-month shutdown more acceptable, since industry-wide smelter offtake was itself depressed in the same window, but the company's own document attributes the collapse to the shutdown, not to a COVID demand loss, a customer loss, or an input-cost shock &mdash; and no other cause appears anywhere in the FY2021 filing.</p>
+
+<h3>FY2022&ndash;FY2026: five years of recovery and growth, capped by a weak final quarter</h3>
+<p>Revenue and profit both grew every year from the FY2022 recovery through FY2026, with PAT rising from a FY2021 loss to a record &#8377;25.1 Cr. FY2026 itself was two different years in one: standalone EPS for the first nine months ran ahead of FY2025's full-year pace, but Q4 FY2026 PAT of &#8377;3.76 Cr came in well below the roughly &#8377;6.84 Cr per-quarter average of the first three quarters &mdash; a deceleration the company attributes to lower production volumes (following the early shutdown of two FSA suppliers for scheduled annual maintenance in March) and a weaker product mix, compounded by the raw-material supply disruption detailed in Section <a href="#flags">10</a>.</p>
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: the operating business improved far more than the bottom line shows</h2>
+<p class="sec-sub">Margin bridge computed through this pipeline's own tested margin_bridge function</p>
+
+<p>EBITDA margin rose from 7.4% in FY2017 to 21.5% in FY2026 &mdash; a genuine, sustained 14.1 percentage-point improvement in the underlying business. But pre-tax margin over the same decade improved by only 3.8 percentage points (12.6% &rarr; 16.4%), because most of that operating gain was absorbed below the line: other income shrank as a share of a much larger revenue base (&minus;6.2pp), depreciation rose as the capacity build accelerated (&minus;3.0pp), and interest cost went from negligible to a real, if still modest, drag as borrowings appeared from FY2020 onward (&minus;1.1pp). The headline PBT-margin trend understates how much better the core manufacturing operation actually got.</p>
+
+<h3>The more recent window tells a different, more favourable story</h3>
+<p>Over just the last three years (FY2024&ndash;FY2026), the same arithmetic runs the other way on two of the three drag components: EBITDA margin contributed +111bp, but depreciation (+67bp) and interest cost (+68bp) both turned into tailwinds as revenue grew faster than the company's now-largely-fixed financing and depreciation base &mdash; only other income (&minus;61bp) continued to shrink as a share of sales. Net PBT margin rose from 14.5% to 16.4% over the three years, a genuine, broad-based improvement rather than one driven by a single line item.</p>
+
+<h3>Two anomalies, both with confirmed causes</h3>
+<p>The FY2020&rarr;FY2021 EBITDA margin collapse (21.4% &rarr; 4.1%, a move more than five times the decade's typical year-on-year step) and the FY2021&rarr;FY2022 recovery (4.1% &rarr; 15.2%) are both fully explained by the production shutdown and restart covered in Section <a href="#record">03</a>. The one step this report could not independently source a cause for &mdash; FY2017&rarr;FY2018's 7.4% &rarr; 18.2% jump &mdash; falls in the thinnest-documented window of the decade (Section <a href="#gaps">14</a>).</p>
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: modest and roughly stable as a share of sales &mdash; and one direct contradiction inside the company's own FY2026 annual report</h2>
+<p class="sec-sub">Computed through this pipeline's own working_capital function; cross-checked against the company's own disclosed ratios</p>
+
+<p>Net operating working capital has grown from &#8377;5.3 Cr (FY2017) to &#8377;32.9 Cr (FY2026) in absolute terms, roughly in line with the tenfold growth in revenue over the same period &mdash; working capital as a share of sales has stayed in a 5.6&ndash;23.9% band with no clear trend, spiking only in FY2021 (the shutdown year, when receivables piled up against near-zero collections) and FY2022 (the recovery year). Receivable days have been volatile year to year (15 to 56 days across the decade) but show no sustained upward drift; payable days, near zero before FY2021, have settled into a 12&ndash;40 day range since.</p>
+
+<div class="warn">
+<div class="lbl">A contradiction within the FY2026 annual report itself, stated rather than resolved</div>
+<p>The FY2025-26 annual report's own Management Discussion says, twice: "Working-capital intensity rose during the year. Trade receivables and inventories were higher both in absolute terms and in days outstanding," and, in its ratio-variance note, that the debtor's turnover figure reflects "a stretching of collection days." But the same annual report's own significant-ratios table shows the Debtor's Turnover Ratio <i>improving</i> from 11.7 (FY2025) to 13.7 (FY2026), a 17% rise &mdash; and a rising turnover ratio means collection days got <i>shorter</i>, not longer. This pipeline's own computed figure agrees with the turnover-ratio table, not the prose: receivable days fell from 37.99 (FY2025) to 19.04 (FY2026). What is true, and consistent with both sources, is that net working capital rose in absolute rupee terms (&#8377;29.5 Cr &rarr; &#8377;32.9 Cr) as the business grew &mdash; but the specific claim that receivable days stretched appears to be an error in the annual report's own narrative section, not a finding this report can otherwise corroborate. Stated plainly rather than silently resolved in either direction.</p>
+</div>
+
+<p>The one working-capital line this report cannot fully explain is inventory: this pipeline's database shows a negative inventory figure in both FY2024 and FY2026, which is not a value a physical stock account can actually take and most likely reflects how a netting or a change-in-inventory line was mapped into this pipeline's schema rather than a real negative stock balance. The FY2026 annual report's own prose additionally describes a "prudential build-up" of Alumina Hydrate raw-material inventory during the year, ahead of possible price increases &mdash; directionally the opposite of what a negative inventory figure would suggest. Flagged in Section <a href="#gaps">14</a> rather than resolved.</p>
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How Alufluoride compares: one real listed peer, priced very differently</h2>
+<p class="sec-sub">This pipeline's own document store returned zero peer candidates for this company (no transcripts, no analyst commentary mentioning named competitors); the comparable set below comes entirely from external research</p>
+
+<p>Alufluoride is a true micro-cap niche player. General search and Screener's own sector classification turn up exactly one listed company making the same product for the same end-use &mdash; Tanfac Industries, promoted by the Aditya Birla Group via Hindalco Industries &mdash; and four much larger, much more diversified specialty-fluorochemical companies included below only as sector-scale reference points, not as genuine comparables.</p>
+
+<div class="table-wrap">
+<table>
+<caption>Market data approximate, gathered alongside this report (September 2026). Alufluoride figures use this pipeline's own internally-consistent computation; peer figures are Screener.in snapshots.</caption>
+<thead><tr><th>Company</th><th class="num">Mkt cap (&#8377;Cr)</th><th class="num">P/E</th><th class="num">ROCE</th><th class="num">OPM</th><th class="num">Promoter hold.</th><th class="t">Fit</th></tr></thead>
+<tbody>
+<tr class="hl"><td>Alufluoride</td><td class="num">390</td><td class="num">15.5&times;</td><td class="num">24.2%</td><td class="num">21.5%</td><td class="num">59.9%</td><td class="t">&mdash;</td></tr>
+<tr><td>Tanfac Industries</td><td class="num">7,399</td><td class="num">109&times;</td><td class="num">23.9%</td><td class="num">15%</td><td class="num">48.7%</td><td class="t">Closest direct comp &mdash; also makes AlF3, ~19&times; Alufluoride's revenue, priced far richer despite thinner margins</td></tr>
+<tr><td>Navin Fluorine Intl.</td><td class="num">43,410</td><td class="num">54.6&times;</td><td class="num">21.0%</td><td class="num">34%</td><td class="num">27.1%</td><td class="t">Scale-mismatched &mdash; diversified specialty fluorochemicals, ~200&times; Alufluoride's market cap</td></tr>
+<tr><td>Gujarat Fluorochemicals</td><td class="num">49,287</td><td class="num">79.8&times;</td><td class="num">9.6%</td><td class="num">27%</td><td class="num">61.4%</td><td class="t">Sector-scale reference only &mdash; fluoropolymers/refrigerants leader, no AlF3 exposure</td></tr>
+<tr><td>SRF Ltd</td><td class="num">74,972</td><td class="num">33.4&times;</td><td class="num">14.6%</td><td class="num">22%</td><td class="num">50.3%</td><td class="t">Sector-scale reference only &mdash; one segment among several, no AlF3 exposure found</td></tr>
+<tr><td>Anupam Rasayan</td><td class="num">13,625</td><td class="num">78.0&times;</td><td class="num">7.4%</td><td class="num">22%</td><td class="num">59.1%</td><td class="t">Not a comp &mdash; agrochemical/pharma intermediates, no AlF3 involvement</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>A competitor that is also a customer's parent</h3>
+<p>Tanfac's promoter, the Aditya Birla Group, controls Hindalco Industries &mdash; one of the three major Indian smelters Alufluoride names as a qualified customer in its own annual report. This is a genuine, if soft, overlap worth noting: the group that owns Alufluoride's closest listed competitor is also a customer of Alufluoride's. This research found no evidence either way that Hindalco treats Tanfac as a captive or preferred internal supplier over Alufluoride, and no confirmation of captive in-house AlF3 production at Hindalco, Vedanta or BALCO &mdash; a Hindalco technical paper referencing "reduction of specific AlF3 consumption" at its Hirakud smelter describes optimising how much AlF3 it buys and uses, not evidence that it manufactures its own. Left as an open question, not a confirmed risk.</p>
+
+<h3>The valuation gap is the headline comparable fact</h3>
+<p>Tanfac trades at roughly 109&times; earnings despite a lower operating margin (15% against Alufluoride's 21.5%) and a comparable ROCE (23.9% against 24.2%). Alufluoride, at 15.5&times;, is priced as if it were a commodity-cyclical chemical name rather than the higher-margin, similarly-returning producer of the same product. Whether that gap reflects Tanfac's Aditya Birla Group affiliation and scale, a liquidity/size discount on Alufluoride's much smaller float, or the customer-concentration and supply-chain risks this report sets out in Section <a href="#flags">10</a>, this report does not adjudicate &mdash; but the gap itself is the single most important number in this section.</p>
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: capacity now fully built, a backward-integration bet just starting, and one overseas attempt already abandoned</h2>
+<p class="sec-sub">What the company has actually done, what it has just started, and what it tried and walked away from</p>
+
+<h3>Domestic capacity: a five-phase build now complete</h3>
+<p>AlF3 capacity rose in five disclosed steps &mdash; 4,000 TPA at commissioning in 1995, 8,000 TPA through debottlenecking, 12,000 TPA, 18,000 TPA, and 24,000 TPA on completion of the final phase in June 2026. This is the largest single driver of FY2026's &#8377;58.9 Cr capex (Section <a href="#capital">09</a>), and it means the company enters FY2027 with materially more nameplate capacity than it used for most of FY2026 &mdash; the near-term growth question is how quickly utilisation of the new capacity ramps, not whether more capacity gets built.</p>
+
+<h3>Backward integration: Alumina Hydrate, approved but not yet sized</h3>
+<p>Since FY2024-25 the company has been exploring a greenfield Alumina Hydrate facility &mdash; a key raw material for AlF3 production, and a step that would reduce reliance on an external input. Shareholders approved an alteration to the company's Objects Clause to permit this activity by postal ballot on 20 April 2025. The annual report discloses the project as approved and in progress but gives no rupee capex figure; a ValuePickr poster's January 2026 estimate of roughly &#8377;40&ndash;50 Cr is a third-party figure, not company-confirmed, and is treated here as directional only. If accurate, this project alone would explain most of FY2026's capex spike on top of the capacity ramp above &mdash; and its scale relative to the company's own &#8377;125.7 Cr equity base (Section <a href="#capital">09</a>) makes it the single largest capital-allocation decision in the company's recent history.</p>
+
+<h3>Jordan: a real diversification attempt, wound down when the regional risk became unacceptable</h3>
+<p>The January 2020 joint venture with Jordan Phosphate Mines Company, for a 20,000 TPA greenfield AlF3 plant in Jordan's Eshidiya Free Trade Zone with JPMC as a minority partner, would have roughly doubled the company's addressable capacity through a genuinely new geography. The company's own FY2025-26 annual report states the withdrawal was "in response to the deterioration of the political environment in West Asia and the requirement of a parent-company corporate guarantee from the Jordanian banks" &mdash; completed during FY2025-26, with a combined &#8377;3.57 Cr write-down recognised across FY2025 and FY2026. This is a real capital-allocation reversal, not a rounding item, and it is worth reading alongside the live Middle East supply-chain risk in Section <a href="#flags">10</a>: the same regional instability that ended the Jordan expansion is now also disrupting the company's own domestic raw-material supply chain.</p>
+
+<h3>What growth now depends on</h3>
+<p>With the domestic capacity build complete and the Jordan option closed, near-term growth rests on three things this report cannot yet size with confidence: how quickly the new 24,000 TPA capacity is utilised, whether the Alumina Hydrate project delivers a real cost or supply-security advantage once it comes online, and how long the current Middle East-linked raw-material disruption persists &mdash; a risk severe enough that the board itself declined to give FY2026-27 guidance (Section <a href="#flags">10</a>).</p>
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">08</span>Management: a founder-run family business, with a generational handover already underway</h2>
+<p class="sec-sub">The Akkineni family, its rising second generation, and what disclosure exists on how promises have tracked against outcomes</p>
+
+<p>Venkat Akkineni has served as Managing Director throughout the period this report covers; his wife Jyothsana Akkineni is Executive Director; his brother-in-law Ashok Vemulapalli sits on the board as a Non-Executive, Non-Independent Director. Their son, Aditya Akkineni, has risen steadily through the company &mdash; from Operations Lead, to President&ndash;Business Development, to Whole-time Director &amp; CEO by FY2026, with a shareholder-approved remuneration increase to &#8377;5,00,000/month passed by special resolution in FY2024-25 under Section 188(1)(f) of the Companies Act, disclosed as a related-party transaction and approved on an arm's-length basis. This pipeline's related-party audit (Section <a href="#flags">10</a>) found the process itself correct and disclosed at every step &mdash; the pattern worth an investor tracking is the trajectory of a family member's compensation and authority rising together, not any irregularity in how it happened.</p>
+
+<h3>Promoter holding rose through the FY2021 downcycle</h3>
+<p>Promoter-group holding rose from roughly 53% to 59.9% between FY2018 and FY2025, including through the FY2021 shutdown year &mdash; a ValuePickr contributor flagged the trend explicitly in January 2022 as a confidence signal, on the reasoning that a family unwinding confidence in its own business does not typically buy more of it during the worst year in a decade. This report treats it as a genuine, positive data point rather than a decisive one: promoter buying can also simply reflect a founder family's concentration preference rather than a conviction signal, and this pipeline has no independent way to distinguish the two motives.</p>
+
+<h3>No transcript or formal guidance record exists to score against</h3>
+<p>Unlike the larger companies this pipeline has covered this cycle, Alufluoride holds no earnings calls and publishes no formal forward guidance this research could locate &mdash; there is no transcript record to build a KEPT/SLIPPED/BROKEN promise scorecard from, and none is attempted here. The one instance of an explicit forward-looking statement this research found is negative: the board's decision to withhold FY2026-27 guidance entirely, in its most recent disclosure, because of the unresolved raw-material supply risk covered in Section <a href="#flags">10</a> &mdash; itself a data point about how management is currently reading its own near-term visibility.</p>
+</section>
+
+
+<section id="capital">
+<h2><span class="num">09</span>Capital allocation: growth funded mostly by retained earnings, a small and rising dividend, and one large unfunded commitment ahead</h2>
+<p class="sec-sub">A decade of reinvestment with modest, disciplined use of debt</p>
+
+<p>Shareholders' equity grew from &#8377;23.7 Cr (FY2017) to &#8377;125.7 Cr (FY2026) almost entirely through retained earnings &mdash; share capital has stayed flat at &#8377;7.82 Cr throughout, meaning the company has not diluted shareholders to fund its decade-long capacity build. Borrowings, zero through FY2019, rose to &#8377;45.35 Cr by FY2026 as the capex programme accelerated, but net debt of &#8377;40.4 Cr against &#8377;125.7 Cr of equity (0.32&times;) remains a conservative capital structure for a business that has more than quintupled revenue over the period. Interest coverage has improved alongside it, from roughly 7.2&times; in FY2023 to 14.3&times; in FY2026.</p>
+
+<h3>Dividend: small, rising, and explicitly framed against capacity needs</h3>
+<p>The board has raised the dividend every year it has been paid recently, from &#8377;3 to &#8377;4 per equity share (face value &#8377;10) for FY2025-26 &mdash; a 33% increase, absorbing approximately 12.9% of standalone profit after tax. The company's own stated policy is "progressively returning surplus cash to shareholders while retaining sufficient resources for capacity expansion, backward-integration initiatives, and the strengthening of the Company's working-capital position" &mdash; a low, growth-first payout consistent with a business still mid-expansion rather than a mature cash return story.</p>
+
+<h3>The Alumina Hydrate project is the next real capital-allocation test</h3>
+<p>With the domestic capacity build now complete (Section <a href="#growth">07</a>), the newly-approved Alumina Hydrate backward-integration project &mdash; a third-party estimate puts it at roughly &#8377;40&ndash;50 Cr, not yet company-confirmed &mdash; would be a meaningfully sized commitment against the company's current equity base, and the first major capital decision since the Jordan JV was wound down. How it is funded, and whether the low-leverage discipline evident through the FY2020&ndash;FY2026 build continues, is the single capital-allocation question that will most shape this stock's next few years.</p>
+</section>
+
+
+<section id="flags">
+<h2><span class="num">10</span>Governance and risk: a clean related-party record, set against severe and rising customer concentration and a live, unresolved supply shock</h2>
+<p class="sec-sub">The cleanest related-party verdict this pipeline has produced this cycle, and the most serious external risk</p>
+
+<h3>Related-party transactions: Score 1 (Watch) &mdash; routine, disclosed, nothing off-market</h3>
+<div class="good">
+<div class="lbl">This pipeline's own related-party audit, all twelve available annual reports (FY2015&ndash;FY2026)</div>
+<p>Every year's related-party disclosure follows the same three-part pattern: KMP remuneration to Akkineni-family and other key managerial personnel, dividends paid to promoter/KMP-linked entities (Anar Enterprises, Kaiser Finance &amp; Leasing, Visakha Finance Ltd) in proportion to their shareholding, and small, flat, unchanging rent payments to the same entities. Form AOC-2's "not at arm's length" disclosure is explicitly NIL in every one of the twelve years read, with no CARO qualification and no fraud finding in any year. The one item worth tracking rather than flagging as a red flag: a shareholder-approved special resolution in FY2024-25 raising Aditya Akkineni's (the MD's son) remuneration to &#8377;5,00,000/month as he moved into the CEO role &mdash; correctly disclosed and approved, but a related-party compensation trajectory worth watching over time (Section <a href="#mgmt">08</a>).</p>
+</div>
+
+<h3>Customer concentration: the single most important number in this report</h3>
+<div class="warn">
+<div class="lbl">Verbatim, from the FY2025-26 annual report</div>
+<p>"In FY 2024-25, the largest customer accounted for 69.27% of AlF3 revenue, up from 52.51% in FY 2023-24, while the share of customers contributing more than 10% individually (excluding the top two) declined from 20.40% to nil." The customer is not named. The annual report frames the trend positively &mdash; citing industry consolidation and customer-awarded quality recognitions (a Hindalco Resilient Supply Chain Award in November 2024, a NALCO Best Customer award in March 2025) &mdash; but a jump of nearly 17 percentage points in a single year, concentrating more than two-thirds of revenue in one counterparty, is a material dependency by any standard, and this report treats it as the central risk in the entire thesis rather than a footnote.</p>
+</div>
+
+<figure>
+<div class="fig-title">Top-customer concentration, FY2023-24 vs FY2024-25</div>
+<div class="fig-sub">From the company's own FY2025-26 annual report disclosure</div>
+<svg viewBox="0 0 720 230" role="img" aria-label="Alufluoride customer concentration, FY2023-24 versus FY2024-25"><g transform="translate(0,0)"><rect x="52" y="0" width="9" height="9" rx="2" fill="#c9a24b"/><text class="ax" x="65" y="8" text-anchor="start">Top customer</text><rect x="147.6" y="0" width="9" height="9" rx="2" fill="#5b9bd1"/><text class="ax" x="160.6" y="8" text-anchor="start">Other customers >10% each</text><rect x="312.1" y="0" width="9" height="9" rx="2" fill="#3a4560"/><text class="ax" x="325.1" y="8" text-anchor="start">All remaining customers</text></g><rect x="159.9" y="18.0" width="111.2" height="93.5" fill="#c9a24b"><title>FY2023-24: 52.5%</title></rect><text class="vlbl" x="215.5" y="67.7" text-anchor="middle" style="font-size:10px">52.5%</text><rect x="159.9" y="111.5" width="111.2" height="36.3" fill="#5b9bd1"><title>FY2023-24: 20.4%</title></rect><text class="vlbl" x="215.5" y="132.6" text-anchor="middle" style="font-size:10px">20.4%</text><rect x="159.9" y="147.8" width="111.2" height="48.2" fill="#3a4560"><title>FY2023-24: 27.1%</title></rect><text class="vlbl" x="215.5" y="174.9" text-anchor="middle" style="font-size:10px">27.1%</text><text class="ax" x="215.5" y="212" text-anchor="middle">FY2023-24</text><rect x="486.9" y="18.0" width="111.2" height="123.3" fill="#c9a24b"><title>FY2024-25: 69.3%</title></rect><text class="vlbl" x="542.5" y="82.7" text-anchor="middle" style="font-size:10px">69.3%</text><rect x="486.9" y="141.3" width="111.2" height="0.0" fill="#5b9bd1"><title>FY2024-25: 0.0%</title></rect><rect x="486.9" y="141.3" width="111.2" height="54.7" fill="#3a4560"><title>FY2024-25: 30.7%</title></rect><text class="vlbl" x="542.5" y="171.7" text-anchor="middle" style="font-size:10px">30.7%</text><text class="ax" x="542.5" y="212" text-anchor="middle">FY2024-25</text><line class="zero-l" x1="52" y1="196" x2="706" y2="196"/></svg>
+<figcaption><b>Why:</b> the largest customer's share rose nearly 17 percentage points in one year while every other customer above 10% individually disappeared from the disclosure &mdash; a structural shift in the customer base, not noise.</figcaption>
+</figure>
+
+<h3>A live, unresolved, Middle East-linked raw-material shock</h3>
+<div class="warn">
+<div class="lbl">Verbatim, from the FY2025-26 annual report</div>
+<p>Alufluoride's FSA suppliers are themselves "dependent on imported raw materials, namely rock phosphate, sulphur, and ammonia. Sulphur and ammonia are sourced largely through the Strait of Hormuz, while rock phosphate reaches India mainly via the Red Sea&hellip; the sulphur and ammonia supply chains were the more disrupted of the two during the recent conflict." The company filed a stock-exchange disclosure on 23 May 2026 stating FSA supply had reduced and operations were being scaled back through June 2026, attributed to "the intensification of hostilities in West Asia." Q4 FY2025-26 PAT (&#8377;3.76 Cr) was already materially below the roughly &#8377;6.84 Cr per-quarter average of the first three quarters, partly attributed to this disruption, and the board explicitly declined to give FY2026-27 guidance because of it. This is genuinely unresolved as of the company's most recent disclosure available to this report, and it is not a China/fluorspar risk of the kind this pipeline initially expected to find for an AlF3 producer &mdash; Alufluoride's own FSA-based process does not depend on fluorspar at all &mdash; but a different, currently live, Middle East-transmitted dependency further down the same supply chain.</p>
+</div>
+
+<h3>Jordan: a real, disclosed capital-allocation reversal, not a hidden one</h3>
+<p>The January 2020 Jordan joint venture (Section <a href="#growth">07</a>) was wound down through FY2025 and FY2026 after the regional political situation deteriorated, with a combined &#8377;3.57 Cr write-down recognised across the two years. The company disclosed the withdrawal, its cause, and the write-down directly in its own annual reports rather than allowing it to surface only through a forum post or a later restatement &mdash; a governance point in the company's favour, separate from whether the underlying capital-allocation decision itself was a good one.</p>
+
+<h3>No credit rating, no litigation, no regulatory action found</h3>
+<p>This research found no CRISIL, ICRA, CARE or Brickwork rating for Alufluoride anywhere &mdash; a ValuePickr poster flagged the same absence in August 2020, and nothing in the six years since contradicts it. Given the company's small, largely self-funded balance sheet, this most plausibly reflects a company that has simply never sought a public rating for its modest working-capital and term facilities, rather than a rating that exists but is undisclosed, though this report cannot confirm which. No litigation, show-cause notice, or anti-dumping/regulatory action specific to Alufluoride or to AlF3 as a product category was found.</p>
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">11</span>What retail investors have said: nine years of unusually sustained, forensic-grade discussion for a micro-cap this size</h2>
+<p class="sec-sub">One ValuePickr thread, opened November 2017, still active as of August 2026 &mdash; roughly 70+ posts, read via the forum's own post history</p>
+
+<p>Coverage here is genuinely richer than this pipeline expected for a &#8377;390 Cr market cap with zero institutional holding: a single, moderator-curated thread has carried real due-diligence work across nine years, rather than the handful of scattered posts this pipeline has found on other thinly-covered names.</p>
+
+<h3>2017&ndash;2019: skeptical, wait-and-watch</h3>
+<p>Early posters flagged that successive annual reports repeated the same acid-supply and relocation language for four to eight consecutive years "without any tangible action," and that exports had collapsed from roughly &#8377;8 Cr to near zero despite claims of "repeat export orders" &mdash; a promises-without-delivery reading, not a fraud allegation.</p>
+
+<h3>2020: a real bull case built in public, with real red flags surfaced alongside it</h3>
+<p>Detailed capex-economics work in July&ndash;August 2020 showed the ongoing expansion was funded mostly by internal accruals rather than debt. The same window surfaced genuine due-diligence concerns this report treats as open items rather than resolved ones: only about 15% of a 40% raw-material cost spike had been passed through to customers in FY19, no credit rating could be found for the company (confirmed still true as of this report, Section <a href="#flags">10</a>), and a flagged zero cash-tax-outflow record from 2009&ndash;2016 despite tax provisions on the books &mdash; unresolved in the thread and not independently adjudicated here.</p>
+
+<h3>December 2020: the shutdown flagged in real time</h3>
+<p>A post noted that commercial production at the newly expanded plant had not started as expected &mdash; independent, contemporaneous confirmation of exactly what the company's own FY2021 annual report later described in full (Section <a href="#record">03</a>).</p>
+
+<h3>2021&ndash;2022: recovery, promoter buying, and a structural-advantage thesis</h3>
+<p>A January 2022 post built out the case that Alufluoride's FSA-based process, unlike roughly 80% of global AlF3 producers, does not depend on fluorspar &mdash; a lower-cost, import-substitution advantage in a domestic market estimated at the time to be only about 15% self-sufficient. The same window saw promoter holding tracked rising from roughly 53% to 59% through the downcycle, read by one poster as a confidence signal (Section <a href="#mgmt">08</a>).</p>
+
+<h3>Late 2022: an unanswered disclosure question</h3>
+<p>A poster noted the captive solar plant's generation had dropped to zero MWh in FY2022 (from 269&ndash;606 MWh in prior years) with no company explanation, while electricity costs rose &mdash; flagged as an unresolved gap, never answered in the thread as far as this research could find.</p>
+
+<h3>2024&ndash;2026: a bearish inflection, then a renewed bull case around backward integration</h3>
+<p>A sharp fall and weaker results in February 2024 was followed by speculation the Jordan JV had been quietly shelved. A substantial 23 January 2026 post laid out the capacity build (then at 18,000 TPA), the ~&#8377;40&ndash;50 Cr Alumina Hydrate estimate this report cites in Section <a href="#growth">07</a>, and confirmation of the Jordan withdrawal &mdash; the single most useful external corroboration this research found of what was actually driving FY2026's capex.</p>
+
+<h3>What the thread does not show</h3>
+<p>No sell-side coverage, no institutional-holding discussion (Screener's own live data shows 0.00% DII/mutual-fund and 0.05% FII holding), and only one identifiable independent write-up outside the forum &mdash; a valuation-conscious Substack post favouring entry closer to a &#8377;300&ndash;360 Cr market cap than the current level. This report treats that as one blogger's opinion, not as research, and does not weight it in the valuation conclusion (Section <a href="#valuation">12</a>).</p>
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">12</span>Valuation: a low P/E that is not actually cheap once the DCF is run</h2>
+<p class="sec-sub">Free-cash-flow-to-firm DCF, seven-year explicit window, computed through this pipeline's own tested dcf/reverse_dcf functions</p>
+
+<p>At 15.5&times; trailing earnings, Alufluoride looks inexpensive next to its one real listed peer (Tanfac Industries, 109&times;) and next to the rich multiples the market is currently paying for growth stories elsewhere (Section <a href="#peers">06</a>; see also this report's starting context &mdash; this stock was selected specifically because its P/E was low relative to a first slate of candidates the market was pricing at 30&ndash;110&times;). But a reverse DCF, which charges explicitly for the incremental working capital and capex a capital-intensive niche manufacturer needs to fund its own growth, tells a less comfortable story.</p>
+
+<div class="table-wrap">
+<table>
+<caption>WACC 14.5%, terminal growth 5.0%, 7-year explicit window, tax rate 26%, depreciation 4.5% of sales, net debt &#8377;40.4 Cr, 0.782 Cr shares. Assumptions grounded in the company's own FY2017&ndash;FY2026 range (Sections <a href="#record">03</a>, <a href="#margin">04</a>, <a href="#wc">05</a>).</caption>
+<thead><tr><th>Scenario</th><th class="num">Growth</th><th class="num">EBITDA margin</th><th class="num">Capex/sales</th><th class="num">Value/share</th><th class="num">vs. price (&#8377;498.10)</th></tr></thead>
+<tbody>
+<tr><td>Bear</td><td class="num">5%</td><td class="num">16%</td><td class="num">9%</td><td class="num">&#8377;41</td><td class="num l">&minus;92%</td></tr>
+<tr><td>Base</td><td class="num">12%</td><td class="num">20%</td><td class="num">8%</td><td class="num">&#8377;218</td><td class="num l">&minus;56%</td></tr>
+<tr><td>Bull</td><td class="num">20%</td><td class="num">23%</td><td class="num">7%</td><td class="num">&#8377;512</td><td class="num g">+3%</td></tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+<div class="fig-title">DCF scenarios vs. current price</div>
+<div class="fig-sub">Value per share, &#8377;</div>
+<svg viewBox="0 0 720 240" role="img" aria-label="Discounted cash flow valuation scenarios for Alufluoride against the current market price"><line class="grid-l" x1="56" y1="206.0" x2="704" y2="206.0"/><text class="ax" x="50" y="209.0" text-anchor="end">0</text><line class="grid-l" x1="56" y1="175.3" x2="704" y2="175.3"/><text class="ax" x="50" y="178.3" text-anchor="end">100</text><line class="grid-l" x1="56" y1="144.7" x2="704" y2="144.7"/><text class="ax" x="50" y="147.7" text-anchor="end">200</text><line class="grid-l" x1="56" y1="114.0" x2="704" y2="114.0"/><text class="ax" x="50" y="117.0" text-anchor="end">300</text><line class="grid-l" x1="56" y1="83.3" x2="704" y2="83.3"/><text class="ax" x="50" y="86.3" text-anchor="end">400</text><line class="grid-l" x1="56" y1="52.7" x2="704" y2="52.7"/><text class="ax" x="50" y="55.7" text-anchor="end">500</text><line class="grid-l" x1="56" y1="22.0" x2="704" y2="22.0"/><text class="ax" x="50" y="25.0" text-anchor="end">600</text><rect x="118.6" y="193.4" width="90.7" height="12.6" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs 41</title></rect><text class="vlbl" x="164.0" y="186.4" text-anchor="middle" fill="#d97a5f">&#8377;41</text><text class="ax" x="164.0" y="220" text-anchor="middle">Bear</text><text class="ax" x="164.0" y="232" text-anchor="middle" fill="#d97a5f">-92%</text><rect x="334.6" y="139.1" width="90.7" height="66.9" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 218</title></rect><text class="vlbl" x="380.0" y="132.1" text-anchor="middle" fill="#c9a24b">&#8377;218</text><text class="ax" x="380.0" y="220" text-anchor="middle">Base</text><text class="ax" x="380.0" y="232" text-anchor="middle" fill="#d97a5f">-56%</text><rect x="550.6" y="49.0" width="90.7" height="157.0" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 512</title></rect><text class="vlbl" x="596.0" y="42.0" text-anchor="middle" fill="#5fb98a">&#8377;512</text><text class="ax" x="596.0" y="220" text-anchor="middle">Bull</text><text class="ax" x="596.0" y="232" text-anchor="middle" fill="#8ecbaa">+3%</text><line x1="56" y1="53.2" x2="704" y2="53.2" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="46.2" text-anchor="end">market &#8377;498</text><line class="zero-l" x1="56" y1="206" x2="704" y2="206"/></svg>
+<figcaption><b>Why:</b> only the bull case &mdash; 20% growth and a margin 1.5 points above the company's best-ever year, sustained for seven straight years &mdash; reaches the current price; the base case, built on the company's own recent three-year average growth and margin, values the stock at roughly 44% of where it trades.</figcaption>
+</figure>
+
+<h3>The reverse DCF makes the same point more directly</h3>
+<p>Holding growth at a realistic 12% (below the FY2024&ndash;FY2026 average of roughly 15%), the price requires a flat EBITDA margin of <b>28.9%</b> for seven years &mdash; a margin the company has never once achieved in the decade this report covers; its best year, FY2026, reached 21.5%. Holding margin instead at FY2026's actual, record 21.5%, the price requires flat revenue growth of <b>28.2%</b> for seven straight years, against a three-year average of roughly 15% and a decelerating recent trend (21.0% &rarr; 14.5% &rarr; 10.7%). Both framings agree: the current price is not paying for "more of the same decade this company has already delivered" &mdash; it is paying for a combination of growth and margin meaningfully better than anything in Alufluoride's own ten-year record, sustained for most of a decade.</p>
+
+<h3>What would close the gap</h3>
+<p>The newly-completed 24,000 TPA capacity and the pending Alumina Hydrate backward-integration project (Section <a href="#growth">07</a>) are genuine, disclosed levers that could plausibly move growth and margin toward the bull case over the next few years &mdash; if utilisation ramps quickly and Alumina Hydrate delivers a real input-cost advantage. Against that: the live raw-material supply disruption (Section <a href="#flags">10</a>) is currently working in the opposite direction, and the board's own decision to withhold FY2026-27 guidance is itself evidence that management does not currently have visibility into which of these forces will dominate in the near term.</p>
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">13</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">Quality and value, kept on separate axes &mdash; this is not a buy or sell call</p>
+
+<h3>Quality: a genuinely well-run decade, with two concentrated risks that did not exist five years ago</h3>
+<p>Alufluoride's operating record is real: eight of nine years clearing this pipeline's revenue-growth gate, seven of nine clearing its ROCE gate, EBITDA margin roughly tripling over the decade even after the FY2021 shutdown, and a capacity build that has been funded overwhelmingly by retained earnings rather than debt &mdash; net debt sits at a conservative 0.32&times; equity even after the largest capex year in the company's history. The one related-party audit available for this company found nothing to flag beyond routine, fully-disclosed family dealings, the cleanest verdict this pipeline has produced across the reports built this cycle.</p>
+<p>Set against that: two risks that were not material five years ago now sit at the center of the thesis. Customer concentration jumped from 52.5% to 69.27% in a single year, with every other customer above 10% having disappeared from the disclosure entirely. And a live, unresolved, Middle East-linked disruption to the FSA supply chain has already dented one quarter's results and led the board to withhold forward guidance altogether &mdash; a risk this report cannot currently size, because the company itself has said it cannot either. Neither risk is hypothetical; both are stated in the company's own most recent annual report.</p>
+
+<h3>Value: the low P/E does not survive a DCF that charges for reinvestment</h3>
+<p>At 15.5&times; earnings, Alufluoride looks cheap next to its one real peer (Tanfac, 109&times;) and cheap relative to the richly-valued candidates this report's own screening process set aside before selecting this company. A reverse DCF says otherwise: the current price requires either a 28.9% flat EBITDA margin (never achieved) or 28.2% flat revenue growth (roughly double the recent three-year average) sustained for seven years. The base case built on the company's own recent-average growth and margin values the stock at roughly 44% of where it currently trades. <b>The two readings are not in conflict</b> &mdash; a low nominal P/E and a demanding DCF can both be true at once for a capital-intensive small manufacturer whose reinvestment needs a P/E multiple does not charge for.</p>
+
+<h3>Specific triggers, with thresholds</h3>
+<ul>
+<li><b>Resolution of the Middle East-linked FSA supply disruption</b> &mdash; the single clearest near-term signal; watch for the company's own next quarterly disclosure and whether FY2026-27 guidance is restored.</li>
+<li><b>Customer concentration against the 69.27% level</b> &mdash; any further rise would sharpen the single-customer dependency; a reversal toward the FY2023-24 level (52.5%) or disclosure of the customer's identity and contract terms would meaningfully de-risk the thesis.</li>
+<li><b>EBITDA margin against the 28.9% the reverse DCF requires at moderate growth</b> &mdash; even a sustained move toward the mid-20s, well short of that bar, would be a genuine signal the Alumina Hydrate backward-integration project is delivering a real cost advantage.</li>
+<li><b>Revenue growth against the ~15.4% recent three-year average and the 28.2% the reverse DCF requires at current margins</b> &mdash; utilisation of the newly-completed 24,000 TPA capacity is the first real evidence of which direction growth moves from here.</li>
+<li><b>Net debt/equity against the 0.32&times; FY2026 level</b> &mdash; how the Alumina Hydrate project (Section <a href="#capital">09</a>) is funded is the next real test of the low-leverage discipline evident since FY2020.</li>
+</ul>
+
+<p><b>What would change this verdict:</b> a clear, company-disclosed resolution of the raw-material supply risk, combined with evidence that the new capacity and the Alumina Hydrate project are lifting margin toward the mid-20s without a matching rise in leverage, would meaningfully close the gap between this report's base-case DCF and the current price &mdash; independent of anything else in this report. Conversely, a further rise in customer concentration or a prolonged supply disruption would argue for a materially lower price than even this report's base case.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">14</span>Data gaps and provenance</h2>
+<p class="sec-sub">A fresh internal database, one thinly-documented early window, one internal annual-report contradiction, and no institutional or credit-rating coverage to cross-check against</p>
+
+<h3>Methodology: this pipeline's own database was current; no workaround was needed</h3>
+<p>Unlike several other companies covered by this pipeline this cycle, Alufluoride's internal `xbrl_annual` database was current at the time of this report, and all financial-metric computations in Sections <a href="#framework">02</a>, <a href="#record">03</a>, <a href="#margin">04</a> and <a href="#wc">05</a> run directly against it through this pipeline's own tested functions, with no Screener.in workaround required.</p>
+
+<h3>One unresolved data question, flagged rather than silently corrected</h3>
+<p>This pipeline's own working-capital computation shows a negative inventory figure for FY2024 and FY2026, which cannot reflect a real physical stock balance. This most likely reflects how a netting or change-in-inventory line was mapped into this pipeline's schema for this company specifically, but this report could not confirm the exact cause from the documents available to it. It does not affect the receivable-days, cash-gate or margin figures elsewhere in this report, which are computed independently (Section <a href="#wc">05</a>).</p>
+
+<h3>One direct contradiction inside the company's own FY2026 annual report</h3>
+<p>The FY2025-26 annual report's own MD&amp;A narrative states receivables were "higher&hellip; in days outstanding," while the same report's own ratio table shows the debtor's turnover ratio improving 17% (which means days fell, not rose) &mdash; and this pipeline's own computed receivable-days figure agrees with the ratio table, not the narrative (Section <a href="#wc">05</a>). This report states the contradiction plainly rather than silently picking a side.</p>
+
+<h3>One anomaly with no confirmed cause</h3>
+<p>The FY2017&rarr;FY2018 EBITDA margin jump (7.4% &rarr; 18.2%, more than twice the decade's typical year-on-year step) has no documented cause in the FY2017 or FY2018 annual reports available to this research &mdash; both mention only the long-standing, unchanged baseline CIL supply agreement, with no capacity-change or cost-structure narrative for that specific window. This is the thinnest-documented period of the ten years this report covers.</p>
+
+<h3>No credit rating, no institutional coverage, and one unverified third-party cost estimate</h3>
+<ul>
+<li>No CRISIL, ICRA, CARE or Brickwork rating exists for this company as far as this research could establish &mdash; corroborated by an August 2020 ValuePickr post making the same observation, with nothing in the six years since to contradict it. This report treats it as most likely a company that has never sought a public rating, not a rating that exists but is undisclosed, though it cannot confirm which.</li>
+<li>Institutional holding is confirmed nil-to-negligible (0.00% DII/mutual fund, 0.05% FII per Screener's live shareholding data), and no sell-side broker research report was located.</li>
+<li>The ~&#8377;40&ndash;50 Cr cost estimate for the Alumina Hydrate backward-integration project (Section <a href="#growth">07</a>) is a ValuePickr poster's third-party estimate from January 2026, not a company-disclosed figure, and is treated throughout this report as directional only.</li>
+</ul>
+
+<h3>Peer and forum research provenance</h3>
+<p>This pipeline's own document store returned zero peer candidates for this company &mdash; there are no earnings-call transcripts and no analyst commentary naming competitors in the documents available to it. The peer set in Section <a href="#peers">06</a> was built entirely from external research (Screener sector classification and general web search), confirmed against one direct comparable (Tanfac Industries) and four scale-mismatched sector-reference names. The ValuePickr sentiment history in Section <a href="#sentiment">11</a> draws on a single, continuous nine-year thread (topic 14313), read via the forum's own post history rather than sampled in windows as some other reports in this pipeline have done, because the thread's total volume (roughly 70 posts over nine years) made a full read practical.</p>
+
+<h3>What would most improve the next refresh</h3>
+<ol>
+<li>Direct confirmation, from the company's next quarterly or annual disclosure, of how the Middle East-linked FSA supply disruption resolved and what it cost in lost production.</li>
+<li>The company's own confirmed capex figure for the Alumina Hydrate project, once disclosed, in place of the current third-party estimate.</li>
+<li>An explanation, from the company or a primary source, for the FY2017&rarr;FY2018 margin jump.</li>
+<li>Resolution of the negative-inventory data-mapping question in this pipeline's own database for this company.</li>
+<li>Direct confirmation or refutation, from the company, of the "higher&hellip; days outstanding" claim in the FY2026 annual report against its own ratio table.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Alufluoride Limited (NSE/BSE: ALUFLUOR, BSE: 524634, ISIN INE058F01019). Prepared 22 September 2026 against a share price of &#8377;498.10.</p>
+  <p>Built from this pipeline's own current internal database, run through its own tested margin-bridge, cash-gates, anomaly-scan and DCF arithmetic; an existing related-party audit covering twelve annual reports; a nine-year ValuePickr thread read in full; and primary-source annual-report reading (FY2017, FY2021, FY2024, FY2025 and FY2026 in particular) covering the FY2021 production shutdown, the Jordan joint-venture withdrawal, the FY2026 capacity completion, and a live, unresolved Middle East-linked raw-material supply disruption disclosed by the company itself in May 2026. Every numeric claim cites a period; every quotation cites a document. This company carries no credit rating and no institutional coverage this research could locate, and one direct contradiction was found within the company's own FY2026 annual report between its narrative text and its own ratio table &mdash; stated plainly in Section 14 rather than silently resolved.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. This report covers a micro-cap with severe, rising single-customer concentration and a live, currently unresolved raw-material supply risk the company itself has declined to size; read the data-gaps and governance sections in full before acting on anything here. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
