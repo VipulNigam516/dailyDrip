@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Poly Medicure Ltd — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Poly Medicure: a genuinely fast-growing disposable medical devices exporter whose own retail shareholders have flagged the same related-party manufacturing dependency three separate times in eight years, unanswered each time.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Equity Research &middot; Coffee Can Screener</span>
+  <h1>Poly Medicure Ltd</h1>
+  <p class="subtitle">A genuinely fast-growing, promoter-run exporter of disposable medical devices, whose own retail shareholders have independently raised the same related-party manufacturing concern three times across eight years &mdash; unanswered each time by the two sell-side notes this pipeline could find.</p>
+  <p class="meta">
+    NSE <b>POLYMED</b> &middot; BSE <b>531768</b> &middot; ISIN <b>INE205C01021</b> &middot; Medical Devices &amp; Equipment &middot; Consolidated basis, Indian fiscal year (April&ndash;March)<br>
+    Price <b>&#8377;1,706.00</b> &middot; Market cap <b>&#8377;17,294 Cr</b> &middot; P/E <b>54.0&times;</b> (trailing twelve months) &middot; ROCE <b>12.5%</b> (reported, FY2026) &middot; As of <b>22 September 2026</b>
+  </p>
+</header>
+
+<div class="verdict">
+  <div class="verdict-label">Verdict</div>
+  <p class="verdict-head">Quality: a real, decade-long growth compounder with a genuine capital-intensity problem and an unresolved governance question. Value: priced for a growth story a cash-flow-based valuation cannot rationalize even generously.</p>
+  <p>Poly Medicure clears the coffee-can gates about as cleanly as a company can &mdash; 9 of 9 years above 10% revenue growth, 8 of 9 above 15% ROCE (Mukherjea basis), a Dirty 9iner. It exports to 125+ countries, has just closed two European bolt-on acquisitions (PendraCare in the Netherlands, Citieffe in Italy) funded by a 2024 &#8377;1,000 Cr QIP, holds an EU MDR certification for 54 products, and its outlook was recently revised to Positive by CRISIL.</p>
+  <p>Underneath that: even using this pipeline's own corrected, de-distorted capex figures (stripping out two years where QIP proceeds parked in mutual funds inflated the raw capex proxy), the harder cash test &mdash; operating cash flow less real capex less interest &mdash; is roughly breakeven to slightly negative across the last decade. Growth and dividends have both, in effect, been funded by two external capital raises, not organic free cash flow. Receivable days spiked from 76 to 103 in FY2026 alone. And Vitromed Healthcare, a job-work manufacturer personally co-owned by two sitting directors, has been paid a sum growing from &#8377;36.5 Cr to &#8377;89.3 Cr a year over the same window &mdash; a relationship ValuePickr's own retail investors flagged with the word "siphoning" in 2023 and again, with specific rupee figures, in 2025.</p>
+  <p>Run through a reverse DCF, no combination of growth and margin this report tested &mdash; up to 40% EBITDA margin, up to 22% starting growth &mdash; reaches the current price once real capex and working-capital cash calls are charged. <b>A genuinely good, fast-growing export business, an open related-party question institutional research has not engaged with, and a price that a cash-flow lens cannot justify.</b></p>
+</div>
+
+<div class="hero-row">
+  <div class="stat"><div class="k">Coffee-can tier</div><div class="v" style="color:#e3c076">Dirty 9iner</div><div class="n">9/9 revenue growth, 8/9 ROCE (capital-employed basis)</div></div>
+  <div class="stat"><div class="k">Decade Gate 3 (CFO&minus;capex&minus;interest)</div><div class="v" style="color:var(--loss)">&asymp; breakeven</div><div class="n">Using corrected, de-distorted capex &mdash; growth funded by two QIPs, not organic FCF</div></div>
+  <div class="stat"><div class="k">Vitromed related-party job-work</div><div class="v" style="color:var(--loss)">&#8377;36.5cr &rarr; &#8377;89.3cr/yr</div><div class="n">Flagged 3x independently on ValuePickr since 2018; 0 sell-side notes mention it</div></div>
+  <div class="stat"><div class="k">Base-case DCF value</div><div class="v">&#8377;203</div><div class="n">88% below market, even before the bear case</div></div>
+</div>
+
+<div class="toc">
+  <div class="toc-l">Contents</div>
+  <ol>
+    <li><a href="#business">The business: a promoter-run exporter</a></li>
+    <li><a href="#framework">The checklist: gates pass, harder cash test doesn't</a></li>
+    <li><a href="#record">The ten-year record</a></li>
+    <li><a href="#margin">Margins: a real decline, partly masked by a fading tailwind</a></li>
+    <li><a href="#wc">Working capital: a one-year spike</a></li>
+    <li><a href="#peers">How Poly Medicure compares with its real peers</a></li>
+    <li><a href="#growth">Growth outlook: real momentum, margin dilution guided</a></li>
+    <li><a href="#analysts">What institutional analysts have gotten right</a></li>
+    <li><a href="#mgmt">Management scorecard</a></li>
+    <li><a href="#capital">Capital allocation: the promoter group bought before the QIP</a></li>
+    <li><a href="#flags">Governance and credit risk</a></li>
+    <li><a href="#sentiment">What retail investors have said</a></li>
+    <li><a href="#valuation">Valuation: a price no scenario reaches</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business: a promoter-run exporter, pivoting from organic to bolt-on growth</h2>
+<p class="sec-sub">Disposable medical devices across 12 specialties, ~70% exported, now expanding into cardiology and orthopaedics through acquisition rather than in-house development</p>
+
+<p>Poly Medicure manufactures and exports single-use medical devices &mdash; IV cannulas and safety catheters, infusion and transfusion sets, respiratory and anaesthesia products, urology, renal-care and blood-management disposables, surgical and wound-care items &mdash; across 200+ SKUs and 12 specialties, from a manufacturing base spanning multiple India plants (Faridabad, Jaipur, Haridwar) plus wholly-owned international manufacturing in Italy (Plan1Health S.R.L., ISO/CE/MDSAP/EU-MDR certified) and China, an Egypt joint venture, and, following its most recent acquisitions, the Netherlands. Roughly 70% of revenue is exported, with Europe alone historically contributing around half of export revenue &mdash; the reason the March 2025 EU MDR certification of 54 products (Section <a href="#growth">07</a>) is a materially relevant compliance milestone rather than a routine regulatory footnote.</p>
+
+<p>The company is run by the founding Baid family: Himanshu Baid (Managing Director, joined the business founded by his father in 1995, led its 2011 IPO) and Rishi Baid (Joint Managing Director), with Jugal Kishore Baid as a Non-Executive Director. Himanshu Baid was a finalist for EY's Entrepreneur of the Year 2024 (Life Sciences &amp; Healthcare category).</p>
+
+<h3>A genuine strategic pivot: from patents-and-organic-capacity to bolt-on M&amp;A</h3>
+<p>For most of its public history, Poly Medicure grew organically &mdash; its own 2014 European Patent Office win against global major B. Braun (two IV safety-catheter patents revoked) is still cited by the company as evidence of real, defensible IP, and a 375+-patent portfolio has been built steadily since. Since the August 2024 QIP (Section <a href="#capital">10</a>), the strategy has visibly shifted: two international acquisitions closed within weeks of each other in late 2025 &mdash; <b>PendraCare Group</b> (Netherlands, interventional cardiology catheters, 90% stake, ~&euro;18.8m, consolidated from 23 September 2025) and <b>Medistream SA / Citieffe Group</b> (Italy-headquartered orthopaedic trauma and extremities devices, with US and Mexico units, enterprise value ~&#8377;324 Cr / &euro;31m, completed 6 November 2025). These take the company into cardiology and orthopaedics for the first time, both materially higher average-selling-price categories than its legacy disposables base &mdash; the reported cardiology segment grew 897% year-on-year in the most recent quarter, entirely a consolidation effect rather than organic growth (Section <a href="#growth">07</a>).</p>
+
+<h3>Structural and competitive risks specific to this business</h3>
+<ul>
+<li><b>Chinese import competition, now a formal trade case.</b> Management has cited Chinese dumping (via what one ValuePickr contributor's primary-source read described as FTA-route "pseudo-manufacturing" in Thailand and Malaysia) as a live pressure on the dialyzer/renal business since at least 2023, cutting growth guidance for that segment from 50&ndash;55% to 30&ndash;35% at the time. On 28 June 2026, the Directorate General of Trade Remedies (DGTR) formally initiated an anti-dumping investigation on dialyzers <b>at Poly Medicure's own request</b>, with a stated 12&ndash;18 month timeline &mdash; a genuine escalation from complaint to formal trade case, and a live, unresolved matter as of this report.</li>
+<li><b>Entrenched domestic and global competitors in the core disposables business.</b> Hindustan Syringes &amp; Medical Devices (HMD) &mdash; India's largest syringe manufacturer, unlisted &mdash; and B. Braun are both named directly in this pipeline's ValuePickr research as entrenched incumbents in the generic-syringe category Poly Medicure entered around 2021, a move at least one retail investor flagged at the time as margin-dilutive relative to the company's higher-value legacy franchise.</li>
+<li><b>Import dependency on raw materials.</b> One primary-source-adjacent ValuePickr post (management commentary summary, 2025) put imported raw material content at 60&ndash;70% of input costs &mdash; a real currency and supply-chain exposure this report could not independently verify to a more precise figure.</li>
+<li><b>Regulatory price-cap risk.</b> Government price controls on medical devices (NPPA), specifically flagged by one brokerage note as a risk to categories including stents and knee implants &mdash; directly relevant given the new cardiology and orthopaedic lines acquired in 2025.</li>
+<li><b>US tariff and certification risk.</b> The company's own stated ambition to grow US revenue from roughly $2&ndash;3m (FY2025) to $15&ndash;20m over three to four years runs directly into tariff and regulatory uncertainty under the current US administration, a risk explicitly raised by ValuePickr contributors in late 2025 and not yet resolved one way or the other.</li>
+<li><b>A long-standing, recurring forex-hedging pattern.</b> As far back as 2013, retail investors on ValuePickr were noting that "management repeatedly blames forex" for profit swings despite the company's heavy, structural export exposure &mdash; a competence-adjacent critique (poor hedging discipline) rather than an allegation of misconduct, but one this report found no evidence has been fully resolved in the years since.</li>
+</ul>
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>The checklist: a near-perfect gate pass, and a harder cash test that says otherwise</h2>
+<p class="sec-sub">9 of 9 years above 10% growth, 8 of 9 above 15% ROCE &mdash; and a decade of real capex that has consumed essentially all the cash the business has generated on its own</p>
+
+<h3>The two mechanical gates</h3>
+<p>Poly Medicure's revenue growth cleared 10% year-on-year in <b>every one</b> of the trailing nine fiscal years (range: 12.3%&ndash;23.3%) &mdash; a cleaner pass than most companies this pipeline has covered. Return on capital employed (Mukherjea/Coffee Can Investing basis) cleared 15% in eight of the same nine years, missing only the most recent year, FY2026, at 14.0%. Combined: a <b>Dirty 9iner</b> &mdash; 9/9 on growth, 8/9 on returns, with the one miss being the newest, most-QIP-and-M&amp;A-affected year.</p>
+<p>Dr. Vijay Malik's own ROCE formula (which does not net current liabilities the way the Mukherjea definition does) shows the same declining pattern in the most recent year &mdash; 15.8% (FY2025) down to 13.0% (FY2026) &mdash; and the two formulas agree far more closely here than they did for a working-capital-funded distribution business (contrast this pipeline's Redington coverage): Poly Medicure's balance sheet is genuinely capital-intensive on the fixed-asset side, not primarily payables-funded, so netting or not netting current liabilities changes the answer less. Both readings agree on the direction: the equity base grew sharply (the FY2024 QIP, plus two acquisitions) faster than earnings on that base have yet caught up &mdash; a mechanical, temporary effect on the arithmetic, consistent with how the two sell-side notes this pipeline read both explain the same decline (Section <a href="#analysts">08</a>).</p>
+
+<h3>The three cash gates, using capex that has been corrected for a proxy distortion</h3>
+<p>This pipeline's default CFI-derived capex proxy reads FY2021 at &#8377;435.6 Cr (55.5% of that year's sales) and FY2025 at an implausible &#8377;1,186.9 Cr (71.1% of sales) &mdash; both years in which Poly Medicure raised a QIP (&#8377;400 Cr in 2021, &#8377;1,000 Cr in August 2024) and, per the company's own monitoring disclosures, parked the bulk of unspent proceeds in mutual funds while capex was gradually deployed. Mutual-fund purchases show up in the same investing-cash-flow line the capex proxy reads, inflating it in exactly the years the company raised the most capital. This report substitutes a corrected estimate for those two years (&#8377;130 Cr and &#8377;250 Cr respectively, interpolated from the surrounding years' real capex trend) rather than using the raw, QIP-distorted figures.</p>
+<div class="warn">
+<div class="lbl">Gate 3, on corrected capex: roughly breakeven over the decade</div>
+<p>Cumulative CFO (&#8377;1,547 Cr) less corrected cumulative capex (&#8377;1,463 Cr) less cumulative interest (&#8377;131 Cr) = <b>&minus;&#8377;48 Cr</b> across FY2017&ndash;FY2026. Even using the more favourable corrected capex figure &mdash; not the raw, more alarming &#8377;2,706 Cr proxy &mdash; the decade's real capital expenditure has consumed essentially all of the operating cash flow the business has generated on its own, with a small net shortfall once financing cost is added. Cumulative dividends of &#8377;251 Cr over the same period were, in effect, paid from the two external capital raises rather than organic free cash flow. Gate 1 (cumulative CFO/PAT) is a healthier-looking 0.93&times; &mdash; comfortably better than a distribution business like Redington, but still short of full conversion, and concentrated almost entirely in years before FY2026's receivable-days spike (Section <a href="#wc">05</a>).</p>
+</div>
+<p>This is not a company mismanaging cash the way a chronically underinvesting business would; it is a genuine, capital-intensive manufacturer plausibly investing ahead of demand &mdash; new plants in Jaipur, Palwal and Haridwar, plus two acquisitions, all explicitly aimed at doubling capacity and entering higher-value categories (Section <a href="#growth">07</a>). Whether that investment programme has produced, or will produce, returns that justify the growing capital base is the open question this report's valuation section (Section <a href="#valuation">13</a>) has to take a position on &mdash; the coffee-can gates alone say the company has grown fast and (mostly) profitably; they do not say the growth has been self-funding.</p>
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record</h2>
+<p class="sec-sub">Revenue up more than fourfold, margins genuinely strong throughout, and a fresh working-capital deterioration in the most recent year that breaks a decade-long pattern</p>
+
+<figure>
+<div class="fig-title">Consolidated revenue, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, this pipeline's own indexed database (Screener basis)</div>
+<svg viewBox="0 0 720 230" role="img" aria-label="Poly Medicure consolidated revenue by fiscal year, FY2017 to FY2026"><line class="grid-l" x1="52" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="46" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="46" y="157.0" text-anchor="end">506</text><line class="grid-l" x1="52" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="46" y="111.0" text-anchor="end">1,012</text><line class="grid-l" x1="52" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="46" y="65.0" text-anchor="end">1,518</text><line class="grid-l" x1="52" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="46" y="19.0" text-anchor="end">2,024</text><rect x="65.7" y="158.7" width="37.9" height="41.3" rx="4" fill="#c9a24b"><title>FY2017: Rs 454 Cr</title></rect><text class="ax" x="84.7" y="213" text-anchor="middle">'17</text><rect x="131.1" y="152.8" width="37.9" height="47.2" rx="4" fill="#c9a24b"><title>FY2018: Rs 519 Cr</title></rect><text class="ax" x="150.1" y="213" text-anchor="middle">'18</text><rect x="196.5" y="144.5" width="37.9" height="55.5" rx="4" fill="#c9a24b"><title>FY2019: Rs 610 Cr</title></rect><text class="ax" x="215.5" y="213" text-anchor="middle">'19</text><rect x="261.9" y="137.6" width="37.9" height="62.4" rx="4" fill="#c9a24b"><title>FY2020: Rs 687 Cr</title></rect><text class="ax" x="280.9" y="213" text-anchor="middle">'20</text><rect x="327.3" y="128.6" width="37.9" height="71.4" rx="4" fill="#c9a24b"><title>FY2021: Rs 785 Cr</title></rect><text class="ax" x="346.3" y="213" text-anchor="middle">'21</text><rect x="392.7" y="116.2" width="37.9" height="83.8" rx="4" fill="#c9a24b"><title>FY2022: Rs 922 Cr</title></rect><text class="ax" x="411.7" y="213" text-anchor="middle">'22</text><rect x="458.1" y="98.7" width="37.9" height="101.3" rx="4" fill="#c9a24b"><title>FY2023: Rs 1,115 Cr</title></rect><text class="ax" x="477.1" y="213" text-anchor="middle">'23</text><rect x="523.5" y="75.0" width="37.9" height="125.0" rx="4" fill="#c9a24b"><title>FY2024: Rs 1,375 Cr</title></rect><text class="ax" x="542.5" y="213" text-anchor="middle">'24</text><rect x="588.9" y="48.3" width="37.9" height="151.7" rx="4" fill="#c9a24b"><title>FY2025: Rs 1,669 Cr</title></rect><text class="ax" x="607.9" y="213" text-anchor="middle">'25</text><rect x="654.3" y="29.6" width="37.9" height="170.4" rx="4" fill="#7a86a0"><title>FY2026: Rs 1,874 Cr (first PAT decline in the decade)</title></rect><text class="ax" x="673.3" y="213" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="200" x2="706" y2="200"/></svg>
+<figcaption><b>Why:</b> revenue grew from &#8377;454 Cr to &#8377;1,875 Cr, a 17.1% CAGR with no down year and every single year clearing the coffee-can 10% growth gate (Section <a href="#framework">02</a>) &mdash; among the cleanest growth records this pipeline has covered.</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Sales (&#8377;Cr)</th><th class="num">OPM %</th><th class="num">PAT (&#8377;Cr)</th><th class="num">CFO (&#8377;Cr)</th><th class="num">Borrowings (&#8377;Cr)</th><th class="num">Interest (&#8377;Cr)</th></tr></thead>
+<tbody>
+<tr><td class="t">2017</td><td class="num">454</td><td class="num">20.6%</td><td class="num">55</td><td class="num">56</td><td class="num">101</td><td class="num">9</td></tr>
+<tr><td class="t">2018</td><td class="num">519</td><td class="num">23.5%</td><td class="num">71</td><td class="num">75</td><td class="num">133</td><td class="num">12</td></tr>
+<tr><td class="t">2019</td><td class="num">610</td><td class="num">21.5%</td><td class="num">65</td><td class="num">107</td><td class="num">161</td><td class="num">14</td></tr>
+<tr><td class="t">2020</td><td class="num">687</td><td class="num">24.2%</td><td class="num">96</td><td class="num">131</td><td class="num">207</td><td class="num">21</td></tr>
+<tr class="hl"><td class="t">2021</td><td class="num">785</td><td class="num">27.6%</td><td class="num">136</td><td class="num">119</td><td class="num">137</td><td class="num">11</td></tr>
+<tr><td class="t">2022</td><td class="num">923</td><td class="num">23.3%</td><td class="num">147</td><td class="num">124</td><td class="num">127</td><td class="num">6</td></tr>
+<tr><td class="t">2023</td><td class="num">1,115</td><td class="num">24.0%</td><td class="num">179</td><td class="num">191</td><td class="num">149</td><td class="num">11</td></tr>
+<tr><td class="t">2024</td><td class="num">1,375</td><td class="num">26.3%</td><td class="num">258</td><td class="num">266</td><td class="num">174</td><td class="num">14</td></tr>
+<tr class="hl"><td class="t">2025</td><td class="num">1,669</td><td class="num">27.3%</td><td class="num">339</td><td class="num">233</td><td class="num">180</td><td class="num">14</td></tr>
+<tr class="hl"><td class="t">2026</td><td class="num">1,875</td><td class="num">23.8%</td><td class="num">322</td><td class="num">246</td><td class="num">354</td><td class="num">21</td></tr>
+<tr class="tot"><td class="t">Cumulative</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">1,668</td><td class="num">1,547</td><td class="num">&mdash;</td><td class="num">131</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>What this pipeline's own anomaly scan flags, and what explains each one</h3>
+<ul>
+<li><b>Receivable days, up 35% over the decade (76.7 &rarr; 103.4 days) &mdash; and the increase is concentrated almost entirely in the most recent year.</b> FY2025 receivable days were 76.5, essentially flat with the decade's earlier range; FY2026 alone jumped to 103.4. This is the single most important fresh finding in this report and is covered in full in Section <a href="#wc">05</a>, alongside the working-capital-as-percent-of-sales measure, which moved from 31.9% to 44.0% in the same one year.</li>
+<li><b>Net fixed-asset turnover down 48% over the decade (2.00&times; &rarr; 1.05&times;), without a corresponding margin decline.</b> Operating margin has stayed in a 20.6&ndash;27.6% band throughout, with no sustained fall tracking the turnover decline &mdash; this is not Malik's classic subcontracting signature (rising turnover, falling margin; here turnover is falling while margin holds). The more likely explanation, consistent with the new-plant capex programme detailed in Section <a href="#growth">07</a> (Jaipur, Palwal and Haridwar facilities, plus the QIP's explicit &#8377;500 Cr capex allocation), is capacity built ahead of the demand that will eventually run through it &mdash; a genuine, if unresolved, execution question: will utilisation catch up to justify the enlarged asset base, or will turnover stay structurally lower going forward.</li>
+<li><b>PAT dipped in FY2026 (&#8377;339 Cr &rarr; &#8377;322 Cr) despite revenue growth continuing.</b> This is the first PAT decline in the decade's record, coinciding with the receivable-days spike, a step-down in reported OPM (27.3% &rarr; 23.8%) and a near-doubling of borrowings (&#8377;180 Cr &rarr; &#8377;354 Cr) &mdash; all in the same year the two European acquisitions closed and integration costs, higher depreciation on the new asset base, and (per Section <a href="#margin">04</a>) a fading one-off tailwind from QIP-proceeds interest income all landed together.</li>
+<li><b>Total-outside-liabilities-to-net-worth fell 64% over the decade</b> &mdash; a genuine deleveraging-looking trend, though driven substantially by the enlarged equity base from two QIPs rather than debt reduction; borrowings in absolute terms have not fallen (Section <a href="#capital">10</a>).</li>
+</ul>
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: a real operating decline, partly masked by a fading tailwind</h2>
+<p class="sec-sub">The headline PBT margin looks only modestly weaker; the operating margin underneath it looks worse, propped up by interest income on parked QIP cash that will not repeat</p>
+
+<p>The margin bridge from FY2024 to FY2026 decomposes PBT margin from 25.04% to 22.80%, a 224 basis-point decline:</p>
+
+<figure>
+<div class="fig-title">PBT margin bridge, FY2024 &rarr; FY2026</div>
+<div class="fig-sub">Basis points, this pipeline's own decomposition (src.modules.equity_research.margin_bridge)</div>
+<svg viewBox="0 0 720 250" role="img" aria-label="Decomposition of Poly Medicure profit-before-tax margin change from FY2024 to FY2026"><line class="grid-l" x1="50" y1="204.0" x2="706" y2="204.0"/><text class="ax" x="44" y="207.0" text-anchor="end">0%</text><line class="grid-l" x1="50" y1="173.3" x2="706" y2="173.3"/><text class="ax" x="44" y="176.3" text-anchor="end">5%</text><line class="grid-l" x1="50" y1="142.7" x2="706" y2="142.7"/><text class="ax" x="44" y="145.7" text-anchor="end">10%</text><line class="grid-l" x1="50" y1="112.0" x2="706" y2="112.0"/><text class="ax" x="44" y="115.0" text-anchor="end">15%</text><line class="grid-l" x1="50" y1="81.3" x2="706" y2="81.3"/><text class="ax" x="44" y="84.3" text-anchor="end">20%</text><line class="grid-l" x1="50" y1="50.7" x2="706" y2="50.7"/><text class="ax" x="44" y="53.7" text-anchor="end">25%</text><line class="grid-l" x1="50" y1="20.0" x2="706" y2="20.0"/><text class="ax" x="44" y="23.0" text-anchor="end">30%</text><rect x="73.0" y="50.4" width="63.4" height="153.6" rx="4" fill="#7a86a0"><title>25.04%</title></rect><text class="vlbl" x="104.7" y="44.4" text-anchor="middle">25.04%</text><text class="ax" x="104.7" y="218" text-anchor="middle">FY24</text><text class="ax" x="104.7" y="229" text-anchor="middle">PBT margin</text><rect x="182.3" y="50.4" width="63.4" height="15.3" rx="3" fill="#d97a5f"><title>EBITDA margin: -249 bps</title></rect><text class="vlbl" x="214.0" y="44.4" text-anchor="middle" fill="#d97a5f">-249</text><line x1="245.7" y1="65.7" x2="291.6" y2="65.7" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="214.0" y="218" text-anchor="middle">EBITDA</text><text class="ax" x="214.0" y="229" text-anchor="middle">margin</text><rect x="291.6" y="65.7" width="63.4" height="9.5" rx="3" fill="#d97a5f"><title>Depreciation: -155 bps</title></rect><text class="vlbl" x="323.3" y="59.7" text-anchor="middle" fill="#d97a5f">-155</text><line x1="355.0" y1="75.2" x2="401.0" y2="75.2" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="323.3" y="218" text-anchor="middle">Depreciation</text><rect x="401.0" y="63.2" width="63.4" height="12.0" rx="3" fill="#5fb98a"><title>Other income: +196 bps</title></rect><text class="vlbl" x="432.7" y="57.2" text-anchor="middle" fill="#5fb98a">+196</text><line x1="464.4" y1="63.2" x2="510.3" y2="63.2" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="432.7" y="218" text-anchor="middle">Other</text><text class="ax" x="432.7" y="229" text-anchor="middle">income</text><rect x="510.3" y="63.2" width="63.4" height="2.0" rx="3" fill="#d97a5f"><title>Interest cost: -16 bps</title></rect><text class="vlbl" x="542.0" y="57.2" text-anchor="middle" fill="#d97a5f">-16</text><line x1="573.7" y1="64.2" x2="619.6" y2="64.2" stroke="rgba(232,228,214,0.25)" stroke-width="1" stroke-dasharray="2,2"/><text class="ax" x="542.0" y="218" text-anchor="middle">Interest</text><text class="ax" x="542.0" y="229" text-anchor="middle">cost</text><rect x="619.6" y="64.2" width="63.4" height="139.8" rx="4" fill="#7a86a0"><title>22.80%</title></rect><text class="vlbl" x="651.3" y="58.2" text-anchor="middle">22.80%</text><text class="ax" x="651.3" y="218" text-anchor="middle">FY26</text><text class="ax" x="651.3" y="229" text-anchor="middle">PBT margin</text><line class="zero-l" x1="50" y1="204" x2="706" y2="204"/></svg>
+<figcaption><b>Why:</b> the underlying EBITDA-margin decline (&minus;249bp) is <i>larger</i> than the headline PBT decline (&minus;224bp), because rising other income (+196bp) partially offset it. This is very likely interest earned on the ~&#8377;900 Cr+ of QIP proceeds the company kept parked in mutual funds while capex was gradually deployed (CRISIL's own monitoring filing recorded &#8377;6.69 Cr earned in a single quarter, Q2 FY2025, on unutilised proceeds) &mdash; a real but temporary and non-operating source of profit that fades as the QIP money is actually spent on the plants and acquisitions it was raised for.</figcaption>
+</figure>
+
+<p>Reading the bridge components in order:</p>
+<ul>
+<li><b>EBITDA margin, &minus;249bp.</b> The real operating deterioration. Section <a href="#record">03</a> shows this concentrated in FY2026 specifically (27.3% &rarr; 23.8%, a single-year step-down), coinciding with the two acquisitions closing, integration costs, and the receivable-days spike (Section <a href="#wc">05</a>) that typically accompanies rapid, M&amp;A-driven revenue mix change.</li>
+<li><b>Depreciation, &minus;155bp (a drag).</b> Consistent with the large new-plant capex programme (Section <a href="#framework">02</a>) beginning to depreciate before the corresponding capacity is fully utilised &mdash; the same dynamic behind the falling net-fixed-asset-turnover anomaly in Section <a href="#record">03</a>.</li>
+<li><b>Other income, +196bp (a genuine but temporary tailwind).</b> As explained above, this is the more important of the two favourable-looking components to treat with scepticism &mdash; it is non-operating, sourced to parked capital rather than the business, and mechanically shrinks as the QIP proceeds are deployed (the news research behind this report found roughly &#8377;501 Cr of &#8377;985 Cr net QIP proceeds utilised by March 2026, with the balance still earning interest &mdash; meaning this tailwind has partly, not fully, faded as of the most recent full year).</li>
+<li><b>Interest cost, &minus;16bp (a small additional drag).</b> Consistent with borrowings nearly doubling in FY2026 alone (Section <a href="#record">03</a>).</li>
+</ul>
+
+<p>Sell-side coverage of this margin picture (Section <a href="#analysts">08</a>) treats the decline uniformly as mechanical and temporary &mdash; a function of the enlarged, not-yet-fully-earning capital base rather than a competitive or pricing problem. This report finds that framing plausible for the depreciation and (to a lesser extent) the other-income components, but notes that <b>neither brokerage note read in full attributes the EBITDA-margin decline itself to a specific, resolvable cause</b> &mdash; it is simply lower, in the one year integration, receivables and new-plant ramp-up all landed together, and no primary source available to this research explains it further.</p>
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: a one-year spike that breaks a decade-long pattern</h2>
+<p class="sec-sub">Unlike a business funding growth with more supplier credit, Poly Medicure's payable days actually shrank while receivable days jumped &mdash; both moving the wrong way at once</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">FY</th><th class="num">Receivable days</th><th class="num">Payable days</th><th class="num">Net WC (&#8377;Cr)</th><th class="num">WC % of sales</th><th class="num">Incremental WC / incremental revenue</th></tr></thead>
+<tbody>
+<tr><td class="t">2023</td><td class="num">77.1</td><td class="num">30.1</td><td class="num">368</td><td class="num">33.0%</td><td class="num">24.5%</td></tr>
+<tr><td class="t">2024</td><td class="num">71.7</td><td class="num">25.5</td><td class="num">387</td><td class="num">28.1%</td><td class="num">7.3%</td></tr>
+<tr><td class="t">2025</td><td class="num">76.5</td><td class="num">18.8</td><td class="num">533</td><td class="num">31.9%</td><td class="num">49.6%</td></tr>
+<tr class="hl"><td class="t">2026</td><td class="num">103.4</td><td class="num">24.0</td><td class="num">824</td><td class="num">44.0%</td><td class="num" style="color:var(--loss)">141.8%</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Two things happened in FY2026 that, together, are worse than either alone. Receivable days jumped from 76.5 to 103.4 &mdash; a genuine, sharp deterioration in how quickly the company's customers are paying, not the kind of gradual multi-year drift this report found at Redington (Section <a href="#wc">05</a> of that report, for comparison) but a single-year step. At the same time, payable days &mdash; after already shrinking from 30.1 (FY2023) to 18.8 (FY2025) &mdash; only partially recovered to 24.0, well below the FY2023 level. Poly Medicure is not funding its growing receivables book with more supplier credit, the way a distributor typically would; its own suppliers are, if anything, being paid faster than they were three years ago. Both sides of the working-capital equation moved against the company in FY2026, not just one.</p>
+
+<p>The result: net operating working capital more than doubled from &#8377;368 Cr (FY2023) to &#8377;824 Cr (FY2026), and working capital as a share of sales jumped from 28&ndash;33% (the FY2023&ndash;25 range) to 44.0%. Most strikingly, the <b>incremental</b> working-capital ratio &mdash; how much new working capital each additional rupee of revenue consumed &mdash; was 141.8% in FY2026: working capital grew by more than the entire increase in revenue that year, an outright cash-negative growth dynamic on this measure alone, not merely a slower-than-ideal one.</p>
+
+<div class="key">
+<div class="lbl">The most likely explanation, stated as a plausible read rather than a confirmed one</div>
+<p>FY2026 is the year both European acquisitions (PendraCare, Citieffe) were consolidated for close to a full year for the first time, alongside continued ramp-up of the new India plants. Newly-consolidated European subsidiaries plausibly carry longer customer payment terms than Poly Medicure's core Indian export/domestic mix, and an acquired receivables and inventory book consolidating in for the first time would show up exactly this way &mdash; a step change rather than a gradual drift. <b>This report could not find a primary source that confirms this explanation in the company's own words</b>; it is offered as the most plausible reading given the timing, not as a management-confirmed account, and is flagged again in Section <a href="#gaps">15</a>.</p>
+</div>
+
+<p>Whichever the specific cause, the practical consequence is direct: this is the single input this report's own valuation (Section <a href="#valuation">13</a>) is most sensitive to, and unlike the recent, more favourable years (FY2024's 7.3%), FY2026 shows this business can consume working capital at a rate that erases the cash value of the revenue growth generating it entirely.</p>
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How Poly Medicure compares with its real peers</h2>
+<p class="sec-sub">Its closest listed comparable is in genuine working-capital distress; its largest domestic rival is unlisted; global majors it has actually beaten in patent court trade at far lower multiples</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Company</th><th class="t">Listed?</th><th class="num">Revenue (&#8377;Cr, FY26)</th><th class="num">ROCE</th><th class="num">OPM</th><th class="num">P/E</th><th class="t">Notes</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Poly Medicure (anchor)</td><td class="t">Y</td><td class="num">1,875</td><td class="num">12.5%</td><td class="num">23.8%</td><td class="num">54.0&times;</td><td class="t">anchor</td></tr>
+<tr><td class="t">Tarsons Products</td><td class="t">Y</td><td class="num">423</td><td class="num">4.6%</td><td class="num">27% (TTM)</td><td class="num">154&times;</td><td class="t">Closest business-model comp; genuine distress &mdash; see below</td></tr>
+<tr><td class="t">Cupid Ltd</td><td class="t">Y</td><td class="num">358</td><td class="num">33.9%</td><td class="num">35% (TTM)</td><td class="num">246&times;</td><td class="t">High growth/margin; some fetched figures internally inconsistent, treat with caution</td></tr>
+<tr><td class="t">Hindustan Syringes &amp; Medical Devices (HMD)</td><td class="t">N &mdash; private</td><td class="num">not disclosed</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="t">India's largest syringe/needle maker; named as an entrenched incumbent by this pipeline's ValuePickr research</td></tr>
+<tr><td class="t">Becton Dickinson, B. Braun, Terumo (global majors)</td><td class="t">Y (not India-tradeable)</td><td class="num">not comparable at this scale</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="t">Global reference only &mdash; B. Braun is the company Poly Medicure beat in European patent court in 2014</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Tarsons Products: the closest business-model comparable, and a cautionary tale on inventory discipline</h3>
+<p>Tarsons manufactures medical-grade plasticware (labware, diagnostics consumables) &mdash; the same injection-moulded, medical-grade-plastics manufacturing model as Poly Medicure's core disposables business, though for laboratory rather than direct patient-care use. Its numbers are a genuine warning sign for anyone reading Poly Medicure's own working-capital deterioration (Section <a href="#wc">05</a>) as a one-off: Tarsons' net profit has fallen from &#8377;101 Cr (FY2022) to &#8377;14 Cr (FY2026), a 5-year profit CAGR of roughly &minus;26%, ROCE has collapsed to 4.6% and ROE to 2.4%, and its cash-conversion cycle now runs <b>361 days</b>, driven by 341 days of inventory on the balance sheet &mdash; a company that has expanded capacity faster than it can sell into it. Poly Medicure is not in this position today, but Tarsons is a real, same-industry illustration of what happens when a capital-intensive medical-plastics manufacturer's capacity growth outruns demand for an extended period, which is precisely the open question Section <a href="#record">03</a>'s falling-asset-turnover finding raises for Poly Medicure itself.</p>
+
+<h3>Cupid Ltd: a genuine high-margin, high-growth comparable, with a data caveat</h3>
+<p>Cupid manufactures disposable rubber and plastic health products (condoms, contraceptives, gloves) with a WHO-prequalified, government-tender-driven export business &mdash; a comparable low-cost, high-volume disposable-manufacturing model. Its recent numbers are strong (FY2026 sales &#8377;358 Cr, up from &#8377;183 Cr the prior year; ROCE 33.9%, OPM 35%), and it trades at an even richer multiple than Poly Medicure. <b>One figure in this pipeline's fetch &mdash; a market capitalisation of roughly &#8377;33,800 Cr against &#8377;358 Cr of revenue &mdash; looks internally inconsistent with a stock price of &#8377;251 and should be treated as a probable data-extraction error, not a verified fact</b>; the growth, margin and ROCE figures are used here with that specific caveat attached to market cap and P/E only.</p>
+
+<h3>The largest actual competitor is not on any exchange</h3>
+<p>Hindustan Syringes &amp; Medical Devices (HMD) is described in multiple sources, and named directly by ValuePickr contributors discussing Poly Medicure's 2021 entry into generic syringes, as India's largest syringe and needle manufacturer and a major global exporter in its own right &mdash; and it is privately held, disclosing no audited financials this research could access. As with Redington's Ingram Micro India comparison (a separate report in this pipeline), Poly Medicure's true competitive intensity in its core categories is only partly visible through the listed universe.</p>
+
+<h3>The global majors: a real patent-litigation history, not merely a scale reference</h3>
+<p>Unlike most peer comparisons in this pipeline, Poly Medicure's relationship with a global major &mdash; B. Braun &mdash; is not purely a margin-benchmarking exercise: the company won a 2014 European Patent Office ruling revoking two of B. Braun's IV safety-catheter patents, directly enabling its own European market access in that category. Becton Dickinson and Terumo are the other global-scale peers most often cited alongside B. Braun in the medical-disposables space; none discloses financials at a scale comparable to Poly Medicure and none is treated here as a valuation comparable, but the patent history is a genuine, sourced data point on the strength of Poly Medicure's own IP position relative to the industry's largest incumbents, not merely an assumption.</p>
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: real momentum, an acquisition doing most of the recent work, and management's own margin-dilution warning</h2>
+<p class="sec-sub">FY2027 guidance already tells investors to expect thinner margins from here, not a return to the FY2025 peak</p>
+
+<p>Q1 FY2027 (quarter to June 2026): consolidated revenue &#8377;525.4 Cr, up 30.3% year-on-year &mdash; but organic growth alone was approximately 12.4%, with the remainder coming from the PendraCare and Citieffe consolidations. The cardiology segment, entirely new to the company via the PendraCare acquisition, grew 897% year-on-year &mdash; a consolidation effect, not evidence of organic cardiology demand growth, and this report treats it as such rather than as a like-for-like growth data point. Standalone EBITDA margin (24-25%... 28.0%) came in above the guided 25&ndash;27% range; consolidated EBITDA margin (24.1%) landed within the guided 23&ndash;25% band &mdash; the first quarter of evidence against the FY2027 guidance discussed below.</p>
+
+<h3>Management's own FY2027 guidance: growth continuing, margin guided lower than FY2025's peak</h3>
+<p>Consolidated revenue guidance for FY2027 is &#8377;2,300&ndash;2,400 Cr (against FY2026's &#8377;1,875 Cr, implying roughly 23&ndash;28% growth, a full year of PendraCare and Citieffe consolidation included). Consolidated EBITDA margin is guided at 23&ndash;25%, against standalone guidance of 25&ndash;27% &mdash; management's own words, from a mid-2026 investor update, are explicit that the newly-acquired subsidiaries are "dilutive" to the blended margin. This is worth stating plainly: <b>management itself is not guiding to a return to FY2025's 27.3% margin peak</b>; it is guiding to something structurally lower, as the price of the acquisition-led growth strategy. The guidance history behind this is itself informative &mdash; as recently as November 2025, domestic growth guidance was raised to 28&ndash;30% for FY2026 while international growth guidance was simultaneously cut to roughly 10% (including acquisition revenue), with management's own stated reasoning that "guidance is built with conservatism, particularly around exports, given geopolitical headwinds."</p>
+
+<h3>Genuine capacity and product-mix upgrades under way</h3>
+<ul>
+<li><b>Capacity expansion.</b> Stated unit-capacity growth from 1.2 billion to 1.5 billion to a targeted 1.8 billion devices per year, funded substantially by the 2024 QIP's capex allocation (Section <a href="#capital">10</a>); the Haridwar plant is now commercial, with the Palwal facility targeted for FY2027 completion.</li>
+<li><b>A genuine move up the value chain.</b> New high-average-selling-price products &mdash; intravascular lithotripsy and drug-eluting balloon devices, with per-unit ASPs cited above &#8377;1,15,000, an order of magnitude above the company's legacy disposables &mdash; have been approved, directly leveraging the PendraCare cardiology platform.</li>
+<li><b>R&amp;D remains thin for the positioning.</b> At roughly 1.47% of revenue (~&#8377;24.6 Cr), R&amp;D spend is modest for a company marketing itself on patent-derived differentiation; management has stated an intent to double it, with R&amp;D headcount now over 100 across India, Italy and the Netherlands &mdash; a stated plan, not yet a delivered outcome.</li>
+</ul>
+
+<h3>The renal/dialyzer segment: the clearest example of a guided-down growth line, now a formal trade case</h3>
+<p>Renal-segment growth guidance has been cut twice: first from 50&ndash;55% to 30&ndash;35% (2023, citing Chinese import competition), and the segment's unit target trimmed again in early 2026 to roughly 450 machines from a prior 500&ndash;600 range. The underlying competitive pressure escalated on 28 June 2026 into a formal DGTR anti-dumping investigation on dialyzers, filed at Poly Medicure's own request &mdash; a genuine, live regulatory process with a stated 12&ndash;18 month timeline and an outcome this report cannot yet assess.</p>
+</section>
+
+
+<section id="analysts">
+<h2><span class="num">08</span>What institutional analysts have gotten right, and what they have not engaged with at all</h2>
+<p class="sec-sub">Two full brokerage notes read directly, both bullish, both silent on the one governance question retail investors have raised three times</p>
+
+<p>Aggregator data on Poly Medicure is genuinely inconsistent &mdash; analyst counts range from 1 to 6 depending on source, and target prices span roughly &#8377;1,230 to &#8377;2,478, a near-2&times; spread on the same stock at broadly the same point in time. This report treats the two brokerage notes it could read in full as the more reliable data points, and states the wider aggregator dispersion explicitly rather than picking a single flattering figure.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Source</th><th class="t">Date</th><th class="t">Rating</th><th class="num">Target</th><th class="t">Basis</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">LKP Securities (Sandeep Abhange)</td><td class="t">12 Mar 2025</td><td class="t">Buy</td><td class="num">&#8377;2,900</td><td class="t">"Consistently maintained a RoCE of 16-20%, reflecting efficient capital allocation and strong business fundamentals" &mdash; no mention of the ROCE decline this pipeline's own database shows</td></tr>
+<tr class="hl"><td class="t">Waya Research</td><td class="t">24 Dec 2025</td><td class="t">Buy</td><td class="num">&#8377;2,240</td><td class="t">50&times; target P/E &times; FY2028E EPS, explicitly justified as "aligned with 10-year median" &mdash; shows the ROCE decline in its own numbers (23.6% FY24 &rarr; 16.4% FY25) but attributes it to the enlarged QIP-funded equity base, not a red flag</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Both notes are constructive on the capex cycle and treat the ROCE decline as mechanical and temporary rather than an execution or capital-discipline concern &mdash; the same framing found across other aggregator sources checked in this research. Neither brokerage's stated risk framework (export/tariff exposure, integration risk from two simultaneous European acquisitions, NPPA price-cap regulation, raw-material cost volatility) includes capital allocation or related-party governance as a category at all.</p>
+
+<div class="warn">
+<div class="lbl">The gap between retail and institutional scrutiny</div>
+<p><b>Neither of the two full brokerage notes this research read mentions Vitromed Healthcare or the related-party job-work arrangement anywhere in either document</b> &mdash; confirmed by a full-text keyword search of both extracted PDFs. This is the same arrangement three separate ValuePickr contributors independently flagged across 2018, 2023 and 2025 (Section <a href="#flags">11</a>), the most recent citing a specific rupee figure sourced to an ICRA rating report. The concern appears to be a genuinely retail-forum-only phenomenon that institutional sell-side research covering this stock has not picked up, engaged with, or rebutted &mdash; not evidence the concern is unfounded, simply evidence it has gone unexamined by the analysts setting the price targets this report's valuation section weighs against.</p>
+</div>
+
+<p>One internal inconsistency worth flagging for anyone using either note directly: Waya's own report states promoter holding as both "62.4%" (its data table) and "~45-50%... validating governance standards" (a separate risk-paragraph in the same document) &mdash; a roughly 15-point internal contradiction, almost certainly a stale template sentence from an unrelated comparison left uncorrected. The disclosed, exchange-sourced figure (62.4%, matching Trendlyne, LKP and Screener) is the one this report uses throughout (Section <a href="#capital">10</a>).</p>
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">09</span>Management scorecard: guidance has generally been realistic, sourced secondhand</h2>
+<p class="sec-sub">A genuine limitation stated up front: this scorecard is built from ValuePickr contributors' own summaries of quarterly calls, not this pipeline's own primary transcript reads</p>
+
+<div class="warn">
+<div class="lbl">Scope and confidence of this scorecard</div>
+<p>This research pass did not read Poly Medicure's own earnings-call transcripts directly. The guidance-versus-actual comparisons below are reconstructed from ValuePickr contributors' contemporaneous summaries of management's statements on calls &mdash; a genuine secondary source, useful for tracking direction and magnitude, but not a primary-source verification of management's exact words. Every item below is graded accordingly, and a direct primary-transcript read is flagged in Section <a href="#gaps">15</a> as the highest-priority improvement for a future refresh.</p>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Guided</th><th class="t">Delivered</th><th class="t">Verdict</th></tr></thead>
+<tbody>
+<tr><td class="t">Renal segment growth cut from 50&ndash;55% to 30&ndash;35% (2023 call, citing Chinese import competition)</td><td class="t">This report could not independently verify the renal segment's actual FY2024 growth against this specific guided range from a primary source</td><td class="t"><span class="pill p-open">Unresolved</span></td></tr>
+<tr><td class="t">FY2026 full-year growth guidance cut to 5&ndash;10% after a weak Q1 FY2026 (a &minus;6% to &minus;7% quarter)</td><td class="t">FY2026 full-year revenue grew 12.3% (&#8377;1,669 Cr &rarr; &#8377;1,875 Cr) &mdash; ahead of the cut guidance range</td><td class="t"><span class="pill p-kept">Beat</span></td></tr>
+<tr><td class="t">Standalone EBITDA margin guided 25&ndash;27% for the year ahead (per a mid-2026 update)</td><td class="t">Q1 FY2027 standalone EBITDA margin came in at 28.0%, above the guided band</td><td class="t"><span class="pill p-kept">Beat (one quarter)</span></td></tr>
+<tr><td class="t">Consolidated EBITDA margin guided 23&ndash;25%, explicitly lower than FY2025's realised 27.3%, with management citing subsidiary dilution</td><td class="t">Q1 FY2027 consolidated EBITDA margin: 24.1%, within the guided band</td><td class="t"><span class="pill p-kept">Met (one quarter)</span></td></tr>
+<tr><td class="t">Capacity expansion path stated as 1.2bn &rarr; 1.5bn &rarr; 1.8bn units per year (2024 guidance)</td><td class="t">This report could not independently verify actual unit capacity reached against this specific path</td><td class="t"><span class="pill p-open">Unresolved</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Read together, and with the sourcing caveat above firmly in mind, the pattern that emerges is a management team that has been willing to cut guidance in response to real, external pressure (Chinese competition on renal, a soft Q1 FY2026) rather than defend an over-optimistic number &mdash; and has then generally delivered inside or ahead of the reset range. The one explicit, forward-looking signal worth tracking closely is the FY2027 consolidated margin guidance itself (23&ndash;25%, Section <a href="#growth">07</a>): management is telling investors directly that the acquisition-led growth strategy dilutes margin, which is a more useful form of guidance discipline than either overpromising or staying silent on the trade-off.</p>
+</section>
+
+
+<section id="capital">
+<h2><span class="num">10</span>Capital allocation: the promoter group bought before the QIP, not through it</h2>
+<p class="sec-sub">A resolved mechanism for a genuinely confusing shareholding jump, two capital raises used to fund growth gradually, and a rising executive-pay concern</p>
+
+<h3>The FY2025 QIP: sizing, use of proceeds, and how much has actually been spent</h3>
+<p>Poly Medicure raised &#8377;1,000 Cr gross (&#8377;985 Cr net) via a Qualified Institutions Placement, allotted 22 August 2024 &mdash; roughly 53.2 lakh shares at &#8377;1,880 each, an 11.6% discount to the pre-issue price. The stated objects, from the company's own offer document (as filed in a CRISIL monitoring report): &#8377;500 Cr for three new India manufacturing facilities (Jaipur, Palwal, Haridwar), &#8377;250 Cr for "pursuing inorganic initiatives," and &#8377;235 Cr for general corporate purposes. As of March 2026, roughly &#8377;501 Cr of the &#8377;985 Cr net proceeds had been utilised &mdash; including &#8377;152 Cr toward the PendraCare acquisition and &#8377;29 Cr into the new plants &mdash; with the balance still held in mutual funds and fixed deposits (the source of the temporary other-income tailwind discussed in Section <a href="#margin">04</a>). This is Poly Medicure's second such raise: a &#8377;400 Cr QIP in FY2021 was, per a contemporaneous ValuePickr question, still 82% unutilised (&#8377;330 Cr of &#8377;400 Cr) nine months after allotment &mdash; the same pattern of raising ahead of need and deploying gradually repeating itself.</p>
+
+<h3>The promoter-shareholding jump: resolved mechanism, one open question</h3>
+<p>Promoter holding rose from 53.14% (March 2024) to somewhere between 62.6% and 66.0% by June 2024 (sources disagree on the exact quarter-end figure, though they agree tightly on the March 2024 starting point and the December 2024 resting point of 62.44%) &mdash; <b>before</b> the August 2024 QIP, not because of it. A SEBI SAST disclosure shows a promoter-group vehicle, <b>Jai Polypan Private Limited</b> (directors Arun Kumar Bhandari and Vishal Baid &mdash; Vishal Baid is named directly among Poly Medicure's promoters in the company's own QIP filing), acquired 1,23,61,320 shares &mdash; roughly 12.9% of the pre-QIP share count &mdash; disclosed 28 June 2024. Because total shares outstanding did not change between March and June 2024, this block necessarily came from public or non-promoter hands into a promoter-group vehicle. The QIP three months later then issued new shares almost entirely to non-promoter institutional investors, mechanically diluting promoter holding back down to where it has sat since (~62.4%).</p>
+<div class="warn">
+<div class="lbl">What remains unresolved</div>
+<p>This research could not identify the seller side of the Jai Polypan transaction &mdash; whether it was an open-market accumulation, a negotiated block deal with a specific institutional or other large holder, or something else &mdash; despite targeted searches. The mechanism matters for how this event should be read: a benign consolidation of family holdings reads very differently from promoters buying out a large holder shortly before a QIP that would reprice the stock. This report states the resolved half of the story (promoter-side accumulation, then QIP dilution) with confidence and flags the unresolved half &mdash; the counterparty and pricing of the Jai Polypan acquisition &mdash; explicitly in Section <a href="#gaps">15</a> rather than speculating on it.</p>
+</div>
+
+<h3>Executive remuneration: a smaller, separate governance-adjacent concern</h3>
+<p>ValuePickr contributors have twice flagged the scale of Baid-family executive pay relative to company profit: roughly 50% salary increases for Himanshu and Rishi Baid in FY2021 (to approximately &#8377;10 Cr each against ~&#8377;180 Cr of profit, with one contributor arguing this approached the Companies Act's 11%-of-PAT ceiling on managerial remuneration), and combined pay of roughly &#8377;41 Cr (~&#8377;20 Cr each) by 2025 &mdash; a further, larger increase in absolute terms. This is a distinct issue from the Vitromed job-work arrangement (Section <a href="#flags">11</a>): a question about pay quantum rather than related-party transaction pricing, but part of the same broader picture of promoter-family capital allocation this report weighs in its verdict.</p>
+
+<h3>Dividends and the historical capital-discipline critique</h3>
+<p>One ValuePickr contributor's November 2025 analysis argued the company was, if anything, historically "capital-starved" before 2020 by relatively high dividend payouts that limited reinvestment capacity &mdash; a framing this report cannot independently verify but which is at least directionally consistent with the two large capital raises since: a company that once returned more cash than it invested has since reversed course toward raising external capital to fund a much larger investment programme (Section <a href="#framework">02</a>).</p>
+</section>
+
+
+<section id="flags">
+<h2><span class="num">11</span>Governance and credit risk: an improving rating, and a related-party question three retail investors have raised and none has answered</h2>
+<p class="sec-sub">CRISIL's outlook just turned Positive. The one item its own rating report apparently discusses in more candid terms than the company's own AOC-2 filing has gone unrebutted for eight years.</p>
+
+<h3>Credit rating: reaffirmed and improving</h3>
+<p>Poly Medicure is rated by CRISIL only (no ICRA, CARE or India Ratings coverage was found). The most recent action, 24 June 2026, <b>revised the outlook to Positive from Stable</b> while reaffirming the long-term rating at CRISIL AA&minus; and short-term at CRISIL A1+, with total rated bank facilities enhanced from &#8377;400 Cr to &#8377;500 Cr. CRISIL's own stated rationale ties the improved outlook to the inorganic expansion into new geographies and product diversification (cardiology, orthopaedics) &mdash; the same acquisitions covered in Section <a href="#business">01</a>, read here as a credit positive by the one agency that rates the company, even as this report's own analysis (Section <a href="#wc">05</a>, <a href="#margin">04</a>) treats the same events as the proximate cause of FY2026's working-capital and margin deterioration. Both readings can be correct simultaneously: a rating agency weighs diversification and strategic positioning; this report's own numbers weigh near-term cash conversion.</p>
+
+<h3>The Vitromed Healthcare related-party arrangement: raised three times, on the record, unanswered each time</h3>
+<p>An existing internal audit already documents the substance of this arrangement in full: Vitromed Healthcare, a partnership firm in which sitting directors Jugal Kishore Baid and Rishi Baid are personally partners, has been paid for outsourced medical-device manufacturing job-work every year since at least 2018, with the disclosed annual value growing from &#8377;36.5 Cr (FY2018) to &#8377;89.3 Cr (FY2025) &mdash; roughly 2.4&times; over seven years, requiring repeated shareholder Special Resolutions to raise the contract ceiling. Every AOC-2 filing across that period states the transactions were at arm's length; CARO opinions have stayed unqualified.</p>
+<p>What this research adds to that existing finding is the retail-investor record, read directly from the single ValuePickr thread covering this stock (Section <a href="#sentiment">12</a>):</p>
+<ul>
+<li><b>2018 (Umang Shah, post #294)</b> &mdash; the earliest and most descriptive flag: identified that "almost 55% of Vitromed's revenues come from Polymed," noted forward job-work commitments already disclosed for 2019&ndash;2020 in the &#8377;75&ndash;90 Cr range (a paper trail for the growth this report's own audit later confirmed), calculated Vitromed's own ROCE at roughly 15% (arguing the arrangement was priced generously enough that the promoter-owned counterparty earned a respectable return purely from servicing the listed company), and specifically questioned why new business lines were being launched inside Vitromed rather than inside Poly Medicure itself.</li>
+<li><b>2023 (A.H. Inamdar, post #431)</b> &mdash; the sharpest escalation: directly linked falling ROCE to the related entity, writing that this "indicates siphoning off money."</li>
+<li><b>2025/26 (sevanth bommannagari, post #467)</b> &mdash; the most quantified: cited specific flows (~&#8377;24 Cr of sales <i>to</i> Vitromed, ~&#8377;32 lakh of purchases back, and the ~&#8377;89 Cr job-work payment, the last figure sourced by the poster to an ICRA rating report rather than the annual report itself) and again used the word "siphon."</li>
+</ul>
+<p><b>No ValuePickr post found in this research defends or rebuts the arrangement in detail</b> &mdash; the concern has gone unanswered on the forum each time it has been raised across eight years. More strikingly, <b>neither of the two full sell-side notes this research read (LKP, March 2025; Waya, December 2025) mentions Vitromed or related-party manufacturing anywhere in either document</b>, confirmed by a full-text search of both. This report does not conclude the arrangement is improper &mdash; every individual disclosure has been compliant, and the audit underlying this section found no non-arm's-length transaction, qualified audit opinion, or fraud finding in eleven years of filings &mdash; but a specific, quantified, repeatedly-raised concern that institutional research has simply never engaged with is itself a governance-transparency gap worth stating plainly, independent of whether the underlying pricing turns out to be fair.</p>
+
+<h3>A separate, smaller litigation matter</h3>
+<p>A Delhi Revenue Department order dated 15 June 2026 demanded approximately &#8377;2.5 Cr in deficit stamp duty and penalty relating to a series of share allotments between November 2021 and August 2024, which the company contests on jurisdictional and procedural grounds (arguing stamp duty was already discharged via depository payment at allotment). The Delhi High Court granted a stay on the order's execution on 3 July 2026. Immaterial in size relative to the company's scale, and not evidence of a pattern with the other items in this section &mdash; included for completeness.</p>
+
+<h3>What this research did not find</h3>
+<p>No US FDA Form 483, warning letter, or import alert was located for Poly Medicure &mdash; read as an absence in open search, not as an affirmative clean regulatory record, since FDA's own inspection database was not queried directly. No GST demand, income-tax dispute, SEBI enforcement action, promoter share pledge, or board-level resignation/removal was found in the 2023&ndash;2026 window. No dedicated proxy-advisory (IiAS/SES) report on the Vitromed arrangement specifically was found in open search &mdash; plausibly because such reports are typically subscriber-only, which this report treats as a search limitation rather than evidence proxy advisors have reviewed and cleared the arrangement.</p>
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">12</span>What retail investors have said, across fifteen years in one thread</h2>
+<p class="sec-sub">A single long-running ValuePickr thread, and a recurring "great business, rich price" tension that shows up in nearly every year of it</p>
+
+<p>Poly Medicure has essentially one dedicated ValuePickr thread &mdash; <i>"Poly Medicure - at an inflection point!"</i> (topic #256), opened 6 April 2011 by senior moderator Donald Francis and still active as of its most recent post, 28 June 2026: 444 posts, 120,248 views. For a stock that has compounded more than 30-fold since the thread opened, ~30 posts a year is a genuinely thin cadence compared with more actively-traded general-portfolio threads on the same forum &mdash; and a direct search found no thread anywhere on ValuePickr discussing Poly Medicure alongside its closest listed peers, Tarsons or Cupid. Retail attention here is real but siloed, not connected into a broader sector conversation.</p>
+
+<ul>
+<li><b>2011:</b> the thread opens on a value thesis &mdash; 30.75% ten-year revenue CAGR, patent wins against B. Braun, "less than 8 P/E" &mdash; alongside an immediate skeptic's note (Hitesh Patel) that "most of the positives seem to be built into the price," a tension that recurs almost every year since.</li>
+<li><b>2013:</b> recurring forex-hedging losses draw a competence critique ("management repeatedly blames forex despite learning opportunity") rather than a fraud allegation &mdash; the earliest instance of a pattern this report found no evidence has fully resolved even a decade later (Section <a href="#business">01</a>).</li>
+<li><b>2014:</b> the company's genuine high point on IP &mdash; a European Patent Office win against B. Braun, two IV safety-catheter patents revoked &mdash; triggers a sharp stock jump, promptly met by Donald Francis's own rebuttal calling the reaction "bull market froth" (the win was Germany-specific, the Faridabad plant already near full utilisation). AM648 groups Poly Medicure with Page Industries, La Opala and Symphony as "excellent businesses at seemingly excessive valuations" &mdash; almost the exact question posed again in 2021 and 2024.</li>
+<li><b>2018:</b> the thread's first, most measured Vitromed-related-party analysis (Umang Shah) &mdash; covered in full in Section <a href="#flags">11</a> &mdash; alongside a separate, broader concern (Bharat Chandak, integraldx) that disclosed promoter holding might actually <i>understate</i> true promoter control via shares parked in entities classified as public. Notably, this is the mirror image of the 2024 event: in 2018 retail investors suspected promoter holding was being hidden low; in 2024 the disclosed figure instead visibly jumped (Section <a href="#capital">10</a>).</li>
+<li><b>2021:</b> a COVID-driven demand spike, a &#8377;400 Cr QIP, and an unusually rich multi-week group debate on whether to hold, trim or exit at ~70&times; trailing P/E &mdash; several posters explicitly disclosed selling on valuation grounds while agreeing the business itself was compounding well ("downside seems too much... exited completely," one wrote). A separate poster flagged the company's entry into generic syringes as margin-dilutive against entrenched incumbents (Section <a href="#business">01</a>) &mdash; an early instance of the same "will new adjacencies dilute the core" question now being asked of the 2025 cardiology and orthopaedics acquisitions.</li>
+<li><b>2022&ndash;2023:</b> director-remuneration concerns (Section <a href="#capital">10</a>), a Chinese-dumping flag on the renal business that has since become a formal trade case (Section <a href="#growth">07</a>), and the sharpest single Vitromed flag on the thread (A.H. Inamdar's "siphoning" post, Section <a href="#flags">11</a>).</li>
+<li><b>2024:</b> the &#8377;1,000 Cr QIP and a &#8377;42.38 Cr CGST demand notice are both discussed, alongside a stock trading at 72&times; P/E with "minimal free cash flow despite strong growth due to aggressive capex" (SMondal15's own framing, closely matching this report's own Gate 3 finding in Section <a href="#framework">02</a>) &mdash; but <b>the thread does not appear to discuss the 53%&rarr;62% promoter shareholding jump at all</b>, a genuine gap in retail-forum awareness of an event with real precedent on the same thread six years earlier.</li>
+<li><b>2025:</b> the PendraCare/Citieffe acquisition spree, a guidance cut, fresh capital-allocation skepticism (a "historically capital-starved by dividends, now capital-hungry" critique), and the thread's most quantified Vitromed flag (Section <a href="#flags">11</a>) &mdash; alongside a note that large institutional names (Quant MF, Carnelian Capital, Ellerston Capital) were still actively meeting management even as the stock corrected roughly 60% from its all-time high.</li>
+<li><b>2026 (through the last post, 28 June):</b> plant commissioning updates, an explicit management acknowledgment that "margin likely to suffer from acquisitions" (paraphrased by a poster, consistent with this report's own Section <a href="#margin">04</a> and <a href="#growth">07</a> findings), and the formal DGTR anti-dumping filing on dialyzers &mdash; the Chinese-competition concern first raised in 2023 now a live regulatory case.</li>
+</ul>
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">13</span>Valuation: a price no cash-flow scenario tested here can reach</h2>
+<p class="sec-sub">This is not a modest gap between DCF and market price &mdash; it is a categorical one, and that itself is the finding</p>
+
+<p>Assumptions common to every scenario: tax rate 25% (recent effective rate), depreciation 6.2% of sales (FY2026 actual ratio, reflecting the real, substantial fixed-asset base this manufacturer carries &mdash; a sharp contrast with the near-zero depreciation ratios this pipeline finds in pure-distribution businesses), a 10-year decelerating growth path, terminal growth 5%, and a 13% discount rate. Capex and incremental working capital &mdash; the two inputs this business's economics are most sensitive to &mdash; are varied deliberately across scenarios.</p>
+
+<figure>
+<div class="fig-title">DCF value per share under three scenarios, against the current price</div>
+<div class="fig-sub">Computed via <span style="font-family:var(--mono)">src.modules.equity_research.dcf</span>; 13% WACC, 5% terminal growth, net debt of &#8377;266 Cr added back</div>
+<svg viewBox="0 0 720 240" role="img" aria-label="Discounted cash flow valuation scenarios for Poly Medicure against the current market price"><line class="grid-l" x1="52" y1="206.0" x2="704" y2="206.0"/><text class="ax" x="46" y="209.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="181.8" x2="704" y2="181.8"/><text class="ax" x="46" y="184.8" text-anchor="end">250</text><line class="grid-l" x1="52" y1="157.6" x2="704" y2="157.6"/><text class="ax" x="46" y="160.6" text-anchor="end">500</text><line class="grid-l" x1="52" y1="133.4" x2="704" y2="133.4"/><text class="ax" x="46" y="136.4" text-anchor="end">750</text><line class="grid-l" x1="52" y1="109.2" x2="704" y2="109.2"/><text class="ax" x="46" y="112.2" text-anchor="end">1000</text><line class="grid-l" x1="52" y1="84.9" x2="704" y2="84.9"/><text class="ax" x="46" y="87.9" text-anchor="end">1250</text><line class="grid-l" x1="52" y1="60.7" x2="704" y2="60.7"/><text class="ax" x="46" y="63.7" text-anchor="end">1500</text><line class="grid-l" x1="52" y1="36.5" x2="704" y2="36.5"/><text class="ax" x="46" y="39.5" text-anchor="end">1750</text><rect x="115.0" y="201.1" width="91.3" height="4.9" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs 51</title></rect><text class="vlbl" x="160.7" y="194.1" text-anchor="middle" fill="#d97a5f">&#8377;51</text><text class="ax" x="160.7" y="220" text-anchor="middle">Bear</text><text class="ax" x="160.7" y="232" text-anchor="middle" fill="#d97a5f">-97%</text><rect x="332.4" y="186.3" width="91.3" height="19.7" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 203</title></rect><text class="vlbl" x="378.0" y="179.3" text-anchor="middle" fill="#c9a24b">&#8377;203</text><text class="ax" x="378.0" y="220" text-anchor="middle">Base</text><text class="ax" x="378.0" y="232" text-anchor="middle" fill="#d97a5f">-88%</text><rect x="549.7" y="158.7" width="91.3" height="47.3" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 488</title></rect><text class="vlbl" x="595.3" y="151.7" text-anchor="middle" fill="#5fb98a">&#8377;488</text><text class="ax" x="595.3" y="220" text-anchor="middle">Bull</text><text class="ax" x="595.3" y="232" text-anchor="middle" fill="#d97a5f">-71%</text><line x1="52" y1="40.8" x2="704" y2="40.8" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="33.8" text-anchor="end">market &#8377;1706</text><line class="zero-l" x1="52" y1="206" x2="704" y2="206"/></svg>
+<figcaption><b>Why:</b> even the bull case &mdash; a 27% EBITDA margin (near the FY2025 peak, sustained), capex normalised to 11% of sales, and working-capital efficiency better than the FY2023-25 average &mdash; reaches only &#8377;488, 71% below the current &#8377;1,706 price. The gap here is far wider than this pipeline typically finds, and is itself the headline result.</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Scenario</th><th class="num">EBITDA margin</th><th class="num">Capex / sales</th><th class="num">Incremental WC / incremental revenue</th><th class="num">Value/share</th><th class="num">vs. market (&#8377;1,706)</th></tr></thead>
+<tbody>
+<tr><td class="t">Bear</td><td class="num">21%</td><td class="num">13%</td><td class="num">25%</td><td class="num">&#8377;51</td><td class="num l">&minus;97%</td></tr>
+<tr class="hl"><td class="t">Base</td><td class="num">24.7% (recent 3yr avg)</td><td class="num">13% (normalised, ex-QIP-distortion)</td><td class="num">20%</td><td class="num">&#8377;203</td><td class="num l">&minus;88%</td></tr>
+<tr><td class="t">Bull</td><td class="num">27% (near FY2025 peak)</td><td class="num">11%</td><td class="num">12% (near FY2024's best year)</td><td class="num">&#8377;488</td><td class="num l">&minus;71%</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The reverse DCF does not resolve into a clean number here &mdash; and that is itself informative</h3>
+<p>Solving for the flat EBITDA margin the current price requires, holding the base-case growth path and working-capital assumption fixed: <b>infeasible up to 40%</b> &mdash; no margin this pipeline's solver searched, including one no real disposable-medical-devices manufacturer has ever sustained, closes the gap. Solving instead for the flat revenue growth rate the price requires, holding margin at the 24.7% decade average: also infeasible &mdash; at this margin, incremental working capital absorbs the incremental profit faster than growth can outrun it, the same dynamic this pipeline's DCF flags at other working-capital-sensitive companies, but reaching a more extreme conclusion here.</p>
+<p>This is a materially different result from every other reverse DCF this pipeline has run, and it deserves a direct statement rather than a forced number: <b>at the growth, margin and working-capital combinations that are actually plausible given Poly Medicure's own ten-year record, a cash-flow-charging valuation model cannot rationalize the current 54&times; trailing P/E.</b> That does not mean the price is wrong &mdash; a market pricing a fast-growing, patent-protected exporter on a forward-earnings basis, the way both brokerage notes in Section <a href="#analysts">08</a> explicitly do (Waya's own target is built on a 50&times; multiple of FY2028E earnings, not a discounted cash flow), is applying a different, defensible framework. It does mean that framework is doing essentially all of the work in justifying the current price, and a reader relying on it should understand that a model which charges explicitly for the capex and working-capital cash the business has actually consumed (Section <a href="#framework">02</a>) finds no growth or margin combination inside a plausible range that gets there.</p>
+
+<h3>The P/E cross-check: what the two brokerages that engage with this stock are actually pricing</h3>
+<p>LKP's &#8377;2,900 target and Waya's &#8377;2,240 target are both built on forward P/E multiples (implicitly and explicitly, respectively) rather than discounted cash flow, and both are well above even this report's own bull-case DCF value. The two frameworks are not in conflict so much as answering different questions: a P/E multiple prices the expectation that today's earnings, however capital has been consumed getting there, will keep compounding at a rate the market is willing to pay up for; a DCF asks whether the cash the business actually generates, after funding the capex and working capital that growth demands, supports that price on its own. On the evidence in this report, the second answer is no by a wide margin &mdash; which is the more decision-relevant answer for an investor who cares about cash economics rather than multiple expansion continuing indefinitely.</p>
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">14</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">Quality and value, kept on separate axes &mdash; this is not a buy or sell call</p>
+
+<h3>Quality: a genuine decade of growth, a real capital-intensity problem, and an unresolved governance question</h3>
+<p>Poly Medicure clears the coffee-can gates about as cleanly as any company this pipeline has covered &mdash; 9 of 9 years above 10% revenue growth, 8 of 9 above 15% ROCE, real patent-derived IP that has beaten a global major (B. Braun) in court, and a genuine strategic pivot into higher-value cardiology and orthopaedic categories via two recently-closed European acquisitions. None of that is manufactured or borrowed quality.</p>
+<p>Set against that: this pipeline's own harder cash test (CFO less real, de-distorted capex less interest) is roughly breakeven to slightly negative across the last decade &mdash; growth and dividends have, in effect, both been funded by two external capital raises rather than organic free cash flow. FY2026 alone saw receivable days jump from 76 to 103, an incremental working-capital ratio of 142% (working capital grew faster than revenue), a PAT decline for the first time in the decade's record, and ROCE fall to 14.0% (Mukherjea) / 13.0% (Malik) &mdash; the one year that misses the coffee-can returns gate. And a related-party manufacturing arrangement with two sitting directors' own partnership firm, growing from &#8377;36.5 Cr to &#8377;89.3 Cr a year, has been independently flagged by name three separate times on the one retail forum that covers this stock, using the word "siphoning" twice, without a single sell-side note engaging with it at all.</p>
+
+<h3>Value: a gap wide enough that the valuation framework matters more than the assumptions inside it</h3>
+<p>Every DCF scenario this report ran, including a genuinely optimistic bull case, values the stock 71&ndash;97% below the current &#8377;1,706 price. The reverse DCF does not resolve to a clean, quotable number here &mdash; no EBITDA margin up to 40%, and no revenue growth rate at a plausible margin, closes the gap. <b>This is not a case of the market paying a modest premium for quality; it is a case of the current price resting almost entirely on a forward-P/E growth framework (the one both brokerage notes covering this stock explicitly use) rather than on cash economics a discounted-cash-flow model can validate.</b> That framework may prove right if growth and margin both continue compounding the way the two full sell-side notes in this report expect &mdash; but a reader should understand clearly that this valuation is a bet on that continuing, not a reflection of cash the business has already demonstrated it can generate at this scale.</p>
+
+<h3>Specific triggers, with thresholds</h3>
+<ul>
+<li><b>Receivable days.</b> Whether FY2026's spike to 103 days reverts toward the FY2023-25 range (71&ndash;77 days) over the next two to three quarters, or becomes the new normal as the European subsidiaries' payment terms fully consolidate. Check: quarterly working-capital disclosures.</li>
+<li><b>Incremental working-capital ratio.</b> Whether FY2026's 142% proves a one-off integration effect (as this report's own plausible-but-unconfirmed explanation suggests) or repeats as growth continues. This is the single number this report's own valuation is most sensitive to.</li>
+<li><b>Consolidated EBITDA margin against the guided 23&ndash;25% band for FY2027</b> &mdash; sustained erosion below it would confirm the bear case; a return toward the FY2025 peak (27.3%) would support the bull case.</li>
+<li><b>Resolution of the Jai Polypan seller-side mechanism</b> (Section <a href="#capital">10</a>) &mdash; a direct BSE/NSE SAST filing pull would settle whether the 2024 promoter-group share acquisition was a benign consolidation or something that warrants more scrutiny.</li>
+<li><b>Any sell-side or proxy-advisory engagement with the Vitromed arrangement.</b> Continued silence from institutional research, eight years and three retail flags in, would itself be a data point worth noting at the next report refresh.</li>
+<li><b>The DGTR anti-dumping investigation on dialyzers</b> (filed 28 June 2026, 12&ndash;18 month timeline) &mdash; a direct read on whether the Chinese-competition pressure on the renal segment is resolved in the company's favour.</li>
+</ul>
+
+<p><b>What would change this verdict:</b> a price closer to this report's own base-case DCF value (roughly &#8377;200&ndash;250) would reflect the company's real, decade-average cash economics without requiring the market's current growth-multiple bet to keep paying off indefinitely &mdash; the gap between that level and today's price is the single largest this pipeline has found in any report to date, and is worth revisiting specifically once FY2027's actual working-capital and margin trajectory is known.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">15</span>Data gaps and provenance</h2>
+<p class="sec-sub">A management scorecard sourced secondhand, one unresolved share-transfer mechanism, and a peer figure that looks like a data-extraction error</p>
+
+<h3>What was actually read</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Source</th><th class="t">Coverage</th><th class="t">Status</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Earnings call transcripts</td><td class="t">0 of 23 available transcripts read directly</td><td class="t"><b>The management scorecard (Section <a href="#mgmt">09</a>) is built entirely from ValuePickr contributors' own call summaries</b> — a real limitation stated there directly. Highest-priority fix for a future refresh.</td></tr>
+<tr><td class="t">Annual reports</td><td class="t">FY2025 read for narrative content; numeric financial-statement tables largely absent from this pipeline's own markdown conversion (a known table-stripping defect)</td><td class="t">Related-party numeric detail instead sourced from an existing audit that re-downloaded raw PDFs directly — not a gap in this report's findings, but a standing pipeline limitation for any future note not already covered by that audit</td></tr>
+<tr><td class="t">ValuePickr forum</td><td class="t">The single dedicated thread (topic #256, 444 posts, 2011-2026) read via AI summarization of the Discourse API</td><td class="t">High confidence on content and arc; treat quotations as high-fidelity paraphrase rather than exact transcription unless independently re-verified</td></tr>
+<tr><td class="t">Sell-side coverage</td><td class="t">Two full brokerage notes read directly (LKP, Waya); aggregator consensus figures disagree by close to 2&times;</td><td class="t">The two full notes are the higher-confidence data points; aggregator figures reported with the disagreement stated explicitly</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Gap 1 &mdash; the seller side of the 2024 promoter share acquisition is unresolved</h3>
+<p>The mechanism behind the FY2025 promoter-holding jump is resolved on one side (Jai Polypan Pvt Ltd, a promoter-group vehicle, acquired 12,361,320 shares, disclosed 28 June 2024, before the August 2024 QIP) but not the other &mdash; who sold the shares, at what price, and via what mechanism (open market, bulk deal, or negotiated transfer) was not found despite targeted searches. This is the single most analytically important open item in this report (Section <a href="#capital">10</a>), because the answer determines whether this reads as a benign consolidation of family holdings or something warranting closer scrutiny.</p>
+
+<h3>Gap 2 &mdash; no primary transcript verification of the management scorecard</h3>
+<p>Every guidance-versus-actual comparison in Section <a href="#mgmt">09</a> is sourced from retail-forum summaries of quarterly calls, not this pipeline's own primary-transcript reads (23 transcripts are in the document store and were not read for this pass). The scorecard's directional conclusions are stated with that caveat attached throughout.</p>
+
+<h3>Gap 3 &mdash; a likely data error in one peer's figures</h3>
+<p>Cupid Ltd's fetched market capitalisation (~&#8377;33,800 Cr) implies a valuation multiple inconsistent with its own reported revenue and share price, and is very likely a data-extraction error rather than a real figure (Section <a href="#peers">06</a>). Cupid's growth, margin and ROCE figures are used with this specific caveat; the market-cap and P/E figures should not be relied upon without re-verification.</p>
+
+<h3>Gap 4 &mdash; several claims in the original research brief did not hold up and were corrected</h3>
+<p>A claimed Ireland manufacturing subsidiary could not be corroborated by this research (the company's actual international footprint, per available sources, runs through Italy, China and, via 2025 acquisitions, the Netherlands) and is not repeated in this report. Exact India plant count and locations are described only in general terms given disagreement across aggregator sources.</p>
+
+<h3>Gap 5 &mdash; no Vijay Malik framework corpus for medical devices manufacturing</h3>
+<p>The Malik industry-framework corpus has not been crawled in this environment (a standing limitation across every report this pipeline has produced) — this report's discussion of capital intensity and the coffee-can gates in Section <a href="#framework">02</a> proceeds without citing his framework directly.</p>
+
+<h3>What would most improve the next refresh</h3>
+<ol>
+<li>Direct reads of Poly Medicure's own primary earnings-call transcripts.</li>
+<li>A direct BSE/NSE SAST filing pull to resolve the Jai Polypan seller-side mechanism.</li>
+<li>Re-verification of Cupid Ltd's market cap and P/E against a clean source.</li>
+<li>A direct FDA inspection-database query, given FDA scrutiny is a material risk category for a device exporter.</li>
+<li>The DGTR anti-dumping investigation's outcome, once available.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Poly Medicure Ltd (NSE: POLYMED, BSE: 531768, ISIN INE205C01021). Prepared 22 September 2026 against a share price of &#8377;1,706.00.</p>
+  <p>Built from this pipeline's own indexed corpus: an existing related-party audit that re-downloaded eleven years of annual reports directly from source (bypassing a table-stripping defect in this pipeline's own PDF-to-markdown conversion), two full sell-side brokerage notes read directly, a fifteen-year ValuePickr thread read in full via the forum's own API, direct fetches of two listed peers' financials, and primary and major-outlet-sourced news research on the FY2025 QIP, the promoter-shareholding mechanism, credit ratings and litigation. This report's management-track-record read is sourced from retail-forum summaries of earnings calls rather than primary transcripts, and the seller side of a key 2024 promoter share acquisition remains unresolved &mdash; both stated plainly in Section 15.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. This report's central finding &mdash; a valuation gap wide enough that a discounted-cash-flow model could not reach the current price under any plausible scenario tested &mdash; rests on assumptions a reader should examine independently, and on a management scorecard sourced secondhand rather than from primary transcripts; read the data-gaps section in full before acting on anything here. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
