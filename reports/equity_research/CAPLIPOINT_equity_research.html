@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Caplin Point Laboratories Ltd — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Caplin Point Laboratories Ltd: a Latin America-focused direct-to-pharmacy generics pharma company that clears this pipeline's ROCE gate cleanly under both formulas, set against the weakest cash-conversion score this pipeline has found this cycle -- a receivables blowout its own management is now openly widening its comfort range to accommodate.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<span class="kicker">Coffee Can Screener &middot; Equity Research</span>
+<h1>Caplin Point Laboratories Ltd</h1>
+<p class="subtitle">A rare full sweep on both this pipeline's ROCE gate and Vijay Malik's own stricter cross-check, set against the weakest cash-conversion score this pipeline has found this cycle &mdash; and management now openly widening its own comfort range for the receivables problem rather than reversing it</p>
+<div class="meta">
+<b>NSE/BSE:</b> CAPLIPOINT &middot; <b>BSE code:</b> 524742 &middot; <b>ISIN:</b> INE475E01026<br>
+<b>Prepared:</b> 25 September 2026 &middot; <b>Price:</b> &#8377;2,940 &middot; <b>Market cap:</b> &#8377;22,348 Cr &middot; <b>P/E:</b> ~34.9&times;
+</div>
+</header>
+
+<div class="verdict">
+<div class="verdict-label">The one-paragraph version</div>
+<div class="verdict-head">Excellent, consistent profitability on every accrual-based test this pipeline runs &mdash; and the clearest cash-conversion warning sign scored this cycle</div>
+<p>Caplin Point is a genuine rarity in this pipeline's framework: a <b>9iner</b>, its top tier, with revenue growth clearing 10% in all nine measured years and ROCE clearing 15% in all nine &mdash; and, unusually, Vijay Malik's own stricter cross-check formula <i>also</i> qualifies every single year (22&ndash;44%), a level of agreement this pipeline has found in only a handful of companies this cycle. Built on a genuinely distinctive Latin America direct-to-pharmacy model and a fast-scaling US sterile-injectables subsidiary (Caplin Steriles), the company is virtually debt-free, sitting on &#8377;616 Cr of net cash, and has never once written off a bad debt in its operating history. Set squarely against that: cumulative operating cash flow over the decade is only <b>0.76&times;</b> cumulative reported profit &mdash; a cash-gate score of 2 out of 10, the weakest this pipeline has scored this cycle &mdash; driven by receivable days that have risen from 30 (FY2017) to 138 (FY2026), a trend management itself has responded to not by tightening collection but by explicitly stating on its two most recent earnings calls that its own internal comfort range has widened from "100&ndash;120 days" to "anywhere between 100 to 130 days even is probably still okay." At roughly 35&times; trailing earnings, this report's own DCF falls short of the current price even in its bull case, and finds no feasible EBITDA margin at all reaches the price at management's own guided growth rate. The P&amp;L here is genuinely excellent; whether the cash behind it is arriving as fast as the profit is reported is the open question this report cannot resolve in the company's favour.</p>
+</div>
+
+<div class="hero-row">
+<div class="stat"><div class="k">Tier (this pipeline)</div><div class="v">9iner</div><div class="n">9/9 revenue, 9/9 ROCE gates &mdash; top tier</div></div>
+<div class="stat"><div class="k">Vijay Malik ROCE cross-check</div><div class="v">Qualifies</div><div class="n">9/9 years, full agreement with primary gate</div></div>
+<div class="stat"><div class="k">Cumulative CFO/PAT</div><div class="v">0.76&times;</div><div class="n">FY2017&ndash;FY2026, score 2/10 &mdash; weakest this cycle</div></div>
+<div class="stat"><div class="k">Net cash</div><div class="v">&#8377;616 Cr</div><div class="n">FY2026, virtually debt-free</div></div>
+</div>
+
+<div class="toc">
+<div class="toc-l">Contents</div>
+<ol>
+    <li><a href="#business">The business: LatAm DTP and a US injectables bet</a></li>
+    <li><a href="#framework">The checklist: a rare full sweep, and one gate that fails</a></li>
+    <li><a href="#record">The ten-year record, and an accelerating US quarter</a></li>
+    <li><a href="#margin">Margins</a></li>
+    <li><a href="#wc">Working capital: the central finding</a></li>
+    <li><a href="#peers">How Caplin Point compares</a></li>
+    <li><a href="#growth">Growth outlook</a></li>
+    <li><a href="#mgmt">Management</a></li>
+    <li><a href="#capital">Capital allocation</a></li>
+    <li><a href="#flags">Governance and credit</a></li>
+    <li><a href="#sentiment">What retail investors have said</a></li>
+    <li><a href="#valuation">Valuation</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business: two decades of direct-to-pharmacy in Latin America, and a fast-scaling US sterile-injectables bet</h2>
+<p class="sec-sub">A distribution model built to sit next to the customer, now being replicated in the regulated-market world through a wholly-owned US subsidiary</p>
+
+<p>Caplin Point Laboratories is an Indian pharmaceutical company built around two distinct businesses under one roof. The founding, still-dominant business is <b>direct-to-pharmacy (DTP) generic distribution across Latin America and the Caribbean</b>, present in Central America since 2002: rather than selling through third-party wholesalers, Caplin runs its own subsidiary warehouses in-market, keeping roughly six months of stock (finished goods, stock-in-transit and work-in-progress) physically close to the pharmacies it supplies. Management's own description of the model, from the most recent (Q1 FY2027) earnings call: <i>"manufacturing far away, that is either India or China, with inventory close to demand and intelligence even closer to demand."</i> Channel mix in Central America, per management's own breakdown: roughly 18&ndash;20% institutional/government tender business, 10&ndash;12% through co-distributors, and the remainder direct to pharmacies, including large chains &mdash; a genuinely granular, high-touch distribution network built over two decades.</p>
+
+<p>The second, faster-growing business is <b>Caplin Steriles Limited (CSL)</b>, a wholly-owned subsidiary manufacturing sterile injectables, ophthalmics and related complex dosage forms for the US and other regulated markets. CSL received its first USFDA inspection in 2016 and has scaled from an EBITDA-negative, cash-burn operation a few years ago to &#8377;142 Cr of EBITDA at a 30% margin in FY2026 (33% in Q4 FY2026 specifically), with 60 ANDAs on file as of the most recent call (39 launched) and a further 40-plus products in the pipeline across pre-filled syringes and ophthalmic suspensions. CSL has also launched its own US-market label (as opposed to supplying only under partners' labels): nearly &#8377;100 Cr of revenue in its first full year, with no reported degrowth in the underlying B2B business, and weekly ordering relationships with the four largest US wholesalers.</p>
+
+<div class="key">
+<div class="lbl">A genuinely large capacity build, funded entirely from internal cash flow</div>
+<p>Management is expanding CSL from roughly 5&ndash;7 sterile lines today toward <b>17 injectable lines</b> over the next two to three years &mdash; by its own account, among the largest such build-outs in India outside the very largest single incumbent (management references, without naming it, a competitor "close to 30 lines"). The company states explicitly and repeatedly that this expansion carries <b>zero external debt</b>: "it's not debt-driven infrastructure." Total envisaged capex is roughly &#8377;1,000&ndash;1,100 Cr, of which around half had been spent as of the FY2026 results call, with the remainder guided over the following 18&ndash;24 months from ongoing cash generation.</p>
+</div>
+
+<p>Beyond the core two businesses, Caplin runs a small vertically-integrated support structure: an API manufacturing unit in Vizag (intended largely for captive consumption rather than external sale), and Amaris Clinical, an in-house bioequivalence study centre (expanding from 70 to 120 beds) that management states cuts the cost of a BE study roughly in half versus outsourcing (management's own estimate: ~$100,000 externally versus roughly half that internally). Both the API unit and Amaris Clinical are explicitly non-breakeven segments at present, a real drag on consolidated margins that management flags candidly rather than excludes from guidance (Section <a href="#mgmt">08</a>).</p>
+
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>The checklist: a rare full sweep on both ROCE formulas &mdash; and the weakest cash-conversion score this pipeline has found</h2>
+<p class="sec-sub">This pipeline's top tier, agreement between both ROCE tests in every year, and a cash-gate score that inverts the entire picture</p>
+
+<p>This pipeline classifies Caplin Point a <b>9iner</b> &mdash; its top tier, and the first true 9iner (as opposed to "Dirty 9iner", one gate short) scored this cycle. Revenue growth cleared 10% in <b>all nine</b> measured years, and primary ROCE cleared 15% in <b>all nine</b> years too, from 24.9% (FY2026, still the lowest year) to 64.1% (FY2018). Run through Vijay Malik's own, typically stricter cross-check formula, the result agrees completely: <b>all nine years qualify</b> there as well, with cross-check values ranging 22.2&ndash;44.0% &mdash; comfortably above the 15% bar throughout. This is the kind of clean, doubly-confirmed quality signal this pipeline has found in only a handful of companies this cycle (alongside Dr Lal PathLabs and Coforge).</p>
+
+<div class="table-wrap">
+<table>
+<caption>ROCE by fiscal year: this pipeline's primary formula versus Vijay Malik's stricter cross-check</caption>
+<thead><tr><th>FY</th><th class="num">Primary ROCE</th><th class="num">Malik ROCE</th><th class="num">Revenue growth</th></tr></thead>
+<tbody>
+<tr><td class="t">2018</td><td class="num">64.08%</td><td class="num">44.01%</td><td class="num">34.41%</td></tr>
+<tr><td class="t">2019</td><td class="num">45.59%</td><td class="num">36.60%</td><td class="num">20.16%</td></tr>
+<tr><td class="t">2020</td><td class="num">33.31%</td><td class="num">28.88%</td><td class="num">33.07%</td></tr>
+<tr><td class="t">2021</td><td class="num">28.78%</td><td class="num">25.32%</td><td class="num">22.95%</td></tr>
+<tr><td class="t">2022</td><td class="num">28.73%</td><td class="num">24.94%</td><td class="num">19.61%</td></tr>
+<tr><td class="t">2023</td><td class="num">26.82%</td><td class="num">23.02%</td><td class="num">15.54%</td></tr>
+<tr><td class="t">2024</td><td class="num">26.89%</td><td class="num">23.12%</td><td class="num">15.50%</td></tr>
+<tr><td class="t">2025</td><td class="num">26.19%</td><td class="num">22.94%</td><td class="num">14.37%</td></tr>
+<tr><td class="t">2026</td><td class="num">24.93%</td><td class="num">22.16%</td><td class="num">12.89%</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Note the steady, unbroken decline in both ROCE readings and revenue growth from FY2018 onward &mdash; a company normalising from an exceptional early-scaling period (64% ROCE, 34% growth) toward what is still a genuinely strong but much more moderate steady state (25% ROCE, 13% growth by FY2026). This is a maturing-growth pattern, not a deteriorating one: every single year still clears this pipeline's 15% qualifying bar by a wide margin.</p>
+
+<figure>
+<div class="fig-title">Cumulative CFO vs. cumulative PAT, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, ten-year running total</div>
+<svg viewBox="0 0 720 240" role="img" aria-label="Caplin Point Laboratories cumulative operating cash flow versus cumulative net profit, FY2017 to FY2026"><g><rect x="52" y="0" width="9" height="9" rx="2" fill="#c9a24b"/><text class="ax" x="65" y="8" text-anchor="start">Cumulative PAT</text><rect x="182" y="0" width="9" height="9" rx="2" fill="#5b9bd1"/><text class="ax" x="195" y="8" text-anchor="start">Cumulative CFO</text></g><line class="grid-l" x1="52" y1="208.0" x2="706" y2="208.0"/><text class="ax" x="46" y="211.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="160.5" x2="706" y2="160.5"/><text class="ax" x="46" y="163.5" text-anchor="end">860</text><line class="grid-l" x1="52" y1="113.0" x2="706" y2="113.0"/><text class="ax" x="46" y="116.0" text-anchor="end">1,720</text><line class="grid-l" x1="52" y1="65.5" x2="706" y2="65.5"/><text class="ax" x="46" y="68.5" text-anchor="end">2,580</text><line class="grid-l" x1="52" y1="18.0" x2="706" y2="18.0"/><text class="ax" x="46" y="21.0" text-anchor="end">3,440</text><rect x="59.2" y="202.7" width="23.5" height="5.3" rx="3" fill="#c9a24b"><title>FY2017 cumulative PAT: Rs 96 Cr</title></rect><rect x="86.7" y="204.3" width="23.5" height="3.7" rx="3" fill="#5b9bd1"><title>FY2017 cumulative CFO: Rs 68 Cr</title></rect><text class="ax" x="84.7" y="221" text-anchor="middle">'17</text><rect x="124.6" y="194.7" width="23.5" height="13.3" rx="3" fill="#c9a24b"><title>FY2018 cumulative PAT: Rs 240 Cr</title></rect><rect x="152.1" y="200.6" width="23.5" height="7.4" rx="3" fill="#5b9bd1"><title>FY2018 cumulative CFO: Rs 134 Cr</title></rect><text class="ax" x="150.1" y="221" text-anchor="middle">'18</text><rect x="190.0" y="185.0" width="23.5" height="23.0" rx="3" fill="#c9a24b"><title>FY2019 cumulative PAT: Rs 417 Cr</title></rect><rect x="217.5" y="196.0" width="23.5" height="12.0" rx="3" fill="#5b9bd1"><title>FY2019 cumulative CFO: Rs 218 Cr</title></rect><text class="ax" x="215.5" y="221" text-anchor="middle">'19</text><rect x="255.4" y="173.1" width="23.5" height="34.9" rx="3" fill="#c9a24b"><title>FY2020 cumulative PAT: Rs 632 Cr</title></rect><rect x="282.9" y="193.5" width="23.5" height="14.5" rx="3" fill="#5b9bd1"><title>FY2020 cumulative CFO: Rs 262 Cr</title></rect><text class="ax" x="280.9" y="221" text-anchor="middle">'20</text><rect x="320.8" y="159.7" width="23.5" height="48.3" rx="3" fill="#c9a24b"><title>FY2021 cumulative PAT: Rs 874 Cr</title></rect><rect x="348.3" y="178.7" width="23.5" height="29.3" rx="3" fill="#5b9bd1"><title>FY2021 cumulative CFO: Rs 531 Cr</title></rect><text class="ax" x="346.3" y="221" text-anchor="middle">'21</text><rect x="386.2" y="143.1" width="23.5" height="64.9" rx="3" fill="#c9a24b"><title>FY2022 cumulative PAT: Rs 1,174 Cr</title></rect><rect x="413.7" y="160.1" width="23.5" height="47.9" rx="3" fill="#5b9bd1"><title>FY2022 cumulative CFO: Rs 868 Cr</title></rect><text class="ax" x="411.7" y="221" text-anchor="middle">'22</text><rect x="451.6" y="122.4" width="23.5" height="85.6" rx="3" fill="#c9a24b"><title>FY2023 cumulative PAT: Rs 1,550 Cr</title></rect><rect x="479.1" y="145.1" width="23.5" height="62.9" rx="3" fill="#5b9bd1"><title>FY2023 cumulative CFO: Rs 1,139 Cr</title></rect><text class="ax" x="477.1" y="221" text-anchor="middle">'23</text><rect x="517.0" y="97.1" width="23.5" height="110.9" rx="3" fill="#c9a24b"><title>FY2024 cumulative PAT: Rs 2,008 Cr</title></rect><rect x="544.5" y="127.5" width="23.5" height="80.5" rx="3" fill="#5b9bd1"><title>FY2024 cumulative CFO: Rs 1,457 Cr</title></rect><text class="ax" x="542.5" y="221" text-anchor="middle">'24</text><rect x="582.4" y="67.5" width="23.5" height="140.5" rx="3" fill="#c9a24b"><title>FY2025 cumulative PAT: Rs 2,544 Cr</title></rect><rect x="609.9" y="103.6" width="23.5" height="104.4" rx="3" fill="#5b9bd1"><title>FY2025 cumulative CFO: Rs 1,890 Cr</title></rect><text class="ax" x="607.9" y="221" text-anchor="middle">'25</text><rect x="647.8" y="32.1" width="23.5" height="175.9" rx="3" fill="#c9a24b"><title>FY2026 cumulative PAT: Rs 3,185 Cr</title></rect><rect x="675.3" y="74.7" width="23.5" height="133.3" rx="3" fill="#5b9bd1"><title>FY2026 cumulative CFO: Rs 2,413 Cr</title></rect><text class="ax" x="673.3" y="221" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="208" x2="706" y2="208"/></svg>
+<figcaption><b>Why:</b> cumulative CFO of &#8377;2,412.9 Cr against cumulative PAT of &#8377;3,185.0 Cr is only 0.76&times; &mdash; a cash-gate score of 2/10, the weakest this pipeline has scored this cycle, and the direct opposite of the accrual-based picture above.</figcaption>
+</figure>
+
+<div class="warn">
+<div class="lbl">The one gate this company does not clear</div>
+<p>Gate 1 (cumulative CFO against cumulative PAT) fails decisively: 0.76&times; over the full decade, with only two genuinely strong years (FY2021 and FY2022, both above 1.1&times;) and a run of years at 0.46&ndash;0.82&times; either side of them, including a low of 0.21&times; in FY2020. Gate 3 (CFO less capex less interest) is still technically positive &mdash; &#8377;288.6 Cr over the decade &mdash; but only because capex and interest have both been modest; it is not a meaningful pass given how far short of PAT the underlying CFO itself falls. Section <a href="#wc">05</a> traces this directly to a specific, sustained, and named driver: receivable days.</p>
+</div>
+
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record: from hypergrowth to steady, still-strong compounding</h2>
+<p class="sec-sub">Revenue up more than 5&times; in a decade; the most recent quarter shows US growth accelerating even as the core Latin America business normalises</p>
+
+<figure>
+<div class="fig-title">Revenue, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, consolidated basis</div>
+<svg viewBox="0 0 720 230" role="img" aria-label="Caplin Point Laboratories revenue by fiscal year, FY2017 to FY2026"><line class="grid-l" x1="52" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="46" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="46" y="157.0" text-anchor="end">591</text><line class="grid-l" x1="52" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="46" y="111.0" text-anchor="end">1,181</text><line class="grid-l" x1="52" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="46" y="65.0" text-anchor="end">1,772</text><line class="grid-l" x1="52" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="46" y="19.0" text-anchor="end">2,362</text><rect x="65.7" y="168.7" width="37.9" height="31.3" rx="4" fill="#c9a24b"><title>FY2017: Rs 401.7 Cr</title></rect><text class="ax" x="84.7" y="213" text-anchor="middle">'17</text><rect x="131.1" y="158.0" width="37.9" height="42.0" rx="4" fill="#c9a24b"><title>FY2018: Rs 539.8 Cr</title></rect><text class="ax" x="150.1" y="213" text-anchor="middle">'18</text><rect x="196.5" y="149.5" width="37.9" height="50.5" rx="4" fill="#c9a24b"><title>FY2019: Rs 648.7 Cr</title></rect><text class="ax" x="215.5" y="213" text-anchor="middle">'19</text><rect x="261.9" y="132.8" width="37.9" height="67.2" rx="4" fill="#c9a24b"><title>FY2020: Rs 863.2 Cr</title></rect><text class="ax" x="280.9" y="213" text-anchor="middle">'20</text><rect x="327.3" y="117.3" width="37.9" height="82.7" rx="4" fill="#c9a24b"><title>FY2021: Rs 1,061.3 Cr</title></rect><text class="ax" x="346.3" y="213" text-anchor="middle">'21</text><rect x="392.7" y="101.1" width="37.9" height="98.9" rx="4" fill="#c9a24b"><title>FY2022: Rs 1,269.4 Cr</title></rect><text class="ax" x="411.7" y="213" text-anchor="middle">'22</text><rect x="458.1" y="85.8" width="37.9" height="114.2" rx="4" fill="#c9a24b"><title>FY2023: Rs 1,466.7 Cr</title></rect><text class="ax" x="477.1" y="213" text-anchor="middle">'23</text><rect x="523.5" y="68.0" width="37.9" height="132.0" rx="4" fill="#c9a24b"><title>FY2024: Rs 1,694.1 Cr</title></rect><text class="ax" x="542.5" y="213" text-anchor="middle">'24</text><rect x="588.9" y="49.1" width="37.9" height="150.9" rx="4" fill="#c9a24b"><title>FY2025: Rs 1,937.5 Cr</title></rect><text class="ax" x="607.9" y="213" text-anchor="middle">'25</text><rect x="654.3" y="29.6" width="37.9" height="170.4" rx="4" fill="#c9a24b"><title>FY2026: Rs 2,187.2 Cr</title></rect><text class="ax" x="673.3" y="213" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="200" x2="706" y2="200"/></svg>
+<figcaption><b>Why:</b> growth has decelerated steadily from the low-30s% in FY2018&ndash;FY2020 to low-teens% by FY2026 &mdash; a maturing base effect on the core Latin America business, not a demand problem, per Section <a href="#growth">07</a>.</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<caption>Sales, PAT and CFO, FY2017&ndash;FY2026, &#8377; Cr, consolidated basis</caption>
+<thead><tr><th>FY</th><th class="num">Sales</th><th class="num">PAT</th><th class="num">CFO</th><th class="num">CFO/PAT</th></tr></thead>
+<tbody>
+<tr><td class="t">2017</td><td class="num">401.7</td><td class="num">95.6</td><td class="num">67.6</td><td class="num l">0.71&times;</td></tr>
+<tr><td class="t">2018</td><td class="num">539.8</td><td class="num">144.8</td><td class="num">66.5</td><td class="num l">0.46&times;</td></tr>
+<tr><td class="t">2019</td><td class="num">648.7</td><td class="num">176.6</td><td class="num">83.4</td><td class="num l">0.47&times;</td></tr>
+<tr><td class="t">2020</td><td class="num">863.2</td><td class="num">215.0</td><td class="num">44.7</td><td class="num l">0.21&times;</td></tr>
+<tr><td class="t">2021</td><td class="num">1,061.3</td><td class="num">242.3</td><td class="num">268.6</td><td class="num">1.11&times;</td></tr>
+<tr><td class="t">2022</td><td class="num">1,269.4</td><td class="num">299.8</td><td class="num">336.7</td><td class="num">1.12&times;</td></tr>
+<tr><td class="t">2023</td><td class="num">1,466.7</td><td class="num">376.3</td><td class="num">271.4</td><td class="num l">0.72&times;</td></tr>
+<tr><td class="t">2024</td><td class="num">1,694.1</td><td class="num">457.1</td><td class="num">318.4</td><td class="num l">0.70&times;</td></tr>
+<tr><td class="t">2025</td><td class="num">1,937.5</td><td class="num">536.3</td><td class="num">432.4</td><td class="num l">0.81&times;</td></tr>
+<tr><td class="t">2026</td><td class="num">2,187.2</td><td class="num">641.2</td><td class="num">523.2</td><td class="num l">0.82&times;</td></tr>
+<tr class="tot"><td class="t">Cumulative</td><td class="num">&mdash;</td><td class="num">3,185.0</td><td class="num">2,412.9</td><td class="num l">0.76&times;</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Revenue grew from &#8377;402 Cr to &#8377;2,187 Cr over the decade &mdash; a 5.4&times; increase &mdash; with the growth rate settling from the low-30s% of the earliest years to a still-healthy low-teens% by FY2026, entirely consistent with a large, maturing Latin America base alongside a much smaller but faster-growing US business. Only two years in the entire table (FY2021, FY2022) converted operating profit to cash above parity; every other year, including the four most recent, ran at 0.46&ndash;0.82&times;.</p>
+
+<h3>Q1 FY2027: US acceleration, a large one-off tender, and the same receivables pattern</h3>
+<p>The quarter ended 30 June 2026 showed genuine acceleration in the newer, higher-margin business: overall revenue +20% YoY, with the conventional (largely Latin America) market up 18% and the <b>US market up 26%</b>. The US subsidiary specifically grew revenue roughly threefold, from &#8377;14.4 Cr to &#8377;43.7 Cr, contributing &#8377;25 Cr of the total &#8377;50 Cr increase in consolidated gross profit &mdash; a genuinely material and accelerating contribution from a business that was cash-burn-negative only a few years ago (Section <a href="#business">01</a>). Gross margin held at 59.8% (against a stated 55% target, "way ahead" per management) and EBITDA margin rose from 37.7% to 38.4% year-on-year, with operating expenses falling from 25.7% to 23.6% of revenue.</p>
+
+<p>The Latin America growth itself was not purely organic acceleration: management attributed the bulk of the quarter's strength in that segment to a large tender won in El Salvador (roughly $16 million, with &#8377;50&ndash;55 Cr supplied in the quarter), a one-off that also drove the quarter's specific working-capital and receivables movement (Section <a href="#wc">05</a>). PBT grew 22.1% to &#8377;225.2 Cr, tax rate held at 20.5% (in line with a stated 20% target), and PAT grew 19% to &#8377;179 Cr for the quarter.</p>
+
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: a genuine operating gain, reinforced by a growing treasury income line</h2>
+<p class="sec-sub">Unlike some companies this pipeline has scored this cycle, the margin improvement here really is coming from the core business</p>
+
+<p>Pre-tax margin moved from 33.32% (FY2024) to 36.70% (FY2026), a substantial 338.6-basis-point gain that this pipeline's margin-bridge decomposition attributes to:</p>
+
+<div class="table-wrap">
+<table>
+<caption>Margin bridge, FY2024 to FY2026 (pre-tax margin, basis points)</caption>
+<thead><tr><th>Component</th><th class="num">Contribution</th></tr></thead>
+<tbody>
+<tr><td class="t">EBITDA margin</td><td class="num g">+218.2 bp</td></tr>
+<tr><td class="t">Depreciation</td><td class="num l">&minus;17.3 bp</td></tr>
+<tr><td class="t">Other income</td><td class="num g">+137.1 bp</td></tr>
+<tr><td class="t">Interest cost</td><td class="num g">+0.6 bp</td></tr>
+<tr class="tot"><td class="t">Net (matches 33.32% &rarr; 36.70%)</td><td class="num g">+338.6 bp</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="good">
+<div class="lbl">This margin gain is genuinely operating, not accounting</div>
+<p>Unlike the pattern this report has found in some other companies scored this cycle, the largest single component here (+218.2bp) is a real EBITDA margin improvement, consistent with the reported operating-margin series rising from roughly 32.6% (FY2024) to 34.8% (FY2026), and with management's own Q1 FY2027 disclosure of EBITDA margin rising further still, to 38.4%. Growing scale in the higher-margin US sterile-injectables business (Section <a href="#business">01</a>), alongside operating-expense leverage (falling from 25.7% to 23.6% of revenue in the most recent quarter alone), is the most plausible driver, and is directly corroborated by management's own commentary rather than inferred from the numbers alone.</p>
+</div>
+
+<p>The second-largest component, other income (+137.1bp), also has a more benign, recurring character here than this report has found elsewhere this cycle: management's own FY2026 results-call disclosure states roughly &#8377;20&ndash;21 Cr of realised forex gain for the year, plus a further &#8377;40&ndash;50 Cr of unrealised gain reflected in receivables, out of a total &#8377;116 Cr other-income line &mdash; consistent with a large and growing net-cash treasury position (Section <a href="#capital">09</a>) generating genuine interest and forex income, rather than a one-off, non-recurring item. This report has not independently confirmed the full &#8377;116 Cr breakdown against the annual report's own other-income note (management itself declined to give the exact split live on the call and offered to follow up in writing), so this remains a plausible, well-corroborated inference rather than a fully verified figure.</p>
+
+<p>Depreciation's modest drag (&minus;17.3bp) is consistent with the company's large ongoing capex programme (Section <a href="#capital">09</a>) and should be expected to persist, and likely grow, as the new injectable lines and the Mexico facility come online over the next two to three years.</p>
+
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: receivable days nearly quintupled in a decade, and management is widening its own comfort range rather than tightening it</h2>
+<p class="sec-sub">The single clearest, most specific, most consequential finding in this report</p>
+
+<p>This pipeline's anomaly scan flags a sustained, decade-long climb in receivable days: <b>30.0 days (FY2017) to 137.8 days (FY2026), up 359.3%</b> &mdash; not a one-year spike but a steady structural drift. Net working capital as a share of sales moved from &minus;10.0% to +59.3% over the same period, up 691.8%. Most strikingly, this pipeline's incremental working-capital intensity &mdash; the share of each incremental rupee of sales absorbed into working capital rather than converted to cash &mdash; runs at <b>95.2% over the last three years and 76.6% over the last five</b>: on average, almost the entirety of Caplin's recent incremental profit has gone into growing working capital, principally receivables, rather than into cash.</p>
+
+<div class="warn">
+<div class="lbl">Management's own numbers corroborate this closely, and its own stated tolerance has moved</div>
+<p>On the FY2026 results call, CFO D. Muralidharan gave a reported receivable-days figure of 136 days &mdash; within a rounding error of this pipeline's own independently computed 137.8 &mdash; and broke it down: roughly 11 days attributable to a non-cash forex-translation reserve (FCTR) effect, leaving 125 days on a like-for-like basis, against a historically stated comfort range of "100 to 120 days." Pressed directly by an analyst on whether 125 days (25 days above the historical range) was "the new normal," Vice Chairman Vivek Partheeban's answer effectively widened the target rather than defending it: <i>"we are happy to be anywhere between the 100, 110, 120 days&hellip;anywhere between 100 to 130 days even is probably still okay for us going forward."</i> One quarter later (Q1 FY2027), receivables had risen a further &#8377;46 Cr, which management attributed to government-related supplies "expected to be received by Q3 FY2027" &mdash; a specific, dated commitment this report can test directly once that quarter's results are available, and has not yet been able to confirm either way.</p>
+</div>
+
+<p>The proximate drivers management cites are specific and plausible on their own terms: a large (~$16 million) tender won in El Salvador, with the bulk of the roughly &#8377;50&ndash;55 Cr of supplies going out in February&ndash;March 2026 and collection running behind despite the tender's stated profitability; and a genuine non-cash FCTR component reflecting the company's near-total export orientation (forex assets of &#8377;177 Cr against forex liabilities of &#8377;22.2 Cr, per the FY2026 disclosure). Management also points to a strong, specific mitigant: <i>"our history of writing-off debts have been virtually negligible and close to zero&hellip;There was only a delay, but not writing off."</i> This report has not independently verified the zero-write-off claim against the annual reports' own provisioning disclosures, and notes it as a management assertion rather than an audited fact (Section <a href="#gaps">14</a>).</p>
+
+<div class="key">
+<div class="lbl">Two different working-capital measures, two different pictures &mdash; and this is itself the finding</div>
+<p>This pipeline's own net working-capital <i>cycle</i> metric (which nets receivables and inventory against payables) shows a much calmer 58.0 days for FY2026, well below the 136&ndash;138-day gross receivable figure both this pipeline and management separately compute. The gap is trade payables and other current liabilities growing alongside receivables. Whichever measure a reader anchors on changes the conclusion materially: the net cycle reads as a moderate, manageable working-capital profile; the gross receivable-days figure &mdash; the one management itself uses when discussing collection risk directly with analysts &mdash; reads as a genuine, worsening structural drag that has now consumed nearly a quarter of every incremental profit rupee earned in the last three years.</p>
+</div>
+
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How Caplin Point compares: best margin and best capital efficiency in its set, at a mid-pack multiple</h2>
+<p class="sec-sub">Ajanta Pharma, Strides Pharma Science, Marksans Pharma, Gufic Biosciences and Gland Pharma (for the injectables piece specifically) &mdash; with one candidate peer dropped mid-research after a corporate restructuring changed what it is</p>
+
+<div class="table-wrap">
+<table>
+<caption>Peer financial comparison, pulled 25 September 2026 (Screener.in, consolidated basis, medium/summary confidence &mdash; public-page pull, not the authenticated export)</caption>
+<thead><tr><th>Company</th><th class="num">Mkt cap (&#8377;Cr)</th><th class="num">P/E</th><th class="num">ROCE</th><th class="num">ROE</th><th class="num">OPM</th><th class="num">Promoter hold.</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Caplin Point Laboratories</td><td class="num">21,550</td><td class="num">32.4&times;</td><td class="num g">24.2%</td><td class="num g">20.9%</td><td class="num g">35%</td><td class="num">70.57%</td></tr>
+<tr><td class="t">Ajanta Pharma</td><td class="num">44,333</td><td class="num">39.1&times;</td><td class="num">34.5%</td><td class="num">27.1%</td><td class="num">28%</td><td class="num">63.49%</td></tr>
+<tr><td class="t">Strides Pharma Science</td><td class="num">10,922</td><td class="num">18.9&times;</td><td class="num">18.3%</td><td class="num">20.0%</td><td class="num">18%</td><td class="num l">27.91%</td></tr>
+<tr><td class="t">Marksans Pharma</td><td class="num">15,269</td><td class="num">29.6&times;</td><td class="num">18.8%</td><td class="num">15.2%</td><td class="num">20%</td><td class="num">43.87%</td></tr>
+<tr><td class="t">Gland Pharma <span style="font-weight:400;color:var(--faint)">(injectables comp. only)</span></td><td class="num">48,129</td><td class="num">42.0&times;</td><td class="num">15.1%</td><td class="num">10.7%</td><td class="num">25%</td><td class="num">51.77%</td></tr>
+<tr><td class="t">Gufic Biosciences</td><td class="num">4,249</td><td class="num">57.9&times;</td><td class="num">12.3%</td><td class="num">10.1%</td><td class="num">18%</td><td class="num">72.50%</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Caplin Point screens as the standout on capital efficiency and margin in this set: 24.2% ROCE and 20.9% ROE (second only to Ajanta Pharma, the larger, longer-established "senior version" of a similar emerging-market branded-generics playbook), and 35% operating margin &mdash; well above every listed peer, including Gland Pharma's 25%, despite Gland being a pure-play sterile-injectables business, the category Caplin Steriles is trying to scale into. On multiple, Caplin trades at 32.4&times; trailing earnings, above Strides (18.9&times;) and below Ajanta (39.1&times;), Gland (42.0&times;) and Gufic (57.9&times;) &mdash; broadly mid-pack for a set skewed toward richer multiples generally. Strides stands out for the lowest promoter holding in the set (27.91%, against Caplin's own comparatively high 70.57%) and the weakest return ratios &mdash; a data point about Strides' own ownership structure, not a claim about Caplin Point.</p>
+
+<div class="warn">
+<div class="lbl">One candidate peer changed mid-research, and was retained only with a caveat</div>
+<p>Sequent Scientific, originally identified as a possible LatAm-exposed animal-health comparator, merged with Carlyle-backed Viyash Life Sciences (NCLT approval November 2025, merger completed around 8 January 2026) and the listed entity was renamed <b>Viyash Scientific Limited</b>. The combined entity is now a larger, more diversified animal-health-plus-specialty-pharma business and no longer a close comparator to Caplin's human-generics DTP model. It is excluded from the table above for that reason, though its own current figures (ROCE 13.4%, ROE 7.4%, OPM 20%, P/E 48.7&times;) are on file in the underlying research corpus for reference.</p>
+</div>
+
+<p>Two further names &mdash; Alembic Pharma and Jubilant Pharmova &mdash; surfaced in an automated peer-screening tool but were deliberately excluded from the comparison above: both are materially larger, more domestically-focused, broader-portfolio businesses without the LatAm-DTP or small-cap-compounder framing that dominates how the market actually discusses Caplin Point. This is a judgment call, not a hard finding, and a reader who weights automated peer-screening tools more heavily may reasonably include them.</p>
+
+<div class="key">
+<div class="lbl">Management does not name competitors on calls</div>
+<p>Across the calls this report has reviewed, management's consistent framing is that near-term capacity, not competition, is the binding constraint on growth, and that its strategy is to dominate under-served niches and geographies rather than compete head-on with named rivals. No specific competitor names were found in management's own commentary in this pass &mdash; the peer set above is derived entirely from third-party broker/forum groupings and financial-screening tools, not from the company's own stated view of its competitive set.</p>
+</div>
+
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: a genuinely broad pipeline across geographies and dosage forms</h2>
+<p class="sec-sub">Chile, Mexico, Brazil, an expanded product range, and a capacity build management says demand already exceeds</p>
+
+<p>Management's own framing on the most recent call is that capacity, not demand, is the binding constraint: <i>"our current challenge is not a lack of orders but a lack of capacity."</i> The near-term growth pipeline spans several distinct initiatives:</p>
+
+<ul>
+<li><b>Chile</b> (the newest market): 135 product registrations secured, a pipeline worth roughly $10 million over the next 18 months, and two candidate distribution companies under evaluation for a potential acquisition to deepen private-market reach.</li>
+<li><b>Mexico</b>: 25 registrations, all eight products won in a two-year tender, an additional oncology tender won (four products, via a Chinese partner), a targeted ~$4 million of sales over the next two quarters, land already purchased for Caplin's first Mexican manufacturing facility (management cites a 16% tender-price advantage from local manufacturing), and a separate distribution-company acquisition under evaluation there as well.</li>
+<li><b>Central America</b>: a new liquid-manufacturing facility intended to lift Caplin's shelf-space share in independent pharmacies from 41% to a targeted 57%, alongside a fresh push into branded (as opposed to purely generic) marketing in the Dominican Republic, Guatemala and Nicaragua via a central-nervous-system product line.</li>
+<li><b>US sterile injectables (CSL)</b>: management's own guidance is 25&ndash;30% growth for the CSL business overall in FY2027 (against roughly 30% delivered in FY2026), and a target to roughly double the company's own-label US revenue to approximately &#8377;200 Cr. Notably, management states more than 90% of the US growth delivered so far has come from <i>already-launched</i> products, with the majority of the 25 ANDAs approved or acquired over the past year still in the process of being launched &mdash; meaning a meaningful share of the near-term growth pipeline is not yet reflected in current run-rate revenue at all.</li>
+</ul>
+
+<div class="warn">
+<div class="lbl">Two genuinely early-stage, unproven initiatives</div>
+<p>Management referenced GLP-1 product registrations for Central America as still "work in progress&hellip;under registration," with no commercial business yet &mdash; a real optionality item, not a near-term growth driver. Longer-term, management has floated an ambition to enter early-stage biosimilars via partnerships with large Chinese companies it has known "over the last couple of decades" through its China sourcing relationships &mdash; described only in aspirational terms on the call, with no specific programme, timeline or partner named. Both are recorded here as stated intent, not evidence of near-term commercial contribution.</p>
+</div>
+
+<p>On US trade policy specifically, the Trump administration's announced tariff waiver on generics (effective two years out, as of this report) drew a notably neutral, wait-and-see response from management rather than either alarm or celebration: <i>"we will cross the bridge when we reach there&hellip;every country has to protect their own industries."</i> Management does not see near-term US manufacturing as cost-competitive for generics specifically, citing the current cost gap versus India, though it flagged automation ("when the robots come into manufacturing of generics") as a potential future equaliser &mdash; a speculative, long-horizon comment this report treats as colour rather than a forecast.</p>
+
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">08</span>Management: candid on structural margins, and a receivables goalpost that has visibly moved</h2>
+<p class="sec-sub">C.C. Paarthipan (Chairman), Vivek and Ashok Partheeban (Vice Chairmen, his sons), Dr Sridhar Ganesan (MD) and D. Muralidharan (CFO) &mdash; a founder-family team with a distinctive, colourful communication style</p>
+
+<p>Caplin's management communicates in a genuinely unusual register for an Indian earnings call &mdash; the Chairman's opening remarks on the two most recent calls included extended metaphors ("a Jonathan Livingston Seagull which aims to fly like an eagle," "the flame of the candle also does not fear the dark, it defines it") alongside hard operating detail. Stripped of the rhetoric, the substantive guidance across the two most recent calls is specific enough to score directly:</p>
+
+<div class="table-wrap">
+<table>
+<caption>A two-quarter guidance ledger</caption>
+<thead><tr><th>Statement</th><th>Made</th><th>Tested</th><th>Outcome</th></tr></thead>
+<tbody>
+<tr><td class="t">CSL (US) business growth 25&ndash;30% for FY2027</td><td>Q4 FY2026 call</td><td>Q1 FY2027 (US +26% YoY)</td><td><span class="pill p-kept">On track</span> within guided range, one quarter in</td></tr>
+<tr><td class="t">EBITDA margin structurally 38&ndash;39%</td><td>Q4 FY2026 call</td><td>Q1 FY2027 (38.4%)</td><td><span class="pill p-kept">On track</span> within guided range</td></tr>
+<tr><td class="t">Receivable days comfort range widened to "100 to 130 days"</td><td>Q4 FY2026 call</td><td>Q1 FY2027 (137.8 days, this pipeline's own figure)</td><td><span class="pill p-slip">Slipped</span> above the newly widened range itself, one quarter later</td></tr>
+<tr><td class="t">Government-linked receivables (~&#8377;46 Cr) collected by Q3 FY2027</td><td>Q1 FY2027 call</td><td>Not yet due at time of this report</td><td><span class="pill p-open">Open</span> a specific, dated, testable commitment</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="warn">
+<div class="lbl">The receivables goalpost has moved once already, and moved again in the wrong direction</div>
+<p>On the FY2026 results call, management explicitly widened its own stated comfort range from a historical "100 to 120 days" to "100 to 130 days" in response to a direct analyst challenge about a 125-day reading. By the very next quarter, this pipeline's own computed receivable days (137.8) had moved <i>above</i> even that newly widened ceiling. This is not, on the evidence available, a case of management concealing a problem &mdash; every figure and explanation offered on both calls was specific, dated and directly responsive to analyst questions. It is a case worth watching closely regardless: a company that keeps recalibrating its own comfort range upward as the underlying metric keeps moving in the same direction is a genuinely different, more concerning pattern than one that holds a line and explains a single one-off miss.</p>
+</div>
+
+<p>On margin sustainability, management's candour is a genuine strength: rather than presenting the current 38&ndash;39% EBITDA / 27&ndash;28% PAT margins as a clean run-rate, management explicitly flagged that these figures already absorb a drag from two non-breakeven segments (the API unit and Amaris Clinical), framing the current numbers as understating steady-state potential once those segments mature &mdash; a specific, falsifiable claim (Section <a href="#business">01</a>) rather than a vague reassurance. Similarly, when an analyst raised a declining rest-of-world PBT margin trend (37.5% in Q1 FY2026 to roughly 33% by Q1 FY2027, a genuine multi-quarter drift the analyst had to press for twice before getting a direct number), management acknowledged the direction plainly rather than disputing the analyst's own math, attributing it to rising second-level marketing expense as the company pushes into new, smaller markets.</p>
+
+</section>
+
+
+<section id="capital">
+<h2><span class="num">09</span>Capital allocation: a &#8377;1,000 Cr-plus capacity build, entirely self-funded, with almost nothing paid out</h2>
+<p class="sec-sub">Cumulative dividends are just 8% of cumulative profit over the decade &mdash; a genuinely aggressive reinvestment posture, not a capital-return story</p>
+
+<p>Caplin has paid out only &#8377;263.2 Cr of dividends against &#8377;3,185.0 Cr of cumulative PAT over the decade &mdash; a payout ratio of roughly 8%, among the lowest this pipeline has found this cycle. Nearly everything else has gone back into the business: fixed assets have grown from &#8377;155.3 Cr (FY2017) to &#8377;813.6 Cr (FY2026), and the company states its entire ~&#8377;1,000&ndash;1,100 Cr multi-year capex programme (roughly half spent as of the FY2026 results call, the balance guided over the following 18&ndash;24 months) is being funded from internal cash generation with <b>zero external borrowing</b> &mdash; borrowings on the balance sheet have fallen from &#8377;222.1 Cr (FY2023) to just &#8377;4.6 Cr (FY2026), effectively debt-free.</p>
+
+<div class="good">
+<div class="lbl">A genuinely strong, growing net-cash position, despite the receivables drag</div>
+<p>Net cash rose from &#8377;271.4 Cr (FY2023) to &#8377;334.2 Cr (FY2024) to &#8377;369.8 Cr (FY2025) to &#8377;616.4 Cr (FY2026). Management's own disclosure puts free cash reserves at &#8377;1,502 Cr and total liquid assets at &#8377;2,875 Cr as of the most recent (Q1 FY2027) quarter &mdash; both figures broader than this pipeline's own net-debt calculation (which nets only borrowings against cash) and reflecting the company's large investment portfolio. Whatever the receivables concern in Section <a href="#wc">05</a> implies about cash-conversion <i>timing</i>, it has not, on the evidence available, become a genuine liquidity or solvency issue: the balance sheet remains exceptionally strong.</p>
+</div>
+
+<p>One capital-allocation exchange from the most recent call is worth recording directly: a shareholder suggested the company's roughly &#8377;1,000 Cr-plus of cash and near-cash investments, currently held mostly in fixed deposits, credit funds and corporate bonds, could earn a materially higher return with a modest allocation to index funds. Management's response was open rather than dismissive &mdash; acknowledging the point had already been discussed at a recent board meeting, noting a gradual move up the risk curve already underway (from pure FDs into credit and debt funds), and committing to "make a small beginning" and work toward a formal investment policy for excess funds, while stating a preference for capital protection and flagging that a meaningful share of the cash is being held deliberately for potential inorganic opportunities (a distribution-company acquisition in Chile or Mexico, or further ANDA purchases, per Section <a href="#growth">07</a>) rather than idle balance-sheet management.</p>
+
+<p>R&amp;D spend crossed &#8377;100 Cr for the first time in FY2026, roughly 5% of turnover &mdash; a meaningful, growing investment consistent with the company's stated ambition to move up the complexity curve in sterile injectables (pre-filled syringes, ophthalmic suspensions, blow-fill-seal, and eventually biosimilars).</p>
+
+</section>
+
+
+<section id="flags">
+<h2><span class="num">10</span>Governance and credit: no rating because there is no rated debt, a clean related-party record, and a recent Form 483</h2>
+<p class="sec-sub">A genuine absence rather than a pipeline gap, a small director-linked lease disclosed for years, and a family board reshuffle worth watching rather than alarming</p>
+
+<div class="good">
+<div class="lbl">No credit rating exists &mdash; because there is essentially nothing to rate</div>
+<p>This pipeline's local document store holds zero credit-rating reports for Caplin Point, and unlike other companies scored this cycle, this report's background research concludes that is a <b>genuine absence, not an ingestion gap</b>. An exhaustive search of CRISIL, ICRA, CARE and India Ratings' own domains found no rating action for the company; two ICRA PDFs that initially looked promising turned out, on direct read, to be unrelated (a Suraj Laboratories reaffirmation that merely names Caplin Point as a customer, and an InterGlobe Hotels rating with no Caplin Point mention at all). The company's own press-release archive, thorough on every other disclosure category, contains no credit-rating entries at all &mdash; and companies with rated bank facilities are required to disclose rating actions under SEBI LODR Regulation 30. Combined with the company's own near-total debt-free status (Section <a href="#capital">09</a>), the most parsimonious explanation is that Caplin Point simply has no rated bank facility to assign a rating to &mdash; a favourable data point in its own right, though not a positive statement from the company or an agency that this report can cite as fully confirmed (Section <a href="#gaps">14</a>).</p>
+</div>
+
+<h3>Related-party record: a decade-plus clean, with one small, consistently disclosed exception</h3>
+<p>This pipeline's own related-party audit, covering fifteen crawled annual reports (FY2013&ndash;FY2025), scores Caplin Point <b>1 (Watch)</b>: every year's Form AOC-2 "not at arm's length" section is explicitly empty, and the material-contracts disclosure is dominated by ordinary intercompany trade with wholly-owned subsidiaries. The one recurring director-linked item is small and consistently disclosed: <b>Ashvich Infotek Private Limited</b>, a company in which a director is interested, owns the company's registered office premises ("Ashvich Towers") and receives modest rent/consultancy payments (well under &#8377;1 Cr/year) across several group entities, disclosed via the AOC-2 annexure every year since FY2019. The company also carries a growing unsecured loan to its wholly-owned subsidiary for capex (&#8377;39.75 Cr FY2022 &rarr; &#8377;262 Cr FY2024 &rarr; &#8377;245.8 Cr FY2025) &mdash; standard treasury financing to a 100%-owned entity, the kind of transaction this pipeline's audit rubric treats as benign rather than concerning.</p>
+
+<h3>A November 2025 board reshuffle worth watching, not alarming</h3>
+<p>In a single board action effective 5 November 2025, Vivek Partheeban moved from COO to Director &amp; Vice-Chairman, and Ashok Partheeban was separately appointed Non-Executive Vice-Chairman &mdash; two same-surname family members moving into Vice-Chairman roles in the same action, alongside the addition of an independent director (Dr K C John). Founder C.C. Paarthipan remains Chairman. This report's own research explicitly flags the pattern as worth scrutinising in a future refresh (for instance against related-party filings) rather than as evidence of impropriety on the evidence available &mdash; both Vivek and Ashok Partheeban had long, substantive operating roles referenced throughout this report's own transcript reads (Vivek on the US/CSL business, Ashok on Latin America) before their board elevation, consistent with an operational-succession move rather than a purely titular one.</p>
+
+<h3>A recent USFDA Form 483 at Caplin Steriles</h3>
+<p>USFDA conducted an unannounced inspection of the Caplin Steriles Gummidipoondi facility in August 2026, closing with a Form 483 citing 10 observations. The company's own characterisation, as reported (not independently verified against the primary Form 483 document, which is not public): the observations were procedural, did not involve data integrity, and none were repeat observations. No import alert or warning letter was found associated with this or any prior inspection. This report treats the 10-observation count as a real, disclosed regulatory event worth tracking through to the company's remediation response, rather than either dismissing it on the company's own characterisation or treating it as more serious than the evidence supports.</p>
+
+<h3>Litigation and promoter pledge: not found, not confirmed clean</h3>
+<p>No US patent (Hatch-Waxman/ANDA Paragraph IV) litigation was found for Caplin Steriles, and no promoter share-pledge was found either way &mdash; both recorded as genuine gaps rather than confirmed-clean findings, since neither was checked against a primary litigation database or shareholding-pattern filing directly (Section <a href="#gaps">14</a>).</p>
+
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">11</span>What retail investors have said: fourteen years, 893 posts, and the same receivables debate resurfacing on a fifteen-year cycle</h2>
+<p class="sec-sub">One of ValuePickr's more heavily-followed threads, and its own arc mirrors this report's central finding almost exactly</p>
+
+<p>Caplin Point's ValuePickr thread ("Untested, but worth a good look") opened 27 December 2012 and remains active &mdash; its most recent post is dated 8 September 2026, three weeks before this report. Over that span it has drawn <b>893 posts and 232,036 views</b>, a genuinely substantial, sustained level of retail engagement, not a thin or abandoned thread.</p>
+
+<div class="key">
+<div class="lbl">The thread's own history is a near-exact preview of this report's central tension</div>
+<p><b>2012&ndash;13 (origin):</b> bulls cited a cheap valuation (P/E ~8.5, ROE ~25.6%) and ~30% of turnover collected as customer advances; bears flagged thin disclosure and an FX loss with unclear hedging. <b>2017:</b> the direct-to-pharmacy thesis is explicitly articulated for the first time &mdash; one member's words, captured directly: <i>"Caplin's moat is their trading business routed via Pharmacies"</i> &mdash; alongside a maturing bull case (FDA End-of-Inspection Report, early ANDA filings, 2,400+ global registrations) and a persistent transparency complaint that recurs across the thread's history. <b>2020&ndash;21: the bear case sharpens into exactly the accounting-hygiene debate this report's own Section <a href="#wc">05</a> independently reaches</b> &mdash; a flagged mismatch between the income statement and cash flow statement, rising receivables (bulls attributed it to channel-partner acquisitions and a shift toward slower-paying government tenders), a doubling of auditor fees and a 2&times; increase in lease payments to promoters (both read as governance yellow flags), and one long-time poster explicitly exiting the position citing "shoddy accounting." <b>2026 (current):</b> sentiment has shifted decisively bullish, with discussion dominated by Caplin Steriles execution tracking &mdash; ANDA count, capacity bookings, margin expansion &mdash; and LatAm FX risk treated by posters as largely contained given several core markets are dollar-pegged.</p>
+</div>
+
+<p>That the same receivables/cash-conversion concern this report independently derived from raw financial data (Section <a href="#wc">05</a>) was already a live, named debate on this forum five to six years ago &mdash; and appears to have receded from forum attention even as this report's own decade-window computation shows the underlying metric has kept getting worse, not better &mdash; is itself a data point worth weighing: retail attention on this specific risk peaked in 2020&ndash;21 and has not obviously returned even as the raw number (30 to 138 days) has continued climbing.</p>
+
+<p>One further specific, recent data point from the thread's current page: Africa's share of sales is reported to have declined from 5% to 3%, attributed by the poster to the US business simply growing faster (a mix-shift explanation, not independently verified by this report) rather than to any Africa-specific weakness.</p>
+
+<div class="warn">
+<div class="lbl">Broker consensus figures found were the weakest-sourced claim in this report's own research</div>
+<p>No broker target prices were found on ValuePickr itself. Figures located elsewhere via general web search are inconsistent between sources &mdash; one aggregator cites a 2-analyst "Strong Buy" consensus around &#8377;2,505; another cites Kotak Securities "Neutral" at &#8377;2,600 and JM Financial "Buy" at &#8377;2,800. Neither set of figures was traced to the underlying broker note, and this report treats them as directional only, not as a reliable consensus figure to weigh against its own DCF (Section <a href="#valuation">12</a>).</p>
+</div>
+
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">12</span>Valuation: a bull case that still falls short, and a reverse DCF that cannot find a margin that works</h2>
+<p class="sec-sub">A corrected price, working capital charged honestly, and a stark result at the company's own guided growth rate</p>
+
+<div class="warn">
+<div class="lbl">A price correction, made explicit</div>
+<p>This pipeline's own internal price cache showed &#8377;2,684.95 as of 2 September 2026 &mdash; 23 days stale at the point this research began. This report uses a corrected, fresher price of <b>&#8377;2,940</b> (market cap &#8377;22,348 Cr, against 7.60 Cr shares), sourced from a direct market-data check dated 24 September 2026. Unlike the price corrections this pipeline has made for other companies this cycle, there is no single identified crisis or event driving the roughly 9.5% gap &mdash; the most plausible explanation is a gradual re-rating following the strong Q1 FY2027 results (Section <a href="#record">03</a>), though this report has not confirmed that specific causal link. See Section <a href="#gaps">14</a> for the full detail.</p>
+</div>
+
+<p>Using Caplin's actual FY2026 revenue (&#8377;2,187.2 Cr) as the base, the company's own net cash position (&minus;&#8377;616.4 Cr net debt), a 13% WACC, 20% tax rate (matching management's own stated effective rate) and a 5% terminal growth rate over a seven-year explicit window &mdash; and, critically, charging working capital at rates grounded in the company's own recent incremental-intensity history (Section <a href="#wc">05</a>) rather than assuming the receivables problem resolves itself:</p>
+
+<div class="table-wrap">
+<table>
+<caption>DCF scenarios against the corrected market price of &#8377;2,940 (market EV &#8377;21,731 Cr)</caption>
+<thead><tr><th>Scenario</th><th class="num">Growth</th><th class="num">EBITDA margin</th><th class="num">Incr. WC</th><th class="num">Value/share</th><th class="num">vs. price</th></tr></thead>
+<tbody>
+<tr><td class="t">Bear</td><td class="num">10%</td><td class="num">28%</td><td class="num">50%</td><td class="num">&#8377;699</td><td class="num l">&minus;76.2%</td></tr>
+<tr><td class="t">Base</td><td class="num">15%</td><td class="num">33%</td><td class="num">35%</td><td class="num">&#8377;1,206</td><td class="num l">&minus;59.0%</td></tr>
+<tr class="hl"><td class="t">Bull</td><td class="num">22%</td><td class="num">38%</td><td class="num">20%</td><td class="num">&#8377;2,245</td><td class="num l">&minus;23.7%</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Even the <b>bull case</b> &mdash; 22% growth (above anything delivered since FY2020) and a 38% EBITDA margin (matching the very top of management's own current, freshest quarterly figure) &mdash; falls short by 23.7%, because the working-capital charge at even its most favourable modelled rate (20% of incremental revenue &mdash; still well below the company's own actual 76.6% five-year average) consumes a material share of the cash flow this valuation would otherwise credit. The base case, built on growth and margin assumptions well inside the company's own recent delivered range, falls short by 59%.</p>
+
+<h3>The reverse DCF makes the working-capital problem the entire story</h3>
+<p>Holding growth at 15% (in line with the company's own recent trajectory) and working-capital intensity at 35% (already a meaningful improvement on the trailing three-year actual of 95.2%), <b>no EBITDA margin up to 40% reaches the current price</b> &mdash; the reverse solver returns infeasible outright. Holding margin instead at the current 33% level and working capital at the same 35% assumption, the price requires <b>42.2% revenue growth sustained for seven years</b> &mdash; above anything the company has delivered since its much smaller, earlier-stage years (FY2018&ndash;FY2020, when growth ran 20&ndash;34%), and a rate this pipeline's own arithmetic finds `feasible=True` only in the narrow technical sense that the model can solve for it, not that it is a plausible outcome for a company already normalising toward low-teens growth (Section <a href="#framework">02</a>).</p>
+
+<figure>
+<div class="fig-title">DCF scenarios vs. corrected current price</div>
+<div class="fig-sub">Value per share, &#8377;</div>
+<svg viewBox="0 0 720 240" role="img" aria-label="Discounted cash flow valuation scenarios for Caplin Point Laboratories against the corrected current market price"><line class="grid-l" x1="56" y1="206.0" x2="704" y2="206.0"/><text class="ax" x="50" y="209.0" text-anchor="end">0</text><line class="grid-l" x1="56" y1="175.3" x2="704" y2="175.3"/><text class="ax" x="50" y="178.3" text-anchor="end">550</text><line class="grid-l" x1="56" y1="144.7" x2="704" y2="144.7"/><text class="ax" x="50" y="147.7" text-anchor="end">1,100</text><line class="grid-l" x1="56" y1="114.0" x2="704" y2="114.0"/><text class="ax" x="50" y="117.0" text-anchor="end">1,650</text><line class="grid-l" x1="56" y1="83.3" x2="704" y2="83.3"/><text class="ax" x="50" y="86.3" text-anchor="end">2,200</text><line class="grid-l" x1="56" y1="52.7" x2="704" y2="52.7"/><text class="ax" x="50" y="55.7" text-anchor="end">2,750</text><line class="grid-l" x1="56" y1="22.0" x2="704" y2="22.0"/><text class="ax" x="50" y="25.0" text-anchor="end">3,300</text><rect x="118.6" y="167.0" width="90.7" height="39.0" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs 699</title></rect><text class="vlbl" x="164.0" y="160.0" text-anchor="middle" fill="#d97a5f">&#8377;699</text><text class="ax" x="164.0" y="220" text-anchor="middle">Bear</text><text class="ax" x="164.0" y="232" text-anchor="middle" fill="#d97a5f">-76%</text><rect x="334.6" y="138.8" width="90.7" height="67.2" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 1,206</title></rect><text class="vlbl" x="380.0" y="131.8" text-anchor="middle" fill="#c9a24b">&#8377;1,206</text><text class="ax" x="380.0" y="220" text-anchor="middle">Base</text><text class="ax" x="380.0" y="232" text-anchor="middle" fill="#d97a5f">-59%</text><rect x="550.6" y="80.8" width="90.7" height="125.2" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 2,245</title></rect><text class="vlbl" x="596.0" y="73.8" text-anchor="middle" fill="#5fb98a">&#8377;2,245</text><text class="ax" x="596.0" y="220" text-anchor="middle">Bull</text><text class="ax" x="596.0" y="232" text-anchor="middle" fill="#d97a5f">-24%</text><line x1="56" y1="42.1" x2="704" y2="42.1" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="35.1" text-anchor="end">market &#8377;2,940</text><line class="zero-l" x1="56" y1="206" x2="704" y2="206"/></svg>
+<figcaption><b>Why:</b> even the bull case, built on margins and growth near the best the company has recently delivered, falls 24% short once working capital is charged at a rate still well below the company's own actual five-year average intensity.</figcaption>
+</figure>
+
+<h3>What this does and does not mean</h3>
+<p>This is not a finding that Caplin's underlying business is weak &mdash; the ROCE and revenue-growth record in Section <a href="#framework">02</a> is genuinely excellent on both this pipeline's primary formula and Vijay Malik's stricter cross-check. It is a finding that a DCF, which by construction charges for working capital honestly, cannot support the current price once Caplin's own actual, well-documented cash-conversion history (Section <a href="#wc">05</a>) is built into the model rather than assumed away. A reader who believes the receivables trend will genuinely reverse toward the company's original "100&ndash;120 day" comfort range, rather than the newly widened "100&ndash;130," would find a materially smaller gap than this report's own base case shows &mdash; and that belief is precisely the open question Section <a href="#wc">05</a> leaves unresolved.</p>
+
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">13</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">Quality and value, kept on separate axes &mdash; this is not a buy or sell call</p>
+
+<h3>Quality: excellent on every accrual test, genuinely weak on the one test that matters most for a Malik-style framework</h3>
+<p>Caplin Point is this pipeline's top tier &mdash; a true 9iner, with revenue growth and ROCE both clearing the bar in all nine measured years, and a rare full agreement between this pipeline's primary ROCE formula and Vijay Malik's own stricter cross-check. It is debt-free, sitting on &#8377;616 Cr of net cash, has never written off a bad debt, and its margin improvement over the last three years is genuinely operating rather than accounting-driven. Its US sterile-injectables subsidiary is scaling from cash-burn to a real, growing profit contributor with a large, self-funded capacity build ahead of it.</p>
+<p>Set directly against that: cumulative operating cash flow is only 0.76&times; cumulative reported profit over the decade &mdash; the weakest cash-gate score this pipeline has found this cycle &mdash; driven by receivable days that have nearly quintupled, from 30 to 138, with almost the entirety of recent incremental profit (95.2% over three years) going into working capital rather than cash. Most tellingly, management's own response to a direct analyst challenge on this trend was to widen its stated comfort range rather than defend or reverse the original one &mdash; and the metric moved past even the widened range the very next quarter. This is not a business burning cash or facing solvency risk; it is a business whose reported profit growth is running ahead of the cash actually arriving behind it, on a trend that has now persisted for several years without genuinely reversing.</p>
+
+<h3>Value: even the bull case falls short, and the reverse DCF cannot find a workable margin</h3>
+<p>At roughly 33&times; trailing earnings, this report's own DCF &mdash; built with working-capital assumptions still meaningfully better than the company's own actual recent history &mdash; falls short of the current price by 24% even in its bull case (22% growth, 38% EBITDA margin, both near the best the company has recently delivered). At the company's own guided growth rate, no EBITDA margin up to 40% reaches the price at all. <b>This does not mean the business is poorly run.</b> It means the price is not being validated by a cash-flow model that charges honestly for the one weakness this report's own data independently confirms: working capital consuming most of the incremental profit the P&amp;L reports.</p>
+
+<h3>Specific triggers, with thresholds</h3>
+<ul>
+<li><b>The Q3 FY2027 receivables collection management explicitly committed to</b> (Section <a href="#mgmt">08</a>) &mdash; a specific, dated promise this report can test directly once that quarter's results are published; collection on schedule would be the first hard evidence the trend can genuinely reverse rather than merely being re-explained each quarter.</li>
+<li><b>Receivable days against management's own widened "100 to 130 day" range</b> &mdash; whether FY2027 brings the figure back inside that range, or the range gets widened again.</li>
+<li><b>CSL (US) EBITDA margin and growth against the 25&ndash;30% / 38&ndash;39% guidance</b> &mdash; already on track one quarter in; a sustained multi-quarter pattern would meaningfully strengthen the quality case.</li>
+<li><b>The August 2026 Form 483 remediation</b> &mdash; whether the company's own "procedural, non-data-integrity" characterisation holds up through USFDA's formal response, with no escalation to a warning letter.</li>
+<li><b>The two pending distribution-company acquisitions (Chile, Mexico)</b> &mdash; a disciplined, well-integrated deal would support the growth case in Section <a href="#growth">07</a>; a large, rushed acquisition funded from the same cash pile currently earmarked for capex would be worth re-examining against the capital-allocation discipline described in Section <a href="#capital">09</a>.</li>
+</ul>
+
+<p><b>What would change this verdict:</b> two or three consecutive quarters of receivable days genuinely falling back toward the company's original 100&ndash;120-day range, without a fresh one-off explanation each time, would substantially close the gap between this report's own DCF and the current price and would validate management's own framing of the recent drift as temporary rather than structural. Absent that, this report treats the cash-conversion trend as the single most important open question about an otherwise excellent business.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">14</span>Data gaps and provenance</h2>
+<p class="sec-sub">A table-stripping defect across nine of ten annual reports, a price correction with no identified cause, and an exhaustively-documented external research pass with its own honestly-flagged limits</p>
+
+<h3>The table-stripping defect is present across nearly the entire local annual-report archive</h3>
+<p>Nine of the ten locally-stored annual report markdowns for Caplin Point contain zero table rows &mdash; only the FY2019 filing retained a handful. This is the known upstream PDF-to-markdown conversion defect this pipeline has flagged before: every table in an affected document, including receivables-ageing schedules, related-party value tables and contingent-liability disclosures, is simply missing from the local text. This report's own financial analysis relies on this pipeline's structured database rather than these markdowns directly, so the core numbers are unaffected, but any qualitative annual-report detail this report might otherwise have cited (competition-risk language, note-level detail on the other-income breakdown referenced in Section <a href="#margin">04</a>) was not independently available to check.</p>
+
+<h3>The price correction has no identified single cause</h3>
+<p>This pipeline's own price cache showed &#8377;2,684.95 as of 2 September 2026. This report used a corrected, fresher figure of &#8377;2,940 (24 September 2026). Unlike the price corrections made for other companies this cycle, no single crisis or event was identified as the driver of the roughly 9.5% gap; the most plausible explanation is a gradual re-rating following strong Q1 FY2027 results, but this is this report's own inference, not a confirmed causal finding.</p>
+
+<h3>The credit-rating conclusion is a strong inference, not a positive confirmation</h3>
+<p>This report's background research concludes Caplin Point carries no external credit rating because it has no meaningful rated bank debt &mdash; a genuine absence rather than a pipeline ingestion gap, based on exhaustive but ultimately negative evidence (no rating found on any of the four major agencies' own sites, no rating-disclosure category in the company's own comprehensive press-release archive). This is an inference from converging absence-of-evidence, not a positive statement from the company itself or from a rating agency. A stronger confirmation would be a direct statement in the annual report's own "credit rating" disclosure section (SEBI-mandated if any rating exists), which was not checked against the local annual-report markdowns in this pass &mdash; itself limited by the table-stripping defect noted above.</p>
+
+<h3>Peer set: two names included on lighter evidence, two excluded on judgment</h3>
+<p>Ajanta Pharma's inclusion rests on a single 2014 blog-post framing plus general thematic reasoning, not a broker note or management statement naming it directly &mdash; weaker evidence than the Trendlyne-sourced peers (Strides, Marksans, Gland, Gufic). Alembic Pharma and Jubilant Pharmova were deliberately excluded on the judgment that they are too large and domestically-focused to sharpen the comparison; a reader may reasonably disagree. Sequent Scientific's January 2026 merger and rename to Viyash Scientific was caught mid-research and excluded from the comparison table for that reason. Management's own transcripts (read directly by this report for other sections) did not surface any named competitors on the calls actually reviewed.</p>
+
+<h3>ValuePickr: a representative but partial sample</h3>
+<p>Of the thread's 893 posts, roughly 60 (about 7%, spanning four widely-spaced snapshots: Dec 2012&ndash;Jan 2013, mid-2017, late 2020&ndash;early 2021, and the current 2026 page) were read. Several multi-year stretches (2013&ndash;2017, 2018&ndash;2020, 2021&ndash;2025 &mdash; much of the Caplin Steriles ramp-up specifically) were not sampled at all. Broker consensus target-price figures found via general search were mutually inconsistent between sources and could not be traced to a specific, dated broker note; this report treats them as directional only and does not rely on them in Section <a href="#valuation">12</a>.</p>
+
+<h3>Regulatory and legal gaps, stated plainly</h3>
+<ul>
+<li>The August 2026 Form 483 (10 observations, Caplin Steriles Gummidipoondi) was corroborated by two outlets carrying substantially the same wire item, plus one ambiguous company-side reference; the primary Form 483 document itself was not located or read.</li>
+<li>No USFDA warning letter or import alert was found for any Caplin Point or Caplin Steriles facility, and no US ANDA Paragraph IV patent litigation was found &mdash; both absence-of-evidence from a search-based method, not confirmed clean findings against a primary FDA or court database.</li>
+<li>Promoter share-pledge status was not checked against a shareholding-pattern filing directly &mdash; genuinely unknown, not confirmed either way.</li>
+<li>The November 2025 board reshuffle placing two same-surname family members into Vice-Chairman roles is flagged as a pattern worth a future refresh's scrutiny (for instance against related-party filings), not as a finding of impropriety on the evidence reviewed.</li>
+</ul>
+
+<h3>What would most improve the next refresh</h3>
+<ol>
+<li>Whether the specific, dated Q3 FY2027 receivables collection management committed to on the Q1 FY2027 call actually occurs.</li>
+<li>A direct read of the FY2026 annual report's other-income note, once the table-stripping defect is fixed or a clean copy is sourced, to confirm the forex/treasury-income attribution in Section <a href="#margin">04</a>.</li>
+<li>A direct check of the annual report's own credit-rating disclosure section, to convert this report's strong inference of no rating into a fully confirmed fact.</li>
+<li>A broader ValuePickr sample across the unsampled 2013&ndash;2017, 2018&ndash;2020 and 2021&ndash;2025 stretches, particularly the Caplin Steriles ramp-up years.</li>
+<li>Primary confirmation of the Form 483's specific observations, and of USFDA Import Alert / Warning Letter database status for both Caplin Point and Caplin Steriles facilities.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Caplin Point Laboratories Ltd (NSE/BSE: CAPLIPOINT, BSE: 524742, ISIN INE475E01026). Prepared 25 September 2026 against a corrected share price of &#8377;2,940.</p>
+  <p>Built from this pipeline's own current internal database, run through its own tested margin-bridge, cash-gates, anomaly-scan and DCF arithmetic; an existing related-party audit covering fifteen crawled annual reports; a full read of the two most recent (Q4 FY2026 and Q1 FY2027) earnings calls; and independent research covering the real peer set, an exhaustively-documented conclusion that this company genuinely carries no credit rating rather than one this pipeline's document store simply lacks, a 14-year, 893-post ValuePickr thread whose own historical arc anticipated this report's central finding, and a recent USFDA Form 483. Every numeric claim cites a period; every quotation cites a document. This report's central finding is a genuine divide between the cleanest, most fully-qualifying accrual-based quality record this pipeline has scored this cycle and the weakest cash-conversion score it has found &mdash; a receivables trend management itself has responded to by widening its own comfort range rather than reversing it, stated plainly in Section 5 and the verdict rather than resolved in either direction.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. This report covers a company with an excellent, doubly-confirmed return-on-capital record sitting alongside the weakest cash-conversion score this pipeline has scored this cycle; read the working-capital and valuation sections in full before acting on anything here. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
