@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Coforge Ltd — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Coforge Ltd: a mid-cap Indian IT services firm mid-integration of a $2.35 billion, largely all-stock acquisition, with strong deal-momentum and a fresh governance shock from a chairman's resignation just weeks before this report -- set against a valuation this pipeline's DCF finds demanding even in its bull case.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<span class="kicker">Coffee Can Screener &middot; Equity Research</span>
+<h1>Coforge Ltd</h1>
+<p class="subtitle">Two acquisitions integrated inside five months, a cash-gate record clearing all three tests for a third straight company this cycle &mdash; and, five weeks before this report, a chairman and the board's own nomination-and-remuneration-committee chair resigning within 48 hours of each other</p>
+<div class="meta">
+<b>NSE/BSE:</b> COFORGE &middot; <b>BSE code:</b> 532541 &middot; <b>ISIN:</b> INE591G01025<br>
+<b>Prepared:</b> 25 September 2026 &middot; <b>Price:</b> &#8377;1,784.00 &middot; <b>Market cap:</b> &#8377;78,934 Cr &middot; <b>P/E:</b> ~41.2&times;
+</div>
+</header>
+
+<div class="verdict">
+<div class="verdict-label">The one-paragraph version</div>
+<div class="verdict-head">A genuinely strong operating record, mid-integration of a transformative deal, priced closer to what this pipeline's own DCF can support than any other company scored this cycle &mdash; set against a live, unresolved governance shock</div>
+<p>Coforge cleared every quantitative gate this pipeline tests &mdash; ROCE above 23% in every year measured, a perfect agreement between this pipeline's own ROCE formula and Vijay Malik's stricter cross-check (both qualify, 9/9 years), and a positive Gate 3 (cumulative cash flow from operations less capex less interest, +&#8377;2,137 Cr over the decade) &mdash; the third company scored this cycle to clear all three cash gates simultaneously. It did this while closing two acquisitions five months apart: Cigniti Technologies, amalgamated 5 May 2026, and the much larger Encora Inc, a $2.35 billion, largely all-stock deal that closed 23 April 2026 and roughly doubled headcount overnight. The integration, on its own numbers one quarter in, is running ahead of the targets set at deal announcement. Two things complicate that story. First, this pipeline's own price cache was stale by about nine days and roughly 9% of share price at the point this research began: it still showed a pre-crisis price of &#8377;1,965.50 fetched 2 September, before Chairman O.P. Bhatt resigned on 8 September following an internal audit finding about his own board-evaluation scores, and the company's nomination-and-remuneration-committee chair resigned two days after that. This report uses the corrected, post-crisis price throughout. Second &mdash; and this is the more interesting valuation finding &mdash; even after that correction, this pipeline's own DCF bull case comes within about 2% of the current price, a materially narrower gap than this pipeline has found in any other company scored this cycle, because the market itself has already done some of the repricing this report's own arithmetic would otherwise have to argue for.</p>
+</div>
+
+<div class="hero-row">
+<div class="stat"><div class="k">Tier (this pipeline)</div><div class="v">Dirty 9iner</div><div class="n">8/9 revenue, 9/9 ROCE gates</div></div>
+<div class="stat"><div class="k">Cumulative CFO/PAT</div><div class="v">1.26&times;</div><div class="n">FY2017&ndash;FY2026, score 9/10</div></div>
+<div class="stat"><div class="k">Gate 3 (CFO&minus;capex&minus;interest)</div><div class="v">+&#8377;2,137 Cr</div><div class="n">Full decade, positive &mdash; 3rd in a row this cycle</div></div>
+<div class="stat"><div class="k">Vijay Malik ROCE cross-check</div><div class="v">Qualifies</div><div class="n">9/9 years, full agreement with primary gate</div></div>
+</div>
+
+<div class="toc">
+<div class="toc-l">Contents</div>
+<ol>
+    <li><a href="#business">The business: two deals in five months</a></li>
+    <li><a href="#framework">The checklist: full agreement on ROCE</a></li>
+    <li><a href="#record">The ten-year record, and a quarter ahead of target</a></li>
+    <li><a href="#margin">Margins</a></li>
+    <li><a href="#wc">Working capital</a></li>
+    <li><a href="#peers">How Coforge compares</a></li>
+    <li><a href="#growth">Growth outlook</a></li>
+    <li><a href="#mgmt">Management</a></li>
+    <li><a href="#capital">Capital allocation</a></li>
+    <li><a href="#flags">Governance and credit</a></li>
+    <li><a href="#sentiment">What retail investors have said</a></li>
+    <li><a href="#valuation">Valuation: the narrowest gap this cycle</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business: a mid-tier IT services firm that just did two deals in five months</h2>
+<p class="sec-sub">Zero promoter holding, a combined entity roughly $2.5 billion in revenue, and a strategy built on immediate, complete integration rather than gradual absorption</p>
+
+<p>Coforge Ltd (formerly NIIT Technologies, renamed 2021) is a mid-tier Indian IT services company providing digital engineering, cloud, data and AI-led services across BFSI, insurance, travel-transportation-hospitality (TTH), healthcare and public-sector clients, mostly outside India. Its ownership structure is genuinely unusual for this pipeline's peer set: as of June 2026 promoter holding was <b>0.00%</b> &mdash; the company has no controlling shareholder at all. Institutional ownership fills the gap: FII 24.31%, DII 42.62%, public 33.07%. Every comparable this report uses later (LTIMindtree, Persistent Systems, Mphasis, Zensar, Birlasoft, L&amp;T Technology Services, Hexaware) has some controlling or founder-linked holder in the 30&ndash;74% range. Coforge does not, a legacy of a private-equity-backed ownership history (Baring Private Equity Asia, after an earlier RPG Group association) that has left the register fully institutional.</p>
+
+<p>Two acquisitions closed five months apart in FY2026 and define the company this report is analysing, more than any organic trend does:</p>
+
+<ul>
+<li><b>Cigniti Technologies</b> &mdash; a quality-assurance and software-testing specialist, amalgamated into Coforge on 5 May 2026.</li>
+<li><b>Encora Inc</b> &mdash; an enterprise value of $2.35 billion, closed 23 April 2026 and effective 1 May 2026. The deal was structured largely in stock: $1.89 billion of the consideration went to sellers Advent International and Warburg Pincus as preferential equity issued at &#8377;1,815.91 per share, alongside a $550 million loan raised to retire Encora's own existing term debt. Encora brought a strong Latin American nearshore delivery footprint and roughly 9,256 people into the combined headcount in the first two months alone.</li>
+</ul>
+
+<p>The combined entity CRISIL now sizes at roughly $2.5 billion (~&#8377;23,000 Cr) in revenue at a targeted 16&ndash;18% EBITDA margin &mdash; a step change from Coforge's own standalone FY2026 revenue of &#8377;16,477 Cr (+36% YoY, per CRISIL's July 2026 rating rationale). Management has been explicit and consistent about how it runs an acquired company from day one, in language repeated across at least three deals now:</p>
+
+<blockquote><p>"We immediately and fully integrate both organizations, ask leaders running the acquired firm to leave on Day 1 itself, so we have immediate and complete effective control."</p><p class="attr">&mdash; Management, Q1 FY2027 earnings call, 28 July 2026, describing the playbook also used on Cigniti, SLK Global and Incessant &mdash; verbatim, primary source</p></blockquote>
+
+<p>One quarter into the Encora integration, the numbers management has disclosed suggest the playbook is working faster than the deal's own original targets: 86% of combined revenue now comes from AI-led Engineering, Data &amp; Integration and Cloud service lines, ahead of the 80% guided at deal announcement, and the combined entity's Q1 FY2027 EBIT margin of 16.0% already exceeds the full-year 15.5% guidance given for the combined business. Client concentration is moderate for a company this size &mdash; the top five clients are 18.0% of revenue, top ten 26.1%, with a granular tail below that (1 client above $100 Cr, 3 in the $50&ndash;100 Cr band, 14 in $20&ndash;50 Cr, 29 in $10&ndash;20 Cr).</p>
+
+<div class="warn">
+<div class="lbl">Not organic growth</div>
+<p>Every headline growth number this report quotes from FY2026 onward is materially inflated by the two acquisitions closing mid-year. Management's own disclosed organic figure &mdash; 5.2% constant-currency sequential growth, excluding both acquisitions and planned client-portfolio exits &mdash; is the cleaner number to track quarter to quarter, and this report uses it wherever the distinction matters, flagging the reported (acquisition-inclusive) figure separately.</p>
+</div>
+
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>The checklist: full agreement between this pipeline's ROCE test and Vijay Malik's own stricter version</h2>
+<p class="sec-sub">A Dirty 9iner, one year short of a clean sweep on revenue growth, and a rare case where the stricter cross-check does not narrow the qualifying years at all</p>
+
+<p>This pipeline classifies Coforge a <b>Dirty 9iner</b> (tier rank 2): revenue growth cleared 10% in 8 of 9 measured years (the exception, FY2018, grew 6.76%), and ROCE cleared 15% in <b>all 9</b> years, ranging 23.54&ndash;32.11% &mdash; never once dipping toward the threshold. Run through Vijay Malik's own stricter ROCE formula, which typically produces materially lower values than this pipeline's primary Screener-style calculation, the picture does not change: <b>every one of those 9 years still qualifies</b>, with values ranging 15.31&ndash;22.16%. That full agreement is unusual. Earlier companies scored this cycle (Dynacons Systems, Alufluoride) showed sharp divergence between the two formulas; the three most recent (APL Apollo Tubes, Dr Lal PathLabs, and now Coforge) all show the stricter formula agreeing closely or fully &mdash; a pattern consistent with these being larger, more capital-efficient, more heavily covered businesses than the earlier, thinner names this cycle has scored.</p>
+
+<div class="table-wrap">
+<table>
+<caption>ROCE by fiscal year: this pipeline's primary formula versus Vijay Malik's stricter cross-check</caption>
+<thead><tr><th>FY</th><th class="num">Primary ROCE</th><th class="num">Malik ROCE</th><th class="num">Revenue growth</th></tr></thead>
+<tbody>
+<tr><td class="t">2018</td><td class="num">23.54%</td><td class="num">16.42%</td><td class="num l">6.76%</td></tr>
+<tr><td class="t">2019</td><td class="num">29.45%</td><td class="num">20.94%</td><td class="num g">22.89%</td></tr>
+<tr><td class="t">2020</td><td class="num">27.05%</td><td class="num">19.60%</td><td class="num g">13.81%</td></tr>
+<tr><td class="t">2021</td><td class="num">24.52%</td><td class="num">17.74%</td><td class="num g">11.45%</td></tr>
+<tr><td class="t">2022</td><td class="num">32.11%</td><td class="num">22.16%</td><td class="num g">37.94%</td></tr>
+<tr><td class="t">2023</td><td class="num">30.05%</td><td class="num">19.65%</td><td class="num g">24.61%</td></tr>
+<tr><td class="t">2024</td><td class="num">29.56%</td><td class="num">20.23%</td><td class="num g">12.41%</td></tr>
+<tr><td class="t">2025</td><td class="num">23.78%</td><td class="num">15.31%</td><td class="num g">34.02%</td></tr>
+<tr><td class="t">2026</td><td class="num">24.52%</td><td class="num">16.02%</td><td class="num g">35.86%</td></tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+<div class="fig-title">Cumulative CFO vs. cumulative PAT, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, ten-year running total</div>
+<svg viewBox="0 0 720 240" role="img" aria-label="Coforge cumulative operating cash flow versus cumulative net profit, FY2017 to FY2026"><g><rect x="52" y="0" width="9" height="9" rx="2" fill="#c9a24b"/><text class="ax" x="65" y="8" text-anchor="start">Cumulative PAT</text><rect x="182" y="0" width="9" height="9" rx="2" fill="#5b9bd1"/><text class="ax" x="195" y="8" text-anchor="start">Cumulative CFO</text></g><line class="grid-l" x1="52" y1="208.0" x2="706" y2="208.0"/><text class="ax" x="46" y="211.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="160.5" x2="706" y2="160.5"/><text class="ax" x="46" y="163.5" text-anchor="end">2,164</text><line class="grid-l" x1="52" y1="113.0" x2="706" y2="113.0"/><text class="ax" x="46" y="116.0" text-anchor="end">4,328</text><line class="grid-l" x1="52" y1="65.5" x2="706" y2="65.5"/><text class="ax" x="46" y="68.5" text-anchor="end">6,492</text><line class="grid-l" x1="52" y1="18.0" x2="706" y2="18.0"/><text class="ax" x="46" y="21.0" text-anchor="end">8,656</text><rect x="59.2" y="202.5" width="23.5" height="5.5" rx="3" fill="#c9a24b"><title>FY2017 cumulative PAT: Rs 250 Cr</title></rect><rect x="86.7" y="197.6" width="23.5" height="10.4" rx="3" fill="#5b9bd1"><title>FY2017 cumulative CFO: Rs 472 Cr</title></rect><text class="ax" x="84.7" y="221" text-anchor="middle">'17</text><rect x="124.6" y="196.4" width="23.5" height="11.6" rx="3" fill="#c9a24b"><title>FY2018 cumulative PAT: Rs 530 Cr</title></rect><rect x="152.1" y="189.2" width="23.5" height="18.8" rx="3" fill="#5b9bd1"><title>FY2018 cumulative CFO: Rs 855 Cr</title></rect><text class="ax" x="150.1" y="221" text-anchor="middle">'18</text><rect x="190.0" y="187.5" width="23.5" height="20.5" rx="3" fill="#c9a24b"><title>FY2019 cumulative PAT: Rs 934 Cr</title></rect><rect x="217.5" y="179.3" width="23.5" height="28.7" rx="3" fill="#5b9bd1"><title>FY2019 cumulative CFO: Rs 1,307 Cr</title></rect><text class="ax" x="215.5" y="221" text-anchor="middle">'19</text><rect x="255.4" y="177.8" width="23.5" height="30.2" rx="3" fill="#c9a24b"><title>FY2020 cumulative PAT: Rs 1,378 Cr</title></rect><rect x="282.9" y="172.8" width="23.5" height="35.2" rx="3" fill="#5b9bd1"><title>FY2020 cumulative CFO: Rs 1,604 Cr</title></rect><text class="ax" x="280.9" y="221" text-anchor="middle">'20</text><rect x="320.8" y="167.8" width="23.5" height="40.2" rx="3" fill="#c9a24b"><title>FY2021 cumulative PAT: Rs 1,833 Cr</title></rect><rect x="348.3" y="156.1" width="23.5" height="51.9" rx="3" fill="#5b9bd1"><title>FY2021 cumulative CFO: Rs 2,367 Cr</title></rect><text class="ax" x="346.3" y="221" text-anchor="middle">'21</text><rect x="386.2" y="153.2" width="23.5" height="54.8" rx="3" fill="#c9a24b"><title>FY2022 cumulative PAT: Rs 2,495 Cr</title></rect><rect x="413.7" y="139.2" width="23.5" height="68.8" rx="3" fill="#5b9bd1"><title>FY2022 cumulative CFO: Rs 3,132 Cr</title></rect><text class="ax" x="411.7" y="221" text-anchor="middle">'22</text><rect x="451.6" y="138.0" width="23.5" height="70.0" rx="3" fill="#c9a24b"><title>FY2023 cumulative PAT: Rs 3,189 Cr</title></rect><rect x="479.1" y="118.4" width="23.5" height="89.6" rx="3" fill="#5b9bd1"><title>FY2023 cumulative CFO: Rs 4,083 Cr</title></rect><text class="ax" x="477.1" y="221" text-anchor="middle">'23</text><rect x="517.0" y="120.3" width="23.5" height="87.7" rx="3" fill="#c9a24b"><title>FY2024 cumulative PAT: Rs 3,997 Cr</title></rect><rect x="544.5" y="98.6" width="23.5" height="109.4" rx="3" fill="#5b9bd1"><title>FY2024 cumulative CFO: Rs 4,986 Cr</title></rect><text class="ax" x="542.5" y="221" text-anchor="middle">'24</text><rect x="582.4" y="102.4" width="23.5" height="105.6" rx="3" fill="#c9a24b"><title>FY2025 cumulative PAT: Rs 4,809 Cr</title></rect><rect x="609.9" y="71.4" width="23.5" height="136.6" rx="3" fill="#5b9bd1"><title>FY2025 cumulative CFO: Rs 6,223 Cr</title></rect><text class="ax" x="607.9" y="221" text-anchor="middle">'25</text><rect x="647.8" y="68.3" width="23.5" height="139.7" rx="3" fill="#c9a24b"><title>FY2026 cumulative PAT: Rs 6,364 Cr</title></rect><rect x="675.3" y="32.1" width="23.5" height="175.9" rx="3" fill="#5b9bd1"><title>FY2026 cumulative CFO: Rs 8,015 Cr</title></rect><text class="ax" x="673.3" y="221" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="208" x2="706" y2="208"/></svg>
+<figcaption><b>Why:</b> cumulative CFO of &#8377;8,014.9 Cr against cumulative PAT of &#8377;6,364.5 Cr (1.26&times;) underpins a positive Gate 3 (CFO less capex less interest, +&#8377;2,136.5 Cr) &mdash; the third company this pipeline has scored this cycle to clear all three cash gates at once.</figcaption>
+</figure>
+
+<div class="good">
+<div class="lbl">Why this matters</div>
+<p>A single "Dirty 9iner" line hides how comfortably Coforge clears the bar. The lowest primary ROCE in the entire nine-year window (23.54%, FY2018) is still above 23% &mdash; roughly 1.6&times; this pipeline's own 15% qualifying threshold &mdash; and the lowest Malik cross-check value (15.31%, FY2025) still clears 15%. No year is a marginal pass.</p>
+</div>
+
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record, and a quarter running ahead of its own deal targets</h2>
+<p class="sec-sub">21.7% revenue CAGR over nine years, a FY2026 jump that is mostly two acquisitions, and a Q1 FY2027 order book at an all-time high</p>
+
+<div class="table-wrap">
+<table>
+<caption>Sales, PAT and CFO, FY2017&ndash;FY2026, &#8377; Cr, consolidated basis</caption>
+<thead><tr><th>FY</th><th class="num">Sales</th><th class="num">PAT</th><th class="num">CFO</th><th class="num">CFO/PAT</th></tr></thead>
+<tbody>
+<tr><td class="t">2017</td><td class="num">2,802.1</td><td class="num">250.1</td><td class="num">472.3</td><td class="num">1.89&times;</td></tr>
+<tr><td class="t">2018</td><td class="num">2,991.4</td><td class="num">280.2</td><td class="num">382.4</td><td class="num">1.36&times;</td></tr>
+<tr><td class="t">2019</td><td class="num">3,676.2</td><td class="num">403.3</td><td class="num">452.7</td><td class="num">1.12&times;</td></tr>
+<tr><td class="t">2020</td><td class="num">4,183.9</td><td class="num">444.0</td><td class="num">296.9</td><td class="num l">0.67&times;</td></tr>
+<tr><td class="t">2021</td><td class="num">4,662.8</td><td class="num">455.6</td><td class="num">762.3</td><td class="num">1.67&times;</td></tr>
+<tr><td class="t">2022</td><td class="num">6,432.0</td><td class="num">661.7</td><td class="num">765.6</td><td class="num">1.16&times;</td></tr>
+<tr><td class="t">2023</td><td class="num">8,014.6</td><td class="num">693.8</td><td class="num">950.5</td><td class="num">1.37&times;</td></tr>
+<tr><td class="t">2024</td><td class="num">9,008.9</td><td class="num">808.0</td><td class="num">903.4</td><td class="num">1.12&times;</td></tr>
+<tr><td class="t">2025</td><td class="num">12,073.3</td><td class="num">812.1</td><td class="num">1,237.1</td><td class="num">1.52&times;</td></tr>
+<tr class="hl"><td class="t">2026</td><td class="num">16,402.7</td><td class="num">1,555.7</td><td class="num">1,791.7</td><td class="num">1.15&times;</td></tr>
+<tr class="tot"><td class="t">Cumulative</td><td class="num">&mdash;</td><td class="num">6,364.5</td><td class="num">8,014.9</td><td class="num">1.26&times;</td></tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+<div class="fig-title">Revenue, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, consolidated basis</div>
+<svg viewBox="0 0 720 230" role="img" aria-label="Coforge revenue by fiscal year, FY2017 to FY2026"><line class="grid-l" x1="52" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="46" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="46" y="157.0" text-anchor="end">4,429</text><line class="grid-l" x1="52" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="46" y="111.0" text-anchor="end">8,857</text><line class="grid-l" x1="52" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="46" y="65.0" text-anchor="end">13,286</text><line class="grid-l" x1="52" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="46" y="19.0" text-anchor="end">17,715</text><rect x="65.7" y="170.9" width="37.9" height="29.1" rx="4" fill="#c9a24b"><title>FY2017: Rs 2,802.1 Cr</title></rect><text class="ax" x="84.7" y="213" text-anchor="middle">'17</text><rect x="131.1" y="168.9" width="37.9" height="31.1" rx="4" fill="#c9a24b"><title>FY2018: Rs 2,991.4 Cr</title></rect><text class="ax" x="150.1" y="213" text-anchor="middle">'18</text><rect x="196.5" y="161.8" width="37.9" height="38.2" rx="4" fill="#c9a24b"><title>FY2019: Rs 3,676.2 Cr</title></rect><text class="ax" x="215.5" y="213" text-anchor="middle">'19</text><rect x="261.9" y="156.5" width="37.9" height="43.5" rx="4" fill="#c9a24b"><title>FY2020: Rs 4,183.9 Cr</title></rect><text class="ax" x="280.9" y="213" text-anchor="middle">'20</text><rect x="327.3" y="151.6" width="37.9" height="48.4" rx="4" fill="#c9a24b"><title>FY2021: Rs 4,662.8 Cr</title></rect><text class="ax" x="346.3" y="213" text-anchor="middle">'21</text><rect x="392.7" y="133.2" width="37.9" height="66.8" rx="4" fill="#c9a24b"><title>FY2022: Rs 6,432.0 Cr</title></rect><text class="ax" x="411.7" y="213" text-anchor="middle">'22</text><rect x="458.1" y="116.8" width="37.9" height="83.2" rx="4" fill="#c9a24b"><title>FY2023: Rs 8,014.6 Cr</title></rect><text class="ax" x="477.1" y="213" text-anchor="middle">'23</text><rect x="523.5" y="106.4" width="37.9" height="93.6" rx="4" fill="#c9a24b"><title>FY2024: Rs 9,008.9 Cr</title></rect><text class="ax" x="542.5" y="213" text-anchor="middle">'24</text><rect x="588.9" y="74.6" width="37.9" height="125.4" rx="4" fill="#c9a24b"><title>FY2025: Rs 12,073.3 Cr</title></rect><text class="ax" x="607.9" y="213" text-anchor="middle">'25</text><rect x="654.3" y="29.6" width="37.9" height="170.4" rx="4" fill="#5fb98a"><title>FY2026: Rs 16,402.7 Cr (Cigniti amalgamation + 2 months of Encora consolidation)</title></rect><text class="ax" x="673.3" y="213" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="200" x2="706" y2="200"/></svg>
+<figcaption><b>Why:</b> the FY2026 jump (green bar) is not organic &mdash; it carries the Cigniti amalgamation and two months of Encora consolidation inside a single fiscal year, and should not be extrapolated as a new organic growth rate.</figcaption>
+</figure>
+
+<p>Revenue compounded at 21.7% and PAT at roughly 22&ndash;25% (depending on adjustment basis) across this nine-year window &mdash; a figure that lines up closely with management's own stated nine-year track record on the Q1 FY2027 call (revenue CAGR 21.7%, EBIT CAGR 24.6%, PAT CAGR 24.1%, under the current management team's tenth year). FY2020 is the one weak cash-conversion year in the table (CFO/PAT 0.67&times;), consistent with COVID-era collection disruption across the sector; every other year in the decade converts above 1.1&times;.</p>
+
+<p>FY2026 itself is not a clean organic year and should not be read as one: sales grew 35.9% and PAT 91.6%, but two months of Encora consolidation and the Cigniti amalgamation both land inside this single fiscal year, alongside a swing in other income from +&#8377;137.3 Cr (FY2025) to <b>&minus;&#8377;82.6 Cr</b> (FY2026) that this pipeline's own anomaly scan flagged and that most plausibly reflects one-off acquisition-related costs or FX effects around the Encora closing &mdash; a specific line item this report could not fully trace to a single disclosed driver (see Section <a href="#gaps">14</a>). EBITDA margin itself moved from 14.03% (FY2025) to 17.90% (FY2026), a step this pipeline's anomaly scan flags as more than twice the decade's typical year-on-year move, and CRISIL's own July 2026 rating rationale independently corroborates the direction: standalone Coforge FY2026 revenue of &#8377;16,476 Cr (within 0.5% of this pipeline's &#8377;16,402.7 Cr, likely a small consolidation-scope difference) at an 18.3% EBITDA margin, up from 14.3% the year before.</p>
+
+<h3>Q1 FY2027: the first full quarter with Encora inside the numbers</h3>
+<p>The most recent quarter (28 July 2026 call) is the cleanest read on how the integration is actually running, because it is the first quarter with the acquisition fully inside reported numbers rather than a mid-year step change:</p>
+<ul>
+<li><b>Revenue</b> $592.2M / &#8377;55,277 mn, of which two months of Encora contributed $100.7M.</li>
+<li><b>Organic growth</b> 5.2% constant-currency sequential, excluding both the acquisition and planned client-portfolio exits &mdash; versus 1.1% reported sequential growth, the gap being the acquisition math and the deliberate exits.</li>
+<li><b>Order book</b>: $691M order intake in the quarter across 4 large deals; the next-twelve-month executable order book reached an <b>all-time high of $2.23 billion</b>, up 44.2% year-on-year from $1.55 billion.</li>
+<li><b>Margin</b>: consolidated EBIT margin 16.0% (organic-only 16.7%), already ahead of the 15.5% full-year combined-entity guidance given at deal announcement. Revenue grew 49% YoY, EBIT 101% YoY (414bps of margin expansion), PBT 92% YoY (284bps), PAT 110% YoY (271bps).</li>
+<li><b>Headcount</b> 46,228, up 10,451 net (9,256 from Encora, 1,195 organic); utilisation 82.5%; LTM attrition 10.4%, which management characterised as "among the lowest in the industry" &mdash; a claim this report has not independently benchmarked against the full peer set's own attrition disclosures.</li>
+<li><b>EPS</b> (ex-exceptional) &#8377;13.3, down from &#8377;13.8 a year earlier &mdash; management itself flagged this as "noteworthy" given roughly 25% equity-base expansion from the Encora stock consideration plus the interest cost of acquisition financing. A shrinking per-share earnings figure sitting inside a quarter of otherwise strong operating results is exactly the kind of number a growth-by-acquisition story can bury; this report treats it as a genuine, not cosmetic, dilution cost.</li>
+</ul>
+
+<div class="key">
+<div class="lbl">The integration, on one quarter's evidence</div>
+<p>Encora's own standalone Q1 numbers inside the combined result: 20.3% EBITDA margin, 19.1% EBIT margin &mdash; both above Coforge's own historical standalone margin, which is unusual for an acquired business folded into a larger integrator and worth testing again once a full year of combined numbers exists. G&amp;A synergy is tracking too: Coforge's own Q4 G&amp;A of 6.7% plus Encora's 10% blending to a combined 6.6%, better than either standalone figure.</p>
+</div>
+
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: a real operating gain, partly given back by a bigger balance sheet</h2>
+<p class="sec-sub">The margin bridge separates what the business earned from what the two acquisitions changed underneath it</p>
+
+<p>Pre-tax margin moved from 11.73% (FY2024) to 12.21% (FY2026), a modest 48-basis-point net gain over three years that hides much larger offsetting moves underneath. This pipeline's margin-bridge decomposition attributes the change to four components:</p>
+
+<div class="table-wrap">
+<table>
+<caption>Margin bridge, FY2024 to FY2026 (pre-tax margin, basis points)</caption>
+<thead><tr><th>Component</th><th class="num">Contribution</th></tr></thead>
+<tbody>
+<tr><td class="t">EBITDA margin</td><td class="num g">+183.7 bp</td></tr>
+<tr><td class="t">Depreciation</td><td class="num l">&minus;85.8 bp</td></tr>
+<tr><td class="t">Other income</td><td class="num l">&minus;86.0 bp</td></tr>
+<tr><td class="t">Interest cost</td><td class="num g">+36.5 bp</td></tr>
+<tr class="tot"><td class="t">Net (matches 11.73% &rarr; 12.21%)</td><td class="num g">+48.4 bp</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><b>The EBITDA line is the real story, and it is genuinely operating.</b> A +183.7bp improvement in operating margin over three years, on a revenue base that itself grew from &#8377;9,009 Cr to &#8377;16,403 Cr, is the single largest component and reflects the AI-led service-mix shift and deal-integration synergies management has described on calls, not a financial-engineering effect.</p>
+
+<p><b>Depreciation is the acquisition's mechanical cost.</b> Fixed assets on the balance sheet went from &#8377;2,376 Cr (FY2024) to &#8377;6,099 Cr (FY2025) to &#8377;6,763 Cr (FY2026) &mdash; almost tripling in two years as Cigniti and Encora's own asset bases, and the intangibles/goodwill recognised on acquisition, landed on Coforge's books. The resulting &minus;85.8bp depreciation drag is the direct, largely unavoidable consequence of that balance-sheet expansion and should be expected to persist, not reverse, as the enlarged asset base continues to depreciate.</p>
+
+<p><b>Other income is the line this report could not fully explain.</b> It swung from a modest positive contributor to &minus;&#8377;82.6 Cr in FY2026 outright (see Section <a href="#record">03</a>), a &minus;86.0bp margin drag over the three-year window. The most plausible explanation is one-off acquisition-related costs or FX translation losses landing in this line around the Encora closing, but this report could not trace it to a specific disclosed item and states that as an open gap (Section <a href="#gaps">14</a>) rather than asserting a cause it has not verified.</p>
+
+<p><b>Interest cost improved slightly</b> as a share of sales (+36.5bp margin contribution) even as the absolute interest bill rose from &#8377;134.7 Cr to &#8377;168.6 Cr &mdash; revenue simply grew faster. This is worth watching rather than banking: the $550 million Encora acquisition loan lands in FY2027 books, not yet reflected in any year in this table, and will test whether that favourable trend holds once a full year of the higher debt load is inside the numbers.</p>
+
+<div class="warn">
+<div class="lbl">Asset turnover fell as the balance sheet grew</div>
+<p>Net fixed-asset turnover dropped 26.6% over the full decade (3.31&times; to 2.43&times;), almost entirely concentrated in the two most recent years as the acquired asset base landed. Read alongside a rising, not falling, EBITDA margin, this is the opposite of Malik's subcontracting tell (falling turnover <i>with</i> falling margin) &mdash; it looks like acquisition-driven balance-sheet growth outpacing revenue integration in its first year, which is the expected pattern one quarter after a deal this size closes, not evidence of deteriorating unit economics.</p>
+</div>
+
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: receivable days drifting up, masked in the net cycle by even faster-growing payables</h2>
+<p class="sec-sub">Two working-capital measures disagree here, and the disagreement is itself the finding</p>
+
+<p>This pipeline's anomaly scan flags a sustained, decade-long drift in gross receivable days: <b>60.96 days (FY2017) to 88.34 days (FY2026), up 44.9%</b> &mdash; not a single-year spike but a steady climb, the kind of trend that is easy to miss year to year and material in aggregate. Net working capital as a share of sales moved even more sharply, up 191.2% over the same window.</p>
+
+<p>Read the net working-capital <i>cycle</i> (receivables plus inventory less payables, in days) instead, and the picture looks far calmer: it has actually <i>improved</i> from the high-40s (FY2021: 46.99 days) to the mid-30s (FY2026: 35.4 days) over the back half of the decade. The reconciliation is trade payables, which grew even faster than receivables in the most recent year &mdash; from &#8377;988.0 Cr (FY2025) to &#8377;1,775.0 Cr (FY2026), up 79.7%, plausibly reflecting both organic growth and the acquired businesses' own supplier terms landing on the consolidated balance sheet. Coforge is, in effect, extending customer collections more slowly while also taking more supplier credit, and the second trend has so far outpaced the first in the net figure.</p>
+
+<div class="warn">
+<div class="lbl">Why this is worth watching, not dismissing</div>
+<p>A net cycle that looks stable because payables are growing faster than receivables is not the same as receivables genuinely being collected faster. If payables growth normalises once the acquired entities' payment terms are integrated into Coforge's own supplier relationships &mdash; a one-time step rather than a repeatable trend &mdash; the underlying receivable-days drift would show through directly in the net cycle too. This report's own three-year incremental working-capital intensity is already elevated for an IT-services business: <b>19.7%</b> (3-year) and <b>14.5%</b> (5-year) &mdash; meaning close to a fifth of every incremental rupee of sales over the last three years has been absorbed into working capital rather than converted to cash, a genuinely high figure for a services company with no inventory to speak of (this pipeline's database shows zero inventory in every year).</p>
+</div>
+
+<p>This report could not attribute the receivable-days drift to a single disclosed cause &mdash; client mix (public-sector and government-adjacent clients, which typically carry slower payment cycles, are 6.0% of combined revenue per the Q1 FY2027 disclosure), acquisition consolidation effects, or genuine collection slippage are all plausible partial explanations, and this is recorded as an open item in Section <a href="#gaps">14</a> rather than resolved with an unverified cause.</p>
+
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How Coforge compares: a mid-tier IT services set, one with no controlling shareholder at all</h2>
+<p class="sec-sub">LTIMindtree, Persistent Systems, Mphasis, Zensar, Birlasoft and L&amp;T Technology Services are the consistently named comparables; Hexaware Technologies (also scored by this pipeline this cycle) sits at the smaller end of the same set</p>
+
+<p>Standing broker-sector convention groups Coforge with LTIMindtree, Persistent Systems and Mphasis as the more direct scale peers, and with Zensar Technologies, Birlasoft and L&amp;T Technology Services as smaller-cap comparables in the same digital-engineering-and-services category. This report could not pull a live, this-pipeline-computed financial comparison across that set: the Screener data source this pipeline normally uses for peer financials requires credentials not configured in this environment, a genuine tooling gap recorded in Section <a href="#gaps">14</a> rather than papered over with estimated figures. What follows is therefore drawn from the background research pass's own external sourcing (broker notes, aggregator data) rather than this pipeline's own `fetch_peer_financials` pull, and is weighted accordingly &mdash; directional, not a precise multiple-for-multiple table.</p>
+
+<div class="key">
+<div class="lbl">The one clean, well-sourced differentiator</div>
+<p>Coforge's promoter holding is <b>0.00%</b>. Every peer in this set carries some controlling or founder-linked holder in a 30&ndash;74% range (LTIMindtree under the Larsen &amp; Toubro group umbrella; Mphasis majority-owned by Blackstone; the others with varying founder or promoter-family stakes). Coforge is the one name in the set with a fully institutional register &mdash; FII 24.31%, DII 42.62%, public 33.07% as of June 2026 &mdash; a structural fact about who ultimately controls board composition and strategic decisions that is directly relevant to reading the September 2026 governance episode in Section <a href="#flags">10</a>: there is no promoter block to anchor continuity through a chair-level departure the way there typically would be at a promoter-controlled peer.</p>
+</div>
+
+<p>On valuation, Coforge trades at roughly 41.2&times; trailing earnings on the corrected, post-crisis price used throughout this report &mdash; a multiple this report has not been able to place precisely against a freshly pulled peer set, but which sits within the broad range mid-tier Indian IT services names have traded at through this cycle's AI-led re-rating. Thirty-five sell-side analysts cover the stock with an average target price of &#8377;1,716 (range &#8377;1,117&ndash;2,370) and a consensus Buy rating, with named targets from Motilal Oswal, PL Capital, JM Financial, Morgan Stanley, Nomura and Kotak &mdash; a broad, liquid coverage base consistent with the company's size and the two recent deals' newsworthiness, though the average target itself sits modestly below the current price.</p>
+
+<div class="warn">
+<div class="lbl">No dedicated retail forum thread</div>
+<p>The background research pass found no dedicated ValuePickr thread for Coforge, under either its current name or its former name (NIIT Technologies) &mdash; checked against the forum's own search. For a company of this size and profile that is a genuine, notable absence, not a search failure; retail-investor forum coverage exists only as scattered mentions inside other companies' threads. See Section <a href="#sentiment">11</a> for what those scattered mentions do say.</p>
+</div>
+
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: a record order book, set against an industry starting to price GenAI deflation</h2>
+<p class="sec-sub">Management's own guidance is already being beaten one quarter in; the harder question is what the whole sector is walking into</p>
+
+<p>The nearest-term growth signal is unambiguous: the next-twelve-month executable order book stood at an all-time high $2.23 billion as of the Q1 FY2027 call, up 44.2% year-on-year from $1.55 billion, built from $691 million of fresh order intake across four large deals in the quarter alone. Management's FY2027 guidance &mdash; standalone Coforge EBIT margin of 16.5&ndash;17% (up from 14.4% the prior year) and 15.5% reported EBIT for the combined entity &mdash; was already exceeded in the very first quarter it applied to (16.0% consolidated EBIT margin actually delivered). That combination of a growing order book and guidance being beaten early is a genuinely strong near-term signal, on management's own numbers.</p>
+
+<p>The medium-term picture is more contested, and this report treats an industry-wide headwind as exactly that rather than folding it into a company-specific view without evidence. Two structural themes surfaced in the background research, both dated August 2026 and both worth tracking rather than dismissing:</p>
+
+<ul>
+<li><b>GenAI pricing deflation.</b> Reuters reported (August 2026) that Persistent Systems' and TCS's own CEOs told the wire service clients are demanding 25&ndash;30% lower prices as AI tooling compresses the labour content of IT-services delivery, with roughly 80% of TCS's relevant contracts already moving to outcome-based pricing. Industry estimates cited put roughly 30% of the sector "at risk," with peak impact expected FY2026&ndash;28 &mdash; squarely inside this report's own DCF forecast window.</li>
+<li><b>The proposed US H-1B fee.</b> A $103,265 proposed fee (in comment period as of August 2026) would push the industry further toward offshore and nearshore delivery models rather than US-based visa-dependent staffing.</li>
+</ul>
+
+<div class="warn">
+<div class="lbl">An inference, explicitly labelled as one</div>
+<p>The background research agent's own reading &mdash; not a management statement, not independently verified by this report &mdash; is that Encora's strong Latin American nearshore presence could function as a structural hedge against both themes simultaneously: nearshore delivery sidesteps the H-1B cost pressure directly, and a services mix already leaning toward AI-augmented delivery (86% of combined revenue from AI-led service lines, per Section <a href="#business">01</a>) is arguably better positioned for outcome-based repricing than a traditional staff-augmentation model. This is a plausible strategic reading of why the Encora deal was structured the way it was, not a confirmed management rationale, and this report flags it as inference rather than fact.</p>
+</div>
+
+<p>Set against the guidance and order-book strength, Coforge's own FY2027 combined margin guidance of 15.5% sits inside, not above, the CRISIL-estimated combined-entity long-run range of 16&ndash;18%, and management has not made a specific public statement this report found about how it expects GenAI-driven pricing pressure to net against the AI-led service-mix shift it is simultaneously pursuing. That tension &mdash; strong current momentum against an unquantified sector-wide repricing risk landing in the same multi-year window this report's DCF projects growth over &mdash; is carried into the valuation assumptions in Section <a href="#valuation">12</a> rather than resolved here.</p>
+
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">08</span>Management: a nine-year track record, and one quarter of evidence on the acquisition-era promises</h2>
+<p class="sec-sub">CEO Sudhir Singh's team is in its tenth year; the combined-entity guidance ledger, by contrast, has exactly one data point</p>
+
+<p>The current management team, led by CEO Sudhir Singh, is in its tenth year running Coforge and has a long-run record this report can score with real confidence: over the nine years this pipeline's own database covers, revenue compounded at 21.7%, EBIT at 24.6% and PAT at 24.1% &mdash; figures management cited on the Q1 FY2027 call that this pipeline's own independently computed revenue and PAT CAGRs corroborate closely (Section <a href="#record">03</a>). That is a genuine, multi-cycle credibility base, and it matters directly for how much weight to put on the newer, acquisition-era guidance below.</p>
+
+<p>The acquisition playbook itself has been applied consistently across four deals now &mdash; SLK Global, Incessant, Cigniti and, most recently, Encora &mdash; with management describing the same "immediate and complete effective control" approach each time (Section <a href="#business">01</a>), rather than a fresh integration philosophy improvised for the largest deal in the company's history. That consistency is itself evidence of discipline, though this report has not independently traced the SLK Global or Incessant integrations' own financial outcomes to confirm the playbook's track record beyond management's own characterisation.</p>
+
+<div class="table-wrap">
+<table>
+<caption>Combined-entity guidance versus delivery: the ledger so far</caption>
+<thead><tr><th>Promise</th><th>Made</th><th>Tested</th><th>Outcome</th></tr></thead>
+<tbody>
+<tr><td class="t">80% of combined revenue from AI-led Engineering/Data&amp;Integration/Cloud service lines</td><td>Encora deal announcement</td><td>Q1 FY2027 (28 Jul 2026)</td><td><span class="pill p-kept">Kept</span> 86% delivered</td></tr>
+<tr><td class="t">Combined-entity FY2027 reported EBIT margin 15.5%</td><td>Encora deal announcement</td><td>Q1 FY2027</td><td><span class="pill p-kept">Kept</span> 16.0% delivered, one quarter in</td></tr>
+<tr><td class="t">Standalone Coforge FY2027 EBIT margin 16.5&ndash;17%</td><td>FY2027 guidance, given FY2026 year-end</td><td>Q1 FY2027 (organic-only 16.7%)</td><td><span class="pill p-kept">On track</span> within guided range, one quarter in</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="warn">
+<div class="lbl">Read this ledger for what it is: one quarter</div>
+<p>Every row above has exactly one data point testing it, because the combined entity itself is five months old at the time of this report. A management team beating its own first-quarter guidance after a transformative deal is a genuinely good early sign &mdash; and it is not yet a multi-quarter pattern the way the pre-deal, nine-year standalone record is. This report weights the longer standalone history more heavily than the acquisition-era guidance until at least two or three more quarters of combined-entity results exist to test against.</p>
+</div>
+
+<p>Per-share dilution from the deal is real and disclosed candidly, not buried: ex-exceptional EPS fell from &#8377;13.8 to &#8377;13.3 year-on-year even as EBIT and PAT both grew sharply in percentage terms, driven by the roughly 25% equity-base expansion from the Encora stock consideration plus new acquisition-financing interest cost. Management's own characterisation of this on the call as "noteworthy" reads as an honest flag rather than a number left for analysts to discover unprompted.</p>
+
+</section>
+
+
+<section id="capital">
+<h2><span class="num">09</span>Capital allocation: net cash going into the deal, a $550 million loan coming out of it</h2>
+<p class="sec-sub">A decade of dividends funded entirely out of surplus cash flow, and a balance sheet about to carry acquisition debt for the first time at this scale</p>
+
+<p>Over the full decade this pipeline's database covers, Coforge generated &#8377;8,014.9 Cr of cumulative operating cash flow against &#8377;6,364.5 Cr of cumulative PAT (1.26&times;), spent &#8377;5,249.6 Cr on capex and &#8377;628.8 Cr on interest, and still cleared Gate 3 &mdash; cash flow from operations less capex less interest &mdash; by a positive <b>&#8377;2,136.5 Cr</b>. That is the third company scored by this pipeline this cycle (after APL Apollo Tubes and Dr Lal PathLabs) to clear all three cash gates simultaneously, and it means the &#8377;2,276.9 Cr of cumulative dividends paid over the same period came out of genuine free cash flow rather than being financed by fresh borrowing or equity &mdash; the specific test Malik's third gate exists to apply.</p>
+
+<p>The balance sheet going into the Encora deal was in a strong net-cash position: net debt moved from &#8377;390.8 Cr (FY2024) to &#8377;187.2 Cr (FY2025) to <b>&minus;&#8377;371.4 Cr</b> (FY2026, i.e. net cash), with CRISIL's July 2026 rating rationale separately confirming a cash surplus of &#8377;1,099 Cr as of 31 March 2026. None of this yet reflects the Encora transaction's own financing: the $550 million loan raised to retire Encora's pre-existing term debt lands in FY2027 books, and CRISIL's rating action itself enhanced Coforge's rated bank facilities from &#8377;989 Cr to &#8377;6,148.2 Cr specifically to accommodate it. This report's DCF (Section <a href="#valuation">12</a>) builds in an estimated post-deal net debt figure rather than the FY2026 net-cash balance shown in this table, precisely because the FY2026 figures predate the debt.</p>
+
+<div class="good">
+<div class="lbl">A funding structure that limited new leverage</div>
+<p>The Encora deal itself was financed mostly in stock ($1.89 billion of the $2.35 billion enterprise value, paid as preferential equity to Advent International and Warburg Pincus at &#8377;1,815.91/share) rather than debt &mdash; the $550 million loan retires Encora's own existing debt rather than funding the purchase price itself. That is a materially more conservative structure than an all-cash, fully-levered acquisition of the same size would have been, even though it comes at the cost of the roughly 25% equity dilution flagged in Section <a href="#mgmt">08</a>.</p>
+</div>
+
+<p>Credit ratings have moved in step with this discipline rather than against it: CRISIL rated Coforge AA/Positive (February 2025), upgraded to AA+/Stable (November 2025), reaffirmed that rating in January 2026, and reaffirmed again in July 2026 alongside the enhanced facility size for the Encora financing &mdash; a rating trajectory that improved, not deteriorated, through the run-up to the company's largest-ever acquisition (see Section <a href="#flags">10</a> for the fuller credit-rating picture).</p>
+
+</section>
+
+
+<section id="flags">
+<h2><span class="num">10</span>Governance and credit: a chairman and the board's own NRC chair, both gone within 48 hours</h2>
+<p class="sec-sub">A twelve-year clean related-party record, a rating trajectory that has only improved &mdash; and an unresolved boardroom transparency failure five weeks old at the time of this report</p>
+
+<div class="warn">
+<div class="lbl">The September 2026 governance episode</div>
+<p>Chairman O.P. Bhatt resigned on 8 September 2026. The trigger, per reporting on the episode, was a KPMG-led internal audit that found Bhatt's own board-evaluation scores &mdash; including the lowest rating given in the Chairman category &mdash; had been sent to Nomination and Remuneration Committee chair D.K. Singh but had not been shared with the full board. The stock fell 8.7&ndash;9% intraday the following day, 9 September. Two days after that, on 10 September, D.K. Singh &mdash; who had just accepted a fresh five-year term on the board &mdash; also resigned, stating: <i>"the current circumstances may make it increasingly difficult for me to effectively fulfil my responsibilities."</i> The company has publicly disputed a "differences and tension" framing of the episode and states there has been "zero impact on&hellip;financials, operations, or&hellip;business guidance." Vivek Sharma has been named interim Chairperson through 31 January 2027, and Beth Boucher is the new NRC chair.</p>
+</div>
+
+<p>This report treats the episode plainly rather than either dismissing it as noise or reading more into it than the public record supports. What is confirmed: two senior, independent board figures left within 48 hours of each other, over a stated transparency failure in the board's own self-evaluation process, weeks before this report was written. What is not yet confirmed: whether the underlying governance process has been fixed, whether further departures follow, or whether the company's own "zero impact" characterisation holds up over the next one or two quarters. Section <a href="#gaps">14</a> records this as the single most consequential open item in this report, precisely because it is recent enough that no subsequent quarter's results yet test the company's own claim.</p>
+
+<h3>A live, separate legal matter: Mphasis v. Coforge</h3>
+<p>Mphasis filed suit against Coforge in Colorado federal court on 31 March 2026, alleging executive poaching connected to Charles Schwab-related business. Coforge denies the allegations and states that Schwab is its own long-standing client independent of the disputed hires. This report has not seen a court ruling or settlement and records the matter as open litigation, not a resolved finding either way.</p>
+
+<h3>Credit rating trajectory: unbroken improvement, into and through both acquisitions</h3>
+<p>CRISIL's rating history on Coforge across this pipeline's local document set shows a consistent upward trajectory, not a pause or a step back around either deal: Watch Developing (May 2024) &rarr; removed from watch (August 2024) &rarr; AA/Positive (February 2025) &rarr; upgraded to AA+/Stable (November 2025) &rarr; reaffirmed (January 2026) &rarr; reaffirmed again with the facility enhancement for Encora financing (July 2026). This report found no ICRA, CARE or India Ratings coverage of the issuer in the local document set or the background research pass; this is recorded as an unconfirmed gap &mdash; genuinely unknown whether either of those three agencies rates Coforge at all, not established that they decline to.</p>
+
+<h3>Related-party history: clean, and structurally unsurprising given zero promoter holding</h3>
+<p>This pipeline's own related-party audit scores Coforge 0&ndash;1 (Clean) across twelve straight annual reports, with Form AOC-2 disclosed as "Not Applicable" every single year and no promoter-linked related-party entities identified. Given the company's 0.00% promoter holding (Section <a href="#business">01</a>), the absence of promoter-linked related-party transactions is close to structurally guaranteed rather than a discretionary management choice &mdash; there is no promoter-family entity for related-party transactions to flow to. The finding is genuine and worth stating, but it carries less evidentiary weight about management's own related-party discipline than the same clean score would at a promoter-controlled peer.</p>
+
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">11</span>What retail investors have said: scattered, split, and thin for a company this size</h2>
+<p class="sec-sub">No dedicated thread, a handful of mentions inside other companies' forums, and a decade-old float-overhang worry that has since resolved</p>
+
+<p>The absence noted in Section <a href="#peers">06</a> is the finding here: no dedicated ValuePickr thread exists for Coforge under either its current name or its former name, NIIT Technologies, confirmed against the forum's own search function. What retail commentary does exist is scattered across other companies' threads &mdash; a handful of mentions inside the Hexaware Technologies thread (the two are broker-grouped peers), and portfolio-allocation threads showing genuinely split conviction: one portfolio thread shows Coforge as a 37.56% position, another shows it below 0.2% &mdash; a spread wide enough to suggest no real retail consensus view exists on the name, rather than a mild difference of opinion.</p>
+
+<p>One older mention, dated to 2022, raised a float-overhang concern tied to Baring Private Equity Asia's staged exit tranches from its Coforge stake &mdash; a legitimate worry at the time for a stock with a large private-equity holder still reducing its position. This report has not traced whether that overhang fully resolved, but notes that current ownership data (Section <a href="#business">01</a>) shows a fully institutional register with no single large concentrated holder remaining, consistent with the overhang having played out rather than persisting.</p>
+
+<div class="key">
+<div class="lbl">Broker coverage, by contrast, is wide</div>
+<p>Thirty-five sell-side analysts cover Coforge with a consensus Buy rating and an average target price of &#8377;1,716 (range &#8377;1,117&ndash;2,370) &mdash; a genuinely broad institutional coverage base, including Motilal Oswal, PL Capital, JM Financial, Morgan Stanley, Nomura and Kotak. That the average target sits modestly below the current &#8377;1,784 price, even with this broad and generally positive coverage, is itself a data point this report weighs alongside its own DCF finding in Section <a href="#valuation">12</a>.</p>
+</div>
+
+<p>The practical read: Coforge is a broker-and-institution-driven story, not a retail-forum-driven one. A reader coming to this report expecting the kind of deep, decade-spanning retail thread this pipeline has found for other companies this cycle (Dr Lal PathLabs, for instance) will not find an equivalent here, and that absence is worth noting on its own rather than treated as a gap in this pipeline's search.</p>
+
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">12</span>Valuation: the narrowest DCF-to-price gap this pipeline has found this cycle</h2>
+<p class="sec-sub">A corrected price, a combined-entity forecast, and a bull case that lands within 2% of where the market already sits</p>
+
+<div class="warn">
+<div class="lbl">A price correction, made explicit</div>
+<p>This pipeline's own internal price cache showed &#8377;1,965.50 as of 2 September 2026 &mdash; a figure that predates the September governance crisis (Section <a href="#flags">10</a>) and the roughly 9% stock-price fall that followed it. This report uses a corrected, fresher price of <b>&#8377;1,784</b> (market cap &#8377;78,934 Cr, against 44.29 Cr shares) throughout, sourced from a direct fetch dated 25 September 2026 rather than the stale cached figure. The gap between the two prices (&#8377;1,965.50 vs &#8377;1,784, roughly 9.2%) matches the crisis-period share-price decline almost exactly, which is the basis for treating the fresher figure as correct rather than as noise. See Section <a href="#gaps">14</a> for the full detail on this correction and what it implies about this pipeline's own price-refresh cadence.</p>
+</div>
+
+<p>The reverse-DCF question this report leads with, as in every report this cycle: what does the current price require the combined business to deliver? Using CRISIL's own combined-entity FY2027 revenue estimate (~&#8377;23,000 Cr) as the base, an estimated post-deal net debt of &#8377;4,400 Cr (pre-deal net cash of &minus;&#8377;371.4 Cr plus roughly &#8377;4,785 Cr drawn for the $550 million Encora loan), a 13% WACC, 25% tax rate and a 5% terminal growth rate over a seven-year explicit window:</p>
+
+<div class="table-wrap">
+<table>
+<caption>DCF scenarios against the corrected market price of &#8377;1,784 (market EV &#8377;83,334 Cr)</caption>
+<thead><tr><th>Scenario</th><th class="num">Growth</th><th class="num">EBIT margin</th><th class="num">Value/share</th><th class="num">vs. price</th></tr></thead>
+<tbody>
+<tr><td class="t">Bear</td><td class="num">10%</td><td class="num">15%</td><td class="num">&#8377;648.3</td><td class="num l">&minus;63.6%</td></tr>
+<tr><td class="t">Base</td><td class="num">16%</td><td class="num">17%</td><td class="num">&#8377;1,023.5</td><td class="num l">&minus;42.6%</td></tr>
+<tr class="hl"><td class="t">Bull</td><td class="num">22%</td><td class="num">19%</td><td class="num">&#8377;1,746.7</td><td class="num l">&minus;2.0%</td></tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+<div class="fig-title">DCF scenarios vs. corrected current price</div>
+<div class="fig-sub">Value per share, &#8377;</div>
+<svg viewBox="0 0 720 240" role="img" aria-label="Discounted cash flow valuation scenarios for Coforge against the corrected current market price"><line class="grid-l" x1="56" y1="206.0" x2="704" y2="206.0"/><text class="ax" x="50" y="209.0" text-anchor="end">0</text><line class="grid-l" x1="56" y1="169.2" x2="704" y2="169.2"/><text class="ax" x="50" y="172.2" text-anchor="end">400</text><line class="grid-l" x1="56" y1="132.4" x2="704" y2="132.4"/><text class="ax" x="50" y="135.4" text-anchor="end">800</text><line class="grid-l" x1="56" y1="95.6" x2="704" y2="95.6"/><text class="ax" x="50" y="98.6" text-anchor="end">1,200</text><line class="grid-l" x1="56" y1="58.8" x2="704" y2="58.8"/><text class="ax" x="50" y="61.8" text-anchor="end">1,600</text><line class="grid-l" x1="56" y1="22.0" x2="704" y2="22.0"/><text class="ax" x="50" y="25.0" text-anchor="end">2,000</text><rect x="118.6" y="146.4" width="90.7" height="59.6" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs 648</title></rect><text class="vlbl" x="164.0" y="139.4" text-anchor="middle" fill="#d97a5f">&#8377;648</text><text class="ax" x="164.0" y="220" text-anchor="middle">Bear</text><text class="ax" x="164.0" y="232" text-anchor="middle" fill="#d97a5f">-64%</text><rect x="334.6" y="111.8" width="90.7" height="94.2" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 1,024</title></rect><text class="vlbl" x="380.0" y="104.8" text-anchor="middle" fill="#c9a24b">&#8377;1,024</text><text class="ax" x="380.0" y="220" text-anchor="middle">Base</text><text class="ax" x="380.0" y="232" text-anchor="middle" fill="#d97a5f">-43%</text><rect x="550.6" y="45.3" width="90.7" height="160.7" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 1,747</title></rect><text class="vlbl" x="596.0" y="38.3" text-anchor="middle" fill="#5fb98a">&#8377;1,747</text><text class="ax" x="596.0" y="220" text-anchor="middle">Bull</text><text class="ax" x="596.0" y="232" text-anchor="middle" fill="#d97a5f">-2%</text><line x1="56" y1="41.9" x2="704" y2="41.9" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="34.9" text-anchor="end">market &#8377;1,784</text><line class="zero-l" x1="56" y1="206" x2="704" y2="206"/></svg>
+<figcaption><b>Why:</b> the bull case &mdash; 22% growth and a 19% EBIT margin, both above management's own combined-entity guidance &mdash; lands within about 2% of the corrected current price, the narrowest DCF-to-price gap this pipeline has found this cycle.</figcaption>
+</figure>
+
+<p>Even the base case &mdash; 16% growth and a 17% EBIT margin, both squarely inside management's own FY2027 combined-entity guidance range (Section <a href="#mgmt">08</a>) &mdash; falls well short of the current price. The bull case, requiring 22% growth and a 19% margin sustained for seven years, both above anything guided and above the top of CRISIL's stated combined-entity margin range, comes within about 2% of the current price &mdash; the narrowest gap this pipeline has found in any company scored this cycle, including APL Apollo Tubes (bull case 43&ndash;57% below price) and Dr Lal PathLabs (bull case also well short even at assumptions beyond the company's own history).</p>
+
+<div class="good">
+<div class="lbl">A market-based cross-check that lands close to the same place</div>
+<p>The average sell-side broker target price (&#8377;1,716, across 35 analysts, Section <a href="#sentiment">11</a>) sits within about 2% of this report's own bull-case DCF value (&#8377;1,746.7) &mdash; two independently derived figures, one bottom-up cash-flow-based and one broker-consensus, converging on almost the same number. That convergence is a genuine, if partial, validation of the bull case as the market's own implicit reference point, rather than this report's own assumptions running unusually optimistic relative to the Street.</p>
+</div>
+
+<p>Reverse DCF confirms the same read from the other direction. Holding growth at management's own guided 16%, the price requires a 25.27% EBIT margin to justify it &mdash; a gap of 8.27 percentage points above the 17% actually guided, but not an impossible number for a business whose Q1 FY2027 organic EBIT margin (16.7%) and Encora standalone EBIT margin (19.1%) are already both inside striking distance of the low-20s with further synergy realisation. Holding margin at the guided 17%, the price requires 29.30% revenue growth sustained for seven years &mdash; well above the current 16% guide but not without precedent in the company's own recent history (FY2025 and FY2026 both grew above 34%, albeit acquisition-inflated). Both reverse-DCF results return `feasible=True` in this pipeline's own arithmetic: demanding, not impossible, assumptions &mdash; a materially different verdict than the earlier two companies scored this cycle, where the required combinations had no precedent in either company's own decade of history at all.</p>
+
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">13</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">Quality and value, kept on separate axes &mdash; this is not a buy or sell call</p>
+
+<h3>Quality: every gate cleared, an integration ahead of schedule, and a governance question still open</h3>
+<p>On this pipeline's own numbers, Coforge is a strong business: ROCE above 23% every year measured, full agreement between this pipeline's primary ROCE formula and Vijay Malik's stricter cross-check in all nine years (a rarity this cycle), a positive Gate 3 across the full decade (the third company scored this cycle to clear all three cash gates), and a genuinely disciplined, mostly stock-financed structure behind its largest-ever acquisition. One quarter into integrating Encora, the combined entity is beating its own margin and AI-mix targets, order book is at an all-time high, and credit ratings have improved through the whole process rather than pausing for it.</p>
+<p>Set against that: a chairman and the board's own NRC chair both resigned within 48 hours of each other, five weeks before this report, over a stated failure to share board-evaluation results transparently &mdash; an unresolved governance question this report cannot yet close, on a company with no controlling promoter to anchor continuity through it. A live Mphasis lawsuit, a receivable-days trend quietly worsening beneath a stable-looking net working-capital cycle, and an unexplained swing in other income are each individually modest but collectively real open items (Section <a href="#gaps">14</a>).</p>
+
+<h3>Value: the narrowest gap this pipeline has found this cycle, and still a gap</h3>
+<p>At roughly 41&times; trailing earnings, this report's own reverse DCF finds the current price requires either a 25.3% EBIT margin at management's own guided 16% growth, or 29.3% growth sustained for seven years at the guided 17% margin &mdash; both demanding, and both, unlike the last two companies this pipeline scored, not without precedent in the company's own recent numbers. The bull-case DCF (&#8377;1,747) lands within 2% of the corrected current price (&#8377;1,782) and close to the broker consensus target (&#8377;1,716) &mdash; three independent reference points converging near the same figure. <b>This does not make the stock cheap.</b> It means the market has already done more of the repricing this report's own arithmetic would otherwise have to argue for, following the September governance shock and the demands the Encora integration places on the balance sheet. The base case, built on guidance the company is currently already exceeding, still sits 43% below the current price.</p>
+
+<h3>Specific triggers, with thresholds</h3>
+<ul>
+<li><b>Board composition and any further departures</b> &mdash; the single nearest-term governance test; a stable board through the next one to two quarters, with the stated transparency process visibly fixed, would materially de-risk the open item in Section <a href="#flags">10</a>. A further senior departure would argue the opposite.</li>
+<li><b>Combined-entity EBIT margin against the 15.5% FY2027 guidance</b> &mdash; already beaten once (16.0%, Q1); a second and third consecutive quarter above guidance would start converting the acquisition-era guidance ledger (Section <a href="#mgmt">08</a>) from one data point into a real pattern.</li>
+<li><b>Receivable days</b> (Section <a href="#wc">05</a>) &mdash; whether the underlying gross drift shows through in the net working-capital cycle once the acquired entities' own payable terms stop growing faster than receivables.</li>
+<li><b>The other-income line</b> &mdash; whether the FY2026 swing to &minus;&#8377;82.6 Cr was a one-off acquisition cost that reverses, or a recurring drag; the FY2027 annual report should resolve this.</li>
+<li><b>Mphasis litigation outcome</b> &mdash; a settlement or dismissal would remove a live tail risk this report has not been able to quantify.</li>
+</ul>
+
+<p><b>What would change this verdict:</b> a quiet, stable one or two quarters &mdash; board composition settled, combined margins holding at or above guidance, receivable days stabilising &mdash; would let this report treat Coforge's operating and cash-conversion strength at close to face value against a price gap this pipeline already finds narrower than any other company scored this cycle. A further governance departure, or a margin miss against the guidance the company itself set five months into the deal, would argue the market's partial repricing so far has not gone far enough.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">14</span>Data gaps and provenance</h2>
+<p class="sec-sub">A stale internal price corrected in this report, an unresolved governance episode five weeks old, and peer financials this environment could not pull live</p>
+
+<h3>The internal price cache was stale by about nine days and roughly 9% at the point this research began</h3>
+<p>This pipeline's own <code>price_cache</code> table held &#8377;1,965.50, fetched 2 September 2026 &mdash; before the 8&ndash;10 September governance crisis and its associated share-price fall. This report used a corrected, fresher price (&#8377;1,784, market cap &#8377;78,934 Cr, dated 25 September 2026) throughout instead, including in the DCF (Section <a href="#valuation">12</a>). The roughly 9.2% gap between the two figures matches the crisis-period decline closely enough that this report treats the correction as sound rather than as an artefact of a different data source. This is a genuine limitation of this pipeline's own price-refresh cadence around fast-moving corporate events, worth fixing structurally (a shorter refresh interval, or an event-triggered refresh) rather than something this single report can resolve.</p>
+
+<h3>The September 2026 governance episode is recent enough that no subsequent quarter tests it</h3>
+<p>Chairman O.P. Bhatt's and NRC-chair D.K. Singh's resignations happened five weeks before this report was written. Everything this report says about the episode (Section <a href="#flags">10</a>) is drawn from public reporting on it, not from a subsequent annual report, credit rating action, or earnings call that has had the chance to address it directly. The single most valuable near-term refresh input is the next earnings call or rating action that references it.</p>
+
+<h3>Peer financials were not pulled live from this pipeline's own data source</h3>
+<p>This pipeline's <code>fetch_peer_financials()</code> function requires Screener credentials not configured in this environment; a live call against LTIMindtree, Persistent Systems, Mphasis, Zensar, Birlasoft, L&amp;T Technology Services and Hexaware Technologies returned empty results for all seven. Section <a href="#peers">06</a> is therefore built from the background research pass's own external sourcing (broker notes, aggregator data) rather than this pipeline's own computed comparison, and should be read as directional rather than a precise multiple-for-multiple table.</p>
+
+<h3>The other-income swing and the receivable-days drift both lack a confirmed single cause</h3>
+<p>FY2026 other income moved to &minus;&#8377;82.6 Cr from +&#8377;137.3 Cr the year before &mdash; this report's best guess is one-off acquisition-related costs or FX effects around the Encora closing, but it could not trace this to a specific disclosed line item. Gross receivable days rose 44.9% over the decade while the net working-capital cycle stayed broadly stable because trade payables grew even faster in the most recent year (Section <a href="#wc">05</a>) &mdash; client mix, acquisition consolidation effects and genuine collection slippage are all plausible partial explanations, none confirmed.</p>
+
+<h3>Credit-rating coverage outside CRISIL is unconfirmed, not ruled out</h3>
+<p>This report found no ICRA, CARE or India Ratings coverage of Coforge in the local document set or the background research pass. This is recorded as genuinely unknown &mdash; it was not confirmed that any of the three declines to rate the issuer, only that no coverage was found.</p>
+
+<h3>A single transcript and two credit-rating reports, against a much larger local archive</h3>
+<p>This report read the Q1 FY2027 transcript in full and the two most recent CRISIL rating reports (July 2026 and, by reference, the November 2025 upgrade) in detail, out of a considerably larger local archive spanning years of prior quarters and six total CRISIL reports. Given the combined entity is five months old, the most recent quarter was judged the highest-value read; a future refresh should read the FY2025 and FY2026 annual reports directly once the FY2027 one is filed, to build the multi-year management ledger this report could not yet construct (Section <a href="#mgmt">08</a>).</p>
+
+<h3>What would most improve the next refresh</h3>
+<ol>
+<li>The next earnings call or corporate filing that directly addresses the September 2026 governance episode and confirms whether board composition has stabilised.</li>
+<li>Screener credentials configured in this environment, to run a live <code>fetch_peer_financials()</code> pull against the confirmed peer set rather than relying on external sourcing.</li>
+<li>The FY2027 annual report's own notes on other income and receivables, to resolve both open working-capital and P&amp;L items directly.</li>
+<li>A resolution, settlement, or further development in the Mphasis litigation.</li>
+<li>A second and third quarter of combined-entity results, to convert the one-quarter guidance ledger in Section <a href="#mgmt">08</a> into an actual multi-quarter pattern.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Coforge Ltd (NSE/BSE: COFORGE, BSE: 532541, ISIN INE591G01025). Prepared 25 September 2026 against a corrected share price of &#8377;1,784.00 (this pipeline's own price cache was stale by roughly 9% at the point this research began; see Section 14).</p>
+  <p>Built from this pipeline's own current internal database, run through its own tested margin-bridge, cash-gates, anomaly-scan and DCF arithmetic; an existing related-party audit covering twelve annual reports; a direct read of CRISIL's July 2026 rating rationale; a full read of the Q1 FY2027 earnings call; and independent research covering the real peer set, the September 2026 governance episode, the live Mphasis litigation, and sector-wide GenAI pricing-deflation and H-1B policy themes. Every numeric claim cites a period; every quotation cites a document. This report's central finding is the narrowest gap this pipeline has found this cycle between its own DCF and the current price &mdash; because the market itself had already partially repriced the stock around a live governance shock before this report was written, not because the underlying business is any less demanding to value than the other companies this pipeline has scored.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. This report covers a company mid-integration of its largest-ever acquisition, with a governance episode five weeks old at the time of writing that no subsequent quarter has yet tested; read the governance and valuation sections in full before acting on anything here. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
