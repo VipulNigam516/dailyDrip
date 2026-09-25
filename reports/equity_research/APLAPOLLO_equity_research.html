@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>APL Apollo Tubes Ltd — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on APL Apollo Tubes Ltd: India's dominant structural steel tube maker with a genuinely rare combination of high ROCE, near-zero working capital and a net-cash balance sheet, set against a rich valuation and a live guidance walk-back on volume growth.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<span class="kicker">Coffee Can Screener &middot; Equity Research</span>
+<h1>APL Apollo Tubes Ltd</h1>
+<p class="subtitle">A rare combination for a steel converter &mdash; 9/9 ROCE gates, near-zero working capital, a net-cash balance sheet &mdash; priced at 51&times; earnings, with a live guidance walk-back to watch</p>
+<div class="meta">
+<b>NSE/BSE:</b> APLAPOLLO &middot; <b>BSE code:</b> 533758 &middot; <b>ISIN:</b> INE702C01027<br>
+<b>Prepared:</b> 25 September 2026 &middot; <b>Price:</b> &#8377;2,214.85 &middot; <b>Market cap:</b> &#8377;61,501 Cr &middot; <b>P/E:</b> 51.1&times;
+</div>
+</header>
+
+<div class="verdict">
+<div class="verdict-label">The one-paragraph version</div>
+<div class="verdict-head">A genuinely exceptional operating business, priced for one</div>
+<p>APL Apollo is India's dominant structural steel tube manufacturer &mdash; roughly 60&ndash;65% share of a segment it has spent three decades building &mdash; and its numbers are correspondingly rare for a steel converter: ROCE has cleared this pipeline's 15% gate in all nine years measured (a peak of 33%), cumulative cash conversion is 1.60&times; PAT, and a strategic shift to cash-and-carry selling has taken receivable days from 27 to roughly 5, leaving the company net-cash since FY2024. Two credit-rating upgrades in the last eighteen months (CARE to AA/Positive, then CRISIL to AA+/Stable) confirm the same picture independently. Set against that: the stock trades at 51&times; trailing earnings, and the most recent quarter (Q1 FY2027) delivered a real, management-acknowledged guidance walk-back &mdash; full-year volume growth cut from a firmly-upgraded "20%" (January 2026) to "15&ndash;20%" (August 2026), with a stated ROCE target of "coming back" to 30% rather than the "sub-40%" the same management had projected seven months earlier. None of this makes the business worse; it tests, in real time, whether a 51&times; multiple already assumes the smoothest possible path through exactly the kind of quarter that just happened.</p>
+</div>
+
+<div class="hero-row">
+<div class="stat"><div class="k">Tier (this pipeline)</div><div class="v">Dirty 9iner</div><div class="n">8/9 revenue, 9/9 ROCE gates</div></div>
+<div class="stat"><div class="k">Cumulative CFO/PAT</div><div class="v">1.60&times;</div><div class="n">FY2017&ndash;FY2026, score 9/10</div></div>
+<div class="stat"><div class="k">Net debt</div><div class="v">&minus;&#8377;389 Cr</div><div class="n">Net cash, FY2026</div></div>
+<div class="stat"><div class="k">Credit rating</div><div class="v">CRISIL AA+</div><div class="n">Stable, upgraded Sep 2025</div></div>
+</div>
+
+<div class="toc">
+<div class="toc-l">Contents</div>
+<ol>
+    <li><a href="#business">The business: India's dominant tube maker</a></li>
+    <li><a href="#framework">The checklist: all three cash gates clear</a></li>
+    <li><a href="#record">The ten-year record, and a live guidance walk-back</a></li>
+    <li><a href="#margin">Margins</a></li>
+    <li><a href="#wc">Working capital</a></li>
+    <li><a href="#peers">How APL Apollo compares</a></li>
+    <li><a href="#growth">Growth outlook</a></li>
+    <li><a href="#mgmt">Management scorecard</a></li>
+    <li><a href="#capital">Capital allocation</a></li>
+    <li><a href="#flags">Governance and credit</a></li>
+    <li><a href="#sentiment">What retail investors have said</a></li>
+    <li><a href="#valuation">Valuation: a price the DCF cannot reach</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business: India's dominant structural steel tube maker, still consolidating a fragmented industry</h2>
+<p class="sec-sub">Thirty-nine years old, family-run, and the largest ERW pipe producer in the country by a wide margin</p>
+
+<p>APL Apollo Tubes, established in 1986 in Delhi NCR, manufactures electric-resistance-welded (ERW) steel tubes and structural products &mdash; MS black pipes, galvanized and pre-galvanized pipes, hollow sections, and increasingly branded, value-added structural products used in residential and commercial construction, infrastructure, and industrial applications. It is the largest ERW pipe manufacturer in India, with a production capacity of roughly 4.5&ndash;5 million tonnes per annum across eleven plants spanning north, west, south and (soon) east India, plus a Dubai facility serving export markets. Its own estimate of market share in the structural steel tubes segment it competes in is 60&ndash;65%, a dominance built over three decades against a historically fragmented, largely unorganised industry.</p>
+
+<h3>A family business, three generations working</h3>
+<p>APL Apollo is promoted by Sanjay Gupta, Chairman and Managing Director, who took over management from his father S.K. Gupta roughly two decades ago and has since built the company from a small steel tube manufacturer into the segment's clear leader. His brother Vinay Gupta oversees the pre-galvanised and international business; his son Rahul Gupta, a company director, handles the building-products division. This pipeline's own related-party audit (Section <a href="#flags">10</a>) found a clean twelve-year record, with the one related entity worth tracking &mdash; Apollo Pipes Ltd, a separately-listed company the same family also influences &mdash; running small, flat-to-declining, arm's-length transactions against APL Apollo's multi-thousand-crore revenue base.</p>
+
+<h3>From commodity converter to branded, value-added products</h3>
+<p>The company's central strategic shift over the past decade has been away from low-margin, commoditised ERW pipe sales and toward higher-margin, branded structural products &mdash; a mix that has grown from 45% of volume in FY2020 to roughly 65% by mid-2026, with a stated target of 75&ndash;80% once its next phase of capacity comes online. This shift is the primary driver of the blended EBITDA-per-tonne improvement from roughly &#8377;3,000 (FY2020) to a current run-rate of &#8377;5,000&ndash;5,500, and of a deliberate January 2025 repricing decision that added a &#8377;3,000&ndash;4,000/tonne premium to APL Apollo-branded products specifically &mdash; a premium management describes as now durably accepted by the market rather than a one-off.</p>
+
+<h3>A cash-and-carry model that has structurally reshaped the balance sheet</h3>
+<p>Perhaps the single most distinctive fact about this business, for a steel converter, is what it has done to working capital: a strategic shift to upfront-payment, cash-discount selling has taken receivable days from roughly 27 (FY2017) to consistently under 6 for the last four years, and the company has been net debt-free since FY2024, moving to a genuine net-cash position by FY2026. Section <a href="#wc">05</a> sets out the full mechanics and what it means for the DCF in Section <a href="#valuation">12</a>.</p>
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>The checklist: all three cash gates clear, a genuine rarity in this pipeline's coverage</h2>
+<p class="sec-sub">Computed directly through this pipeline's own tested equity_research module against a current internal database</p>
+
+<h3>Revenue growth: eight of nine years clear the gate</h3>
+<p>Applying this pipeline's own &gt;10% year-on-year growth test to FY2018&ndash;FY2026: <b>eight of nine pass</b>, with one miss &mdash; FY2019 at +8.0%, a year that fell between a 34% FY2018 and a 53.7% FY2021, without a specific cause identified in the FY2019 annual report available to this research (Section <a href="#gaps">14</a>).</p>
+
+<h3>ROCE: nine of nine years clear the gate &mdash; and Vijay Malik's own formula mostly agrees</h3>
+<p>On this pipeline's primary Mukherjea/Screener-basis ROCE, APL Apollo clears the 15% gate in <b>every single year</b> measured, FY2018 through FY2026, ranging from 19.8% to a peak of 33.3% (FY2022) and standing at 31.6% in FY2026. Run as a cross-check, Vijay Malik's own, more conservative ROCE formula runs lower (13.4&ndash;22.3%) and does not formally qualify the company under his stricter rule, but the gap here is far narrower than this pipeline has found at some other companies: Malik's own measure still clears 15% in six of the nine years, dipping below only in FY2019, FY2020, FY2024 and marginally FY2025 (14.8%) &mdash; years that map directly onto the company's heaviest capex phases, before each round of new capacity had ramped to full utilisation. This reads as a temporary capital-employed drag from a genuine, ongoing capacity build, not a persistent quality gap between the two formulas.</p>
+
+<figure>
+<div class="fig-title">EBITDA margin, FY2017&ndash;FY2026</div>
+<div class="fig-sub">As a percentage of sales &mdash; see Section <a href="#margin">04</a> for why EBITDA/tonne is the more reliable measure for this business</div>
+<svg viewBox="0 0 720 220" role="img" aria-label="APL Apollo Tubes EBITDA margin, FY2017 to FY2026"><line class="grid-l" x1="44" y1="190.0" x2="706" y2="190.0"/><text class="ax" x="38" y="193.0" text-anchor="end">0%</text><line class="grid-l" x1="44" y1="155.6" x2="706" y2="155.6"/><text class="ax" x="38" y="158.6" text-anchor="end">2%</text><line class="grid-l" x1="44" y1="121.2" x2="706" y2="121.2"/><text class="ax" x="38" y="124.2" text-anchor="end">4%</text><line class="grid-l" x1="44" y1="86.8" x2="706" y2="86.8"/><text class="ax" x="38" y="89.8" text-anchor="end">6%</text><line class="grid-l" x1="44" y1="52.4" x2="706" y2="52.4"/><text class="ax" x="38" y="55.4" text-anchor="end">8%</text><line class="grid-l" x1="44" y1="18.0" x2="706" y2="18.0"/><text class="ax" x="38" y="21.0" text-anchor="end">10%</text><rect x="57.9" y="43.6" width="38.4" height="146.4" rx="4" fill="#5b9bd1"><title>FY2017: 8.51%</title></rect><text class="vlbl" x="77.1" y="37.6" text-anchor="middle" style="font-size:9px">8.5</text><text class="ax" x="77.1" y="203" text-anchor="middle">'17</text><rect x="124.1" y="70.3" width="38.4" height="119.7" rx="4" fill="#5b9bd1"><title>FY2018: 6.96%</title></rect><text class="vlbl" x="143.3" y="64.3" text-anchor="middle" style="font-size:9px">7.0</text><text class="ax" x="143.3" y="203" text-anchor="middle">'18</text><rect x="190.3" y="95.6" width="38.4" height="94.4" rx="4" fill="#5b9bd1"><title>FY2019: 5.49%</title></rect><text class="vlbl" x="209.5" y="89.6" text-anchor="middle" style="font-size:9px">5.5</text><text class="ax" x="209.5" y="203" text-anchor="middle">'19</text><rect x="256.5" y="83.7" width="38.4" height="106.3" rx="4" fill="#5b9bd1"><title>FY2020: 6.18%</title></rect><text class="vlbl" x="275.7" y="77.7" text-anchor="middle" style="font-size:9px">6.2</text><text class="ax" x="275.7" y="203" text-anchor="middle">'20</text><rect x="322.7" y="52.6" width="38.4" height="137.4" rx="4" fill="#5b9bd1"><title>FY2021: 7.99%</title></rect><text class="vlbl" x="341.9" y="46.6" text-anchor="middle" style="font-size:9px">8.0</text><text class="ax" x="341.9" y="203" text-anchor="middle">'21</text><rect x="388.9" y="65.5" width="38.4" height="124.5" rx="4" fill="#5b9bd1"><title>FY2022: 7.24%</title></rect><text class="vlbl" x="408.1" y="59.5" text-anchor="middle" style="font-size:9px">7.2</text><text class="ax" x="408.1" y="203" text-anchor="middle">'22</text><rect x="455.1" y="81.3" width="38.4" height="108.7" rx="4" fill="#5b9bd1"><title>FY2023: 6.32%</title></rect><text class="vlbl" x="474.3" y="75.3" text-anchor="middle" style="font-size:9px">6.3</text><text class="ax" x="474.3" y="203" text-anchor="middle">'23</text><rect x="521.3" y="76.8" width="38.4" height="113.2" rx="4" fill="#5b9bd1"><title>FY2024: 6.58%</title></rect><text class="vlbl" x="540.5" y="70.8" text-anchor="middle" style="font-size:9px">6.6</text><text class="ax" x="540.5" y="203" text-anchor="middle">'24</text><rect x="587.5" y="90.2" width="38.4" height="99.8" rx="4" fill="#7a86a0"><title>FY2025: 5.80%</title></rect><text class="vlbl" x="606.7" y="84.2" text-anchor="middle" style="font-size:9px">5.8</text><text class="ax" x="606.7" y="203" text-anchor="middle">'25</text><rect x="653.7" y="55.3" width="38.4" height="134.7" rx="4" fill="#5b9bd1"><title>FY2026: 7.83%</title></rect><text class="vlbl" x="672.9" y="49.3" text-anchor="middle" style="font-size:9px">7.8</text><text class="ax" x="672.9" y="203" text-anchor="middle">'26</text><line class="zero-l" x1="44" y1="190" x2="706" y2="190"/></svg>
+<figcaption><b>Why:</b> the percentage-margin trend understates the real improvement in this business, because rising steel prices inflate the revenue denominator; Section <a href="#margin">04</a>'s margin bridge and EBITDA/tonne discussion set out why.</figcaption>
+</figure>
+
+<h3>Gate 1 (cash conversion): a strong pass, score 9/10</h3>
+<p>Cumulative CFO over FY2017&ndash;FY2026 was &#8377;8,028 Cr against cumulative PAT of &#8377;5,010 Cr &mdash; a <b>1.60&times;</b> conversion ratio. The one weak individual year was FY2018 (0.58&times;, a working-capital build during an early expansion phase); every year since FY2021 has run at or above 1.05&times;, with the last three years at 1.52&ndash;1.75&times;.</p>
+
+<h3>Gate 3: also passes &mdash; the rare full sweep</h3>
+<div class="good">
+<div class="lbl">All three gates clear at once &mdash; not common in this pipeline's coverage</div>
+<p>Gate 3 &mdash; cumulative CFO less capex less interest &mdash; is <b>positive &#8377;1,334 Cr</b> over the decade (&#8377;8,028 Cr CFO, &#8377;5,770 Cr disclosed capex, &#8377;924 Cr interest). This is the harder test Vijay Malik actually computes, and companies that clear the first two gates routinely fail it once a real capex programme is charged for properly. APL Apollo has funded a near-doubling of production capacity and simultaneously generated cumulative free cash flow after that capex and its financing cost &mdash; a genuinely rare combination this pipeline has not found together this consistently at any other company covered this cycle.</p>
+</div>
+
+<h3>The working-capital anomaly is the whole story, and it is a real structural shift</h3>
+<p>Receivable days fell 80% over the decade (27.4 &rarr; 5.5) and working capital as a share of sales fell 84% (12.8% &rarr; 2.0%) &mdash; both flagged by this pipeline's own anomaly scan as sustained, multi-year drifts rather than one-off swings. This is corroborated independently and in detail by three years of CRISIL and CARE rating reports (Section <a href="#flags">10</a>), which attribute it to a deliberate cash-discount, upfront-payment selling strategy rather than to any change in disclosure or accounting treatment. Section <a href="#wc">05</a> covers the mechanics in full.</p>
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record, and a live guidance walk-back in the most recent quarter</h2>
+<p class="sec-sub">FY2017&ndash;FY2026, consolidated basis, this pipeline's own database, extended with the two most recent earnings calls</p>
+
+<div class="table-wrap">
+<table>
+<caption>Source: this pipeline's internal xbrl_annual database.</caption>
+<thead><tr><th>FY</th><th class="num">Sales (&#8377;Cr)</th><th class="num">Growth</th><th class="num">EBITDA margin</th><th class="num">PAT (&#8377;Cr)</th><th class="num">ROCE</th></tr></thead>
+<tbody>
+<tr><td>2017</td><td class="num">3,923.9</td><td class="num na">&mdash;</td><td class="num">8.51%</td><td class="num">152.11</td><td class="num na">&mdash;</td></tr>
+<tr><td>2018</td><td class="num">5,334.8</td><td class="num g">+35.96%</td><td class="num">6.96%</td><td class="num">158.13</td><td class="num">22.38%</td></tr>
+<tr class="hl"><td>2019</td><td class="num">7,152.3</td><td class="num">+34.07%</td><td class="num">5.49%</td><td class="num">148.25</td><td class="num">19.81%</td></tr>
+<tr><td>2020</td><td class="num">7,723.2</td><td class="num">+7.98%</td><td class="num">6.18%</td><td class="num">237.97</td><td class="num">20.12%</td></tr>
+<tr><td>2021</td><td class="num">8,499.8</td><td class="num g">+10.05%</td><td class="num">7.99%</td><td class="num">360.16</td><td class="num">27.78%</td></tr>
+<tr><td>2022</td><td class="num">13,063.3</td><td class="num g">+53.69%</td><td class="num">7.24%</td><td class="num">618.98</td><td class="num">33.34%</td></tr>
+<tr><td>2023</td><td class="num">16,166.0</td><td class="num g">+23.75%</td><td class="num">6.32%</td><td class="num">641.86</td><td class="num">26.88%</td></tr>
+<tr><td>2024</td><td class="num">18,118.8</td><td class="num g">+12.08%</td><td class="num">6.58%</td><td class="num">732.44</td><td class="num">25.29%</td></tr>
+<tr><td>2025</td><td class="num">20,689.5</td><td class="num g">+14.19%</td><td class="num">5.80%</td><td class="num">757.06</td><td class="num">22.80%</td></tr>
+<tr class="tot"><td>2026</td><td class="num">23,079.0</td><td class="num g">+11.55%</td><td class="num">7.83%</td><td class="num">1,203.08</td><td class="num">31.64%</td></tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+<div class="fig-title">Revenue, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, consolidated basis</div>
+<svg viewBox="0 0 720 230" role="img" aria-label="APL Apollo Tubes revenue by fiscal year, FY2017 to FY2026"><line class="grid-l" x1="52" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="46" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="46" y="157.0" text-anchor="end">6,231</text><line class="grid-l" x1="52" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="46" y="111.0" text-anchor="end">12,463</text><line class="grid-l" x1="52" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="46" y="65.0" text-anchor="end">18,694</text><line class="grid-l" x1="52" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="46" y="19.0" text-anchor="end">24,925</text><rect x="65.7" y="171.0" width="37.9" height="29.0" rx="4" fill="#c9a24b"><title>FY2017: Rs 3,923.9 Cr</title></rect><text class="ax" x="84.7" y="213" text-anchor="middle">'17</text><rect x="131.1" y="160.6" width="37.9" height="39.4" rx="4" fill="#c9a24b"><title>FY2018: Rs 5,334.8 Cr</title></rect><text class="ax" x="150.1" y="213" text-anchor="middle">'18</text><rect x="196.5" y="147.2" width="37.9" height="52.8" rx="4" fill="#7a86a0"><title>FY2019: Rs 7,152.3 Cr (the one soft growth year, +8.0%)</title></rect><text class="ax" x="215.5" y="213" text-anchor="middle">'19</text><rect x="261.9" y="143.0" width="37.9" height="57.0" rx="4" fill="#c9a24b"><title>FY2020: Rs 7,723.2 Cr</title></rect><text class="ax" x="280.9" y="213" text-anchor="middle">'20</text><rect x="327.3" y="137.3" width="37.9" height="62.7" rx="4" fill="#c9a24b"><title>FY2021: Rs 8,499.8 Cr</title></rect><text class="ax" x="346.3" y="213" text-anchor="middle">'21</text><rect x="392.7" y="103.6" width="37.9" height="96.4" rx="4" fill="#c9a24b"><title>FY2022: Rs 13,063.3 Cr</title></rect><text class="ax" x="411.7" y="213" text-anchor="middle">'22</text><rect x="458.1" y="80.7" width="37.9" height="119.3" rx="4" fill="#c9a24b"><title>FY2023: Rs 16,166.0 Cr</title></rect><text class="ax" x="477.1" y="213" text-anchor="middle">'23</text><rect x="523.5" y="66.2" width="37.9" height="133.8" rx="4" fill="#c9a24b"><title>FY2024: Rs 18,118.8 Cr</title></rect><text class="ax" x="542.5" y="213" text-anchor="middle">'24</text><rect x="588.9" y="47.3" width="37.9" height="152.7" rx="4" fill="#c9a24b"><title>FY2025: Rs 20,689.5 Cr</title></rect><text class="ax" x="607.9" y="213" text-anchor="middle">'25</text><rect x="654.3" y="29.6" width="37.9" height="170.4" rx="4" fill="#c9a24b"><title>FY2026: Rs 23,079.0 Cr</title></rect><text class="ax" x="673.3" y="213" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="200" x2="706" y2="200"/></svg>
+<figcaption><b>Why:</b> nine straight years of growth at a fast-decelerating rate as the revenue base has scaled roughly sixfold &mdash; the most recent quarter tested whether that deceleration is now arriving faster than new capacity can offset it.</figcaption>
+</figure>
+
+<h3>FY2025: the steel-price inventory loss that both rating agencies flagged</h3>
+<p>FY2025's EBITDA margin dip to 5.80% (from 6.58%) is fully explained and independently corroborated: CRISIL's September 2025 rationale attributes it directly to a sharp Q2 FY2025 decline in steel prices causing an inventory loss, with EBITDA/tonne falling to roughly &#8377;1,821 that quarter before recovering above &#8377;4,000 in Q3 and Q4 &mdash; a one-time, disclosed, well-documented event, not a structural deterioration. FY2026's subsequent recovery to 7.83% margin confirms the CRISIL analysis.</p>
+
+<h3>January 2026: an upgraded guidance, aggressively delivered on</h3>
+<p>On the Q3 FY2026 call (22 January 2026), management reported 9-month volume growth of 11% YoY (within its own 10&ndash;15% guided range) and EBITDA/tonne above &#8377;5,000 (ahead of its own prior guidance), tested near-90% utilisation of its 5-million-tonne capacity in December 2025 (375,000 tonnes in the month alone), and on the back of that <b>upgraded</b> its guidance: 20% volume growth for Q4 FY2026 and all of FY2027, EBITDA/tonne guidance raised to &#8377;5,500, and ROCE (then 33%) expected to expand toward "sub-40 levels."</p>
+
+<h3>August 2026: the same guidance, walked back</h3>
+<div class="warn">
+<div class="lbl">A live, current test of that January guidance</div>
+<p>Q1 FY2027 volume came in at 745,000 tonnes, a run rate management itself called "below expectations." On the 3 August 2026 call, management attributed the miss to four concurrent, named factors: a UAE operations disruption from regional geopolitical conditions (roughly 25,000 tonnes lost quarter-on-quarter, with the Dubai plant briefly falling to near-zero throughput before recovering in July); softer SG Premium-brand volumes as the price gap to unbranded "secondary" material widened; an Indian energy crisis affecting roofing and rust-proof pipe production (another 25,000&ndash;30,000 tonnes); and channel destocking as steel-price inflation caused dealers and EPC contractors to delay purchases. In response, full-year FY2027 volume guidance was revised from a firm "20%" to "15&ndash;20%" &mdash; management stated 15% "confidently" and 20% only with further tailwinds &mdash; while EBITDA growth guidance was held at "more than 20%" on an absolute basis, and the ROCE language shifted from January's "expand to sub-40" to August's "come back to the ROC of 30% that we had in the previous quarter." Management did hold EBITDA/tonne guidance at &#8377;5,000&ndash;5,500 and reported a strong July recovery (volumes up 20% month-on-month). This report treats the volume and ROCE guidance revisions as a genuine, current test of management's January optimism, not yet resolved either way (Section <a href="#mgmt">08</a>).</p>
+</div>
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: percentage margin is the wrong lens for this business, and the pipeline's own decomposition shows why</h2>
+<p class="sec-sub">Margin bridge computed through this pipeline's own tested margin_bridge function</p>
+
+<p>Over the full decade, EBITDA margin as a percentage of sales actually <i>fell</i> slightly (8.51% &rarr; 7.83%, a &minus;68bp drag on the margin bridge) &mdash; and yet pre-tax margin improved by 1.25 percentage points (5.50% &rarr; 6.75%). The explanation is almost entirely below the operating line: falling interest cost as a share of sales contributed +129bp, the direct arithmetic signature of the deleveraging to a net-cash balance sheet covered in Section <a href="#capital">09</a>. This is the same pattern this pipeline has found in other capital-intensive businesses paying down debt &mdash; and it means the percentage-margin trend alone understates how much the underlying, per-unit economics have actually improved, because rising steel prices over the decade have inflated the revenue denominator faster than the value APL Apollo actually adds per tonne.</p>
+
+<h3>EBITDA per tonne is the metric that actually tracks the business</h3>
+<p>Both CRISIL and CARE Ratings, and management on every earnings call, price this business in rupees per tonne rather than as a margin percentage, for exactly this reason: a steel converter's revenue moves with the price of a commodity input it does not control, while EBITDA/tonne isolates the value it actually adds. On that basis the trend is unambiguous and continuous: roughly &#8377;3,000/tonne in FY2020, over &#8377;4,000 since FY2022, and a current run-rate guided at &#8377;5,000&ndash;5,500, with a stated aspiration of &#8377;6,000/tonne once the next capacity phase (to 8 million tonnes) is fully value-added-weighted.</p>
+
+<h3>The last three years: a genuine, above-the-line improvement too</h3>
+<p>Over FY2024&ndash;FY2026 specifically, EBITDA margin itself improved (+125bp), with depreciation, other income and interest cost each contributing modestly and positively rather than doing the work alone &mdash; consistent with the value-added product mix shift (45% &rarr; 65% of volume since FY2020) genuinely lifting operating profitability on top of an already-deleveraged base, not merely a one-off financing-cost effect repeating.</p>
+
+<h3>One anomaly, cleanly explained</h3>
+<p>The FY2025&rarr;FY2026 EBITDA margin step (5.80% &rarr; 7.83%, more than three times the decade's typical annual move) is the recovery from the FY2025 steel-price inventory loss detailed in Section <a href="#record">03</a>, independently corroborated by CRISIL's own EBITDA/tonne figures for the intervening quarters.</p>
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: a cash-and-carry business model that has all but eliminated the receivables cycle</h2>
+<p class="sec-sub">Computed through this pipeline's own working_capital function; independently corroborated by three years of CRISIL and CARE rating reports</p>
+
+<p>Receivable days have fallen from 27.4 (FY2017) to 3.1 (FY2023) and sit at 5.5 as of FY2026 &mdash; a structural collapse, not a single good year, and this pipeline's own anomaly scan flags it as the single largest sustained drift in the entire ten-year record (&minus;80%). Payable days have stayed roughly stable in the 26&ndash;40 day range throughout, meaning the improvement is entirely receivables-side, not a story of stretching suppliers further. Working capital as a share of sales has fallen from 12.8% to 2.0% over the same window, among the lowest levels this pipeline has measured at any covered company, in an industry &mdash; pipe manufacturing &mdash; that CARE Ratings itself describes as "traditionally... working capital intensive."</p>
+
+<h3>The mechanism, in the company's own and the rating agencies' words</h3>
+<p>Both CRISIL (September 2025) and CARE (March 2025) attribute this to a deliberate strategic choice: APL Apollo introduced a cash discount for upfront customer payment, moving progressively toward what CRISIL calls a "cash-and-carry model." CARE's own words: "the company introduced cash discount to its customers for upfront payment, which resulted in faster recovery and resulted in significant decline in average collection period over the years to three days in FY24 from 24 days in FY20." The strategy is further supported by channel financing arrangements made available to larger dealers, shifting the financing burden of the distribution chain away from APL Apollo's own balance sheet. This is a genuine, disclosed, independently-verified change in how the company does business, not an accounting artefact.</p>
+
+<h3>What this buys the company</h3>
+<p>The direct consequence, set out fully in Section <a href="#capital">09</a>, is that APL Apollo has funded a near-doubling of production capacity while simultaneously deleveraging to a net-cash position &mdash; a combination this pipeline's own cash-gate framework (Section <a href="#framework">02</a>) confirms is genuinely rare. It also means the incremental-working-capital charge this report's own DCF applies in Section <a href="#valuation">12</a> is unusually light for a company of this scale and industry, a real and quantifiable advantage over less disciplined competitors rather than a modelling convenience.</p>
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How APL Apollo compares: a dominant player in its own real peer set, once the wrong comparisons are excluded</h2>
+<p class="sec-sub">Management names three real competitors directly; four more commonly grouped names are a different business entirely</p>
+
+<p>Generic "APL Apollo competitors" searches routinely surface Jindal Saw, Ratnamani Metals &amp; Tubes, Man Industries and Welspun Corp alongside the real peer set. All four make large-diameter line pipe (LSAW/HSAW) or specialty seamless tubes for oil &amp; gas transmission, municipal water infrastructure and refineries &mdash; a genuinely different sub-segment from APL Apollo's structural/ERW hollow sections for construction, with different capital intensity and margin profiles (Ratnamani's 17% OPM against APL Apollo's 8% is itself evidence of a different, higher-value-add category, not superior execution in the same one). None of the four appears as a named competitor anywhere in APL Apollo's own transcripts or annual reports. This report excludes them from the comparable set below and uses only companies APL Apollo's own management has named directly.</p>
+
+<div class="table-wrap">
+<table>
+<caption>Market data approximate, gathered alongside this report (September 2026), Screener.in basis.</caption>
+<thead><tr><th>Company</th><th class="num">Mkt cap (&#8377;Cr)</th><th class="num">P/E</th><th class="num">ROCE</th><th class="num">OPM</th><th class="num">Promoter hold.</th><th class="t">Fit</th></tr></thead>
+<tbody>
+<tr class="hl"><td>APL Apollo</td><td class="num">61,516</td><td class="num">50.0&times;</td><td class="num">31.8%</td><td class="num">8%</td><td class="num">28.3%</td><td class="t">&mdash;</td></tr>
+<tr><td>Surya Roshni</td><td class="num">4,947</td><td class="num">15.9&times;</td><td class="num">15.6%</td><td class="num">6%</td><td class="num">63.0%</td><td class="t">Closest listed peer &mdash; directly named by management on rounds/galvanized competition; ~76% of its own revenue is pipes (rest is lighting), materially smaller and lower-return</td></tr>
+<tr><td>Hi-Tech Pipes</td><td class="num">1,496</td><td class="num">19.9&times;</td><td class="num">9.8%</td><td class="num">4.1%</td><td class="num">43.4%</td><td class="t">Directly named as a south-market entrant; small-cap, weak ROE, promoter holding itself falling (60.5%&rarr;43.4% over a decade)</td></tr>
+<tr><td>Rama Steel Tubes</td><td class="num">~700&ndash;790</td><td class="num">49.5&times;</td><td class="num na">&mdash;</td><td class="num na">&mdash;</td><td class="num na">unreconciled</td><td class="t">Directly named as a smaller, state-level competitor; small-cap, financials only search-sourced (Section <a href="#gaps">14</a>)</td></tr>
+<tr><td>Jindal Saw</td><td class="num">18,268</td><td class="num">28.0&times;</td><td class="num">10.4%</td><td class="num">12%</td><td class="num">63.3%</td><td class="t">Not a comp &mdash; large-diameter LSAW/HSAW line pipe and ductile-iron water pipe, never named by APL Apollo management</td></tr>
+<tr><td>Ratnamani Metals &amp; Tubes</td><td class="num">19,470</td><td class="num">44.4&times;</td><td class="num">17.9%</td><td class="num">17%</td><td class="num">59.8%</td><td class="t">Not a comp &mdash; specialty stainless/carbon-steel seamless tubes for oil &amp; gas and power, a higher-value-add category entirely</td></tr>
+<tr><td>Welspun Corp</td><td class="num">73,595</td><td class="num">31.9&times;</td><td class="num">23.9%</td><td class="num na">&mdash;</td><td class="num">49.7%</td><td class="t">Not a comp &mdash; large-diameter line pipe and Jal Jeevan Mission-linked ductile-iron pipe; now larger than APL Apollo itself by market cap</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Dominant in its real category, priced accordingly</h3>
+<p>Against the peer set it actually competes with, APL Apollo's scale and returns are not close: roughly 3&times; Surya Roshni's revenue at more than double its ROCE, and a market capitalisation an order of magnitude larger than either named smaller competitor. The 50&times; P/E this carries is also, unsurprisingly, the richest in the entire table &mdash; more than triple Surya Roshni's 15.9&times; and above even Ratnamani's 44.4&times;, a specialty business in a structurally higher-margin category. Section <a href="#valuation">12</a> takes up directly whether the operating gap justifies that valuation gap.</p>
+
+<h3>A structural note on demand: not every steel-pipe tailwind reaches this company</h3>
+<p>The Jal Jeevan Mission's roughly &#8377;8.69 lakh crore rural water-connection programme is frequently cited as a blanket tailwind for "the pipe sector" &mdash; but it is overwhelmingly a ductile-iron and large-diameter water-pipe story, the territory of Welspun Corp and Jindal Saw specifically, not APL Apollo's structural/ERW hollow-section business. This report treats JJM as a real but indirect, not core, demand driver for APL Apollo, and does not credit it in the growth assumptions behind Section <a href="#valuation">12</a>'s valuation.</p>
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: real capacity coming online, a genuine input-cost swing already tested, and a long-run primary-steel wildcard</h2>
+<p class="sec-sub">India's structural steel market, HRC price volatility, and what management itself says the next 18 months look like</p>
+
+<h3>The near-term plan: 5 to 8 million tonnes, already funded</h3>
+<p>Capacity is expanding from roughly 5 million to 8 million tonnes over the next two years across four new plants and roughly 1 million tonnes of debottlenecking, at a guided &#8377;1,500 Cr entirely from internal cash (Section <a href="#capital">09</a>). This is the concrete, near-term growth story, and it is already reflected in the volume-growth guidance debated in Section <a href="#record">03</a>.</p>
+
+<h3>A real, dated, and currently-live input-cost swing</h3>
+<p>Hot-rolled coil (HRC) &mdash; APL Apollo's key raw material &mdash; fell to a multi-year low of roughly &#8377;45.3/kg in late 2025 on weak construction demand and rising low-cost imports, recovered to roughly &#8377;54/kg by February 2026 after India imposed a 12% safeguard duty on select steel imports, then surged to roughly &#8377;60/kg by April 2026 &mdash; a greater than 30% round trip inside six months. This is precisely the dynamic CRISIL flags as a structural margin risk ("passed on to consumers, but with a lag"), and it is the direct, verifiable cause of the destocking and channel-purchase-delay behaviour management described on the Q1 FY2027 call (Section <a href="#record">03</a>). A separate Directorate General of Trade Remedies anti-dumping investigation into HRC imports from China, Japan and Russia, opened in 2026, could extend this price volatility further if duties are eventually imposed &mdash; a genuine, live, government-level input to watch, not merely a market rumour.</p>
+
+<h3>Management's own long-run bet: today's headwind is tomorrow's moat</h3>
+<p>Sanjay Gupta's own framing on the Q1 FY2027 call is worth taking at face value and testing over time rather than dismissing as spin: he argues that the wave of new primary steel capacity currently being announced across India (Lloyds Steel, AM/NS India, JSW, Tata, JSPL and others, aggregating tens of millions of tonnes) will eventually squeeze out the low-cost, unorganised "secondary" (informal, non-branded) producers APL Apollo's SG Premium brand currently competes against on price &mdash; because secondary producers' cost base cannot compete once primary capacity narrows the price gap. In the near term (his own words: "one, two, or three quarters"), this dynamic is a headwind, since a wide primary-secondary price gap currently favours the informal competitors APL Apollo is trying to displace. This is a real, specific, falsifiable prediction about industry structure, not a growth-story platitude &mdash; the primary-secondary steel price gap itself is the number to watch.</p>
+
+<h3>Not every steel-sector tailwind applies here</h3>
+<p>As Section <a href="#peers">06</a> sets out, the Jal Jeevan Mission's large government water-infrastructure spend is a real tailwind for the ductile-iron and large-diameter pipe segment &mdash; Welspun Corp and Jindal Saw's territory &mdash; not for APL Apollo's structural/ERW hollow-section business. This report does not credit JJM to APL Apollo's own growth case, despite it being commonly cited as a blanket "pipe sector" tailwind in less careful coverage.</p>
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">08</span>Management scorecard: an upgraded guidance, walked back seven months later, with the reasons stated candidly</h2>
+<p class="sec-sub">Founder-led, hands-on across every call this report read, and unusually direct about what went wrong</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th class="t">Guided</th><th class="t">Delivered</th><th class="t">Verdict</th></tr></thead>
+<tbody>
+<tr><td class="t">Q3 FY26 call (22 Jan 2026): FY2027 volume growth guidance <b>upgraded</b> to 20%; EBITDA/tonne guidance raised to &#8377;5,500; ROCE (then 33%) "would also further expand to sub-40 levels"</td><td class="t">Q1 FY27: volume came in "below expectations" (745,000 tonnes); full-year volume guidance revised to 15&ndash;20%; ROCE language shifted to "come back to the ROC of 30% we had in the previous quarter"</td><td class="t"><span class="pill p-slip">Slipped</span></td></tr>
+<tr><td class="t">Same Q1 FY27 call: EBITDA/tonne guidance held at &#8377;5,000&ndash;5,500 despite the volume miss</td><td class="t">Q1 FY27 actual: gross profit/tonne rose &#8377;1,000 QoQ; EBITDA/tonne "flattish above &#8377;5,500" despite a 20% QoQ volume decline</td><td class="t"><span class="pill p-kept">Kept</span></td></tr>
+<tr><td class="t">Q3 FY26 call: 9-month FY26 volume growth of 11% described as "well within our guidance range of 10% to 15%," set on the Q1 FY26 call</td><td class="t">Confirmed on the same Q3 FY26 call, with December 2025 monthly volume (375,000 tonnes) implying an annualised 4.4 million tonnes and ~90% utilisation of the then 5-million-tonne capacity</td><td class="t"><span class="pill p-kept">Kept</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Read together: this is a management team that has, at least twice in the period this report can document, delivered inside or ahead of its own guidance (9-month FY26 volume, and the FY27 EBITDA/tonne defence during the Q1 FY27 volume miss) and been candid, with specific named causes, when a guidance number slipped &mdash; the UAE disruption, SG Premium competitive pressure, an energy-driven production hit, and channel destocking were each named individually on the Q1 FY27 call, not folded into a vague "macro headwinds." Whether the 15&ndash;20% volume range and the "back to 30% ROCE" language prove conservative or optimistic is the single most important open item this report flags for the next two quarters (Section <a href="#record">03</a>).</p>
+
+<h3>A disclosure that was reduced, with the stated reason given directly</h3>
+<div class="warn">
+<div class="lbl">Worth noting, not overweighting</div>
+<p>Asked on the Q1 FY27 call to resume reporting segment-level EBITDA margins (Apollo Structural, Apollo Z, Apollo Galvanized) as the company used to, management declined, stating plainly: "our business was getting a lot of impact. With the competitors the more our margin was seen, we used to get a hit there. So technically we have finished it." This is a genuine reduction in disclosure granularity, explained candidly as a competitive-response decision rather than denied or deflected &mdash; this report treats it as a real loss of visibility into the underlying business mix (flagged in Section <a href="#gaps">14</a>) rather than evidence of anything being concealed, since the stated rationale is plausible and was volunteered rather than extracted.</p>
+</div>
+</section>
+
+
+<section id="capital">
+<h2><span class="num">09</span>Capital allocation: a near-doubling of capacity, funded from internal cash, on a balance sheet that has moved from net debt to net cash</h2>
+<p class="sec-sub">A genuinely disciplined capex programme, growing dividends, and an explicit vision of 10 million tonnes by 2030</p>
+
+<p>Net debt has moved from &#8377;593 Cr (FY2017) to &minus;&#8377;389 Cr &mdash; a genuine net-cash position &mdash; by FY2026, with the company net debt-free since FY2024. Gross gearing on this pipeline's own leverage computation fell from roughly 0.85&times; (FY2017) to well under 0.1&times; by FY2026. CRISIL's own capital-structure figures (0.15&times; FY2025, down from 0.33&times; FY2024) independently corroborate the trend, and the agency's own upgrade rationale explicitly credits "absence of any debt funded capex plans" as a key driver of the September 2025 rating action.</p>
+
+<h3>The current capacity plan: 5 to 8 million tonnes, entirely internally funded</h3>
+<p>Capacity is being expanded from roughly 5 million to 8 million tonnes over the next two years through a mix of four greenfield plants (Gorakhpur, Siliguri in the east; a new Malur plant in the south; a Pune-corridor plant replacing an earlier Bhuj plan in the west) plus roughly 1 million tonnes of debottlenecking at existing mills &mdash; a lower-capital-intensity route management specifically highlights as ROCE-accretive. Total investment for this phase is guided at roughly &#8377;1,500 Cr, funded entirely from internal cash flows, with annual cash accrual already exceeding &#8377;800 Cr (FY2025) and guided to surpass &#8377;1,000 Cr in FY2026 &mdash; comfortably ahead of both the capex plan and debt-repayment obligations of roughly &#8377;200 Cr.</p>
+
+<h3>A longer-dated, less-defined ambition: 10 million tonnes and a move into specialty segments</h3>
+<p>Beyond the 8-million-tonne plan, management has articulated a longer-term vision of 10 million tonnes of capacity by 2030, with the incremental 2 million tonnes targeted at "super specialty" segments &mdash; EV, aerospace, petrochemical, oil and gas, and heavy engineering &mdash; potentially through joint ventures with Japanese, Korean, European or American partners. As of the most recent call this report read, management described this as early-stage ("we are already talking to a few targets... over the next 12 months, there will be much more coming from our side") with no committed capital, partner, or structure disclosed. This report treats it as a stated ambition, not a modelled input to valuation (Section <a href="#valuation">12</a>), pending concrete disclosure.</p>
+
+<h3>Dividends: modest and rising alongside earnings</h3>
+<p>The dividend payout has grown from &#8377;138.7 Cr (FY2023) to &#8377;236.0 Cr (FY2026), a payout ratio of roughly 20% of PAT in the most recent year &mdash; a moderate, earnings-linked payout consistent with a company still mid-expansion, prioritising internally-funded growth capex over cash return while maintaining a steadily rising absolute dividend.</p>
+</section>
+
+
+<section id="flags">
+<h2><span class="num">10</span>Governance and credit: clean on both counts, with two rating upgrades in the last eighteen months</h2>
+<p class="sec-sub">A related-party record this pipeline scores Score 1 (Watch), and an independently corroborated deleveraging story</p>
+
+<h3>Related-party transactions: Score 1 (Watch) &mdash; a clean twelve-year record</h3>
+<div class="good">
+<div class="lbl">This pipeline's own related-party audit, twelve available annual reports (FY2015&ndash;FY2026)</div>
+<p>Form AOC-2 is explicitly "Not Applicable" in every one of the twelve years read &mdash; no non-arm's-length or shareholder-approval-triggering transaction was ever populated in it. CARO opinions are unqualified every year, with explicit no-material-fraud confirmations. The related-party universe is dominated by wholly-owned subsidiaries (routine intercompany financing and sales) and one small, tracked relationship: Apollo Pipes Ltd, a separately-listed company the same Gupta promoter family also influences, with transactions running in the single-digit-crore range against APL Apollo's multi-thousand-crore revenue base, flat to declining rather than growing. The only related-party guarantees found run in the company's favour &mdash; Sanjay Gupta and Vinay Gupta personally guarantee company term-loan facilities, not the reverse.</p>
+</div>
+
+<h3>Credit ratings: two upgrades since early 2025, both independently corroborating the deleveraging story</h3>
+<p>CARE Ratings reaffirmed APL Apollo at CARE AA/Positive in March 2025 before withdrawing the rating at the company's own request (a standard, lender-NOC-supported withdrawal, not a distress signal, and consistent with a large, well-covered company rationalising which of several agencies it maintains active ratings with). CRISIL upgraded its long-term rating to <b>CRISIL AA+/Stable</b> in September 2025, from CRISIL AA/Positive &mdash; explicitly crediting the negative working-capital cycle, net debt-free position, and absence of any debt-funded capex plans (Sections <a href="#wc">05</a>, <a href="#capital">09</a>). CRISIL's own stated upward triggers &mdash; EBITDA/tonne sustained above &#8377;5,000&ndash;5,500 and ROCE sustained above 25% &mdash; are both currently being met or close to met; its downward triggers (Debt/EBITDA exceeding 1.0&times;, or a significant volume-driven profitability decline) are the same real-world variables this report's own management scorecard (Section <a href="#mgmt">08</a>) is watching in the current quarter.</p>
+
+<h3>A live, material tax dispute: &#8377;77.88 Cr in evaded-turnover demand</h3>
+<div class="warn">
+<div class="lbl">Not resolved &mdash; stated plainly rather than downplayed</div>
+<p>A GST order dated 5 February 2025 determined &#8377;77.88 Cr of evaded turnover and directed payment of tax, interest and penalty. APL Apollo petitioned the Allahabad High Court to bypass the statutory appellate remedy and have the demand addressed directly; that petition was dismissed, with the court finding no grounds to bypass the ordinary tax-appellate channel. This means the underlying &#8377;77.88 Cr demand itself remains unresolved and must now proceed through the standard GST appellate process &mdash; a live, material contingent liability this report could not find quantified or provisioned for in the documents available to it (Section <a href="#gaps">14</a>). Separately, APL Apollo appears in an Allahabad High Court trademark-infringement matter as plaintiff (against M/S Steel Track & Ors, order dated 24 November 2025) &mdash; defending its own "APOLLO"/"APL APOLLO" marks, not litigation against the company &mdash; and in an NCLAT matter as the party that sought insolvency proceedings against a counterparty, not as a company facing insolvency risk itself. Neither of those two is a governance concern; the GST matter is the one item in this section with real, unresolved financial exposure.</p>
+</div>
+
+<h3>Promoter holding: the lowest in its own peer set, and below FII holding</h3>
+<div class="warn">
+<div class="lbl">A genuine ownership-structure data point, not a confirmed problem</div>
+<p>Promoter holding stands at 28.25% &mdash; the lowest of every structural-tube peer identified in Section <a href="#peers">06</a> by a wide margin (all of which carry 43&ndash;63%) &mdash; and is now below FII holding (35.10%), an unusual structure for an Indian industrial company of this scale. ValuePickr's own thirteen-year-old thread on this stock repeatedly flags recurring promoter share sales, "almost every quarter" per one contributor. One further claim on the same thread &mdash; that promoter capital may be flowing to an affiliated NBFC that finances customer purchases, potentially creating vendor-financed rather than organic demand &mdash; could not be independently verified in this research and is treated as an open, unconfirmed question, not a finding: this pipeline's related-party audit (below) found no such lending relationship in twelve years of AOC-2 filings, though it notes CFO-level personnel overlap (a director's chairmanship of an NBFC, SG Finserve) worth a future refresh checking directly against related-party disclosures rather than inferring from a forum post.</p>
+</div>
+
+<h3>The related-party record itself remains clean</h3>
+<p>This pipeline's related-party audit found no CARO qualifications, no fraud findings, and no loan-or-guarantee flow from the company to a promoter-linked entity across twelve years of filings, and Form AOC-2 has never once required a non-arm's-length disclosure. The promoter-selling and NBFC questions above sit alongside that clean record rather than contradicting it &mdash; they are ownership-structure and forum-sourced concerns, not related-party-transaction findings.</p>
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">11</span>What retail investors have said: thirteen years of tracking the same two tensions this report also arrives at</h2>
+<p class="sec-sub">One long-running ValuePickr thread since 2013, plus substantial institutional broker coverage &mdash; a very different information environment from most companies this pipeline has covered</p>
+
+<h3>2013: skepticism despite strong numbers, from the very first post</h3>
+<p>The main APL Apollo ValuePickr thread opened in February 2013 with a founding post noting a 40% five-year sales CAGR and 37% profit CAGR &mdash; alongside an immediate, unresolved unease: "everything just doesnt seem right in this company." An early factory-visit post the same month flagged a structural relationship worth checking currency on: APL Apollo procuring raw material from JSW while its major organised-space competitor was itself a JSW group company &mdash; a supplier/competitor overlap this report did not independently verify still holds in 2026, but which is the same category of soft conflict this report flagged for Alufluoride's Tanfac/Hindalco relationship in an earlier report this cycle.</p>
+
+<h3>2015&ndash;2016: a long runway, explicitly framed as a trade, not a compounder</h3>
+<p>By 2015&ndash;2016 the thread's consensus had matured toward "a long runway" in a fragmented, "minimal organized competition" market &mdash; but posters explicitly characterised the business as "commodity type," requiring careful entry and exit timing rather than a straightforward buy-and-hold thesis. This framing anticipates exactly the percentage-margin-versus-EBITDA/tonne distinction this report draws in Section <a href="#margin">04</a>.</p>
+
+<h3>2024&ndash;2025: the same two tensions this report's own analysis independently reaches</h3>
+<p>More recent thread activity tracks two live concerns that map directly onto this report's own findings. First, steel-price pass-through: posters explicitly ask why margin does not move inversely with raw-material cost as cleanly as expected &mdash; the same dynamic behind Section <a href="#growth">07</a>'s HRC-price-swing discussion. Second, and more pointed: recurring promoter share sales, described by one contributor as happening "almost every quarter," directly consistent with this report's own finding (Section <a href="#flags">10</a>) that promoter holding (28.25%) is now the lowest in APL Apollo's own peer set and below FII holding. One further, more speculative claim on the same thread &mdash; that promoter capital may be flowing to an affiliated NBFC financing customer purchases &mdash; this report could not verify and treats as an open question, not a finding, stated plainly in Section <a href="#flags">10</a> rather than repeated as fact.</p>
+
+<h3>Substantial institutional coverage, with a wide target-price spread</h3>
+<p>Unlike most companies this pipeline has covered this cycle, APL Apollo carries real broker coverage &mdash; consensus estimates from roughly 17 contributing analysts were found, and individual target prices located in this research ranged from roughly &#8377;1,210 to &#8377;2,265, skewing toward Buy ratings in the sources this research reviewed (no Hold or Sell rating was surfaced, though this was not an exhaustive scan of every covering brokerage). That spread is wide enough that no single number should be read as consensus without noting the range and the date it was set; this report's own valuation conclusion (Section <a href="#valuation">12</a>) is derived independently rather than anchored to any of these targets.</p>
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">12</span>Valuation: the best operating metrics in this pipeline's coverage, and a price the DCF cannot reach even in its bull case</h2>
+<p class="sec-sub">Free-cash-flow-to-firm DCF, seven-year explicit window, computed through this pipeline's own tested dcf/reverse_dcf functions</p>
+
+<p>APL Apollo's operating record is the strongest this pipeline has found this cycle on almost every gate that matters: 9/9 ROCE passes, 1.60&times; cumulative cash conversion, a positive Gate 3, and a genuine net-cash balance sheet (Section <a href="#framework">02</a>). Its incremental working-capital intensity &mdash; the charge a DCF should apply to every rupee of new revenue &mdash; is essentially zero: &minus;0.1% over the last three years, 3.1% over the last five, an outright structural advantage over every peer in Section <a href="#peers">06</a>. None of that, on its own, closes the gap to a 50&times; earnings multiple.</p>
+
+<div class="table-wrap">
+<table>
+<caption>WACC 12.0% (reflecting the AA+ credit profile), terminal growth 5.0%, 7-year explicit window, tax rate 25%, depreciation 1.2% of sales. Assumptions grounded in the company's own FY2017&ndash;FY2026 range and current guidance (Sections <a href="#record">03</a>, <a href="#margin">04</a>, <a href="#wc">05</a>).</caption>
+<thead><tr><th>Scenario</th><th class="num">Growth</th><th class="num">EBITDA margin</th><th class="num">Incremental WC</th><th class="num">Value/share</th><th class="num">vs. price (&#8377;2,214.85)</th></tr></thead>
+<tbody>
+<tr><td>Bear</td><td class="num">8%</td><td class="num">6.5%</td><td class="num">2.0%</td><td class="num">&#8377;386</td><td class="num l">&minus;83%</td></tr>
+<tr><td>Base</td><td class="num">15%</td><td class="num">7.8%</td><td class="num">1.5%</td><td class="num">&#8377;648</td><td class="num l">&minus;71%</td></tr>
+<tr><td>Bull</td><td class="num">20%</td><td class="num">9.0%</td><td class="num">1.0%</td><td class="num">&#8377;960</td><td class="num l">&minus;57%</td></tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+<div class="fig-title">DCF scenarios vs. current price</div>
+<div class="fig-sub">Value per share, &#8377;</div>
+<svg viewBox="0 0 720 240" role="img" aria-label="Discounted cash flow valuation scenarios for APL Apollo Tubes against the current market price"><line class="grid-l" x1="56" y1="206.0" x2="704" y2="206.0"/><text class="ax" x="50" y="209.0" text-anchor="end">0</text><line class="grid-l" x1="56" y1="169.2" x2="704" y2="169.2"/><text class="ax" x="50" y="172.2" text-anchor="end">500</text><line class="grid-l" x1="56" y1="132.4" x2="704" y2="132.4"/><text class="ax" x="50" y="135.4" text-anchor="end">1,000</text><line class="grid-l" x1="56" y1="95.6" x2="704" y2="95.6"/><text class="ax" x="50" y="98.6" text-anchor="end">1,500</text><line class="grid-l" x1="56" y1="58.8" x2="704" y2="58.8"/><text class="ax" x="50" y="61.8" text-anchor="end">2,000</text><line class="grid-l" x1="56" y1="22.0" x2="704" y2="22.0"/><text class="ax" x="50" y="25.0" text-anchor="end">2,500</text><rect x="118.6" y="177.6" width="90.7" height="28.4" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs 386</title></rect><text class="vlbl" x="164.0" y="170.6" text-anchor="middle" fill="#d97a5f">&#8377;386</text><text class="ax" x="164.0" y="220" text-anchor="middle">Bear</text><text class="ax" x="164.0" y="232" text-anchor="middle" fill="#d97a5f">-83%</text><rect x="334.6" y="158.3" width="90.7" height="47.7" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 648</title></rect><text class="vlbl" x="380.0" y="151.3" text-anchor="middle" fill="#c9a24b">&#8377;648</text><text class="ax" x="380.0" y="220" text-anchor="middle">Base</text><text class="ax" x="380.0" y="232" text-anchor="middle" fill="#d97a5f">-71%</text><rect x="550.6" y="135.3" width="90.7" height="70.7" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 960</title></rect><text class="vlbl" x="596.0" y="128.3" text-anchor="middle" fill="#5fb98a">&#8377;960</text><text class="ax" x="596.0" y="220" text-anchor="middle">Bull</text><text class="ax" x="596.0" y="232" text-anchor="middle" fill="#d97a5f">-57%</text><line x1="56" y1="43.0" x2="704" y2="43.0" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="36.0" text-anchor="end">market &#8377;2,215</text><line class="zero-l" x1="56" y1="206" x2="704" y2="206"/></svg>
+<figcaption><b>Why:</b> even the bull case &mdash; 20% growth (above management's own upgraded-then-walked-back guidance) and a 9% EBITDA margin (above anything the company has delivered in ten years) &mdash; reaches barely 43% of the current price.</figcaption>
+</figure>
+
+<h3>The reverse DCF makes the same point more sharply</h3>
+<p>Holding growth at a realistic 15% (in line with management's own current guidance range), the price requires a flat EBITDA margin of <b>17.5%</b> for seven years &mdash; more than double APL Apollo's best-ever margin (8.5%, FY2017) and roughly triple CRISIL's own characterisation of "modest 6-8% operating margins" as a structural feature of this industry. Holding margin instead at the company's actual FY2026 level (7.8%), the price requires flat revenue growth of <b>41.5%</b> for seven straight years &mdash; well above even the company's fastest historical year (53.7%, FY2022, achieved off a much smaller base) sustained as a steady-state rate, not a one-off. Both framings agree: the current price is not paying for "more of the excellent decade this company has already delivered" &mdash; it is paying for a combination of growth and margin that has no precedent in APL Apollo's own ten-year record, sustained for most of a decade.</p>
+
+<h3>What this does and does not mean</h3>
+<p>This is not a finding that the business is deteriorating &mdash; every operating metric in this report says the opposite. It is a finding that the price already assumes an outcome better than the best version of this business has ever produced, for a sustained period, at a company whose most recent quarter delivered exactly the kind of guidance walk-back (Section <a href="#mgmt">08</a>) that tests whether even the current growth and margin trajectory holds, let alone accelerates beyond it.</p>
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">13</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">Quality and value, kept on separate axes &mdash; this is not a buy or sell call</p>
+
+<h3>Quality: as clean a set of gates as this pipeline has found this cycle</h3>
+<p>APL Apollo clears every gate this pipeline tests, and clears several of them by a wide margin: ROCE above 15% in nine of nine years measured, cumulative cash conversion of 1.60&times; PAT, and &mdash; the rare one &mdash; a positive Gate 3, meaning the company has funded a near-doubling of production capacity while still generating free cash flow after that capex and its financing cost. A deliberate cash-and-carry sales strategy has taken receivable days from 27 to roughly 5 and moved the balance sheet from net debt to net cash, independently corroborated by two credit-rating upgrades in the last eighteen months. This pipeline's related-party audit found nothing to flag across twelve years of filings.</p>
+<p>Set against that: a genuinely low promoter holding (28.25%, the lowest in its own peer set and below FII holding) with a recurring pattern of promoter selling that this report could not fully explain; a live, unresolved &#8377;77.88 Cr GST demand now proceeding through the ordinary appellate channel after a bypass petition was dismissed; a reduction in segment-level margin disclosure, candidly explained by management as a competitive-response decision; and a live, current guidance walk-back on the single most important operating variable (volume growth, cut from an upgraded "20%" to "15&ndash;20%" within seven months) that this report cannot yet call resolved either way.</p>
+
+<h3>Value: the best fundamentals in this pipeline's coverage still do not close a 50&times; gap</h3>
+<p>At 51&times; trailing earnings &mdash; the richest multiple of any real peer in Section <a href="#peers">06</a>, more than triple Surya Roshni's 15.9&times; &mdash; a reverse DCF finds the price requires either a 17.5% flat EBITDA margin (more than double the company's best-ever year) or 41.5% flat revenue growth (above even its fastest historical year, sustained indefinitely) for seven years. Even this report's bull case &mdash; 20% growth and a 9% margin, both above anything APL Apollo has delivered in a decade &mdash; reaches only 43% of the current price. <b>The two readings are not in conflict</b>: this is genuinely the best-run business in this report's own quality framework this cycle, and it is also, on a cash-flow basis, the most expensive relative to what its own history can support.</p>
+
+<h3>Specific triggers, with thresholds</h3>
+<ul>
+<li><b>FY2027 volume growth against the 15&ndash;20% revised range</b> &mdash; the single nearest-term test; a return toward the upper end, on the back of the Gorakhpur/Siliguri ramp and a UAE recovery, would support the growth case management is defending; a further miss would sharpen the valuation gap this report already flags.</li>
+<li><b>ROCE against the "back to 30%, toward 40%" language</b> &mdash; management's own January 2026 guidance (sub-40%) versus its August 2026 language (recovering to 30%) is a real, trackable gap; which one the next two quarters confirm matters more than either single number.</li>
+<li><b>The &#8377;77.88 Cr GST demand's progress through appeal</b> &mdash; a genuine contingent liability this report could not find quantified or provisioned; any material update belongs in the next refresh.</li>
+<li><b>Promoter holding against the current 28.25%</b> &mdash; continued selling would sharpen the ownership-structure question this report flags without resolving; a stabilisation or reversal would meaningfully ease it.</li>
+<li><b>EBITDA/tonne against the &#8377;5,000&ndash;5,500 guided range</b> &mdash; the metric both CRISIL and management use in place of a percentage margin; sustained delivery inside this band, through the current HRC price volatility, is the clearest evidence the value-added mix shift is holding.</li>
+</ul>
+
+<p><b>What would change this verdict:</b> a sustained return to 20%+ volume growth alongside EBITDA/tonne holding at or above &#8377;5,500, confirmed over two more quarters, would meaningfully strengthen the case that the current guidance walk-back was genuinely a timing issue rather than the leading edge of a real deceleration &mdash; though even that would not, on this report's own DCF, close the full gap to the current price without a further, undisclosed acceleration in margin or growth beyond anything in the company's own ten-year record.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">14</span>Data gaps and provenance</h2>
+<p class="sec-sub">A rich primary-source set (41 transcripts, two full credit-rating reports), a sample rather than an exhaustive read, and several external claims not independently closed out</p>
+
+<h3>Methodology and transcript sampling</h3>
+<p>This pipeline's own database was current; all financial-metric computations run directly against it. Given 41 available earnings-call transcripts spanning FY2016 through Q1 FY2027, this report read the two most recent in full (Q3 FY2026, Q1 FY2027) rather than the full archive, on the judgment that the most important, currently-live finding &mdash; the guidance walk-back between January and August 2026 &mdash; required those two specifically, and that CRISIL's and CARE's own multi-year rating rationales already independently corroborate the longer-run trend. A future refresh reading a broader historical sample (e.g. one call per fiscal year since FY2018) would strengthen the management scorecard in Section <a href="#mgmt">08</a> beyond its current two-point ledger.</p>
+
+<h3>One anomaly with no confirmed cause</h3>
+<p>FY2019's growth slowdown (34.1% &rarr; 8.0% &rarr; 10.1% across FY2018-2020) has no specific cause identified in the FY2019 annual report available to this research.</p>
+
+<h3>A material, unresolved contingent liability</h3>
+<p>The &#8377;77.88 Cr GST evaded-turnover demand (Section <a href="#flags">10</a>) was identified via a legal-news summary of the Allahabad High Court's dismissal order, not the order itself or APL Apollo's own financial-statement contingent-liability note. This report could not confirm whether or how the company has provisioned for this in its accounts. A direct read of the company's own FY2026 contingent-liabilities disclosure, and of the underlying GST order and High Court judgment, would materially improve this section's precision.</p>
+
+<h3>An unverified forum claim, stated as open rather than resolved</h3>
+<p>A ValuePickr claim that promoter capital may be flowing to an affiliated NBFC financing customer purchases (Section <a href="#flags">10</a>) could not be independently verified. This pipeline's own related-party audit found no such lending relationship in twelve years of AOC-2 filings, but did not specifically investigate SG Finserve (an NBFC where a company director holds a chairmanship) against this claim. A targeted check of SG Finserve's own disclosures and any customer-financing relationship with APL Apollo dealers would close this out.</p>
+
+<h3>Credit ratings only partially cross-verified</h3>
+<p>CRISIL's September 2025 rating rationale was read directly and is verbatim-grade. ICRA's reported AA+/Stable rating (circa February 2026) could not be independently confirmed in this research &mdash; both attempted document fetches failed, one apparently returning content for a related but distinct entity (Apollo Metalex Ltd). CARE's March 2025 reaffirmation-and-withdrawal was sourced from a press-release summary, not the underlying PDF. Both should be treated as medium-confidence pending a fresh, direct pull if load-bearing for a future refresh.</p>
+
+<h3>Smaller peers priced from search summaries, not direct fetches</h3>
+<p>Surya Roshni, Ratnamani, Jindal Saw and Hi-Tech Pipes figures in Section <a href="#peers">06</a> were read directly from Screener.in. Rama Steel Tubes, Man Industries and Welspun Corp figures are search-summary grade; Rama Steel's promoter-holding figure specifically returned two irreconcilable numbers (35.9% vs. 1.83%) from the same research pass and was excluded from the peer table pending direct verification.</p>
+
+<h3>Industry figures sourced from secondary aggregators</h3>
+<p>The Jal Jeevan Mission budget/connection figures, India crude-steel-capacity figures, and the HRC price series (Section <a href="#growth">07</a>) all come from secondary industry-tracking sites rather than government primary sources (jaljeevanmission.gov.in, Ministry of Steel/JPC bulletins) or a second independent pricing source (e.g. SteelMint). Directionally consistent across the sources checked, but not verbatim-grade. No structural/ERW-tube-specific industry-association capacity-utilisation figure was found at all &mdash; a genuine gap, since the equivalent body for stainless steel (ISSDA) does not cover this segment.</p>
+
+<h3>What would most improve the next refresh</h3>
+<ol>
+<li>A direct read of APL Apollo's own FY2026 contingent-liabilities note and the underlying GST order, to size and status the &#8377;77.88 Cr demand precisely.</li>
+<li>A targeted check of SG Finserve's disclosures against the ValuePickr NBFC-financing claim.</li>
+<li>A fresh, direct ICRA rationale pull to confirm the reported AA+/Stable rating.</li>
+<li>Direct Screener.in pulls for Rama Steel Tubes, Man Industries and Welspun Corp to replace search-summary figures.</li>
+<li>Q2 and Q3 FY2027 results &mdash; the direct test of whether the volume-growth walk-back proves temporary, as management asserts, or persists.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> APL Apollo Tubes Ltd (NSE/BSE: APLAPOLLO, BSE: 533758, ISIN INE702C01027). Prepared 25 September 2026 against a share price of &#8377;2,214.85.</p>
+  <p>Built from this pipeline's own current internal database, run through its own tested margin-bridge, cash-gates, anomaly-scan and DCF arithmetic; an existing related-party audit covering twelve annual reports; CRISIL's September 2025 and CARE's March 2025 rating rationales; two full earnings-call transcripts (Q3 FY26, Q1 FY27) read directly, covering a live guidance revision on volume growth and ROCE; a thirteen-year ValuePickr thread; and independent research on the real, management-named peer set (Surya Roshni, Hi-Tech Pipes, Rama Steel Tubes), a material unresolved &#8377;77.88 Cr GST demand, and an unusually low promoter shareholding. Every numeric claim cites a period; every quotation cites a document. This report's central finding is a genuine divide between an exceptionally clean set of operating and cash-flow metrics and a valuation this pipeline's own DCF cannot reach even in its bull case &mdash; stated plainly in Section 12 and the verdict, rather than resolved in either direction.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. This report covers a company with a live, unresolved tax dispute and an unusually low, declining promoter shareholding alongside genuinely excellent operating metrics; read the governance and valuation sections in full before acting on anything here. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
