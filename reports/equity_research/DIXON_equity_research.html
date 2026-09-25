@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dixon Technologies Ltd — Equity Research | Coffee Can Screener</title>
+<meta name="description" content="Fundamental analysis and investment thesis on Dixon Technologies (India) Ltd: India's largest electronics contract manufacturer, structurally thin-margin by design, with a ROCE gate this pipeline's primary formula clears easily but Vijay Malik's own stricter cross-check never qualifies -- and a valuation this pipeline's DCF finds the most demanding of any company scored this cycle, even in its bull case.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --ser-1:#c9a24b;--ser-2:#5b9bd1;--ser-3:#5fb98a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px;}
+header{border-bottom:1px solid var(--hair2);padding:22px 0 18px;margin-bottom:4px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:7px;}
+h1{font-family:var(--serif);font-size:clamp(26px,6vw,40px);margin:0;text-wrap:balance;line-height:1.15;}
+.subtitle{font-family:var(--serif);font-size:clamp(15px,2.4vw,18px);color:var(--dim);margin:8px 0 0;font-style:italic;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;line-height:1.7;}
+.meta b{color:var(--ink);font-weight:600;}
+.verdict{background:var(--card);border:1px solid var(--hair2);border-left:3px solid var(--brass);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.verdict-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--brass);margin-bottom:8px;}
+.verdict-head{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.verdict p{font-size:14px;color:var(--dim);margin:0 0 10px;line-height:1.7;}
+.verdict p:last-child{margin-bottom:0;}
+.verdict b{color:var(--ink);font-weight:600;}
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0 26px;}
+@media(min-width:700px){.hero-row{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:11px 13px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:21px;font-weight:700;margin-top:3px;line-height:1.2;}
+.stat .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:3px;}
+section{margin:40px 0 0;scroll-margin-top:16px;}
+h2{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);margin:0 0 4px;line-height:1.25;}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--brass);display:block;letter-spacing:.1em;margin-bottom:6px;font-weight:400;}
+.sec-sub{font-size:13px;color:var(--faint);margin:0 0 18px;font-family:var(--mono);}
+h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:26px 0 8px;}
+h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin:20px 0 7px;}
+p{font-size:14.5px;color:var(--dim);line-height:1.72;margin:0 0 13px;}
+p b,li b{color:var(--ink);font-weight:600;}
+ul,ol{font-size:14.5px;color:var(--dim);line-height:1.72;padding-left:20px;margin:0 0 13px;}
+li{margin-bottom:7px;}
+a{color:var(--brass);}
+.key{background:rgba(201,162,75,0.07);border:1px solid rgba(201,162,75,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.key .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:6px;}
+.key p{margin:0;font-size:14px;color:var(--ink);line-height:1.7;}
+.warn{background:rgba(224,96,74,0.07);border:1px solid rgba(224,96,74,0.32);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.warn .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#ef937f;margin-bottom:6px;}
+.warn p{margin:0 0 9px;font-size:14px;color:var(--dim);}
+.warn p:last-child{margin-bottom:0;}
+.good{background:rgba(95,185,138,0.07);border:1px solid rgba(95,185,138,0.30);border-radius:5px;padding:14px 16px;margin:16px 0;}
+.good .lbl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gain-soft);margin-bottom:6px;}
+.good p{margin:0;font-size:14px;color:var(--dim);}
+blockquote{margin:14px 0;padding:12px 16px;background:var(--panel);border-left:2px solid var(--hair2);border-radius:0 4px 4px 0;}
+blockquote p{font-size:14px;color:var(--ink);font-style:italic;margin:0 0 7px;line-height:1.65;}
+blockquote .attr{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-style:normal;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border:1px solid var(--hair);border-radius:5px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--panel);}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;}
+td.t{font-family:var(--sans);white-space:normal;font-size:13px;min-width:150px;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:rgba(201,162,75,0.08);color:var(--ink);}
+tbody tr.tot td{border-top:1px solid var(--hair2);color:var(--ink);font-weight:600;}
+.num{text-align:right;}
+.g{color:var(--gain-soft);} .l{color:var(--loss);} .na{color:var(--faint);}
+caption{caption-side:bottom;font-family:var(--mono);font-size:10px;color:var(--faint);text-align:left;padding:8px 10px;line-height:1.5;}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap;}
+.p-kept{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.45);}
+.p-slip{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.45);}
+.p-broke{background:rgba(224,96,74,0.18);color:#ef937f;border-color:rgba(224,96,74,0.50);}
+.p-open{background:rgba(147,160,184,0.12);color:var(--faint);border-color:var(--hair2);}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 12px;}
+figcaption{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6;margin-top:10px;padding-top:9px;border-top:1px solid var(--hair);}
+.fig-title{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.fig-sub{font-size:12px;color:var(--faint);margin-bottom:12px;}
+svg{display:block;width:100%;height:auto;overflow:visible;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;}
+.lg{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--dim);}
+.lg i{width:10px;height:10px;border-radius:2px;flex:none;display:inline-block;}
+.ax{font-family:var(--mono);font-size:9px;fill:var(--faint);}
+.axl{font-family:var(--mono);font-size:9.5px;fill:var(--dim);}
+.vlbl{font-family:var(--mono);font-size:9.5px;fill:var(--ink);}
+.grid-l{stroke:rgba(232,228,214,0.08);stroke-width:1;}
+.zero-l{stroke:rgba(232,228,214,0.22);stroke-width:1;}
+.toc{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:14px 18px;margin:22px 0;}
+.toc-l{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:18px;font-size:13.5px;columns:1;}
+@media(min-width:640px){.toc ol{columns:2;column-gap:28px;}}
+.toc li{margin-bottom:5px;break-inside:avoid;}
+.toc a{text-decoration:none;color:var(--dim);}
+.toc a:hover{color:var(--brass);}
+hr{border:0;border-top:1px solid var(--hair);margin:34px 0;}
+footer{border-top:1px solid var(--hair2);margin-top:48px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.75;}
+.disclaimer{display:block;margin-top:14px;padding:12px 14px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.65;font-family:var(--sans);}
+.disclaimer b{color:var(--ink);}
+.changed{border-left:3px solid var(--ser-2) !important;}
+.changed .lbl{color:var(--ser-2) !important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<span class="kicker">Coffee Can Screener &middot; Equity Research</span>
+<h1>Dixon Technologies (India) Ltd</h1>
+<p class="subtitle">India's largest electronics contract manufacturer, on a ROCE gate this pipeline's primary formula clears easily every year and Vijay Malik's own stricter cross-check never clears at all &mdash; and a price this pipeline's DCF cannot reach even in a bull case built on margins the company has never delivered</p>
+<div class="meta">
+<b>NSE/BSE:</b> DIXON &middot; <b>BSE code:</b> 540699 &middot; <b>ISIN:</b> INE935N01020<br>
+<b>Prepared:</b> 25 September 2026 &middot; <b>Price:</b> &#8377;13,446 &middot; <b>Market cap:</b> &#8377;82,210 Cr &middot; <b>P/E:</b> ~43.8&times;
+</div>
+</header>
+
+<div class="verdict">
+<div class="verdict-label">The one-paragraph version</div>
+<div class="verdict-head">Genuine scale leadership in a structurally thin-margin business, a primary ROCE gate that clears easily and a stricter cross-check that never does &mdash; and the widest DCF-to-price gap this pipeline has found in any company scored this cycle</div>
+<p>Dixon Technologies is India's largest electronics contract manufacturer &mdash; the country's top smartphone assembler by volume ahead of Foxconn's local operations, and a scaled player across telecom equipment, IT hardware, home appliances, lighting and consumer electronics. Revenue compounded at roughly 40% annually over the past decade, and this pipeline's primary ROCE formula clears 15% in every one of nine years measured, several by a wide margin (up to 59% in FY2025). Run through Vijay Malik's own stricter cross-check, the picture inverts completely: <b>not one of those nine years qualifies</b> &mdash; the cross-check values run 8.5&ndash;14.6%, below the 15% bar throughout. Operating margin has been structurally thin for a decade (3.6&ndash;5.2%, currently 3.8%) and this pipeline's own margin-bridge decomposition finds the recent improvement in reported profitability driven almost entirely by a swing in other income &mdash; plausibly a non-cash fair-value gain on an investment stake, per management's own Q1 FY2027 disclosure &mdash; not by the underlying EBITDA margin, which actually fell slightly over the same window. At roughly 44&times; trailing earnings, this report's own DCF cannot reach the current price even in a bull case built on a margin (5.5%) the company has never once delivered in ten years; the reverse DCF finds no revenue growth rate at all, at the company's actual current margin, that gets there &mdash; working capital consumption at this margin level outruns the profit growth generates. This is a genuinely important, scaled, well-run business inside a structurally difficult margin profile, priced for a transformation this report's own arithmetic cannot yet see in the numbers.</p>
+</div>
+
+<div class="hero-row">
+<div class="stat"><div class="k">Tier (this pipeline)</div><div class="v">Dirty 9iner</div><div class="n">8/9 revenue, 9/9 ROCE gates</div></div>
+<div class="stat"><div class="k">Vijay Malik ROCE cross-check</div><div class="v">Never qualifies</div><div class="n">0/9 years &mdash; the reverse of the primary gate</div></div>
+<div class="stat"><div class="k">Gate 3 (CFO&minus;capex&minus;interest)</div><div class="v">+&#8377;154 Cr</div><div class="n">Full decade, positive but thin</div></div>
+<div class="stat"><div class="k">Operating margin</div><div class="v">3.8%</div><div class="n">FY2026, structurally low for a decade</div></div>
+</div>
+
+<div class="toc">
+<div class="toc-l">Contents</div>
+<ol>
+    <li><a href="#business">The business: not a Foxconn JV</a></li>
+    <li><a href="#framework">The checklist: two ROCE formulas, opposite verdicts</a></li>
+    <li><a href="#record">The ten-year record, and a market that just started shrinking</a></li>
+    <li><a href="#margin">Margins</a></li>
+    <li><a href="#wc">Working capital</a></li>
+    <li><a href="#peers">How Dixon compares</a></li>
+    <li><a href="#growth">Growth outlook</a></li>
+    <li><a href="#mgmt">Management</a></li>
+    <li><a href="#capital">Capital allocation</a></li>
+    <li><a href="#flags">Governance and credit</a></li>
+    <li><a href="#sentiment">What retail investors have said</a></li>
+    <li><a href="#valuation">Valuation: the widest gap this cycle</a></li>
+    <li><a href="#verdict">Verdict, and what would change our mind</a></li>
+    <li><a href="#gaps">Data gaps and provenance</a></li>
+  </ol>
+</div>
+
+<section id="business">
+<h2><span class="num">01</span>The business: India's largest electronics contract manufacturer, and not a Foxconn joint venture</h2>
+<p class="sec-sub">Six segments, a wholly-owned mobile subsidiary, and one correction to a common premise about who actually makes Dixon's phones</p>
+
+<p>Dixon Technologies is India's largest electronics manufacturing services (EMS) company, assembling products for other brands across six segments: mobile phones and other EMS (the largest, ~91% of Q1 FY2027 revenue), telecom and networking equipment, IT hardware (laptops, desktops, AIOs), home appliances (washing machines, refrigerators), lighting (a joint venture with Signify), and consumer electronics (LED TVs). It listed in September 2017 (IPO at &#8377;1,760) and has never raised further public equity capital since, funding its rapid expansion from internal accruals and limited external debt.</p>
+
+<div class="warn">
+<div class="lbl">Correcting a common premise: Dixon and Bharat FIH are not a joint venture</div>
+<p>Dixon's mobile phones are manufactured through <b>Padget Electronics Private Limited, a wholly-owned subsidiary</b> &mdash; not through any structure involving Bharat FIH (Foxconn Technology Group's Indian entity). ICRA's own verbatim consolidation list (its January 2026 rating rationale, read directly) names every subsidiary and JV folded into Dixon's group financials, and Bharat FIH appears nowhere on it. The two companies are, in fact, direct competitors in Indian smartphone assembly &mdash; multiple 2025 trade-press reports describe Dixon "gaining ground on" and, by one September 2025 account, having "overtaken" Foxconn's local operations in Indian smartphone assembly volume. The one real link between the two firms is personnel, not equity: Josh Foulger, former MD of Bharat FIH, joined Padget Electronics as President &ndash; IT Hardware &amp; New Projects in February 2026.</p>
+</div>
+
+<p>The group's consolidation structure is genuinely complex for a company of this size: alongside the wholly-owned core, Dixon runs several minority-and-majority-stake joint ventures with different consolidation treatments &mdash; a 51/49 JV with Vivo Mobile India (government approval received July 2026, expected to start contributing revenue from Q3 FY2027), a 50/50 hearables-and-wearables JV with Imagine Marketing (boAt), a 60/40 JV with Inventec (a top-five global IT-hardware ODM) for laptops and servers, a lighting JV with Signify, a 40/60 PCBA joint venture with Rexxam for air-conditioner components, and a 51% stake in Kunshan Q Tech Microelectronics (camera and fingerprint modules, acquired for roughly &#8377;553 Cr, closed September 2025) &mdash; among others. ICRA's own rating rationale notes it applies "limited consolidation" to the JV/associate layer, "factoring in the expected funding requirements," which means Dixon's group financial profile blends fully-owned operations with minority-stake entities in a way none of its immediate scale peers (Amber, Kaynes, Syrma, Avalon, PG Electroplast) carry to the same degree &mdash; a structural note worth keeping in mind wherever this report compares Dixon's return ratios against that peer set (Section <a href="#peers">06</a>).</p>
+
+<p>ICRA's own named list of Dixon's largest customer-concentration exposures (verbatim, January 2026 rationale): "Motorola Mobility LLC, Ismartu Group, Longcheer, Bharti Airtel Limited, Xiaomi Corporation&hellip;and Samsung Electronics." That concentrated customer base is both the source of Dixon's scale and, as Section <a href="#flags">10</a> covers, the source of its most acute 2025 risk episode.</p>
+
+</section>
+
+
+<section id="framework">
+<h2><span class="num">02</span>The checklist: a primary ROCE gate that clears easily, and a stricter cross-check that never does</h2>
+<p class="sec-sub">The sharpest divergence between this pipeline's two ROCE formulas found in any company scored this cycle</p>
+
+<p>This pipeline classifies Dixon a <b>Dirty 9iner</b> (tier rank 2): revenue growth cleared 10% in 8 of 9 measured years (the exception, FY2019, grew 5.03%), and primary ROCE cleared 15% in <b>all 9</b> years, ranging from 22.56% (FY2021) to a striking 59.04% (FY2025). Run through Vijay Malik's own, typically stricter formula, the result flips entirely: <b>zero of those nine years qualify</b>, with cross-check values running 8.54&ndash;14.58% &mdash; below the 15% bar in every single year, including the two years (FY2025, FY2026) where the primary formula shows Dixon's strongest returns on capital.</p>
+
+<div class="table-wrap">
+<table>
+<caption>ROCE by fiscal year: this pipeline's primary formula versus Vijay Malik's stricter cross-check</caption>
+<thead><tr><th>FY</th><th class="num">Primary ROCE</th><th class="num">Malik ROCE</th><th class="num">Revenue growth</th></tr></thead>
+<tbody>
+<tr><td class="t">2018</td><td class="num">33.91%</td><td class="num l">11.59%</td><td class="num">15.65%</td></tr>
+<tr><td class="t">2019</td><td class="num">27.33%</td><td class="num l">9.78%</td><td class="num l">5.03%</td></tr>
+<tr><td class="t">2020</td><td class="num">34.20%</td><td class="num l">12.31%</td><td class="num">47.43%</td></tr>
+<tr><td class="t">2021</td><td class="num">30.09%</td><td class="num l">10.99%</td><td class="num">46.55%</td></tr>
+<tr><td class="t">2022</td><td class="num">22.56%</td><td class="num l">8.54%</td><td class="num">65.89%</td></tr>
+<tr><td class="t">2023</td><td class="num">24.04%</td><td class="num l">9.13%</td><td class="num">13.98%</td></tr>
+<tr><td class="t">2024</td><td class="num">29.31%</td><td class="num l">9.85%</td><td class="num">45.10%</td></tr>
+<tr><td class="t">2025</td><td class="num">59.04%</td><td class="num l">14.58%</td><td class="num">119.66%</td></tr>
+<tr><td class="t">2026</td><td class="num">47.22%</td><td class="num l">12.29%</td><td class="num">25.77%</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="warn">
+<div class="lbl">This is the widest formula divergence this pipeline has found this cycle</div>
+<p>Three of the last four companies scored (APL Apollo Tubes, Dr Lal PathLabs, Coforge) showed the two ROCE formulas broadly agreeing &mdash; both clearing the bar together, most years. Dixon runs the opposite pattern entirely, and it is not a marginal miss: even the Malik cross-check's <i>best</i> year (14.58%, FY2025) falls short of the 15% threshold. This pipeline's house style treats a formula divergence like this as a real finding to investigate, not a technicality to average away, and the most plausible explanation is Dixon's business mix itself &mdash; low-margin, high-turnover contract assembly, where the primary formula's capital-employed base (which excludes certain working-capital items the stricter formula includes) produces a materially more flattering return figure than a formula built around fuller capital charges.</p>
+</div>
+
+<figure>
+<div class="fig-title">Cumulative CFO vs. cumulative PAT, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, ten-year running total</div>
+<svg viewBox="0 0 720 240" role="img" aria-label="Dixon Technologies cumulative operating cash flow versus cumulative net profit, FY2017 to FY2026"><g><rect x="52" y="0" width="9" height="9" rx="2" fill="#c9a24b"/><text class="ax" x="65" y="8" text-anchor="start">Cumulative PAT</text><rect x="182" y="0" width="9" height="9" rx="2" fill="#5b9bd1"/><text class="ax" x="195" y="8" text-anchor="start">Cumulative CFO</text></g><line class="grid-l" x1="52" y1="208.0" x2="706" y2="208.0"/><text class="ax" x="46" y="211.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="160.5" x2="706" y2="160.5"/><text class="ax" x="46" y="163.5" text-anchor="end">1,361</text><line class="grid-l" x1="52" y1="113.0" x2="706" y2="113.0"/><text class="ax" x="46" y="116.0" text-anchor="end">2,722</text><line class="grid-l" x1="52" y1="65.5" x2="706" y2="65.5"/><text class="ax" x="46" y="68.5" text-anchor="end">4,082</text><line class="grid-l" x1="52" y1="18.0" x2="706" y2="18.0"/><text class="ax" x="46" y="21.0" text-anchor="end">5,443</text><rect x="59.2" y="206.3" width="23.5" height="1.7" rx="3" fill="#c9a24b"><title>FY2017 cumulative PAT: Rs 48 Cr</title></rect><rect x="86.7" y="206.2" width="23.5" height="1.8" rx="3" fill="#5b9bd1"><title>FY2017 cumulative CFO: Rs 53 Cr</title></rect><text class="ax" x="84.7" y="221" text-anchor="middle">'17</text><rect x="124.6" y="204.2" width="23.5" height="3.8" rx="3" fill="#c9a24b"><title>FY2018 cumulative PAT: Rs 108 Cr</title></rect><rect x="152.1" y="203.8" width="23.5" height="4.2" rx="3" fill="#5b9bd1"><title>FY2018 cumulative CFO: Rs 121 Cr</title></rect><text class="ax" x="150.1" y="221" text-anchor="middle">'18</text><rect x="190.0" y="202.0" width="23.5" height="6.0" rx="3" fill="#c9a24b"><title>FY2019 cumulative PAT: Rs 172 Cr</title></rect><rect x="217.5" y="203.9" width="23.5" height="4.1" rx="3" fill="#5b9bd1"><title>FY2019 cumulative CFO: Rs 118 Cr</title></rect><text class="ax" x="215.5" y="221" text-anchor="middle">'19</text><rect x="255.4" y="197.8" width="23.5" height="10.2" rx="3" fill="#c9a24b"><title>FY2020 cumulative PAT: Rs 292 Cr</title></rect><rect x="282.9" y="195.6" width="23.5" height="12.4" rx="3" fill="#5b9bd1"><title>FY2020 cumulative CFO: Rs 355 Cr</title></rect><text class="ax" x="280.9" y="221" text-anchor="middle">'20</text><rect x="320.8" y="192.2" width="23.5" height="15.8" rx="3" fill="#c9a24b"><title>FY2021 cumulative PAT: Rs 452 Cr</title></rect><rect x="348.3" y="189.7" width="23.5" height="18.3" rx="3" fill="#5b9bd1"><title>FY2021 cumulative CFO: Rs 525 Cr</title></rect><text class="ax" x="346.3" y="221" text-anchor="middle">'21</text><rect x="386.2" y="185.6" width="23.5" height="22.4" rx="3" fill="#c9a24b"><title>FY2022 cumulative PAT: Rs 642 Cr</title></rect><rect x="413.7" y="180.2" width="23.5" height="27.8" rx="3" fill="#5b9bd1"><title>FY2022 cumulative CFO: Rs 798 Cr</title></rect><text class="ax" x="411.7" y="221" text-anchor="middle">'22</text><rect x="451.6" y="176.7" width="23.5" height="31.3" rx="3" fill="#c9a24b"><title>FY2023 cumulative PAT: Rs 898 Cr</title></rect><rect x="479.1" y="154.8" width="23.5" height="53.2" rx="3" fill="#5b9bd1"><title>FY2023 cumulative CFO: Rs 1,524 Cr</title></rect><text class="ax" x="477.1" y="221" text-anchor="middle">'23</text><rect x="517.0" y="163.8" width="23.5" height="44.2" rx="3" fill="#c9a24b"><title>FY2024 cumulative PAT: Rs 1,266 Cr</title></rect><rect x="544.5" y="134.4" width="23.5" height="73.6" rx="3" fill="#5b9bd1"><title>FY2024 cumulative CFO: Rs 2,108 Cr</title></rect><text class="ax" x="542.5" y="221" text-anchor="middle">'24</text><rect x="582.4" y="125.6" width="23.5" height="82.4" rx="3" fill="#c9a24b"><title>FY2025 cumulative PAT: Rs 2,361 Cr</title></rect><rect x="609.9" y="94.3" width="23.5" height="113.7" rx="3" fill="#5b9bd1"><title>FY2025 cumulative CFO: Rs 3,258 Cr</title></rect><text class="ax" x="607.9" y="221" text-anchor="middle">'25</text><rect x="647.8" y="75.4" width="23.5" height="132.6" rx="3" fill="#c9a24b"><title>FY2026 cumulative PAT: Rs 3,800 Cr</title></rect><rect x="675.3" y="32.1" width="23.5" height="175.9" rx="3" fill="#5b9bd1"><title>FY2026 cumulative CFO: Rs 5,040 Cr</title></rect><text class="ax" x="673.3" y="221" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="208" x2="706" y2="208"/></svg>
+<figcaption><b>Why:</b> cumulative CFO of &#8377;5,040.0 Cr against cumulative PAT of &#8377;3,799.8 Cr (1.33&times;) is a real pass, but Gate 3 clears by only &#8377;153.8 Cr after &#8377;4,265.3 Cr of capex and &#8377;620.9 Cr of interest &mdash; the thinnest Gate 3 margin of any company this pipeline has scored this cycle.</figcaption>
+</figure>
+
+<p>Gate 3 &mdash; cumulative CFO less capex less interest &mdash; is positive but thin: <b>+&#8377;153.8 Cr</b> over the decade (&#8377;5,040.0 Cr cumulative CFO, &#8377;4,265.3 Cr disclosed capex, &#8377;620.9 Cr interest). That is a real pass, but by a much narrower margin than the last three companies this pipeline has scored (APL Apollo, Dr Lal PathLabs and Coforge all cleared Gate 3 by well over &#8377;1,500 Cr) &mdash; consistent with a business that has ploughed almost every rupee of operating cash back into new manufacturing capacity rather than accumulating a cash cushion. Cash-conversion Gate 1 scores 9/10, with cumulative CFO 1.33&times; cumulative PAT, but one year stands out as a genuine weak point: <b>FY2019 posted negative operating cash flow (&minus;&#8377;3.1 Cr) against positive PAT of &#8377;63.4 Cr</b> &mdash; a real cash-conversion failure that year, not a rounding artefact.</p>
+
+</section>
+
+
+<section id="record">
+<h2><span class="num">03</span>The ten-year record: extraordinary growth, a market that has just started contracting, and margins under active pressure</h2>
+<p class="sec-sub">Revenue up roughly 20&times; in a decade; Q1 FY2027 shows the first real test of that growth against a shrinking smartphone market</p>
+
+<figure>
+<div class="fig-title">Revenue, FY2017&ndash;FY2026</div>
+<div class="fig-sub">&#8377; Crore, consolidated basis</div>
+<svg viewBox="0 0 720 230" role="img" aria-label="Dixon Technologies revenue by fiscal year, FY2017 to FY2026"><line class="grid-l" x1="52" y1="200.0" x2="706" y2="200.0"/><text class="ax" x="46" y="203.0" text-anchor="end">0</text><line class="grid-l" x1="52" y1="154.0" x2="706" y2="154.0"/><text class="ax" x="46" y="157.0" text-anchor="end">13,196</text><line class="grid-l" x1="52" y1="108.0" x2="706" y2="108.0"/><text class="ax" x="46" y="111.0" text-anchor="end">26,391</text><line class="grid-l" x1="52" y1="62.0" x2="706" y2="62.0"/><text class="ax" x="46" y="65.0" text-anchor="end">39,587</text><line class="grid-l" x1="52" y1="16.0" x2="706" y2="16.0"/><text class="ax" x="46" y="19.0" text-anchor="end">52,783</text><rect x="65.7" y="191.4" width="37.9" height="8.6" rx="4" fill="#c9a24b"><title>FY2017: Rs 2,457.0 Cr</title></rect><text class="ax" x="84.7" y="213" text-anchor="middle">'17</text><rect x="131.1" y="190.1" width="37.9" height="9.9" rx="4" fill="#c9a24b"><title>FY2018: Rs 2,841.6 Cr</title></rect><text class="ax" x="150.1" y="213" text-anchor="middle">'18</text><rect x="196.5" y="189.6" width="37.9" height="10.4" rx="4" fill="#c9a24b"><title>FY2019: Rs 2,984.5 Cr</title></rect><text class="ax" x="215.5" y="213" text-anchor="middle">'19</text><rect x="261.9" y="184.7" width="37.9" height="15.3" rx="4" fill="#c9a24b"><title>FY2020: Rs 4,400.1 Cr</title></rect><text class="ax" x="280.9" y="213" text-anchor="middle">'20</text><rect x="327.3" y="177.5" width="37.9" height="22.5" rx="4" fill="#c9a24b"><title>FY2021: Rs 6,448.2 Cr</title></rect><text class="ax" x="346.3" y="213" text-anchor="middle">'21</text><rect x="392.7" y="162.7" width="37.9" height="37.3" rx="4" fill="#c9a24b"><title>FY2022: Rs 10,697.1 Cr</title></rect><text class="ax" x="411.7" y="213" text-anchor="middle">'22</text><rect x="458.1" y="157.5" width="37.9" height="42.5" rx="4" fill="#c9a24b"><title>FY2023: Rs 12,192.0 Cr</title></rect><text class="ax" x="477.1" y="213" text-anchor="middle">'23</text><rect x="523.5" y="138.3" width="37.9" height="61.7" rx="4" fill="#c9a24b"><title>FY2024: Rs 17,690.9 Cr</title></rect><text class="ax" x="542.5" y="213" text-anchor="middle">'24</text><rect x="588.9" y="64.5" width="37.9" height="135.5" rx="4" fill="#5fb98a"><title>FY2025: Rs 38,860.1 Cr (119.7% YoY -- mobile/EMS volume surge)</title></rect><text class="ax" x="607.9" y="213" text-anchor="middle">'25</text><rect x="654.3" y="29.6" width="37.9" height="170.4" rx="4" fill="#c9a24b"><title>FY2026: Rs 48,872.8 Cr</title></rect><text class="ax" x="673.3" y="213" text-anchor="middle">'26</text><line class="zero-l" x1="52" y1="200" x2="706" y2="200"/></svg>
+<figcaption><b>Why:</b> the FY2025 jump (119.7% growth) is the single largest year-on-year move in the decade &mdash; a mobile-and-EMS volume surge, not a one-off acquisition the way Coforge's or APL Apollo's recent jumps were; FY2026 growth (25.8%) is the first year to decelerate meaningfully from that pace.</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<caption>Sales, PAT and CFO, FY2017&ndash;FY2026, &#8377; Cr, consolidated basis</caption>
+<thead><tr><th>FY</th><th class="num">Sales</th><th class="num">PAT</th><th class="num">CFO</th><th class="num">CFO/PAT</th></tr></thead>
+<tbody>
+<tr><td class="t">2017</td><td class="num">2,457.0</td><td class="num">47.6</td><td class="num">52.9</td><td class="num">1.11&times;</td></tr>
+<tr><td class="t">2018</td><td class="num">2,841.6</td><td class="num">60.9</td><td class="num">67.9</td><td class="num">1.11&times;</td></tr>
+<tr><td class="t">2019</td><td class="num">2,984.5</td><td class="num">63.4</td><td class="num l">&minus;3.1</td><td class="num l">&minus;0.05&times;</td></tr>
+<tr><td class="t">2020</td><td class="num">4,400.1</td><td class="num">120.5</td><td class="num">237.3</td><td class="num">1.97&times;</td></tr>
+<tr><td class="t">2021</td><td class="num">6,448.2</td><td class="num">159.8</td><td class="num">170.1</td><td class="num">1.06&times;</td></tr>
+<tr><td class="t">2022</td><td class="num">10,697.1</td><td class="num">190.2</td><td class="num">272.7</td><td class="num">1.43&times;</td></tr>
+<tr><td class="t">2023</td><td class="num">12,192.0</td><td class="num">255.5</td><td class="num">725.8</td><td class="num">2.84&times;</td></tr>
+<tr><td class="t">2024</td><td class="num">17,690.9</td><td class="num">367.8</td><td class="num">584.3</td><td class="num">1.59&times;</td></tr>
+<tr class="hl"><td class="t">2025</td><td class="num">38,860.1</td><td class="num">1,095.5</td><td class="num">1,149.8</td><td class="num">1.05&times;</td></tr>
+<tr><td class="t">2026</td><td class="num">48,872.8</td><td class="num">1,438.6</td><td class="num">1,782.3</td><td class="num">1.24&times;</td></tr>
+<tr class="tot"><td class="t">Cumulative</td><td class="num">&mdash;</td><td class="num">3,799.8</td><td class="num">5,040.0</td><td class="num">1.33&times;</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Revenue grew almost twentyfold over the decade, with the FY2025 acceleration (+119.7%) standing out even against a company already used to triple-digit growth years. This is genuinely a volume and market-share story, not primarily an acquisition-inflated one: Dixon's own Q1 FY2027 disclosure notes it has been "gaining market share" as the broader mobile industry contracted, holding volumes roughly flat against a double-digit market decline.</p>
+
+<h3>Q1 FY2027: the first quarter with the market actually shrinking</h3>
+<p>The quarter ended 30 June 2026 was the first real test of Dixon's growth machine against a genuinely contracting end market, and management's own numbers show real strain alongside real resilience:</p>
+<ul>
+<li><b>Revenue</b> &#8377;15,557 Cr for the quarter; <b>EBITDA, excluding a fair-value gain on the company's stake in Dixon Aditya Infotech,</b> was &#8377;472 Cr; <b>PAT after minority interest, also excluding that fair-value gain,</b> was &#8377;218 Cr &mdash; management's own framing, and the cleaner figures to use for run-rate purposes (Section <a href="#margin">04</a>).</li>
+<li><b>Mobile volumes</b> roughly flat year-on-year at 7.5 million units for the quarter, against a broader smartphone market management describes as contracting 10&ndash;12%; last year's full-year mobile volume was 32&ndash;33 million units, and management expects to hold close to that figure this year despite the market decline &mdash; a genuine market-share gain, on management's own account, not independently verified against third-party shipment data by this report.</li>
+<li><b>ROCE 34.1%, ROE 23.4%, working-capital cycle negative five days</b> &mdash; all management's own disclosed figures for the quarter, broadly consistent with this pipeline's own multi-year negative working-capital finding (Section <a href="#wc">05</a>).</li>
+<li><b>Margin, explicitly flagged as under pressure</b>: management stated plainly that Mobile PLI 1 incentives expired in March 2026, and that rising input costs (particularly memory/component price inflation) passed through into higher selling prices are compressing <i>percentage</i> margins even as absolute volumes and revenue hold up. Management's own words: <i>"we are not expecting a margin improvement from here onwards&hellip;in the current year&hellip;But definitely next year, the margins should start to improve."</i></li>
+</ul>
+
+<div class="warn">
+<div class="lbl">Working capital consumed cash this quarter &mdash; a departure from the multi-year pattern</div>
+<p>Management disclosed roughly &#8377;800 Cr of cash consumed by working capital in the quarter, attributed to "strategic inventory" building ahead of continued memory-price inflation plus a timing effect around cash received in late March being paid out to creditors afterward. Management called this "a temporary phenomenon" that should "continue to get corrected from here onwards." This report treats it as exactly that &mdash; a stated, plausible, but not yet confirmed explanation &mdash; and flags it as the first real-quarter test of whether Dixon's structurally negative working-capital cycle (Section <a href="#wc">05</a>) holds under genuine supply-chain stress, rather than assuming it will revert on management's word alone.</p>
+</div>
+
+</section>
+
+
+<section id="margin">
+<h2><span class="num">04</span>Margins: structurally thin by design, and the recent improvement is not where it looks like it is</h2>
+<p class="sec-sub">The margin bridge finds the three-year profitability gain came almost entirely from other income, not the core EBITDA line &mdash; and management's own Q1 FY2027 disclosure explains why</p>
+
+<p>Pre-tax margin moved from 2.79% (FY2024) to 4.24% (FY2026), a 144.5-basis-point gain that this pipeline's margin-bridge decomposition attributes overwhelmingly to a single, non-operating line:</p>
+
+<div class="table-wrap">
+<table>
+<caption>Margin bridge, FY2024 to FY2026 (pre-tax margin, basis points)</caption>
+<thead><tr><th>Component</th><th class="num">Contribution</th></tr></thead>
+<tbody>
+<tr><td class="t">EBITDA margin</td><td class="num l">&minus;16.6 bp</td></tr>
+<tr><td class="t">Depreciation</td><td class="num g">+11.1 bp</td></tr>
+<tr><td class="t">Other income</td><td class="num g">+132.4 bp</td></tr>
+<tr><td class="t">Interest cost</td><td class="num g">+17.6 bp</td></tr>
+<tr class="tot"><td class="t">Net (matches 2.79% &rarr; 4.24%)</td><td class="num g">+144.5 bp</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="warn">
+<div class="lbl">The core operating business did not get more profitable &mdash; it got slightly less so</div>
+<p>EBITDA margin itself <i>fell</i> 16.6bp over the three-year window, consistent with this pipeline's own margin_series showing operating margin drifting from 3.99% (FY2024) to 3.90% (FY2025) to 3.82% (FY2026) &mdash; essentially flat to slightly down, not the improving business the headline pre-tax margin number suggests. Almost the entire reported margin gain (+132.4bp of the +144.5bp total) came from the "other income" line, which jumped from &#8377;31.6 Cr (FY2024) to &#8377;497.5 Cr (FY2025) to &#8377;734.5 Cr (FY2026) &mdash; a more than twentyfold increase in two years.</p>
+</div>
+
+<p>Management's own Q1 FY2027 disclosure is the clearest evidence of what is likely driving this: on that call, management separately reported quarterly EBITDA and PAT <i>"excluding fair value gain on the stake held by Dixon in Aditya Infotech Limited"</i> &mdash; explicitly signalling that reported figures otherwise include a mark-to-market gain on an investment stake, not operating profit. Dixon Aditya Infotech (a security-and-surveillance-equipment business) does not appear on ICRA's own verbatim consolidated-entity list (Section <a href="#business">01</a>), consistent with it being an investment stake rather than a controlled subsidiary &mdash; exactly the kind of holding whose revaluation would land in other income rather than operating profit. This report has not independently confirmed the FY2025/FY2026 other-income jump is this specific fair-value gain (a direct read of the relevant annual report note would confirm it precisely), but the timing, magnitude and management's own explicit quarterly carve-out make it the most plausible explanation, and this report treats the underlying EBITDA margin &mdash; not the pre-tax margin &mdash; as the more reliable read on Dixon's operating trajectory.</p>
+
+<div class="good">
+<div class="lbl">Where a real, if deferred, margin improvement is credibly guided</div>
+<p>Management has been specific and consistent that near-term margin pressure is structural and temporary at once: Mobile PLI 1 incentives expired March 2026, elevated memory/component costs are compressing percentage margins even as they lift absolute revenue via pass-through pricing, and the backward-integration components (display, camera modules via Q Tech) that are meant to restore margin are not yet at scale. Management's own words: no margin improvement expected in FY2027, with recovery guided explicitly to FY2028 as the display facility ramps and PLI 2.0/ECMS incentives take effect. This is a specific, falsifiable claim this report can test against the next several quarters, rather than a vague reassurance.</p>
+</div>
+
+</section>
+
+
+<section id="wc">
+<h2><span class="num">05</span>Working capital: growth that has structurally released cash, tested for the first time this quarter</h2>
+<p class="sec-sub">A negative working-capital cycle every year of the decade, and a genuine near-term stress test of whether it holds</p>
+
+<p>Dixon has run a <b>negative</b> net working-capital cycle in every year this pipeline's database covers &mdash; from &minus;27.0 days (FY2018) to &minus;31.8 days (FY2026), meaning the company collects customer payments and extends supplier credit terms that, in aggregate, more than offset what it ties up in receivables and inventory. This is the classic structural advantage of a scaled contract manufacturer with negotiating leverage over both ends of its supply chain, and it shows up directly in this pipeline's incremental working-capital intensity calculation: <b>&minus;3.06% (3-year) and &minus;2.98% (5-year)</b> &mdash; meaning that, on average over the recent past, each incremental rupee of sales has actually <i>released</i> cash from working capital rather than consumed it. This is a genuinely rare and valuable trait; among the companies this pipeline has scored this cycle, most show working capital as a drag on growth, not a source of funding for it.</p>
+
+<div class="warn">
+<div class="lbl">Q1 FY2027 is the first real test of whether this holds under stress</div>
+<p>Management disclosed roughly &#8377;800 Cr of cash consumed by working capital in the most recent quarter (Section <a href="#record">03</a>), driven by deliberate "strategic inventory" building ahead of continuing memory-price inflation, plus a timing effect around late-March cash subsequently paid to creditors. Management calls this temporary. This report cannot yet confirm that: a single quarter of working-capital consumption, even a well-explained one, is exactly the kind of thing that either reverses on schedule (validating the structural float story) or marks the start of a genuine shift as Dixon's business mix moves toward components with different supply-chain dynamics (camera modules, displays) than pure assembly. The next one or two quarters are the direct test.</p>
+</div>
+
+<p>This pipeline's anomaly scan also flags net fixed-asset turnover falling 41.9% over the decade (17.74&times; to 10.31&times;), concentrated in the most recent years as fixed assets grew from &#8377;2,065 Cr (FY2024) to &#8377;4,742 Cr (FY2026) &mdash; nearly doubling in two years as new manufacturing capacity (the display facility, expanded Q Tech capacity, the Noida facility, the Inventec JV plant) came online ahead of full utilisation. Read alongside operating margin that has been roughly flat to slightly down over the same period (Section <a href="#margin">04</a>), this sits ambiguously between Malik's subcontracting tell (falling turnover <i>with</i> falling margin, a genuine warning sign) and ordinary capacity investment ahead of ramp-up (the more benign reading, and the one management's own guidance supports, given the multiple new facilities explicitly cited as not yet at full production). This report cannot fully resolve which reading is correct with one year of post-investment data and records it as an open question to test against FY2027&ndash;28 utilisation.</p>
+
+</section>
+
+
+<section id="peers">
+<h2><span class="num">06</span>How Dixon compares: by far the largest, and by far the thinnest margin</h2>
+<p class="sec-sub">Amber, Kaynes, Syrma SGS, Avalon, PG Electroplast and Elin Electronics &mdash; consistently grouped with Dixon across brokerage sector notes, though none carries its scale or its JV complexity</p>
+
+<p>Financial press and sector-thematic broker notes (HDFC Securities' EMS Sector Thematic, JPMorgan EMS commentary, and multiple comparison pieces through 2026) consistently group Dixon with the same five names: Amber Enterprises, Kaynes Technology, Syrma SGS Technology, Avalon Technologies and PG Electroplast, with Elin Electronics as a smaller, more marginal comparable. This report did not find a verbatim management quote naming this exact set on a Dixon earnings call, but the repeated, independent grouping across brokerages is itself the market's own revealed comparable set.</p>
+
+<div class="table-wrap">
+<table>
+<caption>Peer financial comparison, pulled 25 September 2026 (Screener.in, consolidated basis, medium confidence &mdash; public-page pull, not the authenticated export)</caption>
+<thead><tr><th>Company</th><th class="num">Mkt cap (&#8377;Cr)</th><th class="num">P/E</th><th class="num">ROCE</th><th class="num">ROE</th><th class="num">OPM</th><th class="num">Promoter hold.</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="t">Dixon Technologies</td><td class="num">82,210</td><td class="num">43.8&times;</td><td class="num">29.2%</td><td class="num">18.9%</td><td class="num l">3.8%</td><td class="num">28.55%</td></tr>
+<tr><td class="t">Amber Enterprises</td><td class="num">24,550</td><td class="num">119&times;</td><td class="num">10.3%</td><td class="num">6.0%</td><td class="num">7.0%</td><td class="num">38.09%</td></tr>
+<tr><td class="t">Kaynes Technology</td><td class="num">24,561</td><td class="num">70.7&times;</td><td class="num">12.7%</td><td class="num">8.7%</td><td class="num">16.0%</td><td class="num">53.46%</td></tr>
+<tr><td class="t">Syrma SGS Technology</td><td class="num">33,451</td><td class="num">90.1&times;</td><td class="num">16.8%</td><td class="num">14.0%</td><td class="num">11.0%</td><td class="num">42.28%</td></tr>
+<tr><td class="t">Avalon Technologies</td><td class="num">15,508</td><td class="num">116&times;</td><td class="num">19.3%</td><td class="num">16.5%</td><td class="num">11.0%</td><td class="num">44.39%</td></tr>
+<tr><td class="t">PG Electroplast</td><td class="num">14,850</td><td class="num">72.2&times;</td><td class="num">10.3%</td><td class="num">6.7%</td><td class="num">7.0%</td><td class="num">43.37%</td></tr>
+<tr><td class="t">Elin Electronics</td><td class="num">442</td><td class="num">25.8&times;</td><td class="num">6.6%</td><td class="num">4.1%</td><td class="num">4.3%</td><td class="num">33.00%</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Dixon is, by a wide margin, the largest company in this set &mdash; roughly 2.5&times; the next-largest peer (Syrma SGS) by market cap, and 186&times; the smallest (Elin Electronics). It is also, at 3.8% OPM, the thinnest-margin business of the group except Elin (4.3%) &mdash; every other named peer runs operating margins of 7&ndash;16%, two to four times Dixon's own. This is not a temporary gap: ICRA's own credit-rating language independently describes thin, structurally low mobile-and-EMS margins as a durable feature of Dixon's specific business mix, not a cyclical dip (Section <a href="#flags">10</a>). Several peers (Amber, Avalon, PG Electroplast) trade at even richer trailing multiples than Dixon despite materially lower ROE, a pattern this pipeline reads the same way across the set: the market is pricing a growth re-rating story across most of this peer group that has not yet shown up in trailing return ratios &mdash; structurally the same valuation debate this report's own DCF runs into on Dixon specifically (Section <a href="#valuation">12</a>).</p>
+
+<div class="warn">
+<div class="lbl">These are directional comparisons, not structurally like-for-like</div>
+<p>None of Amber, Kaynes, Syrma, Avalon or PG Electroplast carries Dixon's degree of joint-venture and minority-stake consolidation complexity (Section <a href="#business">01</a>) at comparable scale. This peer table was also pulled via a public Screener.in page fetch rather than this pipeline's own authenticated export (Section <a href="#gaps">14</a>), so treat the P/E and return-ratio comparisons as broadly indicative rather than precise.</p>
+</div>
+
+<p>One further, genuinely useful growth-rate data point from the same sector coverage: in a recent quarter cited across multiple articles, the EMS sector as a whole grew 7% YoY, "driven by Syrma SGS (+69%) followed by Avalon (+40%), Kaynes (+26%), Amber (+11%), Dixon (+2%) and PG Electroplast (&minus;10%)" &mdash; i.e. Dixon's own <i>growth rate</i> lagged every smaller peer in that particular quarter, even while it remains by far the largest company in the set. Whether that reflects genuine growth-rate deceleration at scale or a single soft quarter is not resolved by this one data point and is worth tracking directly against Dixon's own subsequent quarters.</p>
+
+</section>
+
+
+<section id="growth">
+<h2><span class="num">07</span>Growth outlook: a real pipeline of new categories, into policy that is still being written</h2>
+<p class="sec-sub">Vivo, displays, servers and PLI 2.0 are all live; the guidelines that would make several of them bankable are not yet final</p>
+
+<p>Dixon has more concrete near-term growth catalysts in motion than most companies this pipeline has scored, spanning multiple segments simultaneously: the Vivo JV (government approval received July 2026, expected to contribute revenue from Q3 FY2027), a new display manufacturing facility (construction complete, trial production from Q3 FY2027, mass production from late Q3/early Q4), expanded Q Tech camera-module capacity (70 million to 180&ndash;190 million units annually over 15&ndash;18 months), a new IT-hardware joint venture with Inventec for laptops and, longer-term, servers (operational from Q4 FY2027), and continued telecom-equipment growth (revenue guided to &#8377;6,700&ndash;7,000 Cr this fiscal, up from &#8377;5,000 Cr, itself up from &#8377;700 Cr a few years ago).</p>
+
+<div class="warn">
+<div class="lbl">Much of this depends on a policy scheme not yet finalised</div>
+<p>Management's own commentary on PLI 2.0 (the successor to Mobile PLI 1, which expired March 2026) is candid that the scheme's exact contours &mdash; incentive rates (management's own understanding: 2.5&ndash;5% on production value, roughly 1.5% split across five components for localization) and eligibility mechanics (whether incentives apply per-brand against a FY2025-26 base year, and how that interacts with a declining domestic market) &mdash; were still being finalised as of the July 2026 call, with guidelines expected "in a couple of weeks." Management's own quantified opportunity &mdash; "almost &#8377;18,000 crores to &#8377;20,000 crores" of incremental revenue from anchor-customer export ramp over a couple of years &mdash; is explicitly management's own estimate, not a confirmed government allocation, and should be read as guidance, not guarantee.</p>
+</div>
+
+<p>The broader industry backdrop is genuinely favourable on primary-source evidence: the PIB's own March 2026 release confirms &#8377;15,554 Cr already disbursed under the Electronics Sector PLI/IT Hardware 2.0 scheme, against &#8377;2,45,375 Cr of incremental production reported by 59 companies through December 2025 &mdash; a real, large, already-executing government commitment, not merely an announced target. India's smartphone exports rose 55% YoY to $24.1 billion in FY2024-25, becoming the country's top export category. One important scoping correction, though: Dixon is not an iPhone assembler (that is Foxconn and Tata Electronics/Pegatron), so the Apple-driven bulk of that export surge is not directly attributable to Dixon's own numbers &mdash; its own export and brand exposure runs through Motorola, the pending Vivo JV, and its other brand relationships specifically.</p>
+
+<p>A genuine structural constraint sits underneath the backward-integration story specifically: India imports an estimated 80&ndash;85% of display materials by value, with no domestic glass-melting-furnace or TFT-array manufacturing capacity, and front-end display fabs are not expected in India before 2031. Dixon's own new display facility (Section <a href="#business">01</a>) is a module-assembly operation building on imported components, not backward integration into the display value chain's most capital-intensive, highest-margin layer &mdash; directly relevant to how much margin uplift the "component backward integration" story management points to (Section <a href="#margin">04</a>) can realistically deliver versus how much of the value chain remains structurally outside India's, and Dixon's, reach for years yet.</p>
+
+</section>
+
+
+<section id="mgmt">
+<h2><span class="num">08</span>Management: candid about near-term margin pain, tested hard by the 2025 Motorola concentration episode</h2>
+<p class="sec-sub">Atul Lall (Vice Chairman &amp; MD) and Saurabh Gupta (CFO, named "CFO of the Year &ndash; Large" by ETCFO in 2025) lead a team that built this scale from a 2017 IPO</p>
+
+<p>Management's Q1 FY2027 disclosures read as candid rather than promotional on the points that matter most: an explicit statement that margins will not improve this fiscal year, a direct (if partial) explanation for a working-capital swing rather than silence on it, and a specific carve-out separating a non-operating fair-value gain from underlying EBITDA and PAT (Section <a href="#margin">04</a>) rather than leaving investors to discover the distinction themselves. On the Q Tech acquisition specifically, when a questioner suggested its margin contribution had disappointed, management's own response acknowledged the underlying point directly &mdash; "it is adding to our margins, but not to the same potential as what we had thought" &mdash; attributing the shortfall to slower-than-planned manufacturing depth and FX effects, rather than disputing the premise.</p>
+
+<h3>The Motorola concentration episode: a real stress test, not yet fully resolved</h3>
+<div class="warn">
+<div class="lbl">The central 2025 episode on both ValuePickr and sell-side coverage</div>
+<p>Motorola was Dixon's dominant smartphone-assembly customer through CY2024, reportedly contributing roughly 72% of smartphone-assembly value or over 45% of total FY2025 revenue depending on the scope used across sources &mdash; either way, acute single-customer concentration. Starting April 2025, Motorola began diversifying volume to a new vendor, Karbonn: roughly 25% of April&ndash;May 2025 output shifted, reportedly rising toward 35% by June 2025. Dixon shares fell as much as 35% over three months around this news; Phillip Capital cut FY2027 revenue/EBITDA/PAT estimates 4%/6%/9% and issued a sell-leaning downgrade. In the same window, Chairman Sunil Vachani sold a 2.77% stake (~16.7 lakh shares, roughly &#8377;2,221 Cr) via open-market block deal on 23 June 2025, primarily to Motilal Oswal Mutual Fund &mdash; a transaction multiple business-press sources explicitly link, as a sentiment overhang, to the concentration scare rather than treating as unrelated.</p>
+</div>
+
+<p>This report has not found independent confirmation of the promoter's own stated rationale for the June 2025 sale, and treats the "linked to the Motorola scare" framing as a media interpretation rather than a confirmed fact. What is independently verifiable is the outcome: Dixon's own Q1 FY2027 disclosure shows the company has, on its own account, held mobile volumes roughly flat against a contracting market &mdash; evidence, if accurate, that the customer-diversification risk has not yet materially dented actual output, whatever the near-term stock-price and estimate-revision reaction was in mid-2025.</p>
+
+<div class="table-wrap">
+<table>
+<caption>A short guidance ledger from the most recent call</caption>
+<thead><tr><th>Statement</th><th>Made</th><th>Status at time of this report</th></tr></thead>
+<tbody>
+<tr><td class="t">FY2027 mobile volumes to hold near last year's 32&ndash;33 million units despite a contracting market</td><td>Q1 FY2027 call</td><td><span class="pill p-open">Open</span> H1 tracking to ~16&ndash;16.5m units, per management; not yet a full-year confirmation</td></tr>
+<tr><td class="t">No margin improvement in FY2027; recovery from FY2028</td><td>Q1 FY2027 call</td><td><span class="pill p-open">Open</span> a specific, testable claim against the next several quarters</td></tr>
+<tr><td class="t">Working-capital consumption in Q1 FY2027 is "a temporary phenomenon"</td><td>Q1 FY2027 call</td><td><span class="pill p-open">Open</span> Section <a href="#wc">05</a> &mdash; the direct test is Q2 FY2027</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Every row above is genuinely open rather than scoreable one way or the other &mdash; this report only had access to the quarter these claims were made in, not a subsequent quarter to test them against. This is recorded honestly as a limitation (Section <a href="#gaps">14</a>) rather than filled in with an assumed outcome.</p>
+
+</section>
+
+
+<section id="capital">
+<h2><span class="num">09</span>Capital allocation: no equity raise in nine years, and a real acceleration in capex-funded expansion</h2>
+<p class="sec-sub">Self-funded growth from internal accruals, a modest recent debt build for capacity expansion, and one meaningful inorganic deal</p>
+
+<p>Dixon has not raised public equity capital since its September 2017 IPO (&#8377;599.3 Cr, of which &#8377;60 Cr was fresh issue and the rest an offer for sale) &mdash; a genuinely unusual discipline for a company that has grown revenue roughly twentyfold since. Growth has instead been funded from internal accruals plus limited external debt: net debt has moved from &#8377;223.9 Cr (FY2023) to &#8377;280.3 Cr (FY2024) to &#8377;407.4 Cr (FY2025) before falling back to &#8377;53.2 Cr (FY2026) as cash built faster than borrowings. ICRA's own rating rationale states Dixon's FY2026&ndash;27 capex plan at &#8377;1,300&ndash;1,500 Cr, "partly funded by external debt," with estimated annual debt repayment obligations of &#8377;200&ndash;350 Cr &mdash; a real, if modest, step-up in leverage ahead, consistent with the multiple new facilities (display, expanded Q Tech capacity, the Inventec JV plant) described in Section <a href="#growth">07</a>.</p>
+
+<p>The one material inorganic deal in the recent record: a 51% stake in Kunshan Q Tech Microelectronics (India) for roughly &#8377;553 Cr, agreement signed around September 2025, deal closed later that month. The target manufactures camera and fingerprint modules for mobile, IoT and automotive customers (FY2025 turnover reportedly ~&#8377;1,978 Cr, capacity of 5 million camera modules/month, supplying several top Android OEMs), structured as roughly 1.61 crore shares purchased from Q Tech Singapore/Q Tech International for &#8377;428 Cr plus a subscription to 47.17 lakh new shares for &#8377;125 Cr, with Q Tech Singapore retaining 49%. The stated rationale &mdash; backward integration into components &mdash; is corroborated by ICRA's own verbatim consolidation-entity listing (Section <a href="#business">01</a>), though management's own Q1 FY2027 commentary (Section <a href="#mgmt">08</a>) is candid that the deal's margin contribution has run below original expectations so far.</p>
+
+<div class="good">
+<div class="lbl">Gate 3 still clears, even though narrowly</div>
+<p>Despite &#8377;4,265.3 Cr of cumulative decade capex &mdash; a genuinely capital-intensive expansion programme for a company this scale &mdash; cumulative operating cash flow of &#8377;5,040.0 Cr still exceeds capex plus interest by &#8377;153.8 Cr (Section <a href="#framework">02</a>). Combined with cumulative dividends of only &#8377;190.2 Cr over the same decade &mdash; a genuinely conservative payout, consistent with a management team choosing to reinvest almost everything into capacity rather than return cash to shareholders &mdash; this is a company funding an aggressive, multi-segment expansion programme without leaning on external capital markets beyond routine working-capital debt.</p>
+</div>
+
+</section>
+
+
+<section id="flags">
+<h2><span class="num">10</span>Governance and credit: a genuine rating upgrade, a clean related-party record for a business this complex, and a document-ingestion gap this report corrects</h2>
+<p class="sec-sub">A steady four-year rating climb, twelve years of related-party disclosure that traces almost entirely to genuine subsidiary and JV commerce, and no litigation found</p>
+
+<div class="key">
+<div class="lbl">This pipeline's document store shows zero credit-rating reports for Dixon &mdash; that is an ingestion gap, not an absence of rating</div>
+<p>Dixon carries a strong, actively-managed credit rating from ICRA: <b>[ICRA]AA (Stable) / [ICRA]A1+</b> on &#8377;2,625 Cr of bank facilities, reaffirmed 6 January 2026 (and again 28 November 2025). The rating trajectory, read directly from ICRA's own "rating history" table, is a steady climb: [ICRA]AA- (Stable, August 2022) &rarr; [ICRA]AA- (Positive, November 2023) &rarr; upgraded to [ICRA]AA (Stable, April/August 2024) &rarr; reaffirmed through November 2025 and January 2026. This is not a distressed or watch-listed name. No CRISIL, CARE or India Ratings coverage of Dixon was found in searches &mdash; recorded as an absence of evidence, not a confirmed absence; ICRA appears to be its sole rating-agency relationship, but this is not certain.</p>
+</div>
+
+<h3>Related-party record: large dollar volume, genuine commercial substance</h3>
+<p>This pipeline's own related-party audit, covering eight annual reports (FY2018&ndash;FY2025), scores Dixon <b>1 (Watch)</b> overall &mdash; not clean, but explicitly not because of promoter self-dealing. The two largest items by dollar value both trace to genuine subsidiary and JV commercial activity: treasury loans to Padget Electronics (the wholly-owned mobile subsidiary, up to &#8377;296.9 Cr outstanding in one year &mdash; standard intercompany working-capital funding) and Material-RPT shareholder approvals sought for Dixon Electro Appliances (the 51/49 Bharti Airtel JV) selling set-top-boxes to Bharti Airtel itself, and for the Ismartu India acquisition &mdash; both exceeding the &#8377;1,000 Cr Material-RPT threshold and requiring a dedicated shareholder vote, but both genuine arm's-length commercial arrangements with independent third parties, not promoter-linked entities. The one family-personal item found: Prithvi Vachani (son of Executive Chairman Sunil Vachani), employed at Assistant General Manager level at a modest, disclosed salary &mdash; ordinary executive-family employment, not a vendor relationship or equity stake. No instance was found across eight years of a director or promoter personally holding equity in a counterparty firm &mdash; the specific pattern this pipeline's audit series treats as most concerning. Form AOC-2 is consistently "Not Applicable" (no non-arm's-length transactions), and CARO opinions stay unqualified with explicit no-material-fraud findings throughout.</p>
+
+<h3>Litigation: none found, not exhaustively searched</h3>
+<p>No material litigation involving Dixon was found in searches covering 2025&ndash;2026. This is recorded as an absence of evidence, not a confirmed clean record &mdash; it was not exhaustively checked against primary BSE/NSE filing archives or court records directly.</p>
+
+<h3>Institutional holding and the Vachani stake sale</h3>
+<p>As of the most recent Screener pull (September 2026): promoter holding 28.55%, FII 17.87%, DII 28.38&ndash;28.39%, public 25.20%. Promoter-group holding fell from 32.27% before the June 2025 Vachani block-deal sale to roughly 29.5% immediately after, and has drifted further to 28.55% since. Motilal Oswal Mutual Fund is the single named major institutional buyer, taking 14.45 lakh shares (2.39%) in that same block deal and lifting its total Dixon holding from 2.24% to 4.63% &mdash; a pattern of one large domestic institution meaningfully increasing conviction at the same moment the founding family reduced its own stake, worth noting without over-reading either side's motive from public reporting alone.</p>
+
+</section>
+
+
+<section id="sentiment">
+<h2><span class="num">11</span>What retail investors have said: an eight-year-old thread, still contesting the same three questions</h2>
+<p class="sec-sub">Margin sustainability, customer concentration and valuation stretch &mdash; the same fault lines on day one of the thread and today</p>
+
+<p>Dixon's ValuePickr thread (`forum.valuepickr.com/t/dixon-technologies/19020`) started 26 August 2018 and remains active through at least page seven, spanning into 2026 &mdash; a genuinely long-running, high-engagement discussion with a sophisticated readership contesting valuation multiples and broker calls in close to real time. What stands out most is how consistent the debate has been across eight years:</p>
+
+<div class="key">
+<div class="lbl">The same three arguments, from day one to the most recent posts</div>
+<p><b>Margin, as a feature or a bug:</b> in the thread's very first week (August 2018), one poster flagged Dixon's 4.5% operating margin against a rich valuation ask; another argued the thin margin <i>is</i> the moat, and that Dixon launching its own branded products would cause its EMS customers to flee. That exact tension &mdash; is structurally thin margin a defensible business model or a value-capture problem &mdash; is precisely what this report's own margin-bridge finding (Section <a href="#margin">04</a>) speaks to directly.</p>
+<p><b>Customer concentration:</b> as early as August 2018, a poster flagged mobile-segment revenue collapsing from &#8377;298.6 Cr to &#8377;73.2 Cr in one year when clients Gionee and Intex ran into trouble &mdash; an early precedent, seven years before the fact, for the 2025 Motorola/Karbonn episode (Section <a href="#mgmt">08</a>). Later posts (October 2025) cite a Phillip Capital "sell" rating explicitly on the same concentration risk.</p>
+<p><b>Valuation stretch:</b> a January 2020 post flags a market cap of &#8377;4,800 Cr against &#8377;50 Cr of PBT; an October 2025 post disputes whether a reported EBITDA beat was inflated by a one-time gain masking ~15% underlying PAT growth against a 100+ trailing P/E; January 2026 posts dispute the "correct" adjusted TTM P/E (67&times; vs ~80&times; depending on adjustment method).</p>
+</div>
+
+<p>The 2025&ndash;2026 arc adds two further live threads: a January 2026 post raising competition from a company referred to as "Bhagwati" and a low-moat argument specific to mobile assembly, and an April 2026 discussion of memory-chip (RAM) cost increases passing through to phone prices as a margin and demand headwind &mdash; both consistent with, and corroborating, this report's own margin and growth findings (Sections <a href="#margin">04</a>, <a href="#growth">07</a>). A May 2026 post offers the bull-side rebuttal: EMS diversification beyond mobile and the Vivo JV as the forward growth case.</p>
+
+<p>Broker consensus, separately: roughly 29 analysts, average 12-month target price approximately &#8377;11,947 (range &#8377;8,157&ndash;15,200), consensus rating Buy (one aggregator: 63.3% Buy / 13.3% Hold / 23.3% Sell). Named individual targets span widely &mdash; JM Financial Buy &#8377;14,000, Kotak Securities Neutral &#8377;12,500, Macquarie Buy &#8377;15,000, and Nomura/Instinet raising its target sharply to &#8377;21,409 on a mobile-EMS-dominance thesis. This is, like Dixon's own retail forum, a genuinely two-sided, high-conviction debate on both the institutional and retail sides &mdash; not a name where either bulls or bears have gone quiet.</p>
+
+</section>
+
+
+<section id="valuation">
+<h2><span class="num">12</span>Valuation: the widest DCF-to-price gap this pipeline has found this cycle</h2>
+<p class="sec-sub">A bull case built on margins the company has never delivered still falls well short; the reverse DCF finds no feasible growth rate at all at today's actual margin</p>
+
+<p>Using Dixon's actual FY2026 revenue (&#8377;48,873 Cr) as the base, an estimated net debt of &#8377;400 Cr (reflecting the ICRA-flagged capex-linked debt build ahead), a 13% WACC, 25% tax rate and a 5% terminal growth rate over a seven-year explicit window, with EBITDA margin assumptions built directly off Dixon's own historical range (3.6&ndash;5.2% over the decade, currently 3.8%):</p>
+
+<div class="table-wrap">
+<table>
+<caption>DCF scenarios against the corrected market price of &#8377;13,446 (market EV &#8377;82,610 Cr)</caption>
+<thead><tr><th>Scenario</th><th class="num">Growth</th><th class="num">EBITDA margin</th><th class="num">Value/share</th><th class="num">vs. price</th></tr></thead>
+<tbody>
+<tr><td class="t">Bear</td><td class="num">8%</td><td class="num">3.3%</td><td class="num l">&minus;&#8377;679</td><td class="num l">n/m</td></tr>
+<tr><td class="t">Base</td><td class="num">15%</td><td class="num">4.0%</td><td class="num">&#8377;809</td><td class="num l">&minus;94.0%</td></tr>
+<tr class="hl"><td class="t">Bull</td><td class="num">22%</td><td class="num">5.5%</td><td class="num">&#8377;6,022</td><td class="num l">&minus;55.2%</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="warn">
+<div class="lbl">The bear case is negative, and that is itself the finding</div>
+<p>At a modest 8% growth and a 3.3% EBITDA margin &mdash; both plausible, unremarkable assumptions well inside Dixon's own historical range &mdash; this pipeline's DCF returns a <i>negative</i> implied enterprise value. That is not a modelling error: it is the direct, mechanical consequence of running a capital-intensive, thin-margin contract manufacturer through a cash-flow model that charges working capital and capex against every incremental rupee of revenue. At sufficiently thin margins, growth itself becomes cash-negative before terminal value is even considered. This is precisely the dynamic Malik's framework is built to surface, and precisely the one a P/E-based valuation frame would never show.</p>
+</div>
+
+<p>Even the <b>bull case</b> &mdash; 22% growth and a 5.5% EBITDA margin, a margin level Dixon has never once achieved in the ten years this pipeline's database covers (its actual decade range is 3.6&ndash;5.2%) &mdash; reaches only 44.8% of the current price, a &minus;55.2% gap. That is the widest DCF-to-price gap this pipeline has found in any company scored this cycle: wider than APL Apollo Tubes and Dr Lal PathLabs (each 43&ndash;57% below price in their own bull cases) and far wider than Coforge (&minus;2% in its bull case). The average sell-side broker target (&#8377;11,947, Section <a href="#sentiment">11</a>) sits roughly 11% below the current price &mdash; even the market's own institutional consensus, while still bullish in rating, does not fully endorse the current level either.</p>
+
+<figure>
+<div class="fig-title">DCF scenarios vs. current price</div>
+<div class="fig-sub">Value per share, &#8377;</div>
+<svg viewBox="0 0 720 260" role="img" aria-label="Discounted cash flow valuation scenarios for Dixon Technologies against the current market price"><line class="grid-l" x1="60" y1="210.0" x2="704" y2="210.0"/><text class="ax" x="54" y="213.0" text-anchor="end">-2,000</text><line class="grid-l" x1="60" y1="186.5" x2="704" y2="186.5"/><text class="ax" x="54" y="189.5" text-anchor="end">0</text><line class="grid-l" x1="60" y1="163.0" x2="704" y2="163.0"/><text class="ax" x="54" y="166.0" text-anchor="end">2,000</text><line class="grid-l" x1="60" y1="139.5" x2="704" y2="139.5"/><text class="ax" x="54" y="142.5" text-anchor="end">4,000</text><line class="grid-l" x1="60" y1="116.0" x2="704" y2="116.0"/><text class="ax" x="54" y="119.0" text-anchor="end">6,000</text><line class="grid-l" x1="60" y1="92.5" x2="704" y2="92.5"/><text class="ax" x="54" y="95.5" text-anchor="end">8,000</text><line class="grid-l" x1="60" y1="69.0" x2="704" y2="69.0"/><text class="ax" x="54" y="72.0" text-anchor="end">10,000</text><line class="grid-l" x1="60" y1="45.5" x2="704" y2="45.5"/><text class="ax" x="54" y="48.5" text-anchor="end">12,000</text><line class="grid-l" x1="60" y1="22.0" x2="704" y2="22.0"/><text class="ax" x="54" y="25.0" text-anchor="end">14,000</text><rect x="122.3" y="186.5" width="90.2" height="8.0" rx="4" fill="#d97a5f" opacity="0.88"><title>Bear: Rs -679</title></rect><text class="vlbl" x="167.3" y="208.5" text-anchor="middle" fill="#d97a5f">&#8377;-679</text><text class="ax" x="167.3" y="226" text-anchor="middle">Bear</text><text class="ax" x="167.3" y="238" text-anchor="middle" fill="#d97a5f">-105%</text><rect x="336.9" y="177.0" width="90.2" height="9.5" rx="4" fill="#c9a24b" opacity="0.88"><title>Base: Rs 809</title></rect><text class="vlbl" x="382.0" y="170.0" text-anchor="middle" fill="#c9a24b">&#8377;809</text><text class="ax" x="382.0" y="226" text-anchor="middle">Base</text><text class="ax" x="382.0" y="238" text-anchor="middle" fill="#d97a5f">-94%</text><rect x="551.6" y="115.7" width="90.2" height="70.8" rx="4" fill="#5fb98a" opacity="0.88"><title>Bull: Rs 6,022</title></rect><text class="vlbl" x="596.7" y="108.7" text-anchor="middle" fill="#5fb98a">&#8377;6,022</text><text class="ax" x="596.7" y="226" text-anchor="middle">Bull</text><text class="ax" x="596.7" y="238" text-anchor="middle" fill="#d97a5f">-55%</text><line x1="60" y1="28.5" x2="704" y2="28.5" stroke="#e8e4d6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75"/><text class="vlbl" x="702" y="21.5" text-anchor="end">market &#8377;13,446</text><line class="zero-l" x1="60" y1="186.5" x2="704" y2="186.5"/></svg>
+<figcaption><b>Why:</b> the bull case requires a margin (5.5%) above anything Dixon has delivered in ten years, and still falls 55% short of the current price &mdash; the widest gap of any company this pipeline has scored this cycle.</figcaption>
+</figure>
+
+<h3>The reverse DCF makes the point starkly</h3>
+<p>Holding growth at a reasonably strong 15% (below Dixon's own historical average, well above what a contracting mobile market alone would support), the price requires a <b>13.4% EBITDA margin</b> &mdash; more than 3.3&times; Dixon's actual current margin (4.0%), and roughly 2.5&times; the richest margin any peer in Section <a href="#peers">06</a> reports (Kaynes, at 16%, is a fundamentally different, higher-value-add business than contract assembly). Holding margin instead at Dixon's actual current level (4.0%), <b>the model finds no revenue growth rate at all &mdash; up to 60% &mdash; that reaches the current price</b>; the solver returns `feasible=False` with the explicit reason that incremental working capital and capex absorb the incremental profit growth generates at this margin level, so faster growth does not create more value, it creates less. This is the same mechanism as the negative bear case above, expressed the other way round.</p>
+
+<h3>What this does and does not mean</h3>
+<p>This is not a finding that Dixon is a badly run business &mdash; the scale, the growth execution, the negative working-capital structure and the disciplined, self-funded capital allocation (Sections <a href="#wc">05</a>, <a href="#capital">09</a>) are all genuine and well-evidenced. It is a finding that the current price is not paying for the business as this pipeline's data can currently see it &mdash; it is paying for a margin transformation (component backward integration, PLI 2.0 economics, the Vivo JV and beyond) that management itself guides is not expected to show up before FY2028, and that, even in this report's own optimistic bull-case framing, does not get all the way there on the numbers available today.</p>
+
+</section>
+
+
+<section id="verdict">
+<h2><span class="num">13</span>Verdict, and what would change our mind</h2>
+<p class="sec-sub">Quality and value, kept on separate axes &mdash; this is not a buy or sell call</p>
+
+<h3>Quality: genuine scale leadership, and a return-on-capital story that depends entirely on which formula you trust</h3>
+<p>Dixon is, on execution, one of the most impressive scale stories this pipeline has scored: revenue up roughly twentyfold in a decade, India's largest smartphone assembler by volume, a self-funded capital-allocation discipline (no equity raise since its 2017 IPO), and a structurally negative working-capital cycle that has, historically, released cash from growth rather than consumed it. Its primary ROCE gate clears easily and consistently, up to 59% in FY2025.</p>
+<p>Set directly against that: Vijay Malik's own stricter ROCE cross-check never once qualifies across the same nine years &mdash; the widest divergence between this pipeline's two formulas found in any company scored this cycle, and a real signal that Dixon's headline capital returns depend heavily on a specific, narrower definition of capital employed. The recent reported-margin improvement traces almost entirely to a likely non-cash fair-value gain rather than operating performance (Section <a href="#margin">04</a>); Gate 3 clears, but only narrowly, the thinnest margin of any company scored this cycle; and this pipeline's related-party audit scores Watch rather than Clean, even though the underlying transactions read as genuine commercial activity rather than promoter self-dealing.</p>
+
+<h3>Value: the widest DCF-to-price gap found this cycle, by a clear margin</h3>
+<p>At roughly 44&times; trailing earnings, this report's own DCF cannot reach the current price even in a bull case built on a margin (5.5% EBITDA) Dixon has never delivered in ten years &mdash; a &minus;55.2% gap. The reverse DCF is starker still: holding margin at Dixon's actual current level, no revenue growth rate reaches the current price at all; working-capital and capex consumption at this margin level outrun the incremental profit growth produces. <b>This does not mean Dixon is a bad business.</b> It means the current price is paying for a margin transformation &mdash; component backward integration, PLI 2.0, the Vivo JV, and beyond &mdash; that management itself does not guide as arriving before FY2028, and that this report's own arithmetic, working only from the numbers available today, cannot yet justify even under optimistic assumptions.</p>
+
+<h3>Specific triggers, with thresholds</h3>
+<ul>
+<li><b>FY2027 EBITDA margin against management's own "no improvement this year" guidance</b> &mdash; the nearest, most direct test; any quarter that beats this guidance materially would be the first hard evidence the margin-transformation story is arriving ahead of schedule.</li>
+<li><b>Working capital, against the Q1 FY2027 &#8377;800 Cr consumption</b> (Section <a href="#wc">05</a>) &mdash; whether this reverses by Q2/Q3 FY2027 as management stated, or marks the start of a genuine structural shift away from the historically negative cycle.</li>
+<li><b>Mobile volumes against the 32&ndash;33 million unit full-year guide</b>, in a market management itself describes as contracting 10&ndash;12% &mdash; the direct test of whether the Motorola-diversification-era market-share gains are holding.</li>
+<li><b>PLI 2.0 final guidelines</b>, once published &mdash; whether the incentive rates and eligibility mechanics match management's own working assumptions (2.5&ndash;5% production-linked, ~1.5% localization-linked), which underlie a meaningful share of the medium-term growth case.</li>
+<li><b>Q Tech and display-facility margin contribution</b>, specifically &mdash; whether the component backward-integration story starts showing up in consolidated EBITDA margin from FY2028 as guided, or continues running below original expectations as management itself acknowledged for Q Tech through Q1 FY2027.</li>
+</ul>
+
+<p><b>What would change this verdict:</b> two or three consecutive quarters of EBITDA margin genuinely expanding &mdash; not just reported pre-tax margin lifted by other income &mdash; toward even the high end of Dixon's own historical range (5%+), combined with working capital reverting to its structural negative pattern, would meaningfully narrow the gap between this pipeline's own DCF and the current price. Absent that, this report's own arithmetic finds the current price asking Dixon's economics to look materially different from anything in its own ten-year record.</p>
+</section>
+
+
+<section id="gaps">
+<h2><span class="num">14</span>Data gaps and provenance</h2>
+<p class="sec-sub">A credit-rating document gap this report corrects with a direct primary-source read, an other-income line not independently confirmed, and peer financials pulled without authenticated access</p>
+
+<h3>Zero local credit-rating documents is an ingestion gap, not an absence of rating</h3>
+<p>This pipeline's own local document store holds zero credit-rating reports for Dixon, against eight annual reports and eighteen transcripts. This is a genuine gap in this pipeline's document-ingestion pipeline for this specific company &mdash; not evidence Dixon lacks a rating. The background research pass fetched ICRA's own rating rationale PDFs directly via curl and parsed them with pdfplumber, extracting the rating and rating-history table verbatim (Section <a href="#flags">10</a>); a separate AI-summarized fetch of the same URL produced a spurious "IND AA-" label that does not appear anywhere in the verbatim-extracted text and should not be used or repeated &mdash; a small-model hallucination this report has taken care to exclude.</p>
+
+<h3>The other-income / fair-value-gain explanation is plausible, not confirmed</h3>
+<p>This report's strongest single margin finding &mdash; that Dixon's recent pre-tax margin improvement traces almost entirely to other income, plausibly a fair-value gain on the Dixon Aditya Infotech stake, rather than operating performance (Section <a href="#margin">04</a>) &mdash; is built from management's own explicit Q1 FY2027 carve-out language plus the timing and magnitude of the other-income jump, not from a direct read of the relevant annual report's other-income note. A future refresh reading that note directly would confirm or correct the specific attribution.</p>
+
+<h3>Peer financials pulled via public page fetch, not the authenticated Screener export</h3>
+<p>No <code>.env</code> file with Screener credentials existed in this checkout during the background research pass, so the peer comparison table (Section <a href="#peers">06</a>) was pulled via public-page fetch and AI summarization rather than the authenticated Excel export this pipeline normally uses &mdash; graded medium confidence throughout, not verbatim.</p>
+
+<h3>ValuePickr thread not read in full</h3>
+<p>The Dixon ValuePickr thread spans at least seven pages from August 2018 into 2026; only page seven (the most recent) and a small number of earlier, individually-cited posts were read. The thread's total post count is not confirmed. A separate thread quote (Amber Enterprises' 2018-era price/P/E) is stale and superseded by the live peer-table pull in Section <a href="#peers">06</a> &mdash; noted explicitly there to avoid the two figures being read as contradictory.</p>
+
+<h3>Several specific claims flagged as unconfirmed by the research itself</h3>
+<ul>
+<li>The Longcheer JV (a reported 74% Dixon stake) is single-source and search-summarized, not verified against a primary filing.</li>
+<li>PLI budget-allocation figures found across sources (&#8377;9,000 Cr vs &#8377;22,919 Cr vs &#8377;40,000 Cr) could not be fully reconciled &mdash; they may refer to different scheme scopes (Electronics/IT-Hardware PLI specifically vs. ECMS vs. the overall PLI umbrella). The PIB disbursement figure (&#8377;15,554 Cr, verbatim primary source) is the reliable figure; the budget figures are directional only.</li>
+<li>A "Google/Compal laptop JV" framing found in earlier research is not corroborated; ICRA's own verbatim new-client list places Compal in a home-appliances context specifically, not a laptop JV.</li>
+<li>Litigation was not exhaustively searched against primary court or exchange-filing archives (Section <a href="#flags">10</a>).</li>
+</ul>
+
+<h3>No industry-wide down-cycle exists to stress-test against</h3>
+<p>The Indian electronics-PLI/EMS sector is only around five years old and has been in secular expansion throughout the period this pipeline's data covers. The closest analogue to an industry stress event found is company-specific &mdash; the 2025 Motorola/Karbonn customer-concentration episode (Section <a href="#mgmt">08</a>) &mdash; not sector-wide. This report states that explicitly rather than inferring a cycle-resilience conclusion the data cannot support.</p>
+
+<h3>What would most improve the next refresh</h3>
+<ol>
+<li>A direct read of the FY2026 annual report's other-income note, to confirm or correct the fair-value-gain attribution in Section <a href="#margin">04</a>.</li>
+<li>This pipeline's own credit-rating documents ingested for Dixon, to close the local document-store gap directly rather than relying on a background agent's own primary-source fetch.</li>
+<li>Screener credentials configured in the research environment, to re-pull peer financials via the authenticated export.</li>
+<li>Q2 and Q3 FY2027 results &mdash; the direct test of the working-capital reversal, mobile-volume guidance, and whether margin genuinely begins improving ahead of management's own FY2028 guide.</li>
+<li>Final PLI 2.0 scheme guidelines, once published, to replace management's own working assumptions with confirmed terms.</li>
+</ol>
+</section>
+
+<footer>
+  <p><b>Coffee Can Screener &mdash; Equity Research.</b> Dixon Technologies (India) Ltd (NSE/BSE: DIXON, BSE: 540699, ISIN INE935N01020). Prepared 25 September 2026 against a share price of &#8377;13,446.</p>
+  <p>Built from this pipeline's own current internal database, run through its own tested margin-bridge, cash-gates, anomaly-scan and DCF arithmetic; an existing related-party audit covering eight annual reports; a direct read of the Q1 FY2027 earnings call; and independent research covering the real peer set, a direct primary-source read of ICRA's own rating rationale PDFs (correcting this pipeline's own local zero-credit-rating-document gap), the 2025 Motorola customer-concentration episode, and an eight-year-old ValuePickr thread. Every numeric claim cites a period; every quotation cites a document. This report's central finding is the widest gap this pipeline has found this cycle between its own DCF and the current price &mdash; not because the underlying business is poorly run, but because the price appears to be paying for a margin transformation management itself does not guide as arriving before FY2028, one this pipeline's own arithmetic cannot yet see in the numbers available today.</p>
+  <div class="disclaimer"><b>This is not investment advice.</b> It is a research note prepared for the author's own decision-making and published for transparency about method. It names a tradeable security and reaches a valuation conclusion that may be wrong. This report covers a company whose primary and stricter ROCE cross-check formulas disagree entirely, and whose reported recent margin improvement traces largely to a likely non-operating item; read the framework and margin sections in full before acting on anything here. The author may hold a position.</div>
+</footer>
+</div>
+</body>
+</html>
