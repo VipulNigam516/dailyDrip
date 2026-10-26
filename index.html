@@ -551,7 +551,7 @@ footer a{color:var(--brass);}
 <header>
   <span class="kicker">Coffee Can Portfolio Screener</span>
   <h1>The Compounding Machine Finder</h1>
-  <div class="meta">Snapshot: 26 Oct 2026, 19:45 &middot; 4,561 listed companies screened &rarr; 37 survivors &middot; figures in &#8377; Cr (1 crore = &#8377;1,00,00,000)</div>
+  <div class="meta">Snapshot: 26 Oct 2026, 19:48 &middot; 4,561 listed companies screened &rarr; 37 survivors &middot; figures in &#8377; Cr (1 crore = &#8377;1,00,00,000)</div>
   <!-- The denominator is the whole reason a stranger should care. "40 companies" is one of ten
        thousand stock lists; "40 out of 4,561, and here is the rule" is a screen. It was stated
        nowhere on the page, so the tier names read as opinion rather than as arithmetic. -->
@@ -2125,7 +2125,7 @@ function buildStockRow(s, showTierPill){
 // The last thing on the list: a pointer to the other page (the screener links to Founder's
 // Stockpicks, and Stockpicks links back). Appended after every render path (grouped, flattened,
 // empty) so filtering never hides it.
-var END_LINK = {"kicker": "Beyond the screen", "title": "Founder's Stockpicks", "desc": "Hand-picked, founder-led companies shown on the same scorecard, each with a full equity research report.", "label": "Open Founder's Stockpicks \u2192", "href": "founders-stockpicks.html"};
+var END_LINK = {"kicker": "Beyond the screen", "title": "Founder's Stockpicks", "desc": "Hand-picked, founder-led companies shown on the same scorecard, each with a full equity research report.", "label": "Open Founder's Stockpicks \u2192", "href": "founders-stockpicks"};
 function watchlistEntryHtml(){
   return '<aside class="watchlist-entry" aria-labelledby="weTitle"><div>'+
     '<div class="we-kicker">'+escapeHtml(END_LINK.kicker)+'</div>'+
