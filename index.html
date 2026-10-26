@@ -500,6 +500,14 @@ body.jg-scrolling .jg-tip{opacity:0 !important;pointer-events:none !important;}
 
 footer{padding:26px 0;font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.8;border-top:1px solid var(--hair);margin-top:36px;}
 footer a{color:var(--brass);}
+.watchlist-entry{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;
+  margin:36px 0 0;padding:20px 22px;background:var(--panel);border:1px solid var(--hair2);border-radius:10px;}
+.watchlist-entry .we-kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);}
+.watchlist-entry .we-title{font-family:var(--serif);font-size:22px;margin:2px 0 4px;}
+.watchlist-entry .we-desc{margin:0;color:var(--dim);font-size:14px;max-width:60ch;}
+.watchlist-entry .we-link{display:inline-flex;align-items:center;min-height:var(--tap);padding:0 18px;border-radius:8px;
+  background:var(--brass);color:#14110a;font-weight:600;font-size:14px;text-decoration:none;}
+.watchlist-entry .we-link:hover{filter:brightness(1.08);}
 
 /* ---------- Tablet (>=640px): filters inline, hero row tighter, roomier detail panel ---------- */
 @media (min-width:640px){
@@ -543,7 +551,7 @@ footer a{color:var(--brass);}
 <header>
   <span class="kicker">Coffee Can Portfolio Screener</span>
   <h1>The Compounding Machine Finder</h1>
-  <div class="meta">Snapshot: 14 Oct 2026, 05:32 &middot; 4,561 listed companies screened &rarr; 37 survivors &middot; figures in &#8377; Cr (1 crore = &#8377;1,00,00,000)</div>
+  <div class="meta">Snapshot: 26 Oct 2026, 19:42 &middot; 4,561 listed companies screened &rarr; 37 survivors &middot; figures in &#8377; Cr (1 crore = &#8377;1,00,00,000)</div>
   <!-- The denominator is the whole reason a stranger should care. "40 companies" is one of ten
        thousand stock lists; "40 out of 4,561, and here is the rule" is a screen. It was stated
        nowhere on the page, so the tier names read as opinion rather than as arithmetic. -->
@@ -2114,6 +2122,18 @@ function buildStockRow(s, showTierPill){
   return out;
 }
 
+// The last thing on the list: a pointer to the other page (the screener links to Founder's
+// Stockpicks, and Stockpicks links back). Appended after every render path (grouped, flattened,
+// empty) so filtering never hides it.
+var END_LINK = {"kicker": "Beyond the screen", "title": "Founder's Stockpicks", "desc": "Hand-picked, founder-led companies shown on the same scorecard, each with a full equity research report.", "label": "Open Founder's Stockpicks \u2192", "href": "founders-stockpicks.html"};
+function watchlistEntryHtml(){
+  return '<aside class="watchlist-entry" aria-labelledby="weTitle"><div>'+
+    '<div class="we-kicker">'+escapeHtml(END_LINK.kicker)+'</div>'+
+    '<h2 class="we-title" id="weTitle">'+escapeHtml(END_LINK.title)+'</h2>'+
+    '<p class="we-desc">'+escapeHtml(END_LINK.desc)+'</p>'+
+    '</div><a class="we-link" href="'+escapeAttr(END_LINK.href)+'">'+escapeHtml(END_LINK.label)+'</a></aside>';
+}
+
 function renderStocks(stocks){
   var content = document.getElementById('content');
   var heroRow = document.getElementById('heroRow');
@@ -2170,7 +2190,7 @@ function renderStocks(stocks){
     });
   }
 
-  content.innerHTML = html;
+  content.innerHTML = html + watchlistEntryHtml();
 }
 
 function updateActiveCount(){

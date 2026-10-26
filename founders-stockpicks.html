@@ -1,0 +1,2425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Founder's Stockpicks — Coffee Can Screener</title>
+<meta name="description" content="Hand-picked, founder-led Indian companies on the coffee can scorecard, each with a full equity research report built from filings, earnings-call transcripts and credit ratings.">
+<link rel="canonical" href="https://coffeecanscreener.com/founders-stockpicks.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<!-- Open Graph -- controls how the link looks when shared on WhatsApp, X, LinkedIn.
+     A share with no preview card is far less likely to get clicked than one with a
+     title, description and image, and word-of-mouth in forums/WhatsApp groups is
+     the actual acquisition channel for a niche tool like this one. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://coffeecanscreener.com/founders-stockpicks.html">
+<meta property="og:site_name" content="Coffee Can Screener">
+<meta property="og:title" content="Founder's Stockpicks — Coffee Can Screener">
+<meta property="og:description" content="Hand-picked, founder-led Indian companies on the coffee can scorecard, each with a full equity research report built from filings, earnings-call transcripts and credit ratings.">
+<meta property="og:image" content="https://coffeecanscreener.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Founder's Stockpicks — Coffee Can Screener">
+<meta name="twitter:description" content="Hand-picked, founder-led Indian companies on the coffee can scorecard, each with a full equity research report built from filings, earnings-call transcripts and credit ratings.">
+<meta name="twitter:image" content="https://coffeecanscreener.com/og-image.png">
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;
+  /* --faint was #5c6780: 3.28:1 on --bg, below the 4.5:1 AA minimum, and it is the colour of
+     every column header, the sort label, the live result count and the footer. #7a86a0 clears
+     4.5:1 while staying visibly recessive against --dim. */
+  --ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--gain-soft:#8ecbaa;--loss:#d97a5f;--critical:#e0604a;
+  --comp-1:#d95926;--comp-2:#9085e9;--comp-3:#5b9bd1;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+  --tap:44px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;}
+
+/* ---------- Mobile-first base layout ---------- */
+.wrap{max-width:1280px;margin:0 auto;padding:0 16px 48px;}
+h1{font-family:var(--serif);font-size:clamp(24px,7vw,42px);margin:0;text-wrap:balance;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:6px;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:8px;line-height:1.7;}
+header{border-bottom:1px solid var(--hair2);padding:18px 0;}
+
+/* Collapsible below the tablet breakpoint (native <details>, closed by default, same pattern as
+   the filters drawer) -- on a phone, the primary surface now, this whole section was ~1500-2000px
+   of scroll before a first-time visitor saw a single company row, a tax returning visitors would
+   pay on every load too. Forced open at >=640px via the same JS that already does this for
+   filters, since desktop has room to spare and the pitch is worth leading with there. */
+.philo-wrap summary{list-style:none;cursor:pointer;padding:10px 0;font-family:var(--mono);font-size:12px;
+  color:var(--brass);display:flex;align-items:center;gap:6px;min-height:var(--tap);}
+.philo-wrap summary::-webkit-details-marker{display:none;}
+.philo-wrap summary .chev-ico{transition:transform .18s ease;font-size:11px;}
+.philo-wrap[open] summary .chev-ico{transform:rotate(90deg);}
+.philo-lead{font-size:13.5px;color:var(--dim);line-height:1.65;margin:4px 0 12px;max-width:760px;}
+.philo-gates{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:12px;}
+.philo-gate{display:flex;gap:10px;background:var(--card);border:1px solid var(--hair);border-radius:4px;padding:12px 14px;}
+.philo-emoji{font-size:19px;line-height:1.3;flex:none;}
+.philo-gate-title{font-family:var(--serif);font-weight:700;font-size:14.5px;color:var(--ink);margin-bottom:4px;}
+.philo-gate-desc{font-size:12.5px;color:var(--dim);line-height:1.6;}
+.philo-extra{font-size:12.5px;color:var(--dim);margin:0;line-height:1.65;max-width:760px;}
+@media (min-width:640px){
+  .philo-gates{grid-template-columns:1fr 1fr;}
+  .philo-wrap summary{display:none;}
+}
+
+.hero-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:16px 0;}
+.stat{background:var(--card);border:1px solid var(--hair);border-radius:3px;padding:10px 12px;min-width:0;}
+.stat .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stat .v{font-family:var(--serif);font-size:20px;font-weight:700;margin-top:3px;}
+
+/* Sort/find bar -- sticky so the control stays reachable from anywhere in a long list on a
+   phone, which is the whole point of having it. Sits above .table-wrap in stacking order so
+   sticky table headers scroll under it rather than through it. */
+.sortbar{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--hair2);
+  padding:8px 0;margin:16px 0 0;}
+.sortbar-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.sortbar-row-2{margin-top:7px;}
+.sortbar-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--faint);flex:none;}
+.sortbar select,.sortbar input[type="search"]{background:var(--panel);border:1px solid var(--hair2);
+  color:var(--ink);border-radius:3px;padding:7px 9px;font-family:var(--mono);font-size:12px;
+  min-height:var(--tap);-webkit-appearance:none;appearance:none;}
+.sortbar select{flex:1 1 190px;min-width:0;}
+.sortbar input[type="search"]{flex:1 1 130px;min-width:0;}
+.sortbar select:focus-visible,.sortbar input:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+.chip-toggle{background:var(--panel);border:1px solid var(--hair2);color:var(--dim);border-radius:999px;
+  padding:6px 12px;font-family:var(--mono);font-size:11px;cursor:pointer;min-height:32px;}
+.chip-toggle[aria-pressed="true"]{background:rgba(95,185,138,0.14);border-color:rgba(95,185,138,0.45);
+  color:var(--gain-soft);}
+.flatten-label{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11px;
+  color:var(--dim);cursor:pointer;min-height:32px;}
+.flatten-label input{accent-color:var(--brass);width:15px;height:15px;}
+.sortbar-hint{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-left:auto;}
+/* Always visible at every width, unlike the philosophy drawer. This one sentence is the whole
+   thesis, and a reader who gets only this has still got the point. */
+.thesis{font-size:14.5px;line-height:1.65;color:var(--ink2);margin:12px 0 0;max-width:74ch;}
+.thesis b{color:var(--ink);font-weight:600;}
+/* Promoted out of --faint 10.5px. A disclaimer styled to be ignored is not doing the job a
+   disclaimer exists to do, on a page that names and scores tradeable securities. */
+.disclaimer{display:block;margin-top:10px;padding:11px 13px;border:1px solid var(--hair2);
+  border-radius:7px;background:var(--card);color:var(--dim);font-size:11.5px;line-height:1.6;
+  max-width:none;}
+.disclaimer b{color:var(--ink2);}
+
+/* "How to read a company row" -- an annotated sample sitting between the controls and the
+   tables. Every reader meets a row before they meet any explanation of one: the tier names are
+   invented, the red dot and the S badge were previously explained only in `title` attributes
+   (invisible on touch, which is the primary surface), and the sparklines carried no legend at
+   all. Rather than describe those in prose, this renders a REAL row through buildStockRow()
+   and labels its parts, so the sample can never drift from what the tables actually draw. */
+.anatomy{border:1px solid var(--hair);border-radius:10px;background:var(--panel);
+  padding:16px 16px 16px;margin:0 0 26px;}
+.anatomy-title{font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:3px;}
+.anatomy-sub{font-size:12.5px;color:var(--dim);line-height:1.5;margin-bottom:14px;}
+/* The sample carries the same .table-wrap/table chrome as a real tier block, so its column
+   widths, borders and mobile reflow are inherited rather than re-specified. */
+.anatomy-demo{border:1px dashed var(--hair2);border-radius:8px;overflow:hidden;}
+.anatomy-demo .table-wrap{border:0;border-radius:0;}
+/* The sample row must never look clickable -- it expands nothing. Includes the name-text
+   underline added for real rows: that underline is the whole point being illustrated in the
+   legend below (see the "Company" entry), so it stays visible there deliberately, but must not
+   also invite a click on the specimen itself. */
+.anatomy-demo .stock-row{cursor:default;}
+.anatomy-demo .stock-row:hover{background:transparent;}
+.anatomy-demo .stock-row .name-text{text-decoration:none;}
+.anatomy-demo .chev{opacity:.35;}
+.anatomy-caption{font-family:var(--mono);font-size:10px;color:var(--faint);
+  text-align:right;padding:6px 2px 13px;}
+/* Two columns, not auto-fit. auto-fit at 258px produced four narrow columns whose rows all
+   stretched to the tallest cell, leaving large dead gaps and squeezing the longer definitions
+   into ten-line ribbons. Two wide columns keep the text measure readable and the ragged bottom
+   edge to a single cell. */
+.anatomy-legend{display:grid;gap:1px;background:var(--hair);border:1px solid var(--hair);
+  border-radius:8px;overflow:hidden;
+  grid-template-columns:repeat(auto-fit,minmax(390px,1fr));}
+.anatomy-item{background:var(--card);padding:11px 13px;display:flex;gap:12px;
+  align-items:flex-start;min-width:0;}
+/* Fixed-width gutter so every explanation starts on the same left edge regardless of how wide
+   the specimen chip is -- a ragged left column made the list read as unrelated fragments.
+   Sized to the widest specimen (the RPT pill) so nothing inside it has to wrap. */
+.anatomy-chip{flex:0 0 116px;display:flex;align-items:center;justify-content:flex-start;
+  min-height:22px;padding-top:1px;}
+.anatomy-def{min-width:0;flex:1;}
+.anatomy-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:3px;}
+.anatomy-v{font-size:12.5px;color:var(--ink2);line-height:1.5;}
+@media (max-width:639.98px){
+  .anatomy{padding:14px 12px;margin-bottom:20px;}
+  .anatomy-legend{grid-template-columns:1fr;}
+  .anatomy-chip{flex-basis:64px;}
+}
+
+/* Tier pill shown per row only in flattened "One list" mode, so tier identity is never lost
+   just because the grouping headers are gone. */
+/* The ticker rides beside the name as the disambiguator, recessive enough that the name reads
+   first. Hidden on a phone, where the name alone has to fit and the search box already matches
+   on both. */
+.name-ticker{font-family:var(--mono);font-size:9.5px;color:var(--faint);flex:none;
+  letter-spacing:.04em;margin-left:6px;}
+@media (max-width:639.98px){ .name-ticker{display:none;} }
+.tier-pill{display:inline-block;flex:none;font-family:var(--mono);font-size:8.5px;text-transform:uppercase;
+  letter-spacing:.04em;border:1px solid;border-radius:3px;padding:1px 4px;margin-right:5px;vertical-align:middle;}
+.empty-state{padding:22px 4px;color:var(--dim);font-size:13.5px;line-height:1.7;}
+.empty-state b{color:var(--ink);}
+.detail-legalname{font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:12px;
+  line-height:1.35;}
+
+/* Filters: collapsible drawer on mobile via <details>, forced open on wider screens */
+.filters-wrap{margin:16px 0;border:1px solid var(--hair2);border-radius:4px;background:var(--card);}
+.filters-wrap summary{list-style:none;cursor:pointer;padding:11px 14px;font-family:var(--mono);font-size:12px;
+  color:var(--ink);display:flex;align-items:center;justify-content:space-between;min-height:var(--tap);}
+.filters-wrap summary::-webkit-details-marker{display:none;}
+.filters-wrap summary .chev-ico{color:var(--brass);transition:transform .18s ease;font-size:11px;}
+.filters-wrap[open] summary .chev-ico{transform:rotate(90deg);}
+.filters-wrap summary .active-count{color:var(--brass);font-weight:700;}
+.filters{display:flex;flex-direction:column;gap:12px;padding:4px 14px 14px;}
+.filter-field{display:flex;flex-direction:column;gap:5px;}
+.filters label{font-family:var(--mono);font-size:10.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;}
+.filters input,.filters select{background:var(--panel);border:1px solid var(--hair2);color:var(--ink);
+  padding:10px 12px;border-radius:3px;font-family:var(--mono);font-size:14px;width:100%;min-height:var(--tap);}
+.filter-actions{display:flex;gap:8px;margin-top:2px;}
+.btn{font-family:var(--mono);font-size:12.5px;font-weight:700;border-radius:3px;cursor:pointer;
+  padding:10px 18px;min-height:var(--tap);flex:1;}
+.btn-primary{background:var(--brass);color:#0d1320;border:none;}
+.btn-secondary{background:var(--panel);color:var(--dim);border:1px solid var(--hair2);}
+.view-report-link{display:inline-flex;align-items:center;justify-content:center;
+  text-decoration:none;margin:2px 0 14px;}
+
+.tier-section{margin:32px 0;}
+/* Sticks directly beneath the sort bar, so scrolling 16 rows into a tier never loses which
+   tier you're reading -- and the heading can't be sliced in half behind the bar on the way
+   past, which is what an unpositioned heading under a sticky bar does. --sortbar-h is measured
+   from the live element (see the JS below) rather than hardcoded, because the bar's height
+   changes between breakpoints and whenever its controls rewrap. */
+.tier-header{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;
+  position:sticky;top:calc(var(--sortbar-h, 90px));z-index:15;background:var(--bg);
+  padding:6px 0 4px;scroll-margin-top:calc(var(--sortbar-h, 90px) + 8px);}
+.cfp-years{color:var(--faint);font-size:11px;margin-left:3px;}
+.tier-dot{width:11px;height:11px;border-radius:2px;flex:none;}
+.tier-name{font-family:var(--serif);font-size:19px;font-weight:700;margin:0;}
+.tier-count{font-family:var(--mono);font-size:11.5px;color:var(--dim);}
+.tier-desc{font-size:12.5px;color:var(--dim);margin-bottom:12px;max-width:700px;}
+
+.g{color:var(--gain);}
+.l{color:var(--loss);}
+.na{color:var(--faint);}
+
+.sparkline{display:flex;gap:2px;align-items:flex-end;height:22px;}
+.sparkbar{width:6px;border-radius:1px;min-height:1px;}
+
+.badge-pill{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11px;
+             padding:4px 10px;border-radius:20px;font-weight:600;white-space:nowrap;border:1px solid transparent;}
+.mcap-large{background:rgba(122,143,212,0.14);color:#9fb0e6;border-color:rgba(122,143,212,0.38);}
+.mcap-mid{background:rgba(163,139,212,0.14);color:#bfa9e8;border-color:rgba(163,139,212,0.38);}
+.mcap-small{background:rgba(201,180,133,0.14);color:#dcc691;border-color:rgba(201,180,133,0.38);}
+.mcap-na{background:rgba(147,160,184,0.08);color:var(--faint);border-color:var(--hair2);}
+.pe-g1{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.42);}
+.pe-g2{background:rgba(142,203,170,0.14);color:#aedcc0;border-color:rgba(142,203,170,0.38);}
+.pe-amber{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.42);}
+.pe-red{background:rgba(224,96,74,0.16);color:#ef937f;border-color:rgba(224,96,74,0.42);}
+.pe-na{background:rgba(147,160,184,0.08);color:var(--faint);border-color:var(--hair2);}
+.rpt-0{background:rgba(95,185,138,0.16);color:#82d3a6;border-color:rgba(95,185,138,0.42);}
+.rpt-1{background:rgba(142,203,170,0.14);color:#aedcc0;border-color:rgba(142,203,170,0.38);}
+.rpt-2{background:rgba(201,162,75,0.16);color:#e3c076;border-color:rgba(201,162,75,0.42);}
+.rpt-3{background:rgba(224,96,74,0.20);color:#ef937f;border-color:rgba(224,96,74,0.55);font-weight:700;}
+.rpt-na{background:rgba(147,160,184,0.08);color:var(--faint);border-color:var(--hair2);}
+.rpt-pending{background:rgba(201,162,75,0.10);color:var(--brass);border-color:rgba(201,162,75,0.35);}
+.rpt-headline{font-family:var(--sans);font-size:12.5px;color:var(--dim);line-height:1.5;margin-top:6px;}
+.rpt-gauge-wrap{display:flex;flex-direction:column;align-items:center;gap:2px;margin:4px 0 10px;}
+.rpt-gauge-svg{width:min(100%,260px);}
+.rpt-gauge-label{font-family:var(--serif);font-weight:700;font-size:19px;margin-top:-8px;}
+.rpt-gauge-note{font-size:10.5px;color:var(--faint);margin-top:1px;text-align:center;max-width:220px;}
+.rpt-h2{font-family:var(--serif);font-weight:700;font-size:14px;color:var(--ink);margin:14px 0 6px;}
+.rpt-h2:first-child{margin-top:0;}
+.rpt-p{font-size:12.5px;color:var(--dim);line-height:1.6;margin:0 0 10px;max-width:760px;}
+.rpt-list{margin:0 0 10px;padding-left:18px;font-size:12.5px;color:var(--dim);line-height:1.6;}
+.rpt-list li{margin-bottom:4px;}
+.rpt-table-wrap{overflow-x:auto;margin-bottom:10px;}
+.rpt-table{width:100%;border-collapse:collapse;font-size:12px;}
+.rpt-table th{text-align:left;font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;
+  color:var(--faint);padding:6px 8px;border-bottom:1px solid var(--hair2);white-space:nowrap;}
+.rpt-table td{padding:6px 8px;border-bottom:1px solid var(--hair);font-family:var(--sans);font-size:12px;
+  color:var(--dim);white-space:normal;vertical-align:top;}
+
+/* ---------- Company list: <table> that becomes stacked cards on phones ---------- */
+/* Company list: a real <table> at every viewport. Financial tables don't reflow
+   into cards well on phones — they stay tabular and scroll horizontally with
+   the row label frozen, so you always know which row you're looking at while
+   swiping through columns. Same idea here, with the company name frozen
+   instead of a line-item label. */
+.table-wrap{border-radius:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative;}
+table{width:100%;min-width:900px;border-collapse:separate;border-spacing:0;font-size:13px;}
+th{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);
+    text-align:left;padding:9px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap;background:var(--bg);}
+th.chev-col{width:24px;}
+td{padding:10px 10px;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:12.5px;white-space:nowrap;}
+td.name{font-family:var(--sans);font-weight:600;font-size:13.5px;white-space:normal;}
+/* A link-shaped underline, not just cursor:pointer and a chevron -- mobile is the primary
+   surface and has no hover state to reveal that the whole row is clickable, so the
+   affordance has to be visible at rest, not discovered by accident or hover. Brightens
+   further on hover as a small bonus for desktop, matching the row's own hover tint. */
+.name-text{text-decoration:underline;text-decoration-color:rgba(201,162,75,0.55);
+  text-decoration-thickness:1px;text-underline-offset:3px;}
+tr.stock-row:hover .name-text{text-decoration-color:var(--brass);}
+/* The mobile row-strip duplicates columns that are real cells on desktop -- it must never be
+   visible alongside them, or the same numbers appear twice in one row. It is shown only inside
+   the max-width:639.98px block, where those cells are display:none. Because the two are never
+   displayed together, neither needs aria-hidden: nothing is announced twice. */
+.row-strip{display:none;}
+.row-flag{display:inline-block;flex:none;width:6px;height:6px;border-radius:50%;
+  background:var(--critical);margin-left:5px;box-shadow:0 0 0 2px rgba(224,96,74,0.18);cursor:help;vertical-align:middle;}
+.basis-flag{display:inline-block;flex:none;margin-left:6px;font-family:var(--mono);font-size:8.5px;text-transform:uppercase;
+  letter-spacing:.04em;color:var(--faint);border:1px solid var(--hair2);border-radius:3px;padding:1px 4px;
+  vertical-align:middle;cursor:help;}
+.num{text-align:right;}
+
+/* Freeze chevron + name columns while the rest scrolls */
+th.chev-col,td.chev-cell,th:nth-child(2),td.name{position:sticky;background:var(--bg);z-index:2;}
+th.chev-col,td.chev-cell{left:0;}
+th:nth-child(2),td.name{left:24px;box-shadow:1px 0 0 var(--hair2);}
+/* Below the tablet breakpoint, freeze a 3rd column (P/E -- a compact badge, and one of the
+   numbers this screener exists to let you compare) so the two things a screener is FOR --
+   which company, and how expensive it is -- are both visible with zero swiping on a phone,
+   which is this page's primary surface. A 3rd sticky column needs the 2nd column's width fixed
+   (sticky's `left` is a static px offset, and the name column normally has no fixed width), so
+   the name truncates with an ellipsis here instead of wrapping -- an acceptable tradeoff since
+   almost every row in this dataset is a short ticker-as-name; the rare long legal name (already
+   a separate, flagged data-quality gap) is the only one that'll actually clip. */
+/* Mobile (<640px), the primary surface. Ten columns cannot fit 358px: measured, the table was
+   989px wide, and everything past Mkt Cap -- both gate scores, CFO/PAT and the RPT audit, i.e.
+   the four columns the entire thesis rests on -- sat off-screen behind a horizontal swipe that
+   frozen-column layouts are well documented to hide (weak information scent; readers don't know
+   off-screen columns exist). Rather than freeze more columns and keep losing the data, the
+   demoted columns REFLOW into the name cell as a fixed two-line strip: table structure and
+   column scanning survive for the three that remain, and the card pattern is applied only
+   inside td.name. One table, one render path, no second layout to maintain. */
+@media (max-width:639.98px){
+  /* No horizontal scroll at all now, so the frozen columns have nothing to freeze against and
+     the 900px floor would only reintroduce the overflow this design exists to remove. */
+  table{min-width:0;}
+  th:nth-child(n+4),td:nth-child(n+4){display:none;}
+  th.chev-col,td.chev-cell,th:nth-child(2),td.name{position:static;box-shadow:none;}
+  th:nth-child(2),td.name{width:auto;max-width:none;}
+  /* The flex layout lives on an inner wrapper, not on td.name itself -- display:flex directly
+     on a table cell breaks its normal auto-stretch-to-row-height behavior (the flex box only
+     grows to fit its own content), which desyncs its border-bottom from every other cell in
+     the row. The wrapper keeps td.name a plain table cell (full row height, borders aligned)
+     while still flexing its children horizontally. */
+  td.name .name-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+  /* The name no longer truncates: with no fixed-width sticky column there's nothing forcing an
+     ellipsis, so "CONCORDBIO" and "SBI Funds Management Ltd" are readable in full again. */
+  td.name .name-text{overflow:visible;text-overflow:clip;white-space:normal;}
+  td.name .basis-flag{font-size:0;padding:1px 3px;margin-left:4px;}
+  td.name .basis-flag::after{content:attr(data-glyph);font-size:8.5px;}
+  td.name .row-strip{display:block;margin-top:5px;font-family:var(--mono);font-size:10.5px;
+    font-weight:400;color:var(--dim);line-height:1.45;}
+  /* Fixed two lines with a fixed slot order, not a wrap-wherever-it-lands flow: RPT is always
+     the first item of line 2 at a constant indent, so it still forms a readable vertical band
+     down a tier -- the column-scanning the strip would otherwise cost. */
+  td.name .rs-l1,td.name .rs-l2{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  td.name .rs-l2{margin-top:4px;}
+  td.name .row-strip .badge-pill{font-size:9.5px;padding:1px 5px;}
+  /* The hint would now be a lie -- there is nothing to the right to swipe to. */
+  .scroll-hint{display:none;}
+  /* The bar is sticky, so every pixel of it is permanently subtracted from an 844px phone
+     screen. Stacked, it took 176px (21% of the viewport) before a single company row showed.
+     Share one line instead and drop the "Sort" label -- the select's own text already reads
+     "Cash conversion - strongest first", so the label was naming what the value states. */
+  .sortbar{padding:6px 0;}
+  .sortbar-label{display:none;}
+  .sortbar select{flex:1 1 62%;}
+  .sortbar input[type="search"]{flex:1 1 30%;}
+  .sortbar select,.sortbar input[type="search"]{min-height:40px;padding:6px 8px;font-size:11.5px;}
+  .sortbar-row-2{margin-top:5px;}
+}
+
+tr.stock-row{cursor:pointer;}
+tr.stock-row:focus-visible,.tab:focus-visible,.jg-q:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+tr.stock-row:hover td{background:rgba(201,162,75,0.04);}
+tr.stock-row:hover td.chev-cell,tr.stock-row:hover td.name{background:#171d2c;}
+tr.stock-row.expanded td{background:rgba(201,162,75,0.05);}
+tr.stock-row.expanded td.chev-cell,tr.stock-row.expanded td.name{background:#181e2e;}
+
+.chev-cell{text-align:center;padding:10px 4px;width:24px;max-width:24px;}
+.chev{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;
+       color:var(--faint);transition:transform .18s ease,color .18s ease;user-select:none;font-size:11px;}
+tr.stock-row.expanded .chev{transform:rotate(90deg);color:var(--brass);}
+/* The real button carrying the row's keyboard affordance. Styled back to nothing so the row
+   looks exactly as it did when the <tr> itself was the control -- the change is semantic, not
+   visual. Its focus ring is the page's brass, not the UA default, matching every other control. */
+.chev-btn{display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;
+  background:none;border:0;cursor:pointer;color:inherit;border-radius:4px;}
+.chev-btn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+
+.scroll-hint{font-family:var(--mono);font-size:10px;color:var(--faint);text-align:right;margin:4px 2px 0;}
+
+/* Detail panel renders as a row directly below the clicked company, inside the
+   same <table>, so it never lands below the tier's whole company list. The
+   table itself can be wider than the viewport (min-width:900px, scrolled via
+   .table-wrap) -- .detail-slot-inline is pinned to the LEFT edge of that
+   scroll port via position:sticky and has its width set from JS (see
+   syncDetailRowWidth) to the wrap's visible clientWidth, so its charts never
+   inherit the table's 900px min-width or get clipped/require horizontal
+   scrolling on narrow screens. */
+.detail-row td{padding:0;white-space:normal;}
+.detail-slot-inline{position:sticky;left:0;border:1px solid var(--hair2);border-radius:4px;
+  background:rgba(255,255,255,0.015);margin:6px 0;}
+.detail-panel{padding:16px clamp(10px,3vw,20px) 20px;animation:fadeIn .2s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
+
+.score-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:16px;}
+.score-chip{background:var(--panel);border:1px solid var(--hair);border-radius:4px;padding:8px 12px;min-width:0;}
+.score-chip .k{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);}
+.score-chip .v{font-family:var(--serif);font-size:16px;font-weight:700;margin-top:2px;}
+.score-chip.chip-tier{grid-column:1/-1;padding:10px 14px;}
+.score-chip.chip-tier .v{font-size:19px;}
+/* CFO/PAT below the 1x cash-conversion line gets a visible flag, not just a number swap --
+   a reader shouldn't have to parse every chip's text to notice one of them is actually bad. */
+.score-chip.chip-warn{border-color:var(--loss);}
+.score-chip.chip-critical{border-color:var(--critical);background:rgba(224,96,74,0.10);}
+.score-chip.chip-critical .v::before{content:"\26a0  ";}
+
+.tabs{display:flex;gap:4px;margin-bottom:14px;background:var(--card);border-radius:6px;padding:4px;width:fit-content;}
+.tab{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--dim);
+     padding:11px 14px;border-radius:4px;cursor:pointer;transition:all .15s ease;user-select:none;}
+.tab.active{background:var(--brass);color:#0a0f1c;font-weight:700;}
+.tab:not(.active):hover{color:var(--ink);}
+.chart-card{background:var(--panel);border:1px solid var(--hair);border-radius:4px;padding:14px 14px 12px;min-width:0;}
+.chart-title{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);}
+.chart-sub{font-size:11px;color:var(--dim);margin:2px 0 10px;}
+.chart-svg{width:100%;height:auto;display:block;overflow:visible;touch-action:pan-y;}
+.bar-rect{cursor:pointer;transition:opacity .12s ease;}
+.bar-rect:hover,.bar-rect.tt-pinned{opacity:.72;}
+.chart-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;font-family:var(--mono);font-size:9.5px;color:var(--dim);}
+.legend-key{display:inline-flex;align-items:center;gap:5px;}
+.legend-swatch{width:10px;height:3px;border-radius:2px;display:inline-block;}
+.legend-swatch.legend-swatch-dashed{width:14px;height:0;border-radius:0;background:transparent;
+  border-top:2px dashed currentColor;}
+
+.chart-active-area{margin-top:0;}
+
+.year-pills{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 4px;}
+.year-pill{position:relative;font-family:var(--mono);font-size:10px;padding:6px 10px;border-radius:4px;background:var(--card);
+  color:var(--dim);cursor:pointer;border:1px solid transparent;user-select:none;}
+/* Keeps the visible chip small (matches the dense terminal look), widens the actual tap target --
+   same pattern as the jargon "?" icon fix, and the larger .year-pills gap above keeps adjacent
+   pills' expanded hit areas from overlapping each other. */
+.year-pill::before{content:'';position:absolute;inset:-8px;}
+.year-pill.active{background:var(--brass);color:#0d1320;font-weight:700;}
+.year-pill:not(.active):hover{color:var(--ink);border-color:var(--hair2);}
+
+.roce-takeaway-line{font-size:11.5px;line-height:1.5;color:var(--dim);font-style:italic;margin:8px 0 2px;max-width:46em;}
+
+.roce-bridge-swipe{touch-action:pan-y;cursor:grab;transition:transform .2s ease, opacity .2s ease;}
+.bridge-readout{display:flex;gap:22px;margin-top:14px;flex-wrap:wrap;}
+.bridge-readout .k{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);margin-bottom:2px;}
+.bridge-readout .v{font-family:var(--serif);font-weight:700;font-size:16px;}
+
+/* jargon glossary "(?)" glyph -- hover (desktop) or tap-toggle (touch) */
+/* 4px of air so the badge reads as an affordance rather than as punctuation -- "P/E?" looked
+   like a typo, not a button. */
+/* Visually hidden but available to assistive tech -- for labels a sighted reader gets from
+   position and a screen-reader user would otherwise not get at all. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+/* Chrome reserves ~13px inside every number input for the spinner, which was clipping the
+   placeholders ("e.g. 100(" instead of "e.g. 1000"). Nothing on this page is stepped with the
+   arrows, so the reserved strip buys nothing and costs a legible hint. */
+.filters input[type=number]::-webkit-inner-spin-button,
+.filters input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
+.filters input[type=number]{-moz-appearance:textfield;}
+.jg-wrap{position:relative;display:inline-flex;margin-left:4px;vertical-align:middle;}
+.jg-q{position:relative;display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;
+  background:var(--card);color:var(--dim);font-size:9px;font-family:var(--sans);font-weight:700;
+  cursor:pointer;border:1px solid var(--hair2);line-height:1;padding:0;vertical-align:middle;}
+.jg-q:hover{color:var(--ink);border-color:var(--brass);}
+/* The visible glyph stays a small 13px dot to match the page's dense, understated data-terminal
+   look, but a 13px tap target is well under the ~44px minimum touch targets should have on
+   mobile -- widen the actual hit area with an invisible pseudo-element instead of growing the
+   glyph itself.
+   Vertical growth is clamped to +/-6px because inset:-15px overhung the <th> by 5px and laid an
+   invisible band across the top of the first data row: a click there hit the tooltip and the row
+   silently refused to open. It was also the entire source of the 4px phantom horizontal scroll on
+   mobile that the comment above .table-wrap claims is gone. The header's 9px vertical padding
+   means +/-6 stays inside the cell; horizontal growth is unchanged and is where the touch target
+   actually needed the room. */
+.jg-q::before{content:'';position:absolute;inset:-6px -15px;}
+/* On a phone the same overhang escapes the table's right edge and joins its scroll area -- the
+   remaining 4px of phantom horizontal scroll every table carried there. P/E is the rightmost
+   column the phone layout keeps (the rest are display:none and so contribute nothing), and its
+   badge sits hard against that edge. Growing the target leftward instead costs nothing: there
+   is no neighbour to the right to reach toward, so it keeps its full width and stops scrolling.
+   Not written as th:last-child -- the last DOM child on a phone is a hidden column, not the
+   last visible one. */
+@media (max-width:639.98px){
+  th .jg-q::before{right:0;left:-30px;}
+}
+/* position:fixed + JS-computed left/top (positionJgTip), clamped to the viewport -- same
+   approach as .viz-tooltip below. A CSS-only centered-on-anchor tip (position:absolute,
+   left:50%/translateX(-50%)) has no way to know it's about to run off the edge of the
+   viewport, which it reliably did for any "?" near the left edge of a chart-card. */
+.jg-tip{position:fixed;background:#0a0f1c;border:1px solid var(--hair2);border-radius:5px;padding:8px 11px;
+  font-family:var(--sans);font-size:11.5px;font-weight:400;text-transform:none;letter-spacing:normal;
+  line-height:1.45;color:var(--ink);white-space:normal;
+  /* white-space is inherited, and table <th> sets nowrap (correct, for column headers) -- a
+     .jg-tip anchored inside a <th> inherited that nowrap despite being position:fixed (fixed
+     positioning changes LAYOUT, not the DOM tree inheritance follows), so the whole tooltip
+     rendered as one line and ran off the right edge of the screen instead of wrapping. Explicit
+     normal here, rather than counting on no ancestor ever setting nowrap again. */
+  width:max-content;max-width:260px;box-shadow:0 8px 22px rgba(0,0,0,.5);opacity:0;pointer-events:none;
+  /* Parked at the viewport origin while hidden -- positionJgTip() writes real coordinates on
+     show. With no initial left/top a fixed element falls back to its static position, and a
+     260px-wide tooltip sitting statically inside a narrow <th> reached past the table's right
+     edge and joined its scroll area: this was the phantom 4px of horizontal scroll every table
+     carried on a phone, which the .table-wrap comment claimed was gone. .viz-tooltip below
+     already pins itself this way, for exactly this reason. */
+  top:0;left:0;
+  transition:opacity .12s ease;z-index:60;}
+.jg-wrap:hover .jg-tip,.jg-wrap.open .jg-tip{opacity:1;pointer-events:auto;}
+body.jg-scrolling .jg-tip{opacity:0 !important;pointer-events:none !important;}
+
+.viz-tooltip{position:fixed;top:0;left:0;pointer-events:none;background:#0a0f1c;border:1px solid var(--hair2);border-radius:5px;
+              padding:8px 12px;font-family:var(--mono);font-size:11.5px;color:var(--ink);white-space:normal;
+              box-shadow:0 10px 28px rgba(0,0,0,0.5);z-index:1000;opacity:0;transition:opacity .1s ease;
+              max-width:220px;transform:translate(-9999px,-9999px);}
+.viz-tooltip.show{opacity:1;}
+.viz-tooltip .tt-title{font-weight:700;color:var(--brass);margin-bottom:5px;font-family:var(--sans);font-size:12px;}
+.viz-tooltip .tt-row{display:flex;justify-content:space-between;gap:16px;}
+.viz-tooltip .tt-row+.tt-row{margin-top:2px;}
+.viz-tooltip .tt-row .k{color:var(--dim);}
+.viz-tooltip .tt-row .v{font-weight:700;}
+
+footer{padding:26px 0;font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.8;border-top:1px solid var(--hair);margin-top:36px;}
+footer a{color:var(--brass);}
+.watchlist-entry{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;
+  margin:36px 0 0;padding:20px 22px;background:var(--panel);border:1px solid var(--hair2);border-radius:10px;}
+.watchlist-entry .we-kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);}
+.watchlist-entry .we-title{font-family:var(--serif);font-size:22px;margin:2px 0 4px;}
+.watchlist-entry .we-desc{margin:0;color:var(--dim);font-size:14px;max-width:60ch;}
+.watchlist-entry .we-link{display:inline-flex;align-items:center;min-height:var(--tap);padding:0 18px;border-radius:8px;
+  background:var(--brass);color:#14110a;font-weight:600;font-size:14px;text-decoration:none;}
+.watchlist-entry .we-link:hover{filter:brightness(1.08);}
+
+/* ---------- Tablet (>=640px): filters inline, hero row tighter, roomier detail panel ---------- */
+@media (min-width:640px){
+  .wrap{padding:0 24px 56px;}
+  header{padding:22px 0;}
+  .hero-row{grid-template-columns:repeat(4,1fr);gap:12px;}
+  .stat{padding:12px 16px;}
+  .stat .v{font-size:22px;}
+  .filters-wrap{border:none;background:none;}
+  .filters-wrap summary{display:none;}
+  .filters-wrap .filters{display:flex;flex-direction:row;flex-wrap:wrap;align-items:flex-end;
+    padding:0;gap:10px;}
+  .filter-field{flex-direction:row;align-items:center;gap:8px;width:auto;}
+  .filters label{white-space:nowrap;}
+  .filters input,.filters select{width:100px;min-height:36px;padding:6px 10px;font-size:12px;}
+  .filter-actions{margin-top:0;}
+  .btn{min-height:36px;padding:6px 16px;flex:none;}
+  .score-strip{grid-template-columns:repeat(3,1fr);}
+  .detail-panel{padding:20px clamp(12px,3vw,26px) 24px;}
+}
+
+/* ---------- Desktop (>=980px): table fits without scrolling; roomier everything ---------- */
+@media (min-width:980px){
+  .scroll-hint{display:none;}
+  .score-strip{display:flex;flex-wrap:wrap;gap:10px;grid-template-columns:none;}
+  .score-chip{min-width:100px;}
+  .hero-row{grid-template-columns:none;display:flex;flex-wrap:wrap;}
+  .stat{min-width:140px;}
+}
+@media print{
+  body{background:#fff !important;color:#111 !important;}
+  *{background:transparent !important;color:#111 !important;}
+  .filters-wrap{display:none;}
+  th,td{border-color:#ddd !important;}
+}
+</style>
+<style>.flatten-label,.filter-field:has(#tierFilter){display:none;}.back-link{display:inline-block;min-height:44px;line-height:44px;font-family:var(--mono);font-size:12px;color:var(--dim);text-decoration:none;}.back-link:hover{color:var(--ink);}</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back-link" href="index.html">&larr; Coffee Can Screener</a>
+  <span class="kicker">Founder's Stockpicks</span>
+  <h1>Founder's Stockpicks</h1>
+  <div class="meta">Snapshot: 26 Oct 2026, 19:42 &middot; 2 companies &middot; figures in &#8377; Cr (1 crore = &#8377;1,00,00,000)</div>
+  <p class="thesis">Founder-led companies picked by hand, shown on the same scorecard as the screener:
+    revenue growth and return on capital for each of the last nine years, cash conversion, valuation
+    and a governance audit. A pick does not have to pass the screener&rsquo;s two rules &mdash; the
+    tier pill shows where it lands, and <b>Outside the screen</b> means it clears neither. Every row
+    links to a full equity research report.</p>
+  <p class="thesis">Data not loaded yet for: Tanla Platforms.</p>
+</header>
+
+<div class="hero-row" id="heroRow"></div>
+
+<!-- Sort/find bar. Sorting is deliberately separate from the Filters drawer: filters subtract
+     rows, sorting reorders them, and collapsing both into one panel behind an "Apply" button
+     made ordering feel like a destructive operation. It also stays visible while scrolling,
+     because on a phone the control has to be reachable from wherever the reader is in the list. -->
+<div class="sortbar">
+  <div class="sortbar-row">
+    <label class="sortbar-label" for="sortBy">Sort</label>
+    <select id="sortBy">
+      <option value="cash">Cash conversion &mdash; most years above 1&times;, then ratio</option>
+      <option value="pe">P/E &mdash; lowest first</option>
+      <option value="mcap">Market cap &mdash; largest first</option>
+      <option value="rpt">Governance audit &mdash; cleanest first</option>
+      <option value="name">Company name &mdash; A to Z</option>
+    </select>
+    <label class="sr-only" for="searchBox">Find a company</label>
+    <input type="search" id="searchBox" placeholder="Find a company&hellip;" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="sortbar-row sortbar-row-2">
+    <button type="button" class="chip-toggle" id="clearsAllChip" aria-pressed="false"
+            title="Cash beat profit in most of the last ten years, cumulative cash conversion at or above 1x, and a governance audit of Clean or Minor.">Passes all 3 checks</button>
+    <label class="flatten-label"><input type="checkbox" id="flattenTiers" checked> Ungroup tiers &mdash; rank all together</label>
+    <span class="sortbar-hint" id="sortbarHint"></span>
+  </div>
+</div>
+
+<details class="filters-wrap" id="filtersDrawer">
+  <summary><span>Filters <span class="active-count" id="activeCount"></span></span><span class="chev-ico">&#9656;</span></summary>
+  <div class="filters">
+    <div class="filter-field"><label for="peMax">P/E max</label><input type="number" id="peMax" placeholder="e.g. 30" value=""></div>
+    <div class="filter-field"><label for="mcapMin">Mkt Cap min (Cr)</label><input type="number" id="mcapMin" placeholder="e.g. 1000" value=""></div>
+    <div class="filter-field"><label for="cfoMin">Cash conversion min</label><input type="number" id="cfoMin" placeholder="1.0 = fully cash-backed" step="0.1" value=""></div>
+    <div class="filter-field"><label for="tierFilter">Tier</label>
+      <select id="tierFilter">
+        <option value="all">All tiers</option>
+        <option value="9iner">9iner</option>
+        <option value="Dirty 9iner">Dirty 9iner</option>
+        <option value="Very Dirty 9iner">Very Dirty 9iner</option>
+        <option value="8eighter">8eighter</option>
+        <option value="Dirty 8er">Dirty 8eighter</option>
+      </select>
+    </div>
+    <div class="filter-field"><label for="rptMax">Governance audit &mdash; allow up to</label>
+      <select id="rptMax">
+        <option value="all">Any</option>
+        <option value="0">Clean only</option>
+        <option value="1">Clean or Minor</option>
+        <option value="2">Up to Moderate (excludes Red Flag)</option>
+      </select>
+    </div>
+    <div class="filter-actions">
+      <button class="btn btn-primary" onclick="applyFilters()">Apply</button>
+      <button class="btn btn-secondary" onclick="resetFilters()">Reset</button>
+    </div>
+  </div>
+</details>
+
+<section class="anatomy" id="anatomy" aria-labelledby="anatomyTitle"></section>
+
+<main id="content"></main>
+
+<footer>
+  Inspired by <a href="https://www.amazon.in/dp/067009045X" target="_blank" rel="noopener">Coffee Can Investing</a> (Saurabh Mukherjea, Rakshit Ranjan &amp; Pranab Uniyal), and by <a href="https://www.drvijaymalik.com/" target="_blank" rel="noopener">Dr. Vijay Malik</a>'s investing framework, whose CFO/PAT cash-conversion check this screener borrows.<br>
+  <span class="disclaimer"><b>Not investment advice.</b> These are hand-picked companies shown on the
+  same backward-looking scorecard as the screener, alongside research notes written about them. Being listed
+  here is not a recommendation to buy, sell or hold any security, and expresses no view on any company&rsquo;s
+  future prospects or share price. The notes name real companies and may be wrong. The author is not a
+  SEBI-registered Research Analyst or Investment Adviser. Do your own research, and consult a registered
+  adviser before investing.</span>
+</footer>
+
+</div>
+
+<div class="viz-tooltip" id="vizTooltip"></div>
+
+<script>
+var ALL_STOCKS = [{"company_id": "INE475E01026", "ticker": "CAPLIPOINT", "name": "CAPLIPOINT", "company_name": "CAPLIN POINT LABORATORIES LTD", "financials_basis": "consolidated", "tier": "9iner", "tier_rank": 1, "rev_score": 9, "roce_score": 9, "rev_growths": [34.41, 20.16, 33.07, 22.95, 19.61, 15.54, 15.5, 14.37, 12.89], "roce_values": [64.08, 45.59, 33.31, 28.78, 28.73, 26.82, 26.889999999999997, 26.19, 24.93], "roce_series": [{"year": 2017, "value": null}, {"year": 2018, "value": 64.08}, {"year": 2019, "value": 45.59}, {"year": 2020, "value": 33.31}, {"year": 2021, "value": 28.78}, {"year": 2022, "value": 28.73}, {"year": 2023, "value": 26.82}, {"year": 2024, "value": 26.889999999999997}, {"year": 2025, "value": 26.19}, {"year": 2026, "value": 24.93}], "margin_series": [{"year": 2017, "value": 31.180000000000003}, {"year": 2018, "value": 36.18}, {"year": 2019, "value": 35.74}, {"year": 2020, "value": 30.130000000000003}, {"year": 2021, "value": 31.019999999999996}, {"year": 2022, "value": 31.119999999999997}, {"year": 2023, "value": 30.12}, {"year": 2024, "value": 32.6}, {"year": 2025, "value": 33.589999999999996}, {"year": 2026, "value": 34.79}], "turnover_series": [{"year": 2017, "value": null}, {"year": 2018, "value": 3.3602}, {"year": 2019, "value": 3.2736}, {"year": 2020, "value": 3.4574}, {"year": 2021, "value": 3.6733}, {"year": 2022, "value": 4.2892}, {"year": 2023, "value": 5.1793}, {"year": 2024, "value": 4.6257}, {"year": 2025, "value": 3.881}, {"year": 2026, "value": 3.8013}], "wc_cycle_series": [{"year": 2017, "value": null}, {"year": 2018, "value": -37.16}, {"year": 2019, "value": 16.46}, {"year": 2020, "value": 88.05}, {"year": 2021, "value": 68.91}, {"year": 2022, "value": 27.57}, {"year": 2023, "value": 43.27}, {"year": 2024, "value": 49.35}, {"year": 2025, "value": 47.54}, {"year": 2026, "value": 58.01}], "ebit_margin_series": [{"year": 2017, "value": 30.240000000000002}, {"year": 2018, "value": 35.010000000000005}, {"year": 2019, "value": 35.06}, {"year": 2020, "value": 31.25}, {"year": 2021, "value": 29.7}, {"year": 2022, "value": 30.45}, {"year": 2023, "value": 30.830000000000002}, {"year": 2024, "value": 33.36}, {"year": 2025, "value": 34.96}, {"year": 2026, "value": 36.74}], "capital_turnover_series": [{"year": 2017, "value": null}, {"year": 2018, "value": 1.8304}, {"year": 2019, "value": 1.3002}, {"year": 2020, "value": 1.0657}, {"year": 2021, "value": 0.9689}, {"year": 2022, "value": 0.9437}, {"year": 2023, "value": 0.8699}, {"year": 2024, "value": 0.806}, {"year": 2025, "value": 0.749}, {"year": 2026, "value": 0.6786}], "capital_split_series": [{"year": 2017, "fixed_assets": 155.25, "working_capital": -46.129999999999995, "investments_cash": 110.5099999}, {"year": 2018, "fixed_assets": 184.76999999999998, "working_capital": 34.26999999999998, "investments_cash": 125.95}, {"year": 2019, "fixed_assets": 236.54, "working_capital": 109.88, "investments_cash": 222.94999990000002}, {"year": 2020, "fixed_assets": 292.62, "working_capital": 360.06, "investments_cash": 284.22}, {"year": 2021, "fixed_assets": 319.2199999, "working_capital": 109.01000000000002, "investments_cash": 449.53}, {"year": 2022, "fixed_assets": 304.3, "working_capital": 192.97000000000003, "investments_cash": 551.97}, {"year": 2023, "fixed_assets": 500.52, "working_capital": 288.0, "investments_cash": 774.1800000000001}, {"year": 2024, "fixed_assets": 569.28, "working_capital": 355.4200000000001, "investments_cash": 928.35}, {"year": 2025, "fixed_assets": 689.28, "working_capital": 375.93000000000006, "investments_cash": 1181.87}, {"year": 2026, "fixed_assets": 813.59, "working_capital": 593.5299999, "investments_cash": 1480.06}], "years": [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026], "sales": [4016500000.0, 5398400000.0, 6486900000.0, 8632000000.0, 10612900000.0, 12694100000.0, 14667300000.0, 16941000000.0, 19374700000.0, 21871900000.0], "pat": [956100000.0, 1447900000.0, 1765700000.0, 2150100000.0, 2422700000.0, 2998399999.0, 3762600000.0, 4570900000.0, 5363099999.0, 6412400000.0], "cfo": [676100000.0, 664900000.0, 834200000.0, 446800000.0, 2686100000.0, 3367300000.0, 2713700000.0, 3183900000.0, 4323700000.0, 5232300000.0], "cfo_pat_ratio": 0.76, "cfo_pat_series": [{"year": 2017, "cfo": 676100000.0, "pat": 956100000.0, "ratio": 0.71}, {"year": 2018, "cfo": 664900000.0, "pat": 1447900000.0, "ratio": 0.46}, {"year": 2019, "cfo": 834200000.0, "pat": 1765700000.0, "ratio": 0.47}, {"year": 2020, "cfo": 446800000.0, "pat": 2150100000.0, "ratio": 0.21}, {"year": 2021, "cfo": 2686100000.0, "pat": 2422700000.0, "ratio": 1.11}, {"year": 2022, "cfo": 3367300000.0, "pat": 2998399999.0, "ratio": 1.12}, {"year": 2023, "cfo": 2713700000.0, "pat": 3762600000.0, "ratio": 0.72}, {"year": 2024, "cfo": 3183900000.0, "pat": 4570900000.0, "ratio": 0.7}, {"year": 2025, "cfo": 4323700000.0, "pat": 5363099999.0, "ratio": 0.81}, {"year": 2026, "cfo": 5232300000.0, "pat": 6412400000.0, "ratio": 0.82}], "cfo_pat_score": 2, "cfo_pat_label": "2/10", "pe": 31.83, "mcap": 20408.8, "rpt_score": 1, "rpt_score_display": "1", "rpt_headline": "Clean; routine wholly-owned-subsidiary loans plus one small director-linked office lease.", "rpt_report_md": "## Overall verdict: **Score 1 (Watch) \u2014 clean pharma group financing, one small immaterial director-linked lease**\n\nEvery year on record, Form AOC-2's \"not at arm's length\" section is explicitly empty (\"There were no contracts or arrangements or transactions... which were not at arm's length basis\"), and the \"material contracts at arm's length\" section is dominated by ordinary intercompany trade with the company's own subsidiaries and step-down subsidiaries (Argus Salud Pharma LLP, Caplin Steriles Limited, Nuevos Eticos Neo Ethicals S.A.) \u2014 routine group manufacturing/distribution flow, not personal-interest dealing. The company also carries a growing unsecured loan to its wholly-owned subsidiary for capex (\u20b939.75cr FY22 \u2192 \u20b9156cr FY23 \u2192 \u20b9262cr FY24 \u2192 \u20b9245.80cr FY25) \u2014 this is standard treasury financing to a 100%-owned entity, the pattern the audit rubric explicitly treats as benign rather than concerning.\n\nThe one recurring related-party item involving an actual director-linked entity is small: **Ashvich Infotek Private Limited** (\"Company in which Director is Interested\") owns the company's registered office premises (\"Ashvich Towers\") and receives modest rent/consultancy payments (well under \u20b91cr/year \u2014 e.g. \u20b90.87L for FY2022) across multiple subsidiaries in the group. This has been consistently disclosed via the AOC-2 material-contracts annexure since FY2019 and has stayed immaterial in scale throughout.\n\n## Year-by-year\n\n| FY | Score | Notes |\n|---|---|---|\n| 2013 | 0-1 | Content present but limited; no non-arm's-length items. |\n| 2015 | 0-1 | Clean. AOC-2: no non-arm's-length contracts. |\n| 2016 | 0-1 | Clean. Material contract disclosed: subsidiary Argus Salud Pharma LLP purchase/sales (\u20b9690.50L / \u20b9196.68L) \u2014 routine intercompany. |\n| 2017 | 0-1 | Clean. Same subsidiary pattern (purchase \u20b9111.21L, sales \u20b9490.34L). |\n| 2018 | 0-1 | Clean. No related-party transactions to disclose that year. |\n| 2019 | 1 | Ashvich Infotek Private Limited (director-interested) begins appearing \u2014 lease rent paid on office premises, disclosed via AOC-2 material-contracts annexure. |\n| 2020 | 1 | Same Ashvich Infotek lease/consultancy pattern continues, small scale. |\n| 2021 | 1 | Same pattern; unsecured loan to subsidiary begins (\u20b939.75cr, capex). |\n| 2022 | 1 | Ashvich Infotek rent/consultancy (\u20b90.87L) explicitly labeled \"Company in which Director is Interested\" in the AOC-2 table; loan to subsidiary grows to \u20b9156cr. |\n| 2023 | 1 | Same pattern; loan to subsidiary \u20b9262cr. |\n| 2024 | 1 | Same pattern; loan to subsidiary \u20b9245.80cr. |\n| 2025 | 1 | AOC-2: no non-arm's-length transactions; only material contract disclosed is step-down subsidiary Nuevos Eticos Neo Ethicals S.A. (Guatemala) sale of goods, \u20b9207.78cr \u2014 routine group trade, board/shareholder-approved terms. |\n\n## What would have changed the verdict (none of these were found)\n- A non-arm's-length transaction actually populated in Form AOC-2 (every year: none)\n- A qualified or adverse audit opinion touching RPTs\n- A loan or guarantee to a promoter/director-linked entity without commercial rationale (the loans on record are to a wholly-owned subsidiary, for stated capex purposes)\n- Growth or scaling in the one genuine director-linked item (Ashvich Infotek office lease) beyond immaterial amounts\n\n## Caveat on data source\nFY2011, FY2012, and FY2014 annual reports are indexed but the crawl matched zero related-party-keyword pages for them \u2014 most likely reflecting thinner disclosure requirements or a source-PDF format issue in that pre-2015 era rather than missing content; not independently verified page-by-page.", "report_url": "reports/equity_research/CAPLIPOINT_equity_research.html"}, {"company_id": "INE933S01016", "ticker": "INDIAMART", "name": "INDIAMART", "company_name": "INDIAMART INTERMESH LTD", "financials_basis": "consolidated", "tier": "8eighter", "tier_rank": 4, "rev_score": 8, "roce_score": 8, "rev_growths": [29.19, 23.61, 25.9, 4.81, 12.54, 30.78, 21.45, 16.01, 13.02], "roce_values": [16.900000000000002, -66.82000000000001, 83.95, 39.1, 21.959999999999997, 18.81, 23.87, 35.699999999999996, 28.050000000000004], "roce_series": [{"year": 2017, "value": null}, {"year": 2018, "value": 16.900000000000002}, {"year": 2019, "value": -66.82000000000001}, {"year": 2020, "value": 83.95}, {"year": 2021, "value": 39.1}, {"year": 2022, "value": 21.959999999999997}, {"year": 2023, "value": 18.81}, {"year": 2024, "value": 23.87}, {"year": 2025, "value": 35.699999999999996}, {"year": 2026, "value": 28.050000000000004}], "margin_series": [{"year": 2017, "value": null}, {"year": 2018, "value": null}, {"year": 2019, "value": null}, {"year": 2020, "value": 26.179999999999996}, {"year": 2021, "value": 48.61}, {"year": 2022, "value": 39.23}, {"year": 2023, "value": 23.34}, {"year": 2024, "value": 24.310000000000002}, {"year": 2025, "value": 34.12}, {"year": 2026, "value": 30.29}], "turnover_series": [{"year": 2017, "value": null}, {"year": 2018, "value": 48.9285}, {"year": 2019, "value": 59.2434}, {"year": 2020, "value": 13.4935}, {"year": 2021, "value": 8.886}, {"year": 2022, "value": 12.441}, {"year": 2023, "value": 3.2352}, {"year": 2024, "value": 2.1978}, {"year": 2025, "value": 2.642}, {"year": 2026, "value": 3.11}], "wc_cycle_series": [{"year": 2017, "value": null}, {"year": 2018, "value": null}, {"year": 2019, "value": null}, {"year": 2020, "value": -11.35}, {"year": 2021, "value": -16.71}, {"year": 2022, "value": -12.53}, {"year": 2023, "value": -9.32}, {"year": 2024, "value": -10.48}, {"year": 2025, "value": -11.02}, {"year": 2026, "value": -8.74}], "ebit_margin_series": [{"year": 2017, "value": null}, {"year": 2018, "value": null}, {"year": 2019, "value": null}, {"year": 2020, "value": 33.61}, {"year": 2021, "value": 59.14}, {"year": 2022, "value": 52.53}, {"year": 2023, "value": 38.5}, {"year": 2024, "value": 38.71}, {"year": 2025, "value": 51.370000000000005}, {"year": 2026, "value": 41.49}], "capital_turnover_series": [{"year": 2017, "value": null}, {"year": 2018, "value": -1.1542}, {"year": 2019, "value": -6.2885}, {"year": 2020, "value": 2.4981}, {"year": 2021, "value": 0.661}, {"year": 2022, "value": 0.4181}, {"year": 2023, "value": 0.4885}, {"year": 2024, "value": 0.6167}, {"year": 2025, "value": 0.695}, {"year": 2026, "value": 0.676}], "capital_split_series": [{"year": 2017, "fixed_assets": 8.89, "working_capital": -29.47, "investments_cash": 176.9199999}, {"year": 2018, "fixed_assets": 8.25, "working_capital": -41.32, "investments_cash": 357.78}, {"year": 2019, "fixed_assets": 9.24, "working_capital": -12.4300001, "investments_cash": 685.19}, {"year": 2020, "fixed_assets": 85.81, "working_capital": -16.32, "investments_cash": 925.3000000000001}, {"year": 2021, "fixed_assets": 65.2499999, "working_capital": -13.75, "investments_cash": 2332.16}, {"year": 2022, "fixed_assets": 56.24, "working_capital": -16.67, "investments_cash": 2798.5199998999997}, {"year": 2023, "fixed_assets": 553.29, "working_capital": -19.94, "investments_cash": 2841.8100000000004}, {"year": 2024, "fixed_assets": 536.48, "working_capital": -29.22, "investments_cash": 2847.02}, {"year": 2025, "fixed_assets": 515.47, "working_capital": -23.03, "investments_cash": 3537.5499999999997}, {"year": 2026, "fixed_assets": 494.03, "working_capital": -26.5, "investments_cash": 3883.5299999999997}], "years": [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026], "sales": [3177600000.0, 4105100000.0, 5074200000.0, 6388500000.0, 6695599999.0, 7534900000.0, 9854000000.0, 11967800000.0, 13883400000.0, 15690400000.0], "pat": [-643500000.0, 547600000.0, 200400000.0, 1473800000.0, 2797700000.0, 2976200000.0, 2838300000.0, 3339500000.0, 5507000000.0, 4746800000.0], "cfo": [-5800000.0, 1790600000.0, 2551400000.0, 2606100000.0, 3225000000.0, 4023100000.0, 4758300000.0, 5591700000.0, 6232100000.0, 6942200000.0], "cfo_pat_ratio": 1.59, "cfo_pat_series": [{"year": 2017, "cfo": -5800000.0, "pat": -643500000.0, "ratio": 0.01}, {"year": 2018, "cfo": 1790600000.0, "pat": 547600000.0, "ratio": 3.27}, {"year": 2019, "cfo": 2551400000.0, "pat": 200400000.0, "ratio": 12.73}, {"year": 2020, "cfo": 2606100000.0, "pat": 1473800000.0, "ratio": 1.77}, {"year": 2021, "cfo": 3225000000.0, "pat": 2797700000.0, "ratio": 1.15}, {"year": 2022, "cfo": 4023100000.0, "pat": 2976200000.0, "ratio": 1.35}, {"year": 2023, "cfo": 4758300000.0, "pat": 2838300000.0, "ratio": 1.68}, {"year": 2024, "cfo": 5591700000.0, "pat": 3339500000.0, "ratio": 1.67}, {"year": 2025, "cfo": 6232100000.0, "pat": 5507000000.0, "ratio": 1.13}, {"year": 2026, "cfo": 6942200000.0, "pat": 4746800000.0, "ratio": 1.46}], "cfo_pat_score": 9, "cfo_pat_label": "9/10", "pe": 22.06, "mcap": 10473.3, "rpt_score": 1, "rpt_score_display": "1", "rpt_headline": "Tiny, flat promoter office lease and NED training fees for 8 straight years; textbook-clean governance otherwise.", "rpt_report_md": "## Overall verdict: **Score 1 (Watch) \u2014 tiny, static promoter-linked office lease; otherwise textbook-clean governance**\n\nAcross all 8 years, IndiaMART's only recurring related-party items outside its own wholly-owned subsidiaries/associates are: (1) an office lease with **Mansa Enterprises Private Limited** (\"Common Promoter Shareholder above 10 percent\"), running consistently at roughly \u20b91.6\u20132.6 million/year in rent \u2014 trivial next to IndiaMART's scale (revenue in the thousands of crores by FY2026); and (2) training fees paid to **Mr. Dhruv Prakash**, a Non-Executive Director, also consistently tiny (\u2264\u20b92.25 million/year, often near-zero). Both are disclosed every year in AOC-2 and Ind AS 24 notes, both stayed essentially flat in absolute terms for 8 years (i.e., shrinking as a share of a rapidly growing company), and neither has ever been flagged as a materially significant or non-arm's-length transaction. IndiaMART's other related-party activity \u2014 dividends to KMP/relatives, small investments/loans to associate companies (Mobisy Technologies, Fleetx, Simply Vyapar, etc.), a small loan to associate Mobisy Technologies (\u20b930 million, repaid the same year with interest) \u2014 is standard corporate-venture and treasury activity, not personal-interest self-dealing. Every year's Form AOC-2 records \"Not Applicable\" for material/non-arm's-length RPTs, and every year's statutory and secretarial audit reports are unqualified with no fraud or prejudicial findings.\n\n## Year-by-year\n\n| FY | Score | Notes |\n|---|---|---|\n| 2019 | 1 | First year read in full. Mansa Enterprises lease (\u20b91.6\u20132.6M/yr range); Dhruv Prakash training fees (Service Agreement, small). AOC-2: material transactions disclosed but arm's length, nothing flagged non-arm's-length. Impairment of Tolexo subsidiary investment noted (a subsidiary write-down, not an RPT concern). |\n| 2020 | 1 | Same pattern continues, similar scale. |\n| 2021 | 1 | Same pattern. |\n| 2022 | 1 | Same pattern; Mansa/Dhruv Prakash figures remain in the low single-digit-million range. |\n| 2023 | 1 | Same pattern. |\n| 2024 | 1 | Same pattern; company scale much larger by now, RPT figures essentially unchanged in absolute terms. |\n| 2025 | 1 | Same pattern; associate investments (Truckhall, Edgewise) and a small interest-bearing loan to associate Mobisy Technologies (\u20b930M, repaid same year) \u2014 routine. |\n| 2026 | 1 | Most recent year, read in full. Mansa Enterprises rent \u20b96.85M; S R Dinodia & Co LLP (Dinodia-family-linked, an independent director is a Dinodia) tax consultancy \u20b91.7M \u2014 both trivial. \"Company has not entered into any material related party transactions... disclosure of RPTs in e-Form AOC-2 is not applicable.\" Statutory and secretarial audit: no qualification/reservation/adverse remark or disclaimer. |\n\n## What would have changed the verdict (none of these were found)\n- A non-arm's-length transaction actually populated in Form AOC-2 (8/8 years: \"Not Applicable\")\n- A qualified or adverse statutory/secretarial audit opinion (8/8 years: clean)\n- A growing promoter/director-linked transaction (the Mansa/Dhruv Prakash figures stayed flat in absolute terms across 8 years while the company scaled dramatically \u2014 effectively shrinking as a share of the business)\n- A loan or guarantee to a promoter entity without commercial rationale (the one loan found \u2014 to associate Mobisy Technologies \u2014 was interest-bearing and repaid the same year)\n\n## Caveat on data source\nNone \u2014 all 8 annual reports were re-downloaded successfully from BSE source URLs and read directly (bypassing the transform pipeline).", "report_url": "reports/equity_research/INDIAMART_equity_research.html"}];
+var STOCKS_BY_TICKER = {};
+ALL_STOCKS.forEach(function(s){ STOCKS_BY_TICKER[s.ticker] = s; });
+
+var TIER_ORDER = ["9iner","Dirty 9iner","Very Dirty 9iner","8eighter","Dirty 8er"];
+var BATCH_TOTAL = 2;
+var TIER_COLORS = {"9iner": "#5fb98a", "Dirty 9iner": "#8ac9a8", "Very Dirty 9iner": "#a8d4b8", "8eighter": "#c9a24b", "Dirty 8er": "#d4b872"};
+var TIER_DESCS = {"9iner": "Revenue growth > 10% in ALL 9 periods AND ROCE > 15% in ALL 9 years. The gold standard.", "Dirty 9iner": "One gate scores 9/9, the other 8/9. One blemish in a decade \u2014 still exceptional.", "Very Dirty 9iner": "One gate scores 9/9, the other 7/9. Perfect on one dimension, two misses on the other.", "8eighter": "Both gates score 8/9. Missed once on each \u2014 strong consistency.", "Dirty 8er": "One gate scores 8/9, the other 7/9. Getting noisier but still above average."};
+// Display-only labels -- keeps the "Dirty <N><word>er" naming pattern consistent (matches
+// 8eighter/7evener) without touching the underlying tier strings used for filtering/matching.
+var TIER_DISPLAY = {"Dirty 8er":"Dirty 8eighter"};
+function tierLabel(t){ return TIER_DISPLAY[t] || t; }
+
+var openTicker = null;
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+function escapeAttr(s){ return escapeHtml(s).replace(/`/g,'&#96;'); }
+
+// Which companies people actually dig into, and which of the four tabs they check once
+// there, is a much stronger signal than raw page views -- Cloudflare's own analytics has no
+// concept of in-page interaction at all. no-cors + keepalive: the browser fires the request
+// and moves on without waiting for a response, survives the tab closing mid-request, and
+// needs nothing back to be useful (the count lives server-side, read separately). A failure
+// here -- offline, an ad-blocker, the tracking endpoint being down -- must never surface to
+// the reader: try/catch guards the call itself (fetch not existing at all in some restrictive
+// environment), and the returned promise is deliberately left unchained rather than given a
+// .catch() -- a rejected fetch is already silent to the user, so a no-op handler would exist
+// only to describe that same silence to a future reader.
+var TRACKING_ENDPOINT = 'https://coffeecan-tracking.vipul-nigam-work.workers.dev/track';
+function trackEngagement(evt, ticker, view){
+  var url = TRACKING_ENDPOINT + '?t=' + encodeURIComponent(ticker) + '&e=' + evt;
+  if(view) url += '&v=' + encodeURIComponent(view);
+  try{ fetch(url, {mode:'no-cors', keepalive:true}); }catch(e){}
+}
+
+function mcapPill(mcap){
+  if(mcap===null||mcap===undefined) return '<span class="badge-pill mcap-na">N/A</span>';
+  var band, cls;
+  // These were labelled Large/Mid/Small Cap, which in India means something specific: SEBI and
+  // AMFI define large cap as the top 100 listed companies by market capitalisation, currently
+  // around Rs 95,000 Cr and up. Seventeen rows here were labelled "Large Cap" at a Rs 20,000 Cr
+  // threshold -- companies that are mid or small caps under the only definition an Indian
+  // reader will have in mind. Borrowing a regulated term for a different bar is not a shorthand,
+  // it is a wrong statement, so the bands now say their own thresholds and claim nothing else.
+  if(mcap>=20000){ band='&gt; 20,000 Cr'; cls='mcap-large'; }
+  else if(mcap>=5000){ band='5,000&ndash;20,000 Cr'; cls='mcap-mid'; }
+  else { band='&lt; 5,000 Cr'; cls='mcap-small'; }
+  return '<span class="badge-pill '+cls+'">'+band+'</span>';
+}
+function pePill(pe){
+  if(pe===null||pe===undefined||pe<0) return '<span class="badge-pill pe-na">N/A</span>';
+  var cls;
+  if(pe<25) cls='pe-g1';
+  else if(pe<30) cls='pe-g2';
+  else if(pe<35) cls='pe-amber';
+  else cls='pe-red';
+  return '<span class="badge-pill '+cls+'">'+pe.toFixed(1)+'</span>';
+}
+
+// Rev/ROCE score color = relative tier standing (gain=perfect, brass=one off, dim=further back)
+// -- shared by the main table and the detail-panel score-strip so expanding a row never drops
+// signal the list view already showed.
+function gateScoreColor(score){ return score>=9?'var(--gain)':score>=8?'var(--brass)':'var(--dim)'; }
+// Named aliases kept at call sites for readability (revScoreColor(s.rev_score) reads better
+// than a generic name) -- both gates use the identical scale, so there's one function to change.
+function revScoreColor(score){ return gateScoreColor(score); }
+function roceScoreColor(score){ return gateScoreColor(score); }
+// CFO/PAT color = absolute pass/fail against the 1x cash-conversion line, not relative standing
+// -- a different color grammar on purpose (gain/loss/critical, never brass/dim), since "below
+// average for this list" and "burning cash on paper profit" are not the same kind of bad.
+function cfoPatColor(ratio){
+  if(ratio===null||ratio===undefined) return 'var(--faint)';
+  return ratio>=1 ? 'var(--gain)' : ratio>=0.7 ? 'var(--loss)' : 'var(--critical)';
+}
+function cfoPatChipClass(ratio){
+  if(ratio===null||ratio===undefined||ratio>=1) return '';
+  return ratio>=0.7 ? 'chip-warn' : 'chip-critical';
+}
+
+// The two reasons a company ends up on standalone financials are genuinely different facts
+// about the business, not the same caveat worded two ways -- "no consolidated filings at all"
+// (no subsidiaries to consolidate) is a different situation from "consolidated filings exist
+// but cover fewer years than standalone does," so they get distinct, honest labels rather than
+// both being flattened to a single ambiguous "standalone" badge.
+function basisInfo(financialsBasis){
+  var noConsol = financialsBasis === 'standalone_no_consolidated';
+  var shortConsol = financialsBasis === 'standalone_short_consolidated';
+  if(!noConsol && !shortConsol) return null;
+  return {
+    label: noConsol ? 'Completely Standalone' : 'Standalone (fuller history)',
+    mobileGlyph: noConsol ? 'CS' : 'S',
+    tooltip: noConsol
+      ? 'This company has no consolidated financials at all (e.g. no subsidiaries to consolidate) \u2014 every figure shown here is standalone (parent company only), so it isn\'t on the same basis as most peers.'
+      : 'This company does have consolidated financials, but they cover fewer years than its standalone numbers \u2014 so standalone is used here to keep the full history, at the cost of not matching most peers\' basis.'
+  };
+}
+
+// "Watch" (renamed from an earlier round) collided with real rating-agency usage, where it means
+// "flagged for active review, direction uncertain" -- the opposite signal from what score 1
+// actually means here (reviewed, routine, arm's-length -- see the audit reports' own rubric).
+// "Minor" says what this tier actually is without that baggage, and reads sensibly standing
+// alone in both the compact badge and the gauge, so the RPT_LABEL_NOTES qualifier below is now
+// a nice-to-have rather than load-bearing.
+var RPT_LABELS={0:'Clean',1:'Minor',2:'Moderate',3:'Red Flag'};
+// The RPT audit reports' own rubric defines "Watch" as "routine, disclosed, arm's-length; no
+// personal-interest counterparty, no new/growing pattern" -- in practice close enough to Clean
+// that most of these reports' own headline text leads with the word "Clean." Shown bare, the
+// gauge's "Watch" label then reads as contradicting the "Clean..." headline sitting right below
+// it on the same screen. Rather than rewrite 20+ authored headlines to avoid a word collision,
+// add this one qualifying note only where the gauge and headline actually sit close enough to
+// clash (the RPT tab) -- the compact "1 . Watch" badge used everywhere else has no such
+// neighbor and stays as the short, correct rubric term.
+var RPT_LABEL_NOTES={1:'routine and arm\'s-length \u2014 one item flagged for visibility, not concern'};
+// A "display" value like "0-1" means the analyst scored a case genuinely on the boundary
+// between two bands (too clean to confidently call a straight 1, not quite a 0) -- looking up
+// RPT_LABELS by the raw integer score alone collapses that back down to just "Minor" and
+// silently drops the "could be Clean" half of what the analyst actually said. Spell out the
+// full band's label range instead when display encodes one.
+function rptLabelForDisplay(score, display){
+  var m = display && /^(\d+)-(\d+)$/.exec(display);
+  if(m){
+    var lo = RPT_LABELS[+m[1]], hi = RPT_LABELS[+m[2]];
+    if(lo && hi) return lo===hi ? lo : lo+'/'+hi;
+  }
+  return RPT_LABELS[score]||'';
+}
+function rptPill(score, display){
+  // "N/A" read as missing data, indistinguishable from a dash. This company's audit is simply
+  // still in progress (the "1 pending" the header counts), which is a different and knowable
+  // fact -- so say that instead of implying the data doesn't exist.
+  if(score===null||score===undefined) return '<span class="badge-pill rpt-pending" title="Related-party audit not yet completed — this is the 1 of 40 still in progress, not a company that failed the audit.">Audit pending</span>';
+  var label=(display&&display!==String(score)?display:score)+' &middot; '+rptLabelForDisplay(score, display);
+  return '<span class="badge-pill rpt-'+score+'">'+label+'</span>';
+}
+function sparkline(values, threshold, isGrowth){
+  if(!values||!values.length) return '<span class="na">&mdash;</span>';
+  var max = Math.max(...values.filter(v=>v!==null).map(Math.abs), threshold);
+  return '<div class="sparkline">' + values.map(function(v){
+    if(v===null) return '<div class="sparkbar" style="height:1px;background:var(--faint);"></div>';
+    var h = Math.max(2, Math.abs(v)/max*22);
+    var pass = isGrowth ? v>10 : v>15;
+    var c = pass ? 'var(--gain)' : 'var(--loss)';
+    return '<div class="sparkbar" style="height:'+h+'px;background:'+c+';"></div>';
+  }).join('') + '</div>';
+}
+
+var CW = 560, CH = 178, CPL = 4, CPR = 4, CPT = 10, CPB = 30;
+
+function shortYear(y){
+  if(!y) return '';
+  var m = String(y).match(/(\d{4})/);
+  return m ? "'" + m[1].slice(2) : y;
+}
+// Full "Mar'20" fiscal-year label (Indian FY ends 31 March) -- years here are plain integers from
+// computed_metrics.fiscal_year, unlike coffeeCan's mock data where "Mar'17" was already the raw
+// label string. Used for year pills and the drilled-in cuboid header, which show the FULL label
+// (shortYear's "'20" abbreviation is for cramped chart x-axes only, per iteration-13-7's own
+// distinction between the two).
+function fmtFY(y){ return (y===null||y===undefined) ? '' : "Mar'"+String(y).slice(-2); }
+
+function isMobile(){ return window.matchMedia('(max-width:480px)').matches; }
+
+function buildBarChart(items, opts){
+  opts = opts || {};
+  var n = items.length;
+  if(!n) return '<div style="color:var(--faint);font-size:12px;padding:30px 0;text-align:center;">No data available</div>';
+
+  var innerW = CW - CPL - CPR, innerH = CH - CPT - CPB;
+  var vals = items.map(function(it){ return it.value; }).filter(function(v){ return v!==null && v!==undefined; });
+  if(!vals.length) return '<div style="color:var(--faint);font-size:12px;padding:30px 0;text-align:center;">No data available</div>';
+
+  var refs = (opts.refLine!==undefined && opts.refLine!==null) ? [opts.refLine] : [];
+  var targets = items.map(function(it){ return it.target; }).filter(function(v){ return v!==null && v!==undefined; });
+  var maxV = Math.max.apply(null, vals.concat(refs).concat(targets).concat([0]));
+  var minV = Math.min.apply(null, vals.concat(refs).concat(targets).concat([0]));
+  if(maxV===minV) maxV = minV + 1;
+  var pad = (maxV-minV)*0.12;
+  maxV += pad;
+  if(minV<0) minV -= pad;
+  var range = maxV - minV;
+
+  function yOf(v){ return CPT + innerH - ((v-minV)/range*innerH); }
+  var zeroY = yOf(0);
+
+  var barSlot = innerW/n;
+  var barW = Math.max(4, Math.min(38, barSlot*0.6));
+
+  var svg = '';
+
+  var gridN = 3;
+  for(var g=0; g<=gridN; g++){
+    var gv = minV + (range*g/gridN);
+    var gy = yOf(gv);
+    svg += '<line x1="'+CPL+'" y1="'+gy+'" x2="'+(CW-CPR)+'" y2="'+gy+'" stroke="rgba(232,228,214,0.07)" stroke-width="1"/>';
+    svg += '<text x="0" y="'+(gy-3)+'" font-size="8.5" fill="var(--faint)" font-family="var(--mono)">'+(opts.axisFmt?opts.axisFmt(gv):gv.toFixed(0))+'</text>';
+  }
+
+  if(opts.refLine!==undefined && opts.refLine!==null){
+    var ry = yOf(opts.refLine);
+    svg += '<line x1="'+CPL+'" y1="'+ry+'" x2="'+(CW-CPR)+'" y2="'+ry+'" stroke="var(--brass)" stroke-width="1" stroke-dasharray="3,3" opacity="0.55"/>';
+  }
+
+  items.forEach(function(it, i){
+    var cx = CPL + i*barSlot + barSlot/2;
+    var v = it.value;
+    var color = it.pass===true ? (opts.passColor||'var(--gain)') : it.pass===false ? (opts.failColor||'var(--loss)') : (opts.neutralColor||'var(--faint)');
+
+    if(v!==null && v!==undefined){
+      var y1 = yOf(v), y2 = zeroY;
+      var top = Math.min(y1,y2), h = Math.max(1.5, Math.abs(y1-y2));
+      var rx = 3;
+      var ttRows = (it.tooltip||[]).map(function(r){
+        return '<div class="tt-row"><span class="k">'+escapeHtml(r[0])+'</span><span class="v">'+escapeHtml(r[1])+'</span></div>';
+      }).join('');
+      svg += '<rect class="bar-rect" x="'+(cx-barW/2)+'" y="'+top+'" width="'+barW+'" height="'+h+'" rx="'+rx+'" fill="'+color+'" '+
+             'data-tt-title="'+escapeAttr(it.label)+'" data-tt-rows="'+escapeAttr(ttRows)+'"></rect>';
+    }
+
+    // Per-bar target tick, e.g. "what 10% growth over last year would have looked like" --
+    // a fixed threshold like refLine only makes sense as one flat line when every bar shares
+    // the same scale; a target relative to each bar's OWN prior year needs its own tick.
+    if(it.target!==null && it.target!==undefined){
+      var ty = yOf(it.target), tickW = barW + 6;
+      svg += '<line x1="'+(cx-tickW/2)+'" y1="'+ty+'" x2="'+(cx+tickW/2)+'" y2="'+ty+'" stroke="var(--brass)" stroke-width="1.6" stroke-dasharray="3,2"/>';
+    }
+
+    svg += '<text x="'+cx+'" y="'+(CH-8)+'" font-size="9" fill="var(--dim)" font-family="var(--mono)" text-anchor="middle">'+escapeHtml(shortYear(it.label))+'</text>';
+  });
+
+  // Optional OLS trend line, e.g. for a working-capital-intensity regression -- drawn in
+  // this same y-scale (yOf) so it lines up exactly with the bars above, rather than as a
+  // separately-scaled overlay that could drift out of alignment. x-position per item uses
+  // the same index-based cx as the bars themselves: for a trailing window of consecutive
+  // fiscal years index-step and year-step are identical, so a slope fit against index is
+  // numerically the same as a slope fit against year (see caller).
+  //
+  // Only plotted across indices that actually have a bar (it.value present). The fit itself
+  // (opts.trendLine) is already computed by the caller from real points only, but drawing the
+  // line across every index -- including years with no data at all, e.g. a company whose
+  // working-capital figure only exists for its 5 most recent years -- would extrapolate the
+  // fitted line backward through years it says nothing about, visually implying a decade-long
+  // trend a 5-year fit doesn't support. Skipping no-data indices keeps the line's extent
+  // honest about how much of it is real.
+  if(opts.trendLine){
+    var tl = opts.trendLine;
+    var ptsArr = [];
+    items.forEach(function(it,i){
+      if(it.value===null || it.value===undefined) return;
+      var cx = CPL + i*barSlot + barSlot/2;
+      var yv = tl.intercept + tl.slope*i;
+      ptsArr.push(cx+','+yOf(yv));
+    });
+    if(ptsArr.length>=2){
+      svg += '<polyline points="'+ptsArr.join(' ')+'" fill="none" stroke="'+(opts.trendColor||'var(--brass)')+'" stroke-width="2" stroke-linecap="round"/>';
+    }
+  }
+
+  return '<svg class="chart-svg" viewBox="0 0 '+CW+' '+CH+'" preserveAspectRatio="xMidYMid meet">'+svg+'</svg>';
+}
+
+function legendRow(items){
+  return '<div class="chart-legend">' + items.map(function(it){
+    var swatch = it.dashed
+      ? '<span class="legend-swatch legend-swatch-dashed" style="color:'+it.color+'"></span>'
+      : '<span class="legend-swatch" style="background:'+it.color+'"></span>';
+    return '<span class="legend-key">'+swatch+escapeHtml(it.label)+'</span>';
+  }).join('') + '</div>';
+}
+
+function crore(v){ if(v===null||v===undefined) return '&mdash;'; return '₹' + Math.round(v).toLocaleString('en-IN') + ' Cr'; }
+
+function buildRevenueChart(s){
+  var years = s.years||[], sales = s.sales||[];
+  var items = years.map(function(y, i){
+    var v = sales[i]!==undefined && sales[i]!==null ? sales[i]/1e7 : null;
+    var prev = i>0 && sales[i-1]!==undefined && sales[i-1]!==null ? sales[i-1]/1e7 : null;
+    var growth = (v!==null && prev!==null && prev!==0) ? ((v-prev)/prev*100) : null;
+    var pass = growth===null ? null : growth>10;
+    var target = prev!==null ? prev*1.10 : null;
+    var tt = [["Revenue", crore(v)]];
+    tt.push(["YoY Growth", growth===null ? "n/a (first year)" : growth.toFixed(1)+"%"]);
+    if(target!==null) tt.push(["10% Target", crore(target)]);
+    return {label:y, value:v, pass:pass, tooltip:tt, target:target};
+  });
+  var svg = buildBarChart(items, {axisFmt:function(v){ return '₹'+Math.round(v).toLocaleString('en-IN'); }});
+  return '<div class="chart-card"><div class="chart-title">Revenue</div><div class="chart-sub">Absolute sales (&#8377; Cr)</div>'+svg+
+    legendRow([{color:'var(--gain)',label:'Growth > 10%'},{color:'var(--loss)',label:'Growth ≤ 10%'},{color:'var(--faint)',label:'No prior year'},{color:'var(--brass)',label:'10% growth target',dashed:true}])+'</div>';
+}
+
+var GATE_ROCE = 15;
+
+var JARGON = {
+  roce: 'Return on Capital Employed. Formula: EBIT \u00f7 average Capital Employed, where EBIT = Profit Before Tax + Interest. Capital Employed = Borrowings + Equity Share Capital + Reserves (i.e. Debt + Equity). Profit generated per rupee of capital invested \u2014 higher is generally better.',
+  bridge: 'EBIT Margin \u00d7 Capital Turnover \u2014 same EBIT and same Capital Employed (Debt+Equity) basis the ROCE figure itself uses, so the two multiply back to ROCE exactly, every year. Effects below are in percentage points (pp) \u2014 the raw gap between two percentages, e.g. 18% to 20% is +2pp.',
+  pe: 'Price-to-Earnings ratio: share price \u00f7 profit per share \u2014 roughly, how many years of today\'s profit it would take to earn back what you paid. Lower isn\'t automatically better (a cheap P/E can mean the market expects trouble); a high one means you\'re paying up for growth that still has to show up.',
+  mcap: 'Market Capitalization: share price \u00d7 total shares outstanding \u2014 what the whole company is worth at today\'s price. Bands used here: Large Cap \u2265 \u20b920,000 Cr, Mid Cap \u2265 \u20b95,000 Cr, Small Cap below that.',
+  cfopat: 'Cash from Operations \u00f7 Profit After Tax, per year \u2014 does reported profit actually show up as cash. Scored out of 10 years here, one more than the Revenue and ROCE gates. Those two are scored over the same nine fiscal years so they stay directly comparable: revenue growth needs a prior year to compute a rate, which costs the first year of the window, and the ROCE gate drops that same first year to stay aligned with it. CFO/PAT is a straight per-year ratio, so all ten years are scored and it doesn\'t.',
+  rpt: 'How much of a company\'s dealings with people connected to it (promoters, directors, their relatives and firms) look routine versus worth a second look, based on each company\'s own annual-report disclosures \u2014 including Form AOC-2 (the mandatory related-party-transaction filing) and whether deals are priced \u201cat arm\'s length\u201d (as if the two sides were unrelated, not favoring one over the other).',
+  pearsonr: 'Pearson correlation coefficient, from -1 to +1: how strongly two things move together. Near 0 = no relationship, near +1 = they rise and fall together, near -1 = one rises when the other falls.',
+  regslope: 'Slope of the best-fit line through the yearly points \u2014 the average change per year the trend implies, in percentage points.'
+};
+function jg(key){
+  var t = JARGON[key];
+  if(!t) return '';
+  return '<span class="jg-wrap"><button type="button" class="jg-q" aria-label="What does this mean?">?</button>'+
+    '<span class="jg-tip" role="tooltip">'+t+'</span></span>';
+}
+
+function fmtSigned(v,d){ d=d===undefined?1:d; return (v>=0?'+':'')+v.toFixed(d); }
+
+/* Pearson correlation coefficient over paired [x,y] points. Needs at least 3 points to be
+   worth showing -- a 2-point "correlation" is always exactly +-1 or undefined and implies
+   more confidence than the data supports. */
+function pearsonR(pairs){
+  var n = pairs.length;
+  if(n<3) return null;
+  var sx=0,sy=0,sxx=0,syy=0,sxy=0;
+  pairs.forEach(function(p){ sx+=p[0]; sy+=p[1]; sxx+=p[0]*p[0]; syy+=p[1]*p[1]; sxy+=p[0]*p[1]; });
+  var den = Math.sqrt((n*sxx-sx*sx)*(n*syy-sy*sy));
+  if(den===0) return null;
+  return (n*sxy - sx*sy)/den;
+}
+
+/* Ordinary least squares slope+intercept over paired [x,y] points. */
+function linRegress(pairs){
+  var n = pairs.length;
+  if(n<2) return null;
+  var sx=0,sy=0,sxx=0,sxy=0;
+  pairs.forEach(function(p){ sx+=p[0]; sy+=p[1]; sxx+=p[0]*p[0]; sxy+=p[0]*p[1]; });
+  var denom = n*sxx - sx*sx;
+  if(denom===0) return null;
+  var slope = (n*sxy - sx*sy)/denom;
+  return {slope:slope, intercept:(sy - slope*sx)/n};
+}
+
+/* Two independently-scaled series (different units: % vs days), each bar pair sharing one
+   zero baseline -- deliberately NOT normalized onto a common percentage scale, since CCC
+   crosses zero for many companies here and a %-growth-of-CCC metric would be unstable right
+   where the denominator is near zero. Each series is scaled to its own max magnitude, so bar
+   height reads as "how big, relative to this series' own history" -- honest for judging
+   whether the two move together (the actual question this chart answers), never implying the
+   two heights are on the same scale. */
+function buildDualBarChart(items, opts){
+  opts = opts || {};
+  var n = items.length;
+  if(!n) return '<div style="color:var(--faint);font-size:12px;padding:30px 0;text-align:center;">No data available</div>';
+
+  var DCW = 560, DCH = 190, DCPL = 34, DCPR = 34, DCPT = 14, DCPB = 28;
+  var innerW = DCW - DCPL - DCPR, innerH = DCH - DCPT - DCPB;
+  var zeroY = DCPT + innerH*0.5;
+  var halfH = Math.min(zeroY - DCPT, DCPT + innerH - zeroY);
+
+  var aVals = items.map(function(it){ return it.a; }).filter(function(v){ return v!==null && v!==undefined; });
+  var bVals = items.map(function(it){ return it.b; }).filter(function(v){ return v!==null && v!==undefined; });
+  if(!aVals.length && !bVals.length) return '<div style="color:var(--faint);font-size:12px;padding:30px 0;text-align:center;">No data available</div>';
+  var maxAbsA = Math.max.apply(null, aVals.map(Math.abs).concat([1e-9])) * 1.15;
+  var maxAbsB = Math.max.apply(null, bVals.map(Math.abs).concat([1e-9])) * 1.15;
+
+  function yOfA(v){ return zeroY - (v/maxAbsA)*halfH; }
+  function yOfB(v){ return zeroY - (v/maxAbsB)*halfH; }
+
+  var slot = innerW/n;
+  var pairW = Math.max(6, Math.min(34, slot*0.62));
+  var barW = pairW/2 - 1;
+
+  var svg = '<line x1="'+DCPL+'" y1="'+zeroY+'" x2="'+(DCW-DCPR)+'" y2="'+zeroY+'" stroke="rgba(232,228,214,0.16)" stroke-width="1"/>';
+  svg += '<text x="2" y="'+(DCPT+3)+'" font-size="8" fill="var(--faint)" font-family="var(--mono)">'+opts.aFmt(maxAbsA/1.15)+'</text>';
+  svg += '<text x="2" y="'+(DCPT+innerH+2)+'" font-size="8" fill="var(--faint)" font-family="var(--mono)">'+opts.aFmt(-maxAbsA/1.15)+'</text>';
+  svg += '<text x="'+(DCW-2)+'" y="'+(DCPT+3)+'" font-size="8" fill="var(--faint)" font-family="var(--mono)" text-anchor="end">'+opts.bFmt(maxAbsB/1.15)+'</text>';
+  svg += '<text x="'+(DCW-2)+'" y="'+(DCPT+innerH+2)+'" font-size="8" fill="var(--faint)" font-family="var(--mono)" text-anchor="end">'+opts.bFmt(-maxAbsB/1.15)+'</text>';
+
+  items.forEach(function(it, i){
+    var cx = DCPL + i*slot + slot/2;
+    var ttRows = '<div class="tt-row"><span class="k">'+escapeHtml(opts.aLabel)+'</span><span class="v">'+
+      (it.a===null||it.a===undefined?'&mdash;':opts.aFmt(it.a))+'</span></div>'+
+      '<div class="tt-row"><span class="k">'+escapeHtml(opts.bLabel)+'</span><span class="v">'+
+      (it.b===null||it.b===undefined?'&mdash;':opts.bFmt(it.b))+'</span></div>';
+    var ttAttrs = 'data-tt-title="'+escapeAttr(it.label)+'" data-tt-rows="'+escapeAttr(ttRows)+'"';
+
+    if(it.a!==null && it.a!==undefined){
+      var ay = yOfA(it.a), aTop = Math.min(ay, zeroY), aH = Math.max(1.5, Math.abs(ay-zeroY));
+      svg += '<rect class="bar-rect" x="'+(cx-barW-1)+'" y="'+aTop+'" width="'+barW+'" height="'+aH+'" rx="2" fill="'+opts.aColor+'" '+ttAttrs+'></rect>';
+    }
+    if(it.b!==null && it.b!==undefined){
+      var by = yOfB(it.b), bTop = Math.min(by, zeroY), bH = Math.max(1.5, Math.abs(by-zeroY));
+      svg += '<rect class="bar-rect" x="'+(cx+1)+'" y="'+bTop+'" width="'+barW+'" height="'+bH+'" rx="2" fill="'+opts.bColor+'" '+ttAttrs+'></rect>';
+    }
+    svg += '<text x="'+cx+'" y="'+(DCH-8)+'" font-size="9" fill="var(--dim)" font-family="var(--mono)" text-anchor="middle">'+escapeHtml(shortYear(it.label))+'</text>';
+  });
+
+  return '<svg class="chart-svg" viewBox="0 0 '+DCW+' '+DCH+'" preserveAspectRatio="xMidYMid meet">'+svg+'</svg>';
+}
+
+function buildCcRevenueCorrelation(s){
+  var years = s.years||[];
+  var wcSeries = s.wc_cycle_series||[];
+  var growths = s.rev_growths||[];
+  var pairs = [], barItems = [];
+  for(var i=0;i<growths.length;i++){
+    var g = growths[i];
+    var c0 = wcSeries[i] ? wcSeries[i].value : null;
+    var c1 = wcSeries[i+1] ? wcSeries[i+1].value : null;
+    var delta = (c0!==null && c0!==undefined && c1!==null && c1!==undefined) ? (c1-c0) : null;
+    if(g!==null && g!==undefined && delta!==null) pairs.push([g, delta]);
+    barItems.push({label: fmtFY(years[i+1]), a: (g===null||g===undefined?null:g), b: delta});
+  }
+  var r = pearsonR(pairs);
+  var rLabel, rColor, rDesc;
+  if(r===null){
+    rLabel = 'n/a'; rColor = 'var(--faint)';
+    rDesc = pairs.length ? 'Fewer than 3 years with both a revenue-growth figure and a cash-conversion-cycle reading for consecutive years -- too few points for a meaningful correlation.'
+                          : 'No years with both revenue growth and a cash conversion cycle reading -- working-capital data (receivables/inventory/payables days) isn\'t available for this company.';
+  } else {
+    rLabel = r.toFixed(2);
+    rColor = r>0.3 ? 'var(--loss)' : (r<-0.3 ? 'var(--gain)' : 'var(--brass)');
+    rDesc = r>0.3
+      ? 'Positive correlation -- in years this company grows revenue faster, its cash conversion cycle tends to lengthen (working capital getting less efficient as it scales).'
+      : (r<-0.3
+        ? 'Negative correlation -- in years this company grows revenue faster, its cash conversion cycle tends to shorten (working capital getting MORE efficient as it scales, a good sign).'
+        : 'Weak/no correlation -- the cash conversion cycle moves roughly independently of how fast revenue is growing.');
+  }
+  return '<div class="chart-card"><div class="chart-title">Revenue Growth vs. Cash Conversion Cycle</div>'+
+    '<div class="chart-sub">Correlation between YoY revenue growth (%) and the YoY change in CCC (days) &middot; '+pairs.length+' of '+growths.length+' years usable</div>'+
+    '<div style="display:flex;align-items:baseline;gap:10px;margin:12px 0 4px;">'+
+      '<div style="font-family:var(--serif);font-size:30px;font-weight:700;color:'+rColor+';">'+rLabel+'</div>'+
+      (r!==null?'<div style="font-size:10.5px;color:var(--faint);font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;">Pearson r'+jg('pearsonr')+'</div>':'')+
+    '</div>'+
+    '<div class="rpt-headline">'+rDesc+'</div>'+
+    buildDualBarChart(barItems, {
+      aLabel: 'Rev Growth', bLabel: '\u0394CCC',
+      aColor: 'var(--comp-1)', bColor: 'var(--comp-2)',
+      aFmt: function(v){ return fmtSigned(v,1)+'%'; },
+      bFmt: function(v){ return fmtSigned(v,1)+'d'; },
+    })+
+    legendRow([{color:'var(--comp-1)',label:'Revenue Growth %'},{color:'var(--comp-2)',label:'\u0394CCC (days)'}])+
+    '</div>';
+}
+
+function buildWcRevenueChart(s){
+  var wcSeries = s.wc_cycle_series||[];
+  var items = wcSeries.map(function(p){
+    var pct = (p.value===null||p.value===undefined) ? null : (p.value/365*100);
+    var tt = pct===null ? [] : [['WC / Revenue', pct.toFixed(1)+'%'],['Cash Conversion Cycle', p.value.toFixed(1)+' days']];
+    return {label:p.year, value:pct, pass:null, tooltip:tt};
+  });
+  var pairs = [];
+  items.forEach(function(it,i){ if(it.value!==null) pairs.push([i, it.value]); });
+  var reg = pairs.length>=2 ? linRegress(pairs) : null;
+
+  var slopeLabel, slopeColor, slopeDesc;
+  if(!reg){
+    slopeLabel = 'n/a'; slopeColor = 'var(--faint)';
+    slopeDesc = 'Not enough years with a working-capital reading to fit a trend.';
+  } else {
+    var slope = reg.slope;
+    slopeLabel = fmtSigned(slope,2)+' pts/yr';
+    slopeColor = slope<=0 ? 'var(--gain)' : (slope>1 ? 'var(--critical)' : 'var(--brass)');
+    slopeDesc = slope<=0
+      ? 'Working capital as a share of revenue is FLAT or SHRINKING -- the business is funding growth without tying up proportionally more cash, a good sign.'
+      : (slope>1
+        ? 'Working capital as a share of revenue is GROWING FAST (>1 percentage point per year) -- each extra rupee of revenue is costing more cash to fund, worth checking against the receivables/inventory trend directly.'
+        : 'Working capital as a share of revenue is drifting up gradually -- worth watching but not yet alarming.');
+  }
+
+  var svg = buildBarChart(items, {
+    axisFmt: function(v){ return v.toFixed(0)+'%'; },
+    trendLine: reg,
+    trendColor: slopeColor,
+  });
+
+  return '<div class="chart-card"><div class="chart-title">Working Capital / Revenue</div>'+
+    '<div class="chart-sub">Trade working capital (approximated from the cash conversion cycle) as % of revenue, per year</div>'+
+    svg+
+    '<div style="display:flex;align-items:baseline;gap:10px;margin-top:10px;">'+
+      '<div style="font-family:var(--serif);font-size:20px;font-weight:700;color:'+slopeColor+';">'+slopeLabel+'</div>'+
+      '<div style="font-size:10.5px;color:var(--faint);font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;">regression slope'+jg('regslope')+'</div>'+
+    '</div>'+
+    '<div class="rpt-headline">'+slopeDesc+'</div>'+
+    '</div>';
+}
+
+/* ---------- ROCE tab: trend -> capital composition -> bridge. Three always-visible chart-cards,
+   same concatenation pattern as the CFO/PAT tab, except the bridge keeps its own interactive
+   state (year pills + swipe) since "which year's bridge" is a real selection, not just a static
+   trend read. ---------- */
+
+function buildRoceTrendChart(s){
+  var series = s.roce_series||[];
+  var items = series.map(function(p){
+    return {label:p.year, value:p.value, pass: p.value===null?null:p.value>GATE_ROCE,
+      tooltip: (p.value===null||p.value===undefined)?[]:[['ROCE', p.value.toFixed(1)+'%']]};
+  });
+  var svg = buildBarChart(items, {refLine:GATE_ROCE, axisFmt:function(v){ return v.toFixed(0)+'%'; }});
+  return '<div class="chart-card"><div class="chart-title">ROCE'+jg('roce')+'</div>'+
+    '<div class="chart-sub">Return on Capital Employed per year</div>'+
+    svg+
+    legendRow([{color:'var(--gain)',label:'Above '+GATE_ROCE+'% gate'},{color:'var(--loss)',label:'Below gate'}])+
+    '</div>';
+}
+
+/* Generic stacked-bar builder, same CW/CH/CPL/CPR/CPT/CPB frame and .bar-rect tooltip
+   convention as buildBarChart -- items: [{label, <segment.key>: value, ...}], segments:
+   [{key, label, color}]. */
+function buildStackedBarChart(items, segments, opts){
+  opts = opts || {};
+  var n = items.length;
+  if(!n) return '<div style="color:var(--faint);font-size:12px;padding:30px 0;text-align:center;">No data available</div>';
+
+  var innerW = CW - CPL - CPR, innerH = CH - CPT - CPB;
+  // Running cumulative per item -- not just the final total. A segment (e.g. negative working
+  // capital exceeding fixed assets) can push the in-progress stack below zero even when the
+  // total lands positive, so the y-scale needs the full excursion, not just start/end points.
+  var totals = [], allLevels = [0];
+  items.forEach(function(it){
+    var cum = 0;
+    segments.forEach(function(seg){
+      var v = it[seg.key];
+      if(v===null || v===undefined) return;
+      cum += v;
+      allLevels.push(cum);
+    });
+    totals.push(cum);
+  });
+  var hasAny = items.some(function(it){ return segments.some(function(seg){ return it[seg.key]!==null && it[seg.key]!==undefined; }); });
+  if(!hasAny) return '<div style="color:var(--faint);font-size:12px;padding:30px 0;text-align:center;">No data available</div>';
+  var maxV = Math.max.apply(null, allLevels), minV = Math.min.apply(null, allLevels);
+  var pad = (maxV-minV)*0.12 || Math.abs(maxV)*0.1 || 1;
+  maxV += pad;
+  if(minV<0) minV -= pad;
+  var range = (maxV-minV) || 1;
+
+  function yOf(v){ return CPT + innerH - ((v-minV)/range*innerH); }
+  var zeroY = yOf(0);
+
+  var barSlot = innerW/n;
+  var barW = Math.max(4, Math.min(38, barSlot*0.6));
+
+  var svg = '';
+  if(minV<0){
+    svg += '<line x1="'+CPL+'" y1="'+zeroY+'" x2="'+(CW-CPR)+'" y2="'+zeroY+'" stroke="rgba(232,228,214,0.14)" stroke-width="1"/>';
+  }
+  var gridN = 3;
+  for(var g=0; g<=gridN; g++){
+    var gv = minV + (range*g/gridN), gy = yOf(gv);
+    svg += '<line x1="'+CPL+'" y1="'+gy+'" x2="'+(CW-CPR)+'" y2="'+gy+'" stroke="rgba(232,228,214,0.07)" stroke-width="1"/>';
+    svg += '<text x="0" y="'+(gy-3)+'" font-size="8.5" fill="var(--faint)" font-family="var(--mono)">'+(opts.axisFmt?opts.axisFmt(gv):gv.toFixed(0))+'</text>';
+  }
+
+  items.forEach(function(it,i){
+    var cx = CPL + i*barSlot + barSlot/2, x0 = cx-barW/2;
+    var ttRows = segments.map(function(seg){
+      var v = it[seg.key];
+      return '<div class="tt-row"><span class="k">'+escapeHtml(seg.label)+'</span><span class="v">'+
+        (v===null||v===undefined?'&mdash;':(opts.segFmt?opts.segFmt(v):v.toFixed(0)))+'</span></div>';
+    }).join('') + '<div class="tt-row" style="border-top:1px solid var(--hair2);margin-top:3px;padding-top:3px;">'+
+      '<span class="k">Total</span><span class="v">'+(opts.segFmt?opts.segFmt(totals[i]):totals[i].toFixed(0))+'</span></div>';
+    var ttAttrs = 'data-tt-title="'+escapeAttr(fmtFY(it.label))+'" data-tt-rows="'+escapeAttr(ttRows)+'"';
+    var cum = 0;
+    segments.forEach(function(seg){
+      var v = it[seg.key];
+      if(v===null || v===undefined) return;
+      // top=min/height=abs, not "y1 is always the top" -- a negative segment (cum+v < cum)
+      // must draw growing DOWN from the cum baseline, same as buildBarChart's own zero-cross
+      // handling, not clamp to a 1px sliver at the wrong position.
+      var y1 = yOf(cum+v), y2 = yOf(cum);
+      var top = Math.min(y1,y2), h = Math.max(1.5, Math.abs(y1-y2));
+      svg += '<rect class="bar-rect" x="'+x0+'" y="'+top+'" width="'+barW+'" height="'+h+'" fill="'+seg.color+'" '+ttAttrs+'></rect>';
+      cum += v;
+    });
+    svg += '<text x="'+cx+'" y="'+(CH-8)+'" font-size="9" fill="var(--dim)" font-family="var(--mono)" text-anchor="middle">'+escapeHtml(shortYear(it.label))+'</text>';
+  });
+
+  return '<svg class="chart-svg" viewBox="0 0 '+CW+' '+CH+'" preserveAspectRatio="xMidYMid meet">'+svg+'</svg>';
+}
+
+var CAPITAL_SPLIT_SEGMENTS = [
+  {key:'fixed_assets', label:'Fixed Assets', color:'var(--comp-1)'},
+  {key:'working_capital', label:'Working Capital', color:'var(--comp-2)'},
+  {key:'investments_cash', label:'Investments & Cash', color:'var(--comp-3)'}
+];
+function buildCapitalSplitChart(s){
+  var series = s.capital_split_series||[];
+  var items = series.map(function(p){
+    return {label:p.year, fixed_assets:p.fixed_assets, working_capital:p.working_capital, investments_cash:p.investments_cash};
+  });
+  var svg = buildStackedBarChart(items, CAPITAL_SPLIT_SEGMENTS, {
+    axisFmt: function(v){ return Math.round(v).toLocaleString('en-IN'); },
+    segFmt: crore,
+  });
+  return '<div class="chart-card"><div class="chart-title">Capital Employed Composition</div>'+
+    '<div class="chart-sub">&#8377; Cr, per year &mdash; where the capital base is going</div>'+
+    svg+
+    legendRow([{color:'var(--comp-1)',label:'Fixed Assets'},{color:'var(--comp-2)',label:'Working Capital'},{color:'var(--comp-3)',label:'Investments & Cash'}])+
+    '</div>';
+}
+
+var ROCE_BRIDGE_STATE = {};
+function roceBridgeStateFor(ticker, s){
+  if(!ROCE_BRIDGE_STATE[ticker]) ROCE_BRIDGE_STATE[ticker] = { year: Math.max(1, (s.roce_series||[]).length-1) };
+  return ROCE_BRIDGE_STATE[ticker];
+}
+
+/* Sequential DuPont-style attribution: margin effect evaluated at prior turnover, turnover
+   effect evaluated at current margin -- the two sum EXACTLY to the ROCE change (no residual),
+   since ebit_margin*capital_turnover reconciles to roce_mukherjea itself. */
+function computeRoceBridge(s, yi){
+  var margin = s.ebit_margin_series||[], turnover = s.capital_turnover_series||[], roce = s.roce_series||[];
+  if(yi<1 || yi>=margin.length) return null;
+  var mCur = margin[yi]?margin[yi].value:null, mPrev = margin[yi-1]?margin[yi-1].value:null;
+  var tCur = turnover[yi]?turnover[yi].value:null, tPrev = turnover[yi-1]?turnover[yi-1].value:null;
+  var rCur = roce[yi]?roce[yi].value:null, rPrev = roce[yi-1]?roce[yi-1].value:null;
+  if(mCur===null||mPrev===null||tCur===null||tPrev===null||rCur===null||rPrev===null) return null;
+  return {
+    prior: rPrev, current: rCur,
+    marginFx: (mCur-mPrev)*tPrev, turnoverFx: (tCur-tPrev)*mCur,
+    priorYear: (roce[yi-1]||{}).year, currentYear: (roce[yi]||{}).year,
+  };
+}
+
+function buildBridgeSvg(d){
+  var steps = [
+    {label: fmtFY(d.priorYear), kind:'total', val: d.prior},
+    {label: 'Margin effect', kind:'delta', base: d.prior, val: d.marginFx},
+    {label: 'Turnover effect', kind:'delta', base: d.prior+d.marginFx, val: d.turnoverFx},
+    {label: fmtFY(d.currentYear), kind:'total', val: d.current}
+  ];
+  var allVals = [d.prior, d.prior+d.marginFx, d.prior+d.marginFx+d.turnoverFx, d.current, 0];
+  var maxV = Math.max.apply(null, allVals) * 1.18;
+  var minV = Math.min(0, Math.min.apply(null, allVals)) * 1.1;
+  if(maxV===minV) maxV = minV+1;
+  var range = maxV-minV;
+  var innerW = CW-CPL-CPR, innerH = CH-CPT-CPB;
+  function yOf(v){ return CPT + innerH - ((v-minV)/range*innerH); }
+  var zeroY = yOf(0);
+  var n=4, slot=innerW/n, barW = Math.min(70, slot*0.5);
+
+  var svg = '<line x1="'+CPL+'" y1="'+zeroY+'" x2="'+(CW-CPR)+'" y2="'+zeroY+'" stroke="rgba(232,228,214,0.14)" stroke-width="1"/>';
+  steps.forEach(function(st,i){
+    var cx = CPL+i*slot+slot/2, x0=cx-barW/2, color, y1,y2,topY;
+    if(st.kind==='total'){
+      color = (i===0) ? 'var(--faint)' : 'var(--brass)';
+      y1=yOf(st.val); y2=zeroY; topY=Math.min(y1,y2);
+      svg += '<rect class="bar-rect" x="'+x0+'" y="'+topY+'" width="'+barW+'" height="'+Math.max(1,Math.abs(y1-y2))+'" rx="3" fill="'+color+'" opacity="'+(i===0?'0.55':'1')+'" '+
+        'data-tt-title="'+escapeAttr(st.label)+'" data-tt-rows="'+escapeAttr('<div class="tt-row"><span class="k">ROCE</span><span class="v">'+st.val.toFixed(1)+'%</span></div>')+'"></rect>';
+      svg += '<text x="'+cx+'" y="'+(topY-8)+'" text-anchor="middle" font-family="var(--serif)" font-weight="700" font-size="14" fill="var(--ink)">'+st.val.toFixed(1)+'%</text>';
+    } else {
+      color = st.val>=0 ? 'var(--gain)' : 'var(--loss)';
+      var yB=yOf(st.base), yT=yOf(st.base+st.val); topY=Math.min(yB,yT);
+      svg += '<rect class="bar-rect" x="'+x0+'" y="'+topY+'" width="'+barW+'" height="'+Math.max(1,Math.abs(yB-yT))+'" rx="3" fill="'+color+'" '+
+        'data-tt-title="'+escapeAttr(st.label)+'" data-tt-rows="'+escapeAttr('<div class="tt-row"><span class="k">Contribution</span><span class="v">'+fmtSigned(st.val,1)+'pp</span></div>')+'"></rect>';
+      var labelY = st.val>=0 ? topY-8 : topY+Math.abs(yB-yT)+15;
+      svg += '<text x="'+cx+'" y="'+labelY+'" text-anchor="middle" font-family="var(--mono)" font-weight="700" font-size="11.5" fill="'+color+'">'+fmtSigned(st.val,1)+'pp</text>';
+    }
+    svg += '<text x="'+cx+'" y="'+(CH-8)+'" text-anchor="middle" font-size="9" fill="var(--dim)" font-family="var(--mono)">'+escapeHtml(st.label)+'</text>';
+  });
+  for(var i=0;i<3;i++){
+    var cx1=CPL+i*slot+slot/2+barW/2, cx2=CPL+(i+1)*slot+slot/2-barW/2;
+    var lvl = i===0 ? yOf(d.prior) : (i===1 ? yOf(d.prior+d.marginFx) : yOf(d.prior+d.marginFx+d.turnoverFx));
+    svg += '<line x1="'+cx1+'" y1="'+lvl+'" x2="'+cx2+'" y2="'+lvl+'" stroke="var(--faint)" stroke-width="1" stroke-dasharray="3,3"/>';
+  }
+  return '<svg class="chart-svg" viewBox="0 0 '+CW+' '+CH+'" preserveAspectRatio="xMidYMid meet">'+svg+'</svg>';
+}
+
+function buildRoceBridgeChart(s){
+  var series = s.roce_series||[];
+  var n = series.length;
+  if(n<2) return '<div class="chart-card"><div class="chart-title">ROCE Bridge</div><div style="color:var(--faint);font-size:12px;padding:20px 0;">Not enough years to compute a bridge.</div></div>';
+
+  var st = roceBridgeStateFor(s.ticker, s);
+  var yi = Math.max(1, Math.min(n-1, st.year));
+  var d = computeRoceBridge(s, yi);
+
+  var pills = '<div class="year-pills">'+series.map(function(pt,i){
+    if(i===0) return '';
+    var active = yi===i;
+    return '<span class="year-pill'+(active?' active':'')+'" data-select-year="'+i+'" data-view="rocebridge">'+escapeHtml(fmtFY(pt.year))+'</span>';
+  }).join('')+'</div>';
+
+  var chartHtml, readoutHtml = '', takeHtml = '';
+  if(!d){
+    chartHtml = '<div style="color:var(--faint);font-size:12px;padding:20px 0;">Insufficient data for this year\'s bridge (EBIT margin, capital turnover, or ROCE unavailable for this or the prior year).</div>';
+  } else {
+    chartHtml = '<div class="roce-bridge-swipe">'+buildBridgeSvg(d)+'</div>';
+    var totalMove = d.current - d.prior;
+    readoutHtml = '<div class="bridge-readout">'+
+      '<div><div class="k">Total move</div><div class="v" style="color:'+(totalMove>=0?'var(--gain)':'var(--loss)')+'">'+fmtSigned(totalMove,1)+'pp</div></div>'+
+      '<div><div class="k">Margin effect</div><div class="v" style="color:'+(d.marginFx>=0?'var(--gain)':'var(--loss)')+'">'+fmtSigned(d.marginFx,1)+'pp</div></div>'+
+      '<div><div class="k">Turnover effect</div><div class="v" style="color:'+(d.turnoverFx>=0?'var(--gain)':'var(--loss)')+'">'+fmtSigned(d.turnoverFx,1)+'pp</div></div>'+
+      '</div>';
+    var driver = Math.abs(d.marginFx) >= Math.abs(d.turnoverFx) ? 'margin' : 'capital turnover';
+    var moveDesc = Math.abs(totalMove)<0.05 ? 'ROCE held roughly flat' : ('ROCE '+(totalMove>=0?'improved':'declined')+' '+Math.abs(totalMove).toFixed(1)+'pp');
+    takeHtml = '<div class="roce-takeaway-line">'+escapeHtml(fmtFY(d.currentYear))+' vs '+escapeHtml(fmtFY(d.priorYear))+': '+moveDesc+', led by '+driver+'.</div>';
+  }
+
+  return '<div class="chart-card"><div class="chart-title">ROCE Bridge'+jg('bridge')+'</div>'+
+    '<div class="chart-sub">Prior year\'s ROCE &rarr; margin effect &rarr; capital-turnover effect &rarr; this year\'s ROCE</div>'+
+    '<div class="chart-active-area">'+chartHtml+'</div>'+
+    readoutHtml+
+    pills+
+    takeHtml+
+    '</div>';
+}
+
+function buildCfoPatChart(s){
+  var series = s.cfo_pat_series||[];
+  var items = series.map(function(pt){
+    var cfoV = pt.cfo!==null && pt.cfo!==undefined ? pt.cfo/1e7 : null;
+    var patV = pt.pat!==null && pt.pat!==undefined ? pt.pat/1e7 : null;
+    var tt = [["CFO", crore(cfoV)],["PAT", crore(patV)],["CFO/PAT", pt.ratio===null?"n/a":pt.ratio.toFixed(2)+"×"]];
+    return {label:pt.year, value:pt.ratio, pass: pt.ratio===null?null:pt.ratio>1, tooltip:tt};
+  });
+  var svg = buildBarChart(items, {refLine:1, axisFmt:function(v){ return v.toFixed(1)+'×'; }});
+  var scoreLabel = s.cfo_pat_label ? s.cfo_pat_label : (s.cfo_pat_score+'/'+series.length);
+  var aggRatio = s.cfo_pat_ratio;
+  var aggColor = (aggRatio!==null&&aggRatio!==undefined) ? (aggRatio>1?'var(--gain)':'var(--loss)') : 'var(--faint)';
+  var aggLabel = (aggRatio!==null&&aggRatio!==undefined) ? aggRatio.toFixed(2)+'×' : '&mdash;';
+  return '<div class="chart-card"><div class="chart-title">CFO/PAT</div>'+
+    '<div style="display:flex;align-items:baseline;gap:10px;margin:4px 0 10px;">'+
+      '<div style="font-family:var(--serif);font-size:30px;font-weight:700;color:'+aggColor+';">'+aggLabel+'</div>'+
+      '<div style="font-size:10.5px;color:var(--faint);font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;">10-yr cumulative ratio &middot; sum CFO &divide; sum PAT</div>'+
+    '</div>'+
+    '<div class="chart-sub">Cash conversion per year</div>'+svg+
+    legendRow([{color:'var(--gain)',label:'CFO/PAT > 1×'},{color:'var(--loss)',label:'CFO/PAT ≤ 1×'}])+
+    '<div style="margin-top:10px;font-size:11.5px;color:var(--dim);">Years above 1&times;: <b style="color:var(--ink)">'+scoreLabel+'</b></div></div>';
+}
+
+var RPT_GAUGE_COLORS = ['var(--gain)','var(--gain-soft)','var(--brass)','var(--critical)'];
+
+/* Speedometer-style gauge: a 4-zone semicircular arc (Clean -> Minor -> Moderate -> Red Flag,
+   45deg each) with a needle pointing at the zone matching this company's RPT score. Angles are
+   measured from vertical (0deg = straight up), which is what makes pt() below map cleanly onto
+   the classic left-horizontal-to-right-horizontal gauge sweep. */
+function buildRptGaugeSvg(score){
+  var GW=240, GH=142, cx=GW/2, cy=122, R=96, sw=20;
+  function pt(r, deg){ var rad = deg*Math.PI/180; return {x: cx + r*Math.sin(rad), y: cy - r*Math.cos(rad)}; }
+  var zones = [
+    {from:-90, to:-45, color:RPT_GAUGE_COLORS[0]},
+    {from:-45, to:0, color:RPT_GAUGE_COLORS[1]},
+    {from:0, to:45, color:RPT_GAUGE_COLORS[2]},
+    {from:45, to:90, color:RPT_GAUGE_COLORS[3]}
+  ];
+  var zoneLetters = ['C','Mi','Mo','R']; // Minor vs Moderate both start with M -- two letters each avoids the clash
+  var svg = zones.map(function(z, i){
+    var p1 = pt(R, z.from), p2 = pt(R, z.to);
+    var mid = pt(R+16, (z.from+z.to)/2);
+    return '<path d="M'+p1.x+' '+p1.y+' A'+R+' '+R+' 0 0 1 '+p2.x+' '+p2.y+'" stroke="'+z.color+'" stroke-width="'+sw+'" fill="none"/>'+
+      '<text x="'+mid.x+'" y="'+mid.y+'" text-anchor="middle" dominant-baseline="middle" font-size="11" font-family="var(--mono)" font-weight="700" fill="'+z.color+'">'+zoneLetters[i]+'</text>';
+  }).join('');
+  if(score!==null && score!==undefined){
+    // Needle + pivot pick up the severity color too, not just the tiny label below the gauge --
+    // a thin --bg ring under the pivot keeps it legible against whichever zone color it lands on.
+    var needleColor = RPT_GAUGE_COLORS[score] || 'var(--ink)';
+    var needleDeg = -90 + 45*score + 22.5;
+    var tip = pt(R-sw-8, needleDeg);
+    svg += '<line x1="'+cx+'" y1="'+cy+'" x2="'+tip.x+'" y2="'+tip.y+'" stroke="'+needleColor+'" stroke-width="3" stroke-linecap="round"/>';
+    svg += '<circle cx="'+cx+'" cy="'+cy+'" r="8" fill="var(--bg)"/>';
+    svg += '<circle cx="'+cx+'" cy="'+cy+'" r="6" fill="'+needleColor+'"/>';
+  }
+  return '<svg class="chart-svg rpt-gauge-svg" viewBox="0 0 '+GW+' '+GH+'" preserveAspectRatio="xMidYMid meet">'+svg+'</svg>';
+}
+
+/* Minimal markdown-ish renderer for the RPT audit report bodies (## headings, **bold**,
+   "| a | b |" tables, "- " bullet lists, plain paragraphs) -- good enough for the one
+   consistent template every report is written in, without pulling in a markdown library
+   for a page that's meant to stay a single self-contained HTML file. */
+function mdBold(s){ return escapeHtml(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>'); }
+function renderRptMarkdown(md){
+  if(!md) return '';
+  return md.split(/\n\s*\n/).map(function(block){
+    var lines = block.split('\n').map(function(l){ return l.trim(); }).filter(Boolean);
+    if(!lines.length) return '';
+    // A heading and its following content (table/list/paragraph) sometimes share one block
+    // with no blank line between them in these reports -- pull the heading off first so the
+    // remaining "body" lines still get proper table/list/paragraph detection below, instead of
+    // every line after a heading falling straight through to <p> (which is what a naive
+    // heading-only branch would do to e.g. a bullet list right under "## What would have...").
+    var heading = '', body = lines;
+    if(lines[0].indexOf('## ')===0){
+      heading = '<div class="rpt-h2">'+mdBold(lines[0].replace(/^##\s*/,''))+'</div>';
+      body = lines.slice(1);
+    }
+    if(!body.length) return heading;
+    if(body[0].indexOf('|')===0){
+      var rows = body.filter(function(l){ return !/^\|[\s:|-]+\|$/.test(l); });
+      var cellsOf = function(l){ return l.replace(/^\||\|$/g,'').split('|').map(function(c){ return c.trim(); }); };
+      if(!rows.length) return heading;
+      return heading+'<div class="rpt-table-wrap"><table class="rpt-table"><thead><tr>'+
+        cellsOf(rows[0]).map(function(h){ return '<th>'+mdBold(h)+'</th>'; }).join('')+
+        '</tr></thead><tbody>'+
+        rows.slice(1).map(function(r){ return '<tr>'+cellsOf(r).map(function(c){ return '<td>'+mdBold(c)+'</td>'; }).join('')+'</tr>'; }).join('')+
+        '</tbody></table></div>';
+    }
+    if(body.every(function(l){ return l.indexOf('- ')===0; })){
+      return heading+'<ul class="rpt-list">'+body.map(function(l){ return '<li>'+mdBold(l.replace(/^- /,''))+'</li>'; }).join('')+'</ul>';
+    }
+    return heading+'<p class="rpt-p">'+body.map(mdBold).join(' ')+'</p>';
+  }).join('');
+}
+
+function buildRptTab(s){
+  var hasScore = s.rpt_score!==null && s.rpt_score!==undefined;
+  var html = '<div class="chart-card"><div class="chart-title">Related-Party Transaction Audit'+jg('rpt')+'</div>';
+  if(!hasScore){
+    html += '<div class="chart-sub">No related-party audit performed for this company yet.</div></div>';
+    return html;
+  }
+  var color = RPT_GAUGE_COLORS[s.rpt_score] || 'var(--dim)';
+  var label = RPT_LABELS[s.rpt_score] || ('Score '+s.rpt_score);
+  var labelNote = RPT_LABEL_NOTES[s.rpt_score];
+  html += '<div class="chart-sub">Scored against this company\'s own annual-report and Form AOC-2 disclosures, year by year</div>';
+  html += '<div class="rpt-gauge-wrap">'+buildRptGaugeSvg(s.rpt_score)+
+    '<div class="rpt-gauge-label" style="color:'+color+'">'+escapeHtml(label)+'</div>'+
+    (labelNote ? '<div class="rpt-gauge-note">'+escapeHtml(labelNote)+'</div>' : '')+
+    '</div>';
+  html += legendRow([
+    {color:RPT_GAUGE_COLORS[0],label:RPT_LABELS[0]},{color:RPT_GAUGE_COLORS[1],label:RPT_LABELS[1]},
+    {color:RPT_GAUGE_COLORS[2],label:RPT_LABELS[2]},{color:RPT_GAUGE_COLORS[3],label:RPT_LABELS[3]}
+  ]);
+  if(s.rpt_headline){ html += '<div class="rpt-headline">'+escapeHtml(s.rpt_headline)+'</div>'; }
+  html += '</div>';
+  if(s.rpt_report_md){ html += '<div class="chart-card">'+renderRptMarkdown(s.rpt_report_md)+'</div>'; }
+  return html;
+}
+
+/* Only one of Revenue/ROCE/CFO-PAT/RPT is ever rendered at a time, switched via tabs — matches
+   coffeeCan's chart-redesign prototype (buildYoyBarsView's sibling tab component), not a
+   3-up simultaneous grid. Each ticker keeps its own last-picked tab in CHART_VIEW_STATE so
+   re-opening a row after closing it restores the tab the reader had selected. */
+var CHART_VIEW_STATE = {};
+function chartViewBuilder(view){
+  if(view==='roce') return function(s){ return buildRoceTrendChart(s)+buildCapitalSplitChart(s)+buildRoceBridgeChart(s); };
+  if(view==='cfopat') return function(s){ return buildCfoPatChart(s)+buildCcRevenueCorrelation(s)+buildWcRevenueChart(s); };
+  if(view==='rpt') return buildRptTab;
+  return buildRevenueChart;
+}
+function renderChartView(ticker){
+  var s = STOCKS_BY_TICKER[ticker];
+  var view = CHART_VIEW_STATE[ticker] || 'revenue';
+  var el = document.querySelector('[data-chart-view-for="'+CSS.escape(ticker)+'"]');
+  if(!s || !el) return;
+  el.innerHTML = chartViewBuilder(view)(s);
+}
+
+function buildDetailPanel(s){
+  var view = CHART_VIEW_STATE[s.ticker] || 'revenue';
+  var html = '<div class="detail-panel">';
+  // The table labels every row by ticker, which is the identifier the data has -- but the
+  // registered name is what most readers actually know the business as, and the detail panel
+  // has the room the 358px row does not.
+  if(s.company_name){
+    html += '<div class="detail-legalname">'+escapeHtml(s.company_name)+'</div>';
+  }
+  html += '<div class="score-strip">';
+  html += '<div class="score-chip chip-tier"><div class="k">Tier</div><div class="v" style="color:'+(TIER_COLORS[s.tier]||'var(--dim)')+'">'+escapeHtml(tierLabel(s.tier))+'</div></div>';
+  html += '<div class="score-chip"><div class="k">Rev Score</div><div class="v" style="color:'+revScoreColor(s.rev_score)+'">'+s.rev_score+'/9</div></div>';
+  html += '<div class="score-chip"><div class="k">ROCE Score</div><div class="v" style="color:'+roceScoreColor(s.roce_score)+'">'+s.roce_score+'/9</div></div>';
+  html += '<div class="score-chip '+cfoPatChipClass(s.cfo_pat_ratio)+'"><div class="k">Yrs CFO&gt;PAT'+jg('cfopat')+'</div><div class="v" style="color:'+cfoPatColor(s.cfo_pat_ratio)+'">'+(s.cfo_pat_label||(s.cfo_pat_score+'/'+(s.cfo_pat_series||[]).length))+'</div></div>';
+  html += '<div class="score-chip"><div class="k">Mkt Cap'+jg('mcap')+'</div><div class="v" style="font-size:13px;">'+mcapPill(s.mcap)+'</div></div>';
+  html += '<div class="score-chip"><div class="k">P/E'+jg('pe')+'</div><div class="v" style="font-size:13px;">'+pePill(s.pe)+'</div></div>';
+  html += '<div class="score-chip"><div class="k">RPT Audit'+jg('rpt')+'</div><div class="v" style="font-size:13px;">'+rptPill(s.rpt_score, s.rpt_score_display)+'</div></div>';
+  var detailBasis = basisInfo(s.financials_basis);
+  if(detailBasis){
+    // Same jg-wrap/jg-tip mechanism the other chips' "?" icons use -- tap-to-open, unlike the
+    // basis-flag badge in the main table row, which relies on the title attribute and so has no
+    // working explanation on a touchscreen (title only shows on desktop hover). This chip is
+    // the one place that explanation is actually reachable on mobile: expand the row to see it.
+    html += '<div class="score-chip"><div class="k">Basis<span class="jg-wrap"><button type="button" class="jg-q" aria-label="What does this mean?">?</button>'+
+      '<span class="jg-tip" role="tooltip">'+detailBasis.tooltip+'</span></span></div><div class="v" style="font-size:13px;">'+detailBasis.label+'</div></div>';
+  }
+  html += '</div>';
+  if(s.report_url){
+    html += '<a class="btn btn-primary view-report-link" href="'+escapeAttr(s.report_url)+'" target="_blank" rel="noopener">View Full Equity Research Report &rarr;</a>';
+  }
+  html += '<div class="tabs" data-tabs-for="'+escapeAttr(s.ticker)+'" role="tablist">';
+  [['revenue','Revenue'],['roce','ROCE'],['cfopat','CFO/PAT'],['rpt','RPT']].forEach(function(t){
+    var active = view===t[0];
+    html += '<div class="tab'+(active?' active':'')+'" data-view="'+t[0]+'" role="tab" aria-selected="'+active+'" tabindex="0">'+t[1]+'</div>';
+  });
+  html += '</div>';
+  html += '<div data-chart-view-for="'+escapeAttr(s.ticker)+'">'+chartViewBuilder(view)(s)+'</div>';
+  html += '</div>';
+  return html;
+}
+
+// .detail-slot-inline is position:sticky (see CSS) so it stays pinned to the left edge of
+// .table-wrap's horizontal scroll port regardless of scroll position -- but sticky only
+// repositions an element, it doesn't resize it, so without an explicit width it would default
+// to the <td>'s full width (the table's 900px min-width), overflowing past the visible
+// viewport on phones. Set from JS to the wrap's actual visible width instead.
+function syncDetailRowWidth(tr){
+  var wrap = tr.closest('.table-wrap');
+  var inner = tr.querySelector('.detail-slot-inline');
+  if(wrap && inner) inner.style.width = wrap.clientWidth+'px';
+}
+
+// A window resize isn't the only thing that changes .table-wrap's visible width -- the mobile
+// filters <details> opening/closing, or switching detail-panel tabs, can each add/remove the
+// page's vertical scrollbar too. Rather than hunt down and hook every such trigger individually
+// (and miss the next one, the same class of bug the tooltip scroll fix addressed), watch the
+// open row's own .table-wrap directly and resync on any width change, from whatever caused it.
+var detailWidthObserver = (typeof ResizeObserver !== 'undefined')
+  ? new ResizeObserver(function(){
+      if(!openTicker) return;
+      var dr = document.querySelector('tr.detail-row[data-detail-for="'+CSS.escape(openTicker)+'"]');
+      if(dr) syncDetailRowWidth(dr);
+    })
+  : null;
+
+// Suppresses the jargon/chart-tooltip scroll-dismiss handlers while a PROGRAMMATIC smooth
+// scroll (from opening a row) is animating, so tapping a "?" right after expanding a company --
+// a completely natural next action -- doesn't have its own tooltip closed by the tail end of
+// that scroll, mistaken for the reader scrolling away. Cleared precisely by the 'scrollend'
+// event where supported (fires exactly when the animation truly finishes, no guessing); a timer
+// is kept only as a fallback for browsers without it, since window.onscrollend support is recent.
+var jgSuppressScrollDismiss = false;
+if('onscrollend' in window){
+  window.addEventListener('scrollend', function(){ jgSuppressScrollDismiss = false; });
+}
+function suppressScrollDismissForRowOpenAnimation(){
+  jgSuppressScrollDismiss = true;
+  if(!('onscrollend' in window)){
+    setTimeout(function(){ jgSuppressScrollDismiss = false; }, 600);
+  }
+}
+
+function closeDetailRow(ticker){
+  var row = document.querySelector('tr.stock-row[data-ticker="'+CSS.escape(ticker)+'"]');
+  if(row){
+    row.classList.remove('expanded');
+    var btn = row.querySelector('.chev-btn');
+    if(btn) btn.setAttribute('aria-expanded', 'false');
+  }
+  var dr = document.querySelector('tr.detail-row[data-detail-for="'+CSS.escape(ticker)+'"]');
+  if(dr){
+    if(detailWidthObserver){
+      var wrap = dr.closest('.table-wrap');
+      if(wrap) detailWidthObserver.unobserve(wrap);
+    }
+    dr.remove();
+  }
+}
+
+function toggleDetail(ticker){
+  var row = document.querySelector('tr.stock-row[data-ticker="'+CSS.escape(ticker)+'"]');
+  if(!row) return;
+
+  if(openTicker && openTicker !== ticker) closeDetailRow(openTicker);
+
+  if(openTicker === ticker){
+    closeDetailRow(ticker);
+    openTicker = null;
+    return;
+  }
+
+  var stock = STOCKS_BY_TICKER[ticker];
+  if(!stock) return;
+
+  var tr = document.createElement('tr');
+  tr.className = 'detail-row';
+  tr.setAttribute('data-detail-for', ticker);
+  var td = document.createElement('td');
+  td.colSpan = row.children.length;
+  var inner = document.createElement('div');
+  inner.className = 'detail-slot-inline';
+  inner.innerHTML = buildDetailPanel(stock);
+  td.appendChild(inner);
+  tr.appendChild(td);
+  row.parentNode.insertBefore(tr, row.nextSibling);
+  syncDetailRowWidth(tr);
+  if(detailWidthObserver){
+    var wrapEl = tr.closest('.table-wrap');
+    if(wrapEl) detailWidthObserver.observe(wrapEl);
+  }
+
+  row.classList.add('expanded');
+  var openBtn = row.querySelector('.chev-btn');
+  if(openBtn) openBtn.setAttribute('aria-expanded', 'true');
+  openTicker = ticker;
+  suppressScrollDismissForRowOpenAnimation();
+  tr.scrollIntoView({behavior:'smooth', block:'nearest'});
+  trackEngagement('expand', ticker);
+}
+
+/* Row clicks: delegated (not an inline onclick) so a ticker containing a quote or other
+   attribute/string-breaking character can't corrupt the markup or the handler call -- s.ticker
+   only ever goes into data-ticker via escapeAttr now, read back out here instead of being
+   re-interpolated into a JS string. */
+document.addEventListener('click', function(e){
+  var row = e.target.closest && e.target.closest('tr.stock-row');
+  if(!row) return;
+  toggleDetail(row.getAttribute('data-ticker'));
+});
+/* No keydown handler for rows any more. The chevron is a real <button>, so the platform
+   gives it focus, Enter and Space for free, and its activation click reaches the delegate
+   above. Hand-wiring Enter/Space was only ever needed because the row was a <tr> pretending
+   to be a button via ARIA -- the pretence is what cost the table its cells. */
+
+/* Tab activation: swap the active tab + re-render just the single chart-view div underneath it,
+   never all 3 charts at once. Shared by the click and keydown (Enter/Space) delegates below so
+   mouse and keyboard users get identical behavior, both delegated so it survives
+   buildDetailPanel's innerHTML rebuilds. */
+function activateTab(tab){
+  var tabsEl = tab.closest('[data-tabs-for]');
+  if(!tabsEl) return;
+  var ticker = tabsEl.getAttribute('data-tabs-for');
+  var view = tab.getAttribute('data-view');
+  CHART_VIEW_STATE[ticker] = view;
+  tabsEl.querySelectorAll('.tab').forEach(function(t){
+    var isActive = t===tab;
+    t.classList.toggle('active', isActive);
+    t.setAttribute('aria-selected', isActive);
+  });
+  renderChartView(ticker);
+  trackEngagement('tab', ticker, view);
+}
+document.addEventListener('click', function(e){
+  var tab = e.target.closest && e.target.closest('.tab[data-view]');
+  if(tab) activateTab(tab);
+});
+document.addEventListener('keydown', function(e){
+  if(e.key!=='Enter' && e.key!==' ') return;
+  var tab = e.target.closest && e.target.closest('.tab[data-view]');
+  if(!tab) return;
+  e.preventDefault();
+  activateTab(tab);
+});
+
+/* Positions a .jg-tip (position:fixed) against its anchor "?" button, clamped to the
+   viewport -- same clamping math as the .viz-tooltip hover positioning below. Must run
+   AFTER the tip is already the target of an opacity:1 rule (hover/.open), not display:none,
+   so getBoundingClientRect() returns its real, laid-out size rather than 0x0.
+   Placement picks whichever side of the anchor has more actual room, not "above unless it
+   clips the viewport edge" -- a table header's "?" typically has plenty of viewport space
+   above it (the whole page above the anchor counts) but almost no CONTENT clearance, since
+   the tier description paragraph sits right above the table with only ~12px of margin. The
+   old rule only bailed out of "above" when the anchor was near the literal top of the screen,
+   so it kept placing the tip directly over that paragraph instead. Comparing space-above vs
+   space-below and taking the larger one sidesteps that without needing to know anything about
+   what content is nearby. */
+function positionJgTip(anchorEl, tipEl){
+  var r = anchorEl.getBoundingClientRect();
+  var tw = tipEl.offsetWidth, th = tipEl.offsetHeight;
+  var left = r.left + r.width/2 - tw/2;
+  left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
+  var spaceAbove = r.top, spaceBelow = window.innerHeight - r.bottom;
+  var top = (spaceAbove >= th+5 && spaceAbove >= spaceBelow) ? (r.top - th - 5) : (r.bottom + 5);
+  top = Math.max(8, Math.min(top, window.innerHeight - th - 8));
+  tipEl.style.left = left+'px';
+  tipEl.style.top = top+'px';
+}
+document.addEventListener('pointerover', function(e){
+  var q = e.target.closest && e.target.closest('.jg-q');
+  if(!q) return;
+  var wrap = q.closest('.jg-wrap');
+  var tip = wrap && wrap.querySelector('.jg-tip');
+  if(tip) positionJgTip(q, tip);
+});
+
+/* Jargon glossary "(?)" glyphs: tap-toggle for touch (hover already works via CSS :hover), with
+   only one tip open at a time and outside-click dismissal. */
+document.addEventListener('click', function(e){
+  var q = e.target.closest && e.target.closest('.jg-q');
+  if(q){
+    var wrap = q.closest('.jg-wrap');
+    var tip = wrap.querySelector('.jg-tip');
+    var wasOpen = wrap.classList.contains('open');
+    document.querySelectorAll('.jg-wrap.open').forEach(function(w){ w.classList.remove('open'); });
+    if(!wasOpen){ wrap.classList.add('open'); if(tip) positionJgTip(q, tip); }
+    e.stopPropagation();
+    return;
+  }
+  if(!(e.target.closest && e.target.closest('.jg-wrap'))){
+    document.querySelectorAll('.jg-wrap.open').forEach(function(w){ w.classList.remove('open'); });
+  }
+});
+
+// .jg-tip is position:fixed, positioned once against its "?" button at open time -- it does NOT
+// follow the button if the page (or, notably, the table's own horizontal scroll -- capture:true
+// is what lets this hear that, since scroll doesn't bubble) moves afterward, so a tooltip left
+// open through a scroll ends up floating over unrelated content far from its anchor. Dismiss any
+// tap-opened tooltip immediately, and force-hide a hover-opened one for the duration of the
+// scroll (CSS :hover can lag behind the cursor during a fast scroll) via a body class the .jg-tip
+// rule below checks; both resume working normally, freshly positioned, once scrolling settles.
+document.addEventListener('scroll', function(){
+  if(jgSuppressScrollDismiss) return;
+  document.body.classList.add('jg-scrolling');
+  document.querySelectorAll('.jg-wrap.open').forEach(function(w){ w.classList.remove('open'); });
+  clearTimeout(window._jgScrollT);
+  window._jgScrollT = setTimeout(function(){ document.body.classList.remove('jg-scrolling'); }, 150);
+}, true);
+// A resize (e.g. a phone rotation) leaves an open tooltip at its now-stale x/y just like a
+// scroll does -- dismiss it here too rather than only handling one of the two triggers.
+window.addEventListener('resize', function(){
+  document.querySelectorAll('.jg-wrap.open').forEach(function(w){ w.classList.remove('open'); });
+});
+
+document.addEventListener('click', function(e){
+  var sel = e.target.closest && e.target.closest('[data-select-year][data-view="rocebridge"]');
+  if(!sel) return;
+  var wrap = sel.closest('[data-chart-view-for]');
+  if(!wrap) return;
+  var ticker = wrap.getAttribute('data-chart-view-for');
+  var s = STOCKS_BY_TICKER[ticker];
+  if(!s) return;
+  roceBridgeStateFor(ticker, s).year = +sel.getAttribute('data-select-year');
+  renderChartView(ticker);
+});
+
+var bridgeSwipeState = null;
+document.addEventListener('pointerdown', function(e){
+  var area = e.target.closest && e.target.closest('.roce-bridge-swipe');
+  if(!area) return;
+  var wrap = area.closest('[data-chart-view-for]');
+  if(!wrap) return;
+  var ticker = wrap.getAttribute('data-chart-view-for');
+  var s = STOCKS_BY_TICKER[ticker];
+  if(!s) return;
+  bridgeSwipeState = { x0:e.clientX, y0:e.clientY, dx:0, area:area, pointerId:e.pointerId, dragging:false, ticker:ticker };
+  if(area.setPointerCapture) area.setPointerCapture(e.pointerId);
+});
+document.addEventListener('pointermove', function(e){
+  if(!bridgeSwipeState || e.pointerId!==bridgeSwipeState.pointerId) return;
+  var dx = e.clientX-bridgeSwipeState.x0, dy = e.clientY-bridgeSwipeState.y0;
+  if(!bridgeSwipeState.dragging && Math.abs(dx)<6 && Math.abs(dy)<6) return;
+  if(Math.abs(dx) <= Math.abs(dy)) return;
+  bridgeSwipeState.dragging = true;
+  bridgeSwipeState.dx = dx;
+  e.preventDefault();
+  bridgeSwipeState.area.style.transition = 'none';
+  bridgeSwipeState.area.style.transform = 'translateX('+(dx*0.5)+'px)';
+  bridgeSwipeState.area.style.opacity = String(Math.max(0.55, 1-Math.abs(dx)/280));
+});
+function endBridgeSwipe(){
+  if(!bridgeSwipeState) return;
+  var sw = bridgeSwipeState; bridgeSwipeState = null;
+  if(!sw.dragging) return;
+  var THRESH = 42;
+  if(Math.abs(sw.dx) <= THRESH){
+    sw.area.style.transition = 'transform .2s ease, opacity .2s ease';
+    sw.area.style.transform = 'translateX(0)';
+    sw.area.style.opacity = '1';
+    setTimeout(function(){ sw.area.removeAttribute('style'); }, 220);
+    return;
+  }
+  var s = STOCKS_BY_TICKER[sw.ticker];
+  if(!s) return;
+  var st = roceBridgeStateFor(sw.ticker, s);
+  var n = (s.roce_series||[]).length;
+  var dir = sw.dx<0 ? 1 : -1;
+  var newYear = st.year+dir;
+  if(newYear<1 || newYear>=n){
+    sw.area.style.transition = 'transform .22s cubic-bezier(.34,1.56,.64,1)';
+    sw.area.style.transform = 'translateX('+(dir*-14)+'px)';
+    setTimeout(function(){
+      sw.area.style.transform = 'translateX(0)';
+      setTimeout(function(){ sw.area.removeAttribute('style'); }, 240);
+    }, 20);
+    return;
+  }
+  sw.area.style.transition = 'transform .18s ease, opacity .18s ease';
+  sw.area.style.transform = 'translateX('+(dir*-36)+'px)';
+  sw.area.style.opacity = '0';
+  setTimeout(function(){
+    st.year = newYear;
+    renderChartView(sw.ticker);
+    var newArea = document.querySelector('[data-chart-view-for="'+CSS.escape(sw.ticker)+'"] .roce-bridge-swipe');
+    if(newArea){
+      newArea.style.transition = 'none';
+      newArea.style.transform = 'translateX('+(dir*36)+'px)';
+      newArea.style.opacity = '0';
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          newArea.style.transition = 'transform .22s ease, opacity .22s ease';
+          newArea.style.transform = 'translateX(0)';
+          newArea.style.opacity = '1';
+          setTimeout(function(){ newArea.removeAttribute('style'); }, 260);
+        });
+      });
+    }
+  }, 180);
+}
+document.addEventListener('pointerup', endBridgeSwipe);
+document.addEventListener('pointercancel', endBridgeSwipe);
+
+/* Hover tooltip (mouse/trackpad) + tap-to-pin tooltip (touch) via shared event delegation */
+(function(){
+  var tt = document.getElementById('vizTooltip');
+  var pinnedBar = null;
+
+  function showTooltipFor(bar, x, y){
+    // The title is re-escaped here because escaping it on the way INTO the attribute
+    // buys nothing on the way out: the browser decodes attribute values at parse
+    // time, so getAttribute() hands back the original raw string and feeding it to
+    // innerHTML undoes the escapeAttr() that wrote it. Every data-tt-title today is
+    // a fiscal year, so nothing is exploitable -- but the defence was inoperative,
+    // and the first chart label sourced from company text would have been stored XSS.
+    // `rows` stays as markup: it is markup this file builds, never company data.
+    var title = bar.getAttribute('data-tt-title');
+    var rows = bar.getAttribute('data-tt-rows');
+    tt.innerHTML = '<div class="tt-title">'+escapeHtml(title)+'</div>'+rows;
+    tt.classList.add('show');
+    var ttRect = tt.getBoundingClientRect();
+    if(x + ttRect.width > window.innerWidth - 8) x = x - ttRect.width - 16;
+    if(y + ttRect.height > window.innerHeight - 8) y = y - ttRect.height - 16;
+    tt.style.transform = 'translate('+x+'px,'+y+'px)';
+  }
+  function hideTooltip(){
+    tt.classList.remove('show');
+    if(pinnedBar){ pinnedBar.classList.remove('tt-pinned'); pinnedBar = null; }
+  }
+
+  document.addEventListener('pointermove', function(e){
+    if(e.pointerType==='touch') return;
+    var bar = e.target.closest && e.target.closest('.bar-rect');
+    if(!bar){ if(!pinnedBar) hideTooltip(); return; }
+    showTooltipFor(bar, e.clientX+16, e.clientY+16);
+  });
+  document.addEventListener('pointerleave', function(e){
+    if(e.target === document.documentElement && !pinnedBar) hideTooltip();
+  });
+
+  document.addEventListener('click', function(e){
+    var bar = e.target.closest && e.target.closest('.bar-rect');
+    if(!bar){ if(pinnedBar) hideTooltip(); return; }
+    if(pinnedBar === bar){ hideTooltip(); return; }
+    if(pinnedBar) pinnedBar.classList.remove('tt-pinned');
+    pinnedBar = bar;
+    bar.classList.add('tt-pinned');
+    var r = bar.getBoundingClientRect();
+    showTooltipFor(bar, Math.min(r.left, window.innerWidth-236), r.top-8);
+  });
+
+  // A pinned (tap-to-open) tooltip is position:fixed, computed once against the bar's position
+  // at open time -- it does NOT track the bar if the page (or the table's own horizontal
+  // scroll -- capture:true so this also catches that, since scroll doesn't bubble) moves
+  // afterward. Dismiss it on any scroll rather than let it float, disconnected, over unrelated
+  // content. `true` = capture phase, the only way to hear a nested element's own scroll here.
+  document.addEventListener('scroll', function(){
+    if(jgSuppressScrollDismiss) return;
+    if(pinnedBar) hideTooltip();
+  }, true);
+  // Same staleness risk from a resize (e.g. phone rotation) as from a scroll.
+  window.addEventListener('resize', function(){ if(pinnedBar) hideTooltip(); });
+})();
+
+// The registered name is what a reader recognises; the ticker is what disambiguates it. The
+// table showed only the ticker, so 39 of 40 rows read as alphabet soup -- HEXT, KPIL, CNL -- and
+// recognition is the whole mechanism by which a stranger decides a screen is credible. Names
+// were already on every row and simply unused.
+//
+// The corporate suffix is trimmed because "LTD" on all 37 rows distinguishes nothing and costs
+// the width that the actual name needs.
+var _NAME_SUFFIX = /\s*(?:\(INDIA\))?\s*(?:LIMITED|LTD\.?)\s*$/i;
+var _INITIALISMS = ['APL','BLW','KEI','KMC','IT','NCC','TVS','MRF','GMR','HCL','ITC','L&T'];
+function displayName(s){
+  var raw = (s.company_name || s.name || '').replace(_NAME_SUFFIX, '').trim();
+  if(!raw) return s.name || '';
+  // Source names arrive upper-case; title-case reads as a name rather than as shouting.
+  // Genuine initialisms are listed rather than inferred from length: every heuristic tried
+  // here got a real name wrong -- "no vowels" keeps DR and drops KEI, "three letters or fewer"
+  // keeps LAL and turns Dr Lal Pathlabs into "DR LAL Pathlabs". A short explicit list is
+  // honest about being a judgement call, and wrong in ways that are obvious and fixable.
+  return raw.split(/\s+/).map(function(w){
+    if(_INITIALISMS.indexOf(w.toUpperCase()) !== -1) return w.toUpperCase();
+    if(w === '&') return w;
+    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+  }).join(' ');
+}
+
+function tableHeadHtml(){
+  return '<thead><tr>' +
+    '<th class="chev-col"></th><th>Company</th>' +
+    '<th class="num">P/E'+jg('pe')+'</th><th>Mkt Cap'+jg('mcap')+'</th>' +
+    '<th class="num">Rev Score</th><th class="num">ROCE Score</th>' +
+    '<th class="num">CFO/PAT Ratio'+jg('cfopat')+'</th>' +
+    '<th>RPT Audit'+jg('rpt')+'</th>' +
+    '<th>Rev Growth (9 periods)</th>' +
+    '<th>ROCE (9 years)</th>' +
+    '</tr></thead>';
+}
+
+// The sample company the anatomy panel draws. Values are chosen so that every element a real
+// row can carry is actually present in the specimen -- a flagged dot, a standalone-basis badge,
+// a mixed sparkline with visible misses, and a non-clean governance score. A row built from a
+// flawless company would demonstrate half the vocabulary and leave the reader to guess at the
+// half that only appears when something is wrong, which is the half that matters.
+//
+// It is deliberately not a real company: labelling a genuine business as the worked example
+// puts words in its mouth, and any real row would go stale the moment its financials moved.
+var ANATOMY_SAMPLE = {
+  ticker: 'EXAMPLE', name: 'EXAMPLE', company_name: 'Example Industries Ltd',
+  tier: '9iner', pe: 24.2, mcap: 21500,
+  rev_score: 9, roce_score: 8,
+  cfo_pat_ratio: 0.66, cfo_pat_score: 3, cfo_pat_label: '3/10',
+  cfo_pat_series: [1,1,1,1,1,1,1,1,1,1],
+  // rptPill() composes "score · label" itself, so this carries the score alone -- the shape
+  // real rows use. Passing a pre-composed "2 · Moderate" renders "2 · Moderate · Moderate".
+  rpt_score: 2, rpt_score_display: '2',
+  financials_basis: 'standalone_short_consolidated',
+  rev_growths: [24.1, 18.3, 12.6, 31.0, -4.2, 15.8, 22.4, 11.1, 19.6],
+  roce_values: [22.4, 19.8, 17.1, 24.6, 12.3, 18.9, 21.2, 16.4, 20.1]
+};
+
+// Each entry pairs a live specimen -- produced by the same function the table uses -- with what
+// that element means. Rendering the specimens rather than hand-drawing them is the point: a
+// hand-drawn legend is a second implementation that silently goes out of date.
+function anatomyLegendHtml(){
+  var s = ANATOMY_SAMPLE;
+  var items = [
+    ['Company', '<span class="name-text">EXAMPLE</span>',
+     'The ticker it trades under. Open the row for the registered name and its full ten-year record.'],
+    ['Needs a look', '<span class="row-flag"></span>',
+     'The tier counts growth and ROCE only. This dot means something else in the row is worth checking \u2014 weak cash conversion, or a governance score above Clean. It is not a verdict; open the row to see which.'],
+    ['Reporting basis', '<span class="basis-flag" data-glyph="S">Standalone</span>',
+     'Figures are the parent company alone, not the group. Most rows are consolidated, so this one is not directly comparable with them.'],
+    ['P/E', pePill(s.pe),
+     'Market value \u00f7 the most recent full-year profit. Green is cheaper, amber dearer \u2014 neither is a recommendation.'],
+    ['Mkt Cap', mcapPill(s.mcap),
+     'Size band, using this page\'s own thresholds rather than SEBI\'s. The exact figure is in the row.'],
+    ['Rev Score', '<span style="color:'+gateScoreColor(9)+'">9/9</span>',
+     'How many of the nine scored years revenue grew more than 10%. 9/9 means it never missed.'],
+    ['ROCE Score', '<span style="color:'+gateScoreColor(8)+'">8/9</span>',
+     'How many of the same nine years return on capital cleared 15%. Together these two scores decide the tier.'],
+    ['CFO/PAT', '<span style="color:'+cfoPatColor(s.cfo_pat_ratio)+'">0.66 <span class="cfp-years">3/10</span></span>',
+     'Cash actually collected against profit reported. The ratio is cumulative; the small figure beside it counts the individual years cash beat profit. Below 1.0 means reported profit is not fully arriving as cash.'],
+    ['RPT Audit', rptPill(s.rpt_score, s.rpt_score_display),
+     'A read of the company\'s related-party dealings from its own annual reports, scored 0 Clean to 3 Red Flag.'],
+    ['Nine-year bars', sparkline(s.rev_growths, 10, true),
+     'One bar per scored year, oldest on the left. Green cleared that year\'s gate, red missed it. Bar height is the size of the number, not its rank.']
+  ];
+  return '<div class="anatomy-legend">' + items.map(function(it){
+    return '<div class="anatomy-item">' +
+      '<div class="anatomy-chip">'+it[1]+'</div>' +
+      '<div class="anatomy-def"><div class="anatomy-k">'+it[0]+'</div>' +
+      '<div class="anatomy-v">'+it[2]+'</div></div></div>';
+  }).join('') + '</div>';
+}
+
+function renderAnatomy(){
+  var el = document.getElementById('anatomy');
+  if(!el) return;
+  el.innerHTML =
+    '<h2 class="anatomy-title" id="anatomyTitle">How to read a company row</h2>' +
+    '<div class="anatomy-sub">Each row below is one company, and every part of it is doing a job. ' +
+      'This is a made-up example carrying all of them at once \u2014 a real row shows a badge only when it applies. ' +
+      'Tap any real row to open its ten-year record.</div>' +
+    '<div class="anatomy-demo"><div class="table-wrap"><table>' +
+      tableHeadHtml() + '<tbody>' + buildStockRow(ANATOMY_SAMPLE, false) + '</tbody>' +
+    '</table></div></div>' +
+    '<div class="anatomy-caption">Sample row &mdash; not a real company</div>' +
+    anatomyLegendHtml();
+}
+
+function emptyStateHtml(){
+  var q = document.getElementById('searchBox').value.trim();
+  var lead = q
+    ? 'No company matching &ldquo;<b>'+escapeHtml(q)+'</b>&rdquo; in this '+BATCH_TOTAL+'-company list.'
+    : 'No company in this '+BATCH_TOTAL+'-company list matches the current filters.';
+  return '<div class="empty-state">'+lead+'</div>';
+}
+
+function buildStockRow(s, showTierPill){
+  var cfpStr = s.cfo_pat_ratio!==null&&s.cfo_pat_ratio!==undefined ? s.cfo_pat_ratio.toFixed(2) : '<span class="na">&mdash;</span>';
+  // Same thresholds/colors as the detail-panel chip (cfoPatColor) -- a row that reads clean
+  // in the scannable table but flags a warning once you expand it is worse than no signal at
+  // all, since it means the table can't be trusted without opening every row to double-check.
+  var cfpColor = cfoPatColor(s.cfo_pat_ratio);
+  var revColor = revScoreColor(s.rev_score);
+  var roceColor = roceScoreColor(s.roce_score);
+  // Most companies report on a consolidated basis; the handful that don't get a small honest
+  // flag instead of the full column we removed earlier -- so the ~85% majority stays
+  // uncluttered but the minority isn't silently mixed in as if the numbers were on the same
+  // basis. See basisInfo() for why the label differs by the specific reason.
+  var basis = basisInfo(s.financials_basis);
+  var basisFlag = basis
+    ? '<span class="basis-flag" data-glyph="'+basis.mobileGlyph+'" title="'+basis.tooltip+'">'+basis.label+'</span>'
+    : '';
+  // Tier is deliberately pure -- growth + ROCE consistency only, nothing else -- so it
+  // shouldn't change meaning based on CFO/PAT or RPT. But a tier badge sitting next to a
+  // company with a bad cash-conversion record reads as a stronger endorsement than the
+  // page's own data backs, if a reader never opens the row. A small dot on the name cell
+  // surfaces that there's something worth checking, without touching what the tier means.
+  //
+  // The rule tests cash conversion on BOTH dimensions, because they catch different things:
+  // the cumulative ratio is the level test, the count of years above 1x is the persistence
+  // test. Relying on the ratio alone (the previous rule) let CAPLIPOINT through -- a top-tier
+  // "9iner" whose 0.76 cumulative ratio sits in the warn band while cash beat profit in only
+  // 2 of 10 years. That is exactly the "one blowout year rescues the average" case this
+  // page's own gates are built to reject, so the flag has to reject it too.
+  //
+  // Clause C is the anti-cliff-edge device: rather than sharpening a single threshold, a
+  // merely-weak value on one axis only fires when the other axis independently agrees.
+  // The governance leg sits at >=3 (Red Flag), not >=2: score 2 "Moderate" is the modal
+  // value here (15 of 39 audited), and a marker that fires on the mode is decoration --
+  // 28 of 40 rows, vs 20 at >=3. Moderate RPT stays visible as its own labelled pill in
+  // the row instead (on mobile too, via the row-strip).
+  // Narrowed from four clauses to two, on measurement rather than taste. The old rule fired on
+  // 20 of 40 rows, and every tightening of its cash-conversion legs still left a third of the
+  // list marked -- because a third of these companies genuinely do convert cash weakly. A red
+  // dot beside a company name reads as an accusation, and one that fires on the median company
+  // is not a warning, it is texture. The page already says "weak cash conversion" precisely,
+  // with a number and a colour, in the CFO/PAT column.
+  //
+  // What is left is the two things that column cannot say and that a reader would want flagged
+  // before they scroll: a governance audit that reached Red Flag, and cash conversion that is
+  // outright negative -- the business consumed cash over the decade rather than merely
+  // converting it poorly. That is a difference in kind, not degree. Currently 5 of 37.
+  var hasRowFlag =
+       (s.rpt_score!=null && s.rpt_score >= 3)                  // governance red flag
+    || (s.cfo_pat_ratio!=null && s.cfo_pat_ratio < 0);          // cash burned, not just weak
+  var rowFlag = hasRowFlag
+    ? '<span class="row-flag" title="Tier is growth/ROCE only — flagged CFO/PAT or RPT concern below, see detail tabs."></span>'
+    : '';
+  var tierPill = showTierPill
+    ? '<span class="tier-pill" style="color:'+(TIER_COLORS[s.tier]||'var(--dim)')+';border-color:'+(TIER_COLORS[s.tier]||'var(--hair2)')+'">'+escapeHtml(tierLabel(s.tier))+'</span>'
+    : '';
+  // Mobile-only strip (see the max-width:639.98px block). At 358px the table cannot show ten
+  // columns, and the four that define the whole thesis -- both gate scores, cash conversion and
+  // the governance audit -- were the ones falling off the right edge behind a swipe most readers
+  // never make. Rather than leave them there, they reflow into the name cell as two fixed lines.
+  var strip = '<span class="row-strip">' +
+    '<span class="rs-l1">' +
+      '<span style="color:'+revColor+'">'+s.rev_score+'/9 rev</span>' +
+      '<span style="color:'+roceColor+'">'+s.roce_score+'/9 roce</span>' +
+      '<span style="color:'+cfpColor+'">CFO/PAT '+cfpStr+(s.cfo_pat_label?' &middot; '+s.cfo_pat_label:'')+'</span>' +
+    '</span>' +
+    '<span class="rs-l2">'+rptPill(s.rpt_score, s.rpt_score_display)+mcapPill(s.mcap)+'</span>' +
+  '</span>';
+
+  // role="button" on the <tr> deleted the table from the accessibility tree: the row
+  // stopped being a row, so its <td>s stopped being cells, and 50 column headers had
+  // nothing left to label. A screen reader got empty tables plus unlabelled buttons
+  // announcing a run-on string, and "what is this company's CFO/PAT" became
+  // unanswerable. The keyboard affordance belongs on a real button inside the row,
+  // not on the row itself; mouse users keep the row-wide click via delegation.
+  var out = '<tr class="stock-row" data-ticker="'+escapeAttr(s.ticker)+'">';
+  out += '<td class="chev-cell"><button type="button" class="chev-btn" aria-expanded="false"' +
+         ' aria-label="Show ten-year detail for '+escapeAttr(s.name)+'">' +
+         '<span class="chev" aria-hidden="true">&#9656;</span></button></td>';
+  out += '<td class="name"><span class="name-row">'+tierPill+
+         '<span class="name-text">'+escapeHtml(displayName(s))+'</span>'+
+         '<span class="name-ticker">'+escapeHtml(s.name)+'</span>'+
+         rowFlag+basisFlag+'</span>'+strip+'</td>';
+  out += '<td class="num">'+pePill(s.pe)+'</td>';
+  out += '<td>'+mcapPill(s.mcap)+'</td>';
+  out += '<td class="num" style="color:'+revColor+'">'+s.rev_score+'/9</td>';
+  out += '<td class="num" style="color:'+roceColor+'">'+s.roce_score+'/9</td>';
+  // The years count rides along on desktop too. It was mobile-only for one release, which made
+  // the second dimension -- the one the sort and both flag rules turn on -- invisible at the
+  // width where there is the most room for it: DIXON read as a bare "1.33" with its 9/10
+  // nowhere on screen until the row was expanded.
+  out += '<td class="num" style="color:'+cfpColor+'">'+cfpStr+
+         (s.cfo_pat_label ? ' <span class="cfp-years">'+s.cfo_pat_label+'</span>' : '')+'</td>';
+  out += '<td>'+rptPill(s.rpt_score, s.rpt_score_display)+'</td>';
+  out += '<td>'+sparkline(s.rev_growths,10,true)+'</td>';
+  out += '<td>'+sparkline(s.roce_values,15,false)+'</td>';
+  out += '</tr>';
+  return out;
+}
+
+// The last thing on the list: a pointer to the other page (the screener links to Founder's
+// Stockpicks, and Stockpicks links back). Appended after every render path (grouped, flattened,
+// empty) so filtering never hides it.
+var END_LINK = {"kicker": "Back to the screen", "title": "The Coffee Can Screener", "desc": "Every listed company in India, put through two rules applied to nine consecutive years.", "label": "\u2190 Open the screener", "href": "index.html"};
+function watchlistEntryHtml(){
+  return '<aside class="watchlist-entry" aria-labelledby="weTitle"><div>'+
+    '<div class="we-kicker">'+escapeHtml(END_LINK.kicker)+'</div>'+
+    '<h2 class="we-title" id="weTitle">'+escapeHtml(END_LINK.title)+'</h2>'+
+    '<p class="we-desc">'+escapeHtml(END_LINK.desc)+'</p>'+
+    '</div><a class="we-link" href="'+escapeAttr(END_LINK.href)+'">'+escapeHtml(END_LINK.label)+'</a></aside>';
+}
+
+function renderStocks(stocks){
+  var content = document.getElementById('content');
+  var heroRow = document.getElementById('heroRow');
+  // A filter/reset rebuilds #content from scratch, destroying any open detail row's
+  // .table-wrap -- disconnect the observer tracking it first so it doesn't keep pinning
+  // that now-detached subtree in memory. toggleDetail() re-observes on the next expand.
+  if(detailWidthObserver) detailWidthObserver.disconnect();
+  openTicker = null;
+
+  var counts = {};
+  TIER_ORDER.forEach(function(t){ counts[t]=0; });
+  stocks.forEach(function(s){ counts[s.tier]=(counts[s.tier]||0)+1; });
+  heroRow.innerHTML = TIER_ORDER.map(function(t){
+    if(!counts[t]) return '';
+    return '<div class="stat"><div class="k">'+tierLabel(t)+'</div>'+
+      '<div class="v" style="color:'+(TIER_COLORS[t]||'var(--dim)')+'">'+counts[t]+'</div></div>';
+  }).join('') +
+  '<div class="stat"><div class="k">Total</div><div class="v">'+stocks.length+'</div></div>';
+
+  var flatten = document.getElementById('flattenTiers').checked;
+
+  var html = '';
+  if(!stocks.length){
+    html = emptyStateHtml();
+  } else if(flatten){
+    // Explicit opt-in: one table, current sort applied across every tier at once. This is the
+    // only way to answer "best cash converter of all 40" without holding five tables in your
+    // head. Tier identity survives as a coloured pill on every row (see .tier-pill) rather than
+    // as a grouping header, so flattening never hides which tier a company earned.
+    html += '<div class="tier-section">';
+    html += '<div class="tier-header"><h2 class="tier-name">All ' + stocks.length + '</h2>';
+    html += '<div class="tier-count">tiers ungrouped &middot; shown per row</div></div>';
+    html += '<div class="tier-desc">Sorted across every tier at once. The coloured pill on each row is the tier that company earned.</div>';
+    html += '<div class="table-wrap"><table>' + tableHeadHtml() + '<tbody>';
+    stocks.forEach(function(s){ html += buildStockRow(s, true); });
+    html += '</tbody></table></div>';
+    html += '<div class="scroll-hint">swipe to see more &rarr;</div></div>';
+  } else {
+    TIER_ORDER.forEach(function(tier){
+      var group = stocks.filter(function(s){ return s.tier===tier; });
+      if(!group.length) return;
+
+      html += '<div class="tier-section">';
+      html += '<div class="tier-header"><div class="tier-dot" style="background:'+(TIER_COLORS[tier]||'var(--dim)')+'"></div>';
+      // A heading, not a styled div: five tier sections and 37 companies previously offered a
+      // screen-reader user exactly one heading to navigate by, which is no navigation at all.
+      html += '<h2 class="tier-name">'+tierLabel(tier)+'</h2>';
+      html += '<div class="tier-count">'+group.length+' stocks</div></div>';
+      html += '<div class="tier-desc">'+TIER_DESCS[tier]+'</div>';
+      html += '<div class="table-wrap"><table>' + tableHeadHtml() + '<tbody>';
+      group.forEach(function(s){ html += buildStockRow(s, false); });
+      html += '</tbody></table></div>';
+      html += '<div class="scroll-hint">swipe to see more &rarr;</div></div>';
+    });
+  }
+
+  content.innerHTML = html + watchlistEntryHtml();
+}
+
+function updateActiveCount(){
+  var n = 0;
+  if(document.getElementById('peMax').value) n++;
+  if(document.getElementById('mcapMin').value) n++;
+  if(document.getElementById('cfoMin').value) n++;
+  if(document.getElementById('tierFilter').value !== 'all') n++;
+  if(document.getElementById('rptMax').value !== 'all') n++;
+  // Search and the "clears every check" chip subtract rows, so they count as active filters.
+  // Sort deliberately does not -- it reorders without removing anything, and badging it as a
+  // filter would imply the reader is looking at a subset when they aren't.
+  if(document.getElementById('searchBox').value.trim()) n++;
+  if(document.getElementById('clearsAllChip').getAttribute('aria-pressed') === 'true') n++;
+  document.getElementById('activeCount').textContent = n ? '('+n+')' : '';
+}
+
+// Punctuation-insensitive search key. Without it "dr lal" misses "Dr. Lal PathLabs Limited"
+// over a single full stop -- and typing a company's punctuation exactly is not something any
+// reader should have to get right. Collapses everything non-alphanumeric to single spaces.
+function searchKey(str){
+  return String(str==null?'':str).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+// Ticker AND registered name, so a company is findable by whichever one the reader knows:
+// "HEXT" or "hexaware", "DMART" or "avenue supermarts". company_name is absent for any company
+// whose audit hasn't been done yet, which simply narrows that row to ticker-only matching.
+function searchHaystack(s){
+  if(s._sk === undefined) s._sk = searchKey(s.ticker + ' ' + s.name + ' ' + (s.company_name || ''));
+  return s._sk;
+}
+
+// The "clears every check" rule, stated rather than scored. A composite rank was considered and
+// rejected: rev/roce ARE the tier (so a blend double-weights the spine), the inputs are coarse
+// integers with heavy ties, and cash conversion is near-orthogonal to tier rank here (Spearman
+// 0.15), so a weighted sum would collapse real disagreement into a number nobody can invert back
+// into a reason -- and a single ranked list of 40 stocks with a "best" on top is a buy list no
+// footer disclaimer outranks. A set with a printed rule is reversible and self-explanatory.
+// The years dimension belongs here for the same reason it belongs in the row-flag rule: a
+// cumulative ratio alone lets one blowout year carry a decade. Without it this chip certified
+// DMART (1.04x but cash beat profit in only 4 of 10 years) and SIGMA (1.15x, 5 of 10) as
+// clearing every check -- while the flag logic three functions down argues, correctly, that
+// exactly that pattern is what the page exists to catch. Requiring a majority of years closes
+// the contradiction: "clears every check" now means clears BOTH cash tests and governance.
+function clearsEveryCheck(s){
+  var years = (s.cfo_pat_series||[]).length;
+  var frac = (years && s.cfo_pat_score!=null) ? s.cfo_pat_score/years : null;
+  // Strictly more than half, not half: at exactly 5 of 10 years cash beat profit as often as
+  // it didn't, which is not a company "clearing" a consistency check. This also leaves a
+  // coherent middle state -- the row-flag's corroboration clause fires below 0.5, so a company
+  // sitting exactly at 0.5 is neither flagged nor certified, which is honestly what it is.
+  return s.cfo_pat_ratio!=null && s.cfo_pat_ratio >= 1.0
+      && frac!=null && frac > 0.5
+      && s.rpt_score!=null && s.rpt_score <= 1;
+}
+
+// Nulls always sort last, whichever direction the metric runs -- "unknown" is never allowed to
+// masquerade as "best" at the top of the list.
+function sortStocks(list){
+  var mode = document.getElementById('sortBy').value;
+  var copy = list.slice();
+  function nullsLast(cmp){
+    return function(a, b){
+      var av = a.v, bv = b.v;
+      if(av==null && bv==null) return 0;
+      if(av==null) return 1;
+      if(bv==null) return -1;
+      return cmp(av, bv);
+    };
+  }
+  var key, cmp;
+  if(mode === 'cash'){
+    // Years-above-1x first, cumulative ratio as the tiebreak: the count is the persistence test
+    // and the page's own gates are built on consistency, not averages.
+    copy.sort(function(a,b){
+      var ac = a.cfo_pat_score, bc = b.cfo_pat_score;
+      if(ac==null && bc==null) return 0;
+      if(ac==null) return 1;
+      if(bc==null) return -1;
+      if(bc !== ac) return bc - ac;
+      return (b.cfo_pat_ratio||0) - (a.cfo_pat_ratio||0);
+    });
+    return copy;
+  }
+  if(mode === 'pe'){ key='pe'; cmp=function(x,y){ return x-y; }; }
+  else if(mode === 'mcap'){ key='mcap'; cmp=function(x,y){ return y-x; }; }
+  else if(mode === 'rpt'){ key='rpt_score'; cmp=function(x,y){ return x-y; }; }
+  else { return copy.sort(function(a,b){ return String(a.name).localeCompare(String(b.name)); }); }
+  copy.sort(function(a,b){
+    // A negative or zero P/E isn't "cheapest" -- it means loss-making or unavailable, so treat
+    // it as unknown rather than letting it win the top of a lowest-first sort.
+    var av = a[key], bv = b[key];
+    if(key==='pe'){ if(av!=null && av<=0) av=null; if(bv!=null && bv<=0) bv=null; }
+    return nullsLast(cmp)({v:av}, {v:bv});
+  });
+  return copy;
+}
+
+function applyFilters(){
+  // `|| null` treated a typed 0 as "no filter", because 0 is falsy. "CFO/PAT min 0"
+  // -- exclude the companies that burned cash -- silently returned every row,
+  // negatives included, while the active-filter badge insisted a filter was on.
+  var num = function(id){
+    var v = parseFloat(document.getElementById(id).value);
+    return Number.isFinite(v) ? v : null;
+  };
+  var peMax = num('peMax');
+  var mcapMin = num('mcapMin');
+  var cfoMin = num('cfoMin');
+  var tierFilter = document.getElementById('tierFilter').value;
+  var rptMaxVal = document.getElementById('rptMax').value;
+  var rptMax = rptMaxVal === 'all' ? null : parseInt(rptMaxVal, 10);
+
+  var q = searchKey(document.getElementById('searchBox').value);
+  var clearsOnly = document.getElementById('clearsAllChip').getAttribute('aria-pressed') === 'true';
+
+  var filtered = ALL_STOCKS.filter(function(s){
+    if(q && searchHaystack(s).indexOf(q) === -1) return false;
+    if(clearsOnly && !clearsEveryCheck(s)) return false;
+    // Same rule the RPT ceiling below already applied, now applied consistently: a company
+    // with no P/E, no market cap or no cash-conversion figure cannot be shown to clear a
+    // threshold on it. Unknown is not the same as passing. Previously the `!==null` guard
+    // short-circuited, so a company missing a P/E passed "P/E max 15" -- latent while every
+    // published row happens to have one, and live the first time a loss-maker arrives.
+    if(peMax !== null && (s.pe===null || s.pe===undefined || s.pe > peMax)) return false;
+    if(mcapMin !== null && (s.mcap===null || s.mcap===undefined || s.mcap < mcapMin)) return false;
+    if(cfoMin !== null && (s.cfo_pat_ratio===null || s.cfo_pat_ratio===undefined || s.cfo_pat_ratio < cfoMin)) return false;
+    if(tierFilter !== 'all' && s.tier !== tierFilter) return false;
+    // An unaudited company must not survive an RPT ceiling: "worst allowed: Clean" previously
+    // let the one pending-audit row through, since the null guard skipped the comparison
+    // entirely. Unknown is not the same as passing -- if the reader asked for a governance
+    // ceiling, a company whose governance hasn't been checked yet cannot be shown to clear it.
+    if(rptMax !== null && (s.rpt_score===null || s.rpt_score===undefined || s.rpt_score > rptMax)) return false;
+    return true;
+  });
+  renderStocks(sortStocks(filtered));
+  updateActiveCount();
+  updateSortbarHint(filtered.length);
+}
+
+function updateSortbarHint(n){
+  var hint = document.getElementById('sortbarHint');
+  if(!hint) return;
+  hint.textContent = n === BATCH_TOTAL ? 'all '+BATCH_TOTAL : n+' of '+BATCH_TOTAL;
+}
+
+function resetFilters(){
+  document.getElementById('peMax').value = '';
+  document.getElementById('mcapMin').value = '';
+  document.getElementById('cfoMin').value = '';
+  document.getElementById('tierFilter').value = 'all';
+  document.getElementById('rptMax').value = 'all';
+  document.getElementById('searchBox').value = '';
+  document.getElementById('clearsAllChip').setAttribute('aria-pressed', 'false');
+  document.getElementById('sortBy').value = 'cash';
+  document.getElementById('flattenTiers').checked = false;
+  renderStocks(sortStocks(ALL_STOCKS));
+  updateActiveCount();
+  updateSortbarHint(ALL_STOCKS.length);
+}
+
+/* Above the tablet breakpoint both the filters drawer and the philosophy section must stay
+   open — their summary toggles are hidden there by CSS, but a closed <details> hides its
+   content via the UA stylesheet regardless of author `display` overrides, so this has to
+   be driven from JS, not a CSS !important hack (which silently fails). */
+(function(){
+  var mq = window.matchMedia('(min-width:640px)');
+  var drawers = ['filtersDrawer', 'philoDrawer'].map(function(id){ return document.getElementById(id); });
+  function sync(){ if(mq.matches) drawers.forEach(function(d){ if(d) d.open = true; }); }
+  mq.addEventListener('change', sync);
+  sync();
+})();
+
+/* Re-render the open ROCE view (only mobile-aware chart on this page) when the viewport crosses
+   the isMobile() breakpoint, debounced -- ported from iteration-13-7's own resize wiring. */
+(function(){
+  var lastMobile = isMobile();
+  var t;
+  window.addEventListener('resize', function(){
+    clearTimeout(t);
+    t = setTimeout(function(){
+      var m = isMobile();
+      if(m!==lastMobile){
+        lastMobile = m;
+        if(openTicker && CHART_VIEW_STATE[openTicker]==='roce') renderChartView(openTicker);
+      }
+      if(openTicker){
+        var dr = document.querySelector('tr.detail-row[data-detail-for="'+CSS.escape(openTicker)+'"]');
+        if(dr) syncDetailRowWidth(dr);
+      }
+    }, 150);
+  });
+})();
+
+// Sort-bar wiring. Sort and flatten re-run the whole filter pipeline so the two never disagree
+// about what's on screen. Search is debounced so typing doesn't re-render 40 rows per keystroke.
+(function(){
+  var searchTimer = null;
+  document.getElementById('sortBy').addEventListener('change', applyFilters);
+  document.getElementById('flattenTiers').addEventListener('change', applyFilters);
+  document.getElementById('searchBox').addEventListener('input', function(){
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(applyFilters, 120);
+  });
+  document.getElementById('clearsAllChip').addEventListener('click', function(){
+    var on = this.getAttribute('aria-pressed') === 'true';
+    this.setAttribute('aria-pressed', on ? 'false' : 'true');
+    applyFilters();
+  });
+})();
+
+// Applying a filter used to leave the reader staring at the form: on a phone the drawer is
+// taller than the viewport, so the results they just asked for were ~600px below the fold with
+// no indication anything had happened. Close the drawer and bring the list into view instead.
+(function(){
+  var applyBtn = document.querySelector('.filter-actions .btn-primary');
+  if(!applyBtn) return;
+  applyBtn.addEventListener('click', function(){
+    if(!window.matchMedia('(max-width:639.98px)').matches) return;
+    var drawer = document.getElementById('filtersDrawer');
+    if(drawer) drawer.open = false;
+    var content = document.getElementById('content');
+    if(content) content.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+})();
+
+// Publish the sort bar's live height so the sticky tier headings can sit exactly beneath it.
+// Measured rather than hardcoded: the bar is 90px on a phone and shorter on desktop, and it
+// rewraps at intermediate widths, so any fixed number would either gap or overlap somewhere.
+(function(){
+  var bar = document.querySelector('.sortbar');
+  if(!bar) return;
+  function syncBarHeight(){
+    document.documentElement.style.setProperty('--sortbar-h', Math.round(bar.getBoundingClientRect().height)+'px');
+  }
+  syncBarHeight();
+  if(typeof ResizeObserver !== 'undefined') new ResizeObserver(syncBarHeight).observe(bar);
+  else window.addEventListener('resize', syncBarHeight);
+})();
+
+document.getElementById('sortBy').value = 'cash';
+// Drawn once, before the tables. It is a fixed sample, so it never re-renders on filter --
+// the legend explaining how to read a row should not move or flicker while the reader filters.
+renderAnatomy();
+renderStocks(sortStocks(ALL_STOCKS));
+updateSortbarHint(ALL_STOCKS.length);
+</script>
+<!-- Cloudflare Web Analytics -- counts page views only, no cookies, nothing that
+     identifies a visitor. The one piece of visibility into who's using the site. -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "175cbe47c8c64c7fb491fc83a7836c75"}'></script>
+</body>
+</html>
