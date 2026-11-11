@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Metric Playground</title>
+<style>
+:root{
+  --bg:#0d1320;--panel:#131a2b;--card:#171f34;--ink:#e8e4d6;--dim:#93a0b8;--faint:#7a86a0;
+  --brass:#c9a24b;--gain:#5fb98a;--loss:#d97a5f;--critical:#e0604a;
+  --hair:rgba(232,228,214,0.10);--hair2:rgba(232,228,214,0.18);
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Palatino Linotype','Times New Roman',serif;
+  --mono:'SF Mono','Consolas','Menlo','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5;}
+.wrap{max-width:1500px;margin:0 auto;padding:0 16px 40px;}
+header{border-bottom:1px solid var(--hair2);padding:12px 0 10px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--brass);display:block;margin-bottom:4px;}
+h1{font-family:var(--serif);font-size:clamp(22px,5vw,34px);margin:0;}
+.meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:6px;line-height:1.7;}
+.warn{margin-top:8px;padding:8px 12px;border:1px solid var(--hair2);border-radius:6px;background:var(--card);color:var(--dim);font-size:12px;line-height:1.6;}
+.warn b{color:var(--ink);}
+.tabs{display:flex;gap:6px;margin:14px 0 0;border-bottom:1px solid var(--hair2);}
+.tab{background:none;border:0;border-bottom:2px solid transparent;color:var(--dim);font-family:var(--mono);font-size:12px;padding:9px 12px;cursor:pointer;}
+.tab[aria-selected="true"]{color:var(--brass);border-bottom-color:var(--brass);}
+.pane{display:none;}.pane.on{display:block;}
+
+.controls{padding:10px 0 2px;}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:7px;}
+.lbl{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);}
+select,input[type=search],input[type=number],button.btn{background:var(--panel);border:1px solid var(--hair2);color:var(--ink);border-radius:4px;padding:6px 9px;font-family:var(--mono);font-size:12px;min-height:34px;}
+input[type=search]{flex:1 1 200px;min-width:140px;}
+input[type=number]{width:90px;}
+select:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+button.btn{cursor:pointer;}
+button.btn:hover{border-color:var(--brass);}
+.chip{background:var(--panel);border:1px solid var(--hair2);color:var(--dim);border-radius:999px;padding:5px 11px;font-family:var(--mono);font-size:11px;cursor:pointer;min-height:30px;}
+.chip[aria-pressed="true"]{background:rgba(95,185,138,.14);border-color:rgba(95,185,138,.45);color:#8ecbaa;}
+details.pick{position:relative;}
+details.pick summary{list-style:none;cursor:pointer;}
+details.pick summary::-webkit-details-marker{display:none;}
+.pick-body{position:absolute;z-index:40;top:38px;left:0;width:min(560px,92vw);max-height:60vh;overflow:auto;background:var(--card);border:1px solid var(--hair2);border-radius:6px;padding:10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:3px 10px;}
+.pick-body h4{grid-column:1/-1;margin:8px 0 2px;font-family:var(--mono);font-size:10.5px;color:var(--brass);text-transform:uppercase;letter-spacing:.08em;}
+.pick-body label{font-size:12px;color:var(--dim);display:flex;gap:6px;align-items:center;cursor:pointer;}
+.flt{display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:var(--panel);border:1px solid var(--hair);border-radius:4px;padding:3px 6px;}
+.flt button{background:none;border:0;color:var(--loss);cursor:pointer;font-size:15px;padding:0 4px;}
+.count{font-family:var(--mono);font-size:11px;color:var(--faint);margin-left:auto;}
+
+.tbl-wrap{height:calc(100vh - 70px);min-height:420px;overflow:auto;border:1px solid var(--hair);border-radius:6px;margin-top:10px;background:var(--panel);}
+table{border-collapse:separate;border-spacing:0;width:max-content;min-width:100%;}
+th,td{white-space:nowrap;}
+thead th{position:sticky;z-index:5;background:#101728;font-family:var(--mono);font-size:10.5px;font-weight:600;color:var(--dim);text-align:right;padding:0 8px;border-bottom:1px solid var(--hair2);}
+thead tr.g th{top:0;height:22px;color:var(--brass);text-align:center;text-transform:uppercase;letter-spacing:.06em;font-size:9.5px;border-left:1px solid var(--hair);}
+thead tr.h th{top:22px;height:46px;cursor:pointer;vertical-align:bottom;padding-bottom:5px;white-space:normal;min-width:92px;max-width:130px;line-height:1.25;}
+thead tr.h th:hover{color:var(--ink);}
+thead tr.h th .ar{color:var(--brass);}
+th.name,td.name{position:sticky;left:0;z-index:6;text-align:left;min-width:230px;max-width:230px;overflow:hidden;text-overflow:ellipsis;background:#101728;}
+td.name{background:var(--panel);z-index:4;border-right:1px solid var(--hair2);}
+thead th.name{z-index:8;}
+tbody td{height:32px;padding:0 8px;text-align:right;font-family:var(--mono);font-size:12px;border-bottom:1px solid var(--hair);}
+tbody tr:hover td{filter:brightness(1.18);}
+tbody tr{cursor:pointer;}
+td.name .nm{font-family:var(--sans);font-size:12.5px;color:var(--ink);}
+td.name .sub{font-size:10px;color:var(--faint);margin-left:6px;}
+td.na{color:var(--faint);}
+.st-badge{font-size:9.5px;border:1px solid var(--hair2);border-radius:3px;padding:0 4px;color:var(--faint);margin-left:6px;}
+.dark-badge{color:var(--critical);border-color:rgba(224,96,74,.5);}
+
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(560px,100vw);background:var(--card);border-left:1px solid var(--hair2);z-index:60;transform:translateX(105%);transition:transform .18s ease;overflow:auto;padding:16px;}
+.drawer.on{transform:none;box-shadow:-12px 0 30px rgba(0,0,0,.45);}
+.drawer h2{font-family:var(--serif);margin:0 28px 2px 0;font-size:20px;}
+.drawer .x{position:absolute;top:10px;right:12px;background:none;border:0;color:var(--dim);font-size:24px;cursor:pointer;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;}
+.pill{background:var(--panel);border:1px solid var(--hair);border-radius:4px;padding:4px 8px;font-family:var(--mono);font-size:11px;color:var(--dim);}
+.pill b{color:var(--ink);}
+.sparks{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:10px 0;}
+.spark{background:var(--panel);border:1px solid var(--hair);border-radius:4px;padding:6px 8px;}
+.spark .t{font-family:var(--mono);font-size:10px;color:var(--faint);text-transform:uppercase;letter-spacing:.05em;}
+.spark svg{width:100%;height:46px;display:block;}
+.spark .yrs{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9.5px;color:var(--faint);}
+.dtbl{width:100%;border-collapse:collapse;margin-top:6px;}
+.dtbl td,.dtbl th{padding:4px 6px;border-bottom:1px solid var(--hair);font-size:12px;text-align:right;font-family:var(--mono);}
+.dtbl td:first-child,.dtbl th:first-child{text-align:left;font-family:var(--sans);}
+.dtbl tr.grp td{color:var(--brass);font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;padding-top:12px;text-align:left;}
+.bar{display:inline-block;height:7px;border-radius:2px;vertical-align:middle;margin-left:6px;}
+
+.mtbl{width:100%;border-collapse:collapse;}
+.mtbl th,.mtbl td{padding:7px 8px;border-bottom:1px solid var(--hair);text-align:left;font-size:12.5px;vertical-align:top;white-space:normal;}
+.mtbl th{font-family:var(--mono);font-size:10.5px;color:var(--faint);text-transform:uppercase;}
+.mtbl td.n{font-family:var(--mono);text-align:right;white-space:nowrap;}
+.prose{max-width:880px;color:var(--dim);line-height:1.7;}
+.prose h3{font-family:var(--serif);color:var(--ink);margin:22px 0 4px;}
+.prose b{color:var(--ink);}
+.prose code{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--panel);padding:1px 4px;border-radius:3px;}
+#err{display:none;margin:20px 0;color:var(--critical);}
+@media (max-width:640px){.tbl-wrap{height:calc(100vh - 90px);}th.name,td.name{min-width:170px;max-width:170px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="kicker">Playground &middot; unlisted</span>
+  <h1>Metric playground</h1>
+  <div class="meta" id="meta">Loading&hellip;</div>
+  <div class="warn"><b>Experimental, unvalidated.</b> These metrics and scores are research tooling, not a recommendation and not investment advice. Figures come from Screener's annual data and can be wrong or restated. There are no industry labels yet, so every comparison is against the whole universe or a market-cap bucket, which mixes industries with very different normal margins and working capital. Treat anything surfaced here as a reading list to check, not a conclusion.</div>
+</header>
+
+<div class="tabs" role="tablist">
+  <button class="tab" role="tab" aria-selected="true" data-pane="p-table">Companies</button>
+  <button class="tab" role="tab" aria-selected="false" data-pane="p-metrics">Metrics &amp; coverage</button>
+  <button class="tab" role="tab" aria-selected="false" data-pane="p-method">Method</button>
+</div>
+<div id="err"></div>
+
+<section class="pane on" id="p-table">
+  <div class="controls">
+    <div class="row">
+      <input type="search" id="q" placeholder="Search name, BSE code or ISIN" aria-label="Search">
+      <span class="lbl">Show</span>
+      <select id="norm" aria-label="Normalisation">
+        <option value="raw">Raw values</option>
+        <option value="pg" selected>Percentile &middot; whole universe</option>
+        <option value="pb">Percentile &middot; size bucket</option>
+        <option value="ind" disabled>Percentile &middot; industry (pending classification)</option>
+      </select>
+      <select id="status" aria-label="Which companies">
+        <option value="ranked">Ranked companies only</option>
+        <option value="all">All companies in the universe</option>
+      </select>
+      <select id="bucket" aria-label="Size bucket"></select>
+      <button class="chip" id="noDark" aria-pressed="false" title="Hide companies in Ambit's bottom three hygiene deciles">Hide hygiene zone of darkness</button>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="row">
+      <span id="grpchips" class="row" style="margin:0"></span>
+      <details class="pick" id="pick"><summary class="btn" style="padding:6px 10px;border:1px solid var(--hair2);border-radius:4px;background:var(--panel);font-family:var(--mono);font-size:12px;">Choose columns &#9662;</summary><div class="pick-body" id="pickbody"></div></details>
+      <button class="btn" id="addf">+ Filter</button>
+      <span id="flts" class="row" style="margin:0"></span>
+      <span style="flex:1"></span>
+      <button class="btn" id="reset">Reset</button>
+      <button class="btn" id="csv">Download CSV</button>
+    </div>
+  </div>
+  <div class="tbl-wrap" id="wrap"><table id="tbl"><thead></thead><tbody></tbody></table></div>
+  <p class="lbl" style="margin-top:8px">Click a header to sort &middot; shift-click to add a second sort key &middot; click a row for the company profile &middot; cell colour is the percentile (green best)</p>
+</section>
+
+<section class="pane" id="p-metrics"><div id="mt"></div></section>
+<section class="pane" id="p-method"><div class="prose" id="method"></div></section>
+</div>
+
+<aside class="drawer" id="drawer" aria-hidden="true"><button class="x" id="dx" aria-label="Close">&times;</button><div id="dbody"></div></aside>
+
+<script>
+(function(){
+"use strict";
+var D=null, M=[], G=[], R=[], MI={}, GI={}, COLS=[], VIEW=[];
+var ROW_H=32, BUF=12;
+var S={norm:"pg",status:"ranked",bucket:"all",noDark:false,q:"",groups:{},extra:{},sort:[{key:"br",dir:-1}],filters:[]};
+var $=function(id){return document.getElementById(id);};
+var STATUS=["Ranked","Not applicable","Short history","No data"];
+var STATUS_WHY=["","No receivables or inventory (banks, NBFCs, funds) - operating-business metrics do not apply","Fewer usable years than the minimum","Screener returned nothing for this company"];
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function fmtVal(v,fmt){
+  if(v==null)return "&ndash;";
+  if(fmt==="pct")return (v*100).toFixed(Math.abs(v*100)<10?1:0)+"%";
+  if(fmt==="days")return Math.abs(v)>=100?v.toFixed(0):v.toFixed(1);
+  if(fmt==="int")return v.toFixed(0);
+  if(Math.abs(v)>=100)return v.toFixed(0);
+  return v.toFixed(2);
+}
+function heat(p){ if(p==null)return ""; return "background:hsla("+(p*1.2).toFixed(0)+",42%,34%,0.62);"; }
+function fmtCap(v){ if(v==null)return "&ndash;"; return v>=100000?(v/100000).toFixed(1)+"L Cr":v.toLocaleString("en-IN")+" Cr"; }
+
+/* ---------- columns ---------- */
+function buildCols(){
+  COLS=[];
+  COLS.push({key:"m",label:"Mkt cap",grp:"company",kind:"cap",title:"Market capitalisation, Rs crore"});
+  COLS.push({key:"h",label:"Hygiene decile",grp:"scores",kind:"hyg",title:"Ambit-lite hygiene decile among ranked companies: 1 best, 10 worst. 8-10 is the 'zone of darkness' flag."});
+  COLS.push({key:"br",label:"Breadth",grp:"scores",kind:"breadth",title:"Number of the six archetypes (not hygiene) scoring "+D.meta.breadth_threshold+" or more"});
+  G.forEach(function(g,gi){
+    if(g.id==="hygiene")return;
+    COLS.push({key:"s:"+g.id,label:g.name,grp:"scores",kind:"score",gi:gi,title:g.desc+" Score = mean percentile of the group's scored metrics."});
+  });
+  COLS.push({key:"s:hygiene",label:"Hygiene score",grp:"scores",kind:"score",gi:GI.hygiene,title:G[GI.hygiene].desc+" Score = mean percentile of its seven ratios."});
+  M.forEach(function(m,i){
+    COLS.push({key:m.id,label:m.id+" "+m.name,grp:m.group,kind:"metric",mi:i,fmt:m.fmt,title:m.name+" ("+(m.direction==="info"?"shown, not scored":m.direction+" is better")+"). "+m.desc});
+  });
+  COLS.push({key:"ny",label:"Years of data",grp:"company",kind:"years",title:"Fiscal years with sales on file in the window"});
+}
+function colByKey(k){for(var i=0;i<COLS.length;i++)if(COLS[i].key===k)return COLS[i];return null;}
+function visible(c){
+  if(c.kind==="cap"||c.kind==="hyg"||c.kind==="breadth"||c.kind==="years")return true;
+  if(c.kind==="score")return true;
+  return !!(S.groups[c.grp]||S.extra[c.key]);
+}
+/* raw sortable/filterable value of a cell in the current normalisation */
+function cellNum(r,c){
+  switch(c.kind){
+    case "cap":return r.m; case "hyg":return r.h; case "breadth":return r.br; case "years":return r.ny;
+    case "score":return (S.norm==="pb"?r.sb:r.sg)[c.gi];
+    case "metric":
+      if(S.norm==="raw")return r.raw[c.mi];
+      if(S.norm==="pb")return r.pb[c.mi];
+      return r.pg[c.mi];
+  }
+}
+function cellHeat(r,c){
+  switch(c.kind){
+    case "hyg":return r.h==null?null:(10-r.h)*11.1;
+    case "breadth":return r.br==null?null:Math.min(100,r.br*25);
+    case "score":return (S.norm==="pb"?r.sb:r.sg)[c.gi];
+    case "metric":
+      if(M[c.mi].direction==="info")return null;
+      return S.norm==="pb"?r.pb[c.mi]:r.pg[c.mi];
+  }
+  return null;
+}
+function cellHtml(r,c){
+  var v=cellNum(r,c);
+  var st=heat(cellHeat(r,c));
+  if(v==null)return '<td class="na" style="'+st+'">&ndash;</td>';
+  var t;
+  if(c.kind==="cap")t=fmtCap(v);
+  else if(c.kind==="metric")t=(S.norm==="raw")?fmtVal(v,c.fmt):String(v);
+  else t=String(v);
+  return '<td style="'+st+'">'+t+'</td>';
+}
+/* number as shown on screen, for filters */
+function shownNum(r,c){
+  var v=cellNum(r,c);
+  if(v==null)return null;
+  if(c.kind==="metric"&&S.norm==="raw"&&c.fmt==="pct")return v*100;
+  return v;
+}
+
+/* ---------- view ---------- */
+function applyView(){
+  var q=S.q.trim().toLowerCase();
+  var fl=S.filters.map(function(f){return {c:colByKey(f.key),op:f.op,v:parseFloat(f.val)};}).filter(function(f){return f.c&&!isNaN(f.v);});
+  VIEW=R.filter(function(r){
+    if(S.status==="ranked"&&r.s!==0)return false;
+    if(S.bucket!=="all"&&String(r.bk)!==S.bucket)return false;
+    if(S.noDark&&r.h!=null&&r.h>=D.meta.hygiene_dark_from)return false;
+    if(q&&(r.n||"").toLowerCase().indexOf(q)<0&&String(r.b||"").indexOf(q)<0&&r.i.toLowerCase().indexOf(q)<0)return false;
+    for(var k=0;k<fl.length;k++){
+      var x=shownNum(r,fl[k].c);
+      if(x==null)return false;
+      if(fl[k].op==="ge"?x<fl[k].v:x>fl[k].v)return false;
+    }
+    return true;
+  });
+  var keys=S.sort.map(function(s){return {c:colByKey(s.key)||{kind:"name"},dir:s.dir};});
+  VIEW.sort(function(a,b){
+    for(var k=0;k<keys.length;k++){
+      var c=keys[k].c, x,y;
+      if(c.kind==="name"){x=(a.n||"").toLowerCase();y=(b.n||"").toLowerCase();}
+      else{x=cellNum(a,c);y=cellNum(b,c);}
+      if(x==null&&y==null)continue;
+      if(x==null)return 1;
+      if(y==null)return -1;
+      if(x!==y)return (x<y?-1:1)*keys[k].dir;
+    }
+    return 0;
+  });
+  $("count").textContent=VIEW.length.toLocaleString()+" of "+R.length.toLocaleString()+" companies";
+}
+
+/* ---------- table ---------- */
+var shown=[];
+function renderHead(){
+  shown=COLS.filter(visible);
+  var gr=[],last=null;
+  shown.forEach(function(c){
+    var gname=c.grp==="company"?"":c.grp==="scores"?"Scores":(G[GI[c.grp]]||{name:c.grp}).name;
+    if(last&&last.name===gname)last.n++;else{last={name:gname,n:1};gr.push(last);}
+  });
+  var h='<tr class="g"><th class="name"></th>'+gr.map(function(g){return '<th colspan="'+g.n+'">'+esc(g.name)+'</th>';}).join("")+'</tr>';
+  h+='<tr class="h"><th class="name" data-k="name" title="Sort by name">Company'+arrow("name")+'</th>'+shown.map(function(c){
+    return '<th data-k="'+esc(c.key)+'" title="'+esc(c.title)+'">'+esc(c.label)+arrow(c.key)+'</th>';
+  }).join("")+'</tr>';
+  $("tbl").tHead.innerHTML=h;
+}
+function arrow(k){
+  for(var i=0;i<S.sort.length;i++)if(S.sort[i].key===k)return ' <span class="ar">'+(S.sort[i].dir<0?"&#9660;":"&#9650;")+(S.sort.length>1?(i+1):"")+'</span>';
+  return "";
+}
+function renderBody(){
+  var wrap=$("wrap"), top=wrap.scrollTop, hh=wrap.clientHeight;
+  var first=Math.max(0,Math.floor(top/ROW_H)-BUF), last=Math.min(VIEW.length,Math.ceil((top+hh)/ROW_H)+BUF);
+  var cols=shown.length+1, out=[];
+  if(first>0)out.push('<tr style="height:'+first*ROW_H+'px"><td colspan="'+cols+'" style="border:0"></td></tr>');
+  for(var i=first;i<last;i++){
+    var r=VIEW[i];
+    var badge=r.s!==0?'<span class="st-badge" title="'+esc(STATUS_WHY[r.s])+'">'+STATUS[r.s]+'</span>':(r.h!=null&&r.h>=D.meta.hygiene_dark_from?'<span class="st-badge dark-badge" title="Hygiene decile '+r.h+' (zone of darkness)">dark</span>':"");
+    out.push('<tr data-i="'+i+'"><td class="name" title="'+esc(r.n)+'"><span class="nm">'+esc(r.n)+'</span>'+badge+'<span class="sub">'+esc(r.b||"")+'</span></td>'+shown.map(function(c){return cellHtml(r,c);}).join("")+"</tr>");
+  }
+  var after=VIEW.length-last;
+  if(after>0)out.push('<tr style="height:'+after*ROW_H+'px"><td colspan="'+cols+'" style="border:0"></td></tr>');
+  $("tbl").tBodies[0].innerHTML=out.join("");
+}
+function refresh(keepScroll){
+  applyView(); renderHead();
+  if(!keepScroll)$("wrap").scrollTop=0;
+  renderBody(); writeHash();
+}
+
+/* ---------- controls ---------- */
+function buildControls(){
+  var b=$("bucket"), o='<option value="all">All size buckets</option>';
+  for(var i=1;i<=D.meta.size_buckets;i++)o+='<option value="'+i+'">Size bucket '+i+(i===1?" (largest)":i===D.meta.size_buckets?" (smallest)":"")+'</option>';
+  o+='<option value="0">No market cap</option>'; b.innerHTML=o;
+  var chips="";
+  G.forEach(function(g){chips+='<button class="chip" data-g="'+g.id+'" aria-pressed="false" title="'+esc(g.desc)+'">'+esc(g.name)+'</button>';});
+  $("grpchips").innerHTML='<span class="lbl">Metric columns</span>'+chips;
+  var pb='';
+  G.forEach(function(g){
+    pb+='<h4>'+esc(g.name)+'</h4>';
+    M.filter(function(m){return m.group===g.id;}).forEach(function(m){pb+='<label><input type="checkbox" data-m="'+m.id+'"> '+esc(m.id+" "+m.name)+'</label>';});
+  });
+  $("pickbody").innerHTML=pb;
+}
+function syncControls(){
+  $("norm").value=S.norm; $("status").value=S.status; $("bucket").value=S.bucket;
+  $("noDark").setAttribute("aria-pressed",S.noDark); $("q").value=S.q;
+  Array.prototype.forEach.call(document.querySelectorAll("#grpchips .chip"),function(c){c.setAttribute("aria-pressed",!!S.groups[c.dataset.g]);});
+  Array.prototype.forEach.call(document.querySelectorAll("#pickbody input"),function(c){c.checked=!!S.extra[c.dataset.m];});
+  renderFilters();
+}
+function filterOptions(){
+  return COLS.filter(function(c){return c.kind!=="years";}).map(function(c){return '<option value="'+esc(c.key)+'">'+esc(c.label)+'</option>';}).join("");
+}
+function renderFilters(){
+  $("flts").innerHTML=S.filters.map(function(f,i){
+    return '<span class="flt"><select data-fi="'+i+'" data-f="key" aria-label="Filter field">'+filterOptions().replace('value="'+f.key+'"','value="'+f.key+'" selected')+'</select>'+
+      '<select data-fi="'+i+'" data-f="op" aria-label="Operator"><option value="ge"'+(f.op==="ge"?" selected":"")+'>&ge;</option><option value="le"'+(f.op==="le"?" selected":"")+'>&le;</option></select>'+
+      '<input type="number" step="any" data-fi="'+i+'" data-f="val" value="'+esc(f.val)+'" aria-label="Filter value"><button data-fx="'+i+'" aria-label="Remove filter">&times;</button></span>';
+  }).join("");
+}
+function bind(){
+  $("q").addEventListener("input",function(e){S.q=e.target.value;refresh();});
+  $("norm").addEventListener("change",function(e){S.norm=e.target.value;refresh(true);});
+  $("status").addEventListener("change",function(e){S.status=e.target.value;refresh();});
+  $("bucket").addEventListener("change",function(e){S.bucket=e.target.value;refresh();});
+  $("noDark").addEventListener("click",function(){S.noDark=!S.noDark;syncControls();refresh();});
+  $("grpchips").addEventListener("click",function(e){var g=e.target.dataset&&e.target.dataset.g;if(!g)return;S.groups[g]=!S.groups[g];syncControls();refresh(true);});
+  $("pickbody").addEventListener("change",function(e){var m=e.target.dataset.m;if(!m)return;S.extra[m]=e.target.checked;refresh(true);});
+  $("addf").addEventListener("click",function(){S.filters.push({key:"s:customers",op:"ge",val:""});renderFilters();});
+  $("flts").addEventListener("input",function(e){var t=e.target,i=t.dataset.fi;if(i==null)return;S.filters[i][t.dataset.f]=t.value;refresh();});
+  $("flts").addEventListener("change",function(e){var t=e.target,i=t.dataset.fi;if(i==null)return;S.filters[i][t.dataset.f]=t.value;refresh();});
+  $("flts").addEventListener("click",function(e){var x=e.target.dataset.fx;if(x==null)return;S.filters.splice(+x,1);renderFilters();refresh();});
+  $("reset").addEventListener("click",function(){S={norm:"pg",status:"ranked",bucket:"all",noDark:false,q:"",groups:{},extra:{},sort:[{key:"br",dir:-1}],filters:[]};syncControls();refresh();});
+  $("csv").addEventListener("click",downloadCsv);
+  $("tbl").tHead.addEventListener("click",function(e){
+    var th=e.target.closest("th");if(!th||!th.dataset.k)return;
+    var k=th.dataset.k, i=S.sort.findIndex(function(s){return s.key===k;});
+    if(e.shiftKey){ if(i>=0)S.sort[i].dir*=-1;else S.sort.push({key:k,dir:-1}); }
+    else if(i===0&&S.sort.length===1){S.sort[0].dir*=-1;}
+    else{S.sort=[{key:k,dir:k==="name"?1:(i>=0?S.sort[i].dir*-1:-1)}]; if(i<0&&k!=="name"){var c=colByKey(k);if(c&&c.kind==="metric"&&M[c.mi].direction==="lower"&&S.norm==="raw")S.sort[0].dir=1;}}
+    refresh(true);
+  });
+  $("wrap").addEventListener("scroll",function(){window.requestAnimationFrame(renderBody);});
+  $("tbl").tBodies[0].addEventListener("click",function(e){var tr=e.target.closest("tr");if(!tr||tr.dataset.i==null)return;openDrawer(VIEW[+tr.dataset.i]);});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeDrawer();});
+  $("dx").addEventListener("click",closeDrawer);
+  Array.prototype.forEach.call(document.querySelectorAll(".tab"),function(t){t.addEventListener("click",function(){
+    Array.prototype.forEach.call(document.querySelectorAll(".tab"),function(x){x.setAttribute("aria-selected",x===t);});
+    Array.prototype.forEach.call(document.querySelectorAll(".pane"),function(p){p.classList.toggle("on",p.id===t.dataset.pane);});
+    if(t.dataset.pane==="p-table")renderBody();
+  });});
+  window.addEventListener("resize",renderBody);
+}
+
+/* ---------- drawer ---------- */
+function spark(vals,fmt,fy,label){
+  var w=200,h=46,n=vals.length,xs=function(i){return 4+i*(w-8)/(n-1);};
+  var ok=vals.filter(function(v){return v!=null;});
+  if(ok.length<2)return '<div class="spark"><div class="t">'+label+'</div><div style="font-size:11px;color:var(--faint);padding:14px 0">not enough data</div></div>';
+  var mn=Math.min.apply(null,ok),mx=Math.max.apply(null,ok);if(mn===mx){mn-=1;mx+=1;}
+  var ys=function(v){return 4+(h-8)*(1-(v-mn)/(mx-mn));};
+  var d="",pen=false;
+  vals.forEach(function(v,i){if(v==null){pen=false;return;}d+=(pen?"L":"M")+xs(i).toFixed(1)+" "+ys(v).toFixed(1)+" ";pen=true;});
+  var zero=(mn<0&&mx>0)?'<line x1="0" x2="'+w+'" y1="'+ys(0).toFixed(1)+'" y2="'+ys(0).toFixed(1)+'" stroke="rgba(232,228,214,.3)" stroke-dasharray="3 3"/>':"";
+  var dots=vals.map(function(v,i){return v==null?"":'<circle cx="'+xs(i).toFixed(1)+'" cy="'+ys(v).toFixed(1)+'" r="2" fill="'+(v<0?"#d97a5f":"#c9a24b")+'"/>';}).join("");
+  var lastv=ok[ok.length-1];
+  return '<div class="spark"><div class="t">'+label+' &middot; latest '+fmtVal(lastv,fmt)+'</div><svg viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="none">'+zero+'<path d="'+d+'" fill="none" stroke="#c9a24b" stroke-width="1.6"/>'+dots+'</svg><div class="yrs"><span>FY'+(fy-n+1)+'</span><span>FY'+fy+'</span></div></div>';
+}
+function openDrawer(r){
+  var h='<h2>'+esc(r.n)+'</h2><div class="lbl">'+esc(r.i)+' &middot; BSE '+esc(r.b||"-")+'</div><div class="pills">';
+  h+='<span class="pill">'+STATUS[r.s]+'</span>';
+  if(r.m!=null)h+='<span class="pill">Mkt cap <b>'+fmtCap(r.m)+'</b></span>';
+  if(r.p!=null)h+='<span class="pill">Price <b>'+r.p+'</b></span>';
+  if(r.fy)h+='<span class="pill">Latest FY <b>'+r.fy+'</b> &middot; '+r.ny+' yrs</span>';
+  if(r.bk)h+='<span class="pill">Size bucket <b>'+r.bk+'</b></span>';
+  if(r.h!=null)h+='<span class="pill">Hygiene decile <b>'+r.h+'</b>'+(r.h>=D.meta.hygiene_dark_from?' (zone of darkness)':'')+'</span>';
+  if(r.br!=null)h+='<span class="pill">Breadth <b>'+r.br+'</b></span>';
+  h+='</div>';
+  if(r.s!==0)h+='<p style="color:var(--dim);font-size:12.5px">'+esc(STATUS_WHY[r.s])+'. Metrics below are shown where computable but the company is not ranked.</p>';
+  if(r.ser){
+    h+='<div class="sparks">'+spark(r.ser.s,"int",r.fy,"Sales (Rs Cr)")+spark(r.ser.o,"pct",r.fy,"Operating margin")+spark(r.ser.w,"pct",r.fy,"Trade working capital % sales")+spark(r.ser.r,"pct",r.fy,"ROCE")+'</div>';
+  }
+  h+='<table class="dtbl"><tr><th>Group score</th><th>Universe</th><th>Size bucket</th></tr>';
+  G.forEach(function(g,gi){h+='<tr><td>'+esc(g.name)+'</td><td>'+(r.sg[gi]==null?"&ndash;":r.sg[gi])+'</td><td>'+(r.sb[gi]==null?"&ndash;":r.sb[gi])+'</td></tr>';});
+  h+='</table><table class="dtbl"><tr><th>Metric</th><th>Raw</th><th>Universe pct</th><th>Bucket pct</th></tr>';
+  var cur=null;
+  M.forEach(function(m,i){
+    if(m.group!==cur){cur=m.group;h+='<tr class="grp"><td colspan="4">'+esc(G[GI[cur]].name)+'</td></tr>';}
+    var pg=r.pg[i],pb=r.pb[i];
+    h+='<tr title="'+esc(m.desc)+'"><td>'+esc(m.id+" "+m.name)+(m.direction==="info"?' <span style="color:var(--faint)">(not scored)</span>':"")+'</td><td>'+fmtVal(r.raw[i],m.fmt)+'</td><td>'+(pg==null?"&ndash;":pg+'<span class="bar" style="width:'+pg*0.5+'px;background:hsl('+pg*1.2+',45%,45%)"></span>')+'</td><td>'+(pb==null?"&ndash;":pb)+'</td></tr>';
+  });
+  h+='</table>';
+  $("dbody").innerHTML=h;
+  $("drawer").classList.add("on");$("drawer").setAttribute("aria-hidden","false");
+}
+function closeDrawer(){$("drawer").classList.remove("on");$("drawer").setAttribute("aria-hidden","true");}
+
+/* ---------- csv / hash ---------- */
+function downloadCsv(){
+  var vis=shown.filter(function(c){return c.kind==="metric";});
+  var head=["isin","bse","name","status","mcap_cr","latest_fy","years","size_bucket","hygiene_decile","breadth"];
+  G.forEach(function(g){head.push("score_"+g.id+"_universe","score_"+g.id+"_bucket");});
+  vis.forEach(function(c){head.push(c.key+"_raw",c.key+"_pct_universe",c.key+"_pct_bucket");});
+  var q=function(v){v=v==null?"":String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;};
+  var lines=[head.join(",")];
+  VIEW.forEach(function(r){
+    var row=[r.i,r.b,r.n,STATUS[r.s],r.m,r.fy,r.ny,r.bk,r.h,r.br];
+    G.forEach(function(g,gi){row.push(r.sg[gi],r.sb[gi]);});
+    vis.forEach(function(c){row.push(r.raw[c.mi],r.pg[c.mi],r.pb[c.mi]);});
+    lines.push(row.map(q).join(","));
+  });
+  var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([lines.join("\n")],{type:"text/csv"}));a.download="metric-playground.csv";document.body.appendChild(a);a.click();a.remove();
+}
+function writeHash(){try{history.replaceState(null,"","#"+encodeURIComponent(JSON.stringify({n:S.norm,st:S.status,b:S.bucket,d:S.noDark,q:S.q,g:Object.keys(S.groups).filter(function(k){return S.groups[k];}),e:Object.keys(S.extra).filter(function(k){return S.extra[k];}),s:S.sort,f:S.filters})));}catch(e){}}
+function readHash(){
+  try{
+    var h=location.hash.slice(1);if(!h)return;var o=JSON.parse(decodeURIComponent(h));
+    S.norm=o.n||S.norm;S.status=o.st||S.status;S.bucket=o.b||S.bucket;S.noDark=!!o.d;S.q=o.q||"";
+    (o.g||[]).forEach(function(k){S.groups[k]=true;});(o.e||[]).forEach(function(k){S.extra[k]=true;});
+    if(o.s&&o.s.length)S.sort=o.s;if(o.f)S.filters=o.f;
+  }catch(e){}
+}
+
+/* ---------- other panes ---------- */
+function renderMetricsPane(){
+  var h='<p class="prose">Coverage is the share of ranked companies for which the metric could be computed. Percentiles are direction-aligned, so 100 is always best.</p><table class="mtbl"><tr><th>ID</th><th>Group</th><th>Metric</th><th>Better</th><th>Coverage</th><th>P10</th><th>Median</th><th>P90</th><th>What it measures</th></tr>';
+  M.forEach(function(m){
+    var s=m.stats;
+    h+='<tr><td>'+m.id+'</td><td>'+esc(G[GI[m.group]].name)+'</td><td><b>'+esc(m.name)+'</b></td><td>'+(m.direction==="info"?"not scored":m.direction)+'</td><td class="n">'+(s.coverage==null?"-":Math.round(s.coverage*100)+"%")+'</td><td class="n">'+fmtVal(s.p10,m.fmt)+'</td><td class="n">'+fmtVal(s.p50,m.fmt)+'</td><td class="n">'+fmtVal(s.p90,m.fmt)+'</td><td>'+esc(m.desc)+'</td></tr>';
+  });
+  $("mt").innerHTML=h+'</table>';
+}
+function renderMethod(){
+  var mt=D.meta, st=mt.stress_years;
+  $("method").innerHTML=
+  '<h3>What this is</h3><p>A workbench for ranking every company in the universe on '+M.length+' metrics grouped into six ideas about what makes a business unusually good, plus a seven-ratio accounting hygiene check adapted from Ambit Capital\'s 2016 forensic-accounting note. Nothing here uses a language model: every number is arithmetic on Screener\'s annual and quarterly data.</p>'+
+  '<h3>Pipeline</h3><p><b>1. Data.</b> Up to '+mt.window_years+' fiscal years of annual financials per company (consolidated where it exists), plus customer advances and trade payables from Screener\'s Other Liabilities breakdown. Negative inventory, receivables, payables and similar lines are data defects and are treated as missing.</p>'+
+  '<p><b>2. Metrics.</b> Each is a per-year series (for example operating margin, receivable days) reduced to one number per company: a median, a median absolute year-on-year change for volatility, a CAGR, a count of years, a drawdown. Definitions are in the Metrics tab and live in a YAML file, not in code.</p>'+
+  '<p><b>3. Who is ranked.</b> '+mt.ranked.toLocaleString()+' of '+mt.companies.toLocaleString()+' companies. Left out of the percentiles: companies with no receivables or inventory at all (banks, NBFCs, funds), companies with fewer than '+mt.min_years+' usable years, and companies Screener returned nothing for. They remain in the table, flagged.</p>'+
+  '<p><b>4. Normalisation.</b> Each scored metric is turned into a percentile among ranked companies, flipped where lower is better so 100 is always best. It is computed twice: against the whole universe, and within the company\'s market-cap bucket ('+mt.size_buckets+' buckets). An industry percentile will appear when industry classification is done. Percentile ranks rather than z-scores are used because financial ratios are heavy-tailed and some denominators are near zero.</p>'+
+  '<p><b>5. Scores.</b> A group score is the mean percentile of that group\'s scored metrics, shown only when at least half of them are available. Metrics marked "not scored" are displayed but never averaged. Breadth counts the archetype groups scoring '+mt.breadth_threshold+' or more.</p>'+
+  '<p><b>6. Hygiene.</b> The seven hygiene ratios are ranked into a score and cut into deciles among companies that have one. Following Ambit, deciles '+mt.hygiene_dark_from+' to 10 are flagged as the "zone of darkness". This is a flag, not an exclusion: Ambit validated its eleven-ratio version, and this seven-ratio version has not been validated.</p>'+
+  '<h3>Stress years</h3><p>Several metrics compare a company with the universe in the years the universe itself did worst. Those years come from the data: '+
+  'lowest median sales growth: FY'+(st.sales_growth||[]).join(", FY")+'; biggest median margin fall: FY'+(st.opm_change||[]).join(", FY")+'; weakest median share-price change: FY'+(st.price_change||[]).join(", FY")+'. Fiscal years are labelled by the calendar year in which they end.</p>'+
+  '<h3>Known limits</h3><ul>'+
+  '<li>No industry labels yet, so margins, asset turns and working capital are compared across very different businesses.</li>'+
+  '<li>No expense breakdown in the data: gross margin, cost of goods and employee cost are not available, so days measures use sales as the base.</li>'+
+  '<li>About one company in six has no trade-payables line, which removes it from the working-capital group. Screener\'s inventory line is negative in some years for some companies (a data defect); those years are treated as missing, which can blank working-capital metrics and leave gaps in the sparklines.</li>'+
+  '<li>Only companies with no receivables or inventory at all are set aside as "not applicable". Lenders, asset managers and exchanges that report some receivables are still ranked and can look unusually good on margin, asset-turn and resilience metrics. Industry labels will let them be separated.</li>'+
+  '<li>Small and illiquid companies can rank at the extremes; use the market-cap filter or the size-bucket percentile to look at comparable sizes.</li>'+
+  '<li>Screener figures can be restated, and the universe is companies listed today (survivorship).</li>'+
+  '<li>Stickiness and bargaining power are only visible through consistency and margin behaviour. Repeat-customer shares, retention and price-versus-volume need the concalls and annual reports.</li>'+
+  '<li>The scores have not been back-tested against returns. They are a way to build reading lists.</li></ul>'+
+  '<p style="margin-top:20px">Generated '+esc(mt.generated)+'.</p>';
+}
+
+/* ---------- boot ---------- */
+function boot(data){
+  D=data; M=D.metrics; G=D.groups; R=D.rows;
+  M.forEach(function(m,i){MI[m.id]=i;}); G.forEach(function(g,i){GI[g.id]=i;});
+  var mt=D.meta, sc=mt.status_counts||{};
+  $("meta").innerHTML=mt.companies.toLocaleString()+' companies &middot; '+mt.ranked.toLocaleString()+' ranked &middot; '+(sc.not_applicable||0)+' not applicable &middot; '+(sc.short_history||0)+' short history &middot; '+(sc.no_data||0)+' no data &middot; '+M.length+' metrics &middot; generated '+esc(mt.generated);
+  buildCols(); buildControls(); readHash(); syncControls(); bind();
+  renderMetricsPane(); renderMethod(); refresh();
+}
+fetch("playground-data.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(boot).catch(function(e){
+  var el=$("err");el.style.display="block";el.textContent="Could not load playground-data.json ("+e.message+").";$("meta").textContent="";
+});
+})();
+</script>
+</body>
+</html>
