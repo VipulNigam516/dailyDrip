@@ -215,7 +215,7 @@ table.ctbl{border-collapse:separate;border-spacing:1px;width:max-content;}
 "use strict";
 var D=null, M=[], G=[], R=[], MI={}, GI={}, COLS=[], VIEW=[];
 var ROW_H=32, BUF=12;
-var S={norm:"pg",status:"ranked",bucket:"all",noDark:false,q:"",groups:{},extra:{},sort:[{key:"br",dir:-1}],filters:[]};
+var S={norm:"pg",status:"ranked",bucket:"all",noDark:false,q:"",groups:{},extra:{},sort:[{key:"ov",dir:-1}],filters:[]};
 var $=function(id){return document.getElementById(id);};
 var STATUS=["Ranked","Not applicable","Short history","No data"];
 var STATUS_WHY=["","No receivables or inventory (banks, NBFCs, funds) - operating-business metrics do not apply","Fewer usable years than the minimum","Screener returned nothing for this company"];
@@ -238,6 +238,8 @@ function buildCols(){
   COLS.push({key:"m",label:"Mkt cap",grp:"company",kind:"cap",title:"Market capitalisation, Rs crore"});
   COLS.push({key:"h",label:"Hygiene decile",grp:"scores",kind:"hyg",info:"hyg",title:"Accounting-cleanliness decile: 1 cleanest tenth of companies, 10 least clean. 8-10 is the 'zone of darkness' flag. Click ? for details."});
   COLS.push({key:"br",label:"Breadth",grp:"scores",kind:"breadth",info:"br",title:"How many of the six ideas the company scores "+D.meta.breadth_threshold+" or more on. Click ? for details."});
+  COLS.push({key:"ov",label:"Overall",grp:"scores",kind:"overall",info:"ov",title:"Equal-weighted average of the six archetype scores. Needs at least four of the six. Click ? for details."});
+  COLS.push({key:"oa",label:"All-metric average",grp:"scores",kind:"allavg",info:"oa",title:"Plain average of every scored metric's percentile. Click ? for details."});
   G.forEach(function(g,gi){
     if(g.id==="hygiene")return;
     COLS.push({key:"s:"+g.id,label:g.name,grp:"scores",kind:"score",gi:gi,info:"g:"+g.id,title:g.plain+" Click ? for how to read it."});
@@ -250,7 +252,7 @@ function buildCols(){
 }
 function colByKey(k){for(var i=0;i<COLS.length;i++)if(COLS[i].key===k)return COLS[i];return null;}
 function visible(c){
-  if(c.kind==="cap"||c.kind==="hyg"||c.kind==="breadth"||c.kind==="years")return true;
+  if(c.kind==="cap"||c.kind==="hyg"||c.kind==="breadth"||c.kind==="years"||c.kind==="overall"||c.kind==="allavg")return true;
   if(c.kind==="score")return true;
   return !!(S.groups[c.grp]||S.extra[c.key]);
 }
@@ -258,6 +260,7 @@ function visible(c){
 function cellNum(r,c){
   switch(c.kind){
     case "cap":return r.m; case "hyg":return r.h; case "breadth":return r.br; case "years":return r.ny;
+    case "overall":return S.norm==="pb"?r.ob:r.ov; case "allavg":return r.oa;
     case "score":return (S.norm==="pb"?r.sb:r.sg)[c.gi];
     case "metric":
       if(S.norm==="raw")return r.raw[c.mi];
@@ -269,6 +272,7 @@ function cellHeat(r,c){
   switch(c.kind){
     case "hyg":return r.h==null?null:(10-r.h)*11.1;
     case "breadth":return r.br==null?null:Math.min(100,r.br*25);
+    case "overall":return S.norm==="pb"?r.ob:r.ov; case "allavg":return r.oa;
     case "score":return (S.norm==="pb"?r.sb:r.sg)[c.gi];
     case "metric":
       if(M[c.mi].direction==="info")return null;
@@ -409,7 +413,7 @@ function bind(){
   $("flts").addEventListener("input",function(e){var t=e.target,i=t.dataset.fi;if(i==null)return;S.filters[i][t.dataset.f]=t.value;refresh();});
   $("flts").addEventListener("change",function(e){var t=e.target,i=t.dataset.fi;if(i==null)return;S.filters[i][t.dataset.f]=t.value;refresh();});
   $("flts").addEventListener("click",function(e){var x=e.target.dataset.fx;if(x==null)return;S.filters.splice(+x,1);renderFilters();refresh();});
-  $("reset").addEventListener("click",function(){S={norm:"pg",status:"ranked",bucket:"all",noDark:false,q:"",groups:{},extra:{},sort:[{key:"br",dir:-1}],filters:[]};syncControls();refresh();});
+  $("reset").addEventListener("click",function(){S={norm:"pg",status:"ranked",bucket:"all",noDark:false,q:"",groups:{},extra:{},sort:[{key:"ov",dir:-1}],filters:[]};syncControls();refresh();});
   $("csv").addEventListener("click",downloadCsv);
   $("tbl").tHead.addEventListener("click",function(e){
     if(e.target.classList&&e.target.classList.contains("qm")){e.stopPropagation();openInfo(e.target.dataset.info);return;}
@@ -490,6 +494,10 @@ function openInfo(key){
   var h='<div class="info">';
   if(key==="hyg"){
     h+='<h2>Hygiene decile</h2><h3>What it means</h3><p>Where the company\'s accounting-cleanliness score falls among ranked companies, split into ten equal groups.</p><h3>How to read it</h3><p>1 is the cleanest tenth, 10 the least clean. Following Ambit Capital\'s forensic-accounting work, deciles '+D.meta.hygiene_dark_from+' to 10 are flagged as the \'zone of darkness\'. It flags companies to read carefully; it does not prove anything is wrong, and this seven-ratio version has not been validated.</p><h3>Built from</h3><ul>'+M.filter(function(m){return m.group==="hygiene";}).map(function(m){return '<li><button data-info="'+m.id+'">'+esc(m.id+" "+m.name)+'</button></li>';}).join("")+'</ul>';
+  }else if(key==="ov"){
+    h+='<h2>Overall</h2><h3>What it means</h3><p>One number for how well a company does across all six ideas: customers fund the business, stickiness, bargaining power, resilience, self-funded compounding and cost leadership. It is the equal-weighted average of the six idea scores, so each idea counts the same.</p><h3>How to read it</h3><p>0-100. 50 is a typical company, 65 or more is clearly above average, 75 or more is exceptional. It needs at least four of the six scores to exist, so a company with thin data has none. Hygiene is deliberately left out: use the hygiene decile (or the hide-zone-of-darkness switch) as a separate gate. A high overall can come from being decent at everything or excellent at a few; the individual scores show which.</p>';
+  }else if(key==="oa"){
+    h+='<h2>All-metric average</h2><h3>What it means</h3><p>The plain average of the percentile of every scored metric (39 of them), with no grouping.</p><h3>How to read it</h3><p>0-100, 50 typical. Unlike Overall, ideas with more metrics weigh more. Stickiness and resilience have the most, and several of their metrics move together, so this version leans towards steadiness. Compare it with Overall: companies high on both are the most robust picks.</p>';
   }else if(key==="br"){
     h+='<h2>Breadth</h2><h3>What it means</h3><p>The number of the six ideas (customers fund the business, stickiness, bargaining power, resilience, compounding, cost leadership) on which the company scores '+D.meta.breadth_threshold+' or more.</p><h3>How to read it</h3><p>0 means no strong signal anywhere; 3 or more means the company stands out on several different counts. It says nothing about accounting cleanliness, so look at the hygiene decile too.</p>';
   }else if(key.indexOf("g:")===0){
@@ -511,13 +519,13 @@ function closeDrawer(){$("drawer").classList.remove("on");$("drawer").setAttribu
 /* ---------- csv / hash ---------- */
 function downloadCsv(){
   var vis=shown.filter(function(c){return c.kind==="metric";});
-  var head=["isin","bse","name","status","mcap_cr","latest_fy","years","size_bucket","hygiene_decile","breadth"];
+  var head=["isin","bse","name","status","mcap_cr","latest_fy","years","size_bucket","hygiene_decile","breadth","overall_universe","overall_bucket","all_metric_avg"];
   G.forEach(function(g){head.push("score_"+g.id+"_universe","score_"+g.id+"_bucket");});
   vis.forEach(function(c){head.push(c.key+"_raw",c.key+"_pct_universe",c.key+"_pct_bucket");});
   var q=function(v){v=v==null?"":String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;};
   var lines=[head.join(",")];
   VIEW.forEach(function(r){
-    var row=[r.i,r.b,r.n,STATUS[r.s],r.m,r.fy,r.ny,r.bk,r.h,r.br];
+    var row=[r.i,r.b,r.n,STATUS[r.s],r.m,r.fy,r.ny,r.bk,r.h,r.br,r.ov,r.ob,r.oa];
     G.forEach(function(g,gi){row.push(r.sg[gi],r.sb[gi]);});
     vis.forEach(function(c){row.push(r.raw[c.mi],r.pg[c.mi],r.pb[c.mi]);});
     lines.push(row.map(q).join(","));
