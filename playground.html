@@ -116,6 +116,19 @@ details.guide ul{margin:8px 0 2px;padding-left:18px;color:var(--dim);font-size:1
 details.guide li b{color:var(--ink);}
 .mtbl td.t{min-width:240px;color:var(--dim);}
 .mtbl td.t b{color:var(--ink);}
+table.ctbl{border-collapse:separate;border-spacing:1px;width:max-content;}
+.ctbl th{position:sticky;background:#101728;font-family:var(--mono);font-size:10px;color:var(--dim);font-weight:600;padding:2px 4px;white-space:nowrap;z-index:3;}
+.ctbl thead th{top:0;height:24px;text-align:center;}
+.ctbl tbody th{left:0;text-align:right;min-width:210px;max-width:210px;overflow:hidden;text-overflow:ellipsis;}
+.ctbl thead th.corner{left:0;z-index:5;}
+.ctbl td{width:30px;min-width:30px;height:26px;text-align:center;font-family:var(--mono);font-size:9.5px;color:var(--ink);padding:0;cursor:default;}
+.ctbl td.dim{opacity:.18;}
+.ctbl td.diag{background:#1c2540;color:var(--faint);}
+.ctbl .gh{color:var(--brass);}
+#cpairs table{width:100%;border-collapse:collapse;}
+#cpairs th,#cpairs td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--hair);font-size:12.5px;}
+#cpairs th{font-family:var(--mono);font-size:10.5px;color:var(--faint);text-transform:uppercase;}
+#cpairs td.n{font-family:var(--mono);text-align:right;}
 #err{display:none;margin:20px 0;color:var(--critical);}
 @media (max-width:640px){.tbl-wrap{height:calc(100vh - 90px);}th.name,td.name{min-width:170px;max-width:170px;}}
 </style>
@@ -132,6 +145,7 @@ details.guide li b{color:var(--ink);}
 <div class="tabs" role="tablist">
   <button class="tab" role="tab" aria-selected="true" data-pane="p-table">Companies</button>
   <button class="tab" role="tab" aria-selected="false" data-pane="p-metrics">Metrics &amp; coverage</button>
+  <button class="tab" role="tab" aria-selected="false" data-pane="p-corr">Correlations</button>
   <button class="tab" role="tab" aria-selected="false" data-pane="p-method">Method</button>
 </div>
 <div id="err"></div>
@@ -177,6 +191,20 @@ details.guide li b{color:var(--ink);}
 </section>
 
 <section class="pane" id="p-metrics"><div id="mt"></div></section>
+<section class="pane" id="p-corr">
+  <div class="prose" style="margin:14px 0 8px"><p>How closely each pair of metrics moves together across the ranked companies (Spearman rank correlation, so heavy tails and outliers do not distort it). <b>In "higher is better" view</b> the sign of every lower-is-better metric is flipped, so a strong positive number means the two metrics reward the <b>same</b> companies (they are largely redundant) and a strong negative one means a trade-off. <b>In "as measured" view</b> the raw numbers are correlated as they are. Hover a cell for the exact value and how many companies it rests on.</p></div>
+  <div class="row">
+    <span class="lbl">View</span>
+    <select id="cmode" aria-label="Correlation view"><option value="aligned" selected>Higher is better (aligned)</option><option value="raw">As measured</option></select>
+    <span class="lbl">Emphasise</span>
+    <select id="cthr" aria-label="Emphasis threshold"><option value="0">All cells</option><option value="0.3">|&rho;| &ge; 0.3</option><option value="0.5">|&rho;| &ge; 0.5</option><option value="0.7" selected>|&rho;| &ge; 0.7</option><option value="0.9">|&rho;| &ge; 0.9</option></select>
+    <button class="btn" id="ccsv">Download matrix CSV</button>
+    <span class="count" id="csum"></span>
+  </div>
+  <div class="tbl-wrap" id="cwrap" style="height:auto;max-height:78vh;min-height:0"><table id="ctbl" class="ctbl"></table></div>
+  <div class="prose" style="margin-top:18px"><h3 style="font-family:var(--serif);color:var(--ink)">Strongest pairs</h3><p id="cpairsnote"></p></div>
+  <div id="cpairs"></div>
+</section>
 <section class="pane" id="p-method"><div class="prose" id="method"></div></section>
 </div>
 
@@ -506,6 +534,57 @@ function readHash(){
   }catch(e){}
 }
 
+
+/* ---------- correlations ---------- */
+var CORR_ORDER=null;
+function corrDirs(){return M.map(function(m){return m.direction==="lower"?-1:1;});}
+function rhoAt(i,j,aligned,dirs){var v=D.corr.rho[i][j];if(v==null)return null;return aligned?v*dirs[i]*dirs[j]:v;}
+function corrColor(v){
+  if(v==null)return "background:transparent;";
+  var a=Math.min(1,Math.abs(v));
+  return v>=0?"background:rgba(201,162,75,"+(0.12+0.85*a).toFixed(2)+");":"background:rgba(91,155,209,"+(0.12+0.85*a).toFixed(2)+");";
+}
+function renderCorr(){
+  var aligned=$("cmode").value==="aligned", thr=parseFloat($("cthr").value), dirs=corrDirs(), n=M.length;
+  var h='<thead><tr><th class="corner"></th>';
+  M.forEach(function(m){h+='<th title="'+esc(m.id+" "+m.name)+'">'+m.id+'</th>';});
+  h+='</tr></thead><tbody>';
+  var cur=null;
+  M.forEach(function(mi,i){
+    var grp=mi.group!==cur?(cur=mi.group,true):false;
+    h+='<tr><th title="'+esc(mi.name)+'"><span class="gh">'+(grp?esc(G[GI[mi.group]].name.slice(0,3))+" &middot; ":"")+'</span>'+esc(mi.id+" "+mi.name)+(mi.direction==="info"?" (info)":"")+'</th>';
+    M.forEach(function(mj,j){
+      var v=rhoAt(i,j,aligned,dirs), cnt=D.corr.n[i][j];
+      if(i===j){h+='<td class="diag">1</td>';return;}
+      var dimmed=v==null||Math.abs(v)<thr;
+      var txt=v==null?"":(v<0?"-":"")+Math.abs(v).toFixed(2).replace(/^0/,"");
+      h+='<td class="'+(dimmed&&thr>0?"dim":"")+'" style="'+corrColor(v)+'" title="'+esc(mi.id+" x "+mj.id+": rho = "+(v==null?"n/a":v.toFixed(2))+" (n = "+cnt.toLocaleString()+" companies)\n"+mi.name+" / "+mj.name)+'">'+txt+'</td>';
+    });
+    h+='</tr>';
+  });
+  $("ctbl").innerHTML=h+'</tbody>';
+  /* strongest pairs */
+  var pairs=[];
+  for(var i=0;i<n;i++)for(var j=i+1;j<n;j++){var v=rhoAt(i,j,aligned,dirs);if(v!=null)pairs.push({i:i,j:j,v:v,n:D.corr.n[i][j]});}
+  pairs.sort(function(a,b){return Math.abs(b.v)-Math.abs(a.v);});
+  var strong=pairs.filter(function(p){return Math.abs(p.v)>=0.5;}), vstrong=pairs.filter(function(p){return Math.abs(p.v)>=0.7;});
+  $("csum").textContent=pairs.length+" pairs: "+strong.length+" with |rho| >= 0.5, "+vstrong.length+" with |rho| >= 0.7";
+  $("cpairsnote").textContent=aligned?"Positive means both metrics reward the same companies (candidates to merge or drop one); negative means a trade-off between them. Showing the 40 strongest pairs.":"Raw correlations as the numbers are measured; signs depend on each metric's own direction. Showing the 40 strongest pairs.";
+  var t='<table><tr><th>Metric A</th><th>Metric B</th><th>Rank correlation</th><th>Companies</th><th>Read as</th></tr>';
+  pairs.slice(0,40).forEach(function(p){
+    var a=M[p.i],b=M[p.j], same=a.group===b.group?"same group":"different groups";
+    var read=aligned?(p.v>0?"reward the same companies":"trade off against each other"):(p.v>0?"rise together":"move in opposite directions");
+    t+='<tr><td>'+esc(a.id+" "+a.name)+'</td><td>'+esc(b.id+" "+b.name)+'</td><td class="n" style="'+corrColor(p.v)+'">'+p.v.toFixed(2)+'</td><td class="n">'+p.n.toLocaleString()+'</td><td>'+read+' <span style="color:var(--faint)">('+same+')</span></td></tr>';
+  });
+  $("cpairs").innerHTML=t+'</table>';
+}
+function corrCsv(){
+  var aligned=$("cmode").value==="aligned", dirs=corrDirs();
+  var lines=[["metric"].concat(M.map(function(m){return m.id;})).join(",")];
+  M.forEach(function(m,i){lines.push([m.id].concat(M.map(function(_,j){var v=rhoAt(i,j,aligned,dirs);return v==null?"":v.toFixed(2);})).join(","));});
+  var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([lines.join("\n")],{type:"text/csv"}));a.download="metric-correlations-"+(aligned?"aligned":"raw")+".csv";document.body.appendChild(a);a.click();a.remove();
+}
+
 /* ---------- other panes ---------- */
 function renderMetricsPane(){
   var h='<p class="prose">Every metric, what it means in plain words, and how to read the number. Coverage is the share of ranked companies for which it could be computed. In the percentile views 100 is always best.</p>';
@@ -551,7 +630,9 @@ function boot(data){
   var mt=D.meta, sc=mt.status_counts||{};
   $("meta").innerHTML=mt.companies.toLocaleString()+' companies &middot; '+mt.ranked.toLocaleString()+' ranked &middot; '+(sc.not_applicable||0)+' not applicable &middot; '+(sc.short_history||0)+' short history &middot; '+(sc.no_data||0)+' no data &middot; '+M.length+' metrics &middot; generated '+esc(mt.generated);
   buildCols(); buildControls(); readHash(); syncControls(); bind();
-  renderMetricsPane(); renderMethod(); refresh();
+  renderMetricsPane(); renderMethod(); renderCorr();
+  $("cmode").addEventListener("change",renderCorr); $("cthr").addEventListener("change",renderCorr); $("ccsv").addEventListener("click",corrCsv);
+  refresh();
 }
 fetch("playground-data.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(boot).catch(function(e){
   var el=$("err");el.style.display="block";el.textContent="Could not load playground-data.json ("+e.message+").";$("meta").textContent="";
