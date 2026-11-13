@@ -136,13 +136,14 @@ function ticks(lo,hi,n){var s=niceStep(hi-lo||1,n),a=Math.ceil(lo/s)*s,o=[];for(
 function growth(a,mode){ // mode "pos": needs a positive previous value
   var g=[];for(var i=0;i<a.length;i++){var p=i?a[i-1]:null,c=a[i];
     g.push(p!=null&&c!=null&&p>0?(c-p)/p*100:null);}return g;}
+function pctShort(v){var a=Math.abs(v),t=a>=1000?(a/1000).toFixed(1)+"k":a>=100?a.toFixed(0):a.toFixed(a>=10?0:1);return (v<0?"\u2212":"+")+t+"%";}
 function showTip(html,ev){tip.innerHTML=html;tip.style.display="block";var w=tip.offsetWidth,h=tip.offsetHeight,x=ev.clientX+14,y=ev.clientY+14;
   if(x+w>window.innerWidth-8)x=ev.clientX-w-14;if(y+h>window.innerHeight-8)y=ev.clientY-h-14;tip.style.left=Math.max(4,x)+"px";tip.style.top=Math.max(4,y)+"px";}
 function hideTip(){tip.style.display="none";}
 
 /* one chart: a main panel (bars or a line) and, for bar charts, a thin growth strip beneath with its own scale */
 function chart(host,c,spec){
-  var yrs=c.yrs,n=yrs.length,W=420,L=46,R=10,T=14,GAP=20,H2=spec.strip?58:0,B=18,H1=spec.strip?118:196;
+  var yrs=c.yrs,n=yrs.length,W=420,L=46,R=10,T=spec.labels?30:14,GAP=20,H2=spec.strip?58:0,B=18,H1=spec.strip?118:196;
   var H=T+H1+(spec.strip?GAP+H2:0)+B;
   var svg=el("svg",{viewBox:"0 0 "+W+" "+H,role:"img","aria-label":spec.label},host);
   var iw=W-L-R,band=iw/n,cx=function(i){return L+band*(i+.5);};
@@ -150,7 +151,7 @@ function chart(host,c,spec){
   var lo=Math.min(0,Math.min.apply(null,def)),hi=Math.max(0,Math.max.apply(null,def));
   var cap=null;
   if(spec.kind==="line"){hi=Math.max(30,Math.min(hi,80));cap=hi;lo=Math.min(0,lo);}
-  var pad=(hi-lo)*.1||1;if(hi>0&&spec.kind!=="line")hi+=pad;if(lo<0)lo-=pad;
+  var pad=(hi-lo)*(spec.labels?.16:.1)||1;if(hi>0&&spec.kind!=="line")hi+=pad;if(lo<0)lo-=pad;
   var y=function(v){return T+H1-(v-lo)/(hi-lo)*H1;},y0=y(0);
   // loss-year washes (all panels), so the regime change is visible everywhere
   c.pat.forEach(function(p,i){if(p!=null&&p<0)el("rect",{x:L+band*i,y:T-4,width:band,height:H-T-B+4,fill:C.wash},svg);});
@@ -171,9 +172,11 @@ function chart(host,c,spec){
       var d=pos?"M"+x+" "+y0+"V"+(y0-h+r)+"Q"+x+" "+(y0-h)+" "+(x+r)+" "+(y0-h)+"H"+(x+bw-r)+"Q"+(x+bw)+" "+(y0-h)+" "+(x+bw)+" "+(y0-h+r)+"V"+y0+"Z"
               :"M"+x+" "+y0+"V"+(y0+h-r)+"Q"+x+" "+(y0+h)+" "+(x+r)+" "+(y0+h)+"H"+(x+bw-r)+"Q"+(x+bw)+" "+(y0+h)+" "+(x+bw)+" "+(y0+h-r)+"V"+y0+"Z";
       el("path",{d:d,fill:spec.color?spec.color(i,v):C.rev},svg);});
-    // label only the latest value
+    // growth % written on every bar (above a profit bar, below a loss bar); the latest absolute value sits beside it
     var li=vals.length-1;while(li>=0&&vals[li]==null)li--;
-    if(li>=0){var v=vals[li];el("text",{x:cx(li),y:v>=0?y(v)-5:y(v)+13,"text-anchor":"middle","font-size":10.5,fill:C.ink,"font-weight":600},svg,fmt(v));}
+    if(spec.labels)vals.forEach(function(v,i){var g=spec.labels[i];if(v==null||g==null)return;
+      el("text",{x:cx(i),y:v>=0?y(v)-4:y(v)+11,"text-anchor":"middle","font-size":9.5,fill:C.ink,stroke:C.surface,"stroke-width":3,"paint-order":"stroke"},svg,pctShort(g));});
+    if(li>=0){var v=vals[li],dy=spec.labels&&spec.labels[li]!=null?12:0;el("text",{x:cx(li),y:v>=0?y(v)-5-dy:y(v)+13+dy,"text-anchor":"middle","font-size":10.5,fill:C.ink,"font-weight":600,stroke:C.surface,"stroke-width":3,"paint-order":"stroke"},svg,fmt(v));}
   }else{
     var pts=[],d="";
     vals.forEach(function(v,i){if(v==null){d+="";pts.push(null);return;}var cv=Math.min(v,cap),px=cx(i),py=y(cv);
@@ -255,8 +258,8 @@ function build(c){
   var tipBase=function(i){return "<b>"+fy(yrs[i])+"</b>"+(c.pat[i]!=null&&c.pat[i]<0?" &middot; loss year":"")+(c.last_loss!=null&&yrs[i]===c.last_loss+1?" &middot; back in profit":"")+"<br>";};
   var specs={
     roce:{kind:"line",vals:c.roce,label:"ROCE",ref:15,refLabel:"15%",tip:function(i){return tipBase(i)+"ROCE "+(c.roce[i]==null?"n/a (no capital employed)":c.roce[i]+"%");}},
-    sales:{kind:"bars",vals:c.sales,strip:true,growth:sg,label:"Revenue",tip:function(i){return tipBase(i)+"Revenue &#8377;"+fmt(c.sales[i])+" Cr<br>Growth "+pct(sg[i]);}},
-    pat:{kind:"bars",vals:c.pat,strip:true,growth:pg,mark:true,mig:true,label:"Net profit",
+    sales:{kind:"bars",vals:c.sales,strip:true,growth:sg,labels:sg,label:"Revenue",tip:function(i){return tipBase(i)+"Revenue &#8377;"+fmt(c.sales[i])+" Cr<br>Growth "+pct(sg[i]);}},
+    pat:{kind:"bars",vals:c.pat,strip:true,growth:pg,labels:pg,mark:true,mig:true,label:"Net profit",
       color:function(i,v){return v<0?C.neg:C.pos;},
       tip:function(i){var g=pg[i];return tipBase(i)+"Net profit &#8377;"+fmt(c.pat[i])+" Cr<br>Growth "+(g==null?(c.pat[i-0]!=null&&i>0&&c.pat[i-1]!=null&&c.pat[i-1]<=0?"n/m (prior year "+(c.pat[i-1]<0?"loss":"zero")+")":"n/m"):pct(g));}},
     eps:{kind:"bars",vals:c.eps,strip:true,growth:eg,mig:true,label:"EPS",diamonds:chg,
