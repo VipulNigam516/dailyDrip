@@ -139,7 +139,7 @@ table.ctbl{border-collapse:separate;border-spacing:1px;width:max-content;}
   <span class="kicker">Playground &middot; unlisted</span>
   <h1>Metric playground</h1>
   <div class="meta" id="meta">Loading&hellip;</div>
-  <div class="warn"><b>Experimental, unvalidated.</b> These metrics and scores are research tooling, not a recommendation and not investment advice. Figures come from Screener's annual data and can be wrong or restated. There are no industry labels yet, so every comparison is against the whole universe or a market-cap bucket, which mixes industries with very different normal margins and working capital. Treat anything surfaced here as a reading list to check, not a conclusion.</div>
+  <div class="warn"><b>Experimental, unvalidated.</b> These metrics and scores are research tooling, not a recommendation and not investment advice. Figures come from Screener's annual data and can be wrong or restated. Industry labels were assigned by AI models reading company descriptions, rating reports and annual reports; they are unaudited and some are wrong. Percentiles can be taken against the whole universe, a market-cap bucket or the company's own industry peers; the first two mix industries with very different normal margins and working capital. Treat anything surfaced here as a reading list to check, not a conclusion.</div>
 </header>
 
 <div class="tabs" role="tablist">
@@ -166,13 +166,15 @@ table.ctbl{border-collapse:separate;border-spacing:1px;width:max-content;}
         <option value="raw">Raw values</option>
         <option value="pg" selected>Percentile &middot; whole universe</option>
         <option value="pb">Percentile &middot; size bucket</option>
-        <option value="ind" disabled>Percentile &middot; industry (pending classification)</option>
+        <option value="ind">Percentile &middot; industry peers</option>
       </select>
       <select id="status" aria-label="Which companies">
         <option value="ranked">Ranked companies only</option>
         <option value="all">All companies in the universe</option>
       </select>
       <select id="bucket" aria-label="Size bucket"></select>
+      <select id="sector" aria-label="Sector"></select>
+      <select id="industry" aria-label="Industry"></select>
       <button class="chip" id="noDark" aria-pressed="false" title="Hide companies in Ambit's bottom three hygiene deciles">Hide hygiene zone of darkness</button>
       <span class="count" id="count"></span>
     </div>
@@ -215,11 +217,12 @@ table.ctbl{border-collapse:separate;border-spacing:1px;width:max-content;}
 "use strict";
 var D=null, M=[], G=[], R=[], MI={}, GI={}, COLS=[], VIEW=[];
 var ROW_H=32, BUF=12;
-var S={norm:"pg",status:"ranked",bucket:"all",noDark:false,q:"",groups:{},extra:{},sort:[{key:"ov",dir:-1}],filters:[]};
+var S={norm:"pg",status:"ranked",bucket:"all",sector:"all",industry:"all",noDark:false,q:"",groups:{},extra:{},sort:[{key:"ov",dir:-1}],filters:[]};
 var $=function(id){return document.getElementById(id);};
 var STATUS=["Ranked","Not applicable","Short history","No data"];
 var STATUS_WHY=["","No receivables or inventory (banks, NBFCs, funds) - operating-business metrics do not apply","Fewer usable years than the minimum","Screener returned nothing for this company"];
 
+function indLabel(r){ if(!D.meta.industry_available)return ""; return " &middot; "+(r.ic>=0?esc(D.meta.industries[r.ic].name):"Unclassified")+(r.lc===2?" (low confidence)":""); }
 function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
 function fmtVal(v,fmt){
   if(v==null)return "&ndash;";
@@ -260,11 +263,12 @@ function visible(c){
 function cellNum(r,c){
   switch(c.kind){
     case "cap":return r.m; case "hyg":return r.h; case "breadth":return r.br; case "years":return r.ny;
-    case "overall":return S.norm==="pb"?r.ob:r.ov; case "allavg":return r.oa;
-    case "score":return (S.norm==="pb"?r.sb:r.sg)[c.gi];
+    case "overall":return S.norm==="pb"?r.ob:S.norm==="ind"?r.oi:r.ov; case "allavg":return r.oa;
+    case "score":return (S.norm==="pb"?r.sb:S.norm==="ind"?r.si:r.sg)[c.gi];
     case "metric":
       if(S.norm==="raw")return r.raw[c.mi];
       if(S.norm==="pb")return r.pb[c.mi];
+      if(S.norm==="ind")return r.pi?r.pi[c.mi]:null;
       return r.pg[c.mi];
   }
 }
@@ -272,11 +276,11 @@ function cellHeat(r,c){
   switch(c.kind){
     case "hyg":return r.h==null?null:(10-r.h)*11.1;
     case "breadth":return r.br==null?null:Math.min(100,r.br*25);
-    case "overall":return S.norm==="pb"?r.ob:r.ov; case "allavg":return r.oa;
-    case "score":return (S.norm==="pb"?r.sb:r.sg)[c.gi];
+    case "overall":return S.norm==="pb"?r.ob:S.norm==="ind"?r.oi:r.ov; case "allavg":return r.oa;
+    case "score":return (S.norm==="pb"?r.sb:S.norm==="ind"?r.si:r.sg)[c.gi];
     case "metric":
       if(M[c.mi].direction==="info")return null;
-      return S.norm==="pb"?r.pb[c.mi]:r.pg[c.mi];
+      return S.norm==="pb"?r.pb[c.mi]:S.norm==="ind"?(r.pi?r.pi[c.mi]:null):r.pg[c.mi];
   }
   return null;
 }
@@ -305,6 +309,8 @@ function applyView(){
   VIEW=R.filter(function(r){
     if(S.status==="ranked"&&r.s!==0)return false;
     if(S.bucket!=="all"&&String(r.bk)!==S.bucket)return false;
+    if(S.sector!=="all"&&String(r.sc)!==S.sector)return false;
+    if(S.industry!=="all"&&String(r.ic)!==S.industry)return false;
     if(S.noDark&&r.h!=null&&r.h>=D.meta.hygiene_dark_from)return false;
     if(q&&(r.n||"").toLowerCase().indexOf(q)<0&&String(r.b||"").indexOf(q)<0&&r.i.toLowerCase().indexOf(q)<0)return false;
     for(var k=0;k<fl.length;k++){
@@ -357,7 +363,7 @@ function renderBody(){
   for(var i=first;i<last;i++){
     var r=VIEW[i];
     var badge=r.s!==0?'<span class="st-badge" title="'+esc(STATUS_WHY[r.s])+'">'+STATUS[r.s]+'</span>':(r.h!=null&&r.h>=D.meta.hygiene_dark_from?'<span class="st-badge dark-badge" title="Hygiene decile '+r.h+' (zone of darkness)">dark</span>':"");
-    out.push('<tr data-i="'+i+'"><td class="name" title="'+esc(r.n)+'"><span class="nm">'+esc(r.n)+'</span>'+badge+'<span class="sub">'+esc(r.b||"")+'</span></td>'+shown.map(function(c){return cellHtml(r,c);}).join("")+"</tr>");
+    out.push('<tr data-i="'+i+'"><td class="name" title="'+esc(r.n)+'"><span class="nm">'+esc(r.n)+'</span>'+badge+'<span class="sub">'+esc(r.b||"")+indLabel(r)+'</span></td>'+shown.map(function(c){return cellHtml(r,c);}).join("")+"</tr>");
   }
   var after=VIEW.length-last;
   if(after>0)out.push('<tr style="height:'+after*ROW_H+'px"><td colspan="'+cols+'" style="border:0"></td></tr>');
@@ -374,6 +380,10 @@ function buildControls(){
   var b=$("bucket"), o='<option value="all">All size buckets</option>';
   for(var i=1;i<=D.meta.size_buckets;i++)o+='<option value="'+i+'">Size bucket '+i+(i===1?" (largest)":i===D.meta.size_buckets?" (smallest)":"")+'</option>';
   o+='<option value="0">No market cap</option>'; b.innerHTML=o;
+  if(D.meta.industry_available){
+    var so='<option value="all">All sectors</option>'; D.meta.sectors.forEach(function(x,i){so+='<option value="'+i+'">'+esc(x.name)+'</option>';});
+    $("sector").innerHTML=so; fillIndustry();
+  }else{ $("sector").hidden=true; $("industry").hidden=true; }
   var chips="";
   G.forEach(function(g){chips+='<button class="chip" data-g="'+g.id+'" aria-pressed="false" title="'+esc(g.desc)+'">'+esc(g.name)+'</button>';});
   $("grpchips").innerHTML='<span class="lbl">Metric columns</span>'+chips;
@@ -384,7 +394,14 @@ function buildControls(){
   });
   $("pickbody").innerHTML=pb;
 }
+function fillIndustry(){
+  var o='<option value="all">All industries</option>';
+  D.meta.industries.forEach(function(x,i){ if(S.sector==="all"||String(x.sc)===S.sector)o+='<option value="'+i+'">'+esc(x.name)+' ('+x.n+')</option>'; });
+  if(S.sector==="all")o+='<option value="-1">Unclassified</option>';
+  $("industry").innerHTML=o;
+}
 function syncControls(){
+  if(D.meta.industry_available){$("sector").value=S.sector;fillIndustry();$("industry").value=S.industry;}
   $("norm").value=S.norm; $("status").value=S.status; $("bucket").value=S.bucket;
   $("noDark").setAttribute("aria-pressed",S.noDark); $("q").value=S.q;
   Array.prototype.forEach.call(document.querySelectorAll("#grpchips .chip"),function(c){c.setAttribute("aria-pressed",!!S.groups[c.dataset.g]);});
@@ -406,6 +423,8 @@ function bind(){
   $("norm").addEventListener("change",function(e){S.norm=e.target.value;refresh(true);});
   $("status").addEventListener("change",function(e){S.status=e.target.value;refresh();});
   $("bucket").addEventListener("change",function(e){S.bucket=e.target.value;refresh();});
+  $("sector").addEventListener("change",function(e){S.sector=e.target.value;S.industry="all";fillIndustry();$("industry").value="all";refresh();});
+  $("industry").addEventListener("change",function(e){S.industry=e.target.value;refresh();});
   $("noDark").addEventListener("click",function(){S.noDark=!S.noDark;syncControls();refresh();});
   $("grpchips").addEventListener("click",function(e){var g=e.target.dataset&&e.target.dataset.g;if(!g)return;S.groups[g]=!S.groups[g];syncControls();refresh(true);});
   $("pickbody").addEventListener("change",function(e){var m=e.target.dataset.m;if(!m)return;S.extra[m]=e.target.checked;refresh(true);});
@@ -413,7 +432,7 @@ function bind(){
   $("flts").addEventListener("input",function(e){var t=e.target,i=t.dataset.fi;if(i==null)return;S.filters[i][t.dataset.f]=t.value;refresh();});
   $("flts").addEventListener("change",function(e){var t=e.target,i=t.dataset.fi;if(i==null)return;S.filters[i][t.dataset.f]=t.value;refresh();});
   $("flts").addEventListener("click",function(e){var x=e.target.dataset.fx;if(x==null)return;S.filters.splice(+x,1);renderFilters();refresh();});
-  $("reset").addEventListener("click",function(){S={norm:"pg",status:"ranked",bucket:"all",noDark:false,q:"",groups:{},extra:{},sort:[{key:"ov",dir:-1}],filters:[]};syncControls();refresh();});
+  $("reset").addEventListener("click",function(){S={norm:"pg",status:"ranked",bucket:"all",sector:"all",industry:"all",noDark:false,q:"",groups:{},extra:{},sort:[{key:"ov",dir:-1}],filters:[]};syncControls();refresh();});
   $("csv").addEventListener("click",downloadCsv);
   $("tbl").tHead.addEventListener("click",function(e){
     if(e.target.classList&&e.target.classList.contains("qm")){e.stopPropagation();openInfo(e.target.dataset.info);return;}
@@ -461,6 +480,11 @@ function openDrawer(r){
   if(r.p!=null)h+='<span class="pill">Price <b>'+r.p+'</b></span>';
   if(r.fy)h+='<span class="pill">Latest FY <b>'+r.fy+'</b> &middot; '+r.ny+' yrs</span>';
   if(r.bk)h+='<span class="pill">Size bucket <b>'+r.bk+'</b></span>';
+  if(D.meta.industry_available){
+    h+='<span class="pill">Industry <b>'+(r.ic>=0?esc(D.meta.industries[r.ic].name):'Unclassified')+'</b>'+(r.lc===2?' (low confidence label)':'')+'</span>';
+    if(r.pr>=0){var pg=D.meta.peers[r.pr];h+='<span class="pill">Peer group <b>'+esc(pg.name)+'</b> ('+pg.n+(pg.level===2?', sector roll-up':'')+')</span>';}
+    else if(r.s===0)h+='<span class="pill">No peer group</span>';
+  }
   if(r.h!=null)h+='<span class="pill">Hygiene decile <b>'+r.h+'</b>'+(r.h>=D.meta.hygiene_dark_from?' (zone of darkness)':'')+'</span>';
   if(r.br!=null)h+='<span class="pill">Breadth <b>'+r.br+'</b></span>';
   h+='</div>';
@@ -468,14 +492,14 @@ function openDrawer(r){
   if(r.ser){
     h+='<div class="sparks">'+spark(r.ser.s,"int",r.fy,"Sales (Rs Cr)")+spark(r.ser.o,"pct",r.fy,"Operating margin")+spark(r.ser.w,"pct",r.fy,"Trade working capital % sales")+spark(r.ser.r,"pct",r.fy,"ROCE")+'</div>';
   }
-  h+='<table class="dtbl"><tr><th>Group score</th><th>Universe</th><th>Size bucket</th></tr>';
-  G.forEach(function(g,gi){h+='<tr><td>'+esc(g.name)+'</td><td>'+(r.sg[gi]==null?"&ndash;":r.sg[gi])+'</td><td>'+(r.sb[gi]==null?"&ndash;":r.sb[gi])+'</td></tr>';});
-  h+='</table><table class="dtbl"><tr><th>Metric</th><th>Raw</th><th>Universe pct</th><th>Bucket pct</th></tr>';
+  h+='<table class="dtbl"><tr><th>Group score</th><th>Universe</th><th>Size bucket</th><th>Industry</th></tr>';
+  G.forEach(function(g,gi){h+='<tr><td>'+esc(g.name)+'</td><td>'+(r.sg[gi]==null?"&ndash;":r.sg[gi])+'</td><td>'+(r.sb[gi]==null?"&ndash;":r.sb[gi])+'</td><td>'+(!r.si||r.si[gi]==null?"&ndash;":r.si[gi])+'</td></tr>';});
+  h+='</table><table class="dtbl"><tr><th>Metric</th><th>Raw</th><th>Universe pct</th><th>Bucket pct</th><th>Industry pct</th></tr>';
   var cur=null;
   M.forEach(function(m,i){
-    if(m.group!==cur){cur=m.group;h+='<tr class="grp"><td colspan="4">'+esc(G[GI[cur]].name)+'</td></tr>';}
+    if(m.group!==cur){cur=m.group;h+='<tr class="grp"><td colspan="5">'+esc(G[GI[cur]].name)+'</td></tr>';}
     var pg=r.pg[i],pb=r.pb[i];
-    h+='<tr data-mi="'+i+'" title="Click for what this means and how to read it"><td>'+esc(m.id+" "+m.name)+' <span class="qmb" style="cursor:pointer">?</span>'+(m.direction==="info"?' <span style="color:var(--faint)">(not scored)</span>':"")+'</td><td>'+fmtVal(r.raw[i],m.fmt)+'</td><td>'+(pg==null?"&ndash;":pg+'<span class="bar" style="width:'+pg*0.5+'px;background:hsl('+pg*1.2+',45%,45%)"></span>')+'</td><td>'+(pb==null?"&ndash;":pb)+'</td></tr><tr class="exp" hidden><td colspan="4"><b>What it means.</b> '+esc(m.plain)+'<br><b>How to read it.</b> '+esc(m.read)+'<br><button class="btn" style="margin-top:6px" data-info="'+m.id+'">Full explanation</button></td></tr>';
+    h+='<tr data-mi="'+i+'" title="Click for what this means and how to read it"><td>'+esc(m.id+" "+m.name)+' <span class="qmb" style="cursor:pointer">?</span>'+(m.direction==="info"?' <span style="color:var(--faint)">(not scored)</span>':"")+'</td><td>'+fmtVal(r.raw[i],m.fmt)+'</td><td>'+(pg==null?"&ndash;":pg+'<span class="bar" style="width:'+pg*0.5+'px;background:hsl('+pg*1.2+',45%,45%)"></span>')+'</td><td>'+(pb==null?"&ndash;":pb)+'</td><td>'+(!r.pi||r.pi[i]==null?"&ndash;":r.pi[i])+'</td></tr><tr class="exp" hidden><td colspan="5"><b>What it means.</b> '+esc(m.plain)+'<br><b>How to read it.</b> '+esc(m.read)+'<br><button class="btn" style="margin-top:6px" data-info="'+m.id+'">Full explanation</button></td></tr>';
   });
   h+='</table>';
   $("dbody").innerHTML=h;
@@ -519,24 +543,24 @@ function closeDrawer(){$("drawer").classList.remove("on");$("drawer").setAttribu
 /* ---------- csv / hash ---------- */
 function downloadCsv(){
   var vis=shown.filter(function(c){return c.kind==="metric";});
-  var head=["isin","bse","name","status","mcap_cr","latest_fy","years","size_bucket","hygiene_decile","breadth","overall_universe","overall_bucket","all_metric_avg"];
-  G.forEach(function(g){head.push("score_"+g.id+"_universe","score_"+g.id+"_bucket");});
-  vis.forEach(function(c){head.push(c.key+"_raw",c.key+"_pct_universe",c.key+"_pct_bucket");});
+  var head=["isin","bse","name","status","mcap_cr","latest_fy","years","sector","industry","label_confidence","peer_group","size_bucket","hygiene_decile","breadth","overall_universe","overall_bucket","overall_industry","all_metric_avg"];
+  G.forEach(function(g){head.push("score_"+g.id+"_universe","score_"+g.id+"_bucket","score_"+g.id+"_industry");});
+  vis.forEach(function(c){head.push(c.key+"_raw",c.key+"_pct_universe",c.key+"_pct_bucket",c.key+"_pct_industry");});
   var q=function(v){v=v==null?"":String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;};
   var lines=[head.join(",")];
   VIEW.forEach(function(r){
-    var row=[r.i,r.b,r.n,STATUS[r.s],r.m,r.fy,r.ny,r.bk,r.h,r.br,r.ov,r.ob,r.oa];
-    G.forEach(function(g,gi){row.push(r.sg[gi],r.sb[gi]);});
-    vis.forEach(function(c){row.push(r.raw[c.mi],r.pg[c.mi],r.pb[c.mi]);});
+    var mi=D.meta, row=[r.i,r.b,r.n,STATUS[r.s],r.m,r.fy,r.ny,r.sc>=0?mi.sectors[r.sc].name:"",r.ic>=0?mi.industries[r.ic].name:"",["high","medium","low"][r.lc]||"",r.pr>=0?mi.peers[r.pr].name:"",r.bk,r.h,r.br,r.ov,r.ob,r.oi,r.oa];
+    G.forEach(function(g,gi){row.push(r.sg[gi],r.sb[gi],r.si?r.si[gi]:"");});
+    vis.forEach(function(c){row.push(r.raw[c.mi],r.pg[c.mi],r.pb[c.mi],r.pi?r.pi[c.mi]:"");});
     lines.push(row.map(q).join(","));
   });
   var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([lines.join("\n")],{type:"text/csv"}));a.download="metric-playground.csv";document.body.appendChild(a);a.click();a.remove();
 }
-function writeHash(){try{history.replaceState(null,"","#"+encodeURIComponent(JSON.stringify({n:S.norm,st:S.status,b:S.bucket,d:S.noDark,q:S.q,g:Object.keys(S.groups).filter(function(k){return S.groups[k];}),e:Object.keys(S.extra).filter(function(k){return S.extra[k];}),s:S.sort,f:S.filters})));}catch(e){}}
+function writeHash(){try{history.replaceState(null,"","#"+encodeURIComponent(JSON.stringify({n:S.norm,st:S.status,b:S.bucket,sc:S.sector,ic:S.industry,d:S.noDark,q:S.q,g:Object.keys(S.groups).filter(function(k){return S.groups[k];}),e:Object.keys(S.extra).filter(function(k){return S.extra[k];}),s:S.sort,f:S.filters})));}catch(e){}}
 function readHash(){
   try{
     var h=location.hash.slice(1);if(!h)return;var o=JSON.parse(decodeURIComponent(h));
-    S.norm=o.n||S.norm;S.status=o.st||S.status;S.bucket=o.b||S.bucket;S.noDark=!!o.d;S.q=o.q||"";
+    S.norm=o.n||S.norm;S.status=o.st||S.status;S.bucket=o.b||S.bucket;S.sector=o.sc||"all";S.industry=o.ic||"all";S.noDark=!!o.d;S.q=o.q||"";
     (o.g||[]).forEach(function(k){S.groups[k]=true;});(o.e||[]).forEach(function(k){S.extra[k]=true;});
     if(o.s&&o.s.length)S.sort=o.s;if(o.f)S.filters=o.f;
   }catch(e){}
@@ -614,16 +638,16 @@ function renderMethod(){
   '<h3>Pipeline</h3><p><b>1. Data.</b> Up to '+mt.window_years+' fiscal years of annual financials per company (consolidated where it exists), plus customer advances and trade payables from Screener\'s Other Liabilities breakdown. Negative inventory, receivables, payables and similar lines are data defects and are treated as missing.</p>'+
   '<p><b>2. Metrics.</b> Each is a per-year series (for example operating margin, receivable days) reduced to one number per company: a median, a median absolute year-on-year change for volatility, a CAGR, a count of years, a drawdown. Definitions are in the Metrics tab and live in a YAML file, not in code.</p>'+
   '<p><b>3. Who is ranked.</b> '+mt.ranked.toLocaleString()+' of '+mt.companies.toLocaleString()+' companies. Left out of the percentiles: companies with no receivables or inventory at all (banks, NBFCs, funds), companies with fewer than '+mt.min_years+' usable years, and companies Screener returned nothing for. They remain in the table, flagged.</p>'+
-  '<p><b>4. Normalisation.</b> Each scored metric is turned into a percentile among ranked companies, flipped where lower is better so 100 is always best. It is computed twice: against the whole universe, and within the company\'s market-cap bucket ('+mt.size_buckets+' buckets). An industry percentile will appear when industry classification is done. Percentile ranks rather than z-scores are used because financial ratios are heavy-tailed and some denominators are near zero.</p>'+
+  '<p><b>4. Normalisation.</b> Each scored metric is turned into a percentile among ranked companies, flipped where lower is better so 100 is always best. It is computed three times: against the whole universe, within the company\'s market-cap bucket ('+mt.size_buckets+' buckets), and within its industry peers. An industry is its own peer group when at least '+mt.industry_min_peers+' ranked companies share it; smaller industries are compared within their whole sector (shown as a sector roll-up), and shells, unclear and ETF-type entries get no peer group. Industry labels were assigned by AI models reading each company\'s description, then its credit-rating report or annual report where the first was thin; they are unaudited, and low-confidence ones are marked. Percentile ranks rather than z-scores are used because financial ratios are heavy-tailed and some denominators are near zero.</p>'+
   '<p><b>5. Scores.</b> A group score is the mean percentile of that group\'s scored metrics, shown only when at least half of them are available. Metrics marked "not scored" are displayed but never averaged. Breadth counts the archetype groups scoring '+mt.breadth_threshold+' or more.</p>'+
   '<p><b>6. Hygiene.</b> The seven hygiene ratios are ranked into a score and cut into deciles among companies that have one. Following Ambit, deciles '+mt.hygiene_dark_from+' to 10 are flagged as the "zone of darkness". This is a flag, not an exclusion: Ambit validated its eleven-ratio version, and this seven-ratio version has not been validated.</p>'+
   '<h3>Stress years</h3><p>Several metrics compare a company with the universe in the years the universe itself did worst. Those years come from the data: '+
   'lowest median sales growth: FY'+(st.sales_growth||[]).join(", FY")+'; biggest median margin fall: FY'+(st.opm_change||[]).join(", FY")+'; weakest median share-price change: FY'+(st.price_change||[]).join(", FY")+'. Fiscal years are labelled by the calendar year in which they end.</p>'+
   '<h3>Known limits</h3><ul>'+
-  '<li>No industry labels yet, so margins, asset turns and working capital are compared across very different businesses.</li>'+
+  '<li>The universe and size-bucket percentiles still mix industries with very different normal margins and working capital; use the industry-peers view to compare like with like. Industry labels are AI-assigned and unaudited.</li>'+
   '<li>No expense breakdown in the data: gross margin, cost of goods and employee cost are not available, so days measures use sales as the base.</li>'+
   '<li>About one company in six has no trade-payables line, which removes it from the working-capital group. Screener\'s inventory line is negative in some years for some companies (a data defect); those years are treated as missing, which can blank working-capital metrics and leave gaps in the sparklines.</li>'+
-  '<li>Only companies with no receivables or inventory at all are set aside as "not applicable". Lenders, asset managers and exchanges that report some receivables are still ranked and can look unusually good on margin, asset-turn and resilience metrics. Industry labels will let them be separated.</li>'+
+  '<li>Only companies with no receivables or inventory at all are set aside as "not applicable". Lenders, asset managers and exchanges that report some receivables are still ranked and can look unusually good on margin, asset-turn and resilience metrics. In the industry-peers view they are compared with other lenders, not with manufacturers.</li>'+
   '<li>Small and illiquid companies can rank at the extremes; use the market-cap filter or the size-bucket percentile to look at comparable sizes.</li>'+
   '<li>Screener figures can be restated, and the universe is companies listed today (survivorship).</li>'+
   '<li>Stickiness and bargaining power are only visible through consistency and margin behaviour. Repeat-customer shares, retention and price-versus-volume need the concalls and annual reports.</li>'+
