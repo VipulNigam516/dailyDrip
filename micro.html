@@ -44,24 +44,32 @@ section.sec h2{font-family:var(--serif);font-size:24px;line-height:1.25;margin:0
 section.sec h2 span{color:var(--faint);font-weight:400;}
 section.sec p.d{color:var(--dim);margin:2px 0 14px;font-size:14px;}
 .card{border:1px solid var(--hair);border-radius:10px;background:var(--card);padding:14px 16px 12px;margin:0 0 16px;}
-details.card{padding:0;}
-details.card>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,2.3fr) 108px 64px 156px 92px 18px;gap:6px 14px;align-items:center;padding:12px 16px;min-height:var(--tap);}
+.list{border:1px solid var(--hair);border-radius:10px;background:var(--card);overflow:hidden;}
+.lh,details.card>summary{display:grid;grid-template-columns:34px minmax(0,1.7fr) minmax(0,1.25fr) 92px 56px 128px 84px 16px;gap:0 12px;align-items:center;}
+.lh{padding:7px 14px;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);background:var(--panel);border-bottom:1px solid var(--hair2);}
+.lh .r,.num{text-align:right;}
+details.card{border:0;border-radius:0;margin:0;padding:0;background:transparent;border-bottom:1px solid var(--hair);}
+details.card:last-child{border-bottom:0;}
+details.card>summary{list-style:none;cursor:pointer;padding:5px 14px;min-height:36px;}
 details.card>summary::-webkit-details-marker{display:none;}
-details.card>summary:hover{background:rgba(232,228,214,0.03);}
-details.card>summary:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;border-radius:10px;}
-.nm{min-width:0;}
-.nm .n{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.3;}
-.nm small{display:block;font-family:var(--mono);color:var(--faint);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;margin-top:1px;}
-.kv i{display:block;font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);}
-.kv b{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ink);}
-.spk svg{width:100%;height:auto;display:block;overflow:visible;}
-.chev{color:var(--brass);font-size:12px;transition:transform .15s ease;text-align:right;}
+details.card>summary:hover{background:rgba(232,228,214,0.04);}
+details.card>summary:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+details.card[open]{background:rgba(232,228,214,0.025);}
+.rank{font-family:var(--mono);color:var(--brass);font-size:11px;}
+.n{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+.ind{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+.num{font-family:var(--mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums;}
+.spk svg{width:100%;height:22px;display:block;overflow:visible;}
+.stat{display:none;}
+.chev{color:var(--brass);font-size:11px;transition:transform .15s ease;text-align:right;}
 details.card[open] .chev{transform:rotate(90deg);}
-details.card .body{padding:0 16px 12px;border-top:1px solid var(--hair);}
+details.card .body{padding:2px 16px 12px;border-top:1px solid var(--hair);}
 details.card .pills{margin-top:10px;}
 @media (max-width:760px){
-  details.card>summary{grid-template-columns:1fr 1fr 1fr 18px;}
-  .nm{grid-column:1 / 4;} .spk{grid-column:1 / 4;grid-row:3;} .chev{grid-column:4;grid-row:1;}
+  .lh{display:none;}
+  details.card>summary{grid-template-columns:22px minmax(0,1fr) 78px 12px;grid-template-areas:"rk nm nm ch" "rk st sp sp";gap:0 10px;padding:7px 12px;}
+  .rk{grid-area:rk;} .n{grid-area:nm;} .chev{grid-area:ch;} .stat{display:block;grid-area:st;font-family:var(--mono);font-size:10px;letter-spacing:-.01em;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;} .spk{grid-area:sp;}
+  .ind,.mc,.pe,.rc{display:none;}
 }
 .nav button{min-height:34px;padding:0 12px;border:1px solid var(--hair2);border-radius:999px;background:transparent;color:var(--brass);font-family:var(--mono);font-size:11px;cursor:pointer;}
 .card h3{font-family:var(--serif);font-size:19px;line-height:1.3;margin:0;font-weight:600;}
@@ -221,10 +229,10 @@ function chart(host,c,spec){
 
 /* collapsed-row sparkline: net profit by year, loss years coral below the line, the loss-to-profit year marked */
 function spark(host,c){
-  var yrs=c.yrs,n=yrs.length,W=156,H=34,L=2,R=2,iw=W-L-R,band=iw/n,v=c.pat,def=v.filter(function(x){return x!=null;});
+  var yrs=c.yrs,n=yrs.length,W=128,H=22,L=1,R=1,iw=W-L-R,band=iw/n,v=c.pat,def=v.filter(function(x){return x!=null;});
   if(!def.length)return;
   var lo=Math.min(0,Math.min.apply(null,def)),hi=Math.max(0,Math.max.apply(null,def)),rng=(hi-lo)||1;
-  var y=function(x){return 2+(hi-x)/rng*(H-4);},y0=y(0),bw=Math.min(10,band*.7);
+  var y=function(x){return 1+(hi-x)/rng*(H-2);},y0=y(0),bw=Math.min(8,band*.66);
   var svg=el("svg",{viewBox:"0 0 "+W+" "+H,role:"img","aria-label":"Net profit "+fy(yrs[0])+" to "+fy(yrs[n-1])+", loss years in coral"},host);
   el("line",{x1:L,x2:W-R,y1:y0,y2:y0,stroke:C.hair2,"stroke-width":1},svg);
   var mig=c.last_loss!=null?yrs.indexOf(c.last_loss+1):-1;
@@ -239,12 +247,11 @@ function build(c){
   var yrs=c.yrs,n=yrs.length,sg=growth(c.sales),pg=growth(c.pat);
   var card=document.createElement("details");card.className="card";card.dataset.q=(c.n+" "+c.b+" "+c.ind+" "+c.i).toLowerCase();
   var mig=c.last_loss!=null?'<span class="mig">Last loss <b>'+fy(c.last_loss)+'</b> &rarr; profitable for <b>'+c.since+(c.since===1?" year":" years")+'</b> since ('+c.loss_yrs+(c.loss_yrs===1?" loss year":" loss years")+' in '+n+')</span>':'<span class="mig"><b>No loss year</b> in '+n+' years on file</span>';
-  card.innerHTML='<summary><span class="nm"><span class="n"><span class="rank"></span>'+esc(c.n)+'</span><small>'+esc(c.ind)+'</small></span>'+
-    '<span class="kv"><i>Mkt cap</i><b>&#8377;'+c.m.toLocaleString("en-IN")+' Cr</b></span>'+
-    '<span class="kv"><i>PE</i><b>'+(c.pe==null?"n/m":c.pe.toFixed(1))+'</b></span>'+
-    '<span class="kv spk"><i>Net profit '+fy(yrs[0])+'&ndash;'+fy(yrs[n-1])+'</i></span>'+
-    '<span class="kv"><i>Median ROCE</i><b>'+(c.medroce==null?"n/a":c.medroce+"%")+'</b></span><span class="chev">&#9656;</span></summary>'+
-    '<div class="body"><div class="pills"><span>BSE <b>'+esc(c.b)+'</b></span><span>Hygiene decile <b>'+c.d+'</b></span>'+
+  card.innerHTML='<summary><span class="rk"><span class="rank"></span></span><span class="n" title="'+esc(c.n)+'">'+esc(c.n)+'</span><span class="ind">'+esc(c.ind)+'</span>'+
+    '<span class="num mc">&#8377;'+c.m.toLocaleString("en-IN")+' Cr</span><span class="num pe">'+(c.pe==null?"n/m":c.pe.toFixed(1))+'</span><span class="spk"></span>'+
+    '<span class="num rc">'+(c.medroce==null?"n/a":c.medroce+"%")+'</span><span class="chev">&#9656;</span>'+
+    '<span class="stat">&#8377;'+c.m.toLocaleString("en-IN")+'Cr &middot; PE '+(c.pe==null?"n/m":c.pe.toFixed(1))+' &middot; ROCE '+(c.medroce==null?"n/a":c.medroce+"%")+'</span></summary>'+
+    '<div class="body"><div class="pills"><span>Industry <b>'+esc(c.ind)+'</b></span><span>BSE <b>'+esc(c.b)+'</b></span><span>Hygiene decile <b>'+c.d+'</b></span>'+
     '<span>PE = market cap / latest-year net profit</span><span>Latest ROCE <b>'+(c.roce_latest==null?"n/a":c.roce_latest+"%")+'</b></span>'+mig+'</div>'+
     '<div class="grid"><div class="ch" data-k="roce"></div><div class="ch" data-k="sales"></div><div class="ch" data-k="pat"></div></div></div>';
   spark(card.querySelector(".spk"),c);
@@ -277,9 +284,10 @@ function build(c){
     nav.insertAdjacentHTML("beforeend",'<a href="#s-'+s.id+'">'+esc(s.title)+"<b>"+s.n+"</b></a>");
     var sec=document.createElement("section");sec.className="sec";sec.id="s-"+s.id;
     sec.innerHTML="<h2>"+esc(s.title)+" <span style=\"color:var(--muted);font-weight:400\">("+s.n+")</span></h2><p class=\"d\">"+esc(s.desc)+"</p>";
-    main.appendChild(sec);
+    sec.insertAdjacentHTML("beforeend",'<div class="list"><div class="lh"><span></span><span>Company</span><span>Industry</span><span class="r">Mkt cap</span><span class="r">PE</span><span>Net profit, 10 yrs</span><span class="r">Median ROCE</span><span></span></div></div>');
+    main.appendChild(sec);var list=sec.querySelector(".list");
     DATA.companies.filter(function(c){return c.sec===s.id;}).forEach(function(c,i){
-      var card=build(c);card.querySelector(".rank").textContent="#"+(i+1);sec.appendChild(card);cards.push(card);});
+      var card=build(c);card.querySelector(".rank").textContent=(i+1);list.appendChild(card);cards.push(card);});
   });
   nav.insertAdjacentHTML("beforeend",'<button type="button" id="ex">Expand all</button><button type="button" id="co">Collapse all</button>');
   document.getElementById("ex").addEventListener("click",function(){cards.forEach(function(c){if(c.style.display!=="none")c.open=true;});});
